@@ -112,9 +112,6 @@ if(isset($lang)){
 }
 
 
-var_dump($lang); 
-
-
 // JSON files, based on language selection 
 ##########################################
 
