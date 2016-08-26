@@ -19,6 +19,8 @@ Edit **/core/json/variables.json**
 Add your informations (follow the examples included) : database, city, localisation, name you want, ... 
 You need to add available languages there also but new language required to be available in translations.json and a pokelist_CODELANG.json need to exist
 
+Rename **htaccess** to **.htaccess**
+
 
 Look at **translations.json**
 All website string are there. 
