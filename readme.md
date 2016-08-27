@@ -37,7 +37,7 @@ You can join the page by using ?page=[name] parameters in URL.
 
 - core/
 - core/css 		: CSS minified files (except style.css to allow edit)
-- core/fonts 		: Website fonts (such as fontawsome)
+- core/fonts 	: Website fonts (such as fontawsome)
 - core/img		: Website images (no Pokemon)
 - core/inc		: Meta datas for pages. 
 - core/js 		: Javascript files (Warning, some JS files are PHP files with Javascript headers)
@@ -53,6 +53,17 @@ You can join the page by using ?page=[name] parameters in URL.
 - offline.html	: Called file in case of Database connexion issue. 
 
 - pages/ 			: All website pages.
+
+
+
+## Install 
+
+- Clone the repo on your webdirectory
+- Go to the URL of your directory 
+
+# In case of problem 
+Check /core/json/ & /install/ folders rights 
+Apache user must be able to read and write files on it. 
 
 
 

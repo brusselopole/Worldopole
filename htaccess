@@ -12,6 +12,14 @@ Options -Indexes
 RewriteEngine On
 RewriteBase /
 
+# Set REQUEST_SCHEME (standard environment variable in Apache 2.4)
+RewriteCond %{HTTPS} off
+RewriteRule .* - [E=REQUEST_SCHEME:http]
+
+RewriteCond %{HTTPS} on
+RewriteRule .* - [E=REQUEST_SCHEME:https]
+
+
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

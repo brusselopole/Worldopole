@@ -36,7 +36,7 @@ if($mysqli->connect_error != ''){
 ##############################################################
 
 
-if(!file_exists(SYS_PATH.'/website.lock')){
+if(!file_exists(SYS_PATH.'/install/website.lock')){
 	
 	if(!file_exists(SYS_PATH.'/install/done.lock')){
 	
@@ -46,7 +46,7 @@ if(!file_exists(SYS_PATH.'/website.lock')){
 		data_test();
 		rights_test(); 
 		
-		if(file_exists(SYS_PATH.'/website.lock')){
+		if(file_exists(SYS_PATH.'/install/website.lock')){
 			
 			header('Location:/');
 			exit(); 
@@ -64,7 +64,7 @@ if(!file_exists(SYS_PATH.'/website.lock')){
 }
 else{
 	
-	$content = file_get_contents(SYS_PATH.'/website.lock');
+	$content = file_get_contents(SYS_PATH.'/install/website.lock');
 	echo $content; 
 	
 	exit();

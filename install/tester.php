@@ -94,7 +94,7 @@ function data_test(){
 	
 	if($lock_msg != ''){
 		
-		$lock_file = SYS_PATH.'/website.lock';
+		$lock_file = SYS_PATH.'/install/website.lock';
 		file_put_contents($lock_file, $lock_msg); 
 		
 	}
@@ -107,28 +107,49 @@ function data_test(){
 
 function rights_test(){
 	
-	// Can we read JSON file? 
-	$json_test_file = SYS_PATH.'/core/json/pokelist_EN.json';
-	$lock_msg		= ''; 
-	
-	if(!is_readable($json_test_file)){
 		
-		$lock_msg = "JSon files are not readable. Please fix rights \r";
+	// Can we write on install folder? 
+	
+	if(!is_writable(SYS_PATH.'/install/')){
+		
+		// Well, the all system is fucked ... exit exit exit ! 
+		
+		$lock_msg = "Install can not be complete. Please fix /install/ directory rights";
+		
+		echo $lock_msg; 
+		exit(); 
+		
+	
+	}else{
+		
+		
+		// Can we read JSON file? 
+		$json_test_file = SYS_PATH.'/core/json/pokelist_EN.json';
+		$lock_msg		= ''; 
+		
+		if(!is_readable($json_test_file)){
+			
+			$lock_msg .= "JSon files are not readable. Please fix rights \r";
+			
+		}
+		
+		if(!is_writable($json_test_file)){
+			
+			$lock_msg .= "JSon files are not writable. Please fix rights \r";
+		}
+
+		
+		if($lock_msg != ''){
+		
+			$lock_file = SYS_PATH.'/website.lock';
+			file_put_contents($lock_file, $lock_msg); 
+		
+		}
 		
 	}
 	
-	if(!is_writable($json_test_file)){
-		
-		$lock_msg = "JSon files are not writable. Please fix rights \r";
-	}
 	
 	
-	if($lock_msg != ''){
-		
-		$lock_file = SYS_PATH.'/website.lock';
-		file_put_contents($lock_file, $lock_msg); 
-		
-	}
 	
 }
 
