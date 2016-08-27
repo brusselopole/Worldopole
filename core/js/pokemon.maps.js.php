@@ -85,7 +85,7 @@ function initMap() {
 		function getPoints() {
 		return [
 		  
-		  <?
+		  <?php
 		  
 		  // As the map is rendering by the client, we do recommand to keep a limit on your request. 
 		  // 10k is already alotof datas ;) 
