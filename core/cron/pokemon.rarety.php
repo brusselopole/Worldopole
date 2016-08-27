@@ -1,4 +1,4 @@
-<?
+<?php
 
 
 // This file is loaded once every 24h by data the loader. 
