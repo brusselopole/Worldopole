@@ -40,6 +40,11 @@ if(!file_exists(SYS_PATH.'/install/website.lock')){
 	
 	if(!file_exists(SYS_PATH.'/install/done.lock')){
 	
+		if (version_compare(phpversion(), '5.3.10', '<')) {
+			echo "Sorry, your PHP version isn't high enough and contain security hole. Please update";
+			exit();  
+		}
+
 		
 		include_once('install/tester.php');
 		
