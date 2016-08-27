@@ -44,7 +44,7 @@
 		
 		<div class="last-mon-js">
 		
-		<? foreach($recents as $pokemon){ ?>
+		<?php foreach($recents as $pokemon){ ?>
 			
 			<div class="col-md-1 col-xs-4 pokemon-single" pokeid="<?= $pokemon ?>">
 			
@@ -53,7 +53,7 @@
 			
 			</div>
 			
-		<?}?>
+		<?php }?>
 		
 		</div>
 	
@@ -66,7 +66,7 @@
 <div class="row big padding">
 	<h2 class="text-center sub-title"><?= $locales->FIGHT_TITLE->$lang ?></h2>
 	
-	<? foreach($home->teams as $team => $total){ ?>
+	<?php foreach($home->teams as $team => $total){ ?>
 	
 	<div class="col-md-3 col-sm-6 col-sm-12 team">
 
@@ -79,7 +79,7 @@
 	</div>
 	
 	
-	<?}?>
+	<?php }?>
 			
 
 </div>

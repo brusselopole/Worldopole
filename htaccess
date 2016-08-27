@@ -7,6 +7,8 @@ php_flag magic_quotes_gpc Off
 php_value date.timezone Europe/Brussels
 AddDefaultCharset utf-8
 
+php_value short_open_tag 1
+
 Options +FollowSymlinks
 Options -Indexes
 RewriteEngine On
