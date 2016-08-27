@@ -92,7 +92,7 @@ include_once('core/process/data.loader.php');
 		
 		if (!empty($_GET['page'])) {
 			
-			$file = 'pages/'.$page.'.page.php';
+			$file = SYS_PATH.'/pages/'.$page.'.page.php';
 			
 			if(file_exists($file)){
 				
