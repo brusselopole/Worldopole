@@ -33,7 +33,7 @@ Page name structure : [name].page.php
 You can join the page by using ?page=[name] parameters in URL. 
 
 
-# Structure 
+## Structure 
 
 - core/
 - core/css 		: CSS minified files (except style.css to allow edit)
@@ -54,4 +54,9 @@ You can join the page by using ?page=[name] parameters in URL.
 
 - pages/ 			: All website pages.
 
+
+
+## License
+
+Worldopole is released under the MIT License.
  
