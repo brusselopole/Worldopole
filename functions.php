@@ -10,8 +10,11 @@
 ########################################################################
 
 
-function time_ago( $timestamp, $now = 0 ) {
-
+function time_ago( $timestamp, $now = 0, $lang = 'EN' ) {
+	
+	$translations = json_decode(file_get_contents(SYS_PATH.'/core/json/translations.json'));
+	
+	
     // Set up our variables.
     $minute_in_seconds = 60;
     $hour_in_seconds   = $minute_in_seconds * 60;
@@ -43,44 +46,43 @@ function time_ago( $timestamp, $now = 0 ) {
 	    if ( $time_difference < $hour_in_seconds ) {
 	
 	        $difference_value = round( $time_difference / $minute_in_seconds );
-	        $difference_label = 'minute';
+	        $difference_label = 'MINUTE';
 	
 	    } elseif ( $time_difference < $day_in_seconds ) {
 	
 	        $difference_value = round( $time_difference / $hour_in_seconds );
-	        $difference_label = 'hour';
+	        $difference_label = 'HOUR';
 	
 	    } elseif ( $time_difference < $week_in_seconds ) {
 	
 	        $difference_value = round( $time_difference / $day_in_seconds );
-	        $difference_label = 'day';
+	        $difference_label = 'DAY';
 	
 	    } elseif ( $time_difference < $month_in_seconds ) {
 	
 	        $difference_value = round( $time_difference / $week_in_seconds );
-	        $difference_label = 'week';
+	        $difference_label = 'WEEK';
 	
 	    } elseif ( $time_difference < $year_in_seconds ) {
 	
 	        $difference_value = round( $time_difference / $month_in_seconds );
-	        $difference_label = 'month';
+	        $difference_label = 'MONTH';
 	
 	    } else {
 	
 	        $difference_value = round( $time_difference / $year_in_seconds );
-	        $difference_label = 'year';
+	        $difference_label = 'YEAR';
 	    }
 	    
 	
 	    if ( $difference_value <= 1 ) {
-	        $time_ago = sprintf( 'one %s ago',
-	            $difference_label
-	        );
+	        
+	        $difference_label = $difference_label.'S'; 
+	        $time_ago = $difference_value.' '.$translations->$difference_label->$lang; 
+	        
 	    } else {
-	        $time_ago = sprintf( '%s %ss ago',
-	            $difference_value,
-	            $difference_label
-	        );
+	       
+	        $time_ago = $difference_value.' '.$translations->$difference_label->$lang;
 	    }
 	    
     }

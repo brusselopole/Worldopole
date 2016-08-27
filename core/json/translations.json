@@ -299,6 +299,71 @@
     	"FR": " : famille",
     	"ES": " : familia"
    	},
+   	"MINUTE":{
+	   	"EN": "minute",
+	   	"FR": "minute",
+	   	"ES": ""
+   	},
+   	"MINUTES":{
+	   	"EN": "minutes",
+	   	"FR": "minutes",
+	   	"ES": ""
+   	},
+   	"HOUR":{
+	   	"EN": "hour",
+	   	"FR": "heure",
+	   	"ES": ""
+   	},
+   	"HOURS":{
+	   	"EN": "hours",
+	   	"FR": "heures",
+	   	"ES": ""
+   	},
+   	"DAY":{
+	   	"EN": "day",
+	   	"FR": "jour",
+	   	"ES": ""
+   	},
+   	"DAYS":{
+	   	"EN": "days",
+	   	"FR": "jours",
+	   	"ES": ""
+   	},
+   	"WEEK":{
+	   	"EN": "week",
+	   	"FR": "semaine",
+	   	"ES": ""
+   	},
+   	"WEEKS":{
+	   	"EN": "weeks",
+	   	"FR": "semaines",
+	   	"ES": ""
+   	},
+   	"MONTH":{
+	   	"EN": "month",
+	   	"FR": "mois",
+	   	"ES": ""
+   	},
+   	"MONTHS":{
+	   	"EN": "months",
+	   	"FR": "mois",
+	   	"ES": ""
+   	},
+   	"YEAR":{
+	   	"EN": "year",
+	   	"FR": "an",
+	   	"ES": ""
+   	},
+   	"YEARS":{
+	   	"EN": "years",
+	   	"FR": "an",
+	   	"ES": ""
+   	},
+   	"NEVER":{
+	   	"EN": "We miss it",
+	   	"FR": "Jamais vu, désolé",
+	   	"ES": ""
+   	},
     "ERROR": {
       "EN": "Page <strong>not found</strong><br><small>There must have been some kind of mistake.</small>",
       "FR": "Page <strong>introuvable</strong><br/><small>Il y a du y avoir une erreur</small>",
