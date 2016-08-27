@@ -100,7 +100,7 @@ function initMap() {
 		  
 		   new google.maps.LatLng(<?= $data->latitude ?>, <?= $data->longitude ?>),
 		  
-		  <?}?>
+		  <?php }?>
 		  
 		 
 		];
