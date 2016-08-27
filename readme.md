@@ -35,23 +35,23 @@ You can join the page by using ?page=[name] parameters in URL.
 
 # Structure 
 
-core/
-core/css 		: CSS minified files (except style.css to allow edit)
-core/fonts 		: Website fonts (such as fontawsome)
-core/img		: Website images (no Pokemon)
-core/inc		: Meta datas for pages. 
-core/js 		: Javascript files (Warning, some JS files are PHP files with Javascript headers)
-core/json		: Mostly configuration or datas files
-core/meta-icons : Icons for mobile webapp 
-core/pokemons	: Pokémon images 
-core/process 	: Load datas for pages. 
+- core/
+- core/css 		: CSS minified files (except style.css to allow edit)
+- core/fonts 		: Website fonts (such as fontawsome)
+- core/img		: Website images (no Pokemon)
+- core/inc		: Meta datas for pages. 
+- core/js 		: Javascript files (Warning, some JS files are PHP files with Javascript headers)
+- core/json		: Mostly configuration or datas files
+- core/meta-icons : Icons for mobile webapp 
+- core/pokemons	: Pokémon images 
+- core/process 	: Load datas for pages. 
 
-functions.php 	: No description needed. 
-index.php		: Pages are included by index. 
+- functions.php 	: No description needed. 
+- index.php		: Pages are included by index. 
 
-install/ 		: Install folder to make some tests at install and verify the system is ready to host the app. 
-offline.html	: Called file in case of Database connexion issue. 
+- install/ 		: Install folder to make some tests at install and verify the system is ready to host the app. 
+- offline.html	: Called file in case of Database connexion issue. 
 
-pages/ 			: All website pages.
+- pages/ 			: All website pages.
 
  
