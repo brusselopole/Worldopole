@@ -301,6 +301,13 @@ switch($request){
 			}
 			
 			$img = '/core/pokemons/'.$data->guard_pokemon_id.'.png';
+			
+			$gym_prestige = [2000, 4000, 8000, 12000, 16000, 20000, 30000, 40000, 50000];
+			$gym_level = 1;
+			while ($data->gym_points >= $gym_prestige[$gym_level - 1]) {
+			  $gym_level++;
+			}
+			
 			$html = '
 			
 			<div style="text-align:center">
@@ -308,7 +315,7 @@ switch($request){
 				<p style="font-weight:400;color:'.$color.'">'.$team.'</p>
 				<p>Protected by</p>
 				<a href="/pokemon/'.$data->guard_pokemon_id.'"><img src="'.$img.'" height="40" style="display:inline-block;margin-bottom:10px;"></a>
-				<p>Level : '.substr($data->gym_points,0,1).' | Prestige : '.$data->gym_points.'</p>
+				<p>Level : '.$gym_level.' | Prestige : '.$data->gym_points.'</p>
 			</div>
 	
 			';
