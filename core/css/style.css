@@ -39,6 +39,11 @@ h2 {
     margin-bottom: 1.5em;
 }
 
+.btn-primary {
+    background-color:#174391;
+    border-color:#174391;
+}
+
 /****************
 Navigation 
 ****************/
