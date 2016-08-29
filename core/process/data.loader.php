@@ -95,9 +95,7 @@ if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])){
 // Search if language is available. 
  
 foreach($config->lang as $id_lang => $lang_active){
-	
-	echo $id_lang; 
-		
+			
 	if($id_lang == $browser_lang){
 		$lang = strtoupper($id_lang); 
 	}
