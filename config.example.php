@@ -25,14 +25,14 @@ define('SYS_DEVELOPMENT_MODE'	, false);																// debug mode
 
 if(isset($_SERVER['REQUEST_SCHEME'])){
 	
-	define('HOST_URL'				, $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST']);			// Host 	
+	define('HOST_URL'				, $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].dirname($_SERVER["PHP_SELF"]).'/');			// Host
 
 }else{
 	
 	if(isset($_SERVER['HTTPS']) AND $_SERVER['HTTPS'] == 'on'){
-		define('HOST_URL'				, 'https://'.$_SERVER['HTTP_HOST']);							// Host 
+		define('HOST_URL'				, 'https://'.$_SERVER['HTTP_HOST'].dirname($_SERVER["PHP_SELF"]).'/');							// Host
 	}else{
-		define('HOST_URL'				, 'http://'.$_SERVER['HTTP_HOST']);								// Host
+		define('HOST_URL'				, 'http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER["PHP_SELF"]).'/');								// Host
 	}
 	
 }
