@@ -29,7 +29,7 @@
 	</div>
 
 	<div class="col-md-3 col-sm-6 col-xs-12 big-data"> <!-- ADVERTISING -->
-		<a href="https://www.facebook.com/brusselopole/" target="_blank"><img src="/core/img/smartphone.png" alt="Like us on FB"  width=50 class="big-icon"></a>
+		<a href="<?= $config->urls->fb_url ?>" target="_blank"><img src="/core/img/smartphone.png" alt="Like us on FB"  width=50 class="big-icon"></a>
 		<p><?= $locales->WIDGET_FB_LIKE->$lang ?></p>
 	</div>
 
