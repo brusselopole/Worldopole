@@ -69,11 +69,11 @@ include_once('core/process/data.loader.php');
 						<a href="/pokestops" title="Brusselopole Pokéstops" class="menu-label"><i class="fa fa-medkit" aria-hidden="true"></i> Pokéstops</a>
 					</li>
 					<li>
-						<a href="https://www.facebook.com/brusselopole/" title="Join us on Facebook" target="_blank" class="menu-label"><i class="fa fa-facebook-square" aria-hidden="true"></i>
+						<a href="<?= $config->urls->fb_url ?>" title="Join us on Facebook" target="_blank" class="menu-label"><i class="fa fa-facebook-square" aria-hidden="true"></i>
  Facebook</a>
 					</li>
 					<li>
-						<a href="https://twitter.com/brusselopole" title="Join us on Twitter" target="_blank" class="menu-label"><i class="fa fa-twitter" aria-hidden="true"></i>
+						<a href="<?= $config->urls->tw_url ?>" title="Join us on Twitter" target="_blank" class="menu-label"><i class="fa fa-twitter" aria-hidden="true"></i>
  Twitter</a>
 					</li>
 				</ul>
