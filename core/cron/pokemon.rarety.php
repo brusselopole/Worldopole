@@ -84,7 +84,7 @@ foreach($pokemons as $pokemon_id => $pokemon_data){
 
 $file_content = json_encode($pokemons); 
 
-file_put_contents(SYS_PATH.'/core/json/pokelist_'.$lang.'.json', $file_content);
+file_put_contents($pokedex, $file_content);
 
 	
 ?>
