@@ -23,7 +23,7 @@ if($mysqli->connect_error != ''){exit('Error MySQL Connect');}
 
 $pokemon_id = mysqli_real_escape_string($mysqli,$_GET['id']);
 
-$req 		= "SELECT COUNT(*) as total, (disappear_time + INTERVAL 2 HOUR) as disappear_time  
+$req 		= "SELECT COUNT(*) as total, HOUR(disappear_time + INTERVAL 2 HOUR) as disappear_time  
 			FROM pokemon 
 			WHERE pokemon_id = '".$pokemon_id."' 
 			GROUP BY HOUR(disappear_time + INTERVAL 2 HOUR) 
@@ -46,9 +46,9 @@ for( $i= 0 ; $i <= 23 ; $i++ ){
 		$key = $i; 
 	}
 	
-	if(isset($array[$key])){
+	if(isset($array[$i])){
 
-		$spawn[$key] = $array[$key];
+		$spawn[$key] = $array[$i];
 
 	}else{
 
