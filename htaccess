@@ -12,6 +12,7 @@ php_value short_open_tag 1
 Options +FollowSymlinks
 Options -Indexes
 RewriteEngine On
+# If you deploy it in a subfolder enter this folder below
 RewriteBase /
 
 # Set REQUEST_SCHEME (standard environment variable in Apache 2.4)
@@ -27,14 +28,14 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
 
-RewriteRule ^pokemon/(.+)$				/index.php?page=pokemon&id=$1									[QSA,NC,L]
-RewriteRule ^pokestops$					/index.php?page=pokestops										[QSA,NC,L]
-RewriteRule ^gym$						/index.php?page=gym												[QSA,NC,L]
-RewriteRule ^devlog$					/index.php?page=devlog											[QSA,NC,L]
-RewriteRule ^faq$						/index.php?page=faq												[QSA,NC,L]
-RewriteRule ^dashboard$					/index.php?page=dashboard										[QSA,NC,L]
+RewriteRule ^pokemon/(.+)$				index.php?page=pokemon&id=$1									[QSA,NC,L]
+RewriteRule ^pokestops$					index.php?page=pokestops										[QSA,NC,L]
+RewriteRule ^gym$						index.php?page=gym												[QSA,NC,L]
+RewriteRule ^devlog$					index.php?page=devlog											[QSA,NC,L]
+RewriteRule ^faq$						index.php?page=faq												[QSA,NC,L]
+RewriteRule ^dashboard$					index.php?page=dashboard										[QSA,NC,L]
 
 
-RewriteRule ^pokemon/$					/index.php?page=pokedex											[QSA,NC,L]
-RewriteRule ^pokemon$					/index.php?page=pokedex											[QSA,NC,L]
+RewriteRule ^pokemon/$					index.php?page=pokedex											[QSA,NC,L]
+RewriteRule ^pokemon$					index.php?page=pokedex											[QSA,NC,L]
 
