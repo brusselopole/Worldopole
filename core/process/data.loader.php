@@ -11,6 +11,15 @@ $config 	= json_decode(file_get_contents($variables));
 // Manage Time Interval
 // #####################
 
+
+$time_interval  = strlen($config->system->time_inverval); 
+
+if($time_interval > 3){
+	echo 'Bad formated time_interval in variables.json. Please use +X or -X format only (eg for Brussels : +2) without leading or ending space.';
+	exit(); 
+}
+
+
 $time			= new stdClass();
 $time->symbol 	= substr($config->system->time_inverval, 0,1);
 $time->delay 	= substr($config->system->time_inverval, 1,1);
