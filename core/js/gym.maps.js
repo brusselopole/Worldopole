@@ -17,7 +17,7 @@ function initMap() {
 	        
 	        // Get website variables 
 	        
-	        $.getJSON( "/core/json/variables.json", function( jsondata ) {
+	        $.getJSON( "core/json/variables.json", function( jsondata ) {
 				
 				var variables = jsondata; 
 		  				  				  		

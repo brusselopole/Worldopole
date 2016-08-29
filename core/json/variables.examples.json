@@ -9,7 +9,7 @@
 	 "infos": {
 		 "site_name"	: 	"Worldopole",
 		 "city"			: 	"Weuuurld",
-		 "logo_path"	: 	"/core/img/logo.jpg",
+		 "logo_path"	: 	"core/img/logo.jpg",
 		 "site_title"	:	"We ❤️ Pokémon and Data",
 		 "site_claim"	: 	"Find all collected and proccessed datas about PokémonGo."
 	 }, 

@@ -12,24 +12,24 @@
 <div class="row area">
 
 	<div class="col-md-3 col-sm-6 col-xs-12 big-data"> <!-- LIVEMON -->
-		<a href="<?= HOST_URL ?>/pokemon"><img src="/core/img/pokeball.png" alt="Visit the Brusselopole Pokedex" width=50 class="big-icon"></a>
-		<p><a href="<?= HOST_URL ?>/pokemon"><big><strong class="total-pkm-js">0</strong> Pokémon</big><br> 
+		<a href="pokemon"><img src="core/img/pokeball.png" alt="Visit the Brusselopole Pokedex" width=50 class="big-icon"></a>
+		<p><a href="pokemon"><big><strong class="total-pkm-js">0</strong> Pokémon</big><br> 
 		<?= sprintf($locales->WIDGET_POKEMON_SUB->$lang, $config->infos->city); ?></a></p>
 	</div>
 
 	<div class="col-md-3 col-sm-6 col-xs-12 big-data"  style="border-right:1px lightgray solid;border-left:1px lightgray solid;"> <!-- GYMS -->
-		<a href="<?= HOST_URL ?>/gym"><img src="/core/img/rocket.png" alt="Discover the Brusselopole Gyms" width=50 class="big-icon"></a>
-		<p><a href="<?= HOST_URL ?>/gym"><big><strong  class="total-gym-js">0</strong> <?= $locales->GYMS->$lang ?></big><br> <?= $locales->WIDGET_GYM_SUB->$lang ?></a></p>
+		<a href="gym"><img src="core/img/rocket.png" alt="Discover the Brusselopole Gyms" width=50 class="big-icon"></a>
+		<p><a href="gym"><big><strong  class="total-gym-js">0</strong> <?= $locales->GYMS->$lang ?></big><br> <?= $locales->WIDGET_GYM_SUB->$lang ?></a></p>
 
 	</div>
 
 	<div class="col-md-3 col-sm-6 col-xs-12 big-data"  style="border-right:1px lightgray solid;"> <!-- POKESTOPS -->
-		<a href="<?= HOST_URL ?>/pokestops"><img src="/core/img/lure-module.png" alt="Discover the Brusselopole Pokéstops"  width=50 class="big-icon"></a>
-		<p><a href="<?= HOST_URL ?>/pokestops"><big><strong class="total-lure-js">0</strong> <?= $locales->LURES->$lang ?></big><br> <?= sprintf($locales->WIDGET_LURES_SUB->$lang, $config->infos->city); ?></a></p>
+		<a href="pokestops"><img src="core/img/lure-module.png" alt="Discover the Brusselopole Pokéstops"  width=50 class="big-icon"></a>
+		<p><a href="pokestops"><big><strong class="total-lure-js">0</strong> <?= $locales->LURES->$lang ?></big><br> <?= sprintf($locales->WIDGET_LURES_SUB->$lang, $config->infos->city); ?></a></p>
 	</div>
 
 	<div class="col-md-3 col-sm-6 col-xs-12 big-data"> <!-- ADVERTISING -->
-		<a href="<?= $config->urls->fb_url ?>" target="_blank"><img src="/core/img/smartphone.png" alt="Like us on FB"  width=50 class="big-icon"></a>
+		<a href="<?= $config->urls->fb_url ?>" target="_blank"><img src="core/img/smartphone.png" alt="Like us on FB"  width=50 class="big-icon"></a>
 		<p><?= $locales->WIDGET_FB_LIKE->$lang ?></p>
 	</div>
 
@@ -48,8 +48,8 @@
 			
 			<div class="col-md-1 col-xs-4 pokemon-single" pokeid="<?= $pokemon ?>">
 			
-				<a href="/pokemon/<?= $pokemon ?>"><img src="core/pokemons/<?= $pokemon ?>.png" alt="<?= $pokemons->$pokemon->name ?>"  class="img-responsive"></a>
-				<p class="pkmn-name"><a href="/pokemon/<?= $pokemon ?>"><?= $pokemons->$pokemon->name ?></a></p>
+				<a href="pokemon/<?= $pokemon ?>"><img src="core/pokemons/<?= $pokemon ?>.png" alt="<?= $pokemons->$pokemon->name ?>"  class="img-responsive"></a>
+				<p class="pkmn-name"><a href="pokemon/<?= $pokemon ?>"><?= $pokemons->$pokemon->name ?></a></p>
 			
 			</div>
 			

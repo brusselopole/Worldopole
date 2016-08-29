@@ -28,7 +28,7 @@
 	<title><?= $config->infos->site_name ?> | <?= $config->infos->site_title ?></title>
 	
 	<link rel="canonical" href="<?= HOST_URL ?>" />
-	
+	<base href="<?= HOST_URL ?>">
 	
 	<meta property="og:locale" content="en_US" />
 	<meta property="og:type" content="website" />
@@ -61,8 +61,8 @@
 		<title><?= $config->infos->site_name ?> | <?= $locales->FIND->$lang ?> <?= $pokemon->name ?> <?= sprintf($locales->INCITY->$lang, $config->infos->city); ?></title>
 
 		
-		<link rel="canonical" href="<?= HOST_URL ?>/pokemon/<?= $pokemon->id ?>" />
-
+		<link rel="canonical" href="<?= HOST_URL ?>pokemon/<?= $pokemon->id ?>" />
+		<base href="<?= HOST_URL ?>">
 
 		<meta property="og:locale" content="en_US" />
 		<meta property="og:type" content="website" />

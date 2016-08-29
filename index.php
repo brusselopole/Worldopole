@@ -14,12 +14,14 @@ include_once('core/process/data.loader.php');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
    
+   
+   <?php include_once('core/inc/meta.inc.php') ?>
 
     <!-- Bootstrap -->
-    <link href="/core/css/bootstrap.min.css" rel="stylesheet">
+    <link href="core/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,300,700" rel="stylesheet" type="text/css">
-	<link href="/core/css/font-awesome.min.css" rel="stylesheet">    
-    <link href="/core/css/style.css" rel="stylesheet">
+	<link href="core/css/font-awesome.min.css" rel="stylesheet">    
+    <link href="core/css/style.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -28,9 +30,6 @@ include_once('core/process/data.loader.php');
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
         
-	
-	<?php include_once('core/inc/meta.inc.php') ?>
-
     
   </head>
   <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
@@ -45,7 +44,7 @@ include_once('core/process/data.loader.php');
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="/"><img src="<?= $config->infos->logo_path ?>" width="25" style="display:inline-block;" alt="Brusselopole" id="logo-img" /> <?= $config->infos->site_name ?></a>
+				<a class="navbar-brand" href="<?= HOST_URL ?>"><img src="<?= $config->infos->logo_path ?>" width="25" style="display:inline-block;" alt="Brusselopole" id="logo-img" /> <?= $config->infos->site_name ?></a>
 			</div>
 			
 			<!-- Collect the nav links, forms, and other content for toggling -->
@@ -60,13 +59,13 @@ include_once('core/process/data.loader.php');
 					</li>
 					-->
 					<li>
-						<a href="/pokemon" title="<?= $config->infos->site_name ?> Pokédex" class="menu-label"><i class="fa fa-map-marker" aria-hidden="true"></i> <?= $locales->NAV_POKEDEX->$lang ?></a>
+						<a href="pokemon" title="<?= $config->infos->site_name ?> Pokédex" class="menu-label"><i class="fa fa-map-marker" aria-hidden="true"></i> <?= $locales->NAV_POKEDEX->$lang ?></a>
 					</li>
 					<li>
-						<a href="/gym" title="Brusselopole Gyms" class="menu-label"><i class="fa fa-bolt" aria-hidden="true"></i> <?= $locales->GYMS->$lang ?></a>
+						<a href="gym" title="Brusselopole Gyms" class="menu-label"><i class="fa fa-bolt" aria-hidden="true"></i> <?= $locales->GYMS->$lang ?></a>
 					</li>
 					<li>
-						<a href="/pokestops" title="Brusselopole Pokéstops" class="menu-label"><i class="fa fa-medkit" aria-hidden="true"></i> Pokéstops</a>
+						<a href="pokestops" title="Brusselopole Pokéstops" class="menu-label"><i class="fa fa-medkit" aria-hidden="true"></i> Pokéstops</a>
 					</li>
 					<li>
 						<a href="<?= $config->urls->fb_url ?>" title="Join us on Facebook" target="_blank" class="menu-label"><i class="fa fa-facebook-square" aria-hidden="true"></i>
@@ -126,12 +125,12 @@ include_once('core/process/data.loader.php');
 				<div class="row">
 
 					<div class="col-md-12 text-center">
-						<img src="/core/img/logo.png" width=50 class="big-icon" alt="Brusselopole icon">
+						<img src="core/img/logo.png" width=50 class="big-icon" alt="Brusselopole icon">
 						<h2><?= $locales->FOOTER_TITLE->$lang ?></h2>
 						<p><?= $locales->FOOTER_SUB->$lang ?></p>
 						<?= $locales->FOOTER_VISUAL_CONTENT->$lang ?>
 
-						<p class="text-center">Made in Brussels <a href="https://sprouttobebrussels.be/en" target="_blank" style="border-bottom:0px white solid;"><img src="/core/img/sprout.svg" alt="Srpout to be Brussels" height="20"></a> | Based on <a href="https://github.com/brusselopole">Brusselopole</a></p>
+						<p class="text-center">Made in Brussels <a href="https://sprouttobebrussels.be/en" target="_blank" style="border-bottom:0px white solid;"><img src="core/img/sprout.svg" alt="Srpout to be Brussels" height="20"></a> | Based on <a href="https://github.com/brusselopole">Brusselopole</a></p>
 					</div>
 					
 		</div>
@@ -142,7 +141,7 @@ include_once('core/process/data.loader.php');
       
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="/core/js/bootstrap.min.js"></script>
+    <script src="core/js/bootstrap.min.js"></script>
    
 	
     
@@ -150,7 +149,7 @@ include_once('core/process/data.loader.php');
     
     <?php if(empty($page)){?>
     
-    	<script src="/core/js/home.script.js"></script>
+    	<script src="core/js/home.script.js"></script>
     	
     	<script>
 	    	
@@ -176,27 +175,27 @@ include_once('core/process/data.loader.php');
 		    case 'pokemon': ?>
 		    
 		    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.min.js"></script>
-			<script src="/core/js/pokemon.graph.js.php?id=<?= $pokemon_id ?>"></script>	
+			<script src="core/js/pokemon.graph.js.php?id=<?= $pokemon_id ?>"></script>	
 	
 			
 			<script defer src="https://maps.googleapis.com/maps/api/js?key=<?= $config->system->GMaps_Key ?>&libraries=visualization&callback=initMap"></script> 		
-			<script src="/core/js/pokemon.maps.js.php?id=<?= $pokemon_id ?>"></script>
+			<script src="core/js/pokemon.maps.js.php?id=<?= $pokemon_id ?>"></script>
 		    
 		    <?php break; 
 		    
 		    case 'pokestops': ?>
 		    
 		    <script defer src="https://maps.googleapis.com/maps/api/js?key=<?= $config->system->GMaps_Key ?>&libraries=visualization&callback=initMap"></script> 
-			<script src="/core/js/pokestops.maps.js"></script>
+			<script src="core/js/pokestops.maps.js"></script>
 		    
 		    <?php break;
 		    
 		    case 'gym': ?>
 		    
 		    <script defer src="https://maps.googleapis.com/maps/api/js?key=<?= $config->system->GMaps_Key ?>&libraries=visualization&callback=initMap"></script> 
-			<script src="/core/js/gym.maps.js"></script>
+			<script src="core/js/gym.maps.js"></script>
 			
-			<script src="/core/js/gym.script.js"></script>
+			<script src="core/js/gym.script.js"></script>
 			
 			<script>
 		    	
@@ -216,9 +215,9 @@ include_once('core/process/data.loader.php');
 				
 			case 'pokedex': ?>
 			
-			<script src="/core/js/holmes.js"></script>
+			<script src="core/js/holmes.js"></script>
 			
-			<script src="/core/js/microlight.js"></script>
+			<script src="core/js/microlight.js"></script>
 			
 			<script>
 			

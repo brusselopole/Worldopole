@@ -28,7 +28,7 @@
 		
 	<div class="col-md-4 col-sm-4 col-xs-12 big-data"> <!-- <?= $team_name ?> -->
 		
-		<h2 style="margin:0;"><img src="/core/img/<?= $lower_team_name ?>.png" alt="<?= $locales->TEAM->$lang ?> <?= $team_name ?> logo" width=50 style="display:inline-block;" class="team-logo" /> <?= $locales->TEAM->$lang ?> <?= $locales->$upper_team_name->$lang ?></h2>
+		<h2 style="margin:0;"><img src="core/img/<?= $lower_team_name ?>.png" alt="<?= $locales->TEAM->$lang ?> <?= $team_name ?> logo" width=50 style="display:inline-block;" class="team-logo" /> <?= $locales->TEAM->$lang ?> <?= $locales->$upper_team_name->$lang ?></h2>
 
 		<div class="row" style="margin-top:1em;">
 			<div class="col-xs-6">
@@ -46,7 +46,7 @@
 			<?php foreach($team->guardians as $guardian){ ?>
 			
 			<div class="col-xs-4">
-				<a href="/pokemon/<?= $guardian ?>">
+				<a href="pokemon/<?= $guardian ?>">
 				<img src="core/pokemons/<?= $guardian ?>.png" alt="<?= $pokemons->$guardian->name ?>" class="img-responsive" width=150>
 				</a>
 			</div>

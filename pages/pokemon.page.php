@@ -5,8 +5,8 @@
 	<div class="row">
 		<div class="col-md-12">
 			<ol class="breadcrumb">
-				<li><a href="<?= HOST_URL ?>/"><?= $locales->HOME->$lang ?></a></li>
-				<li><a href="<?= HOST_URL ?>/pokemon"><?= $locales->NAV_POKEDEX->$lang ?></a></li>
+				<li><a href="<?= HOST_URL ?>"><?= $locales->HOME->$lang ?></a></li>
+				<li><a href="pokemon"><?= $locales->NAV_POKEDEX->$lang ?></a></li>
 				<li class="active"><?= $pokemon->name ?></li>
 			</ol>
 		</div>
@@ -19,7 +19,7 @@
 				
 				<?php if($pokemon->id-1 > 0){ ?>
 			
-				<p align="left" class="nav-links"><a href="<?= HOST_URL ?>/pokemon/<?= $pokemon->id-1 ?>"><i class="fa fa-chevron-left"></i></a></p>
+				<p align="left" class="nav-links"><a href="pokemon/<?= $pokemon->id-1 ?>"><i class="fa fa-chevron-left"></i></a></p>
 			
 				<?php }?>
 				
@@ -31,9 +31,9 @@
 			<small>[<?= $pokemon->rarity ?>]</small></h1>
 
 			<p id="share">
-				<a href="https://www.facebook.com/sharer/sharer.php?u=<?= HOST_URL ?>/pokemon/<?= $pokemon->id ?>" target="_blank" class="btn btn-primary" title="Share on Facebook"><?= $locales->SHARE->$lang ?> <i class="fa fa-facebook" aria-hidden="true"></i></a> 
+				<a href="https://www.facebook.com/sharer/sharer.php?u=<?= HOST_URL ?>pokemon/<?= $pokemon->id ?>" target="_blank" class="btn btn-primary" title="Share on Facebook"><?= $locales->SHARE->$lang ?> <i class="fa fa-facebook" aria-hidden="true"></i></a> 
 				
-				<a href="https://twitter.com/intent/tweet?source=<?= HOST_URL ?>/pokemon/<?= $pokemon_id ?>&text=Find <?= $pokemon->name ?> in Brussels <?= HOST_URL ?>/pokemon/<?= $pokemon->id ?>" target="_blank" title="Share on Twitter" class="btn btn-info"><?= $locales->SHARE->$lang ?> <i class="fa fa-twitter" aria-hidden="true"></i></a>
+				<a href="https://twitter.com/intent/tweet?source=<?= HOST_URL ?>pokemon/<?= $pokemon_id ?>&text=Find <?= $pokemon->name ?> in Brussels <?= HOST_URL ?>pokemon/<?= $pokemon->id ?>" target="_blank" title="Share on Twitter" class="btn btn-info"><?= $locales->SHARE->$lang ?> <i class="fa fa-twitter" aria-hidden="true"></i></a>
 			</p>
 			
 		</div>
@@ -43,7 +43,7 @@
 			
 			<?php if($pokemon->id+1 < $config->system->max_pokemon ){ ?>
 			
-			<p align="right" class="nav-links"><a href="<?= HOST_URL ?>/pokemon/<?= $pokemon->id+1 ?>"><i class="fa fa-chevron-right"></i></a></p>
+			<p align="right" class="nav-links"><a href="pokemon/<?= $pokemon->id+1 ?>"><i class="fa fa-chevron-right"></i></a></p>
 				
 			<?php } ?>
 		</div>
@@ -58,7 +58,7 @@
 
 	<div class="col-md-2 col-xs-4">
 		<div id="poke-img" style="padding-top:15px;margin-bottom:1em;">
-			<img class="media-object img-responsive" src="/core/pokemons/<?= $pokemon->id ?>.png" alt="<?= $pokemon->name ?> model" >
+			<img class="media-object img-responsive" src="core/pokemons/<?= $pokemon->id ?>.png" alt="<?= $pokemon->name ?> model" >
 		</div>
 	</div>
 	
@@ -241,8 +241,8 @@
 			
 			<div class="col-md-1 col-sm-2 col-xs-3 pokemon-single">
 			
-				<a href="/pokemon/<?= $related_mon ?>">
-					<img src="/core/pokemons/<?= $related_mon ?>.png" alt="<?= $pokemons->$related_mon->name ?>.png" class="img-responsive">
+				<a href="pokemon/<?= $related_mon ?>">
+					<img src="core/pokemons/<?= $related_mon ?>.png" alt="<?= $pokemons->$related_mon->name ?>.png" class="img-responsive">
 				</a>
 			
 			</div>

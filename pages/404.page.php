@@ -3,7 +3,7 @@
 	<div class="col-md-12 text-center">
 
 		<center>
-			<img src="/core/img/compass.png" class="img-responsive" alt="Not found" width=150 />
+			<img src="core/img/compass.png" class="img-responsive" alt="Not found" width=150 />
 		</center>
 
 		<h1>

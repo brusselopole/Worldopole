@@ -3,7 +3,7 @@
 // Include & load the variables 
 // ############################
 
-$variables 	= realpath(dirname(__FILE__)).'/../../core/json/variables.json';
+$variables 	= realpath(dirname(__FILE__)).'/../json/variables.json';
 $config 	= json_decode(file_get_contents($variables)); 
 
 	
@@ -313,8 +313,8 @@ if(!empty($page)){
 				
 				$pokedex->$i				= new stdClass();
 				$pokedex->$i->id 			= $i; 
-				$pokedex->$i->permalink 	= '/pokemon/'.$i; 
-				$pokedex->$i->img			= '/core/pokemons/'.$i.'.png'; 
+				$pokedex->$i->permalink 	= 'pokemon/'.$i; 
+				$pokedex->$i->img			= 'core/pokemons/'.$i.'.png'; 
 				$pokedex->$i->name			= $pokemons->$i->name; 
 				
 				$req 		= "SELECT COUNT(*) as total FROM pokemon WHERE pokemon_id = '".$i."'";

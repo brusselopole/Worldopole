@@ -31,7 +31,7 @@ var map, heatmap;
 
 function initMap() {
 	
-	$.getJSON( "/core/json/variables.json", function( jsondata ) {
+	$.getJSON( "core/json/variables.json", function( jsondata ) {
 				
 		var variables = jsondata; 
   				  				  		

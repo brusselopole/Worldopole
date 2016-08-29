@@ -5,13 +5,13 @@
 # and you don't want to have other website to get your datas ;) 
 # If you want to use this file as an "API" just remove the first condition. 
 
-
 $pos = strpos($_SERVER['HTTP_REFERER'],getenv('HTTP_HOST'));
 
 if($pos===false){
 	http_response_code(401); 
 	die('Restricted access');
 }
+
 
 include_once('../../config.php');
 
@@ -21,7 +21,6 @@ $mysqli 	= new mysqli(SYS_DB_HOST, SYS_DB_USER, SYS_DB_PSWD, SYS_DB_NAME, SYS_DB
 if($mysqli->connect_error != ''){exit('Error MySQL Connect');}
 
 $request 	= $_GET['type']; 
-
 
 switch($request){
 	
@@ -263,6 +262,7 @@ switch($request){
 		$req 		= "SELECT * FROM gym";
 		$result 	= $mysqli->query($req); 
 		
+		
 		$i=0; 
 		
 		while($data = $result->fetch_object()){		
@@ -300,14 +300,9 @@ switch($request){
 				
 			}
 			
+			## I know, I revert commit 6e8d2e7 from @kiralydavid but the way it was done broke the page. 
+			
 			$img = '/core/pokemons/'.$data->guard_pokemon_id.'.png';
-			
-			$gym_prestige = [2000, 4000, 8000, 12000, 16000, 20000, 30000, 40000, 50000];
-			$gym_level = 1;
-			while ($data->gym_points >= $gym_prestige[$gym_level - 1]) {
-			  $gym_level++;
-			}
-			
 			$html = '
 			
 			<div style="text-align:center">
@@ -315,10 +310,11 @@ switch($request){
 				<p style="font-weight:400;color:'.$color.'">'.$team.'</p>
 				<p>Protected by</p>
 				<a href="/pokemon/'.$data->guard_pokemon_id.'"><img src="'.$img.'" height="40" style="display:inline-block;margin-bottom:10px;"></a>
-				<p>Level : '.$gym_level.' | Prestige : '.$data->gym_points.'</p>
+				<p>Level : '.substr($data->gym_points,0,1).' | Prestige : '.$data->gym_points.'</p>
 			</div>
 	
 			';
+
 			
 			
 			$temp[$i][] = $html;

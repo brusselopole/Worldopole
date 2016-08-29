@@ -13,3 +13,5 @@ Thumbs.db
 
 config.php
 /core/json/variables.json
+.htaccess
+/install/done.lock
