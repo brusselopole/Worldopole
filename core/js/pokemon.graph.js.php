@@ -15,6 +15,30 @@ header('Content-type: text/javascript');
 include_once('../../config.php');
 
 
+// Include & load the variables 
+// ############################
+
+$variables 	= realpath(dirname(__FILE__)).'/../json/variables.json';
+$config 	= json_decode(file_get_contents($variables)); 
+
+
+
+// Manage Time Interval
+// #####################
+
+$time			= new stdClass();
+$time->symbol 	= substr($config->system->time_inverval, 0,1);
+$time->delay 	= substr($config->system->time_inverval, 1,1);
+
+if($time->symbol == '+'){
+	$time->symbol_reverse = '-';
+}else{
+	$time->symbol_reverse = '+';
+}
+
+
+
+
 # Connect MySQL 
 $mysqli = new mysqli(SYS_DB_HOST, SYS_DB_USER, SYS_DB_PSWD, SYS_DB_NAME, SYS_DB_PORT);
 if($mysqli->connect_error != ''){exit('Error MySQL Connect');}
@@ -23,11 +47,11 @@ if($mysqli->connect_error != ''){exit('Error MySQL Connect');}
 
 $pokemon_id = mysqli_real_escape_string($mysqli,$_GET['id']);
 
-$req 		= "SELECT COUNT(*) as total, (disappear_time + INTERVAL 2 HOUR) as disappear_time  
+$req 		= "SELECT COUNT(*) as total, (disappear_time ".$time->symbol." INTERVAL ".$time->delay." HOUR) as disappear_time  
 			FROM pokemon 
 			WHERE pokemon_id = '".$pokemon_id."' 
-			GROUP BY HOUR(disappear_time + INTERVAL 2 HOUR) 
-			ORDER BY HOUR(disappear_time + INTERVAL 2 HOUR), disappear_time";
+			GROUP BY HOUR(disappear_time ".$time->symbol." INTERVAL ".$time->delay." HOUR) 
+			ORDER BY HOUR(disappear_time ".$time->symbol." INTERVAL ".$time->delay." HOUR), disappear_time";
 		
 $result 	= $mysqli->query($req); 
 

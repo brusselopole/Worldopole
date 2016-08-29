@@ -6,6 +6,25 @@
 $variables 	= realpath(dirname(__FILE__)).'/../json/variables.json';
 $config 	= json_decode(file_get_contents($variables)); 
 
+
+
+// Manage Time Interval
+// #####################
+
+$time			= new stdClass();
+$time->symbol 	= substr($config->system->time_inverval, 0,1);
+$time->delay 	= substr($config->system->time_inverval, 1,1);
+
+if($time->symbol == '+'){
+	$time->symbol_reverse = '-';
+}elseif($time->symbol == '-'){
+	$time->symbol_reverse = '+';
+}else{
+	
+	echo 'Bad formated time_interval in variables.json. Please use +X or -X format only (eg for Brussels : +2) without leading or ending space.';
+	exit(); 
+}
+
 	
 // Debug mode
 #############
@@ -233,7 +252,7 @@ if(!empty($page)){
 			
 			if($pokemon->total_spawn > 0){
 			
-				$req 		= "SELECT COUNT(*) as total, (disappear_time + INTERVAL 2 HOUR) as disappear_time  FROM pokemon WHERE pokemon_id = '".$pokemon_id."' GROUP BY DAY(disappear_time + INTERVAL 2 HOUR)";
+				$req 		= "SELECT COUNT(*) as total, (disappear_time ".$time->symbol." INTERVAL ".$time->delay." HOUR) as disappear_time  FROM pokemon WHERE pokemon_id = '".$pokemon_id."' GROUP BY DAY(disappear_time ".$time->symbol." INTERVAL ".$time->delay." HOUR)";
 				$result 	= $mysqli->query($req);
 				
 				$pokemon->total_days 	= $result->num_rows;
@@ -248,7 +267,7 @@ if(!empty($page)){
 						
 			// Last seen 
 			
-			$req 		= "SELECT (disappear_time + INTERVAL 2 HOUR) as disappear_time, latitude, longitude FROM pokemon WHERE pokemon_id = '".$pokemon_id."' AND disappear_time < (NOW() - INTERVAL 2 HOUR) ORDER BY disappear_time DESC LIMIT 0,1";
+			$req 		= "SELECT (disappear_time ".$time->symbol." INTERVAL ".$time->delay." HOUR) as disappear_time, latitude, longitude FROM pokemon WHERE pokemon_id = '".$pokemon_id."' AND disappear_time < (NOW() ".$time->symbol_reverse." INTERVAL ".$time->delay." HOUR) ORDER BY disappear_time DESC LIMIT 0,1";
 			$result 	= $mysqli->query($req);
 			$data 		= $result->fetch_object();
 						
@@ -346,7 +365,7 @@ if(!empty($page)){
 			
 			$pokestop->total = $data->total; 
 			
-			$req 		= "SELECT COUNT(*) as total FROM pokestop WHERE lure_expiration > (NOW() - INTERVAL 2 HOUR)";
+			$req 		= "SELECT COUNT(*) as total FROM pokestop WHERE lure_expiration > (NOW() ".$time->symbol_reverse." INTERVAL ".$time->delay." HOUR)";
 			$result 	= $mysqli->query($req);
 			$data 		= $result->fetch_object();
 			
@@ -466,9 +485,10 @@ else{
 	// Right now 
 	// ---------
 	
-	$req 		= "SELECT COUNT(*) as total FROM pokemon WHERE disappear_time > (NOW() - INTERVAL 2 HOUR);";	
+	$req 		= "SELECT COUNT(*) as total FROM pokemon WHERE disappear_time > (NOW() ".$time->symbol_reverse." INTERVAL ".$time->delay." HOUR);";	
 	$result 	= $mysqli->query($req);
 	$data 		= $result->fetch_object();
+	
 	
 	$home->pokemon_now 	= $data->total;
 	 	
@@ -477,7 +497,7 @@ else{
 	// Lured stops 
 	// -----------
 	
-	$req 		= "SELECT COUNT(*) as total FROM pokestop WHERE lure_expiration > (NOW() - INTERVAL 2 HOUR);";	
+	$req 		= "SELECT COUNT(*) as total FROM pokestop WHERE lure_expiration > (NOW() ".$time->symbol_reverse." INTERVAL ".$time->delay." HOUR);";	
 	$result 	= $mysqli->query($req);
 	$data 		= $result->fetch_object();
 	

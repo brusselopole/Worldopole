@@ -16,6 +16,29 @@ if($pos===false){
 include_once('../../config.php');
 
 
+
+// Include & load the variables 
+// ############################
+
+$variables 	= realpath(dirname(__FILE__)).'/../json/variables.json';
+$config 	= json_decode(file_get_contents($variables)); 
+
+
+
+// Manage Time Interval
+// #####################
+
+$time			= new stdClass();
+$time->symbol 	= substr($config->system->time_inverval, 0,1);
+$time->delay 	= substr($config->system->time_inverval, 1,1);
+
+if($time->symbol == '+'){
+	$time->symbol_reverse = '-';
+}else{
+	$time->symbol_reverse = '+';
+}
+
+
 # MySQL 
 $mysqli 	= new mysqli(SYS_DB_HOST, SYS_DB_USER, SYS_DB_PSWD, SYS_DB_NAME, SYS_DB_PORT);
 if($mysqli->connect_error != ''){exit('Error MySQL Connect');}
@@ -37,7 +60,7 @@ switch($request){
 		// Right now 
 		// ---------
 		
-		$req 		= "SELECT COUNT(*) as total FROM pokemon WHERE disappear_time > (NOW() - INTERVAL 2 HOUR);";	
+		$req 		= "SELECT COUNT(*) as total FROM pokemon WHERE disappear_time > (NOW() ".$time->symbol_reverse." INTERVAL ".$time->delay." HOUR);";	
 		$result 	= $mysqli->query($req);
 		$data 		= $result->fetch_object();
 		
@@ -47,7 +70,7 @@ switch($request){
 		// Lured stops 
 		// -----------
 		
-		$req 		= "SELECT COUNT(*) as total FROM pokestop WHERE lure_expiration > (NOW() - INTERVAL 2 HOUR);";	
+		$req 		= "SELECT COUNT(*) as total FROM pokestop WHERE lure_expiration > (NOW() ".$time->symbol_reverse." INTERVAL ".$time->delay." HOUR);";	
 		$result 	= $mysqli->query($req);
 		$data 		= $result->fetch_object();
 		
@@ -335,11 +358,7 @@ switch($request){
 		echo $return;
 	
 	break; 
-	
-	
-	case '':
-	break; 
-	
+		
 	
 	default:
 		
