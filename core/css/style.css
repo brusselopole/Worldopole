@@ -129,7 +129,7 @@ Pokedex display
     opacity:0.5;
 }
 
-.pokemon-single a:hover img,  {
+.pokemon-single a:hover img  {
     background-image: url('core/img/blue-hover.png');
     background-size: 100% 100%;
 }
