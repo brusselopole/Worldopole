@@ -92,12 +92,12 @@
    	"WIDGET_POKEMON_SUB": {
     	"EN": "in %s right now",
     	"FR": "à %s maintenant",
-    	"ES": "à %s en este momento"
+    	"ES": "en %s en este momento"
    	},
    	"WIDGET_GYM_SUB": {
     	"EN": "to fight for.",
     	"FR": "à prendre.",
-    	"ES": "para combatir por."
+    	"ES": "por combatir."
    	},
    	"WIDGET_LURES_SUB": {
     	"EN": "activated in %s.",
@@ -117,7 +117,7 @@
    	"FIGHT_TITLE": {
     	"EN": "The <strong>fight</strong> is on",
     	"FR": "Le <strong>combat</strong> fait rage",
-    	"ES": "La <strong>combate</strong> ha iniciado"
+    	"ES": "El <strong>combate</strong> ha iniciado"
    	},
    	"FOOTER_TITLE": {
     	"EN": "Thanks and copyrights",
@@ -142,7 +142,7 @@
    	"FOOTER_DATA": {
     	"EN": "Data collected since the <strong>2nd of August 2016</strong>",
     	"FR": "Données collectées depuis le <strong>2 Août 2016",
-    	"ES": "Información recolectada desde <strong>2 de Agosto de 2016"
+    	"ES": "Información recolectada desde el <strong>2 de Agosto de 2016"
    	},
    	"POKEDEX_TITLE": {
     	"EN": "The general <strong>Pokédex</strong><br><small>Gotta catch 'em all!</small>",
@@ -172,7 +172,7 @@
    	"GYMS_METADESC": {
     	"EN": "Valor, Mystic or Instinct? Who will win the fight?",
     	"FR": "Bravoure, Sagesse ou Intuition ? Qui dominera ?",
-    	"ES": "¿Valor, Místico o Instinto ? ¿Quién ganará ?"
+    	"ES": "¿Valor, Místico o Instinto ? ¿Quién ganará?"
    	},
    	"GYMS_OWNED": {
     	"EN": "gyms owned",
@@ -192,7 +192,7 @@
    	"POKESTOPS_TITLE": {
     	"EN": "Where to <strong>Pokéstop</strong> and fill your bag in <strong>%s</strong><br><small>There's always a <strong>Pokéstop</strong> near you.</small>",
     	"FR": "Où faire un <strong>Pokéstop</strong> et remplir votre sac à <strong>%s</strong><br><small>Il ya toujours un <strong>Pokéstop</strong> près de vous.</small>",
-    	"ES": "Dónde hacer una <strong>Poképarada</strong> y rellenar tu mochila en <strong>%s</strong><br><small>Con suerte hay una <strong>Poképarada</strong> cerca de ti.</small>"
+    	"ES": "Dónde hacer una <strong>Poképarada</strong> y rellenar tu mochila en <strong>%s</strong><br><small>Con suerte habrá una <strong>Poképarada</strong> cerca de ti.</small>"
    	},
    	"POKESTOPS_METATITLE": {
     	"EN": "All Pokéstops in %s",
@@ -202,7 +202,7 @@
    	"POKESTOPS_METADESC": {
     	"EN": "Find your way around %s using our Pokéstops finder.",
     	"FR": "Trouvez votre chemin dans %s avec notre carte des Pokéstops",
-    	"ES": "Encuentra tu camino en %s usando nuestro buscadore de Poképaradas"
+    	"ES": "Encuentra tu camino en %s usando nuestro buscador de Poképaradas"
    	},
    	"POKESTOPS_INCITY": {
     	"EN": "in %s",
@@ -302,67 +302,67 @@
    	"MINUTE":{
 	   	"EN": "minute",
 	   	"FR": "minute",
-	   	"ES": ""
+	   	"ES": "minuto"
    	},
    	"MINUTES":{
 	   	"EN": "minutes",
 	   	"FR": "minutes",
-	   	"ES": ""
+	   	"ES": "minutos"
    	},
    	"HOUR":{
 	   	"EN": "hour",
 	   	"FR": "heure",
-	   	"ES": ""
+	   	"ES": "hora"
    	},
    	"HOURS":{
 	   	"EN": "hours",
 	   	"FR": "heures",
-	   	"ES": ""
+	   	"ES": "horas"
    	},
    	"DAY":{
 	   	"EN": "day",
 	   	"FR": "jour",
-	   	"ES": ""
+	   	"ES": "día"
    	},
    	"DAYS":{
 	   	"EN": "days",
 	   	"FR": "jours",
-	   	"ES": ""
+	   	"ES": "días"
    	},
    	"WEEK":{
 	   	"EN": "week",
 	   	"FR": "semaine",
-	   	"ES": ""
+	   	"ES": "semana"
    	},
    	"WEEKS":{
 	   	"EN": "weeks",
 	   	"FR": "semaines",
-	   	"ES": ""
+	   	"ES": "semanas"
    	},
    	"MONTH":{
 	   	"EN": "month",
 	   	"FR": "mois",
-	   	"ES": ""
+	   	"ES": "mes"
    	},
    	"MONTHS":{
 	   	"EN": "months",
 	   	"FR": "mois",
-	   	"ES": ""
+	   	"ES": "meses"
    	},
    	"YEAR":{
 	   	"EN": "year",
 	   	"FR": "an",
-	   	"ES": ""
+	   	"ES": "año"
    	},
    	"YEARS":{
 	   	"EN": "years",
 	   	"FR": "an",
-	   	"ES": ""
+	   	"ES": "años"
    	},
    	"NEVER":{
 	   	"EN": "We miss it",
 	   	"FR": "Jamais vu, désolé",
-	   	"ES": ""
+	   	"ES": "Nunca"
    	},
     "ERROR": {
       "EN": "Page <strong>not found</strong><br><small>There must have been some kind of mistake.</small>",
