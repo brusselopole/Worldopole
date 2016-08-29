@@ -138,8 +138,8 @@ switch($request){
 		
 			<div class="col-md-1 col-xs-4 wow " pokeid="'.$pokeid.'" style="display:none;">
 						
-				<a href="/pokemon/'.$pokeid.'"><img src="core/pokemons/'.$pokeid.'.png" class="img-responsive"></a>
-				<p class="pkmn-name"><a href="/pokemon/'.$pokeid.'">'.$pokemons->$pokeid->name.'</a></p>
+				<a href="pokemon/'.$pokeid.'"><img src="core/pokemons/'.$pokeid.'.png" class="img-responsive"></a>
+				<p class="pkmn-name"><a href="pokemon/'.$pokeid.'">'.$pokemons->$pokeid->name.'</a></p>
 			
 			</div>	
 				
@@ -309,7 +309,7 @@ switch($request){
 				<p>Gym owned by:</p>
 				<p style="font-weight:400;color:'.$color.'">'.$team.'</p>
 				<p>Protected by</p>
-				<a href="/pokemon/'.$data->guard_pokemon_id.'"><img src="'.$img.'" height="40" style="display:inline-block;margin-bottom:10px;"></a>
+				<a href="pokemon/'.$data->guard_pokemon_id.'"><img src="'.$img.'" height="40" style="display:inline-block;margin-bottom:10px;"></a>
 				<p>Level : '.substr($data->gym_points,0,1).' | Prestige : '.$data->gym_points.'</p>
 			</div>
 	
