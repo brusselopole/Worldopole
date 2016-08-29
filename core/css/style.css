@@ -130,7 +130,7 @@ Pokedex display
 }
 
 .pokemon-single a:hover img,  {
-    background-image: url('/core/img/blue-hover.png');
+    background-image: url('core/img/blue-hover.png');
     background-size: 100% 100%;
 }
 
