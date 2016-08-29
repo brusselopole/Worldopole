@@ -26,12 +26,11 @@ Look at **translations.json**
 All website string are there. 
 
 
-## Contribute 
+## Create new pages 
 
 If you want to dev. pages or new modules you can add pages to the pages/ directory. 
 Page name structure : [name].page.php 
 You can join the page by using ?page=[name] parameters in URL. 
-
 
 ## Structure 
 
@@ -55,7 +54,6 @@ You can join the page by using ?page=[name] parameters in URL.
 - pages/ 			: All website pages.
 
 
-
 ## Install 
 
 - Clone the repo on your webdirectory
@@ -67,6 +65,11 @@ Apache user must be able to read and write files on it.
 
 **YOU MUST KEEP "en" : true IN variables.json FILE.** 
 **You can add or remove others languague following other existing language example.** 
+
+
+## Contribute 
+
+[![Feature Requests](http://feathub.com/brusselopole/Worldopole?format=svg)](http://feathub.com/brusselopole/Worldopole)
 
 ## License
 
