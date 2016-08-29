@@ -115,7 +115,8 @@ if(isset($lang)){
 	 
 	 
 }else{
-	$lang = 'EN';
+	$lang 		= 'EN';
+	$pokedex 	= SYS_PATH.'/core/json/pokelist_EN.json';
 }
 
 
