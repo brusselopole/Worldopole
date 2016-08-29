@@ -69,7 +69,8 @@ Apache user must be able to read and write files on it.
 
 ## Contribute 
 
-[![Feature Requests](http://feathub.com/brusselopole/Worldopole?format=svg)](http://feathub.com/brusselopole/Worldopole)
+[Feature Requests](http://feathub.com/brusselopole/Worldopole)
+
 
 ## License
 
