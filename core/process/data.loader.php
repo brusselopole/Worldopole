@@ -94,10 +94,11 @@ if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])){
 
 // Search if language is available. 
  
-foreach($config->lang as $lang){
+foreach($config->lang as $id_lang => $lang){
 	
-	if($lang == $browser_lang){
-		$lang = strtoupper($lang); 
+		
+	if($id_lang == $browser_lang){
+		$lang = strtoupper($id_lang); 
 	}
 	
 }
@@ -105,11 +106,12 @@ foreach($config->lang as $lang){
 // If the language is available in variables just check if neeeded files exists.  
 if(isset($lang)){
 	 
-	 $pokedex = SYS_PATH.'/core/json/pokelist_'.$lang.'.json'; 
-	 
-	 if(!file_exists($pokedex)){
-		 $lang = 'EN';
-	 }
+	$pokedex = SYS_PATH.'/core/json/pokelist_'.$lang.'.json'; 
+	
+	// If there's no pokedex in languague we'll use the english one. 
+	if(!file_exists($pokedex)){
+		$pokedex = SYS_PATH.'/core/json/pokelist_EN.json'; 
+	}
 	 
 	 
 }else{
@@ -120,7 +122,7 @@ if(isset($lang)){
 // JSON files, based on language selection 
 ##########################################
 
-$pokemon_file 		= file_get_contents(SYS_PATH.'/core/json/pokelist_'.$lang.'.json'); 
+$pokemon_file 		= file_get_contents($pokedex); 
 $translation_file 	= file_get_contents(SYS_PATH.'/core/json/translations.json'); 
 
 
@@ -130,7 +132,7 @@ $translation_file 	= file_get_contents(SYS_PATH.'/core/json/translations.json');
 // ( for Brusselopole we use CRONTAB but as we're not sure that every had access to it we build this really simple false crontab system
 // => check filemtime, if > 24h launch an update. ) 
 
-$pokelist_filetime 	= filemtime(SYS_PATH.'/core/json/pokelist_'.$lang.'.json');
+$pokelist_filetime 	= filemtime($pokedex);
 $now				= time(); 
 $diff				= $now - $pokelist_filetime; 
 

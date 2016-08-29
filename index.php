@@ -225,7 +225,7 @@ include_once('core/process/data.loader.php');
 			var h = new holmes({
 				input: '.search input',
 				find: '.results .pokemon-single',
-				placeholder: '<h3>— No results, my dear Watson. —</h3>',
+				placeholder: '<h3>— No results, my dear Ash. —</h3>',
 				class: {
 					visible: 'visible',
 					hidden: 'hidden'
