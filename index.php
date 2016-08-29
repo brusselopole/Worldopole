@@ -130,7 +130,7 @@ include_once('core/process/data.loader.php');
 						<p><?= $locales->FOOTER_SUB->$lang ?></p>
 						<?= $locales->FOOTER_VISUAL_CONTENT->$lang ?>
 
-						<p class="text-center">Made in Brussels <a href="https://sprouttobebrussels.be/en" target="_blank" style="border-bottom:0px white solid;"><img src="core/img/sprout.svg" alt="Srpout to be Brussels" height="20"></a> | Based on <a href="https://github.com/brusselopole">Brusselopole</a></p>
+						<p class="text-center">Made in Brussels <a href="https://sprouttobebrussels.be/en" target="_blank" style="border-bottom:0px white solid;"><img src="core/img/sprout.svg" alt="Srpout to be Brussels" height="20"></a><br/>Based on <a href="https://github.com/brusselopole">Brusselopole</a> by <a href="http://56k.be/" target="_blank">56k</a> & <a href="http://vandereecken.me" target="_blank">Nithou</a></p>
 					</div>
 					
 		</div>
