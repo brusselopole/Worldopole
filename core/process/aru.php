@@ -302,7 +302,7 @@ switch($request){
 			
 			## I know, I revert commit 6e8d2e7 from @kiralydavid but the way it was done broke the page. 
 			
-			$img = '/core/pokemons/'.$data->guard_pokemon_id.'.png';
+			$img = 'core/pokemons/'.$data->guard_pokemon_id.'.png';
 			$html = '
 			
 			<div style="text-align:center">
