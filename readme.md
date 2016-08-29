@@ -65,7 +65,8 @@ You can join the page by using ?page=[name] parameters in URL.
 Check /core/json/ & /install/ folders rights 
 Apache user must be able to read and write files on it. 
 
-
+**YOU MUST KEEP "en" : true IN variables.json FILE.** 
+**You can add or remove others languague following other existing language example.** 
 
 ## License
 
