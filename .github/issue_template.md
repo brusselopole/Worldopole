@@ -6,6 +6,12 @@
 
 -->
 
+<!-- 
+
+Before submitting an issue, ensure that you're on the last version 
+
+-->
+
 <!--- Provide a general summary of the issue in the Title above -->
 
 ## Expected Behavior
