@@ -23,7 +23,9 @@
 		 "max_pokemon"		: 151
 	 },
 	 "lang":{
-		 "en"				: true
+		 "en"				: true,
+		 "fr"				: true,
+		 "es"				: true
 	 }
   
 }
