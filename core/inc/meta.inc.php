@@ -37,7 +37,7 @@
 
 	<meta property="og:url" content="<?= HOST_URL ?>/" />
 	<meta property="og:site_name" content="<?= $config->infos->site_name ?>" />
-	<meta property="og:image" content="<?= HOST_URL ?>/core/img/logo.jpg" />
+	<meta property="og:image" content="<?= HOST_URL ?>core/img/logo.jpg" />
 
 	<meta name="description" content="<?= sprintf($locales->METADESCRIPTION->$lang, $config->infos->city); ?>"/>
 
@@ -45,7 +45,7 @@
 	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:description" content="<?= sprintf($locales->METADESCRIPTION->$lang, $config->infos->city); ?>" />
 	<meta name="twitter:title" content="<?= $config->infos->site_name ?> | <?= $config->infos->site_title ?> " />
-	<meta name="twitter:image" content="<?= HOST_URL ?>/core/img/logo.jpg" />
+	<meta name="twitter:image" content="<?= HOST_URL ?>core/img/logo.jpg" />
 
 
 <?php }else{	
@@ -70,12 +70,12 @@
 		<meta property="og:description" content="<?= $locales->FIND->$lang ?> <?= $pokemon->name ?> <?= sprintf($locales->INCITY->$lang, $config->infos->city); ?>" />
 		<meta property="og:url" content="<?= HOST_URL ?>/pokemon/<?= $pokemon->id ?>" />
 		<meta property="og:site_name" content="<?= $config->infos->site_name ?>" />
-		<meta property="og:image" content="<?= HOST_URL ?>/core/pokemons/<?= $pokemon->id ?>.png" />
+		<meta property="og:image" content="<?= HOST_URL ?>core/pokemons/<?= $pokemon->id ?>.png" />
 		
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:description" content="<?= $locales->FIND->$lang ?> <?= $pokemon->name ?> <?= sprintf($locales->INCITY->$lang, $config->infos->city); ?>" />
 		<meta name="twitter:title" content="<?= $config->infos->site_name ?> | <?= $pokemon->name ?>" />
-		<meta name="twitter:image" content="<?= HOST_URL ?>/core/pokemons/<?= $pokemon->id ?>.png" />
+		<meta name="twitter:image" content="<?= HOST_URL ?>core/pokemons/<?= $pokemon->id ?>.png" />
 		
 		
 		<?php
@@ -96,12 +96,12 @@
 		<meta property="og:description" content="<?= sprintf($locales->POKESTOPS_METADESC->$lang, $config->infos->city); ?>" />
 		<meta property="og:url" content="<?= HOST_URL ?>/pokestops" />
 		<meta property="og:site_name" content="<?= $config->infos->site_name ?>" />
-		<meta property="og:image" content="<?= HOST_URL ?>/core/img/logo.jpg" />
+		<meta property="og:image" content="<?= HOST_URL ?>core/img/logo.jpg" />
 		
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:description" content="<?= sprintf($locales->POKESTOPS_METADESC->$lang, $config->infos->city); ?>" />
 		<meta name="twitter:title" content="<?= $config->infos->site_name ?> | <?= sprintf($locales->POKESTOPS_METATITLE->$lang, $config->infos->city); ?>" />
-		<meta name="twitter:image" content="<?= HOST_URL ?>/core/img/logo.jpg" />
+		<meta name="twitter:image" content="<?= HOST_URL ?>core/img/logo.jpg" />
 
 		
 		<?php
@@ -122,12 +122,12 @@
 		<meta property="og:description" content="<?= $locales->GYMS_METADESC->$lang ?>" />
 		<meta property="og:url" content="<?= HOST_URL ?>/gym" />
 		<meta property="og:site_name" content="<?= $config->infos->site_name ?>" />
-		<meta property="og:image" content="<?= HOST_URL ?>/core/img/logo.jpg" />
+		<meta property="og:image" content="<?= HOST_URL ?>core/img/logo.jpg" />
 		
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:description" content="<?= $locales->GYMS_METADESC->$lang ?>" />
 		<meta name="twitter:title" content="<?= $config->infos->site_name ?> | <?= $locales->GYMS_METATITLE->$lang ?>" />
-		<meta name="twitter:image" content="<?= HOST_URL ?>/core/img/logo.jpg" />
+		<meta name="twitter:image" content="<?= HOST_URL ?>core/img/logo.jpg" />
 
 		
 		<?php
@@ -147,12 +147,12 @@
 		<meta property="og:description" content="<?= $locales->POKEDEX_METADESC->$lang ?>" />
 		<meta property="og:url" content="<?= HOST_URL ?>/pokemon" />
 		<meta property="og:site_name" content="<?= $config->infos->site_name ?>" />
-		<meta property="og:image" content="<?= HOST_URL ?>/core/img/logo.jpg" />
+		<meta property="og:image" content="<?= HOST_URL ?>core/img/logo.jpg" />
 		
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:description" content="<?= $locales->POKEDEX_METADESC->$lang ?>" />
 		<meta name="twitter:title" content="<?= $config->infos->site_name ?> | <?= $locales->POKEDEX_METATITLE->$lang ?>" />
-		<meta name="twitter:image" content="<?= HOST_URL ?>/core/img/logo.jpg" />
+		<meta name="twitter:image" content="<?= HOST_URL ?>core/img/logo.jpg" />
 		
 		<?php
 		break;
