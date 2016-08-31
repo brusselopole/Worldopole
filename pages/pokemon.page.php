@@ -147,9 +147,9 @@
 
 <div class="row text-center" id="subnav">
 	<div class="btn-group" role="group">
-	  <a class="btn btn-default" href="#where" class="page-scroll"><i class="fa fa-map-marker"></i> <?= $locales->POKEMON_MAP->$lang ?></a>
-	  <a class="btn btn-default" href="#stats" class="page-scroll"><i class="fa fa-pie-chart"></i> <?= $locales->POKEMON_STATS->$lang ?></a>
-	 <a class="btn btn-default" href="#family" class="page-scroll"><i class="fa fa-share-alt"></i> <?= $locales->POKEMON_FAMILY->$lang ?></a>
+	  <a class="btn btn-default" href="<?= HOST_URL ?>#where" class="page-scroll"><i class="fa fa-map-marker"></i> <?= $locales->POKEMON_MAP->$lang ?></a>
+	  <a class="btn btn-default" href="<?= HOST_URL ?>#stats" class="page-scroll"><i class="fa fa-pie-chart"></i> <?= $locales->POKEMON_STATS->$lang ?></a>
+	 <a class="btn btn-default" href="<?= HOST_URL ?>#family" class="page-scroll"><i class="fa fa-share-alt"></i> <?= $locales->POKEMON_FAMILY->$lang ?></a>
 	</div>
 </div>
 
