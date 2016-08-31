@@ -364,10 +364,37 @@
 	   	"FR": "Jamais vu, désolé",
 	   	"ES": "Nunca"
    	},
-    "ERROR": {
-      "EN": "Page <strong>not found</strong><br><small>There must have been some kind of mistake.</small>",
-      "FR": "Page <strong>introuvable</strong><br/><small>Il y a du y avoir une erreur</small>",
-      "NL": "Pagina <strong>niet gevonden</strong><br/><small>&nsbp;</small>",
-      "ES": "Página <strong>no encontrada</strong><br/><small>&nsbp;</small>"
+    	"Q1": {
+      		"EN": "Question 1"
+    	},
+    	"Q2": {
+      		"EN": "Question 2"
+	},
+    	"Q3": {
+      		"EN": "Question 3"  
+	 },
+    	"Q4": {
+      		"EN": "Question 4"
+	 },
+    	"A1": {
+      		"EN": "Answer 1"
+	 },
+    	"A2": {
+      		"EN": "Answer 2"
+	 },
+    	"A3": {
+      		"EN": "Answer 3"  
+	 },
+    	"A4": {
+      		"EN": "Answer 4"
+	 },
+    	"QNA_Title": {
+      		"EN": "Frequently Asked <strong>Questions</strong>"
+    	},
+    	"ERROR": {
+      		"EN": "Page <strong>not found</strong><br><small>There must have been some kind of mistake.</small>",
+      		"FR": "Page <strong>introuvable</strong><br/><small>Il y a du y avoir une erreur</small>",
+      		"NL": "Pagina <strong>niet gevonden</strong><br/><small>&nsbp;</small>",
+      		"ES": "Página <strong>no encontrada</strong><br/><small>&nsbp;</small>"
     }
  }
