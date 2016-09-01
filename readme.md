@@ -56,7 +56,13 @@ You can join the page by using ?page=[name] parameters in URL.
 
 ## Install 
 
-- Clone the repo on your webdirectory
+- Clone the repo on your webdirectory or directly download it and upload it via FTP/sFTP
+- Edit config.php with you database details
+- Edit functions.php Line 13 if you want to change the language (Line 13)
+- Rename "htaccess" to ".htaccess"
+- In case you are under Ubuntu 14 or 16 with apache2 add this to "/etc/apache2/sites-available/yoursite"
+- http://pastebin.com/y1GSNvsc otherways SEO Friendly URLS might not work.
+- Edit "core/json/variables.json" to change Your site name,Description,City, GMaps API Key, Time interval and few other settings.
 - Go to the URL of your directory 
 
 # In case of problem 
