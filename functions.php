@@ -13,7 +13,7 @@
 function time_ago( $timestamp, $now = 0, $lang = 'EN' ) {
 	
 	$translations = json_decode(file_get_contents(SYS_PATH.'/core/json/translations.json'));
-	
+
 	
     // Set up our variables.
     $minute_in_seconds = 60;
@@ -29,9 +29,11 @@ function time_ago( $timestamp, $now = 0, $lang = 'EN' ) {
     }
     
     if ( $timestamp == 0 ) {
-        $time_ago = 'We miss it';
+        $time_ago = 'We haven\'t seen it yet.';
     }
     else{
+	    // Substract 15 minutes from timestamp
+	    $timestamp-=900;
 	    
 	    // Make sure the timestamp to check is in the past.
 	    if ( $timestamp > $now ) {
