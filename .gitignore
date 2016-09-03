@@ -15,3 +15,6 @@ config.php
 /core/json/variables.json
 .htaccess
 /install/done.lock
+/core/json/pokemon.stats.json
+/core/json/gym.stats.json
+/core/json/pokestop.stats.json
