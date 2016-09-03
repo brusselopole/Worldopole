@@ -24,7 +24,7 @@ function time_ago( $timestamp, $now = 0, $lang = 'EN' ) {
     $year_in_seconds   = $day_in_seconds * 365;
 
     // Get the current time if a reference point has not been provided.
-    if ( 0 === $now ) {
+    if ( $now == '0' ) {
         $now = time();
     }
     

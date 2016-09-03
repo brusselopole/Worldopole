@@ -19,7 +19,7 @@
 		 "zomm_level"		: "13",
 		 "time_inverval"	: "+2",
 		 "GMaps_Key"		: "",
-		 "timezone"			: "Paris/Europe",
+		 "timezone"			: "Europe/Paris",
 		 "max_pokemon"		: 151
 	 },
 	 "lang":{
