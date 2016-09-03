@@ -229,14 +229,18 @@ include_once('core/process/data.loader.php');
 			<script defer src="https://maps.googleapis.com/maps/api/js?key=<?= $config->system->GMaps_Key ?>&libraries=visualization&callback=initMap"></script> 		
 			<script src="core/js/pokemon.maps.js.php?id=<?= $pokemon_id ?>"></script>
 		    
-		    <?php break; 
+		    <?php ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+			    
+			break; 
 		    
 		    case 'pokestops': ?>
 		    
 		    <script defer src="https://maps.googleapis.com/maps/api/js?key=<?= $config->system->GMaps_Key ?>&libraries=visualization&callback=initMap"></script> 
 			<script src="core/js/pokestops.maps.js"></script>
 		    
-		    <?php break;
+		    <?php ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+			    
+			break;
 		    
 		    case 'gym': ?>
 		    
@@ -259,7 +263,9 @@ include_once('core/process/data.loader.php');
 					    	
 		    </script>
 		    
-			<?php break;
+			<?php ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+				
+			break;
 				
 			case 'pokedex': ?>
 			
@@ -283,7 +289,19 @@ include_once('core/process/data.loader.php');
 			</script>
 			
 			
-			<?php break;
+			<?php ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+				
+			break;
+			
+			case 'dashboard': ?>
+			
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.min.js"></script>
+			<script src="core/js/dashboard.graph.js.php"></script>	
+
+			
+			<?php ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+			
+			break; 
 		    
 	    }
 	}

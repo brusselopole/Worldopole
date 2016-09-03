@@ -483,6 +483,44 @@ if(!empty($page)){
 					
 		break;
 		
+		
+		case 'dashboard':
+		
+			// This case is only used for test purpose. 
+			
+			$stats_file	= SYS_PATH.'/core/json/gym.stats.json';
+
+			if(!is_file($stats_file)){
+				
+				echo "Sorry, no Gym stats file were found <br> Have you enable cron? ";
+				exit(); 
+				
+			}
+			
+			
+			$stats_file	= SYS_PATH.'/core/json/pokemon.stats.json';
+
+			if(!is_file($stats_file)){
+				
+				echo "Sorry, no Pokémon stats file were found  <br> Have you enable cron?";
+				exit(); 
+				
+			}
+			
+			
+			$stats_file	= SYS_PATH.'/core/json/pokestop.stats.json';
+
+			if(!is_file($stats_file)){
+				
+				echo "Sorry, no Pokéstop stats file were found  <br> Have you enable cron?";
+				exit(); 
+				
+			}
+
+			
+		
+		break;
+		
 	}
 	
 }
