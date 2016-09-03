@@ -542,7 +542,7 @@ else{
 	$req 		= "SELECT COUNT(*) as total FROM pokemon WHERE disappear_time > (NOW() ".$time->symbol_reverse." INTERVAL ".$time->delay." HOUR);";	
 	$result 	= $mysqli->query($req);
 	$data 		= $result->fetch_object();
-	
+
 	
 	$home->pokemon_now 	= $data->total;
 	 	
