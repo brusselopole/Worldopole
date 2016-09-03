@@ -81,16 +81,13 @@ include_once('core/process/data.loader.php');
 							
 							case 'link':
 							
-								
-							
-							
 							?>
 							
 							<li>
 								<a href="<?= $menu->href ?>" class="menu-label"><i class="fa <?= $menu->icon ?>" aria-hidden="true"></i> <?= $text ?></a>
 							</li>
 							
-							<?
+							<?php
 							
 							break;
 							
@@ -102,9 +99,20 @@ include_once('core/process/data.loader.php');
 								<a href="<?= $menu->href ?>" class="menu-label"><i class="fa <?= $menu->icon ?>" aria-hidden="true"></i> <?= $menu->text ?></a>
 							</li>
 							
-							<?
+							<?php
 							
 							break; 
+							
+							case 'html':
+							
+							?>
+							
+							<li> <?= $menu->value ?> </li>
+							
+							<?php
+								
+								break; 
+							
 							
 							
 						}
