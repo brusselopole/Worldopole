@@ -114,5 +114,15 @@ sed     -e "s/\"Worldopole\"/\"$SITE_NAME\"/" \
 cp -v htaccess .htaccess
 
 echo
-echo "Everything is set up. Catch 'Em All!"
 echo "For even more settings have a look at $BASEDIR/core/json/variables.examples.json"
+echo "Please make sure that your webserver user has read/write access to /core/json/ & /install/ folders"
+echo
+echo "Everything is set up. Catch 'Em All!"
+echo
+echo
+echo "Optional: If you want to enable Dashboard add the following to your crontab"
+echo '          Just copy it. Then paste it after executing "crontab -e" and save the file'
+echo "*/15 * * * * php $BASEDIR/core/cron/crontabs.include.php >/dev/null 2>&1"
+echo
+echo "Afterwards add the following to your $VARIABLES_JSON file inside the \"menu\" tag:"
+echo '{ "type" : "link", "href" : "dashboard", "text" : "Dashboard", "icon" : "fa-tachometer" }'
