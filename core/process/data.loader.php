@@ -345,6 +345,14 @@ if(!empty($page)){
 			$max 		= $config->system->max_pokemon; 
 			$pokedex 	= new stdClass();
 			
+			$req 		= "SELECT COUNT(*) as total,pokemon_id FROM pokemon GROUP by pokemon_id ";
+                        $result 	= $mysqli->query($req);
+	                $data_array = array();
+	                
+	                while($data = $result->fetch_object()){
+	                  $data_array[$data->pokemon_id] = $data->total;
+	                };
+	                
 			for( $i= 1 ; $i <= $max ; $i++ ){
 				
 				$pokedex->$i				= new stdClass();
@@ -352,12 +360,7 @@ if(!empty($page)){
 				$pokedex->$i->permalink 	= 'pokemon/'.$i; 
 				$pokedex->$i->img			= 'core/pokemons/'.$i.'.png'; 
 				$pokedex->$i->name			= $pokemons->$i->name; 
-				
-				$req 		= "SELECT COUNT(*) as total FROM pokemon WHERE pokemon_id = '".$i."'";
-				$result 	= $mysqli->query($req);
-				$data 		= $result->fetch_object();
-				
-				$pokedex->$i->spawn			= $data->total; 
+				$pokedex->$i->spawn = isset($data_array[$i])? $data_array[$i] : 0;
 							
 			}
 					
