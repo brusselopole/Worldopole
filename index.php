@@ -51,30 +51,70 @@ include_once('core/process/data.loader.php');
 			<div class="collapse navbar-collapse" id="menu">
 				
 				<ul class="nav navbar-nav navbar-right">
-					<!--
-					<li>
-						<a href="/pokestops" title="Brusselople LiveMap">
-							<i class="fa fa-play" aria-hidden="true"></i> LiveMap
-						</a>
-					</li>
-					-->
-					<li>
-						<a href="pokemon" title="<?= $config->infos->site_name ?> Pokédex" class="menu-label"><i class="fa fa-map-marker" aria-hidden="true"></i> <?= $locales->NAV_POKEDEX->$lang ?></a>
-					</li>
-					<li>
-						<a href="gym" title="Brusselopole Gyms" class="menu-label"><i class="fa fa-bolt" aria-hidden="true"></i> <?= $locales->GYMS->$lang ?></a>
-					</li>
-					<li>
-						<a href="pokestops" title="Brusselopole Pokéstops" class="menu-label"><i class="fa fa-medkit" aria-hidden="true"></i> Pokéstops</a>
-					</li>
-					<li>
-						<a href="<?= $config->urls->fb_url ?>" title="Join us on Facebook" target="_blank" class="menu-label"><i class="fa fa-facebook-square" aria-hidden="true"></i>
- Facebook</a>
-					</li>
-					<li>
-						<a href="<?= $config->urls->tw_url ?>" title="Join us on Twitter" target="_blank" class="menu-label"><i class="fa fa-twitter" aria-hidden="true"></i>
- Twitter</a>
-					</li>
+					
+					<?php
+					
+					
+					if(!isset($config->menu)){
+						
+						echo "Please update variables.json file with menu values";
+						exit(); 
+						
+					}
+					
+					
+					foreach($config->menu as $menu){
+						
+						if(isset($menu->locale)){
+						
+							$locale = $menu->locale; 
+							$text 	=  $locales->$locale->$lang;
+						
+						}else{
+						
+							$text 	= $menu->text; 
+						
+						}
+						
+						
+						switch($menu->type){
+							
+							case 'link':
+							
+								
+							
+							
+							?>
+							
+							<li>
+								<a href="<?= $menu->href ?>" class="menu-label"><i class="fa <?= $menu->icon ?>" aria-hidden="true"></i> <?= $text ?></a>
+							</li>
+							
+							<?
+							
+							break;
+							
+							case 'link_external':
+							
+							?>
+							
+							<li>
+								<a href="<?= $menu->href ?>" class="menu-label"><i class="fa <?= $menu->icon ?>" aria-hidden="true"></i> <?= $menu->text ?></a>
+							</li>
+							
+							<?
+							
+							break; 
+							
+							
+						}
+						
+						
+						
+					}
+						
+					?>
+					
 				</ul>
 				
 			</div><!-- /.navbar-collapse -->

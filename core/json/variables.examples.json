@@ -26,6 +26,39 @@
 		 "en"				: true,
 		 "fr"				: true,
 		 "es"				: true
-	 }
+	 },
+	 "menu":[
+		 {
+			 "type"			: "link",
+			 "href"			: "pokemon",
+			 "locale"		: "NAV_POKEDEX",
+			 "icon"			: "fa-map-marker"
+		 },
+		 {
+			 "type"			: "link",
+			 "href"			: "gym",
+			 "locale"		: "GYMS",
+			 "icon"			: "fa-bolt"
+		 },
+		 {
+			 "type"			: "link",
+			 "href"			: "pokestops",
+			 "locale"		: "POKESTOPS",
+			 "icon"			: "fa-medkit"
+		 },
+		 {
+			 "type"			: "link_external",
+			 "href"			: "https://www.facebook.com/brusselopole/",
+			 "text"			: "Facebook",
+			 "icon"			: "fa-facebook-square"
+		 },
+		 {
+			 "type"			: "link_external",
+			 "href"			: "https://twitter.com/brusselopole",
+			 "text"			: "Twitter",
+			 "icon"			: "fa-twitter"
+		 }
+		 
+	 ]
   
 }

@@ -15,8 +15,6 @@ date_default_timezone_set($config->system->timezone);
 // Manage Time Interval
 // #####################
 
-
-
 $time_interval  = strlen($config->system->time_inverval); 
 
 if($time_interval > 3){

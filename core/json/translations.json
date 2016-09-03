@@ -189,6 +189,11 @@
     	"FR": "Top 3 des <strong>gardiens</strong><br/>favoris",
     	"ES": "Top 3 <strong>defensores</strong><br/>favoritos"
    	},
+   	"POKESTOPS":{
+	   	"EN": "Pokéstops",
+    	"FR": "Pokéstops",
+    	"ES": "Poképaradas"
+   	},
    	"POKESTOPS_TITLE": {
     	"EN": "Where to <strong>Pokéstop</strong> and fill your bag in <strong>%s</strong><br><small>There's always a <strong>Pokéstop</strong> near you.</small>",
     	"FR": "Où faire un <strong>Pokéstop</strong> et remplir votre sac à <strong>%s</strong><br><small>Il ya toujours un <strong>Pokéstop</strong> près de vous.</small>",
