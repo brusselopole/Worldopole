@@ -115,7 +115,7 @@ sed     -e "s/\"Worldopole\"/\"$SITE_NAME\"/" \
 cp -v htaccess .htaccess
 
 echo
-echo "For even more settings have a look at $BASEDIR/core/json/variables.examples.json"
+echo "For even more settings have a look at $BASEDIR/$VARIABLES_JSON"
 echo "Please make sure that your webserver user has read/write access to /core/json/ & /install/ folders"
 echo
 echo "Everything is set up. Catch 'Em All!"
