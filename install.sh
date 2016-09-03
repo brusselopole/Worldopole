@@ -9,7 +9,7 @@ cd "$BASEDIR"
 # Set some defaults
 # config.php
 readonly CONFIG_PHP_EX="config.example.php"
-readonly CONFIG_PHP="config.php2"
+readonly CONFIG_PHP="config.php"
 SYS_DB_NAME=""
 SYS_DB_USER=""
 SYS_DB_PSWD=""
@@ -17,7 +17,7 @@ SYS_DB_HOST="localhost"
 SYS_DB_PORT="3306"
 # variables.json
 readonly VARIABLES_JSON_EX="core/json/variables.examples.json"
-readonly VARIABLES_JSON="core/json/variables.json2"
+readonly VARIABLES_JSON="core/json/variables.json"
 SITE_NAME="Worldopole"
 CITY="Weuuurld"
 MAP_CENTER_LAT="50.844441"
