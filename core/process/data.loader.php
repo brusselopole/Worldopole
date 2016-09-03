@@ -265,7 +265,10 @@ if(!empty($page)){
 			
 			if($pokemon->total_spawn > 0){
 			
-				$req 		= "SELECT COUNT(*) as total, (disappear_time ".$time->symbol." INTERVAL ".$time->delay." HOUR) as disappear_time  FROM pokemon WHERE pokemon_id = '".$pokemon_id."' GROUP BY DAY(disappear_time ".$time->symbol." INTERVAL ".$time->delay." HOUR)";
+				$req 		= "SELECT COUNT(*) as total, DATE(disappear_time ".$time->symbol." INTERVAL ".$time->delay." HOUR) as disappear_time
+				FROM pokemon WHERE pokemon_id = '".$pokemon_id."' 
+				GROUP BY DATE(disappear_time ".$time->symbol." INTERVAL ".$time->delay." HOUR) ";
+				
 				$result 	= $mysqli->query($req);
 				
 				$pokemon->total_days 	= $result->num_rows;
@@ -280,7 +283,12 @@ if(!empty($page)){
 						
 			// Last seen 
 			
-			$req 		= "SELECT (disappear_time ".$time->symbol." INTERVAL ".$time->delay." HOUR) as disappear_time, latitude, longitude FROM pokemon WHERE pokemon_id = '".$pokemon_id."' AND disappear_time < (NOW() ".$time->symbol_reverse." INTERVAL ".$time->delay." HOUR) ORDER BY disappear_time DESC LIMIT 0,1";
+			$req 		= "SELECT (disappear_time ".$time->symbol." INTERVAL ".$time->delay." HOUR) as disappear_time, latitude, longitude 
+			FROM pokemon 
+			WHERE pokemon_id = '".$pokemon_id."' 
+			AND disappear_time < (NOW() ".$time->symbol_reverse." INTERVAL ".$time->delay." HOUR) 
+			ORDER BY disappear_time DESC 
+			LIMIT 0,1";
 			$result 	= $mysqli->query($req);
 			$data 		= $result->fetch_object();
 						
