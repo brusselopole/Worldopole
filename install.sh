@@ -101,13 +101,14 @@ sed 	-e "s/#SYS_DB_NAME#/$SYS_DB_NAME/" \
 "$CONFIG_PHP_EX" > "$CONFIG_PHP"
 
 # We have to escape the / from timezone
+TIMEZONE=$(echo "$TIMEZONE" | sed 's/\//\\\//g')
 echo "Writing $VARIABLES_JSON ..."
 sed     -e "s/\"Worldopole\"/\"$SITE_NAME\"/" \
         -e "s/\"Weuuurld\"/\"$CITY\"/" \
         -e "s/\"50.844441\"/\"$MAP_CENTER_LAT\"/" \
         -e "s/\"4.363557\"/\"$MAP_CENTER_LONG\"/" \
         -e "s/\"+2\"/\"$TIME_INTERVAL\"/" \
-	-e "s/\"Europe\/Paris\"/\"${TIMEZONE/\//\/}\"/" \
+	-e "s/\"Europe\/Paris\"/\"$TIMEZONE\"/" \
 "$VARIABLES_JSON_EX" > "$VARIABLES_JSON"
 
 # Rename htaccess
