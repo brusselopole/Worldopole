@@ -25,7 +25,8 @@ if($time_interval > 3){
 
 $time			= new stdClass();
 $time->symbol 	= substr($config->system->time_inverval, 0,1);
-$time->delay 	= substr($config->system->time_inverval, 1,1);
+$time_delay 	= str_replace($time->symbol, '', $config->system->time_inverval); 
+$time->delay 	= $time_delay;
 
 if($time->symbol == '+'){
 	$time->symbol_reverse = '-';
