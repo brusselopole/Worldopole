@@ -4,24 +4,30 @@
  * @file
  * A single location to store configuration.
  */
- 
- 
+
 
 # EDIT ME PLEASE 
 
-define('SYS_DB_NAME'			,'');															// mysql db name
-define('SYS_DB_USER'			,'');															// mysql username
-define('SYS_DB_PSWD'			,'');														// mysql password
-define('SYS_DB_HOST'			,'');														// mysql server name
-define('SYS_DB_PORT'			,3306);																	// mysql server port														// Time diff between u and GMT Time (eg: Brussels is + 2 HOURS from GMT) 	
+// mysql db name
+define('SYS_DB_NAME'		,'#SYS_DB_NAME#');
+// mysql username
+define('SYS_DB_USER'		,'#SYS_DB_USER#');
+// mysql password
+define('SYS_DB_PSWD'		,'#SYS_DB_PSWD#');
+// mysql server name
+define('SYS_DB_HOST'		,'#SYS_DB_HOST#');
+// mysql server port
+define('SYS_DB_PORT'		,3306);
 
 
 # Please, do not touch me, I'm fine ;) 
 
-define('SYS_PATH'				,realpath(dirname(__FILE__)));											// full path
-define('SYS_USESS_VAR'			,'usrSessVal');															// user session variable name
-define('SYS_DEVELOPMENT_MODE'	, false);																// debug mode 
-
+// full path
+define('SYS_PATH'		,realpath(dirname(__FILE__)));
+// user session variable name
+define('SYS_USESS_VAR'		,'usrSessVal');
+// debug mode
+define('SYS_DEVELOPMENT_MODE'	,false);
 
 
 if(directory() != ''){
@@ -44,13 +50,7 @@ if(isset($_SERVER['REQUEST_SCHEME'])){
 	
 }
 
-
-
-
-
-
 ## Subdirectory trick 
-
 function directory(){
     $root = $_SERVER['DOCUMENT_ROOT'];
     $filePath = dirname(__FILE__);
@@ -71,7 +71,5 @@ function directory(){
     }
 
 }
-
-
 
 ?>
