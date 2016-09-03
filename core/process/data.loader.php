@@ -279,7 +279,7 @@ if(!empty($page)){
 						
 			// Last seen 
 			
-			$req 		= "SELECT (disappear_time ".$time->symbol." INTERVAL ".$time->delay." HOUR) as disappear_time, latitude, longitude FROM pokemon WHERE pokemon_id = '".$pokemon_id."' AND disappear_time < (NOW() ".$time->symbol_reverse." INTERVAL ".$time->delay." HOUR) ORDER BY disappear_time DESC LIMIT 0,1";
+			$req 		= "SELECT (disappear_time ".$time->symbol." INTERVAL ".$time->delay." HOUR) as disappear_time, latitude, longitude FROM pokemon WHERE pokemon_id = '".$pokemon_id."' ORDER BY disappear_time DESC LIMIT 0,1";
 			$result 	= $mysqli->query($req);
 			$data 		= $result->fetch_object();
 						
