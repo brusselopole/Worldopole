@@ -27,8 +27,8 @@ $config 	= json_decode(file_get_contents($variables));
 // #####################
 
 $time			= new stdClass();
-$time->symbol 	= substr($config->system->time_inverval, 0,1);
-$time->delay 	= substr($config->system->time_inverval, 1,1);
+$time->symbol 	= substr($config->system->time_interval, 0,1);
+$time->delay 	= substr($config->system->time_interval, 1,1);
 
 if($time->symbol == '+'){
 	$time->symbol_reverse = '-';

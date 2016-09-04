@@ -15,7 +15,7 @@ date_default_timezone_set($config->system->timezone);
 // Manage Time Interval
 // #####################
 
-$time_interval  = strlen($config->system->time_inverval); 
+$time_interval  = strlen($config->system->time_interval); 
 
 if($time_interval > 3){
 	echo 'Bad formated time_interval in variables.json. Please use +X or -X format only (eg for Brussels : +2) without leading or ending space.';
@@ -24,8 +24,8 @@ if($time_interval > 3){
 
 
 $time			= new stdClass();
-$time->symbol 	= substr($config->system->time_inverval, 0,1);
-$time_delay 	= str_replace($time->symbol, '', $config->system->time_inverval); 
+$time->symbol 	= substr($config->system->time_interval, 0,1);
+$time_delay 	= str_replace($time->symbol, '', $config->system->time_interval); 
 $time->delay 	= $time_delay;
 
 if($time->symbol == '+'){

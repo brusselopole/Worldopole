@@ -29,8 +29,8 @@ $config 	= json_decode(file_get_contents($variables));
 // #####################
 
 $time			= new stdClass();
-$time->symbol 	= substr($config->system->time_inverval, 0,1);
-$time_delay 	= str_replace($time->symbol, '', $config->system->time_inverval); 
+$time->symbol 	= substr($config->system->time_interval, 0,1);
+$time_delay 	= str_replace($time->symbol, '', $config->system->time_interval); 
 $time->delay 	= $time_delay;
 
 
