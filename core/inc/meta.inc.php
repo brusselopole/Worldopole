@@ -138,7 +138,7 @@
 		<title><?= $config->infos->site_name ?> | <?= $locales->NAV_DASHBOARD->$lang ?></title>
 		
 		<link rel="canonical" href="<?= HOST_URL ?>/dashboard" />
-
+		<base href="<?= HOST_URL ?>">
 
 		<meta property="og:locale" content="en_US" />
 		<meta property="og:type" content="website" />
