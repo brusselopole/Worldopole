@@ -108,6 +108,7 @@ sed     -e "s/\"Worldopole\"/\"$SITE_NAME\"/" \
         -e "s/\"50.844441\"/\"$MAP_CENTER_LAT\"/" \
         -e "s/\"4.363557\"/\"$MAP_CENTER_LONG\"/" \
         -e "s/\"+2\"/\"$TIME_INTERVAL\"/" \
+	-e "s/#GMAPS_KEY#/$GMAPS_KEY/" \
 	-e "s/\"Europe\/Paris\"/\"$TIMEZONE\"/" \
 "$VARIABLES_JSON_EX" > "$VARIABLES_JSON"
 
