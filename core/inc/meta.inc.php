@@ -142,15 +142,15 @@
 
 		<meta property="og:locale" content="en_US" />
 		<meta property="og:type" content="website" />
-		<meta property="og:title" content="<?= $locales->TITLESIMPLE->$lang ?> | <?= $locales->NAV_DASHBOARD->$lang ?>" />
+		<meta property="og:title" content="<?= $config->infos->site_name ?> | <?= $locales->NAV_DASHBOARD->$lang ?>" />
 		<meta property="og:description" content="Data lover? We've got plenty for you!" />
 		<meta property="og:url" content="<?= HOST_URL ?>/devlog" />
-		<meta property="og:site_name" content="<?= $locales->TITLESIMPLE->$lang ?>" />
+		<meta property="og:site_name" content="<?= $config->infos->site_name ?>" />
 		<meta property="og:image" content="<?= HOST_URL ?>core/img/logo.jpg" />
 		
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:description" content="Data lover? We've got plenty for you!" />
-		<meta name="twitter:title" content="<?= $locales->TITLESIMPLE->$lang ?> | <?= $locales->NAV_DASHBOARD->$lang ?>" />
+		<meta name="twitter:title" content="<?= $config->infos->site_name ?> | <?= $locales->NAV_DASHBOARD->$lang ?>" />
 		<meta name="twitter:image" content="<?= HOST_URL ?>core/img/logo.jpg" />
 
 
