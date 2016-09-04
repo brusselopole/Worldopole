@@ -169,6 +169,10 @@
     	"FR": "Suivez la conquête",
     	"ES": "Sigue la conquista"
    	},
+   	"NAV_DASHBOARD": {
+    	"EN": "Dashboard",
+    	"FR": "Tableau de bord"
+   	},
    	"GYMS_METADESC": {
     	"EN": "Valor, Mystic or Instinct? Who will win the fight?",
     	"FR": "Bravoure, Sagesse ou Intuition ? Qui dominera ?",
