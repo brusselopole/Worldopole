@@ -135,7 +135,7 @@
 		case 'dashboard':
 		?>
 		
-		<title><?= $locales->TITLESIMPLE->$lang ?> - <?= $locales->NAV_DASHBOARD->$lang ?></title>
+		<title><?= $config->infos->site_name ?> | <?= $locales->NAV_DASHBOARD->$lang ?></title>
 		
 		<link rel="canonical" href="<?= HOST_URL ?>/dashboard" />
 
