@@ -390,7 +390,7 @@ var data_av = {
             spanGaps: false,
         }, 
         {
-            label: "Prestige Average",
+            label: "Instinct Prestige Average",
             fill: false,
             lineTension: 0.1,
             backgroundColor: "rgba(248,153,0,0.4)",
