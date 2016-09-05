@@ -7,6 +7,12 @@ $variables 	= realpath(dirname(__FILE__)).'/../json/variables.json';
 $config 	= json_decode(file_get_contents($variables)); 
 
 
+if(!isset($config->system)){
+	echo 'Could not load variables.';
+	exit(); 
+}
+
+
 // Set default timezone
 // #####################
 date_default_timezone_set($config->system->timezone);
