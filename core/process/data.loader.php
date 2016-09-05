@@ -526,8 +526,8 @@ if(!empty($page)){
 				
 			}
 
-
-
+			
+		
 		break;
 		
 	}
