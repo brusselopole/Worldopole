@@ -24,7 +24,6 @@ $trainer_lvl = [];
 # For all 3 teams
 for ($teamid = 1; $teamid <= 3; $teamid++) {
 	$req    = "SELECT level, count(level) AS count FROM trainer WHERE team = '".$teamid."' GROUP BY level";
-	
 	if ($result = $mysqli->query($req)) {
 		# build level=>count array
 		$data = [];
@@ -73,21 +72,21 @@ if (!$trainer_lvl) { ?>
 		    backgroundColor: "rgba(59,129,255,0.6)",
 		    borderColor: "rgba(59,129,255,1)",
 	            borderWidth: 1,
-                    data: [<?= implode(',', $trainer_lvl[1] )?>],
+	            data: [<?php if (isset($trainer_lvl[1])) { echo implode(',', $trainer_lvl[1]); } ?>],
 		},
 		{
 		    label: "Valor trainer level count",
 		    backgroundColor: "rgba(247,10,20,0.6)",
 		    borderColor: "rgba(247,10,20,1)",
 	            borderWidth: 1,
-		    data: [<?= implode(',', $trainer_lvl[2] )?>],
+		    data: [<?php  if (isset($trainer_lvl[2])) { echo implode(',', $trainer_lvl[2]); } ?>],
 		},
 		{
 		    label: "Instinct trainer level count",
 		    backgroundColor: "rgba(248,153,0,0.6)",
 		    borderColor: "rgba(248,153,0,1)",
 	            borderWidth: 1,
-		    data: [<?= implode(',', $trainer_lvl[3] )?>],
+		    data: [<?php if (isset($trainer_lvl[3])) { echo implode(',', $trainer_lvl[3]); } ?>],
 		}
 	    ]
 	};
