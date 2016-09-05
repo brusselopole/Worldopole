@@ -31,16 +31,19 @@ for ($teamid = 1; $teamid <= 3; $teamid++) {
 		while ($row = $result->fetch_assoc()) {
 			$data[$row["level"]] = $row["count"];
 		}
-
-		# fill empty levels counts with 0
-		for ($i = 5; $i <= 40; $i++) {
-			if (!isset($data[$i])) {
-				$data[$i]=0;
+		
+		# only if data isn't empty
+		if ($data) {
+			# fill empty levels counts with 0
+			for ($i = 5; $i <= 40; $i++) {
+				if (!isset($data[$i])) {
+					$data[$i]=0;
+				}
 			}
+			# sort array again
+			ksort($data);
+			$trainer_lvl[$teamid] = $data;
 		}
-		# sort array again
-		ksort($data);
-		$trainer_lvl[$teamid] = $data;
 		
 		$result->free();
 	}
