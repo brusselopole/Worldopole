@@ -56,11 +56,24 @@
 			
 		</div>
 	</div>
-		
+
 	<?php } }?>
 
 
 </div>
+
+<!-- Hidden by gym.graph.js.php if result is empty -->
+<div class="row area" id="trainer_lvl_graph">
+	<div class="col-md-12 text-center">
+		<h2 class="sub-title">Trainer <strong>level</strong> distribution</h2>
+	</div>
+
+	<div class="col-md-12">
+		<h4>Trainer level distribution <small>per team</small></h4>
+		<canvas id="trainer_lvl" width="100%" height="25"></canvas>
+	</div>
+</div>
+
 
 <div class="row hidden-xs hiddem-sm area">
 	<div class="col-md-4">

@@ -243,8 +243,11 @@ include_once('core/process/data.loader.php');
 			break;
 		    
 		    case 'gym': ?>
-		    
-		    <script defer src="https://maps.googleapis.com/maps/api/js?key=<?= $config->system->GMaps_Key ?>&libraries=visualization&callback=initMap"></script> 
+
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.min.js"></script>
+			<script src="core/js/gym.graph.js.php"></script>
+
+			<script defer src="https://maps.googleapis.com/maps/api/js?key=<?= $config->system->GMaps_Key ?>&libraries=visualization&callback=initMap"></script> 
 			<script src="core/js/gym.maps.js"></script>
 			
 			<script src="core/js/gym.script.js"></script>
