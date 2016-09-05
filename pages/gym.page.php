@@ -73,7 +73,8 @@
 	</div>
 </div>
 
-
+<!-- auto hide buttons if no url is set in variables.json -->
+<?php if ($config->urls->fb_mystic or $config->urls->fb_valor or $config->urls->fb_instinct) { ?>
 <div class="row hidden-xs hiddem-sm area">
 	<div class="col-md-4">
 		<p align="center"><a href="<?= $config->urls->fb_mystic ?>" target="_blank" class="btn btn-default"><i class="fa fa-facebook"></i> <?= $locales->TEAM->$lang ?> <?= $locales->MYSTIC->$lang ?></a></p>
@@ -87,7 +88,7 @@
 		<p align="center"><a href="<?= $config->urls->fb_instinct ?>" target="_blank" class="btn btn-default"><i class="fa fa-facebook"></i> <?= $locales->TEAM->$lang ?> <?= $locales->INSTINCT->$lang ?></a></p>
 	</div>
 </div>
-
+<?php } ?>
 
 <div class="row area">
 	
