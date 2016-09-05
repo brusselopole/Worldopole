@@ -111,7 +111,7 @@
 		</div>
 
 
-		<div class="row area">
+		<div class="row area" id="trainer_lvl_graph">
 			
 			<div class="col-md-12">
 				<h2 class="sub-title"><strong>Trainer level</strong> distribution</h2>
