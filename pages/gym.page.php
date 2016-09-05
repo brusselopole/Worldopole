@@ -69,7 +69,6 @@
 	</div>
 
 	<div class="col-md-12">
-		<h4>Trainer level distribution <small>per team</small></h4>
 		<canvas id="trainer_lvl" width="100%" height="25"></canvas>
 	</div>
 </div>
