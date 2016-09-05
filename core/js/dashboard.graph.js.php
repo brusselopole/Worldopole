@@ -90,16 +90,25 @@ foreach($stats as $data){
 		
 		$mystic_average[] 		= $data->team->mystic->average;
 		$mystic_owned[]			= $data->team->mystic->gym_owned;
-		
+		$mystic_trainer_lvl[]		= $data->team->mystic->trainer_lvl;
+
 		$valor_average[] 		= $data->team->valor->average;
 		$valor_owned[]			= $data->team->valor->gym_owned;
+		$valor_trainer_lvl[]		= $data->team->valor->trainer_lvl;
 		
-		$instinct_average[] 	= $data->team->instinct->average;
+		$instinct_average[]		= $data->team->instinct->average;
 		$instinct_owned[]		= $data->team->instinct->gym_owned;
+		$instinct_trainer_lvl[]		= $data->team->instinct->trainer_lvl;
 	
 	}
 		
 }
+
+// trainer levels
+// TODO load this data
+$mystic_trainer_lvl[]           = $teams->team->mystic->trainer_lvl;
+$valor_trainer_lvl[]            = $teams->team->valor->trainer_lvl;
+$instinct_trainer_lvl[]         = $teams->team->instinct->trainer_lvl;
 
 
 $stats_file	= SYS_PATH.'/core/json/pokestop.stats.json';
@@ -343,7 +352,7 @@ var myLineChart = new Chart(ctx_myth, {
 var team_av = $("#team_av");
 
 var data_av = {
-    labels: [<?= implode(',', $labels_gym) ?>],
+    labels: [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40],
     datasets: [
         {
             label: "Mystic Prestige Average",
@@ -390,7 +399,7 @@ var data_av = {
             spanGaps: false,
         }, 
         {
-            label: "Prestige Average",
+            label: "Instinct Prestige Average",
             fill: false,
             lineTension: 0.1,
             backgroundColor: "rgba(248,153,0,0.4)",
@@ -409,7 +418,7 @@ var data_av = {
             pointRadius: 1,
             pointHitRadius: 10,
             data: [<?= implode(',', $instinct_average )?>],
-            spanGaps: false,
+             spanGaps: false,
         }
     ]
 };
@@ -551,5 +560,90 @@ var data_lure = {
 var myLineChart = new Chart(ctx_lure, {
     type: 'line',
     data: data_lure, 
+    options : options
+});
+
+
+
+// Trainer level
+// -------------
+
+var trainer_lvl = $("#trainer_lvl");
+
+var data_trainer_lvl = {
+    labels: [5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40],
+    datasets: [
+        {
+            label: "Mystic Trainer Level",
+            fill: false,
+            lineTension: 0.1,
+            backgroundColor: "rgba(59,129,255,0.4)",
+            borderColor: "rgba(59,129,255,1)",
+            borderCapStyle: 'butt',
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: 'miter',
+            pointBorderColor: "rgba(59,129,255,1)",
+            pointBackgroundColor: "#fff",
+            pointBorderWidth: 1,
+            pointHoverRadius: 5,
+            pointHoverBackgroundColor: "rgba(59,129,255,1)",
+            pointHoverBorderColor: "rgba(59,129,255,1)",
+            pointHoverBorderWidth: 2,
+            pointRadius: 1,
+            pointHitRadius: 10,
+            data: [<?= implode(',', $mystic_trainer_lvl )?>],
+            spanGaps: false,
+        },
+        {
+            label: "Valor Trainer Level",
+            fill: false,
+            lineTension: 0.1,
+            backgroundColor: "rgba(247,10,20,0.4)",
+            borderColor: "rgba(247,10,20,1)",
+            borderCapStyle: 'butt',
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: 'miter',
+            pointBorderColor: "rgba(247,10,20,1)",
+            pointBackgroundColor: "#fff",
+            pointBorderWidth: 1,
+            pointHoverRadius: 5,
+            pointHoverBackgroundColor: "rgba(247,10,20,1)",
+            pointHoverBorderColor: "rgba(247,10,20,1)",
+            pointHoverBorderWidth: 2,
+            pointRadius: 1,
+            pointHitRadius: 10,
+            data: [<?= implode(',', $valor_trainer_lvl )?>],
+            spanGaps: false,
+        },
+        {
+            label: "Instinct Trainer Level",
+            fill: false,
+            lineTension: 0.1,
+            backgroundColor: "rgba(248,153,0,0.4)",
+            borderColor: "rgba(248,153,0,1)",
+            borderCapStyle: 'butt',
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: 'miter',
+            pointBorderColor: "rgba(248,153,0,1)",
+            pointBackgroundColor: "#fff",
+            pointBorderWidth: 1,
+            pointHoverRadius: 5,
+            pointHoverBackgroundColor: "rgba(248,153,0,1)",
+            pointHoverBorderColor: "rgba(248,153,0,1)",
+            pointHoverBorderWidth: 2,
+            pointRadius: 1,
+            pointHitRadius: 10,
+            data: [<?= implode(',', $instinct_trainer_lvl )?>],
+            spanGaps: false,
+        }
+    ]
+};
+
+var myLineChart = new Chart(trainer_lvl, {
+    type: 'bar',
+    data: data_trainer_lvl,
     options : options
 });

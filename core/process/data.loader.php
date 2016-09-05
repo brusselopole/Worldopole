@@ -526,8 +526,30 @@ if(!empty($page)){
 				
 			}
 
-			
-		
+			// 3 Teams
+                        $teams				= new stdClass();
+
+			$teams->mystic			= new stdClass();
+			$teams->mystic->id		= 1;
+	
+			$teams->valor			= new stdClass();
+			$teams->valor->id		= 2;
+
+			$teams->instinct		= new stdClass();
+			$teams->instinct->id		= 3;
+
+			foreach($teams as $team_key => $team_values){
+				$req    = "SELECT level, count(level) AS count FROM trainer WHERE team = '".$team_values->id."' GROUP BY level";
+				$result = $mysqli->query($req);
+				
+				$data = array();
+				while ( $row = $result->fetch_assoc() ) {
+					$data[] = $row['count'];
+				}
+				//print_r($data);
+				
+				$teams->$team_key->trainer_lvl = $data;
+			}
 		break;
 		
 	}

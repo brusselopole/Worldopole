@@ -110,6 +110,21 @@
 		
 		</div>
 
+
+		<div class="row area">
+			
+			<div class="col-md-12">
+				<h2 class="sub-title"><strong>Trainer level</strong> distribution</h2>
+			</div>
+		
+			<div class="col-md-12">
+			
+				<h4>Trainer level distribution per team <small>right now</small></h4>
+
+				<canvas id="trainer_lvl" width="100%" height="25"></canvas>
+			</div>
+		</div>
+
 	
 	</div>
 
