@@ -110,7 +110,7 @@
 		
 		</div>
 
-
+		<!-- Hidden by dashboard.graph.js.php if result is empty -->
 		<div class="row area" id="trainer_lvl_graph">
 			
 			<div class="col-md-12">

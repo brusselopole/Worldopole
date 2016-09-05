@@ -373,7 +373,7 @@ var myLineChart = new Chart(ctx_myth, {
 var team_av = $("#team_av");
 
 var data_av = {
-    labels: [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40],
+    labels: [<?= implode(',', $labels_gym) ?>],
     datasets: [
         {
             label: "Mystic Prestige Average",
@@ -439,7 +439,7 @@ var data_av = {
             pointRadius: 1,
             pointHitRadius: 10,
             data: [<?= implode(',', $instinct_average )?>],
-             spanGaps: false,
+            spanGaps: false,
         }
     ]
 };
