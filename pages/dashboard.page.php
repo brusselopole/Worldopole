@@ -22,7 +22,7 @@
 		
 			<div class="col-md-12">
 			
-				<h4><?= $locales->DASHBOARD_SPAWN_TOTAL->$lang ?> <small>Last 7days</small></h4>
+				<h4><?= $locales->DASHBOARD_SPAWN_TOTAL->$lang ?> <small><?= $locales->DASHBOARD_LAST7DAYS->$lang ?></small></h4>
 			
 				<canvas id="total_spawn" width="100%" height="25"></canvas>
 			
@@ -30,7 +30,7 @@
 			
 			<div class="col-md-3">
 				
-				<h4>Very Common <small>Last 24h</small></h4>
+				<h4>Very Common <small><?= $locales->DASHBOARD_LAST7DAYS->$lang ?></small></h4>
 				
 				<canvas id="very_common" width="100%" height="50"></canvas>
 			
@@ -38,7 +38,7 @@
 			
 			<div class="col-md-3">
 				
-				<h4>Common <small>Last 24h</small></h4>
+				<h4>Common <small><?= $locales->DASHBOARD_LAST7DAYS->$lang ?></small></h4>
 				
 				<canvas id="common" width="100%" height="50"></canvas>
 			
@@ -46,7 +46,7 @@
 			
 			<div class="col-md-3">
 				
-				<h4>Rare <small>Last 24h</small></h4>
+				<h4>Rare <small><?= $locales->DASHBOARD_LAST7DAYS->$lang ?></small></h4>
 				
 				<canvas id="rare" width="100%" height="50"></canvas>
 			
@@ -54,7 +54,7 @@
 			
 			<div class="col-md-3">
 				
-				<h4>Mythic <small>Last 24h</small></h4>
+				<h4>Mythic <small><?= $locales->DASHBOARD_LAST7DAYS->$lang ?></small></h4>
 				
 				<canvas id="mythics" width="100%" height="50"></canvas>
 			
@@ -101,7 +101,7 @@
 		
 			<div class="col-md-12">
 			
-				<h4>Active lures <small>Last 7days</small></h4>
+				<h4>Active lures <small><?= $locales->DASHBOARD_LAST7DAYS->$lang ?></small></h4>
 			
 				<canvas id="lures" width="100%" height="25"></canvas>
 			
