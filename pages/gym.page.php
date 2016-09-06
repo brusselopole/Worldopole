@@ -62,17 +62,6 @@
 
 </div>
 
-<!-- Hidden by gym.graph.js.php if result is empty -->
-<div class="row area" id="trainer_lvl_graph">
-	<div class="col-md-12 text-center">
-		<h2 class="sub-title">Trainer <strong>level</strong> distribution</h2>
-	</div>
-
-	<div class="col-md-12">
-		<canvas id="trainer_lvl" width="100%" height="25"></canvas>
-	</div>
-</div>
-
 <!-- auto hide buttons if no url is set in variables.json -->
 <?php if ($config->urls->fb_mystic or $config->urls->fb_valor or $config->urls->fb_instinct) { ?>
 <div class="row hidden-xs hiddem-sm area">
@@ -89,6 +78,17 @@
 	</div>
 </div>
 <?php } ?>
+
+<!-- Hidden by gym.graph.js.php if result is empty -->
+<div class="row area" id="trainer_lvl_graph">
+	<div class="col-md-12 text-center">
+		<h2 class="sub-title">Trainer <strong>level</strong> distribution</h2>
+	</div>
+
+	<div class="col-md-12">
+		<canvas id="trainer_lvl" width="100%" height="25"></canvas>
+	</div>
+</div>
 
 <div class="row area">
 	
