@@ -30,7 +30,7 @@
 			
 			<div class="col-md-3">
 				
-				<h4><?= $locales->DASHBOARD_VERYCOMMON->$lang ?> <small><?= $locales->DASHBOARD_LAST7DAYS->$lang ?></small></h4>
+				<h4><?= $locales->DASHBOARD_VERYCOMMON->$lang ?> <small><?= $locales->DASHBOARD_LAST24HOURS->$lang ?></small></h4>
 				
 				<canvas id="very_common" width="100%" height="50"></canvas>
 			
@@ -38,7 +38,7 @@
 			
 			<div class="col-md-3">
 				
-				<h4><?= $locales->DASHBOARD_COMMON->$lang ?> <small><?= $locales->DASHBOARD_LAST7DAYS->$lang ?></small></h4>
+				<h4><?= $locales->DASHBOARD_COMMON->$lang ?> <small><?= $locales->DASHBOARD_LAST24HOURS->$lang ?></small></h4>
 				
 				<canvas id="common" width="100%" height="50"></canvas>
 			
@@ -46,7 +46,7 @@
 			
 			<div class="col-md-3">
 				
-				<h4><?= $locales->DASHBOARD_RARE->$lang ?> <small><?= $locales->DASHBOARD_LAST7DAYS->$lang ?></small></h4>
+				<h4><?= $locales->DASHBOARD_RARE->$lang ?> <small><?= $locales->DASHBOARD_LAST24HOURS->$lang ?></small></h4>
 				
 				<canvas id="rare" width="100%" height="50"></canvas>
 			
@@ -54,7 +54,7 @@
 			
 			<div class="col-md-3">
 				
-				<h4><?= $locales->DASHBOARD_MYTHIC->$lang ?> <small><?= $locales->DASHBOARD_LAST7DAYS->$lang ?></small></h4>
+				<h4><?= $locales->DASHBOARD_MYTHIC->$lang ?> <small><?= $locales->DASHBOARD_LAST24HOURS->$lang ?></small></h4>
 				
 				<canvas id="mythics" width="100%" height="50"></canvas>
 			
