@@ -69,7 +69,7 @@
 			</div>
 			
 			<div class="col-md-12">
-				<h4>Prestige Average Team Performance <small><?= $locales->DASHBOARD_LAST24HOURS->$lang ?></small></h4>
+				<h4><?= $locales->DASHBOARD_PRESTIGE_AVERAGE->$lang ?> <small><?= $locales->DASHBOARD_LAST24HOURS->$lang ?></small></h4>
 			</div>
 			
 			<div class="col-md-12">
