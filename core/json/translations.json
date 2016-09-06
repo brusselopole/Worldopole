@@ -373,6 +373,11 @@
    		"FR": "<strong>Niveaux</strong> des entraîneurs Pokémon",
    		"ES": "Distribución del <strong>nivel</strong> de entrenador Pokémon"
    	},
+	"DASHBOARD_TITLE":{
+   		"EN": "MOAR <strong>DATA</strong> MOAAAAR",
+   		"FR": "ENCORE DES <strong>données</stong>ENCOOORE",
+   		"ES": "Más <strong>datos</strong> Más"
+   	},
     "ERROR": {
       "EN": "Page <strong>not found</strong><br><small>There must have been some kind of mistake.</small>",
       "FR": "Page <strong>introuvable</strong><br/><small>Il y a du y avoir une erreur</small>",

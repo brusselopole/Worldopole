@@ -2,7 +2,7 @@
 <div class="row">
 	<div class="col-md-12 text-center">
 		<h1>
-			MOAR <strong>DATA</strong> MOAAAAR <br>
+			<?= $locales->DASHBOARD_TITLE->$lang ?>
 			<small>Datas are gathered every <strong>15 minutes</strong></small>
 		</h1>
 		
