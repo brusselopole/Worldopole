@@ -80,7 +80,7 @@
 		
 			
 			<div class="col-md-12">
-				<h4>Gym owned Team performance <small><?= $locales->DASHBOARD_LAST24HOURS->$lang ?></small></h4>
+				<h4><?= $locales->DASHBOARD_GYM_OWNED_PERFORMANCE->$lang ?> <small><?= $locales->DASHBOARD_LAST24HOURS->$lang ?></small></h4>
 			</div>
 			
 			<div class="col-md-12">
