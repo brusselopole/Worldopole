@@ -82,7 +82,7 @@
 <!-- Hidden by gym.graph.js.php if result is empty -->
 <div class="row area" id="trainer_lvl_graph">
 	<div class="col-md-12 text-center">
-		<h2 class="sub-title">Trainer <strong>level</strong> distribution</h2>
+		<h2 class="sub-title"><?= $locales->TRAINER_GRAPH->$lang ?></h2>
 	</div>
 
 	<div class="col-md-12">
