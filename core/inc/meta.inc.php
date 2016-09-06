@@ -25,14 +25,14 @@
 
 <?php if(!isset($_GET['page'])){ ?>
 
-	<title><?= $config->infos->site_name ?> | <?= $config->infos->site_title ?></title>
+	<title><?= $config->infos->site_name ?> | <?= strip_tags($config->infos->site_title); ?></title>
 	
 	<link rel="canonical" href="<?= HOST_URL ?>" />
 	<base href="<?= HOST_URL ?>">
 	
 	<meta property="og:locale" content="en_US" />
 	<meta property="og:type" content="website" />
-	<meta property="og:title" content="<?= $config->infos->site_name ?> | <?= $config->infos->site_title ?> " />
+	<meta property="og:title" content="<?= $config->infos->site_name ?> | <?= strip_tags($config->infos->site_title); ?> " />
 	<meta property="og:description" content="<?= sprintf($locales->METADESCRIPTION->$lang, $config->infos->city); ?>" />
 
 	<meta property="og:url" content="<?= HOST_URL ?>/" />
@@ -44,7 +44,7 @@
 	
 	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:description" content="<?= sprintf($locales->METADESCRIPTION->$lang, $config->infos->city); ?>" />
-	<meta name="twitter:title" content="<?= $config->infos->site_name ?> | <?= $config->infos->site_title ?> " />
+	<meta name="twitter:title" content="<?= $config->infos->site_name ?> | <?= strip_tags($config->infos->site_title); ?> " />
 	<meta name="twitter:image" content="<?= HOST_URL ?>core/img/logo.jpg" />
 
 

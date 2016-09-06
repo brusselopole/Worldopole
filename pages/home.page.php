@@ -2,7 +2,9 @@
 <div class="row">
 	<div class="col-md-12 text-center">
 		<h1>
-			<?= sprintf($locales->HOME_TITLE->$lang, $config->infos->city); ?>
+			<?= $config->infos->site_title ?>
+			<br>
+			<small><?= sprintf($config->infos->site_claim, $config->infos->city); ?></small>
 		</h1>
 		
 	</div>

@@ -84,11 +84,6 @@
     	"FR": "Tous les Pokémon",
     	"ES": "Todos los Pokémon"
    	},
-   	"HOME_TITLE": {
-    	"EN": "We <i class='fa fa-heart-o' aria-hidden='true'></i> <strong>Pokémon</strong> and Data <br><small>Find all collected and proccessed data about PokémonGo in %s.</small>",
-    	"FR": "<strong>Pokémon</strong> <i class='fa fa-heart-o' aria-hidden='true'></i> Statistiques <br><small>Trouvez toutes les données collectées sur les Pokémon trouvables à %s.</small>",
-    	"ES": "<strong>Pokémon</strong> <i class='fa fa-heart-o' aria-hidden='true'></i> Estadísticas <br><small>Encuentra toda la información recolectada y procesada sobre PokémonGo en %s.</small>"
-   	},
    	"WIDGET_POKEMON_SUB": {
     	"EN": "in %s right now",
     	"FR": "à %s maintenant",

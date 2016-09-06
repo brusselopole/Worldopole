@@ -10,8 +10,8 @@
 		 "site_name"	: 	"Worldopole",
 		 "city"			: 	"Weuuurld",
 		 "logo_path"	: 	"core/img/logo.jpg",
-		 "site_title"	:	"We ❤️ Pokémon and Data",
-		 "site_claim"	: 	"Find all collected and proccessed datas about PokémonGo."
+		 "site_title"	:	"We ❤️ <strong>Pokémon</strong> and Data",
+		 "site_claim"	: 	"Find all collected and proccessed data about PokémonGo in %s."
 	 }, 
 	 "system": {
 		 "map_center_lat"	: "50.844441",
