@@ -65,7 +65,7 @@
 		<div class="row area">
 			
 			<div class="col-md-12">
-				<h2 class="sub-title"><strong>Teams</strong> Performance</h2>
+				<h2 class="sub-title"><strong><?= $locales->TEAM->$lang ?></strong> Performance</h2>
 			</div>
 			
 			<div class="col-md-12">
