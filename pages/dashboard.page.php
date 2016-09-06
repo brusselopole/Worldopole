@@ -46,7 +46,7 @@
 			
 			<div class="col-md-3">
 				
-				<h4>Rare <small><?= $locales->DASHBOARD_LAST7DAYS->$lang ?></small></h4>
+				<h4><?= $locales->DASHBOARD_RARE->$lang ?> <small><?= $locales->DASHBOARD_LAST7DAYS->$lang ?></small></h4>
 				
 				<canvas id="rare" width="100%" height="50"></canvas>
 			
