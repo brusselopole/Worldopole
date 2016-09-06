@@ -388,6 +388,11 @@
    		"FR": "<strong>Apparition</strong> des Pokémon",
    		"ES": "<strong>Aparición</strong> de Pokémon"
    	},
+	"DASHBOARD_SPAWN_TOTAL":{
+   		"EN": "Total Spawn",
+   		"FR": "Apparitions totales",
+   		"ES": "Apariencia total"
+   	},
     "ERROR": {
       "EN": "Page <strong>not found</strong><br><small>There must have been some kind of mistake.</small>",
       "FR": "Page <strong>introuvable</strong><br/><small>Il y a du y avoir une erreur</small>",

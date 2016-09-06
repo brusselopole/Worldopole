@@ -22,7 +22,7 @@
 		
 			<div class="col-md-12">
 			
-				<h4>Total Spawn <small>Last 7days</small></h4>
+				<h4><?= $locales->DASHBOARD_SPAWN_TOTAL->$lang ?> <small>Last 7days</small></h4>
 			
 				<canvas id="total_spawn" width="100%" height="25"></canvas>
 			
