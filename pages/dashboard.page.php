@@ -3,7 +3,7 @@
 	<div class="col-md-12 text-center">
 		<h1>
 			<?= $locales->DASHBOARD_TITLE->$lang ?>
-			<small>Datas are gathered every <strong>15 minutes</strong></small>
+			<small><?= $locales->DASHBOARD_SUBTITLE->$lang ?></small>
 		</h1>
 		
 	</div>

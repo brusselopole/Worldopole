@@ -378,6 +378,11 @@
    		"FR": "ENCORE DES <strong>données</stong>ENCOOORE",
    		"ES": "Más <strong>datos</strong> Más"
    	},
+	"DASHBOARD_SUBTITLE":{
+   		"EN": "Datas are gathered every <strong>15 minutes</strong>",
+   		"FR": "Données mises à jour toutes les <strong>15 minutes</strong>",
+   		"ES": "Datos actualizados cada <strong>15 minutos</strong>"
+   	},
     "ERROR": {
       "EN": "Page <strong>not found</strong><br><small>There must have been some kind of mistake.</small>",
       "FR": "Page <strong>introuvable</strong><br/><small>Il y a du y avoir une erreur</small>",
