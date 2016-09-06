@@ -195,7 +195,7 @@
    	},
    	"POKESTOPS_TITLE": {
     	"EN": "Where to <strong>Pokéstop</strong> and fill your bag in <strong>%s</strong><br><small>There's always a <strong>Pokéstop</strong> near you.</small>",
-    	"FR": "Où faire un <strong>Pokéstop</strong> et remplir votre sac à <strong>%s</strong><br><small>Il ya toujours un <strong>Pokéstop</strong> près de vous.</small>",
+    	"FR": "Où faire un <strong>Pokéstop</strong> et remplir votre sac à <strong>%s</strong><br><small>Il y'a toujours un <strong>Pokéstop</strong> près de vous.</small>",
     	"ES": "Dónde hacer una <strong>Poképarada</strong> y rellenar tu mochila en <strong>%s</strong><br><small>Con suerte habrá una <strong>Poképarada</strong> cerca de ti.</small>"
    	},
    	"POKESTOPS_METATITLE": {
