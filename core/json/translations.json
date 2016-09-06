@@ -90,14 +90,14 @@
     	"ES": "en %s en este momento"
    	},
    	"WIDGET_GYM_SUB": {
-    	"EN": "to fight for.",
-    	"FR": "à prendre.",
-    	"ES": "por combatir."
+    	"EN": "to fight for",
+    	"FR": "à prendre",
+    	"ES": "por combatir"
    	},
    	"WIDGET_LURES_SUB": {
-    	"EN": "activated in %s.",
-    	"FR": "actifs sur %s.",
-    	"ES": "activado en %s."
+    	"EN": "activated in %s",
+    	"FR": "actifs sur %s",
+    	"ES": "activado en %s"
    	},
    	"WIDGET_FB_LIKE": {
     	"EN": "<a href='https://www.facebook.com/brusselopole/' target='_blank'><big>Like us on</big><br><strong>Facebook!</strong></a>",
@@ -214,7 +214,7 @@
     	"ES": "en %s"
    	},
    	"POKESTOPS_LURES": {
-    	"EN": "active right now.",
+    	"EN": "active right now",
     	"FR": "activés actuellement",
     	"ES": "activos en este momento"
    	},
