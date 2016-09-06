@@ -101,7 +101,7 @@
 		
 			<div class="col-md-12">
 			
-				<h4>Active lures <small><?= $locales->DASHBOARD_LAST7DAYS->$lang ?></small></h4>
+				<h4><?= $locales->DASHBOARD_LURES->$lang ?> <small><?= $locales->DASHBOARD_LAST7DAYS->$lang ?></small></h4>
 			
 				<canvas id="lures" width="100%" height="25"></canvas>
 			
