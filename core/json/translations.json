@@ -373,6 +373,81 @@
    		"FR": "<strong>Niveaux</strong> des entraîneurs Pokémon",
    		"ES": "Distribución del <strong>nivel</strong> de entrenador Pokémon"
    	},
+	"DASHBOARD_TITLE":{
+   		"EN": "MOAR <strong>DATA</strong> MOAAAAR",
+   		"FR": "ENCORE DES <strong>DONNÉES</strong> ENCOOORE",
+   		"ES": "Más <strong>DATOS</strong> Más"
+   	},
+	"DASHBOARD_SUBTITLE":{
+   		"EN": "Data are gathered every <strong>15 minutes</strong>",
+   		"FR": "Données mises à jour toutes les <strong>15 minutes</strong>",
+   		"ES": "Datos actualizados cada <strong>15 minutos</strong>"
+   	},
+	"DASHBOARD_SPAWN_TITLE":{
+   		"EN": "Pokémon <strong>spawn</strong>",
+   		"FR": "<strong>Apparition</strong> des Pokémon",
+   		"ES": "<strong>Aparición</strong> de Pokémon"
+   	},
+	"DASHBOARD_SPAWN_TOTAL":{
+   		"EN": "Total Spawn",
+   		"FR": "Apparitions totales",
+   		"ES": "Apariencia total"
+   	},
+	"DASHBOARD_LAST7DAYS":{
+   		"EN": "Last 7 days",
+   		"FR": "7 derniers jours",
+   		"ES": "Últimos 7 días"
+   	},
+	"DASHBOARD_LAST24HOURS":{
+   		"EN": "Last 24 hours",
+   		"FR": "24 dernières heures",
+   		"ES": "Últimas 24 horas"
+   	},
+	"DASHBOARD_VERYCOMMON":{
+   		"EN": "Very common",
+   		"FR": "Très commun",
+   		"ES": "Muy común"
+   	},
+	"DASHBOARD_COMMON":{
+   		"EN": "Common",
+   		"FR": "Commun",
+   		"ES": "Común"
+   	},
+	"DASHBOARD_RARE":{
+   		"EN": "Rare",
+   		"FR": "Rare",
+   		"ES": "Raro"
+   	},
+	"DASHBOARD_MYTHIC":{
+   		"EN": "Mythic",
+   		"FR": "Mythique",
+   		"ES": "Mítico"
+   	},
+	"PERFORMANCE":{
+   		"EN": "Performance",
+   		"FR": "- Performance",
+   		"ES": "Rendimiento"
+   	},
+	"DASHBOARD_PRESTIGE_AVERAGE":{
+   		"EN": "Prestige Average Team Performance",
+   		"FR": "Prestige moyen par équipe",
+   		"ES": "Significa lujo del equipo"
+   	},
+	"DASHBOARD_GYM_OWNED_PERFORMANCE":{
+   		"EN": "Gym owned Team performance",
+   		"FR": "Garde des arènes par équipe",
+   		"ES": "Guardia Equipo de Arena"
+   	},
+	"DASHBOARD_ACTIVITY":{
+   		"EN": "activity",
+   		"FR": "- Activité",
+   		"ES": "- Actividad"
+   	},
+	"DASHBOARD_LURES":{
+   		"EN": "Active lures",
+   		"FR": "Leurres actifs",
+   		"ES": "Cebos activos"
+   	},
     "ERROR": {
       "EN": "Page <strong>not found</strong><br><small>There must have been some kind of mistake.</small>",
       "FR": "Page <strong>introuvable</strong><br/><small>Il y a du y avoir une erreur</small>",
