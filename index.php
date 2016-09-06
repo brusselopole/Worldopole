@@ -70,8 +70,7 @@ include_once('core/process/data.loader.php');
 							$locale = $menu->locale; 
 							$text 	=  $locales->$locale->$lang;
 						
-						}else{
-						
+						}elseif(isset($menu->text)){
 							$text 	= $menu->text; 
 						
 						}
