@@ -324,7 +324,21 @@ switch($request){
 				break;
 				
 			}
-			
+		
+			// Set gym level
+			$gym_points=$data->gym_points;
+			$gym_level=0;
+			if ($gym_points < 2000) { $gym_level=1;	}
+			elseif ($gym_points < 4000) { $gym_level=2; }
+			elseif ($gym_points < 8000) { $gym_level=3; }
+			elseif ($gym_points < 12000) { $gym_level=4; }
+			elseif ($gym_points < 16000) { $gym_level=5; }
+			elseif ($gym_points < 20000) { $gym_level=6; }
+			elseif ($gym_points < 30000) { $gym_level=7; }
+			elseif ($gym_points < 40000) { $gym_level=8; }
+			elseif ($gym_points < 50000) { $gym_level=9; }
+			else { $gym_level=10; }
+
 			## I know, I revert commit 6e8d2e7 from @kiralydavid but the way it was done broke the page. 
 			
 			$img = 'core/pokemons/'.$data->guard_pokemon_id.'.png';
@@ -335,7 +349,7 @@ switch($request){
 				<p style="font-weight:400;color:'.$color.'">'.$team.'</p>
 				<p>Protected by</p>
 				<a href="pokemon/'.$data->guard_pokemon_id.'"><img src="'.$img.'" height="40" style="display:inline-block;margin-bottom:10px;"></a>
-				<p>Level : '.substr($data->gym_points,0,1).' | Prestige : '.$data->gym_points.'</p>
+				<p>Level : '.$gym_level.' | Prestige : '.$gym_points.'</p>
 			</div>
 	
 			';
