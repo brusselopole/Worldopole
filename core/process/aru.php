@@ -326,18 +326,17 @@ switch($request){
 			}
 		
 			// Set gym level
-			$gym_points=$data->gym_points;
-			$gym_level=0;
-			if ($gym_points < 2000) { $gym_level=1;	}
-			elseif ($gym_points < 4000) { $gym_level=2; }
-			elseif ($gym_points < 8000) { $gym_level=3; }
-			elseif ($gym_points < 12000) { $gym_level=4; }
-			elseif ($gym_points < 16000) { $gym_level=5; }
-			elseif ($gym_points < 20000) { $gym_level=6; }
-			elseif ($gym_points < 30000) { $gym_level=7; }
-			elseif ($gym_points < 40000) { $gym_level=8; }
-			elseif ($gym_points < 50000) { $gym_level=9; }
-			else { $gym_level=10; }
+			$data->gym_level=0;
+			if ($data->gym_points < 2000) { $data->gym_level=1;	}
+			elseif ($data->gym_points < 4000) { $data->gym_level=2; }
+			elseif ($data->gym_points < 8000) { $data->gym_level=3; }
+			elseif ($data->gym_points < 12000) { $data->gym_level=4; }
+			elseif ($data->gym_points < 16000) { $data->gym_level=5; }
+			elseif ($data->gym_points < 20000) { $data->gym_level=6; }
+			elseif ($data->gym_points < 30000) { $data->gym_level=7; }
+			elseif ($data->gym_points < 40000) { $data->gym_level=8; }
+			elseif ($data->gym_points < 50000) { $data->gym_level=9; }
+			else { $data->gym_level=10; }
 
 			## I know, I revert commit 6e8d2e7 from @kiralydavid but the way it was done broke the page. 
 			
@@ -349,7 +348,7 @@ switch($request){
 				<p style="font-weight:400;color:'.$color.'">'.$team.'</p>
 				<p>Protected by</p>
 				<a href="pokemon/'.$data->guard_pokemon_id.'"><img src="'.$img.'" height="40" style="display:inline-block;margin-bottom:10px;"></a>
-				<p>Level : '.$gym_level.' | Prestige : '.$gym_points.'</p>
+				<p>Level : '.$data->gym_level.' | Prestige : '.$data->gym_points.'</p>
 			</div>
 	
 			';
