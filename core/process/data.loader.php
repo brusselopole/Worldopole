@@ -20,7 +20,7 @@ date_default_timezone_set($config->system->timezone);
 // Manage Time Interval
 // #####################
 
-if(isset($config->system->time_inverval){
+if(isset($config->system->time_inverval)){
 	
 	echo "Your variables.json is outdated. <br> Please fix the time_inverval typo in file or run the interactive install.";
 	exit(); 
