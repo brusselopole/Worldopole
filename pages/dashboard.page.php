@@ -30,7 +30,7 @@
 			
 			<div class="col-md-3">
 				
-				<h4>Very Common <small><?= $locales->DASHBOARD_LAST7DAYS->$lang ?></small></h4>
+				<h4><?= $locales->DASHBOARD_VERYCOMMON->$lang ?> <small><?= $locales->DASHBOARD_LAST7DAYS->$lang ?></small></h4>
 				
 				<canvas id="very_common" width="100%" height="50"></canvas>
 			
