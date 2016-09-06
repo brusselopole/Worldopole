@@ -17,7 +17,7 @@
 		<div class="row area">
 		
 			<div class="col-md-12">
-				<h2 class="sub-title">Pokémon <strong>spawn</strong></h2>
+				<h2 class="sub-title"><?= $locales->DASHBOARD_SPAWN_TITLE->$lang ?></h2>
 			</div>
 		
 			<div class="col-md-12">

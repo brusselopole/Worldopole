@@ -383,6 +383,11 @@
    		"FR": "Données mises à jour toutes les <strong>15 minutes</strong>",
    		"ES": "Datos actualizados cada <strong>15 minutos</strong>"
    	},
+	"DASHBOARD_SPAWN_TITLE":{
+   		"EN": "Pokémon <strong>spawn</strong>",
+   		"FR": "<strong>Apparition</strong> des Pokémon",
+   		"ES": "<strong>Aparición</strong> de Pokémon"
+   	},
     "ERROR": {
       "EN": "Page <strong>not found</strong><br><small>There must have been some kind of mistake.</small>",
       "FR": "Page <strong>introuvable</strong><br/><small>Il y a du y avoir une erreur</small>",
