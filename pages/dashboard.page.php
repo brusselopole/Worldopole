@@ -96,7 +96,7 @@
 		<div class="row area">
 		
 			<div class="col-md-12">
-				<h2 class="sub-title"><strong><?= $locales->POKESTOPS->$lang ?></strong> activity</h2>
+				<h2 class="sub-title"><strong><?= $locales->POKESTOPS->$lang ?></strong> <?= $locales->DASHBOARD_ACTIVITY->$lang ?></h2>
 			</div>
 		
 			<div class="col-md-12">
