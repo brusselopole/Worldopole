@@ -69,7 +69,7 @@
 			</div>
 			
 			<div class="col-md-12">
-				<h4>Prestige Average Team Performance <small>Last 24h</small></h4>
+				<h4>Prestige Average Team Performance <small><?= $locales->DASHBOARD_LAST24HOURS->$lang ?></small></h4>
 			</div>
 			
 			<div class="col-md-12">
@@ -80,7 +80,7 @@
 		
 			
 			<div class="col-md-12">
-				<h4>Gym owned Team performance <small>Last 24h</small></h4>
+				<h4>Gym owned Team performance <small><?= $locales->DASHBOARD_LAST24HOURS->$lang ?></small></h4>
 			</div>
 			
 			<div class="col-md-12">
