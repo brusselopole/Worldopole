@@ -368,6 +368,11 @@
 	   	"FR": "Jamais vu, désolé",
 	   	"ES": "Nunca"
    	},
+   	"TRAINER_GRAPH":{
+   		"EN": "Trainer <strong>level</strong> distribution",
+   		"FR": "<strong>Niveaux</strong> des entraîneurs Pokémon",
+   		"ES": "Distribución del <strong>nivel</strong> de entrenador Pokémon"
+   	},
     "ERROR": {
       "EN": "Page <strong>not found</strong><br><small>There must have been some kind of mistake.</small>",
       "FR": "Page <strong>introuvable</strong><br/><small>Il y a du y avoir une erreur</small>",
