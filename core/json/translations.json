@@ -375,8 +375,8 @@
    	},
 	"DASHBOARD_TITLE":{
    		"EN": "MOAR <strong>DATA</strong> MOAAAAR",
-   		"FR": "ENCORE DES <strong>données</strong> ENCOOORE",
-   		"ES": "Más <strong>datos</strong> Más"
+   		"FR": "ENCORE DES <strong>DONNÉES</strong> ENCOOORE",
+   		"ES": "Más <strong>DATOS</strong> Más"
    	},
 	"DASHBOARD_SUBTITLE":{
    		"EN": "Datas are gathered every <strong>15 minutes</strong>",
