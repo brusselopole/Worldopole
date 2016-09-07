@@ -5,6 +5,7 @@ header('Content-type: text/javascript');
 
 # Load Config 
 include_once('../../config.php');
+include_once('../process/data.loader.php');
 
 
 // Include & load the variables 
