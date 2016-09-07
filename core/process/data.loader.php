@@ -286,6 +286,7 @@ if(!empty($page)){
 				
 				$req 		= "SELECT COUNT(*) as total, DATE(disappear_time ".$time->symbol." INTERVAL ".$time->delay." HOUR) as disappear_time
 				FROM pokemon WHERE pokemon_id = '".$pokemon_id."' 
+				AND disappear_time < (NOW() ".$time->symbol_reverse." INTERVAL ".$time->delay." HOUR 15 MINUTES) 
 				GROUP BY DATE(disappear_time ".$time->symbol." INTERVAL ".$time->delay." HOUR) ";
 				
 				$result 	= $mysqli->query($req);
