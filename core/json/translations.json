@@ -448,6 +448,41 @@
    		"FR": "Leurres actifs",
    		"ES": "Cebos activos"
    	},
+	"DASHBOARD_GRAPH_MYSTIC_PRESTIGE_AVERAGE":{
+   		"EN": "Mystic Prestige Average",
+   		"FR": "Sagesse - Prestige Moyen",
+   		"ES": "Místico - Medio de lujo"
+   	},
+	"DASHBOARD_GRAPH_VALOR_PRESTIGE_AVERAGE":{
+   		"EN": "Valor Prestige Average",
+   		"FR": "Bravoure - Prestige Moyen",
+   		"ES": "Valor - Medio de lujo"
+   	},
+	"DASHBOARD_GRAPH_INSTINCT_PRESTIGE_AVERAGE":{
+   		"EN": "Instinct Prestige Average",
+   		"FR": "Intuition - Prestige Moyen",
+   		"ES": "Instinto - Medio de lujo"
+   	},
+	"DASHBOARD_GRAPH_MYSTIC_GYM_OWNED":{
+   		"EN": "Mystic Gym Owned",
+   		"FR": "Sagesse - Arènes conquises",
+   		"ES": "Místico - Arenas conquistado"
+   	},
+	"DASHBOARD_GRAPH_VALOR_GYM_OWNED":{
+   		"EN": "Valor Gym Owned",
+   		"FR": "Bravoure - Arènes conquises",
+   		"ES": "Valor - Arenas conquistado"
+   	},
+	"DASHBOARD_GRAPH_INSTINCT_GYM_OWNED":{
+   		"EN": "Instinct Gym Owned",
+   		"FR": "Intuition - Arènes conquises",
+   		"ES": "Instinto - Arenas conquistado"
+   	},
+	"DASHBOARD_GRAPH_LURED_POKESTOPS":{
+   		"EN": "Lured Pokestop",
+   		"FR": "Pokéstops avec leurre",
+   		"ES": "Poképaradas con cebos"
+   	},
     "ERROR": {
       "EN": "Page <strong>not found</strong><br><small>There must have been some kind of mistake.</small>",
       "FR": "Page <strong>introuvable</strong><br/><small>Il y a du y avoir une erreur</small>",

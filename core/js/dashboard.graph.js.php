@@ -5,6 +5,7 @@ header('Content-type: text/javascript');
 
 # Load Config 
 include_once('../../config.php');
+include_once('../process/data.loader.php');
 
 
 // Include & load the variables 
@@ -149,7 +150,7 @@ var data = {
     labels: [<?= implode(',', $labels_global) ?>],
     datasets: [
         {
-            label: "Total Spawn",
+            label: "<?= $locales->DASHBOARD_SPAWN_TOTAL->$lang ?>",
             fill: true,
             lineTension: 0.1,
             backgroundColor: "rgba(75,192,192,0.4)",
@@ -190,7 +191,7 @@ var data_vc = {
     labels: [<?= implode(',', $labels) ?>],
     datasets: [
         {
-            label: "Very Common",
+            label: "<?= $locales->DASHBOARD_VERYCOMMON->$lang ?>",
             fill: false,
             lineTension: 0.1,
             backgroundColor: "rgba(175,192,192,0.4)",
@@ -228,7 +229,7 @@ var data_comm = {
     labels: [<?= implode(',', $labels) ?>],
     datasets: [
         {
-            label: "Common",
+            label: "<?= $locales->DASHBOARD_COMMON->$lang ?>",
             fill: false,
             lineTension: 0.1,
             backgroundColor: "rgba(175,192,192,0.4)",
@@ -265,7 +266,7 @@ var data_rare = {
     labels: [<?= implode(',', $labels) ?>],
     datasets: [
         {
-            label: "Rare",
+            label: "<?= $locales->DASHBOARD_RARE->$lang ?>",
             fill: false,
             lineTension: 0.1,
             backgroundColor: "rgba(175,192,192,0.4)",
@@ -304,7 +305,7 @@ var data_myth = {
     labels: [<?= implode(',', $labels) ?>],
     datasets: [
         {
-            label: "Mythic",
+            label: "<?= $locales->DASHBOARD_MYTHIC->$lang ?>",
             fill: false,
             lineTension: 0.1,
             backgroundColor: "rgba(175,192,192,0.4)",
@@ -346,7 +347,7 @@ var data_av = {
     labels: [<?= implode(',', $labels_gym) ?>],
     datasets: [
         {
-            label: "Mystic Prestige Average",
+            label: "<?= $locales->DASHBOARD_GRAPH_MYSTIC_PRESTIGE_AVERAGE->$lang ?>",
             fill: false,
             lineTension: 0.1,
             backgroundColor: "rgba(59,129,255,0.4)",
@@ -368,7 +369,7 @@ var data_av = {
             spanGaps: false,
         }, 
         {
-            label: "Valor Prestige Average",
+            label: "<?= $locales->DASHBOARD_GRAPH_VALOR_PRESTIGE_AVERAGE->$lang ?>",
             fill: false,
             lineTension: 0.1,
             backgroundColor: "rgba(247,10,20,0.4)",
@@ -390,7 +391,7 @@ var data_av = {
             spanGaps: false,
         }, 
         {
-            label: "Instinct Prestige Average",
+            label: "<?= $locales->DASHBOARD_GRAPH_INSTINCT_PRESTIGE_AVERAGE->$lang ?>",
             fill: false,
             lineTension: 0.1,
             backgroundColor: "rgba(248,153,0,0.4)",
@@ -434,7 +435,7 @@ var data_team_gym = {
     labels: [<?= implode(',', $labels_gym) ?>],
     datasets: [
         {
-            label: "Mystic Gym Owned",
+            label: "<?= $locales->DASHBOARD_GRAPH_MYSTIC_GYM_OWNED->$lang ?>",
             fill: false,
             lineTension: 0.1,
             backgroundColor: "rgba(59,129,255,0.4)",
@@ -456,7 +457,7 @@ var data_team_gym = {
             spanGaps: false,
         },
         {
-            label: "Valor Gym Owned",
+            label: "<?= $locales->DASHBOARD_GRAPH_VALOR_GYM_OWNED->$lang ?>",
             fill: false,
             lineTension: 0.1,
             backgroundColor: "rgba(247,10,20,0.4)",
@@ -478,7 +479,7 @@ var data_team_gym = {
             spanGaps: false,
         },
         {
-            label: "Instinct Gym Owned",
+            label: "<?= $locales->DASHBOARD_GRAPH_INSTINCT_GYM_OWNED->$lang ?>",
             fill: false,
             lineTension: 0.1,
             backgroundColor: "rgba(248,153,0,0.4)",
@@ -523,7 +524,7 @@ var data_lure = {
     labels: [<?= implode(',', $labels_stops) ?>],
     datasets: [
         {
-            label: "Pokestop lured",
+            label: "<?= $locales->DASHBOARD_GRAPH_LURED_POKESTOPS->$lang ?>",
             fill: true,
             lineTension: 0.1,
             backgroundColor: "rgba(124,0,210,0.4)",
