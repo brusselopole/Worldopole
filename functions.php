@@ -33,6 +33,8 @@ function time_ago( $timestamp, $now = 0, $lang = 'EN' ) {
     }
     else{
 	    
+	    $timestamp-=900;
+	    
 	    // Make sure the timestamp to check is in the past.
 	    if ( $timestamp > $now ) {
 	        throw new Exception( 'Timestamp is in the future' );
