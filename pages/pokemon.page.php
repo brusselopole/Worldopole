@@ -114,7 +114,7 @@
 			</tr>
 			<tr>
 				<td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_RATE->$lang ?> :</strong></td>
-				<td class="col-md-4 col-xs-4"><?= $pokemon->spawn_rate ?> / day</td>
+				<td class="col-md-4 col-xs-4"><?= $pokemon->spawn_rate ?> / <?= $locales->DAY->$lang ?></td>
 			</tr>
 			<tr>
 				<td class="col-md-8 col-xs-8"><?php if(isset($pokemon->protected_gyms)) { echo "<strong>" . $locales->POKEMON_GYM->$lang . $pokemon->name . "</strong> :";} ?></td>
