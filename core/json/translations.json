@@ -483,6 +483,11 @@
    		"FR": "Pokéstops avec leurre",
    		"ES": "Poképaradas con cebos"
    	},
+	"POKEMON_CANDIES":{
+   		"EN": "candies",
+   		"FR": "bonbons",
+   		"ES": "caramelo"
+   	},
     "ERROR": {
       "EN": "Page <strong>not found</strong><br><small>There must have been some kind of mistake.</small>",
       "FR": "Page <strong>introuvable</strong><br/><small>Il y a du y avoir une erreur</small>",
