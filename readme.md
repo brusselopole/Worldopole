@@ -24,4 +24,8 @@ See [Wiki](https://github.com/brusselopole/Worldopole/wiki)
 ## License
 
 Worldopole is released under the MIT License.
- 
+
+
+## Support the futur releases and updates
+
+[Buy dev some coffee]( https://ko-fi.com/A850A1T)
