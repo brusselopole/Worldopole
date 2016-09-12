@@ -9,7 +9,7 @@
 		"EN": "Find all collected and proccessed data about PokémonGo in %s : nests, stats, frequency, ... Learn when and where to look for the Pokémon you're missing.",
 		"FR": "Trouvez toutes les informations et données sur PokémonGo à %s : les nids, les fréquences, les statistiques, ... Apprenez où et quand chercher le Pokémon qu'il vous manque !",
 		"ES": "Encuentra toda la información recolectada y procesada sobre PokémonGo en %s : nidos, estadísticas, frecuencia, ... Aprende cuándo y dónde buscar a los Pokémon que te faltan.",
-		"DE": "Find all collected and proccessed data about PokémonGo in %s : nests, stats, frequency, ... Learn when and where to look for the Pokémon you're missing."
+		"DE": "Alle Daten über PokémonGo in %s : Nester, Statistiken, Häufungen, ... Finde hier die Pokémon, die dir noch fehlen."
 	},
 	"HOME": {
 		"EN": "Home",
@@ -57,13 +57,13 @@
 		"EN": "Mystic",
 		"FR": "Sagesse",
 		"ES": "Místico",
-		"DE": "Mystic"
+		"DE": "Weisheit"
 	},
 	"VALOR": {
 		"EN": "Valor",
 		"FR": "Bravoure",
 		"ES": "Valor",
-		"DE": "Mystic"
+		"DE": "Wagemut"
 	},
 	"INSTINCT": {
 		"EN": "Instinct",
@@ -123,7 +123,7 @@
 		"EN": "<a href='https://www.facebook.com/brusselopole/' target='_blank'><big>Like us on</big><br><strong>Facebook!</strong></a>",
 		"FR": "<a href='https://www.facebook.com/brusselopole/' target='_blank'><big>Likez nous sur</big><br><strong>Facebook!</strong></a>",
 		"ES": "<a href='https://www.facebook.com/brusselopole/' target='_blank'><big>Danos Me gusta en </big><br><strong>Facebook!</strong></a>",
-		"DE": "<a href='https://www.facebook.com/brusselopole/' target='_blank'><big>Like uns auf</big><br><strong>Facebook!</strong></a>"
+		"DE": "<a href='https://twitter.com/PokeStormMap' target='_blank'><big>@PokeStormMap</big><br>Der Twitter-Alarm seltener Pokémon!</a>"
 	},
 	"RECENT_SPAWNS": {
 		"EN": "The most <strong>recent</strong> spawns",
@@ -147,13 +147,13 @@
 		"EN": "This website or the authors have no relationship with Niantic, Nintendo or other any Pokémon Go responsible.",
 		"FR": "Ce site ou ses auteurs ne sont en aucun cas en relation avec Niantic, Nintendo ou toute personne responsable de Pokémon Go.",
 		"ES": "Ni este sitio ni los autores tienen relación alguna con Niantic, Nintendo u otra entidad responsable por Pokémon Go.",
-		"DE": "This website or the authors have no relationship with Niantic, Nintendo or other any Pokémon Go responsible."
+		"DE": "Diese Seite und ihre Betreiber stehen in keinerlei Beziehung zu Niantic, Nintendo oder irgendjemandem verantwortlich für Pokémon Go."
 	},
 	"FOOTER_VISUAL_CONTENT": {
 		"EN": "<p>Icons designed by <a href='http://www.flaticon.com/packs/packs/pokemon-go/''>Roundicons Freebies</a> for <a href='http://www.flaticon.com'>Flaticon</a>. Font icons provided by <a href='http://fontawesome.io'>Font Awesome</a> by Dave Gandy.</p>",
 		"FR": "<p>Icônes créées par <a href='http://www.flaticon.com/packs/packs/pokemon-go/''>Roundicons Freebies</a> pour <a href='http://www.flaticon.com'>Flaticon</a>. Icon-Font fournie par <a href='http://fontawesome.io'>Font Awesome</a> de Dave Gandy.</p>",
 		"ES": "<p>Íconos creados por <a href='http://www.flaticon.com/packs/packs/pokemon-go/''>Roundicons Freebies</a> para <a href='http://www.flaticon.com'>Flaticon</a>. Íconos de fuentes provistos por <a href='http://fontawesome.io'>Font Awesome</a> de Dave Gandy.</p>",
-		"DE": "<p>Icons designed by <a href='http://www.flaticon.com/packs/packs/pokemon-go/''>Roundicons Freebies</a> for <a href='http://www.flaticon.com'>Flaticon</a>. Font icons provided by <a href='http://fontawesome.io'>Font Awesome</a> by Dave Gandy.</p>"
+		"DE": "<p>Icons gestaltet von <a href='http://www.flaticon.com/packs/packs/pokemon-go/''>Roundicons Freebies</a> für <a href='http://www.flaticon.com'>Flaticon</a>. Font icons wurdn von <a href='http://fontawesome.io'>Font Awesome</a> und Dave Gandy zur Verfügung gestellt.</p>"
 	},
 	"FOOTER_POKEMON_CONTENT": {
 		"EN": "<p>Pokémon Go is ©2016 Niantic, Inc. ©2016 Pokémon. ©1995–2016 Nintendo / Creatures Inc. / GAME FREAK inc.</p><p>Pokémon and Pokémon character names are trademarks of Nintendo.</p><p>Other trademarks are the property of their respective owners.</p>",
@@ -206,7 +206,7 @@
 		"EN": "Valor, Mystic or Instinct? Who will win the fight?",
 		"FR": "Bravoure, Sagesse ou Intuition ? Qui dominera ?",
 		"ES": "¿Valor, Místico o Instinto ? ¿Quién ganará?",
-		"DE": "Valor, Mystic or Instinct? Who will win the fight?"
+		"DE": "Wagemut, Weisheit or Instinkt? Wer wird am Ende die Oberhand haben?"
 	},
 	"GYMS_OWNED": {
 		"EN": "gyms owned",
@@ -440,7 +440,7 @@
 		"EN": "We miss it",
 		"FR": "Jamais vu, désolé",
 		"ES": "Nunca",
-		"EN": "Wir haben es verpasst"
+		"EN": "Haben wir verpasst"
 	},
 	"TRAINER_GRAPH":{
 		"EN": "Trainer <strong>level</strong> distribution",
@@ -512,19 +512,19 @@
 		"EN": "Performance",
 		"FR": "- Performance",
 		"ES": "Rendimiento",
-		"DE": "Performance"
+		"DE": "Leistung"
 	},
 	"DASHBOARD_PRESTIGE_AVERAGE":{
 		"EN": "Prestige Average Team Performance",
 		"FR": "Prestige moyen par équipe",
 		"ES": "Significa lujo del equipo",
-		"DE": "Durchschnittliche Team Performance"
+		"DE": "Durchschnittliche Team-Leistung"
 	},
 	"DASHBOARD_GYM_OWNED_PERFORMANCE":{
 		"EN": "Gym owned Team performance",
 		"FR": "Garde des arènes par équipe",
 		"ES": "Guardia Equipo de Arena",
-		"DE": "Team performance des Arena Teams"
+		"DE": "Leistung des Arena Teams"
 	},
 	"DASHBOARD_ACTIVITY":{
 		"EN": "activity",
@@ -542,43 +542,43 @@
 		"EN": "Mystic Prestige Average",
 		"FR": "Sagesse - Prestige Moyen",
 		"ES": "Místico - Medio de lujo",
-		"DE": "Mystic Prestige Average"
+		"DE": "Weisheit - Prestige Durchschnitt"
 	},
 	"DASHBOARD_GRAPH_VALOR_PRESTIGE_AVERAGE":{
 		"EN": "Valor Prestige Average",
 		"FR": "Bravoure - Prestige Moyen",
 		"ES": "Valor - Medio de lujo",
-		"DE": "Valor Prestige Average"
+		"DE": "Wagemut - Prestige Durchschnitt"
 	},
 	"DASHBOARD_GRAPH_INSTINCT_PRESTIGE_AVERAGE":{
 		"EN": "Instinct Prestige Average",
 		"FR": "Intuition - Prestige Moyen",
 		"ES": "Instinto - Medio de lujo",
-		"DE": "Instinct Prestige Average"
+		"DE": "Instinkt - Prestige Durchschnitt"
 	},
 	"DASHBOARD_GRAPH_MYSTIC_GYM_OWNED":{
 		"EN": "Mystic Gym Owned",
 		"FR": "Sagesse - Arènes conquises",
 		"ES": "Místico - Arenas conquistado",
-		"DE": "Mystic Gym Owned"
+		"DE": "Arenen von Team Weisheit"
 	},
 	"DASHBOARD_GRAPH_VALOR_GYM_OWNED":{
 		"EN": "Valor Gym Owned",
 		"FR": "Bravoure - Arènes conquises",
 		"ES": "Valor - Arenas conquistado",
-		"DE": "Valor Gym Owned"
+		"DE": "Arenen von Team Wagemut"
 	},
 	"DASHBOARD_GRAPH_INSTINCT_GYM_OWNED":{
 		"EN": "Instinct Gym Owned",
 		"FR": "Intuition - Arènes conquises",
 		"ES": "Instinto - Arenas conquistado",
-		"DE": "Instinct Gym Owned"
+		"DE": "Arenen von Tem Instinkt"
 	},
 	"DASHBOARD_GRAPH_LURED_POKESTOPS":{
 		"EN": "Lured Pokestop",
 		"FR": "Pokéstops avec leurre",
 		"ES": "Poképaradas con cebos",
-		"DE": "Lured Pokestop"
+		"DE": "Pokestop mit Lock-Modul"
 	},
 	"ERROR": {
 		"EN": "Page <strong>not found</strong><br><small>There must have been some kind of mistake.</small>",
