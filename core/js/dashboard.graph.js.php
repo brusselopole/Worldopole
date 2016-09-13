@@ -14,6 +14,38 @@ $variables 	= realpath(dirname(__FILE__)).'/../json/variables.json';
 $config 	= json_decode(file_get_contents($variables)); 
 
 
+// Include & load locales (because it's REALLY REALLY REALLY IMPORTANT TO HAVE A FULLY TRANSLATE DASHBOARD )   
+// #########################################################################################################
+
+if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])){
+
+	$browser_lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+
+}else{
+
+	$browser_lang = 'en';
+
+}
+
+foreach($config->lang as $id_lang => $lang_active){
+			
+	if($id_lang == $browser_lang){
+		$lang = strtoupper($id_lang); 
+	}
+	
+}
+
+if(!isset($lang)){
+	$lang = 'EN'; 	
+}
+
+$translation_file 	= file_get_contents(SYS_PATH.'/core/json/translations.json'); 
+$locales 			= json_decode($translation_file); 
+
+
+
+
+
 // Check if there's a pokemon stat file 
 // ####################################
 
@@ -28,8 +60,10 @@ $i=0;
 
 foreach($stats as $data){
 	
+		
 	$labels_global[]	= '"'.date('d/m h:i a', $data->timestamp ).'"';
 	$total[] 			= $data->pokemon_now;
+	
 	
 	if($data->timestamp > $yesterday){
 		
@@ -75,7 +109,6 @@ foreach($stats as $data){
 		 
 	
 }	
-
 
 
 $stats_file	= SYS_PATH.'/core/json/gym.stats.json';
