@@ -17,9 +17,9 @@ See [Wiki](https://github.com/brusselopole/Worldopole/wiki)
 
 
 ## Contribute 
-
-[Feature Requests](http://feathub.com/brusselopole/Worldopole)
 [![Feature Requests](http://feathub.com/brusselopole/Worldopole?format=svg)](http://feathub.com/brusselopole/Worldopole)
+[Feature Requests](http://feathub.com/brusselopole/Worldopole)
+
 
 
 ## License
