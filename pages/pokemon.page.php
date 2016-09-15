@@ -127,7 +127,7 @@
 		<table class="table">
 			<tr>
 				<td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_EVOLUTION->$lang ?> :</strong></td>
-				<td class="col-md-4 col-xs-4"><?php if(isset($pokemon->candies)) { echo  $pokemon->candies . "&nbsp;". $pokemon->candy_name . " " . <?= $locales->POKEMON_CANDIES->$lang ?> ;} else { echo $locales->POKEMON_FINAL->$lang; } ?></td>
+				<td class="col-md-4 col-xs-4"><?php if(isset($pokemon->candies)) { echo  $pokemon->candies . "&nbsp;". $pokemon->candy_name . " " .  $locales->POKEMON_CANDIES->$lang ;} else { echo $locales->POKEMON_FINAL->$lang; } ?></td>
 			</tr>
 			<tr>
 				<td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_QUICK->$lang ?> :</strong></td>
