@@ -85,7 +85,7 @@ function data_test(){
 		
 		if($total == 0){
 			
-			$lock_msg .= "No Pokestop found is your database \r";
+			$lock_msg .= "No Pokestop found in your database \r";
 		}
 		
 	}
