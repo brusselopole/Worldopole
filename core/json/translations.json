@@ -1,492 +1,584 @@
 {
-   	"BASELINE": {
-    	"EN": "A PokémonGo Community in %s",
-    	"FR": "Tout sur PokémonGo à %s",
-    	"ES": "Una Comunidad PokémonGo en %s"
-   	},
-   	"METADESCRIPTION": {
-    	"EN": "Find all collected and proccessed data about PokémonGo in %s : nests, stats, frequency, ... Learn when and where to look for the Pokémon you're missing.",
-    	"FR": "Trouvez toutes les informations et données sur PokémonGo à %s : les nids, les fréquences, les statistiques, ... Apprenez où et quand chercher le Pokémon qu'il vous manque !",
-    	"ES": "Encuentra toda la información recolectada y procesada sobre PokémonGo en %s : nidos, estadísticas, frecuencia, ... Aprende cuándo y dónde buscar a los Pokémon que te faltan."
-   	},
-   	"HOME": {
-    	"EN": "Home",
-    	"FR": "Accueil",
-    	"ES": "Inicio"
-   	},
-   	"SHARE": {
-    	"EN": "Share on",
-    	"FR": "Partager sur",
-    	"ES": "Compartir en"
-   	},
-   	"TEAM": {
-    	"EN": "Team",
-    	"FR": "Équipe",
-    	"ES": "Equipo"
-   	},
-   	"CITY": {
-    	"EN": "%s",
-    	"FR": "%s",
-    	"ES": "%s"
-   	},
-   	"INCITY": {
-    	"EN": "in %s",
-    	"FR": "à %s",
-    	"ES": "en %s"
-   	},
-   	"FIND": {
-    	"EN": "Find ",
-    	"FR": "Trouvez ",
-    	"ES": "Buscar "
-   	},
-   	"MYSTIC": {
-    	"EN": "Mystic",
-    	"FR": "Sagesse",
-    	"ES": "Místico"
-   	},
-   	"VALOR": {
-    	"EN": "Valor",
-    	"FR": "Bravoure",
-    	"ES": "Valor"
-   	},
-   	"INSTINCT": {
-    	"EN": "Instinct",
-    	"FR": "Intuition",
-    	"ES": "Instinto"
-   	},
-	 "GYMS": {
-    	"EN": "Gyms",
-    	"FR": "Arènes",
-    	"ES": "Gimnasios"
-   	},
-   	"SEEN": {
-    	"EN": " seen",
-    	"FR": " vues",
-    	"ES": " vistos"
-   	},
-   	"UNSEEN": {
-    	"EN": "unseen",
-    	"FR": "absent",
-    	"ES": "no vistos"
-   	},
-   	"LURES": {
-    	"EN": "Lures",
-    	"FR": "Leurres",
-    	"ES": "Cebos"
-   	},
-  	"NAV_POKEDEX": {
-   		"EN": "All Pokémon",
-    	"FR": "Tous les Pokémon",
-    	"ES": "Todos los Pokémon"
-   	},
-   	"WIDGET_POKEMON_SUB": {
-    	"EN": "in %s right now",
-    	"FR": "à %s maintenant",
-    	"ES": "en %s en este momento"
-   	},
-   	"WIDGET_GYM_SUB": {
-    	"EN": "to fight for",
-    	"FR": "à prendre",
-    	"ES": "por combatir"
-   	},
-   	"WIDGET_LURES_SUB": {
-    	"EN": "activated in %s",
-    	"FR": "actifs sur %s",
-    	"ES": "activado en %s"
-   	},
-   	"WIDGET_FB_LIKE": {
-    	"EN": "<a href='https://www.facebook.com/brusselopole/' target='_blank'><big>Like us on</big><br><strong>Facebook!</strong></a>",
-    	"FR": "<a href='https://www.facebook.com/brusselopole/' target='_blank'><big>Likez nous sur</big><br><strong>Facebook!</strong></a>",
-    	"ES": "<a href='https://www.facebook.com/brusselopole/' target='_blank'><big>Danos Me gusta en </big><br><strong>Facebook!</strong></a>"
-   	},
-   	"RECENT_SPAWNS": {
-    	"EN": "The most <strong>recent</strong> spawns",
-    	"FR": "Les apparitions <strong>récentes</strong>",
-    	"ES": "Apariciones <strong>recientes</strong>"
-   	},
-   	"FIGHT_TITLE": {
-    	"EN": "The <strong>fight</strong> is on",
-    	"FR": "Le <strong>combat</strong> fait rage",
-    	"ES": "El <strong>combate</strong> ha iniciado"
-   	},
-   	"FOOTER_TITLE": {
-    	"EN": "Thanks and copyrights",
-    	"FR": "Remerciements et copyrights",
-    	"ES": "Agradecimientos y derechos"
-   	},
-   	"FOOTER_SUB": {
-    	"EN": "This website or the authors have no relationship with Niantic, Nintendo or other any Pokémon Go responsible.",
-    	"FR": "Ce site ou ses auteurs ne sont en aucun cas en relation avec Niantic, Nintendo ou toute personne responsable de Pokémon Go.",
-    	"ES": "Ni este sitio ni los autores tienen relación alguna con Niantic, Nintendo u otra entidad responsable por Pokémon Go."
-   	},
-   	"FOOTER_VISUAL_CONTENT": {
-    	"EN": "<p>Icons designed by <a href='http://www.flaticon.com/packs/packs/pokemon-go/''>Roundicons Freebies</a> for <a href='http://www.flaticon.com'>Flaticon</a>. Font icons provided by <a href='http://fontawesome.io'>Font Awesome</a> by Dave Gandy.</p>",
-    	"FR": "<p>Icônes créées par <a href='http://www.flaticon.com/packs/packs/pokemon-go/''>Roundicons Freebies</a> pour <a href='http://www.flaticon.com'>Flaticon</a>. Icon-Font fournie par <a href='http://fontawesome.io'>Font Awesome</a> de Dave Gandy.</p>",
-    	"ES": "<p>Íconos creados por <a href='http://www.flaticon.com/packs/packs/pokemon-go/''>Roundicons Freebies</a> para <a href='http://www.flaticon.com'>Flaticon</a>. Íconos de fuentes provistos por <a href='http://fontawesome.io'>Font Awesome</a> de Dave Gandy.</p>"
+	"BASELINE": {
+		"EN": "A PokémonGo Community in %s",
+		"FR": "Tout sur PokémonGo à %s",
+		"ES": "Una Comunidad PokémonGo en %s",
+		"DE": "Eine PokémonGo Community in %s"
+	},
+	"METADESCRIPTION": {
+		"EN": "Find all collected and proccessed data about PokémonGo in %s : nests, stats, frequency, ... Learn when and where to look for the Pokémon you're missing.",
+		"FR": "Trouvez toutes les informations et données sur PokémonGo à %s : les nids, les fréquences, les statistiques, ... Apprenez où et quand chercher le Pokémon qu'il vous manque !",
+		"ES": "Encuentra toda la información recolectada y procesada sobre PokémonGo en %s : nidos, estadísticas, frecuencia, ... Aprende cuándo y dónde buscar a los Pokémon que te faltan.",
+		"DE": "Alle Daten über PokémonGo in %s : Nester, Statistiken, Häufungen, ... Finde hier die Pokémon, die Dir noch fehlen."
+	},
+	"HOME": {
+		"EN": "Home",
+		"FR": "Accueil",
+		"ES": "Inicio",
+		"DE": "Startseite"
+	},
+	"SHARE": {
+		"EN": "Share on",
+		"FR": "Partager sur",
+		"ES": "Compartir en",
+		"DE": "Teilen auf"
+	},
+	"TEAM": {
+		"EN": "Team",
+		"FR": "Équipe",
+		"ES": "Equipo",
+		"DE": "Team"
+	},
+	"CITY": {
+		"EN": "%s",
+		"FR": "%s",
+		"ES": "%s",
+		"DE": "%s"
+	},
+	"INCITY": {
+		"EN": "in %s",
+		"FR": "à %s",
+		"ES": "en %s",
+		"DE": "in %s"
+	},
+	"FIND": {
+		"EN": "Find ",
+		"FR": "Trouvez ",
+		"ES": "Buscar ",
+		"DE": "Finde "
+	},
+	"MYSTIC": {
+		"EN": "Mystic",
+		"FR": "Sagesse",
+		"ES": "Místico",
+		"DE": "Weisheit"
+	},
+	"VALOR": {
+		"EN": "Valor",
+		"FR": "Bravoure",
+		"ES": "Valor",
+		"DE": "Wagemut"
+	},
+	"INSTINCT": {
+		"EN": "Instinct",
+		"FR": "Intuition",
+		"ES": "Instinto",
+		"DE": "Intuition"
+	},
+	"GYMS": {
+		"EN": "Gyms",
+		"FR": "Arènes",
+		"ES": "Gimnasios",
+		"DE": "Arenen"
+	},
+	"SEEN": {
+		"EN": " seen",
+		"FR": " vues",
+		"ES": " vistos",
+		"DE": " gesehen"
+	},
+	"UNSEEN": {
+		"EN": "unseen",
+		"FR": "absent",
+		"ES": "no vistos",
+		"DE": "Nicht gesehen"
+	},
+	"LURES": {
+		"EN": "Lures",
+		"FR": "Leurres",
+		"ES": "Cebos",
+		"DE": "Lockmodule"
+	},
+	"NAV_POKEDEX": {
+		"EN": "All Pokémon",
+		"FR": "Tous les Pokémon",
+		"ES": "Todos los Pokémon",
+		"DE": "Alle Pokémon"
+	},
+	"WIDGET_POKEMON_SUB": {
+		"EN": "in %s right now",
+		"FR": "à %s maintenant",
+		"ES": "en %s en este momento",
+		"DE": "Gerade in %s"
+	},
+	"WIDGET_GYM_SUB": {
+		"EN": "to fight for",
+		"FR": "à prendre",
+		"ES": "por combatir",
+		"DE": "zum Kampf bereit"
+	},
+	"WIDGET_LURES_SUB": {
+		"EN": "activated in %s",
+		"FR": "actifs sur %s",
+		"ES": "activado en %s",
+		"DE": "aktiv in %s"
+	},
+	"WIDGET_FB_LIKE": {
+		"EN": "<a href='https://www.facebook.com/brusselopole/' target='_blank'><big>Like us on</big><br><strong>Facebook!</strong></a>",
+		"FR": "<a href='https://www.facebook.com/brusselopole/' target='_blank'><big>Likez nous sur</big><br><strong>Facebook!</strong></a>",
+		"ES": "<a href='https://www.facebook.com/brusselopole/' target='_blank'><big>Danos Me gusta en </big><br><strong>Facebook!</strong></a>",
+		"DE": "<a href='https://www.facebook.com/brusselopole/' target='_blank'><big>Like uns auf </big><br><strong>Facebook!</strong></a>"
+	},
+	"RECENT_SPAWNS": {
+		"EN": "The most <strong>recent</strong> spawns",
+		"FR": "Les apparitions <strong>récentes</strong>",
+		"ES": "Apariciones <strong>recientes</strong>",
+		"DE": "Die <strong>letzten</strong> spawns:"
+	},
+	"FIGHT_TITLE": {
+		"EN": "The <strong>fight</strong> is on",
+		"FR": "Le <strong>combat</strong> fait rage",
+		"ES": "El <strong>combate</strong> ha iniciado",
+		"DE": "Der <strong>Kampf</strong> beginnt"
+	},
+	"FOOTER_TITLE": {
+		"EN": "Thanks and copyrights",
+		"FR": "Remerciements et copyrights",
+		"ES": "Agradecimientos y derechos",
+		"DE": "Danksagungen und Copyrights"
+	},
+	"FOOTER_SUB": {
+		"EN": "This website or the authors have no relationship with Niantic, Nintendo or other any Pokémon Go responsible.",
+		"FR": "Ce site ou ses auteurs ne sont en aucun cas en relation avec Niantic, Nintendo ou toute personne responsable de Pokémon Go.",
+		"ES": "Ni este sitio ni los autores tienen relación alguna con Niantic, Nintendo u otra entidad responsable por Pokémon Go.",
+		"DE": "Diese Seite und ihre Betreiber stehen in keinerlei Beziehung zu Niantic, Nintendo oder irgendjemandem verantwortlich für Pokémon Go."
+	},
+	"FOOTER_VISUAL_CONTENT": {
+		"EN": "<p>Icons designed by <a href='http://www.flaticon.com/packs/packs/pokemon-go/''>Roundicons Freebies</a> for <a href='http://www.flaticon.com'>Flaticon</a>. Font icons provided by <a href='http://fontawesome.io'>Font Awesome</a> by Dave Gandy.</p>",
+		"FR": "<p>Icônes créées par <a href='http://www.flaticon.com/packs/packs/pokemon-go/''>Roundicons Freebies</a> pour <a href='http://www.flaticon.com'>Flaticon</a>. Icon-Font fournie par <a href='http://fontawesome.io'>Font Awesome</a> de Dave Gandy.</p>",
+		"ES": "<p>Íconos creados por <a href='http://www.flaticon.com/packs/packs/pokemon-go/''>Roundicons Freebies</a> para <a href='http://www.flaticon.com'>Flaticon</a>. Íconos de fuentes provistos por <a href='http://fontawesome.io'>Font Awesome</a> de Dave Gandy.</p>",
+		"DE": "<p>Icons gestaltet von <a href='http://www.flaticon.com/packs/packs/pokemon-go/''>Roundicons Freebies</a> für <a href='http://www.flaticon.com'>Flaticon</a>. Font icons wurden von <a href='http://fontawesome.io'>Font Awesome</a> und Dave Gandy zur Verfügung gestellt.</p>"
 	},
 	"FOOTER_POKEMON_CONTENT": {
 		"EN": "<p>Pokémon Go is ©2016 Niantic, Inc. ©2016 Pokémon. ©1995–2016 Nintendo / Creatures Inc. / GAME FREAK inc.</p><p>Pokémon and Pokémon character names are trademarks of Nintendo.</p><p>Other trademarks are the property of their respective owners.</p>",
-    	"FR": "<p>Pokémon Go est ©2016 Niantic, Inc. ©2016 Pokémon. ©1995–2016 Nintendo / Creatures Inc. / GAME FREAK inc.</p><p>Pokémon et les personnages Pokémon ainsi que leurs noms sont des marques déposées par Nintendo.</p><p>Toutes les autres marques restent la propriété de leurs propriétaires légaux.</p>",
-    	"ES": "<p>Pokémon Go es ©2016 Niantic, Inc. ©2016 Pokémon. ©1995–2016 Nintendo / Creatures Inc. / GAME FREAK inc.</p><p>Pokémon y los nombres de los personajes de Pokémon son marcas registradas por Nintendo.</p><p>Otras marcas están registradas por sus respectivos dueños.</p>"
-   	},
-   	"FOOTER_DATA": {
-    	"EN": "Data collected since the <strong>2nd of August 2016</strong>",
-    	"FR": "Données collectées depuis le <strong>2 Août 2016",
-    	"ES": "Información recolectada desde el <strong>2 de Agosto de 2016"
-   	},
-   	"POKEDEX_TITLE": {
-    	"EN": "The general <strong>Pokédex</strong><br><small>Gotta catch 'em all!</small>",
-    	"FR": "Le <strong>Pokédex</strong><br><small>Attrapez les tous !</small>",
-    	"ES": "<strong>Pokédex</strong> general<br><small>¡Atrápalos a todos!</small>"
-   	},
-   	"POKEDEX_METATITLE": {
-    	"EN": "Browse the Pokédex",
-    	"FR": "Consultez le Pokédex",
-    	"ES": "Consulta el Pokédex"
-   	},
-   	"POKEDEX_METADESC": {
-    	"EN": "Browse the Pokedex and get all informations about your favorites Pokémon",
-    	"FR": "Consultez le Pokédex et trouvez toutes les informations sur vos Pokémon favoris",
-    	"ES": "Consulta el Pokédex para tener toda la infomación sobre tus Pokémon favoritos"
-   	},
-   	"GYMS_TITLE": {
-    	"EN": "The <strong>fight</strong> map<br><small>Follow the conquest of your team</small>",
-    	"FR": "La carte des <strong>combats</strong><br><small>Suivez votre équipe !</small>",
-    	"ES": "El mapa de <strong>combates</strong><br><small>¡Sigue las conquistas de tu equipo!</small>"
-   	},
-   	"GYMS_METATITLE": {
-    	"EN": "Follow the conquest",
-    	"FR": "Suivez la conquête",
-    	"ES": "Sigue la conquista"
-   	},
-   	"NAV_DASHBOARD": {
-    	"EN": "Dashboard",
-    	"FR": "Tableau de bord"
-   	},
-   	"GYMS_METADESC": {
-    	"EN": "Valor, Mystic or Instinct? Who will win the fight?",
-    	"FR": "Bravoure, Sagesse ou Intuition ? Qui dominera ?",
-    	"ES": "¿Valor, Místico o Instinto ? ¿Quién ganará?"
-   	},
-   	"GYMS_OWNED": {
-    	"EN": "gyms owned",
-    	"FR": "arènes prises",
-    	"ES": "gimnasios ganados"
-   	},
-   	"GYMS_AVERAGE": {
-    	"EN": "average prestige",
-    	"FR": "prestige moyen",
-    	"ES": "prestigio promedio"
-   	},
-   	"GYMS_GUARDIANS": {
-    	"EN": "Top 3 favourite<br/><strong>guardians</strong>",
-    	"FR": "Top 3 des <strong>gardiens</strong><br/>favoris",
-    	"ES": "Top 3 <strong>defensores</strong><br/>favoritos"
-   	},
-   	"POKESTOPS":{
-	   	"EN": "Pokéstops",
-    	"FR": "Pokéstops",
-    	"ES": "Poképaradas"
-   	},
-   	"POKESTOPS_TITLE": {
-    	"EN": "Where to <strong>Pokéstop</strong> and fill your bag in <strong>%s</strong><br><small>There's always a <strong>Pokéstop</strong> near you.</small>",
-    	"FR": "Où faire un <strong>Pokéstop</strong> et remplir votre sac à <strong>%s</strong><br><small>Il y'a toujours un <strong>Pokéstop</strong> près de vous.</small>",
-    	"ES": "Dónde hacer una <strong>Poképarada</strong> y rellenar tu mochila en <strong>%s</strong><br><small>Con suerte habrá una <strong>Poképarada</strong> cerca de ti.</small>"
-   	},
-   	"POKESTOPS_METATITLE": {
-    	"EN": "All Pokéstops in %s",
-    	"FR": "Tous les Pokéstops à %s",
-    	"ES": "Todas las Poképaradas de %s"
-   	},
-   	"POKESTOPS_METADESC": {
-    	"EN": "Find your way around %s using our Pokéstops finder.",
-    	"FR": "Trouvez votre chemin dans %s avec notre carte des Pokéstops",
-    	"ES": "Encuentra tu camino en %s usando nuestro buscador de Poképaradas"
-   	},
-   	"POKESTOPS_INCITY": {
-    	"EN": "in %s",
-    	"FR": "à %s",
-    	"ES": "en %s"
-   	},
-   	"POKESTOPS_LURES": {
-    	"EN": "active right now",
-    	"FR": "activés actuellement",
-    	"ES": "activos en este momento"
-   	},
-   	"POKEMON_SEEN": {
-    	"EN": "When was it last seen?",
-    	"FR": "Quand a-t'il été vu dernièrement ?",
-    	"ES": "¿Cuándo fue visto por última vez?"
-   	},
-   	"POKEMON_AMOUNT": {
-    	"EN": "How many times was it seen?",
-    	"FR": "Combien de fois a-t'il été aperçu ?",
-    	"ES": "¿Cuántas veces fue visto?"
-   	},
-   	"POKEMON_RATE": {
-    	"EN": "Spawn rate",
-    	"FR": "Taux d'apparitions",
-    	"ES": "Tasa de apariciones"
-   	},
-   	"POKEMON_GYM": {
-    	"EN": "Gyms protected by ",
-    	"FR": "Arènes protégées par ",
-    	"ES": "Gimnasios defendidos por "
-   	},
-   	"POKEMON_EVOLUTION": {
-    	"EN": "Next Evolution Requirements",
-    	"FR": "Nécessaires pour l'évolution",
-    	"ES": "Requisitos para la Próxíma Evolución"
-   	},
-   	"POKEMON_FINAL": {
-    	"EN": "Final Form",
-    	"FR": "Forme finale",
-    	"ES": "Forma final"
-   	},
-   	"POKEMON_QUICK": {
-    	"EN": "Best quick move",
-    	"FR": "Meilleure attaque rapide",
-    	"ES": "Mejor ataque rápido"
-   	},
-   	"POKEMON_SPECIAL": {
-    	"EN": "Best special move",
-    	"FR": "Meilleure attaque spéciale",
-    	"ES": "Mejor ataque especial"
-   	},
-   	"POKEMON_MAP": {
-    	"EN": "Map",
-    	"FR": "Carte",
-    	"ES": "Mapa"
-   	},
-   	"POKEMON_STATS": {
-    	"EN": "Stats",
-    	"FR": "Caractéristiques",
-    	"ES": "Características"
-   	},
-   	"POKEMON_FAMILY": {
-    	"EN": "Family",
-    	"FR": "Famille",
-    	"ES": "Familia"
-   	},
-   	"POKEMON_WHERE": {
-    	"EN": "Where can you <strong>hunt</strong>",
-    	"FR": "Où se <strong>trouve</strong>",
-    	"ES": "Dónde puedes <strong>cazar</strong>"
-   	},
-   	"POKEMON_BREAKDOWN": {
-    	"EN": "stats breakdown",
-    	"FR": ": caractéristiques",
-    	"ES": ": características"
-   	},
-   	"POKEMON_CP": {
-    	"EN": "highest CP",
-    	"FR": "plus haut PC",
-    	"ES": "PC máximo"
-   	},
-   	"POKEMON_COMPGAME": {
-    	"EN": "compared to <strong>highest</strong> in game",
-    	"FR": "par rapport au plus <strong>puissant</strong> du jeu",
-    	"ES": "comparado con <strong>el más alto</strong> del juego"
-   	},
-   	"POKEMON_HP": {
-    	"EN": "highest HP",
-    	"FR": "plus haut PV",
-    	"ES": "PS más alto"
-   	},
-   	"POKEMON_FAMILYTITLE": {
-    	"EN": "'s family",
-    	"FR": " : famille",
-    	"ES": " : familia"
-   	},
-   	"MINUTE":{
-	   	"EN": "minute",
-	   	"FR": "minute",
-	   	"ES": "minuto"
-   	},
-   	"MINUTES":{
-	   	"EN": "minutes",
-	   	"FR": "minutes",
-	   	"ES": "minutos"
-   	},
-   	"HOUR":{
-	   	"EN": "hour",
-	   	"FR": "heure",
-	   	"ES": "hora"
-   	},
-   	"HOURS":{
-	   	"EN": "hours",
-	   	"FR": "heures",
-	   	"ES": "horas"
-   	},
-   	"DAY":{
-	   	"EN": "day",
-	   	"FR": "jour",
-	   	"ES": "día"
-   	},
-   	"DAYS":{
-	   	"EN": "days",
-	   	"FR": "jours",
-	   	"ES": "días"
-   	},
-   	"WEEK":{
-	   	"EN": "week",
-	   	"FR": "semaine",
-	   	"ES": "semana"
-   	},
-   	"WEEKS":{
-	   	"EN": "weeks",
-	   	"FR": "semaines",
-	   	"ES": "semanas"
-   	},
-   	"MONTH":{
-	   	"EN": "month",
-	   	"FR": "mois",
-	   	"ES": "mes"
-   	},
-   	"MONTHS":{
-	   	"EN": "months",
-	   	"FR": "mois",
-	   	"ES": "meses"
-   	},
-   	"YEAR":{
-	   	"EN": "year",
-	   	"FR": "an",
-	   	"ES": "año"
-   	},
-   	"YEARS":{
-	   	"EN": "years",
-	   	"FR": "an",
-	   	"ES": "años"
-   	},
-   	"NEVER":{
-	   	"EN": "We miss it",
-	   	"FR": "Jamais vu, désolé",
-	   	"ES": "Nunca"
-   	},
-   	"TRAINER_GRAPH":{
-   		"EN": "Trainer <strong>level</strong> distribution",
-   		"FR": "<strong>Niveaux</strong> des entraîneurs Pokémon",
-   		"ES": "Distribución del <strong>nivel</strong> de entrenador Pokémon"
-   	},
+		"FR": "<p>Pokémon Go est ©2016 Niantic, Inc. ©2016 Pokémon. ©1995–2016 Nintendo / Creatures Inc. / GAME FREAK inc.</p><p>Pokémon et les personnages Pokémon ainsi que leurs noms sont des marques déposées par Nintendo.</p><p>Toutes les autres marques restent la propriété de leurs propriétaires légaux.</p>",
+		"ES": "<p>Pokémon Go es ©2016 Niantic, Inc. ©2016 Pokémon. ©1995–2016 Nintendo / Creatures Inc. / GAME FREAK inc.</p><p>Pokémon y los nombres de los personajes de Pokémon son marcas registradas por Nintendo.</p><p>Otras marcas están registradas por sus respectivos dueños.</p>",
+		"DE": "<p>Pokémon Go is ©2016 Niantic, Inc. ©2016 Pokémon. ©1995–2016 Nintendo / Creatures Inc. / GAME FREAK inc.</p><p>Pokémon und deren offiziellen Namen sind geschützt von Nintendo.</p><p>Andere Schutzmarken gehören den jeweiligen Besitzern.</p>"
+	},
+	"FOOTER_DATA": {
+		"EN": "Data collected since the <strong>2nd of August 2016</strong>",
+		"FR": "Données collectées depuis le <strong>2 Août 2016</strong>",
+		"ES": "Información recolectada desde el <strong>2 de Agosto de 2016</strong>",
+		"DE": "Daten seit dem <strong>2. August 2016</strong>"
+	},
+	"POKEDEX_TITLE": {
+		"EN": "The general <strong>Pokédex</strong><br><small>Gotta catch 'em all!</small>",
+		"FR": "Le <strong>Pokédex</strong><br><small>Attrapez les tous !</small>",
+		"ES": "<strong>Pokédex</strong> general<br><small>¡Atrápalos a todos!</small>",
+		"DE": "<strong>Pokédex</strong> Übersicht<br><small>Komm* schnapp sie Dir!</small>"
+	},
+	"POKEDEX_METATITLE": {
+		"EN": "Browse the Pokédex",
+		"FR": "Consultez le Pokédex",
+		"ES": "Consulta el Pokédex",
+		"DE": "Durchsuche den Pokédex"
+	},
+	"POKEDEX_METADESC": {
+		"EN": "Browse the Pokedex and get all informations about your favorites Pokémon",
+		"FR": "Consultez le Pokédex et trouvez toutes les informations sur vos Pokémon favoris",
+		"ES": "Consulta el Pokédex para tener toda la infomación sobre tus Pokémon favoritos",
+		"DE": "Durchsuche den Pokédex und finde alle Informationen über deine liebsten Pokémon"
+	},
+	"GYMS_TITLE": {
+		"EN": "The <strong>fight</strong> map<br><small>Follow the conquest of your team</small>",
+		"FR": "La carte des <strong>combats</strong><br><small>Suivez votre équipe !</small>",
+		"ES": "El mapa de <strong>combates</strong><br><small>¡Sigue las conquistas de tu equipo!</small>",
+		"DE": "Die <strong>Arena</strong> Map<br><small>Folge dem Erfolg deines Teams!</small>"
+	},
+	"GYMS_METATITLE": {
+		"EN": "Follow the conquest",
+		"FR": "Suivez la conquête",
+		"ES": "Sigue la conquista",
+		"DE": "Helfe der Eroberung"
+	},
+	"NAV_DASHBOARD": {
+		"EN": "Dashboard",
+		"FR": "Tableau de bord",
+		"DE": "Dashboard"
+	},
+	"GYMS_METADESC": {
+		"EN": "Valor, Mystic or Instinct? Who will win the fight?",
+		"FR": "Bravoure, Sagesse ou Intuition ? Qui dominera ?",
+		"ES": "¿Valor, Místico o Instinto ? ¿Quién ganará?",
+		"DE": "Wagemut, Weisheit or Intuition? Wer wird am Ende die Oberhand haben?"
+	},
+	"GYMS_OWNED": {
+		"EN": "gyms owned",
+		"FR": "arènes prises",
+		"ES": "gimnasios ganados",
+		"DE": "Arenen eingenommen"
+	},
+	"GYMS_AVERAGE": {
+		"EN": "average prestige",
+		"FR": "prestige moyen",
+		"ES": "prestigio promedio",
+		"DE": "Durchschnittliche Prestige"
+	},
+	"GYMS_GUARDIANS": {
+		"EN": "Top 3 favourite<br/><strong>guardians</strong>",
+		"FR": "Top 3 des <strong>gardiens</strong><br/>favoris",
+		"ES": "Top 3 <strong>defensores</strong><br/>favoritos",
+		"DE": "Top 3 <br/><strong>Verteidiger</strong>"
+	},
+	"POKESTOPS":{
+		"EN": "Pokéstops",
+		"FR": "Pokéstops",
+		"ES": "Poképaradas",
+		"DE": "Pokéstops"
+	},
+	"POKESTOPS_TITLE": {
+		"EN": "Where to <strong>Pokéstop</strong> and fill your bag in <strong>%s</strong><br><small>There's always a <strong>Pokéstop</strong> near you.</small>",
+		"FR": "Où faire un <strong>Pokéstop</strong> et remplir votre sac à <strong>%s</strong><br><small>Il y'a toujours un <strong>Pokéstop</strong> près de vous.</small>",
+		"ES": "Dónde hacer una <strong>Poképarada</strong> y rellenar tu mochila en <strong>%s</strong><br><small>Con suerte habrá una <strong>Poképarada</strong> cerca de ti.</small>",
+		"DE": "Finde <strong>Pokéstops</strong> und fülle deinen Beutel in <strong>%s</strong><br><small>Es ist immer ein <strong>Pokéstop</strong> in Deiner Nähe.</small>"
+	},
+	"POKESTOPS_METATITLE": {
+		"EN": "All Pokéstops in %s",
+		"FR": "Tous les Pokéstops à %s",
+		"ES": "Todas las Poképaradas de %s",
+		"DE": "Alle Pokéstops in %s"
+	},
+	"POKESTOPS_METADESC": {
+		"EN": "Find your way around %s using our Pokéstops finder.",
+		"FR": "Trouvez votre chemin dans %s avec notre carte des Pokéstops",
+		"ES": "Encuentra tu camino en %s usando nuestro buscador de Poképaradas",
+		"DE": "Finde deinen Weg durch %s mit unserer Pokéstop-Karte."
+	},
+	"POKESTOPS_INCITY": {
+		"EN": "in %s",
+		"FR": "à %s",
+		"ES": "en %s",
+		"DE": "in %s"
+	},
+	"POKESTOPS_LURES": {
+		"EN": "active right now",
+		"FR": "activés actuellement",
+		"ES": "activos en este momento",
+		"DE": "Gerade aktiv."
+	},
+	"POKEMON_SEEN": {
+		"EN": "When was it last seen?",
+		"FR": "Quand a-t'il été vu dernièrement ?",
+		"ES": "¿Cuándo fue visto por última vez?",
+		"DE": "Wann wurde es das letzte Mal gesehen?"
+	},
+	"POKEMON_AMOUNT": {
+		"EN": "How many times was it seen?",
+		"FR": "Combien de fois a-t'il été aperçu ?",
+		"ES": "¿Cuántas veces fue visto?",
+		"DE": "Wie oft wurde es zuletzt gesehen?"
+	},
+	"POKEMON_RATE": {
+		"EN": "Spawn rate",
+		"FR": "Taux d'apparitions",
+		"ES": "Tasa de apariciones",
+		"DE": "Spawn-Rate"
+	},
+	"POKEMON_GYM": {
+		"EN": "Gyms protected by ",
+		"FR": "Arènes protégées par ",
+		"ES": "Gimnasios defendidos por ",
+		"DE": "Arenen gehalten von "
+	},
+	"POKEMON_EVOLUTION": {
+		"EN": "Next Evolution Requirements",
+		"FR": "Nécessaires pour l'évolution",
+		"ES": "Requisitos para la Próxíma Evolución",
+		"DE": "Nächste Entwicklung"
+	},
+	"POKEMON_FINAL": {
+		"EN": "Final Form",
+		"FR": "Forme finale",
+		"ES": "Forma final",
+		"DE": "Finale Form"
+	},
+	"POKEMON_QUICK": {
+		"EN": "Best quick move",
+		"FR": "Meilleure attaque rapide",
+		"ES": "Mejor ataque rápido",
+		"DE": "Bester Quick-Move"
+	},
+	"POKEMON_SPECIAL": {
+		"EN": "Best special move",
+		"FR": "Meilleure attaque spéciale",
+		"ES": "Mejor ataque especial",
+		"DE": "Bester Spezial-Move"
+	},
+	"POKEMON_MAP": {
+		"EN": "Map",
+		"FR": "Carte",
+		"ES": "Mapa",
+		"DE": "Karte"
+	},
+	"POKEMON_STATS": {
+		"EN": "Stats",
+		"FR": "Caractéristiques",
+		"ES": "Características",
+		"DE": "Statistiken"
+	},
+	"POKEMON_FAMILY": {
+		"EN": "Family",
+		"FR": "Famille",
+		"ES": "Familia",
+		"DE": "Familie"
+	},
+	"POKEMON_WHERE": {
+		"EN": "Where can you <strong>hunt</strong>",
+		"FR": "Où se <strong>trouve</strong>",
+		"ES": "Dónde puedes <strong>cazar</strong>",
+		"DE": "Wo <strong>fängst</strong> du"
+	},
+	"POKEMON_BREAKDOWN": {
+		"EN": "stats breakdown",
+		"FR": ": caractéristiques",
+		"ES": ": características",
+		"DE": ": Eigenschaften"
+	},
+	"POKEMON_CP": {
+		"EN": "highest CP",
+		"FR": "plus haut PC",
+		"ES": "PC máximo",
+		"DE": "Höchtste WP"
+	},
+	"POKEMON_COMPGAME": {
+		"EN": "compared to <strong>highest</strong> in game",
+		"FR": "par rapport au plus <strong>puissant</strong> du jeu",
+		"ES": "comparado con <strong>el más alto</strong> del juego",
+		"DE": "verglichen mit <strong>höchste</strong> im Spiel"
+	},
+	"POKEMON_HP": {
+		"EN": "highest HP",
+		"FR": "plus haut PV",
+		"ES": "PS más alto",
+		"DE": "Höchste HP"
+	},
+	"POKEMON_FAMILYTITLE": {
+		"EN": "'s family",
+		"FR": " : famille",
+		"ES": " : familia",
+		"DE": "'s Familie"
+	},
+	"MINUTE":{
+		"EN": "minute",
+		"FR": "minute",
+		"ES": "minuto",
+		"DE": "Minute"
+	},
+	"MINUTES":{
+		"EN": "minutes",
+		"FR": "minutes",
+		"ES": "minutos",
+		"DE": "Minuten"
+	},
+	"HOUR":{
+		"EN": "hour",
+		"FR": "heure",
+		"ES": "hora",
+		"DE": "Stunde"
+	},
+	"HOURS":{
+		"EN": "hours",
+		"FR": "heures",
+		"ES": "horas",
+		"DE": "Stunden"
+	},
+	"DAY":{
+		"EN": "day",
+		"FR": "jour",
+		"ES": "día",
+		"DE": "Tag"
+	},
+	"DAYS":{
+		"EN": "days",
+		"FR": "jours",
+		"ES": "días",
+		"DE": "Tage"
+	},
+	"WEEK":{
+		"EN": "week",
+		"FR": "semaine",
+		"ES": "semana",
+		"DE": "Woche"
+	},
+	"WEEKS":{
+		"EN": "weeks",
+		"FR": "semaines",
+		"ES": "semanas",
+		"DE": "Wochen"
+	},
+	"MONTH":{
+		"EN": "month",
+		"FR": "mois",
+		"ES": "mes",
+		"DE": "Monat"
+	},
+	"MONTHS":{
+		"EN": "months",
+		"FR": "mois",
+		"ES": "meses",
+		"DE": "Monate"
+	},
+	"YEAR":{
+		"EN": "year",
+		"FR": "an",
+		"ES": "año",
+		"DE": "Jahr"
+	},
+	"YEARS":{
+		"EN": "years",
+		"FR": "an",
+		"ES": "años",
+		"DE": "Jahre"
+	},
+	"NEVER":{
+		"EN": "We miss it",
+		"FR": "Jamais vu, désolé",
+		"ES": "Nunca",
+		"EN": "Noch nie"
+	},
+	"TRAINER_GRAPH":{
+		"EN": "Trainer <strong>level</strong> distribution",
+		"FR": "<strong>Niveaux</strong> des entraîneurs Pokémon",
+		"ES": "Distribución del <strong>nivel</strong> de entrenador Pokémon",
+		"DE": "Trainer <strong>level</strong> Verteilung"
+	},
 	"DASHBOARD_TITLE":{
-   		"EN": "MOAR <strong>DATA</strong> MOAAAAR",
-   		"FR": "ENCORE DES <strong>DONNÉES</strong> ENCOOORE",
-   		"ES": "Más <strong>DATOS</strong> Más"
-   	},
+		"EN": "MOAR <strong>DATA</strong> MOAAAAR",
+		"FR": "ENCORE DES <strong>DONNÉES</strong> ENCOOORE",
+		"ES": "Más <strong>DATOS</strong> Más",
+		"DE": "MEHR <strong>DATEN</strong> MEEEEEHR"
+	},
 	"DASHBOARD_SUBTITLE":{
-   		"EN": "Data are gathered every <strong>15 minutes</strong>",
-   		"FR": "Données mises à jour toutes les <strong>15 minutes</strong>",
-   		"ES": "Datos actualizados cada <strong>15 minutos</strong>"
-   	},
+		"EN": "Data are gathered every <strong>15 minutes</strong>",
+		"FR": "Données mises à jour toutes les <strong>15 minutes</strong>",
+		"ES": "Datos actualizados cada <strong>15 minutos</strong>",
+		"DE": "Die Daten werden alle <strong>15 Minuten</strong> erhoben"
+	},
 	"DASHBOARD_SPAWN_TITLE":{
-   		"EN": "Pokémon <strong>spawn</strong>",
-   		"FR": "<strong>Apparition</strong> des Pokémon",
-   		"ES": "<strong>Aparición</strong> de Pokémon"
-   	},
+		"EN": "Pokémon <strong>spawn</strong>",
+		"FR": "<strong>Apparition</strong> des Pokémon",
+		"ES": "<strong>Aparición</strong> de Pokémon",
+		"DE": "Pokémon <strong>spawns</strong>"
+	},
 	"DASHBOARD_SPAWN_TOTAL":{
-   		"EN": "Total Spawn",
-   		"FR": "Apparitions totales",
-   		"ES": "Apariencia total"
-   	},
+		"EN": "Total Spawn",
+		"FR": "Apparitions totales",
+		"ES": "Apariencia total",
+		"DE": "Spawns Gesamt"
+	},
 	"DASHBOARD_LAST7DAYS":{
-   		"EN": "Last 7 days",
-   		"FR": "7 derniers jours",
-   		"ES": "Últimos 7 días"
-   	},
+		"EN": "Last 7 days",
+		"FR": "7 derniers jours",
+		"ES": "Últimos 7 días",
+		"DE": "Letzten 7 Tage"
+	},
 	"DASHBOARD_LAST24HOURS":{
-   		"EN": "Last 24 hours",
-   		"FR": "24 dernières heures",
-   		"ES": "Últimas 24 horas"
-   	},
+		"EN": "Last 24 hours",
+		"FR": "24 dernières heures",
+		"ES": "Últimas 24 horas",
+		"DE": "Letzten 24 Stunden"
+	},
 	"DASHBOARD_VERYCOMMON":{
-   		"EN": "Very common",
-   		"FR": "Très commun",
-   		"ES": "Muy común"
-   	},
+		"EN": "Very common",
+		"FR": "Très commun",
+		"ES": "Muy común",
+		"DE": "Sehr häufig"
+	},
 	"DASHBOARD_COMMON":{
-   		"EN": "Common",
-   		"FR": "Commun",
-   		"ES": "Común"
-   	},
+		"EN": "Common",
+		"FR": "Commun",
+		"ES": "Común",
+		"DE": "Häufig"
+	},
 	"DASHBOARD_RARE":{
-   		"EN": "Rare",
-   		"FR": "Rare",
-   		"ES": "Raro"
-   	},
+		"EN": "Rare",
+		"FR": "Rare",
+		"ES": "Raro",
+		"DE": "Selten"
+	},
 	"DASHBOARD_MYTHIC":{
-   		"EN": "Mythic",
-   		"FR": "Mythique",
-   		"ES": "Mítico"
-   	},
+		"EN": "Mythic",
+		"FR": "Mythique",
+		"ES": "Mítico",
+		"DE": "Mythisch"
+	},
 	"PERFORMANCE":{
-   		"EN": "Performance",
-   		"FR": "- Performance",
-   		"ES": "Rendimiento"
-   	},
+		"EN": "Performance",
+		"FR": "- Performance",
+		"ES": "Rendimiento",
+		"DE": "Leistung"
+	},
 	"DASHBOARD_PRESTIGE_AVERAGE":{
-   		"EN": "Prestige Average Team Performance",
-   		"FR": "Prestige moyen par équipe",
-   		"ES": "Significa lujo del equipo"
-   	},
+		"EN": "Prestige Average Team Performance",
+		"FR": "Prestige moyen par équipe",
+		"ES": "Significa lujo del equipo",
+		"DE": "Durchschnittliche Team-Leistung"
+	},
 	"DASHBOARD_GYM_OWNED_PERFORMANCE":{
-   		"EN": "Gym owned Team performance",
-   		"FR": "Garde des arènes par équipe",
-   		"ES": "Guardia Equipo de Arena"
-   	},
+		"EN": "Gym owned Team performance",
+		"FR": "Garde des arènes par équipe",
+		"ES": "Guardia Equipo de Arena",
+		"DE": "Leistung des Arena Teams"
+	},
 	"DASHBOARD_ACTIVITY":{
-   		"EN": "activity",
-   		"FR": "- Activité",
-   		"ES": "- Actividad"
-   	},
+		"EN": "activity",
+		"FR": "- Activité",
+		"ES": "- Actividad",
+		"DE": "Aktivität"
+	},
 	"DASHBOARD_LURES":{
-   		"EN": "Active lures",
-   		"FR": "Leurres actifs",
-   		"ES": "Cebos activos"
-   	},
+		"EN": "Active lures",
+		"FR": "Leurres actifs",
+		"ES": "Cebos activos",
+		"DE": "Aktive Lockmodule"
+	},
 	"DASHBOARD_GRAPH_MYSTIC_PRESTIGE_AVERAGE":{
-   		"EN": "Mystic Prestige Average",
-   		"FR": "Sagesse - Prestige Moyen",
-   		"ES": "Místico - Medio de lujo"
-   	},
+		"EN": "Mystic Prestige Average",
+		"FR": "Sagesse - Prestige Moyen",
+		"ES": "Místico - Medio de lujo",
+		"DE": "Weisheit - Prestige Durchschnitt"
+	},
 	"DASHBOARD_GRAPH_VALOR_PRESTIGE_AVERAGE":{
-   		"EN": "Valor Prestige Average",
-   		"FR": "Bravoure - Prestige Moyen",
-   		"ES": "Valor - Medio de lujo"
-   	},
+		"EN": "Valor Prestige Average",
+		"FR": "Bravoure - Prestige Moyen",
+		"ES": "Valor - Medio de lujo",
+		"DE": "Wagemut - Prestige Durchschnitt"
+	},
 	"DASHBOARD_GRAPH_INSTINCT_PRESTIGE_AVERAGE":{
-   		"EN": "Instinct Prestige Average",
-   		"FR": "Intuition - Prestige Moyen",
-   		"ES": "Instinto - Medio de lujo"
-   	},
+		"EN": "Instinct Prestige Average",
+		"FR": "Intuition - Prestige Moyen",
+		"ES": "Instinto - Medio de lujo",
+		"DE": "Intuition - Prestige Durchschnitt"
+	},
 	"DASHBOARD_GRAPH_MYSTIC_GYM_OWNED":{
-   		"EN": "Mystic Gym Owned",
-   		"FR": "Sagesse - Arènes conquises",
-   		"ES": "Místico - Arenas conquistado"
-   	},
+		"EN": "Mystic Gym Owned",
+		"FR": "Sagesse - Arènes conquises",
+		"ES": "Místico - Arenas conquistado",
+		"DE": "Arenen von Team Weisheit"
+	},
 	"DASHBOARD_GRAPH_VALOR_GYM_OWNED":{
-   		"EN": "Valor Gym Owned",
-   		"FR": "Bravoure - Arènes conquises",
-   		"ES": "Valor - Arenas conquistado"
-   	},
+		"EN": "Valor Gym Owned",
+		"FR": "Bravoure - Arènes conquises",
+		"ES": "Valor - Arenas conquistado",
+		"DE": "Arenen von Team Wagemut"
+	},
 	"DASHBOARD_GRAPH_INSTINCT_GYM_OWNED":{
-   		"EN": "Instinct Gym Owned",
-   		"FR": "Intuition - Arènes conquises",
-   		"ES": "Instinto - Arenas conquistado"
-   	},
+		"EN": "Instinct Gym Owned",
+		"FR": "Intuition - Arènes conquises",
+		"ES": "Instinto - Arenas conquistado",
+		"DE": "Arenen von Team Intuition"
+	},
 	"DASHBOARD_GRAPH_LURED_POKESTOPS":{
-   		"EN": "Lured Pokestop",
-   		"FR": "Pokéstops avec leurre",
-   		"ES": "Poképaradas con cebos"
-   	},
-	"POKEMON_CANDIES":{
-   		"EN": "candies",
-   		"FR": "bonbons",
-   		"ES": "caramelo"
-   	},
-    "ERROR": {
-      "EN": "Page <strong>not found</strong><br><small>There must have been some kind of mistake.</small>",
-      "FR": "Page <strong>introuvable</strong><br/><small>Il y a du y avoir une erreur</small>",
-      "NL": "Pagina <strong>niet gevonden</strong><br/><small>&nsbp;</small>",
-      "ES": "Página <strong>no encontrada</strong><br/><small>&nsbp;</small>"
-    }
- }
+		"EN": "Lured Pokestop",
+		"FR": "Pokéstops avec leurre",
+		"ES": "Poképaradas con cebos",
+		"DE": "Pokestop mit Lockmodul"
+	},
+	"ERROR": {
+		"EN": "Page <strong>not found</strong><br><small>There must have been some kind of mistake.</small>",
+		"FR": "Page <strong>introuvable</strong><br/><small>Il y a du y avoir une erreur</small>",
+		"NL": "Pagina <strong>niet gevonden</strong><br/><small>&nsbp;</small>",
+		"ES": "Página <strong>no encontrada</strong><br/><small>&nsbp;</small>",
+		"DE": "Seite <strong>nicht gefunden</strong><br><small>Irgendwer hat irgendwo einen Fehler verursacht, oder so.</small>"
+	}
+}
