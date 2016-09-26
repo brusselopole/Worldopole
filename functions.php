@@ -29,7 +29,7 @@ function time_ago( $timestamp, $now = 0, $lang = 'EN' ) {
     }
     
     if ( $timestamp == 0 ) {
-        $time_ago = 'We miss it';
+        $translations->NEVER->$lang;
     }
     else{
 	    
