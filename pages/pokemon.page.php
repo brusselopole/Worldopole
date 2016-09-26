@@ -100,11 +100,9 @@
 				
 					<a href="http://maps.google.com/maps?z=11&t=m&q=loc:<?= $pokemon->last_position->latitude ?>+<?= $pokemon->last_position->longitude ?>" target="_blank"><?= time_ago($pokemon->last_seen,0,$lang) ?></a>
 				
-				<?php }else{?>
-				
-					We miss it
-				
-				<?php }?>
+				<?php }else{
+					echo $locales->NEVER->$lang;
+				}?>
 				
 				</td>
 			</tr>
