@@ -77,15 +77,10 @@ function time_ago( $timestamp, $now = 0, $lang = 'EN' ) {
 	    }
 	    
 	
-	    if ( $difference_value != 1 ) {
-	        
+	    if ( $difference_value != 1 ) {   
 	        $difference_label = $difference_label.'S'; 
-	        $time_ago = $difference_value.' '.$translations->$difference_label->$lang; 
-	        
-	    } else {
-	       
-	        $time_ago = $difference_value.' '.$translations->$difference_label->$lang;
-	    }
+	    }	       
+	    $time_ago = $difference_value.' '.$translations->$difference_label->$lang; 
 	    
     }
 
