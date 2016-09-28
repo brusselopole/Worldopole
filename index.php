@@ -33,8 +33,6 @@ include_once('core/process/data.loader.php');
     
   </head>
   <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
-	  
-	  <?php include_once("analyticstracking.php") ?>
   
 	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container">
