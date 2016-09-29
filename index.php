@@ -225,8 +225,8 @@ include_once('core/process/data.loader.php');
 			<script src="core/js/pokemon.graph.js.php?id=<?= $pokemon_id ?>"></script>	
 	
 			
-			<script defer src="https://maps.googleapis.com/maps/api/js?key=<?= $config->system->GMaps_Key ?>&libraries=visualization&callback=initMap"></script> 		
 			<script src="core/js/pokemon.maps.js.php?id=<?= $pokemon_id ?>"></script>
+			<script async defer src="https://maps.googleapis.com/maps/api/js?key=<?= $config->system->GMaps_Key ?>&libraries=visualization&callback=initMap"></script> 		
 		    
 		    <?php ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			    
@@ -234,8 +234,8 @@ include_once('core/process/data.loader.php');
 		    
 		    case 'pokestops': ?>
 		    
-		    <script defer src="https://maps.googleapis.com/maps/api/js?key=<?= $config->system->GMaps_Key ?>&libraries=visualization&callback=initMap"></script> 
-			<script src="core/js/pokestops.maps.js"></script>
+		    <script src="core/js/pokestops.maps.js"></script>
+		    <script async defer src="https://maps.googleapis.com/maps/api/js?key=<?= $config->system->GMaps_Key ?>&libraries=visualization&callback=initMap"></script> 
 		    
 		    <?php ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			    
@@ -246,11 +246,11 @@ include_once('core/process/data.loader.php');
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.min.js"></script>
 			<script src="core/js/gym.graph.js.php"></script>
 
-			<script defer src="https://maps.googleapis.com/maps/api/js?key=<?= $config->system->GMaps_Key ?>&libraries=visualization&callback=initMap"></script> 
 			<script src="core/js/gym.maps.js"></script>
-			
+			<script async defer src="https://maps.googleapis.com/maps/api/js?key=<?= $config->system->GMaps_Key ?>&libraries=visualization&callback=initMap"></script> 
+		
 			<script src="core/js/gym.script.js"></script>
-			
+	
 			<script>
 		    	
 		    	updateCounter(<?= $teams->valor->gym_owned ?>,'.gym-valor-js');
