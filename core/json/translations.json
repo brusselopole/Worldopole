@@ -213,7 +213,7 @@
 		"EN": "The <strong>fight</strong> map<br><small>Follow the conquest of your team</small>",
 		"FR": "La carte des <strong>combats</strong><br><small>Suivez votre équipe !</small>",
 		"ES": "El mapa de <strong>combates</strong><br><small>¡Sigue las conquistas de tu equipo!</small>",
-		"DE": "Die <strong>Arena</strong> Map<br><small>Folge dem Erfolg deines Teams!</small>",
+		"DE": "Die <strong>Arena</strong> Map<br><small>Verfolge den Erfolg deines Teams!</small>",
 		"PL": "Mapa <strong>bitew</strong><br><small>Pomagaj swojej drużynie !</small>"
 	},
 	"GYMS_METATITLE": {
@@ -240,14 +240,14 @@
 		"EN": "gyms owned",
 		"FR": "arènes prises",
 		"ES": "gimnasios ganados",
-		"DE": "Arenen eingenommen",
+		"DE": "Arenen im Besitz",
 		"PL": "właściciele Gymów"
 	},
 	"GYMS_AVERAGE": {
 		"EN": "average prestige",
 		"FR": "prestige moyen",
 		"ES": "prestigio promedio",
-		"DE": "Durchschnittliche Prestige",
+		"DE": "Durchschnittliches Arena-Prestige",
 		"PL": "śrdeni prestiż"
 	},
 	"GYMS_GUARDIANS": {
