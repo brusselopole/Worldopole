@@ -1,10 +1,10 @@
 {
 	"BASELINE": {
-		"EN": "A PokémonGo Community in %s",
-		"FR": "Tout sur PokémonGo à %s",
-		"ES": "Una Comunidad PokémonGo en %s",
-		"DE": "Eine PokémonGo Community in %s",
-		"PL": "Wszystko co potrzeba dla trenerów PokémonGo w %s"
+		"EN": "A Pokémon Go Community in %s",
+		"FR": "Tout sur Pokémon Go à %s",
+		"ES": "Una Comunidad Pokémon Go en %s",
+		"DE": "Eine Pokémon Go Community in %s",
+		"PL": "Wszystko co potrzeba dla trenerów Pokémon Go w %s"
 	},
 	"METADESCRIPTION": {
 		"EN": "Find all collected and proccessed data about PokémonGo in %s : nests, stats, frequency, ... Learn when and where to look for the Pokémon you're missing.",
@@ -94,7 +94,7 @@
 		"EN": "unseen",
 		"FR": "absent",
 		"ES": "no vistos",
-		"DE": "Nicht gesehen",
+		"DE": "nicht gesehen",
 		"PL": "nie znaleziono"
 	},
 	"LURES": {
@@ -115,7 +115,7 @@
 		"EN": "in %s right now",
 		"FR": "à %s maintenant",
 		"ES": "en %s en este momento",
-		"DE": "Gerade in %s",
+		"DE": "gerade in %s",
 		"PL": "w %s teraz"
 	},
 	"WIDGET_GYM_SUB": {
@@ -143,7 +143,7 @@
 		"EN": "The most <strong>recent</strong> spawns",
 		"FR": "Les apparitions <strong>récentes</strong>",
 		"ES": "Apariciones <strong>recientes</strong>",
-		"DE": "Die <strong>letzten</strong> spawns:",
+		"DE": "Die <strong>letzten</strong> Spawns:",
 		"PL": "Ostatnio <strong>pojawiły się</strong>"
 	},
 	"FIGHT_TITLE": {
@@ -178,7 +178,7 @@
 		"EN": "<p>Pokémon Go is ©2016 Niantic, Inc. ©2016 Pokémon. ©1995–2016 Nintendo / Creatures Inc. / GAME FREAK inc.</p><p>Pokémon and Pokémon character names are trademarks of Nintendo.</p><p>Other trademarks are the property of their respective owners.</p>",
 		"FR": "<p>Pokémon Go est ©2016 Niantic, Inc. ©2016 Pokémon. ©1995–2016 Nintendo / Creatures Inc. / GAME FREAK inc.</p><p>Pokémon et les personnages Pokémon ainsi que leurs noms sont des marques déposées par Nintendo.</p><p>Toutes les autres marques restent la propriété de leurs propriétaires légaux.</p>",
 		"ES": "<p>Pokémon Go es ©2016 Niantic, Inc. ©2016 Pokémon. ©1995–2016 Nintendo / Creatures Inc. / GAME FREAK inc.</p><p>Pokémon y los nombres de los personajes de Pokémon son marcas registradas por Nintendo.</p><p>Otras marcas están registradas por sus respectivos dueños.</p>",
-		"DE": "<p>Pokémon Go is ©2016 Niantic, Inc. ©2016 Pokémon. ©1995–2016 Nintendo / Creatures Inc. / GAME FREAK inc.</p><p>Pokémon und deren offiziellen Namen sind geschützt von Nintendo.</p><p>Andere Schutzmarken gehören den jeweiligen Besitzern.</p>",
+		"DE": "<p>Pokémon Go ©2016 Niantic, Inc. ©2016 Pokémon. ©1995–2016 Nintendo / Creatures Inc. / GAME FREAK inc.</p><p>Pokémon und deren offiziellen Namen sind geschützt von Nintendo.</p><p>Andere Schutzmarken gehören den jeweiligen Besitzern.</p>",
 		"PL": "<p>Pokémon Go jest znakiem zastrzeżonym ©2016 Niantic, Inc. ©2016 Pokémon. ©1995–2016 Nintendo / Creatures Inc. / GAME FREAK inc.</p><p>Pokémony i nazwy bohaterów są znakami zastrzeżonymi Nintendo.</p><p>Pozostałe znaki są wlasnością odpowiednich firm.</p>"
 	},
 	"FOOTER_DATA": {
@@ -296,7 +296,7 @@
 		"EN": "active right now",
 		"FR": "activés actuellement",
 		"ES": "activos en este momento",
-		"DE": "Gerade aktiv.",
+		"DE": "gerade aktiv.",
 		"PL": "aktywne w tej chwili"
 	},
 	"POKEMON_SEEN": {
@@ -310,7 +310,7 @@
 		"EN": "How many times was it seen?",
 		"FR": "Combien de fois a-t'il été aperçu ?",
 		"ES": "¿Cuántas veces fue visto?",
-		"DE": "Wie oft wurde es zuletzt gesehen?",
+		"DE": "Wie oft wurde es gesehen?",
 		"PL": "Ile razy był widziany ?"
 	},
 	"POKEMON_RATE": {
@@ -394,21 +394,21 @@
 		"EN": "highest CP",
 		"FR": "plus haut PC",
 		"ES": "PC máximo",
-		"DE": "Höchtste WP",
+		"DE": "Höchste WP",
 		"PL": "maksymalny CP"
 	},
 	"POKEMON_COMPGAME": {
 		"EN": "compared to <strong>highest</strong> in game",
 		"FR": "par rapport au plus <strong>puissant</strong> du jeu",
 		"ES": "comparado con <strong>el más alto</strong> del juego",
-		"DE": "verglichen mit <strong>höchste</strong> im Spiel",
+		"DE": "verglichen mit dem <strong>höchstmöglichen</strong> Wert im Spiel",
 		"PL": "porównując do <strong>najsilniejszego</strong> w grze"
 	},
 	"POKEMON_HP": {
 		"EN": "highest HP",
 		"FR": "plus haut PV",
 		"ES": "PS más alto",
-		"DE": "Höchste HP",
+		"DE": "Höchste KP",
 		"PL": "maksymalne HP"
 	},
 	"POKEMON_FAMILYTITLE": {
@@ -513,7 +513,7 @@
 		"EN": "Trainer <strong>level</strong> distribution",
 		"FR": "<strong>Niveaux</strong> des entraîneurs Pokémon",
 		"ES": "Distribución del <strong>nivel</strong> de entrenador Pokémon",
-		"DE": "Trainer <strong>level</strong> Verteilung",
+		"DE": "Trainer <strong>Level</strong> Verteilung",
 		"PL": "Podział trenerów według <strong>poziomów</strong>"
 	},
 	"DASHBOARD_TITLE":{
@@ -527,35 +527,35 @@
 		"EN": "Data are gathered every <strong>15 minutes</strong>",
 		"FR": "Données mises à jour toutes les <strong>15 minutes</strong>",
 		"ES": "Datos actualizados cada <strong>15 minutos</strong>",
-		"DE": "Die Daten werden alle <strong>15 Minuten</strong> erhoben",
+		"DE": "Die Daten werden alle <strong>15 Minuten</strong> aktualisiert",
 		"PL": "Dane zbierane są co <strong>15 minut</strong>"
 	},
 	"DASHBOARD_SPAWN_TITLE":{
 		"EN": "Pokémon <strong>spawn</strong>",
 		"FR": "<strong>Apparition</strong> des Pokémon",
 		"ES": "<strong>Aparición</strong> de Pokémon",
-		"DE": "Pokémon <strong>spawns</strong>",
+		"DE": "Pokémon <strong>Spawns</strong>",
 		"PL": "<strong>Pojawianie się</strong> Pokémonów"
 	},
 	"DASHBOARD_SPAWN_TOTAL":{
 		"EN": "Total Spawn",
 		"FR": "Apparitions totales",
 		"ES": "Apariencia total",
-		"DE": "Spawns Gesamt",
+		"DE": "Spawns gesamt",
 		"PL": "Łącznie pojawiło się"
 	},
 	"DASHBOARD_LAST7DAYS":{
 		"EN": "Last 7 days",
 		"FR": "7 derniers jours",
 		"ES": "Últimos 7 días",
-		"DE": "Letzten 7 Tage",
+		"DE": "Letzte 7 Tage",
 		"PL": "Przez ostatnie 7 dni"
 	},
 	"DASHBOARD_LAST24HOURS":{
 		"EN": "Last 24 hours",
 		"FR": "24 dernières heures",
 		"ES": "Últimas 24 horas",
-		"DE": "Letzten 24 Stunden",
+		"DE": "Letzte 24 Stunden",
 		"PL": "Ostatnie 24 godziny"
 	},
 	"DASHBOARD_VERYCOMMON":{
@@ -583,7 +583,7 @@
 		"EN": "Mythic",
 		"FR": "Mythique",
 		"ES": "Mítico",
-		"DE": "Mythisch",
+		"DE": "Sehr selten",
 		"PL": "Unikalny"
 	},
 	"PERFORMANCE":{
@@ -597,14 +597,14 @@
 		"EN": "Prestige Average Team Performance",
 		"FR": "Prestige moyen par équipe",
 		"ES": "Significa lujo del equipo",
-		"DE": "Durchschnittliche Team-Leistung",
+		"DE": "Durchschnittliches Arena-Prestige",
 		"PL": "Średni prestiż drużyny"
 	},
 	"DASHBOARD_GYM_OWNED_PERFORMANCE":{
 		"EN": "Gym owned Team performance",
 		"FR": "Garde des arènes par équipe",
 		"ES": "Guardia Equipo de Arena",
-		"DE": "Leistung des Arena Teams",
+		"DE": "Anzahl der besetzten Arenen",
 		"PL": "Gymy pod kontrolą drużyn"
 	},
 	"DASHBOARD_ACTIVITY":{
@@ -625,21 +625,21 @@
 		"EN": "Mystic Prestige Average",
 		"FR": "Sagesse - Prestige Moyen",
 		"ES": "Místico - Medio de lujo",
-		"DE": "Weisheit - Prestige Durchschnitt",
+		"DE": "Weisheit - Durchschnittliches Prestige",
 		"PL": "Średni prestiż Mystic"
 	},
 	"DASHBOARD_GRAPH_VALOR_PRESTIGE_AVERAGE":{
 		"EN": "Valor Prestige Average",
 		"FR": "Bravoure - Prestige Moyen",
 		"ES": "Valor - Medio de lujo",
-		"DE": "Wagemut - Prestige Durchschnitt",
+		"DE": "Wagemut - Durchschnittliches Prestige",
 		"PL": "Średni prestiż Valor"
 	},
 	"DASHBOARD_GRAPH_INSTINCT_PRESTIGE_AVERAGE":{
 		"EN": "Instinct Prestige Average",
 		"FR": "Intuition - Prestige Moyen",
 		"ES": "Instinto - Medio de lujo",
-		"DE": "Intuition - Prestige Durchschnitt",
+		"DE": "Intuition - Durchschnittliches Prestige",
 		"PL": "Średni prestiż Instynktu"
 	},
 	"DASHBOARD_GRAPH_MYSTIC_GYM_OWNED":{
