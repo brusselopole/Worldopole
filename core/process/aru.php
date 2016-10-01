@@ -209,7 +209,7 @@ switch($request){
 			$temp[$i][] = $data->longitude;
 			$temp[$i][] = $i;
 				
-			$temp_json[] = json_encode($temp[$i]);  
+			$temp_json[] = json_encode($temp[$i]);
 			
 			
 			$i++;
@@ -226,7 +226,7 @@ switch($request){
 	
 	####################################
 	//
-	// Update data for the gym battle  
+	// Update data for the gym battle
 	//
 	####################################
 	
@@ -277,7 +277,7 @@ switch($request){
 
 	####################################
 	//
-	// Get datas for the gym map   
+	// Get datas for the gym map 
 	//
 	####################################
 	
@@ -361,7 +361,7 @@ switch($request){
 			$temp[$i][] = $data->longitude;
 			$temp[$i][] = $i;
 				
-			$temp_json[] = json_encode($temp[$i]);  
+			$temp_json[] = json_encode($temp[$i]);
 			
 			
 			$i++;
