@@ -29,8 +29,8 @@ foreach($pokelist as $pokemon){
 	
 	$key = $pokemon['id']; 
 	
-	$pourcent 					= ($pokemon['total']*100) / $total_pokemons; 
-	$arrondis					= round($pourcent , 4); 
+	$pourcent 			= ($pokemon['total']*100) / $total_pokemons; 
+	$arrondis			= round($pourcent , 4); 
 	$pokelist[$key]['rate'] 	= $arrondis; 
 	
 	
@@ -85,6 +85,5 @@ foreach($pokemons as $pokemon_id => $pokemon_data){
 $file_content = json_encode($pokemons); 
 
 file_put_contents($pokedex, $file_content);
-
 	
 ?>
