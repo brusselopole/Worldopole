@@ -48,13 +48,13 @@
 		
 		<?php foreach($recents as $pokemon){ ?>
 		
-		<div class="col-md-1 col-xs-4 pokemon-single" pokeid="<?= $pokemon ?>">
-		
-			<a href="pokemon/<?= $pokemon ?>"><img src="core/pokemons/<?= $pokemon ?>.png" alt="<?= $pokemons->$pokemon->name ?>" class="img-responsive"></a>
-			<p class="pkmn-name"><a href="pokemon/<?= $pokemon ?>"><?= $pokemons->$pokemon->name ?></a></p>
-		
-		</div>
-		
+			<div class="col-md-1 col-xs-4 pokemon-single" pokeid="<?= $pokemon ?>">
+			
+				<a href="pokemon/<?= $pokemon ?>"><img src="core/pokemons/<?= $pokemon ?>.png" alt="<?= $pokemons->$pokemon->name ?>" class="img-responsive"></a>
+				<p class="pkmn-name"><a href="pokemon/<?= $pokemon ?>"><?= $pokemons->$pokemon->name ?></a></p>
+			
+			</div>
+			
 		<?php }?>
 		
 		</div>
@@ -70,15 +70,15 @@
 	
 	<?php foreach($home->teams as $team => $total){ ?>
 		
-	<div class="col-md-3 col-sm-6 col-sm-12 team">
+		<div class="col-md-3 col-sm-6 col-sm-12 team">
 
-		<div class="row">
-			<div class="col-xs-12 col-sm-12">
-					<p style="margin-top:0.5em;text-align:center;"><img src="core/img/<?= $team ?>.png" alt="Team <?= $team ?>" class="img-responsive" style="display:inline-block" width=80> <strong class="total-<?= $team ?>-js">0</strong> <?= $locales->GYMS->$lang ?></p>
+			<div class="row">
+				<div class="col-xs-12 col-sm-12">
+						<p style="margin-top:0.5em;text-align:center;"><img src="core/img/<?= $team ?>.png" alt="Team <?= $team ?>" class="img-responsive" style="display:inline-block" width=80> <strong class="total-<?= $team ?>-js">0</strong> <?= $locales->GYMS->$lang ?></p>
+				</div>
 			</div>
-		</div>
-	
-	</div>	
+		
+		</div>	
 
 	<?php }?>
 			
