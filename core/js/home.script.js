@@ -13,20 +13,19 @@ function updateCounter(new_value, classname){
 }
 
 
-
 (function cron() {
  
 	$.ajax({
 		url: 'core/process/aru.php?type=home_update',
 		success: function(data) {
 					
-			var pokemon = data[0]; 
+			var pokemon	= data[0]; 
 			var lure	= data[1];
 			
-			var red 	= data[2];
-			var blue 	= data[3];
-			var yellow 	= data[4];
-			var neutral = data[5]; 
+			var red		= data[2];
+			var blue	= data[3];
+			var yellow	= data[4];
+			var neutral	= data[5]; 
 			
 			updateCounter(pokemon,'.total-pkm-js');
 			updateCounter(lure,'.total-lure-js');
