@@ -205,7 +205,7 @@ include_once('core/process/data.loader.php');
         	updateCounter(<?= $home->gyms ?>,'.total-gym-js');
         	
 			
-			updateCounter(<?= $home->teams->valor ?>,'.total-valor-js');
+		updateCounter(<?= $home->teams->valor ?>,'.total-valor-js');
         	updateCounter(<?= $home->teams->mystic ?>,'.total-mystic-js');
         	updateCounter(<?= $home->teams->instinct ?>,'.total-instinct-js');
         	updateCounter(<?= $home->teams->rocket ?>,'.total-new-js');
@@ -221,7 +221,7 @@ include_once('core/process/data.loader.php');
 		    
 		    case 'pokemon': ?>
 		    
-		    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.min.js"></script>
 			<script src="core/js/pokemon.graph.js.php?id=<?= $pokemon_id ?>"></script>	
 	
 			
@@ -234,37 +234,32 @@ include_once('core/process/data.loader.php');
 		    
 		    case 'pokestops': ?>
 		    
-		    <script src="core/js/pokestops.maps.js"></script>
-		    <script async defer src="https://maps.googleapis.com/maps/api/js?key=<?= $config->system->GMaps_Key ?>&libraries=visualization&callback=initMap"></script> 
+			<script src="core/js/pokestops.maps.js"></script>
+			<script async defer src="https://maps.googleapis.com/maps/api/js?key=<?= $config->system->GMaps_Key ?>&libraries=visualization&callback=initMap"></script> 
 		    
 		    <?php ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			    
 			break;
 		    
 		    case 'gym': ?>
-
+			
+			<script src="core/js/gym.script.js"></script>
+			<script>
+				updateCounter(<?= $teams->valor->gym_owned ?>,'.gym-valor-js');
+				updateCounter(<?= $teams->valor->average ?>,'.average-valor-js');
+	        	
+				updateCounter(<?= $teams->instinct->gym_owned ?>,'.gym-instinct-js');
+				updateCounter(<?= $teams->instinct->average ?>,'.average-instinct-js');
+	        	
+				updateCounter(<?= $teams->mystic->gym_owned ?>,'.gym-mystic-js');
+				updateCounter(<?= $teams->mystic->average ?>,'.average-mystic-js');	
+			</script>
+	
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.min.js"></script>
 			<script src="core/js/gym.graph.js.php"></script>
 
 			<script src="core/js/gym.maps.js"></script>
-			<script async defer src="https://maps.googleapis.com/maps/api/js?key=<?= $config->system->GMaps_Key ?>&libraries=visualization&callback=initMap"></script> 
-		
-			<script src="core/js/gym.script.js"></script>
-	
-			<script>
-		    	
-		    	updateCounter(<?= $teams->valor->gym_owned ?>,'.gym-valor-js');
-	        	updateCounter(<?= $teams->valor->average ?>,'.average-valor-js');
-	        	
-	        	updateCounter(<?= $teams->instinct->gym_owned ?>,'.gym-instinct-js');
-	        	updateCounter(<?= $teams->instinct->average ?>,'.average-instinct-js');
-	        	
-	        	updateCounter(<?= $teams->mystic->gym_owned ?>,'.gym-mystic-js');
-	        	updateCounter(<?= $teams->mystic->average ?>,'.average-mystic-js');
-	        	
-					    	
-		    </script>
-		    
+			<script async defer src="https://maps.googleapis.com/maps/api/js?key=<?= $config->system->GMaps_Key ?>&libraries=visualization&callback=initMap"></script>
 			<?php ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 				
 			break;
