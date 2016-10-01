@@ -36,3 +36,8 @@ RewriteRule ^dashboard$					index.php?page=dashboard										[QSA,NC,L]
 RewriteRule ^pokemon/$					index.php?page=pokedex											[QSA,NC,L]
 RewriteRule ^pokemon$					index.php?page=pokedex											[QSA,NC,L]
 
+
+# Cache static files for one month
+<FilesMatch "\.(ico|jpg|jpeg|png|gif|js|css)$">
+	Header set Cache-Control "max-age=2628000, public"
+</FilesMatch>
