@@ -1,12 +1,12 @@
 <header id="single-header">
-<div class="row">
-	<div class="col-md-12 text-center">
-		<h1>
-			<?= $locales->GYMS_TITLE->$lang ?>
-		</h1>
-		
+	<div class="row">
+		<div class="col-md-12 text-center">
+			<h1>
+				<?= $locales->GYMS_TITLE->$lang ?>
+			</h1>
+			
+		</div>
 	</div>
-</div>
 </header>
 
 
@@ -36,7 +36,7 @@
 			</div>
 
 			<div class="col-xs-6">
-				<p><big><strong><span  class="average-<?= $team_name ?>-js">0</span></strong></big><br><?= $locales->GYMS_AVERAGE->$lang ?></p>
+				<p><big><strong><span class="average-<?= $team_name ?>-js">0</span></strong></big><br><?= $locales->GYMS_AVERAGE->$lang ?></p>
 			</div>
 		</div>
 
