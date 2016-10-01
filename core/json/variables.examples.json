@@ -1,70 +1,69 @@
 {
-	"urls": {
-		"fb_url"		:	"https://www.facebook.com/brusselopole/", 
+	"urls":{
+		"fb_url"		:	"https://www.facebook.com/brusselopole/",
 		"tw_url"		:	"https://twitter.com/brusselopole",
-		"fb_valor"		: 	"http://bit.ly/ValorBrussels",
+		"fb_valor"		:	"http://bit.ly/ValorBrussels",
 		"fb_mystic"		:	"http://bit.ly/MysticBrussels",
-		"fb_instinct"	: 	"http://bit.ly/InstinctBrussels"
-	 }, 
-	 "infos": {
-		 "site_name"	: 	"Worldopole",
-		 "city"			: 	"Weuuurld",
-		 "logo_path"	: 	"core/img/logo.jpg",
-		 "site_title"	:	"We ❤️ <strong>Pokémon</strong> and Data",
-		 "site_claim"	: 	"Find all collected and proccessed data about PokémonGo in %s."
-	 }, 
-	 "system": {
-		 "map_center_lat"	: "50.844441",
-		 "map_center_long"	: "4.363557",
-		 "zomm_level"		: "13",
-		 "time_interval"	: "+2",
-		 "GMaps_Key"		: "#GMAPS_KEY#",
-		 "timezone"			: "Europe/Paris",
-		 "max_pokemon"		: 151
-	 },
-	 "lang":{
-		 "en"				: true,
-		 "fr"				: true,
-		 "es"				: true,
-        	 "de"				: true,
-		 "pl"				: true
-	 },
-	 "menu":[
-		 {
-			 "type"			: "link",
-			 "href"			: "pokemon",
-			 "locale"		: "NAV_POKEDEX",
-			 "icon"			: "fa-map-marker"
-		 },
-		 {
-			 "type"			: "link",
-			 "href"			: "gym",
-			 "locale"		: "GYMS",
-			 "icon"			: "fa-bolt"
-		 },
-		 {
-			 "type"			: "link",
-			 "href"			: "pokestops",
-			 "locale"		: "POKESTOPS",
-			 "icon"			: "fa-medkit"
-		 },
-		 {
-			 "type"			: "link_external",
-			 "href"			: "https://www.facebook.com/brusselopole/",
-			 "text"			: "Facebook",
-			 "icon"			: "fa-facebook-square"
-		 },
-		 {
-			 "type"			: "link_external",
-			 "href"			: "https://twitter.com/brusselopole",
-			 "text"			: "Twitter",
-			 "icon"			: "fa-twitter"
-		 },
-		 {
-			 "type"			: "html", 
-			 "value"		: "<img src='https://assets.pokemon.com/assets/cms2-fr-fr/img/misc/gus/buttons/logo-pokemon-79x45.png' class='img-responsive'>"
-		 }
-		 
-	 ]
-  
+		"fb_instinct"		:	"http://bit.ly/InstinctBrussels"
+	},
+	"infos":{
+		"site_name"		:	"Worldopole",
+		"city"			:	"Weuuurld",
+		"logo_path"		:	"core/img/logo.jpg",
+		"site_title"		:	"We ❤️ <strong>Pokémon</strong> and Data",
+		"site_claim"		:	"Find all collected and proccessed data about PokémonGo in %s."
+	},
+	"system":{
+		"map_center_lat"	:	"50.844441",
+		"map_center_long"	:	"4.363557",
+		"zomm_level"		:	"13",
+		"time_interval"		:	"+2",
+		"GMaps_Key"		:	"#GMAPS_KEY#",
+		"timezone"		:	"Europe/Paris",
+		"max_pokemon"		:	151
+	},
+	"lang":{
+		"en"			:	true,
+		"fr"			:	true,
+		"es"			:	true,
+		"de"			:	true,
+		"pl"			:	true
+	},
+	"menu":[
+		{
+			"type"		:	"link",
+			"href"		:	"pokemon",
+			"locale"	:	"NAV_POKEDEX",
+			"icon"		:	"fa-map-marker"
+		},
+		{
+			"type"		:	"link",
+			"href"		:	"gym",
+			"locale"	:	"GYMS",
+			"icon"		:	"fa-bolt"
+		},
+		{
+			"type"		:	"link",
+			"href"		:	"pokestops",
+			"locale"	:	"POKESTOPS",
+			"icon"		:	"fa-medkit"
+		},
+		{
+			"type"		:	"link_external",
+			"href"		:	"https://www.facebook.com/brusselopole/",
+			"text"		:	"Facebook",
+			"icon"		:	"fa-facebook-square"
+		},
+		{
+			"type"		:	"link_external",
+			"href"		:	"https://twitter.com/brusselopole",
+			"text"		:	"Twitter",
+			"icon"		:	"fa-twitter"
+		},
+		{
+			"type"		:	"html",
+			"value"		:	"<img src='https://assets.pokemon.com/assets/cms2-fr-fr/img/misc/gus/buttons/logo-pokemon-79x45.png' class='img-responsive' alt='Pokemon logo'>"
+		}
+		
+	]
 }
