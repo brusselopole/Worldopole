@@ -7,7 +7,7 @@
 // Total lured
 // -----------------------------------------------------------------------------------------------------------
 
-$pokestop['timestamp'] =  $timestamp; 
+$pokestop['timestamp'] = $timestamp; 
 
 $req 		= "SELECT COUNT(*) as total FROM pokestop";
 $result 	= $mysqli->query($req);
@@ -26,9 +26,8 @@ $pokestop['lured'] = $data->total;
 // Add the datas in file
 
 $stopdatas[] 	= $pokestop; 
-$json 			= json_encode($stopdatas); 
+$json 		= json_encode($stopdatas); 
 
 file_put_contents($pokestop_file, $json);
-
 
 ?>
