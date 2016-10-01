@@ -334,6 +334,13 @@
 		"DE": "Nächste Entwicklung",
 		"PL": "Potrzebne do nastepnej ewolucji"
 	},
+	"POKEMON_CANDIES": {
+		"EN": "candies",
+		"FR": "bonbons",
+		"ES": "caramelo",
+		"DE": "bonbons",
+		"PL": "cukierki"
+	},
 	"POKEMON_FINAL": {
 		"EN": "Final Form",
 		"FR": "Forme finale",
