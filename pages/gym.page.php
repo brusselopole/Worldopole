@@ -45,11 +45,11 @@
 			
 			<?php foreach($team->guardians as $guardian){ ?>
 			
-			<div class="col-xs-4">
-				<a href="pokemon/<?= $guardian ?>">
-				<img src="core/pokemons/<?= $guardian ?>.png" alt="<?= $pokemons->$guardian->name ?>" class="img-responsive" width=150>
-				</a>
-			</div>
+				<div class="col-xs-4">
+					<a href="pokemon/<?= $guardian ?>">
+					<img src="core/pokemons/<?= $guardian ?>.png" alt="<?= $pokemons->$guardian->name ?>" class="img-responsive" width=150>
+					</a>
+				</div>
 			
 			
 			<?php }?>
