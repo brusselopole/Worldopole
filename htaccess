@@ -41,3 +41,10 @@ RewriteRule ^pokemon$					index.php?page=pokedex											[QSA,NC,L]
 <FilesMatch "\.(ico|jpg|jpeg|png|gif|js|css)$">
 	Header set Cache-Control "max-age=2628000, public"
 </FilesMatch>
+
+# Enable compression for large content
+<IfModule mod_deflate.c>
+	<IfModule mod_filter.c>
+		AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript application/x-javascript application/javascript application/json
+	</IfModule>
+</IfModule>
