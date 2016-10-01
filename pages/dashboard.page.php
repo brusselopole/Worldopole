@@ -1,13 +1,13 @@
 <header id="single-header">
-<div class="row">
-	<div class="col-md-12 text-center">
-		<h1>
-			<?= $locales->DASHBOARD_TITLE->$lang ?> <br/>
-			<small><?= $locales->DASHBOARD_SUBTITLE->$lang ?></small>
-		</h1>
-		
+	<div class="row">
+		<div class="col-md-12 text-center">
+			<h1>
+				<?= $locales->DASHBOARD_TITLE->$lang ?> <br/>
+				<small><?= $locales->DASHBOARD_SUBTITLE->$lang ?></small>
+			</h1>
+			
+		</div>
 	</div>
-</div>
 </header>
 
 <div class="row area">
