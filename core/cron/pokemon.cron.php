@@ -13,7 +13,7 @@ $pokemon_list_file 	= file_get_contents(SYS_PATH.'/core/json/pokelist_EN.json');
 $pokemons			= json_decode($pokemon_list_file);
 
 
-$pokemon_stats['timestamp'] =  $timestamp; 
+$pokemon_stats['timestamp'] = $timestamp; 
 
 
 $req 		= "SELECT COUNT(*) as total FROM pokemon WHERE disappear_time > (NOW() - INTERVAL 2 HOUR);";	
@@ -42,10 +42,8 @@ $pokemon_stats['rarity_spawn'] = $type;
 // Add the datas in file
 
 $pokedatas[] 	= $pokemon_stats; 
-$json 			= json_encode($pokedatas); 
-
+$json 		= json_encode($pokedatas); 
 
 file_put_contents($pokemon_file, $json);
-
 
 ?>
