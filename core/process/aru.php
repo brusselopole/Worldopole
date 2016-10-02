@@ -284,7 +284,7 @@ switch($request){
 	
 	case 'gym_map':
 	
-		$req 		= "SELECT * FROM gym";
+		$req 		= "SELECT gym_id, team_id, guard_pokemon_id, gym_points, latitude, longitude, (last_modified ".$time->symbol." INTERVAL ".$time->delay." HOUR) as last_modified FROM gym";
 		$result 	= $mysqli->query($req); 
 		
 		
@@ -348,7 +348,8 @@ switch($request){
 				<p style="font-weight:400;color:'.$color.'">'.$team.'</p>
 				<p>Protected by</p>
 				<a href="pokemon/'.$data->guard_pokemon_id.'"><img src="'.$img.'" height="40" style="display:inline-block;margin-bottom:10px;" alt="Guard Pokemon image"></a>
-				<p>Level : '.$data->gym_level.' | Prestige : '.$data->gym_points.'</p>
+				<p>Level : '.$data->gym_level.' | Prestige : '.$data->gym_points.'<br>
+				Last modified : '.$data->last_modified.'</p>
 			</div>
 	
 			';
