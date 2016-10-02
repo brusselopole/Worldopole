@@ -161,9 +161,9 @@ switch($request){
 		
 			$html = '
 		
-			<div class="col-md-1 col-xs-4 wow " pokeid="'.$pokeid.'" style="display:none;">
+			<div class="col-md-1 col-xs-4 pokemon-single" pokeid="'.$pokeid.'" style="display:none;">
 						
-				<a href="pokemon/'.$pokeid.'"><img src="core/pokemons/'.$pokeid.'.png" class="img-responsive" alt="Pokemon image"></a>
+				<a href="pokemon/'.$pokeid.'"><img src="core/pokemons/'.$pokeid.'.png" alt="'.$pokemons->$pokeid->name.'" class="img-responsive"></a>
 				<p class="pkmn-name"><a href="pokemon/'.$pokeid.'">'.$pokemons->$pokeid->name.'</a></p>
 			
 			</div>	
