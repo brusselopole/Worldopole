@@ -12,7 +12,7 @@
 
 <div class="row area">
 
-	<div class="col-md-6 col-sm-6 col-xs-12 big-data"  style="border-right:1px lightgray solid;"> <!-- POKESTOPS -->
+	<div class="col-md-6 col-sm-6 col-xs-12 big-data" style="border-right:1px lightgray solid;"> <!-- POKESTOPS -->
 		<a href="<?= HOST_URL ?>/pokemon"><img src="core/img/pokestop.png" alt="Pokestop" width=50 class="big-icon"></a>
 		<p><big><strong><?= $pokestop->total ?></strong> Pokestops</big><br> <?= sprintf($locales->INCITY->$lang, $config->infos->city); ?></p>
 	</div>

@@ -30,46 +30,34 @@ define('SYS_USESS_VAR'		,'usrSessVal');
 define('SYS_DEVELOPMENT_MODE'	,false);
 
 
-if(directory() != ''){
+if (directory() != '') {
 	$subdirectory = '/'.directory().'/';
-}else{
+} else {
 	$subdirectory = '/';
 }
  
-if(isset($_SERVER['REQUEST_SCHEME'])){
-	
-	define('HOST_URL'				, $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].''.$subdirectory);			// Host 	
-
-}else{
-	
-	if(isset($_SERVER['HTTPS']) AND $_SERVER['HTTPS'] == 'on'){
-		define('HOST_URL'				, 'https://'.$_SERVER['HTTP_HOST']);							// Host 
-	}else{
-		define('HOST_URL'				, 'http://'.$_SERVER['HTTP_HOST']);								// Host
+if (isset($_SERVER['REQUEST_SCHEME'])) {
+	define('HOST_URL'		,$_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].''.$subdirectory);	// Host
+} else {
+	if (isset($_SERVER['HTTPS']) AND $_SERVER['HTTPS'] == 'on') {
+		define('HOST_URL'	,'https://'.$_SERVER['HTTP_HOST']);						// Host
+	} else {
+		define('HOST_URL'	,'http://'.$_SERVER['HTTP_HOST']);						// Host
 	}
-	
 }
 
 ## Subdirectory trick 
-function directory(){
-    $root = $_SERVER['DOCUMENT_ROOT'];
-    $filePath = dirname(__FILE__);
-    
+function directory() {
+	$root = $_SERVER['DOCUMENT_ROOT'];
+	$filePath = dirname(__FILE__);
 
-    if ($root == $filePath) {
-       
-        return ''; // installed in the root
-    
-    } else {
-        
-        $subdir_path 	= explode('/', $filePath); 
-        $subdir 		= end($subdir_path);
-        
-        return $subdir; 
-        
-        
-    }
-
+	if ($root == $filePath) {
+		return ''; // installed in the root
+	} else {
+		$subdir_path	= explode('/', $filePath); 
+		$subdir		= end($subdir_path);
+		return $subdir;
+	}
 }
 
 ?>

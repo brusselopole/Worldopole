@@ -18,17 +18,17 @@ include_once('../../config.php');
 // Include & load the variables 
 // ############################
 
-$variables 	= realpath(dirname(__FILE__)).'/../json/variables.json';
-$config 	= json_decode(file_get_contents($variables)); 
+$variables	= realpath(dirname(__FILE__)).'/../json/variables.json';
+$config		= json_decode(file_get_contents($variables)); 
 
 
 
 // Manage Time Interval
 // #####################
 
-$time			= new stdClass();
-$time->symbol 	= substr($config->system->time_interval, 0,1);
-$time->delay 	= substr($config->system->time_interval, 1,1);
+$time		= new stdClass();
+$time->symbol	= substr($config->system->time_interval, 0,1);
+$time->delay	= substr($config->system->time_interval, 1,1);
 
 if($time->symbol == '+'){
 	$time->symbol_reverse = '-';
@@ -43,17 +43,17 @@ if($time->symbol == '+'){
 $mysqli = new mysqli(SYS_DB_HOST, SYS_DB_USER, SYS_DB_PSWD, SYS_DB_NAME, SYS_DB_PORT);
 if($mysqli->connect_error != ''){exit('Error MySQL Connect');}
 
-# Chart Graph datas  
+# Chart Graph datas	 
 
 $pokemon_id = mysqli_real_escape_string($mysqli,$_GET['id']);
 
-$req 		= "SELECT COUNT(*) as total, HOUR(disappear_time ".$time->symbol." INTERVAL ".$time->delay." HOUR) as disappear_time  
+$req		= "SELECT COUNT(*) as total, HOUR(disappear_time ".$time->symbol." INTERVAL ".$time->delay." HOUR) as disappear_time 
 			FROM pokemon 
 			WHERE pokemon_id = '".$pokemon_id."' 
 			GROUP BY HOUR(disappear_time ".$time->symbol." INTERVAL ".$time->delay." HOUR) 
 			ORDER BY HOUR(disappear_time ".$time->symbol." INTERVAL ".$time->delay." HOUR), disappear_time";
 		
-$result 	= $mysqli->query($req); 
+$result		= $mysqli->query($req); 
 
 while($data = $result->fetch_object()){	
 	
@@ -93,7 +93,7 @@ if(isset($spawn['00'])){
 	$spawn[] = $spawn['00']; 
 	unset($spawn['00']);
 	
-	$spawn = array_values($spawn);  
+	$spawn = array_values($spawn);	
 }
 else{
 	$spawn = array_values($spawn);
@@ -106,12 +106,12 @@ $data = '['.$data.']';
 
 # Polar Graph datas
 
-$pokemon_file 		= file_get_contents(SYS_PATH.'/core/json/pokelist_EN.json'); 
-$pokemons			= json_decode($pokemon_file);
+$pokemon_file		= file_get_contents(SYS_PATH.'/core/json/pokelist_EN.json'); 
+$pokemons		= json_decode($pokemon_file);
 
-$atk				= $pokemons->$pokemon_id->atk; 	
-$def 				= $pokemons->$pokemon_id->def; 	
-$stam 				= $pokemons->$pokemon_id->stam; 	
+$atk			= $pokemons->$pokemon_id->atk;	
+$def			= $pokemons->$pokemon_id->def;	
+$stam			= $pokemons->$pokemon_id->stam;		
 
 
 ?>
@@ -123,51 +123,50 @@ Chart.defaults.global.legend.display = false;
 var ctx = $("#myChart");
 
 var data = {
-    labels: ["1am","2am","3am","4am","5am","6am","7am","8am","9am","10am","11am","12am","1pm","2pm","3pm","4pm","5pm","6pm","7pm","8pm","9pm","10pm","11pm","12pm"],
-    datasets: [
-        {
-            backgroundColor: 'rgba(199, 255, 215, 1)',
-            borderColor: 'rgba(0,255,73,1)',
-            borderWidth: 1,
-            data: <?= $data ?>,
-        }
-    ]
+	labels: ["1am","2am","3am","4am","5am","6am","7am","8am","9am","10am","11am","12am","1pm","2pm","3pm","4pm","5pm","6pm","7pm","8pm","9pm","10pm","11pm","12pm"],
+	datasets: [
+		{
+			backgroundColor: 'rgba(199, 255, 215, 1)',
+			borderColor: 'rgba(0,255,73,1)',
+			borderWidth: 1,
+			data: <?= $data ?>,
+		}
+	]
 };
 
 var myBarChart = new Chart(ctx, {
-    type: 'bar',
-    data: data,
-    options: ''
+	type: 'bar',
+	data: data,
+	options: ''
 });
-
 
 
 
 var ctx2 = $("#myPolarChart");
 
 var data2 = {
-    datasets: [{
-        data: [
-            <?= $atk ?>,
-            <?= $def ?>,
-            <?= $stam ?>
-        ],
-        backgroundColor: [
-            "rgba(249,96,134,0.8)",
-            "rgba(88,194,193,0.8)",
-            "rgba(250,209,77,0.8)"
-        ],
-        label: 'My dataset' // for legend
-    }],
-    labels: [
-        "Attack",
-        "Defense",
-        "Stamina"
-    ]
+	datasets: [{
+		data: [
+			<?= $atk ?>,
+			<?= $def ?>,
+			<?= $stam ?>
+		],
+		backgroundColor: [
+			"rgba(249,96,134,0.8)",
+			"rgba(88,194,193,0.8)",
+			"rgba(250,209,77,0.8)"
+		],
+		label: 'My dataset' // for legend
+	}],
+	labels: [
+		"Attack",
+		"Defense",
+		"Stamina"
+	]
 };
 
 
 new Chart(ctx2, {
-    data: data2,
-    type: 'polarArea'
+	data: data2,
+	type: 'polarArea'
 });
