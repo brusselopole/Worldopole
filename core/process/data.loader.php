@@ -600,7 +600,7 @@ else{
 	// Recent spawn
 	// ------------
 	
-	$req 		= "SELECT DISTINCT pokemon_id, disappear_time FROM pokemon ORDER BY disappear_time DESC LIMIT 0,12";
+	$req 		= "SELECT DISTINCT pokemon_id FROM pokemon ORDER BY disappear_time DESC LIMIT 0,12";
 	$result 	= $mysqli->query($req);
 	$recents	= array(); 
 	
