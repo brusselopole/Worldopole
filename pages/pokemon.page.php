@@ -125,7 +125,7 @@
 		<table class="table">
 			<tr>
 				<td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_EVOLUTION->$lang ?> :</strong></td>
-				<td class="col-md-4 col-xs-4"><?php if(isset($pokemon->candies)) { echo  $pokemon->candies . "&nbsp;". $pokemon->candy_name . " " .  $locales->POKEMON_CANDIES->$lang ;} else { echo $locales->POKEMON_FINAL->$lang; } ?></td>
+				<td class="col-md-4 col-xs-4"><?php if(isset($pokemon->candies)) { echo $pokemon->candies . " ". $pokemon->candy_name . " " . $locales->POKEMON_CANDIES->$lang ;} else { echo $locales->POKEMON_FINAL->$lang; } ?></td>
 			</tr>
 			<tr>
 				<td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_QUICK->$lang ?> :</strong></td>
@@ -145,9 +145,9 @@
 
 <div class="row text-center" id="subnav">
 	<div class="btn-group" role="group">
-	  <a class="btn btn-default" href="<?= $_SERVER['REQUEST_URI'] ?>#where" class="page-scroll"><i class="fa fa-map-marker"></i> <?= $locales->POKEMON_MAP->$lang ?></a>
-	  <a class="btn btn-default" href="<?= $_SERVER['REQUEST_URI'] ?>#stats" class="page-scroll"><i class="fa fa-pie-chart"></i> <?= $locales->POKEMON_STATS->$lang ?></a>
-	 <a class="btn btn-default" href="<?= $_SERVER['REQUEST_URI'] ?>#family" class="page-scroll"><i class="fa fa-share-alt"></i> <?= $locales->POKEMON_FAMILY->$lang ?></a>
+		<a class="btn btn-default" href="<?= $_SERVER['REQUEST_URI'] ?>#where" class="page-scroll"><i class="fa fa-map-marker"></i> <?= $locales->POKEMON_MAP->$lang ?></a>
+		<a class="btn btn-default" href="<?= $_SERVER['REQUEST_URI'] ?>#stats" class="page-scroll"><i class="fa fa-pie-chart"></i> <?= $locales->POKEMON_STATS->$lang ?></a>
+		<a class="btn btn-default" href="<?= $_SERVER['REQUEST_URI'] ?>#family" class="page-scroll"><i class="fa fa-share-alt"></i> <?= $locales->POKEMON_FAMILY->$lang ?></a>
 	</div>
 </div>
 
@@ -175,7 +175,7 @@
 
 <div class="row area" id="stats">
 	
-	<h2 class="text-center sub-title"><strong><?= $pokemon->name ?></strong>  <?= $locales->POKEMON_BREAKDOWN->$lang ?></h2>
+	<h2 class="text-center sub-title"><strong><?= $pokemon->name ?></strong> <?= $locales->POKEMON_BREAKDOWN->$lang ?></h2>
 	
 	
 	<!-- CP Datas -->
@@ -184,9 +184,9 @@
 		<p><big><?= $pokemon->max_cp ?></big><br/><?= $locales->POKEMON_CP->$lang ?></p>
 
 		<div class="progress" style="margin-bottom:0;">
-		  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="<?= $pokemon->max_cp_percent ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?= $pokemon->max_cp_percent ?>%;min-width:30%;">
-		    <?= $pokemon->max_cp_percent ?> %
-		  </div>
+			<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="<?= $pokemon->max_cp_percent ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?= $pokemon->max_cp_percent ?>%;min-width:30%;">
+				<?= $pokemon->max_cp_percent ?> %
+			</div>
 		</div>
 		
 		<?= $locales->POKEMON_COMPGAME->$lang ?>
@@ -207,9 +207,9 @@
 		<p><big><?= $pokemon->max_pv ?></big><br/><?= $locales->POKEMON_HP->$lang ?></p>
 
 		<div class="progress" style="margin-bottom:0;">
-		  <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="<?= $pokemon->max_pv_percent ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?= $pokemon->max_pv_percent ?>%;min-width:30%;">
-		    <?= $pokemon->max_pv_percent ?> %
-		  </div>
+			<div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="<?= $pokemon->max_pv_percent ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?= $pokemon->max_pv_percent ?>%;min-width:30%;">
+				<?= $pokemon->max_pv_percent ?> %
+			</div>
 		</div>
 		
 		<?= $locales->POKEMON_COMPGAME->$lang ?>
