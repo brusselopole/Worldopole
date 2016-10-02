@@ -142,23 +142,31 @@ switch($request){
 	
 	case 'spawnlist_update':
 		
-		// Recent spawn
+		// Recent rare spawn
 		// ------------
 		
-		$req 		= "SELECT pokemon_id FROM pokemon ORDER BY disappear_time DESC LIMIT 0,1";
+		$pokelist_file  = SYS_PATH.'/core/json/pokelist_EN.json';
+		$pokemon_file   = file_get_contents($pokelist_file);
+		$pokemons       = json_decode($pokemon_file);
+
+		// get all rare and mythic pokemon ids
+		$rare_pokemons	= array();
+		foreach($pokemons as $id=>$pokemon) {
+			if ($pokemon->rarity === "Mythic" || $pokemon->rarity === "Rare") {
+				$rare_pokemons[] = $id;
+			}
+		}
+
+		// get last rare or mythic pokemon
+		$req		= "SELECT pokemon_id FROM pokemon 
+				   WHERE pokemon_id IN (".implode(",", $rare_pokemons).") 
+				   ORDER BY disappear_time DESC LIMIT 0,1";
 		$result 	= $mysqli->query($req);
 		$recents	= array(); 
 		$data 		= $result->fetch_object();
 		$pokeid 	= $data->pokemon_id;
 		
-		$pokelist_file	= SYS_PATH.'/core/json/pokelist_EN.json'; 
-		$pokemon_file 	= file_get_contents($pokelist_file); 
-		$pokemons	= json_decode($pokemon_file);
-	
-		
-		
 		if($_GET['last_id'] != $pokeid){
-		
 			$html = '
 		
 			<div class="col-md-1 col-xs-4 pokemon-single" pokeid="'.$pokeid.'" style="display:none;">
@@ -172,7 +180,6 @@ switch($request){
 			
 			
 			echo $html; 
-		
 		}
 	
 	break; 
