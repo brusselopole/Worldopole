@@ -8,27 +8,27 @@
 // -----------------------------------------------------------------------------------------------------------
 
 
-$gym['timestamp'] 	=  $timestamp; 
+$gym['timestamp']	= $timestamp; 
 
-$req 	= "SELECT count( DISTINCT(gym_id) ) as total FROM gym";
-$result = $mysqli->query($req); 
-$data 	= $result->fetch_object();
+$req		= "SELECT count( DISTINCT(gym_id) ) as total FROM gym";
+$result		= $mysqli->query($req); 
+$data		= $result->fetch_object();
 
-$gym['total'] 		= $data->total; 
+$gym['total'] 	= $data->total; 
 
 
 // Mystic
 
-$req 	= "SELECT count( DISTINCT(gym_id) ) as total FROM gym WHERE team_id = '1'  "; 
-$result = $mysqli->query($req); 
-$data 	= $result->fetch_object();
+$req		= "SELECT count( DISTINCT(gym_id) ) as total FROM gym WHERE team_id = '1'  "; 
+$result		= $mysqli->query($req); 
+$data		= $result->fetch_object();
 
-$gym['team']['mystic']['gym_owned'] 		= $data->total; 
+$gym['team']['mystic']['gym_owned']	= $data->total; 
 
 
 
-$req 	= "SELECT gym_points FROM gym WHERE team_id = '1'  "; 
-$result = $mysqli->query($req); 
+$req		= "SELECT gym_points FROM gym WHERE team_id = '1'  "; 
+$result		= $mysqli->query($req); 
 
 $total_points=0; 
 
@@ -38,22 +38,22 @@ while($data = $result->fetch_object()){
 	
 }
 
-$gym['team']['mystic']['average'] 			= round($total_points / $gym['team']['mystic']['gym_owned']);
+$gym['team']['mystic']['average']		= round($total_points / $gym['team']['mystic']['gym_owned']);
 
 
 
 // Valor
 
-$req 	= "SELECT count( DISTINCT(gym_id) ) as total FROM gym WHERE team_id = '2'  "; 
-$result = $mysqli->query($req); 
-$data 	= $result->fetch_object();
+$req		= "SELECT count( DISTINCT(gym_id) ) as total FROM gym WHERE team_id = '2'  "; 
+$result		= $mysqli->query($req); 
+$data		= $result->fetch_object();
 
-$gym['team']['valor']['gym_owned'] 			= $data->total; 
+$gym['team']['valor']['gym_owned']		= $data->total; 
 
 
 
-$req 	= "SELECT gym_points FROM gym WHERE team_id = '2'  "; 
-$result = $mysqli->query($req); 
+$req		= "SELECT gym_points FROM gym WHERE team_id = '2'  "; 
+$result		= $mysqli->query($req); 
 
 $total_points=0; 
 
@@ -63,21 +63,21 @@ while($data = $result->fetch_object()){
 	
 }
 
-$gym['team']['valor']['average'] 			= round($total_points / $gym['team']['valor']['gym_owned']);
+$gym['team']['valor']['average']		= round($total_points / $gym['team']['valor']['gym_owned']);
 
 
 // Instinct
 
-$req = "SELECT count( DISTINCT(gym_id) ) as total FROM gym WHERE team_id = '3'  "; 
-$result = $mysqli->query($req); 
-$data 	= $result->fetch_object();
+$req		= "SELECT count( DISTINCT(gym_id) ) as total FROM gym WHERE team_id = '3'  "; 
+$result		= $mysqli->query($req); 
+$data		= $result->fetch_object();
 
 $gym['team']['instinct']['gym_owned'] 		= $data->total; 
 
 
 
-$req 	= "SELECT gym_points FROM gym WHERE team_id = '3'  "; 
-$result = $mysqli->query($req); 
+$req		= "SELECT gym_points FROM gym WHERE team_id = '3'  "; 
+$result		= $mysqli->query($req); 
 
 $total_points=0; 
 
@@ -92,11 +92,9 @@ $gym['team']['instinct']['average'] 		= round($total_points / $gym['team']['inst
 
 // Add the datas in file
 
-$gymsdatas[] 	= $gym; 
-$json 			= json_encode($gymsdatas); 
+$gymsdatas[]		= $gym; 
+$json			= json_encode($gymsdatas); 
 
 file_put_contents($gym_file, $json);
-
-
 
 ?>

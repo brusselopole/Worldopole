@@ -1,12 +1,12 @@
 <header id="single-header">
-<div class="row">
-	<div class="col-md-12 text-center">
-		<h1>
-			<?= $locales->GYMS_TITLE->$lang ?>
-		</h1>
-		
+	<div class="row">
+		<div class="col-md-12 text-center">
+			<h1>
+				<?= $locales->GYMS_TITLE->$lang ?>
+			</h1>
+			
+		</div>
 	</div>
-</div>
 </header>
 
 
@@ -36,7 +36,7 @@
 			</div>
 
 			<div class="col-xs-6">
-				<p><big><strong><span  class="average-<?= $team_name ?>-js">0</span></strong></big><br><?= $locales->GYMS_AVERAGE->$lang ?></p>
+				<p><big><strong><span class="average-<?= $team_name ?>-js">0</span></strong></big><br><?= $locales->GYMS_AVERAGE->$lang ?></p>
 			</div>
 		</div>
 
@@ -45,11 +45,11 @@
 			
 			<?php foreach($team->guardians as $guardian){ ?>
 			
-			<div class="col-xs-4">
-				<a href="pokemon/<?= $guardian ?>">
-				<img src="core/pokemons/<?= $guardian ?>.png" alt="<?= $pokemons->$guardian->name ?>" class="img-responsive" width=150>
-				</a>
-			</div>
+				<div class="col-xs-4">
+					<a href="pokemon/<?= $guardian ?>">
+					<img src="core/pokemons/<?= $guardian ?>.png" alt="<?= $pokemons->$guardian->name ?>" class="img-responsive" width=150>
+					</a>
+				</div>
 			
 			
 			<?php }?>

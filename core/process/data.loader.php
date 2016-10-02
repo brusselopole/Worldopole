@@ -27,7 +27,7 @@ if(isset($config->system->time_inverval)){
 	
 }
 
-$time_interval  = strlen($config->system->time_interval); 
+$time_interval = strlen($config->system->time_interval); 
 
 if($time_interval > 3){
 	echo 'Bad formated time_interval in variables.json. Please use +X or -X format only (eg for Brussels : +2) without leading or ending space.';
@@ -76,7 +76,7 @@ if($mysqli->connect_error != ''){
 
 // Perform some tests to be sure that we got datas and rights
 // If not we lock the website (HA-HA-HA evil laught)
-// Those test are performed once.  
+// Those test are performed once.
 ##############################################################
 
 
@@ -86,7 +86,7 @@ if(!file_exists(SYS_PATH.'/install/website.lock')){
 	
 		if (version_compare(phpversion(), '5.3.10', '<')) {
 			echo "Sorry, your PHP version isn't high enough and contain security hole. Please update";
-			exit();  
+			exit();
 		}
 
 		
@@ -147,7 +147,7 @@ foreach($config->lang as $id_lang => $lang_active){
 }
 
 
-// If the language is available in variables just check if neeeded files exists.  
+// If the language is available in variables just check if neeeded files exists.
 if(isset($lang)){
 	 
 	$pokedex = SYS_PATH.'/core/json/pokelist_'.$lang.'.json'; 
@@ -227,7 +227,7 @@ if(!empty($page)){
 			// ---------------------
 			
 			
-			$pokemon_id 				= mysqli_real_escape_string($mysqli,$_GET['id']);
+			$pokemon_id 			= mysqli_real_escape_string($mysqli,$_GET['id']);
 			
 			if(!is_object($pokemons->$pokemon_id)){
 				
@@ -237,9 +237,9 @@ if(!empty($page)){
 			}
 			
 						
-			$pokemon					= new stdClass(); 			 
-			$pokemon					= $pokemons->$pokemon_id;
-			$pokemon->id				= $pokemon_id;
+			$pokemon			= new stdClass(); 			 
+			$pokemon			= $pokemons->$pokemon_id;
+			$pokemon->id			= $pokemon_id;
 			
 			
 			
@@ -290,7 +290,7 @@ if(!empty($page)){
 				
 				$result 	= $mysqli->query($req);
 				
-				$pokemon->spawn_rate 	= 	round( ($pokemon->total_spawn/$pokemon->total_days) , 2);
+				$pokemon->spawn_rate 	= round( ($pokemon->total_spawn/$pokemon->total_days) , 2);
 				
 			}else{
 				
@@ -311,10 +311,10 @@ if(!empty($page)){
 						
 			if(isset($data)){
 			
-				$last_spawn 						= $data;
+				$last_spawn 				= $data;
 				
-				$pokemon->last_seen					= strtotime($data->disappear_time);
-				$pokemon->last_position				= new stdClass();
+				$pokemon->last_seen			= strtotime($data->disappear_time);
+				$pokemon->last_position			= new stdClass();
 				$pokemon->last_position->latitude 	= $data->latitude;
 				$pokemon->last_position->longitude 	= $data->longitude; 
 			
@@ -356,7 +356,7 @@ if(!empty($page)){
 		
 		
 		
-		// Pokedex  
+		// Pokedex
 		##########
 		
 		case 'pokedex':
@@ -370,21 +370,21 @@ if(!empty($page)){
 			$pokedex 	= new stdClass();
 			
 			$req 		= "SELECT COUNT(*) as total,pokemon_id FROM pokemon GROUP by pokemon_id ";
-                        $result 	= $mysqli->query($req);
-	                $data_array = array();
-	                
-	                while($data = $result->fetch_object()){
-	                  $data_array[$data->pokemon_id] = $data->total;
-	                };
-	                
+			$result 	= $mysqli->query($req);
+			$data_array = array();
+
+			while($data = $result->fetch_object()){
+				$data_array[$data->pokemon_id] = $data->total;
+			};
+			 
 			for( $i= 1 ; $i <= $max ; $i++ ){
 				
-				$pokedex->$i				= new stdClass();
-				$pokedex->$i->id 			= $i; 
+				$pokedex->$i			= new stdClass();
+				$pokedex->$i->id 		= $i; 
 				$pokedex->$i->permalink 	= 'pokemon/'.$i; 
-				$pokedex->$i->img			= 'core/pokemons/'.$i.'.png'; 
-				$pokedex->$i->name			= $pokemons->$i->name; 
-				$pokedex->$i->spawn = isset($data_array[$i])? $data_array[$i] : 0;
+				$pokedex->$i->img		= 'core/pokemons/'.$i.'.png'; 
+				$pokedex->$i->name		= $pokemons->$i->name; 
+				$pokedex->$i->spawn 		= isset($data_array[$i])? $data_array[$i] : 0;
 							
 			}
 					
@@ -392,7 +392,7 @@ if(!empty($page)){
 		break; 
 		
 		
-		// Pokestops  
+		// Pokestops
 		############
 		
 		case 'pokestops':
@@ -417,7 +417,7 @@ if(!empty($page)){
 		break;
 
 
-		// Gyms  
+		// Gyms
 		########
 
 		
@@ -426,23 +426,23 @@ if(!empty($page)){
 			// 3 Teams (teamm rocket is neutral)
 			// 1 Fight 
 			
-			$teams 						= new stdClass();
+			$teams 				= new stdClass();
 						
-			$teams->mystic 				= new stdClass();
+			$teams->mystic 			= new stdClass();
 			$teams->mystic->guardians 	= new stdClass();
-			$teams->mystic->id 			= 1;
+			$teams->mystic->id 		= 1;
 			
-			$teams->valor 				= new stdClass();
+			$teams->valor 			= new stdClass();
 			$teams->valor->guardians 	= new stdClass();
-			$teams->valor->id 			= 2;
+			$teams->valor->id 		= 2;
 			
-			$teams->instinct 			= new stdClass();
-			$teams->instinct->guardians = new stdClass();
+			$teams->instinct 		= new stdClass();
+			$teams->instinct->guardians 	= new stdClass();
 			$teams->instinct->id 		= 3;
 
-			$teams->rocket 				= new stdClass();
+			$teams->rocket 			= new stdClass();
 			$teams->rocket->guardians 	= new stdClass();
-			$teams->rocket->id 			= 0;
+			$teams->rocket->id 		= 0;
 			
 			
 			
@@ -458,7 +458,7 @@ if(!empty($page)){
 				
 				while($data = $result->fetch_object()){
 					
-					$gym['valor']['fav_pokemon'][] = $data->guard_pokemon_id;
+					$gym['valor']['fav_pokemon'][]		= $data->guard_pokemon_id;
 					
 					$teams->$team_key->guardians->$i	= $data->guard_pokemon_id;
 					
@@ -473,7 +473,7 @@ if(!empty($page)){
 				$result = $mysqli->query($req); 
 				$data 	= $result->fetch_object();
 			
-				$teams->$team_key->gym_owned 			= $data->total;
+				$teams->$team_key->gym_owned 		= $data->total;
 				
 				
 				// Total Points 
@@ -495,9 +495,9 @@ if(!empty($page)){
 				// Some math for the average 
 				
 				if($total_points > 0){
-					$teams->$team_key->average 			= round($teams->$team_key->total_points / $teams->$team_key->gym_owned);
+					$teams->$team_key->average 	= round($teams->$team_key->total_points / $teams->$team_key->gym_owned);
 				}else{
-					$teams->$team_key->average 			= 0;
+					$teams->$team_key->average 	= 0;
 				}
 				
 				
@@ -518,7 +518,7 @@ if(!empty($page)){
 
 			if(!is_file($stats_file)){
 				
-				echo "Sorry, no Gym stats file were found <br> Have you enable cron? ";
+				echo "Sorry, no Gym stats file was found. <br> Did you enable cron? ";
 				exit(); 
 				
 			}
@@ -528,7 +528,7 @@ if(!empty($page)){
 
 			if(!is_file($stats_file)){
 				
-				echo "Sorry, no Pokémon stats file were found  <br> Have you enable cron?";
+				echo "Sorry, no Pokémon stats file was found. <br> Did you enabled cron?";
 				exit(); 
 				
 			}
@@ -538,7 +538,7 @@ if(!empty($page)){
 
 			if(!is_file($stats_file)){
 				
-				echo "Sorry, no Pokéstop stats file were found  <br> Have you enable cron?";
+				echo "Sorry, no Pokéstop stats file was found. <br> Did you enabled cron?";
 				exit(); 
 				
 			}
@@ -553,7 +553,7 @@ if(!empty($page)){
 
 
 /////////////
-// Homepage  
+// Homepage
 ///////////// 
 
 else{
@@ -655,8 +655,6 @@ else{
 	
 	$home->teams->rocket 	= $data->total; 
 		
-	
 }
-	
-	
+
 ?>

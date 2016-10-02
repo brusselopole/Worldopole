@@ -93,32 +93,32 @@ switch($request){
 		// 2 = rouge 
 		// 3 = jaune 
 		
-		$req = "SELECT count( DISTINCT(gym_id) ) as total FROM gym WHERE team_id = '2'  "; 
-		$result = $mysqli->query($req); 
-		$data 	= $result->fetch_object();
+		$req	= "SELECT count( DISTINCT(gym_id) ) as total FROM gym WHERE team_id = '2'  "; 
+		$result	= $mysqli->query($req); 
+		$data	= $result->fetch_object();
 		
 		// Red
 		$values[] = $data->total; 
 		
 		
-		$req = "SELECT count( DISTINCT(gym_id) ) as total FROM gym WHERE team_id = '1'  "; 
-		$result = $mysqli->query($req); 
-		$data 	= $result->fetch_object();
+		$req	= "SELECT count( DISTINCT(gym_id) ) as total FROM gym WHERE team_id = '1'  "; 
+		$result	= $mysqli->query($req); 
+		$data	= $result->fetch_object();
 		
 		// Blue
 		$values[] = $data->total; 
 		
 		
-		$req = "SELECT count( DISTINCT(gym_id) ) as total FROM gym WHERE team_id = '3'  "; 
-		$result = $mysqli->query($req); 
-		$data 	= $result->fetch_object();
+		$req	= "SELECT count( DISTINCT(gym_id) ) as total FROM gym WHERE team_id = '3'  "; 
+		$result	= $mysqli->query($req); 
+		$data	= $result->fetch_object();
 		
 		// Yellow
 		$values[] = $data->total; 
 		
-		$req = "SELECT count( DISTINCT(gym_id) ) as total FROM gym WHERE team_id = '0'  "; 
-		$result = $mysqli->query($req); 
-		$data 	= $result->fetch_object();
+		$req	= "SELECT count( DISTINCT(gym_id) ) as total FROM gym WHERE team_id = '0'  "; 
+		$result	= $mysqli->query($req); 
+		$data	= $result->fetch_object();
 		
 		// Neutral
 		$values[] = $data->total;
@@ -151,9 +151,9 @@ switch($request){
 		$data 		= $result->fetch_object();
 		$pokeid 	= $data->pokemon_id;
 		
-		$pokelist_file		= SYS_PATH.'/core/json/pokelist_EN.json'; 
-		$pokemon_file 		= file_get_contents($pokelist_file); 
-		$pokemons			= json_decode($pokemon_file);
+		$pokelist_file	= SYS_PATH.'/core/json/pokelist_EN.json'; 
+		$pokemon_file 	= file_get_contents($pokelist_file); 
+		$pokemons	= json_decode($pokemon_file);
 	
 		
 		
@@ -163,7 +163,7 @@ switch($request){
 		
 			<div class="col-md-1 col-xs-4 wow " pokeid="'.$pokeid.'" style="display:none;">
 						
-				<a href="pokemon/'.$pokeid.'"><img src="core/pokemons/'.$pokeid.'.png" class="img-responsive"></a>
+				<a href="pokemon/'.$pokeid.'"><img src="core/pokemons/'.$pokeid.'.png" class="img-responsive" alt="Pokemon image"></a>
 				<p class="pkmn-name"><a href="pokemon/'.$pokeid.'">'.$pokemons->$pokeid->name.'</a></p>
 			
 			</div>	
@@ -209,7 +209,7 @@ switch($request){
 			$temp[$i][] = $data->longitude;
 			$temp[$i][] = $i;
 				
-			$temp_json[] = json_encode($temp[$i]);  
+			$temp_json[] = json_encode($temp[$i]);
 			
 			
 			$i++;
@@ -226,14 +226,14 @@ switch($request){
 	
 	####################################
 	//
-	// Update data for the gym battle  
+	// Update data for the gym battle
 	//
 	####################################
 	
 	case 'update_gym':
 	
 		
-		$teams 	= new stdClass();
+		$teams			= new stdClass();
 		$teams->mystic 		= 1;
 		$teams->valor 		= 2;
 		$teams->instinct 	= 3; 
@@ -242,17 +242,17 @@ switch($request){
 		foreach($teams as $team_name => $team_id){
 			
 			
-			$req = "SELECT count( DISTINCT(gym_id) ) as total FROM gym WHERE team_id = '".$team_id."'  "; 
-			$result = $mysqli->query($req); 
-			$data 	= $result->fetch_object();
+			$req	= "SELECT count( DISTINCT(gym_id) ) as total FROM gym WHERE team_id = '".$team_id."'  "; 
+			$result	= $mysqli->query($req); 
+			$data	= $result->fetch_object();
 			
 			$total_gym 	= $data->total;
 			$return[] 	= $data->total; 
 			
 			
 			
-			$req 	= "SELECT gym_points FROM gym WHERE team_id = '".$team_id."'  "; 
-			$result = $mysqli->query($req); 
+			$req	= "SELECT gym_points FROM gym WHERE team_id = '".$team_id."'  "; 
+			$result	= $mysqli->query($req); 
 			
 			$total_points=0; 
 			
@@ -277,14 +277,14 @@ switch($request){
 
 	####################################
 	//
-	// Get datas for the gym map   
+	// Get datas for the gym map 
 	//
 	####################################
 	
 	
 	case 'gym_map':
 	
-		$req 		= "SELECT * FROM gym";
+		$req 		= "SELECT gym_id, team_id, guard_pokemon_id, gym_points, latitude, longitude, (last_modified ".$time->symbol." INTERVAL ".$time->delay." HOUR) as last_modified FROM gym";
 		$result 	= $mysqli->query($req); 
 		
 		
@@ -300,27 +300,27 @@ switch($request){
 			switch($data->team_id){
 				
 				case 0:
-					$icon = 'map_white.png';
-					$team = 'No Team (yet)';
-					$color 	= 'rgba(0, 0, 0, .6)'; 
+					$icon	= 'map_white.png';
+					$team	= 'No Team (yet)';
+					$color	= 'rgba(0, 0, 0, .6)'; 
 				break;
 				
 				case 1:
-					$icon = 'map_blue.png';
-					$team = 'Team Mystic';
-					$color 	= 'rgba(74, 138, 202, .6)';
+					$icon	= 'map_blue.png';
+					$team	= 'Team Mystic';
+					$color	= 'rgba(74, 138, 202, .6)';
 				break;
 				
 				case 2:
-					$icon 	= 'map_red.png';
-					$team 	= 'Team Valor';
-					$color 	= 'rgba(240, 68, 58, .6)';
+					$icon	= 'map_red.png';
+					$team	= 'Team Valor';
+					$color	= 'rgba(240, 68, 58, .6)';
 				break;
 				
 				case 3:
-					$icon = 'map_yellow.png';
-					$team = 'Team Instinct';
-					$color 	= 'rgba(254, 217, 40, .6)';
+					$icon	= 'map_yellow.png';
+					$team	= 'Team Instinct';
+					$color	= 'rgba(254, 217, 40, .6)';
 				break;
 				
 			}
@@ -347,8 +347,9 @@ switch($request){
 				<p>Gym owned by:</p>
 				<p style="font-weight:400;color:'.$color.'">'.$team.'</p>
 				<p>Protected by</p>
-				<a href="pokemon/'.$data->guard_pokemon_id.'"><img src="'.$img.'" height="40" style="display:inline-block;margin-bottom:10px;"></a>
-				<p>Level : '.$data->gym_level.' | Prestige : '.$data->gym_points.'</p>
+				<a href="pokemon/'.$data->guard_pokemon_id.'"><img src="'.$img.'" height="40" style="display:inline-block;margin-bottom:10px;" alt="Guard Pokemon image"></a>
+				<p>Level : '.$data->gym_level.' | Prestige : '.$data->gym_points.'<br>
+				Last modified : '.$data->last_modified.'</p>
 			</div>
 	
 			';
@@ -361,7 +362,7 @@ switch($request){
 			$temp[$i][] = $data->longitude;
 			$temp[$i][] = $i;
 				
-			$temp_json[] = json_encode($temp[$i]);  
+			$temp_json[] = json_encode($temp[$i]);
 			
 			
 			$i++;
