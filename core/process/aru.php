@@ -347,7 +347,7 @@ switch($request){
 				<p>Gym owned by:</p>
 				<p style="font-weight:400;color:'.$color.'">'.$team.'</p>
 				<p>Protected by</p>
-				<a href="pokemon/'.$data->guard_pokemon_id.'"><img src="'.$img.'" height="40" style="display:inline-block;margin-bottom:10px;"></a>
+				<a href="pokemon/'.$data->guard_pokemon_id.'"><img src="'.$img.'" height="40" style="display:inline-block;margin-bottom:10px;" alt="Guard Pokemon image"></a>
 				<p>Level : '.$data->gym_level.' | Prestige : '.$data->gym_points.'<br>
 				Last modified : '.$data->last_modified.'</p>
 			</div>
