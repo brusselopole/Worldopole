@@ -142,7 +142,7 @@ switch($request){
 	
 	case 'spawnlist_update':
 		
-		// Recent rare spawn
+		// Recent mythic spawn
 		// ------------
 		
 		$pokelist_file  = SYS_PATH.'/core/json/pokelist_EN.json';
@@ -150,16 +150,17 @@ switch($request){
 		$pokemons       = json_decode($pokemon_file);
 
 		// get all rare and mythic pokemon ids
-		$rare_pokemons	= array();
+		$mythic_pokemons = array();
 		foreach($pokemons as $id=>$pokemon) {
-			if ($pokemon->rarity === "Mythic" || $pokemon->rarity === "Rare") {
-				$rare_pokemons[] = $id;
+			// TODO: change this to $locales->DASHBOARD_MYTHIC->$lang once locale support is integrated
+			if ($pokemon->rarity === "Mythic") {
+				$mythic_pokemons[] = $id;
 			}
 		}
 
 		// get last rare or mythic pokemon
 		$req		= "SELECT pokemon_id FROM pokemon 
-				   WHERE pokemon_id IN (".implode(",", $rare_pokemons).") 
+				   WHERE pokemon_id IN (".implode(",", $mythic_pokemons).") 
 				   ORDER BY disappear_time DESC LIMIT 0,1";
 		$result 	= $mysqli->query($req);
 		$recents	= array(); 
