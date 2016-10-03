@@ -15,7 +15,7 @@
 		"url"			:	"https://www.facebook.com/brusselopole/",
 		"image"			:	"core/img/smartphone.png",
 		"image_alt"		:	"Like us on FB",
-		"text"			:	"<big>Like us on</big><br><strong>Facebook!</strong>"
+		"text"			:	"<big>Like us on</big><br>Facebook!"
 	},
 	"system":{
 		"map_center_lat"	:	"50.844441",
