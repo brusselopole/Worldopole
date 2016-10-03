@@ -267,7 +267,7 @@ switch($request){
 	
 	case 'gym_map':
 	
-		$req 		= "SELECT gym_id, team_id, guard_pokemon_id, gym_points, latitude, longitude, (last_modified ".$time->symbol." INTERVAL ".$time->delay." HOUR) as last_modified FROM gym";
+		$req 		= "SELECT team_id, guard_pokemon_id, gym_points, latitude, longitude, (last_modified ".$time->symbol." INTERVAL ".$time->delay." HOUR) as last_modified FROM gym";
 		$result 	= $mysqli->query($req); 
 		
 		
