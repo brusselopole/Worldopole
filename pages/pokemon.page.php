@@ -33,7 +33,7 @@
 			<p id="share">
 				<a href="https://www.facebook.com/sharer/sharer.php?u=<?= HOST_URL ?>pokemon/<?= $pokemon->id ?>" target="_blank" class="btn btn-primary" title="Share on Facebook"><?= $locales->SHARE->$lang ?> <i class="fa fa-facebook" aria-hidden="true"></i></a> 
 				
-				<a href="https://twitter.com/intent/tweet?source=<?= HOST_URL ?>pokemon/<?= $pokemon_id ?>&text=Find <?= $pokemon->name ?> in Brussels <?= HOST_URL ?>pokemon/<?= $pokemon->id ?>" target="_blank" title="Share on Twitter" class="btn btn-info"><?= $locales->SHARE->$lang ?> <i class="fa fa-twitter" aria-hidden="true"></i></a>
+				<a href="https://twitter.com/intent/tweet?source=<?= HOST_URL ?>pokemon/<?= $pokemon_id ?>&text=Find <?= $pokemon->name ?> in <?= $config->infos->city ?> <?= HOST_URL ?>pokemon/<?= $pokemon->id ?>" target="_blank" title="Share on Twitter" class="btn btn-info"><?= $locales->SHARE->$lang ?> <i class="fa fa-twitter" aria-hidden="true"></i></a>
 			</p>
 			
 		</div>
