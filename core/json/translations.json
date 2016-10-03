@@ -132,13 +132,6 @@
 		"DE": "aktiv in %s",
 		"PL": "aktywne w %s"
 	},
-	"WIDGET_FB_LIKE": {
-		"EN": "<a href='https://www.facebook.com/brusselopole/' target='_blank'><big>Like us on</big><br><strong>Facebook!</strong></a>",
-		"FR": "<a href='https://www.facebook.com/brusselopole/' target='_blank'><big>Likez nous sur</big><br><strong>Facebook!</strong></a>",
-		"ES": "<a href='https://www.facebook.com/brusselopole/' target='_blank'><big>Danos Me gusta en </big><br><strong>Facebook!</strong></a>",
-		"DE": "<a href='https://www.facebook.com/brusselopole/' target='_blank'><big>Like uns auf </big><br><strong>Facebook!</strong></a>",
-		"PL": "<a href='https://www.facebook.com/pokemonfunPL/' target='_blank'><big>Polub nas na </big><br><strong>Facebooku!</strong></a>"
-	},
 	"RECENT_SPAWNS": {
 		"EN": "The most <strong>recent</strong> spawns",
 		"FR": "Les apparitions <strong>récentes</strong>",
