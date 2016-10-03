@@ -597,20 +597,10 @@ else{
 	
 	
 	
-	// Recent rare spawns
+	// Recent spawn
 	// ------------
-
-	// get all rare and mythic pokemon ids
-	$rare_pokemons  = array();
-	foreach($pokemons as $id=>$pokemon) {
-		if ($pokemon->rarity === "Mythic" || $pokemon->rarity === "Rare") {
-			$rare_pokemons[] = $id;
-		}
-	}
 	
-	$req 		= "SELECT DISTINCT pokemon_id FROM pokemon
-			   WHERE pokemon_id IN (".implode(",", $rare_pokemons).")
-			   ORDER BY disappear_time DESC LIMIT 0,12";
+	$req 		= "SELECT DISTINCT pokemon_id FROM pokemon ORDER BY disappear_time DESC LIMIT 0,12";
 	$result 	= $mysqli->query($req);
 	$recents	= array(); 
 	
