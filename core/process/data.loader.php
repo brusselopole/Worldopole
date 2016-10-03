@@ -467,7 +467,7 @@ if(!empty($page)){
 				}
 				
 				
-				// Gym owned and total points
+				// Gym owned and average points
 				
 				$req 	= "SELECT COUNT(DISTINCT(gym_id)) as total, ROUND(AVG(gym_points),0) as average_points FROM gym WHERE team_id = '".$team_values->id."'  ";
 				$result = $mysqli->query($req);
