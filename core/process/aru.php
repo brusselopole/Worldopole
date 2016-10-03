@@ -142,26 +142,31 @@ switch($request){
 	
 	case 'spawnlist_update':
 		
-		// Recent mythic spawn
+		// Recent spawn
 		// ------------
 		
 		$pokelist_file  = SYS_PATH.'/core/json/pokelist_EN.json';
 		$pokemon_file   = file_get_contents($pokelist_file);
 		$pokemons       = json_decode($pokemon_file);
-
-		// get all rare and mythic pokemon ids
-		$mythic_pokemons = array();
-		foreach($pokemons as $id=>$pokemon) {
-			// TODO: change this to $locales->DASHBOARD_MYTHIC->$lang once locale support is integrated
-			if ($pokemon->rarity === "Mythic") {
-				$mythic_pokemons[] = $id;
+			
+		if ($config->system->mythic_recents) {
+			// get all mythic pokemon ids
+			$mythic_pokemons = array();
+			foreach($pokemons as $id=>$pokemon) {
+				// TODO: change this to $locales->DASHBOARD_MYTHIC->$lang once locale support is integrated
+				if ($pokemon->rarity === "Mythic") {
+					$mythic_pokemons[] = $id;
+				}
 			}
-		}
 
-		// get last rare or mythic pokemon
-		$req		= "SELECT pokemon_id FROM pokemon 
-				   WHERE pokemon_id IN (".implode(",", $mythic_pokemons).") 
-				   ORDER BY disappear_time DESC LIMIT 0,1";
+			// get last mythic pokemon
+			$req		= "SELECT pokemon_id FROM pokemon
+					   WHERE pokemon_id IN (".implode(",", $mythic_pokemons).")
+					   ORDER BY disappear_time DESC LIMIT 0,1";
+		} else {
+			// get last pokemon
+			$req		= "SELECT pokemon_id FROM pokemon ORDER BY disappear_time DESC LIMIT 0,1";
+		}
 		$result 	= $mysqli->query($req);
 		$recents	= array(); 
 		$data 		= $result->fetch_object();

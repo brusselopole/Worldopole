@@ -597,20 +597,26 @@ else{
 	
 	
 	
-	// Recent mythic spawns
+	// Recent spawns
 	// ------------
 
-	// get all rare and mythic pokemon ids
-	$mythic_pokemons  = array();
-	foreach($pokemons as $id=>$pokemon) {
-		if ($pokemon->rarity === $locales->DASHBOARD_MYTHIC->$lang) {
-			$mythic_pokemons[] = $id;
+	if ($config->system->mythic_recents) {
+		// get all mythic pokemon ids
+		$mythic_pokemons  = array();
+		foreach($pokemons as $id=>$pokemon) {
+			if ($pokemon->rarity === $locales->DASHBOARD_MYTHIC->$lang) {
+				$mythic_pokemons[] = $id;
+			}
 		}
-	}
 	
-	$req 		= "SELECT DISTINCT pokemon_id FROM pokemon
-			   WHERE pokemon_id IN (".implode(",", $mythic_pokemons).")
-			   ORDER BY disappear_time DESC LIMIT 0,12";
+		// get all mythic pokemon
+		$req 		= "SELECT DISTINCT pokemon_id FROM pokemon
+				   WHERE pokemon_id IN (".implode(",", $mythic_pokemons).")
+				   ORDER BY disappear_time DESC LIMIT 0,12";
+	} else {
+		// get all pokemon
+		$req		= "SELECT DISTINCT pokemon_id FROM pokemon ORDER BY disappear_time DESC LIMIT 0,12";
+	}
 	$result 	= $mysqli->query($req);
 	$recents	= array(); 
 	
