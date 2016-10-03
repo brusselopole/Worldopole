@@ -187,7 +187,7 @@ switch($request){
 
 	case 'pokestop':
 	
-		$req 		= "SELECT * FROM pokestop";
+		$req 		= "SELECT latitude, longitude, lure_expiration FROM pokestop";
 		$result 	= $mysqli->query($req); 
 		
 		$i=0; 
