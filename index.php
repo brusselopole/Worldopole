@@ -32,6 +32,13 @@ include_once('core/process/data.loader.php');
 	</head>
 	<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
+		<?php
+		// Google Analytics
+		if(is_file("analyticstracking.php")) {
+			include_once("analyticstracking.php");
+		}
+		?>
+
 		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="container">
 				<!-- Brand and toggle get grouped for better mobile display -->
