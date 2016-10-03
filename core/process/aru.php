@@ -251,18 +251,11 @@ switch($request){
 			
 			
 			
-			$req	= "SELECT gym_points FROM gym WHERE team_id = '".$team_id."'  "; 
-			$result	= $mysqli->query($req); 
+			$req	= "SELECT SUM(gym_points) AS total_points FROM gym WHERE team_id = '".$team_id."'  ";
+			$result	= $mysqli->query($req);
+			$data	= $result->fetch_object();
 			
-			$total_points=0; 
-			
-			while($data = $result->fetch_object()){
-			
-				$total_points = $total_points + $data->gym_points; 
-				
-			}
-			
-			$average  = round($total_points / $total_gym); 
+			$average  = round($data->total_points / $total_gym);
 			$return[] = $average;
 			
 		}

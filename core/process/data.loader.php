@@ -478,22 +478,13 @@ if(!empty($page)){
 				
 				// Total Points 
 				
-				$req 	= "SELECT gym_points FROM gym WHERE team_id = '".$team_values->id."'  "; 
-				$result = $mysqli->query($req); 
+				$req 	= "SELECT SUM(gym_points) AS total_points FROM gym WHERE team_id = '".$team_values->id."'  ";
+				$result = $mysqli->query($req);
+				$data	= $result->fetch_object();
+
+				$teams->$team_key->total_points 	= $data->total_points;
 				
-				$total_points=0; 
-				
-				while($data = $result->fetch_object()){
-				
-					$total_points = $total_points + $data->gym_points; 
-					
-				}
-				
-				$teams->$team_key->total_points 	= $total_points; 
-				
-				
-				// Some math for the average 
-				
+				// Some math for the average
 				if($total_points > 0){
 					$teams->$team_key->average 	= round($teams->$team_key->total_points / $teams->$team_key->gym_owned);
 				}else{
