@@ -140,10 +140,10 @@
 		"PL": "<a href='https://www.facebook.com/pokemonfunPL/' target='_blank'><big>Polub nas na </big><br><strong>Facebooku!</strong></a>"
 	},
 	"RECENT_SPAWNS": {
-		"EN": "The most <strong>recent</strong> mythic spawns",
+		"EN": "The most <strong>recent</strong> spawns",
 		"FR": "Les apparitions <strong>récentes</strong>",
 		"ES": "Apariciones <strong>recientes</strong>",
-		"DE": "Die <strong>letzten</strong> sehr seltenen Spawns",
+		"DE": "Die <strong>letzten</strong> Spawns",
 		"PL": "Ostatnio <strong>pojawiły się</strong>"
 	},
 	"FIGHT_TITLE": {
