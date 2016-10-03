@@ -241,22 +241,12 @@ switch($request){
 		
 		foreach($teams as $team_name => $team_id){
 			
-			
-			$req	= "SELECT count( DISTINCT(gym_id) ) as total FROM gym WHERE team_id = '".$team_id."'  "; 
+			$req	= "SELECT COUNT(DISTINCT(gym_id)) as total, ROUND(AVG(gym_points),0) as average_points FROM gym WHERE team_id = '".$team_id."'  ";
 			$result	= $mysqli->query($req); 
 			$data	= $result->fetch_object();
 			
-			$total_gym 	= $data->total;
-			$return[] 	= $data->total; 
-			
-			
-			
-			$req	= "SELECT SUM(gym_points) AS total_points FROM gym WHERE team_id = '".$team_id."'  ";
-			$result	= $mysqli->query($req);
-			$data	= $result->fetch_object();
-			
-			$average  = round($data->total_points / $total_gym);
-			$return[] = $average;
+			$return[] 	= $data->total;
+			$return[]	= $data->average_points;
 			
 		}
 		
