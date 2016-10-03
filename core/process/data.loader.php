@@ -569,9 +569,8 @@ else{
 	$data 		= $result->fetch_object();
 
 	
-	$home->pokemon_now 	= $data->total;
+	$home->pokemon_now = $data->total;
 	 	
-	
 	
 	// Lured stops 
 	// -----------
@@ -586,15 +585,11 @@ else{
 	// Gyms 
 	// ----
 	
-	$req 		= "SELECT COUNT(*) as total FROM gym WHERE enabled = '1'";	
+	$req 		= "SELECT COUNT(DISTINCT(gym_id)) as total FROM gym";
 	$result 	= $mysqli->query($req);
 	$data 		= $result->fetch_object();
 	
 	$home->gyms = $data->total; 	
-	
-	
-	
-	
 	
 	
 	// Recent spawn
@@ -611,17 +606,10 @@ else{
 	}
 		
 	
-	
-	$home->teams = new stdClass();
-	
 	// Team battle 
 	// -----------
-	
-	$req 		= "SELECT count( DISTINCT(gym_id) ) as total FROM gym";
-	$result 	= $mysqli->query($req); 
-	$data 		= $result->fetch_object();
-	
-	$home->total_gyms 		= $data->total; 	
+
+	$home->teams = new stdClass();
 	
 	// Team 
 	// 1 = bleu
