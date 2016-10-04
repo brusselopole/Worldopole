@@ -599,7 +599,7 @@ else{
 		// get all mythic pokemon ids
 		$mythic_pokemons  = array();
 		foreach($pokemons as $id=>$pokemon) {
-			if ($pokemon->rarity === $locales->DASHBOARD_MYTHIC->$lang) {
+			if ($pokemon->rarity === "Mythic") {
 				$mythic_pokemons[] = $id;
 			}
 		}

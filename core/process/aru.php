@@ -153,7 +153,6 @@ switch($request){
 			// get all mythic pokemon ids
 			$mythic_pokemons = array();
 			foreach($pokemons as $id=>$pokemon) {
-				// TODO: change this to $locales->DASHBOARD_MYTHIC->$lang once locale support is integrated
 				if ($pokemon->rarity === "Mythic") {
 					$mythic_pokemons[] = $id;
 				}
