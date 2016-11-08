@@ -34,9 +34,11 @@ RewriteRule ^pokemon$			index.php?page=pokedex			[QSA,NC,L]
 
 
 # Cache static files for one month
-<FilesMatch "\.(ico|jpg|jpeg|png|gif|js|css)$">
-	Header set Cache-Control "max-age=2628000, public"
-</FilesMatch>
+<ifModule mod_headers.c>
+	<FilesMatch "\.(ico|jpg|jpeg|png|gif|js|css)$">
+		Header set Cache-Control "max-age=2628000, public"
+	</FilesMatch>
+</IfModule>
 
 # Enable compression for large content
 <IfModule mod_deflate.c>
