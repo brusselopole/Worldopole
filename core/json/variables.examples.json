@@ -53,6 +53,12 @@
 			"icon"		:	"fa-medkit"
 		},
 		{
+			"type"		:	"link",
+			"href"		:	"trainer",
+			"locale"	:	"TRAINERS",
+			"icon"		:	"fa-users"
+		},
+		{
 			"type"		:	"link_external",
 			"href"		:	"https://www.facebook.com/brusselopole/",
 			"text"		:	"Facebook",

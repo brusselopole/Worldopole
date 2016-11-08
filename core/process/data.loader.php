@@ -480,8 +480,47 @@ if(!empty($page)){
 						
 					
 		break;
+
 		
+		// Trainers  
+		##########
 		
+		case 'trainer':
+			$trainer_name = "";
+			if(isset($_GET['name'])){			
+				$trainer_name = mysqli_real_escape_string($mysqli,$_GET['name']);
+			}
+			$req = "SELECT name, level FROM trainer ORDER BY level DESC LIMIT 30";
+			if($trainer_name != ""){
+				$req = "SELECT name, level FROM trainer WHERE name LIKE '%".$trainer_name."%' 
+ORDER BY level DESC LIMIT 30";
+			}
+			$result = $mysqli->query($req);
+	        	$trainers = array();
+		        while($data = $result->fetch_object()){
+				$trainers[$data->name] = $data;
+			};
+			foreach($trainers as $trainer){
+				$reqPkms = "SELECT DISTINCT pokemon_uid,pokemon_id,cp,iv_defense,iv_stamina,iv_attack FROM gympokemon WHERE trainer_name='".$trainer->name."' ORDER BY cp DESC";
+				$resultPkms 	= $mysqli->query($reqPkms);
+				$trainer->pokemons = array();
+				$i=0;
+				while($dataPkm = $resultPkms->fetch_object()){
+					$trainer->pokemons[$i++] = $dataPkm;
+				}
+				$trainer->gyms = $i;
+			}
+			// Sort for level first, then gyms
+			foreach($trainers as $trainer){
+				$level[] = $trainer->level;
+				$gyms[] = $trainer->gyms;
+			}
+			array_multisort($level, SORT_DESC, $gyms, SORT_DESC, $trainers);
+	        
+ 
+		break; 
+		
+
 		case 'dashboard':
 		
 			// This case is only used for test purpose. 
