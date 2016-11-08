@@ -221,14 +221,14 @@ Also private joke ;)
 	margin-bottom:2em;
 }
 
-.big-data p a {
+.big-data a {
 	color:#777;
 	transition:color .25s ease-in;
 }
 
-.big-data p a:hover {
+.big-data a:hover {
 	text-decoration:none;
-	color:#174391; 
+	color:#174391;
 }
 
 .big-data big {

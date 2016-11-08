@@ -1,6 +1,5 @@
 {
 	"urls":{
-		"fb_url"		:	"https://www.facebook.com/brusselopole/",
 		"fb_valor"		:	"http://bit.ly/ValorBrussels",
 		"fb_mystic"		:	"http://bit.ly/MysticBrussels",
 		"fb_instinct"		:	"http://bit.ly/InstinctBrussels"
@@ -11,6 +10,12 @@
 		"logo_path"		:	"core/img/logo.jpg",
 		"site_title"		:	"We ❤️ <strong>Pokémon</strong> and Data",
 		"site_claim"		:	"Find all collected and proccessed data about PokémonGo in %s."
+	},
+	"homewidget":{
+		"url"			:	"https://www.facebook.com/brusselopole/",
+		"image"			:	"core/img/smartphone.png",
+		"image_alt"		:	"Like us on FB",
+		"text"			:	"<big>Like us on</big><br>Facebook!"
 	},
 	"system":{
 		"map_center_lat"	:	"50.844441",
