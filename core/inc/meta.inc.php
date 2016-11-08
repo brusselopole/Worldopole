@@ -163,7 +163,7 @@
 		<meta property="og:type" content="website" />
 		<meta property="og:title" content="<?= $config->infos->site_name ?> | <?= $locales->NAV_DASHBOARD->$lang ?>" />
 		<meta property="og:description" content="Data lover? We've got plenty for you!" />
-		<meta property="og:url" content="<?= HOST_URL ?>/devlog" />
+		<meta property="og:url" content="<?= HOST_URL ?>/dashboard" />
 		<meta property="og:site_name" content="<?= $config->infos->site_name ?>" />
 		<meta property="og:image" content="<?= HOST_URL ?>core/img/logo.jpg" />
 		
