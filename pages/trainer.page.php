@@ -49,7 +49,7 @@
 			<td><?= $trainer->gyms ?></td>
 		      </tr>
 			<tr>
-				<td colspan="3">
+				<td colspan="4">
 				<div class=container">
 				<?php
 				$j = 0;
