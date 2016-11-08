@@ -13,7 +13,7 @@
 		  <div class="form-group">
 			<div class="input-group">
 			  <div class="input-group-addon">Trainer</div>
-			  <input type="text" class="form-control" name="name" id="name" placeholder="name" value="<?= $trainer_name ?>">
+			  <input type="text" class="form-control" name="name" id="name" placeholder="Name" value="<?= $trainer_name ?>">
 			  
 			</div>
 		  </div>
