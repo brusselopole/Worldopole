@@ -187,7 +187,7 @@ switch($request){
 
 	case 'pokestop':
 	
-		$req 		= "SELECT * FROM pokestop";
+		$req 		= "SELECT latitude, longitude, lure_expiration FROM pokestop";
 		$result 	= $mysqli->query($req); 
 		
 		$i=0; 
@@ -241,29 +241,12 @@ switch($request){
 		
 		foreach($teams as $team_name => $team_id){
 			
-			
-			$req	= "SELECT count( DISTINCT(gym_id) ) as total FROM gym WHERE team_id = '".$team_id."'  "; 
+			$req	= "SELECT COUNT(DISTINCT(gym_id)) as total, ROUND(AVG(gym_points),0) as average_points FROM gym WHERE team_id = '".$team_id."'  ";
 			$result	= $mysqli->query($req); 
 			$data	= $result->fetch_object();
 			
-			$total_gym 	= $data->total;
-			$return[] 	= $data->total; 
-			
-			
-			
-			$req	= "SELECT gym_points FROM gym WHERE team_id = '".$team_id."'  "; 
-			$result	= $mysqli->query($req); 
-			
-			$total_points=0; 
-			
-			while($data = $result->fetch_object()){
-			
-				$total_points = $total_points + $data->gym_points; 
-				
-			}
-			
-			$average  = round($total_points / $total_gym); 
-			$return[] = $average;
+			$return[] 	= $data->total;
+			$return[]	= $data->average_points;
 			
 		}
 		
@@ -284,7 +267,7 @@ switch($request){
 	
 	case 'gym_map':
 	
-		$req 		= "SELECT gym_id, team_id, guard_pokemon_id, gym_points, latitude, longitude, (last_modified ".$time->symbol." INTERVAL ".$time->delay." HOUR) as last_modified FROM gym";
+		$req 		= "SELECT team_id, guard_pokemon_id, gym_points, latitude, longitude, (last_modified ".$time->symbol." INTERVAL ".$time->delay." HOUR) as last_modified FROM gym";
 		$result 	= $mysqli->query($req); 
 		
 		

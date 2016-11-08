@@ -88,7 +88,7 @@ function initMap() {
 			// As the map is rendering by the client, we do recommand to keep a limit on your request. 
 			// 10k is already alotof datas ;) 
 			
-			$req 	= "SELECT * FROM pokemon WHERE pokemon_id = '".$pokemon_id."' ORDER BY disappear_time DESC LIMIT 0,10000";
+			$req 	= "SELECT latitude, longitude FROM pokemon WHERE pokemon_id = '".$pokemon_id."' ORDER BY disappear_time DESC LIMIT 0,10000";
 			$result = $mysqli->query($req);
 			
 			while($data = $result->fetch_object()){

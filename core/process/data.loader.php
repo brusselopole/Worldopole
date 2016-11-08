@@ -467,44 +467,16 @@ if(!empty($page)){
 				}
 				
 				
-				// Gym owned 
+				// Gym owned and average points
 				
-				$req 	= "SELECT count( DISTINCT(gym_id) ) as total FROM gym WHERE team_id = '".$team_values->id."'  "; 
-				$result = $mysqli->query($req); 
-				$data 	= $result->fetch_object();
-			
-				$teams->$team_key->gym_owned 		= $data->total;
-				
-				
-				// Total Points 
-				
-				$req 	= "SELECT gym_points FROM gym WHERE team_id = '".$team_values->id."'  "; 
-				$result = $mysqli->query($req); 
-				
-				$total_points=0; 
-				
-				while($data = $result->fetch_object()){
-				
-					$total_points = $total_points + $data->gym_points; 
-					
-				}
-				
-				$teams->$team_key->total_points 	= $total_points; 
-				
-				
-				// Some math for the average 
-				
-				if($total_points > 0){
-					$teams->$team_key->average 	= round($teams->$team_key->total_points / $teams->$team_key->gym_owned);
-				}else{
-					$teams->$team_key->average 	= 0;
-				}
-				
-				
-				
+				$req 	= "SELECT COUNT(DISTINCT(gym_id)) as total, ROUND(AVG(gym_points),0) as average_points FROM gym WHERE team_id = '".$team_values->id."'  ";
+				$result = $mysqli->query($req);
+				$data	= $result->fetch_object();
+
+				$teams->$team_key->gym_owned	= $data->total;
+				$teams->$team_key->average	= $data->average_points;
 				
 			}
-						
 						
 					
 		break;

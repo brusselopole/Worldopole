@@ -19,75 +19,32 @@ $gym['total'] 	= $data->total;
 
 // Mystic
 
-$req		= "SELECT count( DISTINCT(gym_id) ) as total FROM gym WHERE team_id = '1'  "; 
-$result		= $mysqli->query($req); 
+$req		= "SELECT count(DISTINCT(gym_id)) as total, ROUND(AVG(gym_points),0) as average_points FROM gym WHERE team_id = '1'";
+$result		= $mysqli->query($req);
 $data		= $result->fetch_object();
 
-$gym['team']['mystic']['gym_owned']	= $data->total; 
-
-
-
-$req		= "SELECT gym_points FROM gym WHERE team_id = '1'  "; 
-$result		= $mysqli->query($req); 
-
-$total_points=0; 
-
-while($data = $result->fetch_object()){
-
-	$total_points = $total_points + $data->gym_points; 
-	
-}
-
-$gym['team']['mystic']['average']		= round($total_points / $gym['team']['mystic']['gym_owned']);
-
+$gym['team']['mystic']['gym_owned']	= $data->total;
+$gym['team']['mystic']['average']	= $data->average_points;
 
 
 // Valor
 
-$req		= "SELECT count( DISTINCT(gym_id) ) as total FROM gym WHERE team_id = '2'  "; 
-$result		= $mysqli->query($req); 
+$req		= "SELECT count(DISTINCT(gym_id)) as total, ROUND(AVG(gym_points),0) as average_points FROM gym WHERE team_id = '2'";
+$result		= $mysqli->query($req);
 $data		= $result->fetch_object();
 
-$gym['team']['valor']['gym_owned']		= $data->total; 
-
-
-
-$req		= "SELECT gym_points FROM gym WHERE team_id = '2'  "; 
-$result		= $mysqli->query($req); 
-
-$total_points=0; 
-
-while($data = $result->fetch_object()){
-
-	$total_points = $total_points + $data->gym_points; 
-	
-}
-
-$gym['team']['valor']['average']		= round($total_points / $gym['team']['valor']['gym_owned']);
+$gym['team']['valor']['gym_owned']	= $data->total;
+$gym['team']['valor']['average']	= $data->average_points;
 
 
 // Instinct
 
-$req		= "SELECT count( DISTINCT(gym_id) ) as total FROM gym WHERE team_id = '3'  "; 
-$result		= $mysqli->query($req); 
+$req		= "SELECT count(DISTINCT(gym_id)) as total, ROUND(AVG(gym_points),0) as average_points FROM gym WHERE team_id = '3'";
+$result		= $mysqli->query($req);
 $data		= $result->fetch_object();
 
-$gym['team']['instinct']['gym_owned'] 		= $data->total; 
-
-
-
-$req		= "SELECT gym_points FROM gym WHERE team_id = '3'  "; 
-$result		= $mysqli->query($req); 
-
-$total_points=0; 
-
-while($data = $result->fetch_object()){
-
-	$total_points = $total_points + $data->gym_points; 
-	
-}
-
-$gym['team']['instinct']['average'] 		= round($total_points / $gym['team']['instinct']['gym_owned']);
+$gym['team']['instinct']['gym_owned'] 	= $data->total;
+$gym['team']['instinct']['average'] 	= $data->average_points;
 
 
 // Add the datas in file
