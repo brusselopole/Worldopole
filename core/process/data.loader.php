@@ -490,9 +490,9 @@ if(!empty($page)){
 			if(isset($_GET['name'])){			
 				$trainer_name = mysqli_real_escape_string($mysqli,$_GET['name']);
 			}
-			$req = "SELECT name, level FROM trainer ORDER BY level DESC LIMIT 30";
+			$req = "SELECT name, level, team FROM trainer ORDER BY level DESC LIMIT 30";
 			if($trainer_name != ""){
-				$req = "SELECT name, level FROM trainer WHERE name LIKE '%".$trainer_name."%' 
+				$req = "SELECT name, level, team FROM trainer WHERE name LIKE '%".$trainer_name."%'
 ORDER BY level DESC LIMIT 30";
 			}
 			$result = $mysqli->query($req);

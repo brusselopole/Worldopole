@@ -26,28 +26,37 @@
 
 <div class="row trainers">
 	<table class="table">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Name</th>
-                <th>Level</th>
-		<th>Gyms</th>
-              </tr>
-            </thead>
-            <tbody>
+		<thead>
+		<tr>
+			<th>#</th>
+			<th>Name</th>
+			<th>Level</th>
+			<th>Gyms</th>
+		</tr>
+		</thead>
+	<tbody>
 		<?php 
 		$i = 0;
 		
 		foreach($trainers as $trainers_name => $trainer){ 
 		
 		$i++;
-		?>
-		      <tr>
+		if($trainer->team == 1){ ?>
+			<tr style="background-color:#DDDDFF">
+		<?php }elseif($trainer->team == 2){ ?>
+			<tr style="background-color:#FFDDDD">
+		<?php }elseif($trainer->team == 3){ ?>
+			<tr style="background-color:#FFF9CC">
+		<?php } else { ?>
+			<tr>
+		<?php
+		} ?>
+
 			<td><?= $i ?></td>
 			<td><a href="trainer?name=<?= $trainer->name ?>"><?= $trainer->name ?></a></td>
 			<td><?= $trainer->level ?></td>
 			<td><?= $trainer->gyms ?></td>
-		      </tr>
+			</tr>
 			<tr>
 				<td colspan="4">
 				<div class=container">
