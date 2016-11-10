@@ -51,11 +51,11 @@
 			<tr>
 				<?php
 				if($trainer->team == 1){
-					$border_color="#AAAAFF";
+					$border_color="#00aaff";
 				}elseif($trainer->team == 2){
-					$border_color="#FFAAAA";
+					$border_color="#ff7676";
 				}elseif($trainer->team == 3){
-					$border_color="#FFE9AA";
+					$border_color="#ffbe08";
 				}else{
 					$border_color="#DDDDDD";
 				}
