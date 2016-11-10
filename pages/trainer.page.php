@@ -41,24 +41,26 @@
 		foreach($trainers as $trainers_name => $trainer){ 
 		
 		$i++;
-		if($trainer->team == 1){ ?>
-			<tr style="background-color:#DDDDFF">
-		<?php }elseif($trainer->team == 2){ ?>
-			<tr style="background-color:#FFDDDD">
-		<?php }elseif($trainer->team == 3){ ?>
-			<tr style="background-color:#FFF9CC">
-		<?php } else { ?>
-			<tr>
-		<?php
-		} ?>
-
+		?>
+		<tr>
 			<td><?= $i ?></td>
 			<td><a href="trainer?name=<?= $trainer->name ?>"><?= $trainer->name ?></a></td>
 			<td><?= $trainer->level ?></td>
 			<td><?= $trainer->gyms ?></td>
 			</tr>
 			<tr>
-				<td colspan="4">
+				<?php
+				if($trainer->team == 1){
+					$border_color="#AAAAFF";
+				}elseif($trainer->team == 2){
+					$border_color="#FFAAAA";
+				}elseif($trainer->team == 3){
+					$border_color="#FFE9AA";
+				}else{
+					$border_color="#DDDDDD";
+				}
+				?>
+				<td colspan="4" style="border-top: 2px solid <?= $border_color ?>">
 				<div class=container">
 				<?php
 				$j = 0;
