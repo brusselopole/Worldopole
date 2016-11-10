@@ -71,17 +71,17 @@
 				<div class="col-md-1 col-xs-4 pokemon-single" pokeid="<?= $pokemon->pokemon_id-1 ?>">
 					<img src="core/pokemons/<?= $pokemon->pokemon_id ?>.png" class="img-responsive">
 					<p class="pkmn-name">CP: <?= $pokemon->cp ?></p>		
-					<div class="progress">
-						<div title="IV Defense" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="<?= $pokemon->iv_defense ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= ((100/15)*$pokemon->iv_defense)/3 ?>%">
+					<div class="progress" style="height: 16px">
+						<div title="IV Defense" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="<?= $pokemon->iv_defense ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= ((100/15)*$pokemon->iv_defense)/3 ?>%; line-height: 16px">
 							<span class="sr-only">Defense IV : <?= $pokemon->iv_defense ?></span>
 							<?= $pokemon->iv_defense ?>
 						</div>
-						<div title="IV Stamina" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<?= $pokemon->iv_stamina ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= ((100/15)*$pokemon->iv_stamina)/3 ?>%">
+						<div title="IV Stamina" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<?= $pokemon->iv_stamina ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= ((100/15)*$pokemon->iv_stamina)/3 ?>%; line-height: 16px">
 							<span class="sr-only">Stamina IV : <?= $pokemon->iv_stamina ?></span>
 							<?= $pokemon->iv_stamina ?>
 						</div>
 					
-						<div title="IV Attack" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="<?= $pokemon->iv_attack ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= ((100/15)*$pokemon->iv_attack)/3 ?>%">
+						<div title="IV Attack" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="<?= $pokemon->iv_attack ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= ((100/15)*$pokemon->iv_attack)/3 ?>%; line-height: 16px">
 							<span class="sr-only">Attack IV : <?= $pokemon->iv_attack ?></span>
 							<?= $pokemon->iv_attack ?>
 						</div>
