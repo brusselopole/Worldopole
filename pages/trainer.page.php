@@ -24,7 +24,7 @@
 </header>
 
 
-<div class="row trainers">
+<div class="row">
 	<table class="table">
 		<thead>
 		<tr>
@@ -95,14 +95,4 @@
 		<?php }?>
 	</tbody>
 	</table>
-</div>
-
-<div class="row area">
-	<div class="col-md-12">
-	
-		
-
-	
-	</div>
-
 </div>
