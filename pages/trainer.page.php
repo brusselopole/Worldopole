@@ -69,7 +69,9 @@
 				?>
 				
 				<div class="col-md-1 col-xs-4 pokemon-single" style="text-align: center" pokeid="<?= $pokemon->pokemon_id-1 ?>">
+					<a href="pokemon/<?= $pokemon->pokemon_id ?>">
 					<img src="core/pokemons/<?= $pokemon->pokemon_id ?>.png" class="img-responsive">
+					</a>
 					<p class="pkmn-name">CP: <?= $pokemon->cp ?></p>		
 					<div class="progress" style="height: 6px">
 						<div title="IV Stamina: <?= $pokemon->iv_stamina ?>" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<?= $pokemon->iv_stamina ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= ((100/15)*$pokemon->iv_stamina)/3 ?>%">
