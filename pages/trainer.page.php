@@ -72,15 +72,16 @@
 					<img src="core/pokemons/<?= $pokemon->pokemon_id ?>.png" class="img-responsive">
 					<p class="pkmn-name">CP: <?= $pokemon->cp ?></p>		
 					<div class="progress" style="height: 6px">
-						<div title="IV Defense: <?= $pokemon->iv_defense ?>" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="<?= $pokemon->iv_defense ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= ((100/15)*$pokemon->iv_defense)/3 ?>%">
-							<span class="sr-only">Defense IV : <?= $pokemon->iv_defense ?></span>
-						</div>
 						<div title="IV Stamina: <?= $pokemon->iv_stamina ?>" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<?= $pokemon->iv_stamina ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= ((100/15)*$pokemon->iv_stamina)/3 ?>%">
 							<span class="sr-only">Stamina IV : <?= $pokemon->iv_stamina ?></span>
 						</div>
 					
 						<div title="IV Attack: <?= $pokemon->iv_attack ?>" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="<?= $pokemon->iv_attack ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= ((100/15)*$pokemon->iv_attack)/3 ?>%">
 							<span class="sr-only">Attack IV : <?= $pokemon->iv_attack ?></span>
+						</div>
+
+						<div title="IV Defense: <?= $pokemon->iv_defense ?>" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="<?= $pokemon->iv_defense ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= ((100/15)*$pokemon->iv_defense)/3 ?>%">
+							<span class="sr-only">Defense IV : <?= $pokemon->iv_defense ?></span>
 						</div>
 					</div>
 				</div>
