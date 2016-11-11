@@ -38,7 +38,7 @@
 			"type"		:	"link",
 			"href"		:	"pokemon",
 			"locale"	:	"NAV_POKEDEX",
-			"icon"		:	"fa-map-marker"
+			"icon"		:	"fa-calculator"
 		},
 		{
 			"type"		:	"link",
