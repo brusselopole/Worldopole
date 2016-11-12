@@ -339,9 +339,9 @@ div#circleImage{
 
 div#gymName{
 	position: absolute;
-	left:125px;
+	left:120px;
 	top: 10px;
-	width: 170px;
+	width: 225px;
 	font-size: large;
 	overflow: hidden;
 	white-space: nowrap;
@@ -349,20 +349,20 @@ div#gymName{
 }
 div#gymLevel{
 	position: absolute;
-	left:125px;
+	left:120px;
 	top: 35px;
 	font-size: large;
 }
 div#gymPrestige{
 	position: absolute;
-	left:125px;
+	left:120px;
 	top: 60px;
 	font-size: large;
 	
 }
 div#gymLastModified{
 	position: absolute;
-	left:125px;
+	left:120px;
 	top: 90px;
 }
 

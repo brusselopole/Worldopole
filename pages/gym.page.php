@@ -123,7 +123,7 @@
 						Prestige: <span id="gymPrestigeDisplay"></span>
 					</div>
 					<div id="gymLastModified">
-						(<span id="gymLastModifiedDisplay"></span>)
+						Last modified: <span id="gymLastModifiedDisplay"></span>
 					</div>
 					<div id="gymDefenders" class="pokemon-single">
 						No Defender yet
