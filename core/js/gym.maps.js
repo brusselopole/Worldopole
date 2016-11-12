@@ -107,7 +107,10 @@ function initMap() {
 }
 
 function setGymDetails(gym) {
-	$('#gym_details_template #circleImage').css("background", "url("+gym.gymDetails.gymInfos.url+") no-repeat center");
+	// replace http with https to fix mixed content
+	var imgurl = gym.gymDetails.gymInfos.url;
+	imgurl = imgurl.replace(/^http:\/\//i, 'https://');
+	$('#gym_details_template #circleImage').css("background", "url("+imgurl+") no-repeat center");
 	$('#gym_details_template #gymName').html(gym.gymDetails.gymInfos.name);
 	$('#gym_details_template #gymDescription').html(gym.gymDetails.gymInfos.description);
 	$('#gym_details_template #gymLevelDisplay').html(gym.gymDetails.gymInfos.level);
