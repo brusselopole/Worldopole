@@ -1,8 +1,9 @@
 function initMap() {
-	
 	var locations;
-
-	$.ajax({
+	$('.gym_details').hide();
+	//ensure that gmaps is loaded before loading infobox (nasty but usefull trick) 
+	$.getScript("//rawgit.com/googlemaps/v3-utility-library/master/infobox/src/infobox.js",function(){
+		$.ajax({
 		'async': false,
 		'type': "GET",
 		'global': false,
@@ -42,8 +43,22 @@ function initMap() {
 						scrollwheel: true,
 						disableDoubleClickZoom: false,
 				});
-			
-				var infowindow = new google.maps.InfoWindow();
+				
+				var infowindow = new InfoBox({
+					content: document.getElementById("gym_details_template"),
+					disableAutoPan: false,
+					maxWidth: 350,
+					pixelOffset: new google.maps.Size(-150, 0),
+					zIndex: null,
+					boxStyle: {
+								background: "",
+								opacity: 0.85,
+								width: "325px",
+						},
+					closeBoxMargin: "12px 4px 2px 2px",
+					closeBoxURL: "http://www.google.com/intl/en_us/mapfiles/close.gif",
+					infoBoxClearance: new google.maps.Size(1, 1)
+				});
 				
 				var marker, i;
 			
@@ -63,7 +78,7 @@ function initMap() {
 								'async': false,
 								'type': "GET",
 								'global': false,
-								'dataType': 'text',
+								'dataType': 'json',
 								'url': "core/process/aru.php",
 								'data': { 
 									'request': "", 
@@ -73,23 +88,36 @@ function initMap() {
 									'gym_id' : arr[i][5] 
 								},
 								'success': function (data) {
-									var baseHtml = $('<div />',{html: arr[i][0]});
-									//var pokemonGym = '#pokemon_gym_'+arr[i][5];
-									//BUG find on gym_id doesn't work 
-									baseHtml.find('div>a').html(data);
-									infowindow.setContent(baseHtml.html());
+									setGymDetails(data);
+									infowindow.setContent($('#gym_details_template').html());
 								}
 							});
 						}
 					})(marker, i));
 				
 				}
-				
-				
 				map.set('styles',[{"featureType":"all","elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#333333"},{"lightness":40}]},{"featureType":"all","elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#ffffff"},{"lightness":16}]},{"featureType":"all","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#fefefe"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#fefefe"},{"lightness":17},{"weight":1.2}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":20}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":21}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#dedede"},{"lightness":21}]},{"featureType":"poi.park","elementType":"geometry.fill","stylers":[{"color":"#c2ffd7"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffffff"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#ffffff"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":16}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#f2f2f2"},{"lightness":19}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#e9e9e9"},{"lightness":17}]},{"featureType":"water","elementType":"geometry.fill","stylers":[{"color":"#b3d8f9"}]}]);
-			
-			
 			});
 		}
 	});
+	
+	});
+	var locations;
+
+	
+}
+
+function setGymDetails(gym) {
+	$('#gym_details_template #circleImage').css("background", "url("+gym.gymDetails.gymInfos.url+") no-repeat center");
+	$('#gym_details_template #gymName').html(gym.gymDetails.gymInfos.name);
+	$('#gym_details_template #gymDescription').html(gym.gymDetails.gymInfos.description);
+	$('#gym_details_template #gymLevelDisplay').html(gym.gymDetails.gymInfos.level);
+	$('#gym_details_template #gymDefenders').html(gym.infoWindow);
+	$('#gym_details_template #gymPrestigeDisplay').html(gym.gymDetails.gymInfos.points);
+	$('#gym_details_template #gymLastModifiedDisplay').html(gym.gymDetails.gymInfos.last_modified);
+	var teamColor = gym.gymDetails.gymInfos.team == "1" ? 'blue':gym.gymDetails.gymInfos.team == "2" ? 'red':gym.gymDetails.gymInfos.team == "3" ? 'yellow':'white';
+	$('#gym_details_template #gymInfos').css("border-color", teamColor);
+	$('#gym_details_template #gymDefenders').css("border-color", teamColor);
+	
+	$('#gym_details_template').show();
 }
