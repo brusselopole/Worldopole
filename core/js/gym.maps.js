@@ -114,7 +114,7 @@ function setGymDetails(gym) {
 	$('#gym_details_template #gymDefenders').html(gym.infoWindow);
 	$('#gym_details_template #gymPrestigeDisplay').html(gym.gymDetails.gymInfos.points);
 	$('#gym_details_template #gymLastModifiedDisplay').html(gym.gymDetails.gymInfos.last_modified);
-	var teamColor = gym.gymDetails.gymInfos.team == "1" ? 'blue':gym.gymDetails.gymInfos.team == "2" ? 'red':gym.gymDetails.gymInfos.team == "3" ? 'yellow':'white';
+	var teamColor = gym.gymDetails.gymInfos.team == "1" ? '#0086ff':gym.gymDetails.gymInfos.team == "2" ? '#ff1a1a':gym.gymDetails.gymInfos.team == "3" ? '#ff960b':'white';
 	$('#gym_details_template #gymInfos').css("border-color", teamColor);
 	$('#gym_details_template #gymDefenders').css("border-color", teamColor);
 	
