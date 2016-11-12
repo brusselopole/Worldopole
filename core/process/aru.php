@@ -267,7 +267,7 @@ switch($request){
 	
 	case 'gym_map':
 	
-		$req 		= "SELECT team_id, guard_pokemon_id, gym_points, latitude, longitude, (last_modified ".$time->symbol." INTERVAL ".$time->delay." HOUR) as last_modified FROM gym";
+		$req 		= "SELECT gym_id, team_id, guard_pokemon_id, gym_points, latitude, longitude, (last_modified ".$time->symbol." INTERVAL ".$time->delay." HOUR) as last_modified FROM gym";
 		$result 	= $mysqli->query($req); 
 		
 		
@@ -344,6 +344,7 @@ switch($request){
 			$temp[$i][] = $data->latitude;
 			$temp[$i][] = $data->longitude;
 			$temp[$i][] = $i;
+			$temp[$i][] = $data->gym_id;
 				
 			$temp_json[] = json_encode($temp[$i]);
 			
@@ -358,6 +359,59 @@ switch($request){
 	
 	break; 
 		
+		
+	####################################
+	//
+	// Get datas for gym defenders
+	//
+	####################################
+	
+	case 'gym_defenders':
+		
+		$gym_id = $mysqli->real_escape_string($_GET['gym_id']);
+		$req 		= "SELECT * FROM gympokemon inner join gymmember on gympokemon.pokemon_uid=gymmember.pokemon_uid where gym_id='".$gym_id."' ORDER BY cp DESC";
+		$result 	= $mysqli->query($req); 
+		
+		$i=0; 
+		$html = '
+			<div class="gym_defenders">			
+			';
+		while($data = $result->fetch_object()){		
+			$temp[$i][] = $data;
+				
+			$temp_json[] = json_encode($temp[$i]);
+			$html .= '
+				<div style="text-align: center; width: 40px; display: inline-block" pokeid="'.$data->pokemon_id.'">
+					<a href="pokemon/'.$data->pokemon_id.'">
+					<img src="core/pokemons/'.$data->pokemon_id.'.png" height="40" style="display:inline-block;margin-bottom:10px;" >
+					</a>
+					<p class="pkmn-name">CP: '.$data->cp.'</p>		
+					<div class="progress" style="height: 6px">
+						<div title="IV Stamina: '.$data->iv_stamina.'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'.$data->iv_stamina.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(((100/15)*$data->iv_stamina)/3).'%">
+							<span class="sr-only">Stamina IV : '.$data->iv_stamina.'</span>
+						</div>
+					
+						<div title="IV Attack: '.$data->iv_attack.'" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="'.$data->iv_attack.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(((100/15)*$data->iv_attack)/3).'%">
+							<span class="sr-only">Attack IV : '.$data->iv_attack.'</span>
+						</div>
+
+						<div title="IV Defense: '.$data->iv_defense.'" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="'.$data->iv_defense.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(((100/15)*$data->iv_defense)/3).'%">
+							<span class="sr-only">Defense IV : '.$data->iv_defense.'</span>
+						</div>
+					</div>
+				</div>'
+				;
+			
+			$i++;
+		
+		}
+		$html .=  '</div>';
+		$return = $html; 
+	
+		echo $return;
+	
+	
+	break; 
 	
 	default:
 		

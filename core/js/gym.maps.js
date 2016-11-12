@@ -59,6 +59,27 @@ function initMap() {
 						return function() {
 							infowindow.setContent(arr[i][0]);
 							infowindow.open(map, marker);
+							$.ajax({
+								'async': false,
+								'type': "GET",
+								'global': false,
+								'dataType': 'text',
+								'url': "core/process/aru.php",
+								'data': { 
+									'request': "", 
+									'target': 'arrange_url',
+									'method': 'method_target',
+									'type' : 'gym_defenders',
+									'gym_id' : arr[i][5] 
+								},
+								'success': function (data) {
+									var baseHtml = $('<div />',{html: arr[i][0]});
+									//var pokemonGym = '#pokemon_gym_'+arr[i][5];
+									//BUG find on gym_id doesn't work 
+									baseHtml.find('div>a').html(data);
+									infowindow.setContent(baseHtml.html());
+								}
+							});
 						}
 					})(marker, i));
 				
