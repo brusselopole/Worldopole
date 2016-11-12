@@ -52,7 +52,6 @@ function initMap() {
 					zIndex: null,
 					boxStyle: {
 								background: "",
-								opacity: 0.85,
 								width: "325px",
 						},
 					closeBoxMargin: "12px 4px 2px 2px",
