@@ -125,7 +125,7 @@
 					<div id="gymLastModified">
 						(<span id="gymLastModifiedDisplay"></span>)
 					</div>
-					<div id="gymDefenders">
+					<div id="gymDefenders" class="pokemon-single">
 						No Defender yet
 					</div>
 				</div>
