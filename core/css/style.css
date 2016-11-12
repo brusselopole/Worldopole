@@ -317,7 +317,7 @@ div#gym_details_template_container {
 
 div#gymInfos{
 	position: relative;
-	width: 300px;
+	width: 375px;
 	border-radius: 5px; 
 	border: 2px solid grey;
 	z-index:9000;
@@ -344,15 +344,14 @@ div#gymName{
 	width: 170px;
 	font-size: large;
 	overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 div#gymLevel{
 	position: absolute;
 	left:125px;
 	top: 35px;
 	font-size: large;
-	
 }
 div#gymPrestige{
 	position: absolute;
@@ -365,7 +364,6 @@ div#gymLastModified{
 	position: absolute;
 	left:125px;
 	top: 90px;
-	
 }
 
 div#gymDefenders{

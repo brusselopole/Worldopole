@@ -47,12 +47,12 @@ function initMap() {
 				var infowindow = new InfoBox({
 					content: document.getElementById("gym_details_template"),
 					disableAutoPan: false,
-					maxWidth: 350,
+					maxWidth: 425,
 					pixelOffset: new google.maps.Size(-150, 0),
 					zIndex: null,
 					boxStyle: {
 								background: "",
-								width: "325px",
+								width: "400px",
 						},
 					closeBoxMargin: "12px 4px 2px 2px",
 					closeBoxURL: "https://www.google.com/intl/en_us/mapfiles/close.gif",
