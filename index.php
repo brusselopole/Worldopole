@@ -208,7 +208,6 @@ include_once('core/process/data.loader.php');
 				case 'pokedex': ?>
 				
 					<script src="core/js/holmes.js"></script>
-					<script src="core/js/microlight.js"></script>
 					<script>				
 						// holmes setup
 						var h = new holmes({
