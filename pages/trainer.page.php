@@ -23,15 +23,20 @@
 </div>
 </header>
 
-<div class="row area">
-	<div class="col-md-12 text-center">
-		<h2 class="sub-title">Trainer <strong>level</strong> distribution</h2>
+<?php
+// show only if there was no search for a specific trainer
+if ($trainer_name === "") { ?>
+	<div class="row area">
+		<div class="col-md-12 text-center">
+			<h2 class="sub-title">Trainer <strong>level</strong> distribution</h2>
+		</div>
+		
+		<div class="col-md-12">
+			<canvas id="trainer_lvl" width="100%" height="25"></canvas>
+		</div>
 	</div>
-	
-	<div class="col-md-12">
-		<canvas id="trainer_lvl" width="100%" height="25"></canvas>
-	</div>
-</div>
+<?php 
+} ?>
 
 <div class="row">
 	<table class="table">
