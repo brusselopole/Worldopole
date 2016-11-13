@@ -102,3 +102,36 @@
 	</div>
 
 </div>
+<div id="gym_details_template_container">
+	<div class="row area gym_details" id="gym_details_template">
+		<div class="col-md-12">
+			<div id="gymDetail">
+				<div id="gymInfos">
+					<div id="circleImage">				
+					</div>
+					<div id="levelMeter">
+						<div id="levelBar">
+						</div>
+					</div>
+					<div id="gymName">
+						
+					</div>							
+					<div id="gymLevel">
+						Level: <span id="gymLevelDisplay"></span>
+					</div>
+					<div id="gymPrestige">
+						Prestige: <span id="gymPrestigeDisplay"></span>
+					</div>
+					<div id="gymLastModified">
+						Last modified: <span id="gymLastModifiedDisplay"></span>
+					</div>
+					<div id="gymDefenders" class="pokemon-single">
+						No Defender yet
+					</div>
+				</div>
+				
+			</div>
+
+		</div>
+	</div>
+</div>

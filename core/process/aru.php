@@ -325,7 +325,6 @@ switch($request){
 			
 			$img = 'core/pokemons/'.$data->guard_pokemon_id.'.png';
 			$html = '
-			
 			<div style="text-align:center">
 				<p>Gym owned by:</p>
 				<p style="font-weight:400;color:'.$color.'">'.$team.'</p>
@@ -334,7 +333,7 @@ switch($request){
 				<p>Level : '.$data->gym_level.' | Prestige : '.$data->gym_points.'<br>
 				Last modified : '.$data->last_modified.'</p>
 			</div>
-	
+			
 			';
 
 			
@@ -369,18 +368,44 @@ switch($request){
 	case 'gym_defenders':
 		
 		$gym_id = $mysqli->real_escape_string($_GET['gym_id']);
+		
+		$req 		= "SELECT gymdetails.name as name, gymdetails.description as description, gym.gym_points as points, gymdetails.url as url, gym.team_id as team,  (gym.last_modified ".$time->symbol." INTERVAL ".$time->delay." HOUR) as last_modified FROM gymdetails INNER JOIN gym on gym.gym_id = gymdetails.gym_id WHERE gym.gym_id='".$gym_id."'";
+		$result 	= $mysqli->query($req);
+		$gymData['gymDetails']['gymInfos'] = false;
+		while($data = $result->fetch_object()){
+			$gymData['gymDetails']['gymInfos']['name'] = utf8_encode($data->name);
+			$gymData['gymDetails']['gymInfos']['description'] =  utf8_encode($data->description);
+			$gymData['gymDetails']['gymInfos']['url'] = utf8_encode($data->url);
+			$gymData['gymDetails']['gymInfos']['points'] = utf8_encode($data->points);
+			$gymData['gymDetails']['gymInfos']['level'] = 0;
+			$gymData['gymDetails']['gymInfos']['last_modified'] = $data->last_modified;
+			$gymData['gymDetails']['gymInfos']['team'] = $data->team;
+			if ($data->points < 2000) { $gymData['gymDetails']['gymInfos']['level']=1;	}
+			elseif ($data->points < 4000) { $gymData['gymDetails']['gymInfos']['level']=2; }
+			elseif ($data->points < 8000) { $gymData['gymDetails']['gymInfos']['level']=3; }
+			elseif ($data->points < 12000) { $gymData['gymDetails']['gymInfos']['level']=4; }
+			elseif ($data->points < 16000) { $gymData['gymDetails']['gymInfos']['level']=5; }
+			elseif ($data->points < 20000) { $gymData['gymDetails']['gymInfos']['level']=6; }
+			elseif ($data->points < 30000) { $gymData['gymDetails']['gymInfos']['level']=7; }
+			elseif ($data->points < 40000) { $gymData['gymDetails']['gymInfos']['level']=8; }
+			elseif ($data->points < 50000) { $gymData['gymDetails']['gymInfos']['level']=9; }
+			else { $gymData['gymDetails']['gymInfos']['level']=10; }
+		
+		}
+		
 		$req 		= "SELECT * FROM gympokemon inner join gymmember on gympokemon.pokemon_uid=gymmember.pokemon_uid where gym_id='".$gym_id."' ORDER BY cp DESC";
 		$result 	= $mysqli->query($req); 
-		
 		$i=0; 
-		$html = '
+		
+		
+		
+		
+		$gymData['infoWindow'] = '
 			<div class="gym_defenders">			
 			';
-		while($data = $result->fetch_object()){		
-			$temp[$i][] = $data;
-				
-			$temp_json[] = json_encode($temp[$i]);
-			$html .= '
+		while($data = $result->fetch_object()){
+			$gymData['gymDetails']['pokemons'][] = $data;
+			$gymData['infoWindow'] .= '
 				<div style="text-align: center; width: 40px; display: inline-block" pokeid="'.$data->pokemon_id.'">
 					<a href="pokemon/'.$data->pokemon_id.'">
 					<img src="core/pokemons/'.$data->pokemon_id.'.png" height="40" style="display:inline-block;margin-bottom:10px;" >
@@ -403,11 +428,11 @@ switch($request){
 				;
 			
 			$i++;
-		
 		}
-		$html .=  '</div>';
-		$return = $html; 
-	
+		
+		$gymData['infoWindow'] =  utf8_encode($gymData['infoWindow'].'</div>');
+		$return = json_encode($gymData); 
+
 		echo $return;
 	
 	
