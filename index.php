@@ -199,9 +199,6 @@ include_once('core/process/data.loader.php');
 						updateCounter(<?= $teams->mystic->average ?>,'.average-mystic-js');	
 					</script>
 			
-					<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.min.js"></script>
-					<script src="core/js/gym.graph.js.php"></script>
-
 					<script src="core/js/gym.maps.js"></script>
 					<script async defer src="https://maps.googleapis.com/maps/api/js?key=<?= $config->system->GMaps_Key ?>&libraries=visualization&callback=initMap"></script>
 				
@@ -228,6 +225,14 @@ include_once('core/process/data.loader.php');
 					<?php
 					break;
 				
+				case 'trainer': ?>
+
+					<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.min.js"></script>
+					<script src="core/js/trainer.graph.js.php"></script
+
+					<?php
+					break;
+
 				case 'dashboard': ?>
 				
 					<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.min.js"></script>

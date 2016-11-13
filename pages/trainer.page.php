@@ -23,6 +23,15 @@
 </div>
 </header>
 
+<div class="row area">
+	<div class="col-md-12 text-center">
+		<h2 class="sub-title">Trainer <strong>level</strong> distribution</h2>
+	</div>
+	
+	<div class="col-md-12">
+		<canvas id="trainer_lvl" width="100%" height="25"></canvas>
+	</div>
+</div>
 
 <div class="row">
 	<table class="table">
