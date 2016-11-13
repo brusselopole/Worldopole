@@ -225,14 +225,6 @@ include_once('core/process/data.loader.php');
 					<?php
 					break;
 				
-				case 'trainer': ?>
-
-					<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.min.js"></script>
-					<script src="core/js/trainer.graph.js.php"></script
-
-					<?php
-					break;
-
 				case 'dashboard': ?>
 				
 					<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.min.js"></script>

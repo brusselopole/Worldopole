@@ -35,6 +35,8 @@ if ($trainer_name === "") { ?>
 			<canvas id="trainer_lvl" width="100%" height="25"></canvas>
 		</div>
 	</div>
+	<script async defer src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.min.js"></script>
+	<script async defer src="core/js/trainer.graph.js.php"></script>
 <?php 
 } ?>
 
