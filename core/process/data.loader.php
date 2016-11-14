@@ -615,7 +615,7 @@ else{
 	$result 	= $mysqli->query($req);
 	$recents	= array(); 
 
-	if (mysql_num_rows($result) !=0) {
+	if ($result->num_rows > 0) {
 		while($data = $result->fetch_object()){
 			$recents[] = $data->pokemon_id;
 		}
