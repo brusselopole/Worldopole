@@ -480,8 +480,55 @@ if(!empty($page)){
 						
 					
 		break;
+
 		
+		// Trainers  
+		##########
 		
+		case 'trainer':
+			$trainer_name = "";
+			if(isset($_GET['name'])){			
+				$trainer_name = mysqli_real_escape_string($mysqli,$_GET['name']);
+			}
+			$req = "SELECT name, level, team FROM trainer ORDER BY level DESC LIMIT 30";
+			if($trainer_name != ""){
+				$req = "SELECT name, level, team FROM trainer WHERE name LIKE '%".$trainer_name."%'
+ORDER BY level DESC LIMIT 30";
+			}
+			$result = $mysqli->query($req);
+	        	$trainers = array();
+		        while($data = $result->fetch_object()){
+				$trainers[$data->name] = $data;
+			};
+			$yesterday=time() - 86400;
+			foreach($trainers as $trainer){
+				$reqPkms = "SELECT DISTINCT pokemon_uid,pokemon_id,cp,iv_defense,iv_stamina,iv_attack,last_seen FROM gympokemon WHERE trainer_name='".$trainer->name."' ORDER BY cp DESC";
+				$resultPkms 	= $mysqli->query($reqPkms);
+				$trainer->pokemons = array();
+				$active_gyms=0;
+				while($dataPkm = $resultPkms->fetch_object()){
+					// check whether pokemon is still in gym
+					if (strtotime($dataPkm->last_seen) < $yesterday) {
+						$dataPkm->active = FALSE;
+					} else {
+						$dataPkm->active = TRUE;
+						$active_gyms++;
+					}
+					$trainer->pokemons[] = $dataPkm;
+				}
+				$trainer->gyms = $active_gyms;
+			}
+			// Sort for level first, then gyms
+			foreach($trainers as $trainer){
+				$level[] = $trainer->level;
+				$gyms[] = $trainer->gyms;
+			}
+			array_multisort($level, SORT_DESC, $gyms, SORT_DESC, $trainers);
+	        
+ 
+		break; 
+		
+
 		case 'dashboard':
 		
 			// This case is only used for test purpose. 
@@ -564,17 +611,33 @@ else{
 	$home->gyms = $data->total; 	
 	
 	
-	// Recent spawn
+	// Recent spawns
 	// ------------
+
+	if ($config->system->mythic_recents) {
+		// get all mythic pokemon ids
+		$mythic_pokemons  = array();
+		foreach($pokemons as $id=>$pokemon) {
+			if ($pokemon->rarity === "Mythic") {
+				$mythic_pokemons[] = $id;
+			}
+		}
 	
-	$req 		= "SELECT DISTINCT pokemon_id, disappear_time FROM pokemon ORDER BY disappear_time DESC LIMIT 0,12";
+		// get all mythic pokemon
+		$req 		= "SELECT DISTINCT pokemon_id, disappear_time FROM pokemon
+				   WHERE pokemon_id IN (".implode(",", $mythic_pokemons).")
+				   ORDER BY disappear_time DESC LIMIT 0,12";
+	} else {
+		// get all pokemon
+		$req		= "SELECT DISTINCT pokemon_id, disappear_time FROM pokemon ORDER BY disappear_time DESC LIMIT 0,12";
+	}
 	$result 	= $mysqli->query($req);
 	$recents	= array(); 
-	
-	while($data = $result->fetch_object()){
-		
-		$recents[] = $data->pokemon_id;
 
+	if ($result->num_rows > 0) {
+		while($data = $result->fetch_object()){
+			$recents[] = $data->pokemon_id;
+		}
 	}
 		
 	

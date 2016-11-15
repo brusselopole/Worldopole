@@ -136,7 +136,7 @@
 		"EN": "The most <strong>recent</strong> spawns",
 		"FR": "Les apparitions <strong>récentes</strong>",
 		"ES": "Apariciones <strong>recientes</strong>",
-		"DE": "Die <strong>letzten</strong> Spawns:",
+		"DE": "Die <strong>letzten</strong> Spawns",
 		"PL": "Ostatnio <strong>pojawiły się</strong>"
 	},
 	"FIGHT_TITLE": {
@@ -669,6 +669,34 @@
 		"ES": "Poképaradas con cebos",
 		"DE": "Pokestop mit Lockmodul",
 		"PL": "Zlurowane Pokéstopy"
+	},
+	"TRAINERS":{
+		"EN": "Trainers",
+		"FR": "Trainers",
+		"ES": "Trainers",
+		"DE": "Trainer",
+		"PL": "Trainers"
+	},
+	"TRAINERS_TITLE":{
+		"EN": "Find the real <strong>Pokémon Master</strong><br><small>Trainers and their Pokémon in gyms</small>",
+		"FR": "Find the real <strong>Pokémon Master</strong><br><small>Trainers and their Pokémon in gyms</small>",
+		"ES": "Find the real <strong>Pokémon Master</strong><br><small>Trainers and their Pokémon in gyms</small>",
+		"DE": "Finde den wahren <strong>Pokémon-Meister</strong><br><small>Trainer und deren Pokémon in Arenen</small>",
+		"PL": "Find the real <strong>Pokémon Master</strong><br><small>Trainers and their Pokémon in gyms</small>"
+	},
+	"TRAINERS_METATITLE":{
+		"EN": "Trainers",
+		"FR": "Trainers",
+		"ES": "Trainers",
+		"DE": "Trainer",
+		"PL": "Trainers"
+	},
+	"TRAINERS_METADESC":{
+		"EN": "Find the real Pokémon Master",
+		"FR": "Find the real Pokémon Master",
+		"ES": "Find the real Pokémon Master",
+		"DE": "Finde den wahren Pokémon-Meister",
+		"PL": "Find the real Pokémon Master"
 	},
 	"ERROR": {
 		"EN": "Page <strong>not found</strong><br><small>There must have been some kind of mistake.</small>",

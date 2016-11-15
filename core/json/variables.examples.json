@@ -24,7 +24,8 @@
 		"time_interval"		:	"+2",
 		"GMaps_Key"		:	"#GMAPS_KEY#",
 		"timezone"		:	"Europe/Paris",
-		"max_pokemon"		:	151
+		"max_pokemon"		:	151,
+		"mythic_recents"        :       false
 	},
 	"lang":{
 		"en"			:	true,
@@ -51,6 +52,12 @@
 			"href"		:	"pokestops",
 			"locale"	:	"POKESTOPS",
 			"icon"		:	"fa-medkit"
+		},
+		{
+			"type"		:	"link",
+			"href"		:	"trainer",
+			"locale"	:	"TRAINERS",
+			"icon"		:	"fa-users"
 		},
 		{
 			"type"		:	"link_external",
