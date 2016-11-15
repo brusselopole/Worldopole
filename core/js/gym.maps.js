@@ -48,15 +48,19 @@ function initMap() {
 					content: document.getElementById("gym_details_template"),
 					disableAutoPan: false,
 					maxWidth: 425,
-					pixelOffset: new google.maps.Size(-150, 0),
+					pixelOffset: new google.maps.Size(-200, 0),
 					zIndex: null,
 					boxStyle: {
 								background: "",
 								width: "400px",
 						},
 					closeBoxMargin: "12px 4px 2px 2px",
-					closeBoxURL: "https://www.google.com/intl/en_us/mapfiles/close.gif",
+					closeBoxURL: "",
 					infoBoxClearance: new google.maps.Size(1, 1)
+				});
+				
+				google.maps.event.addListener(map, "click", function(event) {
+					infowindow.close();
 				});
 				
 				var marker, i;
