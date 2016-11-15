@@ -500,15 +500,23 @@ ORDER BY level DESC LIMIT 30";
 		        while($data = $result->fetch_object()){
 				$trainers[$data->name] = $data;
 			};
+			$yesterday=time() - 86400;
 			foreach($trainers as $trainer){
-				$reqPkms = "SELECT DISTINCT pokemon_uid,pokemon_id,cp,iv_defense,iv_stamina,iv_attack FROM gympokemon WHERE trainer_name='".$trainer->name."' ORDER BY cp DESC";
+				$reqPkms = "SELECT DISTINCT pokemon_uid,pokemon_id,cp,iv_defense,iv_stamina,iv_attack,last_seen FROM gympokemon WHERE trainer_name='".$trainer->name."' ORDER BY cp DESC";
 				$resultPkms 	= $mysqli->query($reqPkms);
 				$trainer->pokemons = array();
-				$i=0;
+				$active_gyms=0;
 				while($dataPkm = $resultPkms->fetch_object()){
-					$trainer->pokemons[$i++] = $dataPkm;
+					// check whether pokemon is still in gym
+					if (strtotime($dataPkm->last_seen) < $yesterday) {
+						$dataPkm->active = FALSE;
+					} else {
+						$dataPkm->active = TRUE;
+						$active_gyms++;
+					}
+					$trainer->pokemons[] = $dataPkm;
 				}
-				$trainer->gyms = $i;
+				$trainer->gyms = $active_gyms;
 			}
 			// Sort for level first, then gyms
 			foreach($trainers as $trainer){

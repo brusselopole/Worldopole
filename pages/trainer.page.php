@@ -86,7 +86,7 @@ if ($trainer_name === "") { ?>
 				
 				<div class="col-md-1 col-xs-4 pokemon-single" style="text-align: center" pokeid="<?= $pokemon->pokemon_id-1 ?>">
 					<a href="pokemon/<?= $pokemon->pokemon_id ?>">
-					<img src="core/pokemons/<?= $pokemon->pokemon_id ?>.png" class="img-responsive">
+					<img src="core/pokemons/<?= $pokemon->pokemon_id ?>.png" class="img-responsive<?php echo $pokemon->active ? "" : " unseen"; ?>">
 					</a>
 					<p class="pkmn-name">CP: <?= $pokemon->cp ?></p>		
 					<div class="progress" style="height: 6px">
