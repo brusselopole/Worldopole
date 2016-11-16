@@ -98,6 +98,19 @@ function file_datetime($file){
 	return $time; 
 }
 
+########################################################################
+// File version (unix timestamp)
+// @param $url		=> string (mandatory)
+//
+// Return $url with last_modified unix timestamp before suffix
+########################################################################
+
+function auto_ver($url){
+	$path = pathinfo($url);
+	$ver = '.'.filemtime(SYS_PATH.'/'.$url).'.';
+	echo $path['dirname'].'/'.preg_replace('/\.(css|js)$/', $ver."$1", $path['basename']);
+}
+
 if (!function_exists('http_response_code')) {
 	function http_response_code($code = NULL) {
 		if ($code !== NULL) {
