@@ -47,8 +47,7 @@ function initMap() {
 				var infowindow = new InfoBox({
 					content: document.getElementById("gym_details_template"),
 					disableAutoPan: false,
-					maxWidth: 425,
-					pixelOffset: new google.maps.Size(-200, 0),
+					pixelOffset: new google.maps.Size(-66, 10),
 					zIndex: null,
 					boxStyle: {
 								background: "",
@@ -122,7 +121,6 @@ function setGymDetails(gym) {
 	$('#gym_details_template #gymLastModifiedDisplay').html(gym.gymDetails.gymInfos.last_modified);
 	var teamColor = gym.gymDetails.gymInfos.team == "1" ? '#0086ff':gym.gymDetails.gymInfos.team == "2" ? '#ff1a1a':gym.gymDetails.gymInfos.team == "3" ? '#ff960b':'white';
 	$('#gym_details_template #gymInfos').css("border-color", teamColor);
-	$('#gym_details_template #gymDefenders').css("border-color", teamColor);
-	
+
 	$('#gym_details_template').show();
 }
