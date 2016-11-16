@@ -422,7 +422,7 @@ switch($request){
 					<a href="pokemon/'.$data->pokemon_id.'">
 					<img src="core/pokemons/'.$data->pokemon_id.'.png" height="40" style="display:inline-block;margin-bottom:10px;" >
 					</a>
-					<p class="pkmn-name">CP: '.$data->cp.'</p>
+					<p class="pkmn-name">'.$data->cp.'</p>
 					<div class="progress" style="height: 6px; margin-bottom: 0px">
 						<div title="IV Stamina: '.$data->iv_stamina.'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'.$data->iv_stamina.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(((100/15)*$data->iv_stamina)/3).'%">
 							<span class="sr-only">Stamina IV : '.$data->iv_stamina.'</span>
