@@ -231,6 +231,10 @@ Also private joke ;)
 	color:#174391;
 }
 
+.big-data a:focus {
+	text-decoration:none;
+}
+
 .big-data big {
 	font-size:3rem;
 	font-weight:normal;
