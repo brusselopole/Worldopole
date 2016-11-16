@@ -420,7 +420,7 @@ switch($request){
 			$gymData['infoWindow'] .= '
 				<div style="text-align: center; width: 40px; display: inline-block" pokeid="'.$data->pokemon_id.'">
 					<a href="pokemon/'.$data->pokemon_id.'">
-					<img src="core/pokemons/'.$data->pokemon_id.'.png" height="40" style="display:inline-block;margin-bottom:10px;" >
+					<img src="core/pokemons/'.$data->pokemon_id.'.png" height="40" style="display:inline-block" >
 					</a>
 					<p class="pkmn-name">'.$data->cp.'</p>
 					<div class="progress" style="height: 6px; margin-bottom: 0px">
