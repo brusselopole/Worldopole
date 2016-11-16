@@ -49,10 +49,6 @@ function initMap() {
 					disableAutoPan: false,
 					pixelOffset: new google.maps.Size(-65, 12),
 					zIndex: null,
-					boxStyle: {
-								background: "",
-								width: "400px",
-						},
 					closeBoxURL: "",
 					infoBoxClearance: new google.maps.Size(1, 1)
 				});

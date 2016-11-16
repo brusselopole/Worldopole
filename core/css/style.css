@@ -317,12 +317,11 @@ div#gym_details_template_container {
 
 div#gymInfos{
 	position: relative;
-	width: 400px;
+	width: 370px;
 	border-radius: 5px;
 	border: 2px solid grey;
 	z-index:9000;
 	background-color: #ffffff;
-	margin: 15px;
 }
 
 div#circleImage:before {
@@ -381,5 +380,5 @@ div#gymLastModified{
 }
 
 div#gymDefenders{
-	padding : 5px 15px 15px 15px;
+	padding : 0px 15px 5px 15px;
 }

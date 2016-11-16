@@ -418,12 +418,12 @@ switch($request){
 		while($data = $result->fetch_object()){
 			$gymData['gymDetails']['pokemons'][] = $data;
 			$gymData['infoWindow'] .= '
-				<div style="text-align: center; width: 40px; display: inline-block" pokeid="'.$data->pokemon_id.'">
+				<div style="text-align: center; width: 50px; display: inline-block" margin-right: 3px; pokeid="'.$data->pokemon_id.'">
 					<a href="pokemon/'.$data->pokemon_id.'">
-					<img src="core/pokemons/'.$data->pokemon_id.'.png" height="40" style="display:inline-block" >
+					<img src="core/pokemons/'.$data->pokemon_id.'.png" height="50" style="display:inline-block" >
 					</a>
 					<p class="pkmn-name">'.$data->cp.'</p>
-					<div class="progress" style="height: 6px; margin-bottom: 0px">
+					<div class="progress" style="height: 4px; width: 40px; margin-bottom: 10px; margin-top: 2px; margin-left: auto; margin-right: auto">
 						<div title="IV Stamina: '.$data->iv_stamina.'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'.$data->iv_stamina.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(((100/15)*$data->iv_stamina)/3).'%">
 							<span class="sr-only">Stamina IV : '.$data->iv_stamina.'</span>
 						</div>
