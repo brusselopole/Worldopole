@@ -88,7 +88,7 @@ if ($trainer_name === "") { ?>
 					<a href="pokemon/<?= $pokemon->pokemon_id ?>">
 					<img src="core/pokemons/<?= $pokemon->pokemon_id ?>.png" class="img-responsive<?php echo $pokemon->active ? "" : " unseen"; ?>">
 					</a>
-					<p class="pkmn-name">CP: <?= $pokemon->cp ?></p>		
+					<p class="pkmn-name"><?= $pokemon->cp ?></p>
 					<div class="progress" style="height: 6px">
 						<div title="IV Stamina: <?= $pokemon->iv_stamina ?>" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<?= $pokemon->iv_stamina ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= ((100/15)*$pokemon->iv_stamina)/3 ?>%">
 							<span class="sr-only">Stamina IV : <?= $pokemon->iv_stamina ?></span>

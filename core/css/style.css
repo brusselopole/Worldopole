@@ -317,24 +317,37 @@ div#gym_details_template_container {
 
 div#gymInfos{
 	position: relative;
-	width: 375px;
-	border-radius: 5px; 
+	width: 370px;
+	border-radius: 5px;
 	border: 2px solid grey;
 	z-index:9000;
 	background-color: #ffffff;
-	margin : 15px;
 }
 
-div#circleImage{
+div#circleImage:before {
+	content: "";
+	width: 0;
+	height: 0;
+	position: absolute;
+	left: 44px;
+	bottom: 100%;
+	border-left: 14px solid transparent;
+	border-right: 14px solid transparent;
+	border-bottom: 35px solid #fff;
+	pointer-events: none;
+}
+
+div#circleImage {
 	position: relative;
 	left:-30px;
 	top:-12.5px;
 	width: 125px;
 	height: 125px;
-	border-radius: 75px; 
+	border-radius: 75px;
 	background-size: cover;
 	border: 4px solid white;
-	box-shadow: 0px 0px 10px 0px rgba(0,0,0,1);
+	-webkit-filter: drop-shadow(0px 0px 5px rgba(0,0,0,1));
+	filter: drop-shadow(0px 0px 5px rgba(0,0,0,1));
 }
 
 div#gymName{
@@ -367,5 +380,5 @@ div#gymLastModified{
 }
 
 div#gymDefenders{
-	padding : 15px;
+	padding : 0px 15px 5px 15px;
 }

@@ -93,7 +93,6 @@
 </div>
 <div id="gym_details_template_container">
 	<div class="row area gym_details" id="gym_details_template">
-		<div class="col-md-12">
 			<div id="gymDetail">
 				<div id="gymInfos">
 					<div id="circleImage">				
@@ -120,7 +119,5 @@
 				</div>
 				
 			</div>
-
-		</div>
 	</div>
 </div>
