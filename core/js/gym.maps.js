@@ -47,7 +47,7 @@ function initMap() {
 				var infowindow = new InfoBox({
 					content: document.getElementById("gym_details_template"),
 					disableAutoPan: false,
-					pixelOffset: new google.maps.Size(-65, 12),
+					pixelOffset: new google.maps.Size(-35, 30),
 					zIndex: null,
 					closeBoxURL: "",
 					infoBoxClearance: new google.maps.Size(1, 1)
