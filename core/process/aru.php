@@ -418,7 +418,7 @@ switch($request){
 		while($data = $result->fetch_object()){
 			$gymData['gymDetails']['pokemons'][] = $data;
 			$gymData['infoWindow'] .= '
-				<div style="text-align: center; width: 50px; display: inline-block" margin-right: 3px; pokeid="'.$data->pokemon_id.'">
+				<div style="text-align: center; width: 50px; display: inline-block; margin-right: 3px">
 					<a href="pokemon/'.$data->pokemon_id.'">
 					<img src="core/pokemons/'.$data->pokemon_id.'.png" height="50" style="display:inline-block" >
 					</a>
