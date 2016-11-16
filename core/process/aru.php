@@ -385,10 +385,10 @@ switch($request){
 		$result 	= $mysqli->query($req);
 		$gymData['gymDetails']['gymInfos'] = false;
 		while($data = $result->fetch_object()){
-			$gymData['gymDetails']['gymInfos']['name'] = utf8_encode($data->name);
-			$gymData['gymDetails']['gymInfos']['description'] =  utf8_encode($data->description);
-			$gymData['gymDetails']['gymInfos']['url'] = utf8_encode($data->url);
-			$gymData['gymDetails']['gymInfos']['points'] = utf8_encode($data->points);
+			$gymData['gymDetails']['gymInfos']['name'] = $data->name;
+			$gymData['gymDetails']['gymInfos']['description'] = $data->description;
+			$gymData['gymDetails']['gymInfos']['url'] = $data->url;
+			$gymData['gymDetails']['gymInfos']['points'] = $data->points;
 			$gymData['gymDetails']['gymInfos']['level'] = 0;
 			$gymData['gymDetails']['gymInfos']['last_modified'] = $data->last_modified;
 			$gymData['gymDetails']['gymInfos']['team'] = $data->team;
@@ -442,7 +442,7 @@ switch($request){
 			$i++;
 		}
 		
-		$gymData['infoWindow'] =  utf8_encode($gymData['infoWindow'].'</div>');
+		$gymData['infoWindow'] = $gymData['infoWindow'].'</div>';
 		$return = json_encode($gymData); 
 
 		echo $return;
