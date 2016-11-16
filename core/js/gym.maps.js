@@ -54,7 +54,6 @@ function initMap() {
 								background: "",
 								width: "400px",
 						},
-					closeBoxMargin: "12px 4px 2px 2px",
 					closeBoxURL: "",
 					infoBoxClearance: new google.maps.Size(1, 1)
 				});
