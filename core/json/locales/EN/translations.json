@@ -1,0 +1,302 @@
+{
+	"BASELINE": {
+		"EN": "A Pokémon Go Community in %s"
+	},
+	"METADESCRIPTION": {
+		"EN": "Find all collected and proccessed data about PokémonGo in %s : nests, stats, frequency, ... Learn when and where to look for the Pokémon you're missing."
+	},
+	"HOME": {
+		"EN": "Home"
+	},
+	"SHARE": {
+		"EN": "Share on"
+	},
+	"TEAM": {
+		"EN": "Team"
+	},
+	"CITY": {
+		"EN": "%s"
+	},
+	"INCITY": {
+		"EN": "in %s"
+	},
+	"FIND": {
+		"EN": "Find "
+	},
+	"MYSTIC": {
+		"EN": "Mystic"
+	},
+	"VALOR": {
+		"EN": "Valor"
+	},
+	"INSTINCT": {
+		"EN": "Instinct"
+	},
+	"GYMS": {
+		"EN": "Gyms"
+	},
+	"SEEN": {
+		"EN": " seen"
+	},
+	"UNSEEN": {
+		"EN": "unseen"
+	},
+	"LURES": {
+		"EN": "Lures"
+	},
+	"NAV_POKEDEX": {
+		"EN": "All Pokémon"
+	},
+	"WIDGET_POKEMON_SUB": {
+		"EN": "in %s right now"
+	},
+	"WIDGET_GYM_SUB": {
+		"EN": "to fight for"
+	},
+	"WIDGET_LURES_SUB": {
+		"EN": "activated in %s"
+	},
+	"RECENT_SPAWNS": {
+		"EN": "The most <strong>recent</strong> spawns"
+	},
+	"FIGHT_TITLE": {
+		"EN": "The <strong>fight</strong> is on"
+	},
+	"FOOTER_TITLE": {
+		"EN": "Thanks and copyrights",
+		"FR": "Remerciements et copyrights"
+	},
+	"FOOTER_SUB": {
+		"EN": "This website or the authors have no relationship with Niantic, Nintendo or other any Pokémon Go responsible."	},
+	"FOOTER_VISUAL_CONTENT": {
+		"EN": "<p>Icons designed by <a href='http://www.flaticon.com/packs/packs/pokemon-go/'>Roundicons Freebies</a> for <a href='http://www.flaticon.com'>Flaticon</a>. Font icons provided by <a href='http://fontawesome.io'>Font Awesome</a> by Dave Gandy.</p>"	},
+	"FOOTER_POKEMON_CONTENT": {
+		"EN": "<p>Pokémon Go is ©2016 Niantic, Inc. ©2016 Pokémon. ©1995–2016 Nintendo / Creatures Inc. / GAME FREAK inc.</p><p>Pokémon and Pokémon character names are trademarks of Nintendo.</p><p>Other trademarks are the property of their respective owners.</p>"
+	},
+	"FOOTER_DATA": {
+		"EN": "Data collected since the <strong>2nd of August 2016</strong>"	},
+	"POKEDEX_TITLE": {
+		"EN": "The general <strong>Pokédex</strong><br><small>Gotta catch 'em all!</small>"	},
+	"POKEDEX_METATITLE": {
+		"EN": "Browse the Pokédex"
+	},
+	"POKEDEX_METADESC": {
+		"EN": "Browse the Pokedex and get all informations about your favorites Pokémon"
+	},
+	"GYMS_TITLE": {
+		"EN": "The <strong>fight</strong> map<br><small>Follow the conquest of your team</small>"
+	},
+	"GYMS_METATITLE": {
+		"EN": "Follow the conquest"	},
+	"NAV_DASHBOARD": {
+		"EN": "Dashboard"
+	},
+	"GYMS_METADESC": {
+		"EN": "Valor, Mystic or Instinct? Who will win the fight?"	},
+	"GYMS_OWNED": {
+		"EN": "gyms owned"
+	},
+	"GYMS_AVERAGE": {
+		"EN": "average prestige"
+	},
+	"GYMS_GUARDIANS": {
+		"EN": "Top 3 favourite<br/><strong>guardians</strong>"
+	},
+	"POKESTOPS":{
+		"EN": "Pokéstops"
+	},
+	"POKESTOPS_TITLE": {
+		"EN": "Where to <strong>Pokéstop</strong> and fill your bag in <strong>%s</strong><br><small>There's always a <strong>Pokéstop</strong> near you.</small>"
+	},
+	"POKESTOPS_METATITLE": {
+		"EN": "All Pokéstops in %s"
+	},
+	"POKESTOPS_METADESC": {
+		"EN": "Find your way around %s using our Pokéstops finder."
+	},
+	"POKESTOPS_INCITY": {
+		"EN": "in %s"
+	},
+	"POKESTOPS_LURES": {
+		"EN": "active right now"
+	},
+	"POKEMON_SEEN": {
+		"EN": "When was it last seen?"
+	},
+	"POKEMON_AMOUNT": {
+		"EN": "How many times was it seen?"
+	},
+	"POKEMON_RATE": {
+		"EN": "Spawn rate"
+	},
+	"POKEMON_GYM": {
+		"EN": "Gyms protected by "
+	},
+	"POKEMON_EVOLUTION": {
+		"EN": "Next Evolution Requirements"
+	},
+	"POKEMON_CANDIES": {
+		"EN": "candies"
+	},
+	"POKEMON_FINAL": {
+		"EN": "Final Form"
+	},
+	"POKEMON_QUICK": {
+		"EN": "Best quick move"
+	},
+	"POKEMON_SPECIAL": {
+		"EN": "Best special move"
+	},
+	"POKEMON_MAP": {
+		"EN": "Map"
+	},
+	"POKEMON_STATS": {
+		"EN": "Stats",
+		"FR": "Caractéristiques"
+	},
+	"POKEMON_FAMILY": {
+		"EN": "Family"
+	},
+	"POKEMON_WHERE": {
+		"EN": "Where can you <strong>hunt</strong>"
+	},
+	"POKEMON_BREAKDOWN": {
+		"EN": "stats breakdown"
+	},
+	"POKEMON_CP": {
+		"EN": "highest CP"
+	},
+	"POKEMON_COMPGAME": {
+		"EN": "compared to <strong>highest</strong> in game"
+	},
+	"POKEMON_HP": {
+		"EN": "highest HP"
+	},
+	"POKEMON_FAMILYTITLE": {
+		"EN": "'s family"
+	},
+	"MINUTE":{
+		"EN": "minute"
+	},
+	"MINUTES":{
+		"EN": "minutes"
+	},
+	"HOUR":{
+		"EN": "hour"
+	},
+	"HOURS":{
+		"EN": "hours"
+	},
+	"DAY":{
+		"EN": "day"
+	},
+	"DAYS":{
+		"EN": "days"
+	},
+	"WEEK":{
+		"EN": "week"
+	},
+	"WEEKS":{
+		"EN": "weeks"	},
+	"MONTH":{
+		"EN": "month"
+	},
+	"MONTHS":{
+		"EN": "months"
+	},
+	"YEAR":{
+		"EN": "year"
+	},
+	"YEARS":{
+		"EN": "years"
+	},
+	"NEVER":{
+		"EN": "We miss it"
+	},
+	"TRAINER_GRAPH":{
+		"EN": "Trainer <strong>level</strong> distribution"
+	},
+	"DASHBOARD_TITLE":{
+		"EN": "MOAR <strong>DATA</strong> MOAAAAR"
+	},
+	"DASHBOARD_SUBTITLE":{
+		"EN": "Data are gathered every <strong>15 minutes</strong>"
+	},
+	"DASHBOARD_SPAWN_TITLE":{
+		"EN": "Pokémon <strong>spawn</strong>"
+	},
+	"DASHBOARD_SPAWN_TOTAL":{
+		"EN": "Total Spawn"
+	},
+	"DASHBOARD_LAST7DAYS":{
+		"EN": "Last 7 days"
+	},
+	"DASHBOARD_LAST24HOURS":{
+		"EN": "Last 24 hours"
+	},
+	"DASHBOARD_VERYCOMMON":{
+		"EN": "Very common"
+	},
+	"DASHBOARD_COMMON":{
+		"EN": "Common"
+	},
+	"DASHBOARD_RARE":{
+		"EN": "Rare"
+	},
+	"DASHBOARD_MYTHIC":{
+		"EN": "Mythic"
+	},
+	"PERFORMANCE":{
+		"EN": "Performance"
+	},
+	"DASHBOARD_PRESTIGE_AVERAGE":{
+		"EN": "Prestige Average Team Performance"
+	},
+	"DASHBOARD_GYM_OWNED_PERFORMANCE":{
+		"EN": "Gym owned Team performance"
+	},
+	"DASHBOARD_ACTIVITY":{
+		"EN": "activity"
+	},
+	"DASHBOARD_LURES":{
+		"EN": "Active lures"
+	},
+	"DASHBOARD_GRAPH_MYSTIC_PRESTIGE_AVERAGE":{
+		"EN": "Mystic Prestige Average"
+	},
+	"DASHBOARD_GRAPH_VALOR_PRESTIGE_AVERAGE":{
+		"EN": "Valor Prestige Average"
+	},
+	"DASHBOARD_GRAPH_INSTINCT_PRESTIGE_AVERAGE":{
+		"EN": "Instinct Prestige Average"
+	},
+	"DASHBOARD_GRAPH_MYSTIC_GYM_OWNED":{
+		"EN": "Mystic Gym Owned"
+	},
+	"DASHBOARD_GRAPH_VALOR_GYM_OWNED":{
+		"EN": "Valor Gym Owned",
+		"FR": "Bravoure - Arènes conquises"
+	},
+	"DASHBOARD_GRAPH_INSTINCT_GYM_OWNED":{
+		"EN": "Instinct Gym Owned"
+	},
+	"DASHBOARD_GRAPH_LURED_POKESTOPS":{
+		"EN": "Lured Pokestop"
+	},
+	"TRAINERS":{
+		"EN": "Trainers"
+	},
+	"TRAINERS_TITLE":{
+		"EN": "Find the real <strong>Pokémon Master</strong><br><small>Trainers and their Pokémon in gyms</small>"
+	},
+	"TRAINERS_METATITLE":{
+		"EN": "Trainers"
+	},
+	"TRAINERS_METADESC":{
+		"EN": "Find the real Pokémon Master"
+	},
+	"ERROR": {
+		"EN": "Page <strong>not found</strong><br><small>There must have been some kind of mistake.</small>"
+	}
+		
+}

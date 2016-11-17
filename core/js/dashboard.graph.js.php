@@ -17,30 +17,7 @@ $config		= json_decode(file_get_contents($variables));
 // Include & load locales (because it's REALLY REALLY REALLY IMPORTANT TO HAVE A FULLY TRANSLATE DASHBOARD )
 // #########################################################################################################
 
-if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])){
-
-	$browser_lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-
-}else{
-
-	$browser_lang = 'en';
-
-}
-
-foreach($config->lang as $id_lang => $lang_active){
-			
-	if($id_lang == $browser_lang){
-		$lang = strtoupper($id_lang); 
-	}
-	
-}
-
-if(!isset($lang)){
-	$lang = 'EN';	
-}
-
-$translation_file	= file_get_contents(SYS_PATH.'/core/json/translations.json'); 
-$locales		= json_decode($translation_file); 
+include_once(SYS_PATH.'/core/process/locales.loader.php');
 
 
 

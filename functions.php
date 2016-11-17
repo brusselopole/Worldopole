@@ -9,7 +9,8 @@
 ########################################################################
 
 function time_ago( $timestamp, $now = 0, $lang = 'EN' ) {
-	$translations = json_decode(file_get_contents(SYS_PATH.'/core/json/translations.json'));	
+	
+	$translations = json_decode(file_get_contents(SYS_PATH.'/core/json/locales/'.$lang.'/translations.json'));	
 	
 	// Set up our variables.
 	$minute_in_seconds = 60;

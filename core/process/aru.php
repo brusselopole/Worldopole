@@ -145,7 +145,8 @@ switch($request){
 		// Recent spawn
 		// ------------
 		
-		$pokelist_file  = SYS_PATH.'/core/json/pokelist_EN.json';
+		// Update neeeded, pass the lang as param in AJAX request
+		$pokelist_file  = SYS_PATH.'/core/json/locales/EN/pokes.json';
 		$pokemon_file   = file_get_contents($pokelist_file);
 		$pokemons       = json_decode($pokemon_file);
 			

@@ -1,4 +1,6 @@
 <?php
+
+global $lang; 
 	
 // Include & load the variables 
 // ############################
@@ -121,54 +123,11 @@ else{
 }
  
 
+// Load the locale elements 
+############################
 
-// Language setting
-###################
+include_once('locales.loader.php');
 
-if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])){
-
-	$browser_lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-
-}else{
-
-	$browser_lang = 'en';
-
-}
-
-
-// Search if language is available. 
- 
-foreach($config->lang as $id_lang => $lang_active){
-			
-	if($id_lang == $browser_lang){
-		$lang = strtoupper($id_lang); 
-	}
-	
-}
-
-
-// If the language is available in variables just check if neeeded files exists.
-if(isset($lang)){
-	 
-	$pokedex = SYS_PATH.'/core/json/pokelist_'.$lang.'.json'; 
-	
-	// If there's no pokedex in languague we'll use the english one. 
-	if(!file_exists($pokedex)){
-		$pokedex = SYS_PATH.'/core/json/pokelist_EN.json'; 
-	}
-	 
-	 
-}else{
-	$lang 		= 'EN';
-	$pokedex 	= SYS_PATH.'/core/json/pokelist_EN.json';
-}
-
-
-// JSON files, based on language selection 
-##########################################
-
-$pokemon_file 		= file_get_contents($pokedex); 
-$translation_file 	= file_get_contents(SYS_PATH.'/core/json/translations.json'); 
 
 
 
@@ -177,26 +136,21 @@ $translation_file 	= file_get_contents(SYS_PATH.'/core/json/translations.json');
 // ( for Brusselopole we use CRONTAB but as we're not sure that every had access to it we build this really simple false crontab system
 // => check filemtime, if > 24h launch an update. ) 
 
-$pokelist_filetime 	= filemtime($pokedex);
-$now				= time(); 
-$diff				= $now - $pokelist_filetime; 
+//$pokelist_filetime 	= filemtime($pokedex);
+//$now				= time(); 
+//$diff				= $now - $pokelist_filetime; 
 
 // Update each 24h 
-$update_delay		= (60*60)*24; 
+//$update_delay		= (60*60)*24; 
 
 
-if($diff > $update_delay){	
-	include_once(SYS_PATH.'/core/cron/pokemon.rarety.php');
-}
+//if($diff > $update_delay){	
+//	include_once(SYS_PATH.'/core/cron/pokemon.rarety.php');
+//}
 
 
 
 
-// Loading JSON files 
-#####################
-
-$pokemons			= json_decode($pokemon_file);
-$locales 			= json_decode($translation_file); 
 
 
 
@@ -324,15 +278,16 @@ if(!empty($page)){
 			// Related Pokemons
 			// ----------------
 			
+						
 			foreach($pokemon->types as $type){
 				$types[] = $type; 
-			}
+			}			
 			
 			$related = array(); 
 			$i = 1; 
 			
 			foreach($pokemons as $test_pokemon){
-				
+												
 				foreach($test_pokemon->types as $type){
 					
 					if(in_array($type, $types)){
