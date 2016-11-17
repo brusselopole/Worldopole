@@ -53,19 +53,20 @@ $stats		= json_decode(file_get_contents($stats_file));
 
 $now		= time(); 
 $yesterday	= $now-86400; 
+$lastweek	= $now-604800;
 
 $i=0; 
 
 foreach($stats as $data){
 	
-		
-	$labels_global[]	= '"'.date('d/m h:i a', $data->timestamp ).'"';
-	$total[]		= $data->pokemon_now;
-	
+	if($data->timestamp > $lastweek){
+		$labels_global[]	= '"'.date('D H:i', $data->timestamp ).'"';
+		$total[]		= $data->pokemon_now;
+	}
 	
 	if($data->timestamp > $yesterday){
 		
-		$labels[] = '"'.date('h:i a', $data->timestamp ).'"'; 
+		$labels[] = '"'.date('H:i', $data->timestamp ).'"'; 
 		
 
 		$datas['global'][$i]['global'] = $data->pokemon_now; 
@@ -117,7 +118,7 @@ foreach($stats as $data){
 	
 	if($data->timestamp > $yesterday){
 	
-		$labels_gym[]			= '"'.date('h:i a', $data->timestamp ).'"';
+		$labels_gym[]			= '"'.date('H:i', $data->timestamp ).'"';
 		
 		$mystic_average[]		= $data->team->mystic->average;
 		$mystic_owned[]			= $data->team->mystic->gym_owned;
@@ -139,12 +140,12 @@ $stats		= json_decode(file_get_contents($stats_file));
 
 foreach($stats as $data){
 	
-	//if($data->timestamp > $yesterday){
+	if($data->timestamp > $lastweek){
 	
-		$labels_stops[]			= '"'.date('d/m h:i a', $data->timestamp ).'"';
+		$labels_stops[]			= '"'.date('D H:i', $data->timestamp ).'"';
 		$lure[]				= $data->lured; 
 	
-	//}
+	}
 
 }
 
@@ -160,11 +161,14 @@ Chart.defaults.global.legend.display = false;
 var options = {
 	scales: {
 		yAxes: [{
-			display: true,
 			ticks: {
-				suggestedMin: 0,	// minimum will be 0, unless there is a lower value.
-				// OR //
 				beginAtZero: true	// minimum value will be 0.
+			}
+		}],
+		xAxes: [{
+			ticks: {
+				autoSkipPadding: 10,
+				fontFamily: "monospace"
 			}
 		}]
 	}
