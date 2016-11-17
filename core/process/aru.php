@@ -386,8 +386,8 @@ switch($request){
 		$result 	= $mysqli->query($req);
 		$gymData['gymDetails']['gymInfos'] = false;
 		while($data = $result->fetch_object()){
-			$gymData['gymDetails']['gymInfos']['name'] = htmlentities($data->name);
-			$gymData['gymDetails']['gymInfos']['description'] = htmlentities($data->description);
+			$gymData['gymDetails']['gymInfos']['name'] = htmlentities($data->name, ENT_QUOTES | ENT_IGNORE, 'UTF-8');
+			$gymData['gymDetails']['gymInfos']['description'] = htmlentities($data->description, ENT_QUOTES | ENT_IGNORE, 'UTF-8');
 			if($data->url == null){
 				$gymData['gymDetails']['gymInfos']['url'] = '';
 			}
