@@ -1,4 +1,5 @@
 function initMap() {
+	enableCustomizableMarkerLabel();
 	var locations;
 	$('.gym_details').hide();
 	//ensure that gmaps is loaded before loading infobox (nasty but usefull trick) 
@@ -21,7 +22,7 @@ function initMap() {
 												
 				var lattitude = Number(variables['system']['map_center_lat']); 
 				var longitude = Number(variables['system']['map_center_long']);
-				var zomm_level = Number(variables['system']['zomm_level']); 
+				var zoom_level = Number(variables['system']['zoom_level']); 
 				
 				// Convert return to JSON Array 
 				
@@ -37,7 +38,7 @@ function initMap() {
 				
 				var map = new google.maps.Map(document.getElementById('map'), {
 					center: {lat: lattitude, lng: longitude},
-						zoom: zomm_level,
+						zoom: zoom_level,
 						zoomControl: true,
 						scaleControl: false,
 						scrollwheel: true,
@@ -64,9 +65,11 @@ function initMap() {
 					marker = new google.maps.Marker({
 						position: new google.maps.LatLng(arr[i][2], arr[i][3]),
 						map: map, 
-						icon: 'core/img/'+arr[i][1]
+						icon: 'core/img/'+arr[i][1],
+						label: ""+arr[i][6]
 					});
-			
+					
+					
 					google.maps.event.addListener(marker, 'click', (function(marker, i) {
 						return function() {
 							infowindow.setContent(arr[i][0]);
@@ -119,4 +122,38 @@ function setGymDetails(gym) {
 	$('#gym_details_template #gymInfos').css("border-color", teamColor);
 
 	$('#gym_details_template').show();
+}
+
+function enableCustomizableMarkerLabel() {
+	var markerSize = { x: 12, y: 12 };
+    google.maps.Marker.prototype.setLabel = function(label){
+        this.label = new MarkerLabel({
+          map: this.map,
+          marker: this,
+          text: label
+        });
+        this.label.bindTo('position', this, 'position');
+    };
+
+    var MarkerLabel = function(options) {
+        this.setValues(options);
+        this.span = document.createElement('span');
+        this.span.className = 'gymLevelLabel';
+    };
+
+    MarkerLabel.prototype = $.extend(new google.maps.OverlayView(), {
+        onAdd: function() {
+            this.getPanes().overlayImage.appendChild(this.span);
+            var self = this;
+            this.listeners = [
+            google.maps.event.addListener(this, 'position_changed', function() { self.draw();    })];
+        },
+        draw: function() {
+            var text = String(this.get('text'));
+            var position = this.getProjection().fromLatLngToDivPixel(this.get('position'));
+            this.span.innerHTML = text;
+            this.span.style.left = (position.x - (markerSize.x / 2)) - (text.length * 3) + 16 + 'px';
+            this.span.style.top = (position.y - markerSize.y - 2) + 'px';
+        }
+    });
 }

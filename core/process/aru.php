@@ -356,6 +356,7 @@ switch($request){
 			$temp[$i][] = $data->longitude;
 			$temp[$i][] = $i;
 			$temp[$i][] = $data->gym_id;
+			$temp[$i][] = $data->gym_level;
 				
 			$temp_json[] = json_encode($temp[$i]);
 			
