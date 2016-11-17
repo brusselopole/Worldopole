@@ -18,7 +18,7 @@ function initMap() {
 											
 			var lattitude = Number(variables['system']['map_center_lat']); 
 			var longitude = Number(variables['system']['map_center_long']);
-			var zomm_level = Number(variables['system']['zomm_level']);
+			var zoom_level = Number(variables['system']['zoom_level']);
 
 		 
 			// Convert return to JSON Array 
@@ -35,7 +35,7 @@ function initMap() {
 			
 			var map = new google.maps.Map(document.getElementById('map'), {
 				center: {lat: lattitude, lng: longitude},
-					zoom: zomm_level,
+					zoom: zoom_level,
 					zoomControl: true,
 					scaleControl: false,
 					scrollwheel: true,
