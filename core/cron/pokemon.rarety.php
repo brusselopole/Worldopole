@@ -34,25 +34,25 @@ foreach($pokelist as $pokemon){
 	$pokelist[$key]['rate'] 	= $arrondis; 
 	
 	
-	// + 1 = Very common
-	// + 0.25 = Common 
-	// + 0.05 = Rare
-	// + 0.0001 = Mythic
+	// >= 1          = Very common
+	// 0.20 - 1      = Common
+	// 0.01 - 0.20   = Rare
+	// > 0  - 0.01   = Mythic
 	// Unseen 
 	
 	if($arrondis >= 1){
 		
 		$pokelist[$key]['status'] = 'Very common'; 
 		
-	}elseif($arrondis >= 0.25){
+	}elseif($arrondis >= 0.20){
 		
 		$pokelist[$key]['status'] = 'Common';
 		
-	}elseif($arrondis >= 0.05){
+	}elseif($arrondis >= 0.01){
 		
 		$pokelist[$key]['status'] = 'Rare';
 		
-	}elseif($arrondis >= 0.0001){
+	}elseif($arrondis > 0){
 		
 		$pokelist[$key]['status'] = 'Mythic';
 		
