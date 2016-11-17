@@ -60,7 +60,7 @@ $i=0;
 foreach($stats as $data){
 	
 	if($data->timestamp > $lastweek){
-		$labels_global[]	= '"'.date('d.m H:i', $data->timestamp ).'"';
+		$labels_global[]	= '"'.date('D H:i', $data->timestamp ).'"';
 		$total[]		= $data->pokemon_now;
 	}
 	
@@ -142,7 +142,7 @@ foreach($stats as $data){
 	
 	if($data->timestamp > $lastweek){
 	
-		$labels_stops[]			= '"'.date('d.m H:i', $data->timestamp ).'"';
+		$labels_stops[]			= '"'.date('D H:i', $data->timestamp ).'"';
 		$lure[]				= $data->lured; 
 	
 	}
@@ -167,7 +167,8 @@ var options = {
 		}],
 		xAxes: [{
 			ticks: {
-				autoSkipPadding: 10
+				autoSkipPadding: 10,
+				fontFamily: "monospace"
 			}
 		}]
 	}
