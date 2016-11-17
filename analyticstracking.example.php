@@ -1,8 +1,7 @@
 <!-- Google Analytics script code into this file -->
-<!-- Change the "UA-XXXXXXXX-Y" inside the script below to your personal UA-ID an rename this file to "analyticstracking.php" -->
+<!-- Change the "UA-XXXXXXXX-Y" inside the script below to your personal UA-ID an rename this file to "analyticstracking.php" and remove all comments-->
 <!-- Script-Code date from November 2016 -->
 
-<!--
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -13,4 +12,3 @@ ga('create', 'UA-XXXXXXXX-Y', 'auto');
 ga('send', 'pageview');
 
 </script>
--->
