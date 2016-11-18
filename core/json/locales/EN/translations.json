@@ -1,7 +1,4 @@
 {
-	"BASELINE": {
-		"EN": "A Pokémon Go Community in %s"
-	},
 	"METADESCRIPTION": {
 		"EN": "Find all collected and proccessed data about PokémonGo in %s : nests, stats, frequency, ... Learn when and where to look for the Pokémon you're missing."
 	},
@@ -63,20 +60,23 @@
 		"EN": "The <strong>fight</strong> is on"
 	},
 	"FOOTER_TITLE": {
-		"EN": "Thanks and copyrights",
-		"FR": "Remerciements et copyrights"
+		"EN": "Thanks and copyrights"
 	},
 	"FOOTER_SUB": {
-		"EN": "This website or the authors have no relationship with Niantic, Nintendo or other any Pokémon Go responsible."	},
+		"EN": "This website or the authors have no relationship with Niantic, Nintendo or other any Pokémon Go responsible."
+	},
 	"FOOTER_VISUAL_CONTENT": {
-		"EN": "<p>Icons designed by <a href='http://www.flaticon.com/packs/packs/pokemon-go/'>Roundicons Freebies</a> for <a href='http://www.flaticon.com'>Flaticon</a>. Font icons provided by <a href='http://fontawesome.io'>Font Awesome</a> by Dave Gandy.</p>"	},
+		"EN": "<p>Icons designed by <a href='http://www.flaticon.com/packs/packs/pokemon-go/'>Roundicons Freebies</a> for <a href='http://www.flaticon.com'>Flaticon</a>. Font icons provided by <a href='http://fontawesome.io'>Font Awesome</a> by Dave Gandy.</p>"
+	},
 	"FOOTER_POKEMON_CONTENT": {
 		"EN": "<p>Pokémon Go is ©2016 Niantic, Inc. ©2016 Pokémon. ©1995–2016 Nintendo / Creatures Inc. / GAME FREAK inc.</p><p>Pokémon and Pokémon character names are trademarks of Nintendo.</p><p>Other trademarks are the property of their respective owners.</p>"
 	},
 	"FOOTER_DATA": {
-		"EN": "Data collected since the <strong>2nd of August 2016</strong>"	},
+		"EN": "Data collected since the <strong>2nd of August 2016</strong>"
+	},
 	"POKEDEX_TITLE": {
-		"EN": "The general <strong>Pokédex</strong><br><small>Gotta catch 'em all!</small>"	},
+		"EN": "The general <strong>Pokédex</strong><br><small>Gotta catch 'em all!</small>"
+	},
 	"POKEDEX_METATITLE": {
 		"EN": "Browse the Pokédex"
 	},
@@ -87,12 +87,14 @@
 		"EN": "The <strong>fight</strong> map<br><small>Follow the conquest of your team</small>"
 	},
 	"GYMS_METATITLE": {
-		"EN": "Follow the conquest"	},
+		"EN": "Follow the conquest"
+	},
 	"NAV_DASHBOARD": {
 		"EN": "Dashboard"
 	},
 	"GYMS_METADESC": {
-		"EN": "Valor, Mystic or Instinct? Who will win the fight?"	},
+		"EN": "Valor, Mystic or Instinct? Who will win the fight?"
+	},
 	"GYMS_OWNED": {
 		"EN": "gyms owned"
 	},
@@ -151,8 +153,7 @@
 		"EN": "Map"
 	},
 	"POKEMON_STATS": {
-		"EN": "Stats",
-		"FR": "Caractéristiques"
+		"EN": "Stats"
 	},
 	"POKEMON_FAMILY": {
 		"EN": "Family"
@@ -197,7 +198,8 @@
 		"EN": "week"
 	},
 	"WEEKS":{
-		"EN": "weeks"	},
+		"EN": "weeks"
+	},
 	"MONTH":{
 		"EN": "month"
 	},
@@ -274,8 +276,7 @@
 		"EN": "Mystic Gym Owned"
 	},
 	"DASHBOARD_GRAPH_VALOR_GYM_OWNED":{
-		"EN": "Valor Gym Owned",
-		"FR": "Bravoure - Arènes conquises"
+		"EN": "Valor Gym Owned"
 	},
 	"DASHBOARD_GRAPH_INSTINCT_GYM_OWNED":{
 		"EN": "Instinct Gym Owned"
