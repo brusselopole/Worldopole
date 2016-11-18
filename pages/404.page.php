@@ -7,7 +7,7 @@
 			</center>
 
 			<h1>
-				<?= $locales->ERROR->$lang ?>
+				<?= $locales->ERROR ?>
 			</h1>
 
 		</div>
