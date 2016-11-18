@@ -53,13 +53,14 @@ if(isset($lang)){
 $pokedex_file	= file_get_contents(SYS_PATH.'/core/json/pokedex.json');
 
 
+// Merge translation files
+// missing translation --> use english
+// same keys so translation will
+// always overwrite english if available
+########################################
 
-// Loading JSON files 
-#####################
-
-$pokemons			= json_decode($pokemon_file);
-$locales 			= json_decode($translation_file); 
-$pokemons_data		= json_decode($pokedex_file); 
+$locales		= (object) array_merge((array) json_decode(file_get_contents(SYS_PATH.'/core/json/locales/EN/translations.json')), (array) json_decode($translation_file));
+$pokemons		= (object) array_merge((array) json_decode(file_get_contents(SYS_PATH.'/core/json/locales/EN/pokes.json')), (array) json_decode($pokemon_file));
 
 
 // Merge the pokedex & pokemon file into a new array 
@@ -67,7 +68,7 @@ $pokemons_data		= json_decode($pokedex_file);
 
 $i=0; 
 
-foreach($pokemons_data as $datas){
+foreach(json_decode($pokedex_file) as $datas){
 	
 	foreach($datas as $key => $value){
 	
@@ -77,6 +78,5 @@ foreach($pokemons_data as $datas){
 	
 	$i++; 
 }
-
 	
 ?>
