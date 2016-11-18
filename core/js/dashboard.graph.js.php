@@ -46,9 +46,6 @@ foreach($stats as $data){
 		$labels[] = '"'.date('H:i', $data->timestamp ).'"'; 
 		
 
-		$datas['global'][$i]['global'] = $data->pokemon_now; 
-		
-		
 		if(!empty($data->rarity_spawn->{'Very common'})){
 			$veco[]		= $data->rarity_spawn->{'Very common'};
 		}
