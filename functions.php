@@ -8,9 +8,7 @@
 // Return time ago at human format (eg: 2 hours ago) 
 ########################################################################
 
-function time_ago( $timestamp, $now = 0, $lang = 'EN' ) {
-	
-	$translations = json_decode(file_get_contents(SYS_PATH.'/core/json/locales/'.$lang.'/translations.json'));	
+function time_ago( $timestamp, $now = 0 ) {
 	
 	// Set up our variables.
 	$minute_in_seconds = 60;
@@ -26,7 +24,7 @@ function time_ago( $timestamp, $now = 0, $lang = 'EN' ) {
 	}
 	
 	if ( $timestamp == 0 ) {
-		$translations->NEVER->$lang;
+		$locales->NEVER;
 	}
 	else {
 		$timestamp-=900;
@@ -63,7 +61,7 @@ function time_ago( $timestamp, $now = 0, $lang = 'EN' ) {
 		if ( $difference_value != 1 ) {
 			$difference_label = $difference_label.'S'; 
 		}
-		$time_ago = $difference_value.' '.$translations->$difference_label->$lang; 	
+		$time_ago = $difference_value.' '.$locales->$difference_label; 	
 	}
 
 	return $time_ago;

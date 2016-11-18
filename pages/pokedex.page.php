@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-md-12 text-center">
 			<h1>
-				<?= $locales->POKEDEX_TITLE->$lang ?>
+				<?= $locales->POKEDEX_TITLE ?>
 			</h1>
 			
 		</div>
@@ -28,7 +28,7 @@
 			
 				<a href="<?= $pokemon->permalink ?>"><img src="<?= $pokemon->img ?>" alt="<?= $pokemon->name ?>" class="img-responsive <?php if($pokemon->spawn == 0){ echo 'unseen'; } ?> "></a>
 				<p class="pkmn-name"><a href="<?= $pokemon->permalink ?>"><?= $pokemon->name ?></a></p>
-				<p><?php if($pokemon->spawn ==0){ echo $locales->UNSEEN->$lang ; }else{ echo $pokemon->spawn. $locales->SEEN->$lang ; } ?> </p>
+				<p><?php if($pokemon->spawn ==0){ echo $locales->UNSEEN ; }else{ echo $pokemon->spawn. $locales->SEEN ; } ?> </p>
 			
 			</div>
 			

@@ -1,7 +1,5 @@
 <?php 
 
-global $lang; 
-
 // Language setting
 ###################
 

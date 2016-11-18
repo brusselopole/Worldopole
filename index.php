@@ -1,7 +1,5 @@
 <?php
 	
-global $lang; 
-
 include_once('config.php');
 include_once('functions.php');	
 include_once('core/process/data.loader.php');
@@ -67,7 +65,7 @@ include_once('core/process/data.loader.php');
 						foreach ($config->menu as $menu) {
 							if (isset($menu->locale)) {
 								$locale = $menu->locale; 
-								$text	= $locales->$locale->$lang;
+								$text	= $locales->$locale;
 							} elseif (isset($menu->text)) {
 								$text	= $menu->text; 
 							}
@@ -136,9 +134,9 @@ include_once('core/process/data.loader.php');
 				<div class="row">
 					<div class="col-md-12 text-center">
 						<img src="core/img/logo.png" width=50 class="big-icon" alt="Brusselopole icon">
-						<h2><?= $locales->FOOTER_TITLE->$lang ?></h2>
-						<p><?= $locales->FOOTER_SUB->$lang ?></p>
-						<?= $locales->FOOTER_VISUAL_CONTENT->$lang ?>
+						<h2><?= $locales->FOOTER_TITLE ?></h2>
+						<p><?= $locales->FOOTER_SUB ?></p>
+						<?= $locales->FOOTER_VISUAL_CONTENT ?>
 						<p class="text-center">Made in Brussels<br/>Based on <a href="https://github.com/brusselopole">Brusselopole</a> by <a href="http://56k.be/" target="_blank">56k</a> & <a href="http://vandereecken.me" target="_blank">Nithou</a></p>
 					</div>	
 				</div>

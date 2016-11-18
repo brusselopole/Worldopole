@@ -5,7 +5,7 @@
 // ------------------------------------------------------
 
 
-$pokemons	= json_decode($pokemon_file);
+$pokemons	= json_decode($pokedex_file);
 
 $req 		= "SELECT pokemon_id, COUNT(1) as total FROM pokemon GROUP BY pokemon_id ORDER BY pokemon_id ASC";
 $result 	= $mysqli->query($req);
@@ -19,15 +19,13 @@ while($data = $result->fetch_object()){
 	
 	$pokelist[$pokemon_id]['id'] 		= $pokemon_id;
 	$pokelist[$pokemon_id]['total'] 	= $data->total;
-	
-	 
 
 }
 
 
 foreach($pokelist as $pokemon){
 	
-	$key = $pokemon['id']; 
+	$key = $pokemon['id'];
 	
 	$pourcent 			= ($pokemon['total']*100) / $total_pokemons; 
 	$arrondis			= round($pourcent , 4); 
