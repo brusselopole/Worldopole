@@ -8,8 +8,7 @@
 // Return time ago at human format (eg: 2 hours ago) 
 ########################################################################
 
-function time_ago( $timestamp, $now = 0, $lang = 'EN' ) {
-	$translations = json_decode(file_get_contents(SYS_PATH.'/core/json/translations.json'));	
+function time_ago( $timestamp, $now = 0, $locales ) {
 	
 	// Set up our variables.
 	$minute_in_seconds = 60;
@@ -25,7 +24,7 @@ function time_ago( $timestamp, $now = 0, $lang = 'EN' ) {
 	}
 	
 	if ( $timestamp == 0 ) {
-		$translations->NEVER->$lang;
+		$locales->NEVER;
 	}
 	else {
 		$timestamp-=900;
@@ -62,7 +61,7 @@ function time_ago( $timestamp, $now = 0, $lang = 'EN' ) {
 		if ( $difference_value != 1 ) {
 			$difference_label = $difference_label.'S'; 
 		}
-		$time_ago = $difference_value.' '.$translations->$difference_label->$lang; 	
+		$time_ago = $difference_value.' '.$locales->$difference_label; 	
 	}
 
 	return $time_ago;
@@ -96,6 +95,19 @@ function percent($val, $val_total) {
 function file_datetime($file){
 	$time = filemtime($file); 
 	return $time; 
+}
+
+########################################################################
+// File version (unix timestamp)
+// @param $url		=> string (mandatory)
+//
+// Return $url with last_modified unix timestamp before suffix
+########################################################################
+
+function auto_ver($url){
+	$path = pathinfo($url);
+	$ver = '.'.filemtime(SYS_PATH.'/'.$url).'.';
+	echo $path['dirname'].'/'.preg_replace('/\.(css|js)$/', $ver."$1", $path['basename']);
 }
 
 if (!function_exists('http_response_code')) {

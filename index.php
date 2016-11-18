@@ -1,5 +1,5 @@
 <?php
-
+	
 include_once('config.php');
 include_once('functions.php');	
 include_once('core/process/data.loader.php');
@@ -19,7 +19,7 @@ include_once('core/process/data.loader.php');
 		<link href="core/css/bootstrap.min.css" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Lato:400,300,700" rel="stylesheet" type="text/css">
 		<link href="core/css/font-awesome.min.css" rel="stylesheet">	
-		<link href="core/css/style.css" rel="stylesheet">
+		<link href="<?php auto_ver('core/css/style.css'); ?>" rel="stylesheet">
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -65,7 +65,7 @@ include_once('core/process/data.loader.php');
 						foreach ($config->menu as $menu) {
 							if (isset($menu->locale)) {
 								$locale = $menu->locale; 
-								$text	= $locales->$locale->$lang;
+								$text	= $locales->$locale;
 							} elseif (isset($menu->text)) {
 								$text	= $menu->text; 
 							}
@@ -134,9 +134,9 @@ include_once('core/process/data.loader.php');
 				<div class="row">
 					<div class="col-md-12 text-center">
 						<img src="core/img/logo.png" width=50 class="big-icon" alt="Brusselopole icon">
-						<h2><?= $locales->FOOTER_TITLE->$lang ?></h2>
-						<p><?= $locales->FOOTER_SUB->$lang ?></p>
-						<?= $locales->FOOTER_VISUAL_CONTENT->$lang ?>
+						<h2><?= $locales->FOOTER_TITLE ?></h2>
+						<p><?= $locales->FOOTER_SUB ?></p>
+						<?= $locales->FOOTER_VISUAL_CONTENT ?>
 						<p class="text-center">Made in Brussels<br/>Based on <a href="https://github.com/brusselopole">Brusselopole</a> by <a href="http://56k.be/" target="_blank">56k</a> & <a href="http://vandereecken.me" target="_blank">Nithou</a></p>
 					</div>	
 				</div>
@@ -149,7 +149,7 @@ include_once('core/process/data.loader.php');
 		<?php // Load scripts only for page 
 		if (empty($page)) { ?>
 			
-			<script src="core/js/home.script.js"></script>
+			<script src="<?php auto_ver('core/js/home.script.js') ?>"></script>
 			
 			<script>
 				updateCounter(<?= $home->pokemon_now ?>,'.total-pkm-js');
@@ -179,7 +179,7 @@ include_once('core/process/data.loader.php');
 				
 				case 'pokestops': ?>
 				
-					<script src="core/js/pokestops.maps.js"></script>
+					<script src="<?php auto_ver('core/js/pokestops.maps.js') ?>"></script>
 					<script async defer src="https://maps.googleapis.com/maps/api/js?key=<?= $config->system->GMaps_Key ?>&libraries=visualization&callback=initMap"></script> 
 					
 					<?php
@@ -187,7 +187,7 @@ include_once('core/process/data.loader.php');
 					
 				case 'gym': ?>
 				
-					<script src="core/js/gym.script.js"></script>
+					<script src="<?php auto_ver('core/js/gym.script.js') ?>"></script>
 					<script>
 						updateCounter(<?= $teams->valor->gym_owned ?>,'.gym-valor-js');
 						updateCounter(<?= $teams->valor->average ?>,'.average-valor-js');
@@ -199,7 +199,7 @@ include_once('core/process/data.loader.php');
 						updateCounter(<?= $teams->mystic->average ?>,'.average-mystic-js');	
 					</script>
 			
-					<script src="core/js/gym.maps.js"></script>
+					<script src="<?php auto_ver('core/js/gym.maps.js') ?>"></script>
 					<script async defer src="https://maps.googleapis.com/maps/api/js?key=<?= $config->system->GMaps_Key ?>&libraries=visualization&callback=initMap"></script>
 				
 					<?php
@@ -227,7 +227,7 @@ include_once('core/process/data.loader.php');
 				case 'dashboard': ?>
 				
 					<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.min.js"></script>
-					<script src="core/js/dashboard.graph.js.php"></script>	
+					<script src="core/js/dashboard.graph.js.php"></script>
 
 					<?php
 					break;

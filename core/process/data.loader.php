@@ -1,5 +1,5 @@
 <?php
-	
+
 // Include & load the variables 
 // ############################
 
@@ -121,82 +121,30 @@ else{
 }
  
 
+// Load the locale elements 
+############################
 
-// Language setting
-###################
+include_once('locales.loader.php');
 
-if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])){
-
-	$browser_lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-
-}else{
-
-	$browser_lang = 'en';
-
-}
-
-
-// Search if language is available. 
- 
-foreach($config->lang as $id_lang => $lang_active){
-			
-	if($id_lang == $browser_lang){
-		$lang = strtoupper($id_lang); 
-	}
-	
-}
-
-
-// If the language is available in variables just check if neeeded files exists.
-if(isset($lang)){
-	 
-	$pokedex = SYS_PATH.'/core/json/pokelist_'.$lang.'.json'; 
-	
-	// If there's no pokedex in languague we'll use the english one. 
-	if(!file_exists($pokedex)){
-		$pokedex = SYS_PATH.'/core/json/pokelist_EN.json'; 
-	}
-	 
-	 
-}else{
-	$lang 		= 'EN';
-	$pokedex 	= SYS_PATH.'/core/json/pokelist_EN.json';
-}
-
-
-// JSON files, based on language selection 
-##########################################
-
-$pokemon_file 		= file_get_contents($pokedex); 
-$translation_file 	= file_get_contents(SYS_PATH.'/core/json/translations.json'); 
 
 
 
 // Update the pokemon list for rarety
 ######################################
 // ( for Brusselopole we use CRONTAB but as we're not sure that every had access to it we build this really simple false crontab system
-// => check filemtime, if > 24h launch an update. ) 
+// => check filemtime, if > 24h launch an update. )
 
-$pokelist_filetime 	= filemtime($pokedex);
-$now				= time(); 
-$diff				= $now - $pokelist_filetime; 
+//$pokelist_filetime	= filemtime($pokedex_file);
+//$now			= time();
+//$diff			= $now - $pokelist_filetime;
 
-// Update each 24h 
-$update_delay		= (60*60)*24; 
+// Update each 24h
+//$update_delay		= 86400;
 
+//if($diff > $update_delay){
+//	include_once(SYS_PATH.'/core/cron/pokemon.rarety.php');
+//}
 
-if($diff > $update_delay){	
-	include_once(SYS_PATH.'/core/cron/pokemon.rarety.php');
-}
-
-
-
-
-// Loading JSON files 
-#####################
-
-$pokemons			= json_decode($pokemon_file);
-$locales 			= json_decode($translation_file); 
 
 
 
@@ -324,15 +272,16 @@ if(!empty($page)){
 			// Related Pokemons
 			// ----------------
 			
+						
 			foreach($pokemon->types as $type){
 				$types[] = $type; 
-			}
+			}			
 			
 			$related = array(); 
 			$i = 1; 
 			
 			foreach($pokemons as $test_pokemon){
-				
+												
 				foreach($test_pokemon->types as $type){
 					
 					if(in_array($type, $types)){
@@ -500,15 +449,14 @@ ORDER BY level DESC LIMIT 30";
 		        while($data = $result->fetch_object()){
 				$trainers[$data->name] = $data;
 			};
-			$yesterday=time() - 86400;
 			foreach($trainers as $trainer){
-				$reqPkms = "SELECT DISTINCT pokemon_uid,pokemon_id,cp,iv_defense,iv_stamina,iv_attack,last_seen FROM gympokemon WHERE trainer_name='".$trainer->name."' ORDER BY cp DESC";
-				$resultPkms 	= $mysqli->query($reqPkms);
+				$req = "SELECT DISTINCT gympokemon.pokemon_id, gympokemon.cp, gympokemon.trainer_name, gympokemon.iv_defense, gympokemon.iv_stamina, gympokemon.iv_attack, gymmember.gym_id FROM gympokemon LEFT JOIN gymmember ON gympokemon.pokemon_uid = gymmember.pokemon_uid WHERE gympokemon.trainer_name='".$trainer->name."' ORDER BY gymmember.gym_id DESC, gympokemon.cp DESC";
+				$resultPkms = $mysqli->query($req);
 				$trainer->pokemons = array();
 				$active_gyms=0;
 				while($dataPkm = $resultPkms->fetch_object()){
 					// check whether pokemon is still in gym
-					if (strtotime($dataPkm->last_seen) < $yesterday) {
+					if ($dataPkm->gym_id == "") {
 						$dataPkm->active = FALSE;
 					} else {
 						$dataPkm->active = TRUE;

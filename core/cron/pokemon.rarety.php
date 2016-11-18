@@ -5,7 +5,7 @@
 // ------------------------------------------------------
 
 
-$pokemons	= json_decode($pokemon_file);
+$pokemons	= json_decode($pokedex_file);
 
 $req 		= "SELECT pokemon_id, COUNT(1) as total FROM pokemon GROUP BY pokemon_id ORDER BY pokemon_id ASC";
 $result 	= $mysqli->query($req);
@@ -19,40 +19,38 @@ while($data = $result->fetch_object()){
 	
 	$pokelist[$pokemon_id]['id'] 		= $pokemon_id;
 	$pokelist[$pokemon_id]['total'] 	= $data->total;
-	
-	 
 
 }
 
 
 foreach($pokelist as $pokemon){
 	
-	$key = $pokemon['id']; 
+	$key = $pokemon['id'];
 	
 	$pourcent 			= ($pokemon['total']*100) / $total_pokemons; 
 	$arrondis			= round($pourcent , 4); 
 	$pokelist[$key]['rate'] 	= $arrondis; 
 	
 	
-	// + 1 = Very common
-	// + 0.25 = Common 
-	// + 0.05 = Rare
-	// + 0.0001 = Mythic
+	// >= 1          = Very common
+	// 0.20 - 1      = Common
+	// 0.01 - 0.20   = Rare
+	// > 0  - 0.01   = Mythic
 	// Unseen 
 	
 	if($arrondis >= 1){
 		
 		$pokelist[$key]['status'] = 'Very common'; 
 		
-	}elseif($arrondis >= 0.25){
+	}elseif($arrondis >= 0.20){
 		
 		$pokelist[$key]['status'] = 'Common';
 		
-	}elseif($arrondis >= 0.05){
+	}elseif($arrondis >= 0.01){
 		
 		$pokelist[$key]['status'] = 'Rare';
 		
-	}elseif($arrondis >= 0.0001){
+	}elseif($arrondis > 0){
 		
 		$pokelist[$key]['status'] = 'Mythic';
 		

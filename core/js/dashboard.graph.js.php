@@ -17,30 +17,7 @@ $config		= json_decode(file_get_contents($variables));
 // Include & load locales (because it's REALLY REALLY REALLY IMPORTANT TO HAVE A FULLY TRANSLATE DASHBOARD )
 // #########################################################################################################
 
-if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])){
-
-	$browser_lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-
-}else{
-
-	$browser_lang = 'en';
-
-}
-
-foreach($config->lang as $id_lang => $lang_active){
-			
-	if($id_lang == $browser_lang){
-		$lang = strtoupper($id_lang); 
-	}
-	
-}
-
-if(!isset($lang)){
-	$lang = 'EN';	
-}
-
-$translation_file	= file_get_contents(SYS_PATH.'/core/json/translations.json'); 
-$locales		= json_decode($translation_file); 
+include_once(SYS_PATH.'/core/process/locales.loader.php');
 
 
 
@@ -53,24 +30,22 @@ $stats		= json_decode(file_get_contents($stats_file));
 
 $now		= time(); 
 $yesterday	= $now-86400; 
+$lastweek	= $now-604800;
 
 $i=0; 
 
 foreach($stats as $data){
 	
-		
-	$labels_global[]	= '"'.date('d/m h:i a', $data->timestamp ).'"';
-	$total[]		= $data->pokemon_now;
-	
+	if($data->timestamp > $lastweek){
+		$labels_global[]	= '"'.date('D H:i', $data->timestamp ).'"';
+		$total[]		= $data->pokemon_now;
+	}
 	
 	if($data->timestamp > $yesterday){
 		
-		$labels[] = '"'.date('h:i a', $data->timestamp ).'"'; 
+		$labels[] = '"'.date('H:i', $data->timestamp ).'"'; 
 		
 
-		$datas['global'][$i]['global'] = $data->pokemon_now; 
-		
-		
 		if(!empty($data->rarity_spawn->{'Very common'})){
 			$veco[]		= $data->rarity_spawn->{'Very common'};
 		}
@@ -117,7 +92,7 @@ foreach($stats as $data){
 	
 	if($data->timestamp > $yesterday){
 	
-		$labels_gym[]			= '"'.date('h:i a', $data->timestamp ).'"';
+		$labels_gym[]			= '"'.date('H:i', $data->timestamp ).'"';
 		
 		$mystic_average[]		= $data->team->mystic->average;
 		$mystic_owned[]			= $data->team->mystic->gym_owned;
@@ -139,12 +114,12 @@ $stats		= json_decode(file_get_contents($stats_file));
 
 foreach($stats as $data){
 	
-	//if($data->timestamp > $yesterday){
+	if($data->timestamp > $lastweek){
 	
-		$labels_stops[]			= '"'.date('d/m h:i a', $data->timestamp ).'"';
+		$labels_stops[]			= '"'.date('D H:i', $data->timestamp ).'"';
 		$lure[]				= $data->lured; 
 	
-	//}
+	}
 
 }
 
@@ -160,11 +135,14 @@ Chart.defaults.global.legend.display = false;
 var options = {
 	scales: {
 		yAxes: [{
-			display: true,
 			ticks: {
-				suggestedMin: 0,	// minimum will be 0, unless there is a lower value.
-				// OR //
 				beginAtZero: true	// minimum value will be 0.
+			}
+		}],
+		xAxes: [{
+			ticks: {
+				autoSkipPadding: 10,
+				fontFamily: "monospace"
 			}
 		}]
 	}
@@ -180,7 +158,7 @@ var data = {
 	labels: [<?= implode(',', $labels_global) ?>],
 	datasets: [
 		{
-			label: "<?= $locales->DASHBOARD_SPAWN_TOTAL->$lang ?>",
+			label: "<?= $locales->DASHBOARD_SPAWN_TOTAL ?>",
 			fill: true,
 			lineTension: 0.1,
 			backgroundColor: "rgba(75,192,192,0.4)",
@@ -221,7 +199,7 @@ var data_vc = {
 	labels: [<?= implode(',', $labels) ?>],
 	datasets: [
 		{
-			label: "<?= $locales->DASHBOARD_VERYCOMMON->$lang ?>",
+			label: "<?= $locales->DASHBOARD_VERYCOMMON ?>",
 			fill: false,
 			lineTension: 0.1,
 			backgroundColor: "rgba(175,192,192,0.4)",
@@ -259,7 +237,7 @@ var data_comm = {
 	labels: [<?= implode(',', $labels) ?>],
 	datasets: [
 		{
-			label: "<?= $locales->DASHBOARD_COMMON->$lang ?>",
+			label: "<?= $locales->DASHBOARD_COMMON ?>",
 			fill: false,
 			lineTension: 0.1,
 			backgroundColor: "rgba(175,192,192,0.4)",
@@ -296,7 +274,7 @@ var data_rare = {
 	labels: [<?= implode(',', $labels) ?>],
 	datasets: [
 		{
-			label: "<?= $locales->DASHBOARD_RARE->$lang ?>",
+			label: "<?= $locales->DASHBOARD_RARE ?>",
 			fill: false,
 			lineTension: 0.1,
 			backgroundColor: "rgba(175,192,192,0.4)",
@@ -335,7 +313,7 @@ var data_myth = {
 	labels: [<?= implode(',', $labels) ?>],
 	datasets: [
 		{
-			label: "<?= $locales->DASHBOARD_MYTHIC->$lang ?>",
+			label: "<?= $locales->DASHBOARD_MYTHIC ?>",
 			fill: false,
 			lineTension: 0.1,
 			backgroundColor: "rgba(175,192,192,0.4)",
@@ -377,7 +355,7 @@ var data_av = {
 	labels: [<?= implode(',', $labels_gym) ?>],
 	datasets: [
 		{
-			label: "<?= $locales->DASHBOARD_GRAPH_MYSTIC_PRESTIGE_AVERAGE->$lang ?>",
+			label: "<?= $locales->DASHBOARD_GRAPH_MYSTIC_PRESTIGE_AVERAGE ?>",
 			fill: false,
 			lineTension: 0.1,
 			backgroundColor: "rgba(59,129,255,0.4)",
@@ -399,7 +377,7 @@ var data_av = {
 			spanGaps: false,
 		}, 
 		{
-			label: "<?= $locales->DASHBOARD_GRAPH_VALOR_PRESTIGE_AVERAGE->$lang ?>",
+			label: "<?= $locales->DASHBOARD_GRAPH_VALOR_PRESTIGE_AVERAGE ?>",
 			fill: false,
 			lineTension: 0.1,
 			backgroundColor: "rgba(247,10,20,0.4)",
@@ -421,7 +399,7 @@ var data_av = {
 			spanGaps: false,
 		}, 
 		{
-			label: "<?= $locales->DASHBOARD_GRAPH_INSTINCT_PRESTIGE_AVERAGE->$lang ?>",
+			label: "<?= $locales->DASHBOARD_GRAPH_INSTINCT_PRESTIGE_AVERAGE ?>",
 			fill: false,
 			lineTension: 0.1,
 			backgroundColor: "rgba(248,153,0,0.4)",
@@ -465,7 +443,7 @@ var data_team_gym = {
 	labels: [<?= implode(',', $labels_gym) ?>],
 	datasets: [
 		{
-			label: "<?= $locales->DASHBOARD_GRAPH_MYSTIC_GYM_OWNED->$lang ?>",
+			label: "<?= $locales->DASHBOARD_GRAPH_MYSTIC_GYM_OWNED ?>",
 			fill: false,
 			lineTension: 0.1,
 			backgroundColor: "rgba(59,129,255,0.4)",
@@ -487,7 +465,7 @@ var data_team_gym = {
 			spanGaps: false,
 		},
 		{
-			label: "<?= $locales->DASHBOARD_GRAPH_VALOR_GYM_OWNED->$lang ?>",
+			label: "<?= $locales->DASHBOARD_GRAPH_VALOR_GYM_OWNED ?>",
 			fill: false,
 			lineTension: 0.1,
 			backgroundColor: "rgba(247,10,20,0.4)",
@@ -509,7 +487,7 @@ var data_team_gym = {
 			spanGaps: false,
 		},
 		{
-			label: "<?= $locales->DASHBOARD_GRAPH_INSTINCT_GYM_OWNED->$lang ?>",
+			label: "<?= $locales->DASHBOARD_GRAPH_INSTINCT_GYM_OWNED ?>",
 			fill: false,
 			lineTension: 0.1,
 			backgroundColor: "rgba(248,153,0,0.4)",
@@ -554,7 +532,7 @@ var data_lure = {
 	labels: [<?= implode(',', $labels_stops) ?>],
 	datasets: [
 		{
-			label: "<?= $locales->DASHBOARD_GRAPH_LURED_POKESTOPS->$lang ?>",
+			label: "<?= $locales->DASHBOARD_GRAPH_LURED_POKESTOPS ?>",
 			fill: true,
 			lineTension: 0.1,
 			backgroundColor: "rgba(124,0,210,0.4)",

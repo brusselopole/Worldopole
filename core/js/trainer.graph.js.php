@@ -56,6 +56,21 @@ $mysqli->close();
 
 Chart.defaults.global.legend.display = false;
 
+var options = {
+	scales: {
+		yAxes: [{
+			ticks: {
+				beginAtZero: true       // minimum value will be 0.
+			}
+		}],
+		xAxes: [{
+			ticks: {
+				autoSkipPadding: 10
+			}
+		}]
+	}
+};
+
 // Trainer level
 // -------------
 
@@ -91,5 +106,5 @@ var data_trainer_lvl = {
 var myBarChart = new Chart(trainer_lvl, {
 	type: 'bar',
 	data: data_trainer_lvl,
-	options : ''
+	options : options
 });

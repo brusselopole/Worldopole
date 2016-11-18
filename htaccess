@@ -41,6 +41,9 @@ RewriteRule ^pokemon$			index.php?page=pokedex			[QSA,NC,L]
 	</FilesMatch>
 </IfModule>
 
+# Rules for Versioned Static Files
+RewriteRule ^core/(css|js)/(.+)\.(\d{10})\.(css|js)$ core/$1/$2.$4 [NC,L]
+
 # Enable compression for large content
 <IfModule mod_deflate.c>
 	<IfModule mod_filter.c>

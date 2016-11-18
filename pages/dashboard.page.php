@@ -2,8 +2,8 @@
 	<div class="row">
 		<div class="col-md-12 text-center">
 			<h1>
-				<?= $locales->DASHBOARD_TITLE->$lang ?> <br/>
-				<small><?= $locales->DASHBOARD_SUBTITLE->$lang ?></small>
+				<?= $locales->DASHBOARD_TITLE ?> <br/>
+				<small><?= $locales->DASHBOARD_SUBTITLE ?></small>
 			</h1>
 			
 		</div>
@@ -17,12 +17,12 @@
 		<div class="row area">
 		
 			<div class="col-md-12">
-				<h2 class="sub-title"><?= $locales->DASHBOARD_SPAWN_TITLE->$lang ?></h2>
+				<h2 class="sub-title"><?= $locales->DASHBOARD_SPAWN_TITLE ?></h2>
 			</div>
 		
 			<div class="col-md-12">
 			
-				<h4><?= $locales->DASHBOARD_SPAWN_TOTAL->$lang ?> <small><?= $locales->DASHBOARD_LAST7DAYS->$lang ?></small></h4>
+				<h4><?= $locales->DASHBOARD_SPAWN_TOTAL ?> <small><?= $locales->DASHBOARD_LAST7DAYS ?></small></h4>
 			
 				<canvas id="total_spawn" width="100%" height="25"></canvas>
 			
@@ -30,7 +30,7 @@
 			
 			<div class="col-md-3">
 				
-				<h4><?= $locales->DASHBOARD_VERYCOMMON->$lang ?> <small><?= $locales->DASHBOARD_LAST24HOURS->$lang ?></small></h4>
+				<h4><?= $locales->DASHBOARD_VERYCOMMON ?> <small><?= $locales->DASHBOARD_LAST24HOURS ?></small></h4>
 				
 				<canvas id="very_common" width="100%" height="50"></canvas>
 			
@@ -38,7 +38,7 @@
 			
 			<div class="col-md-3">
 				
-				<h4><?= $locales->DASHBOARD_COMMON->$lang ?> <small><?= $locales->DASHBOARD_LAST24HOURS->$lang ?></small></h4>
+				<h4><?= $locales->DASHBOARD_COMMON ?> <small><?= $locales->DASHBOARD_LAST24HOURS ?></small></h4>
 				
 				<canvas id="common" width="100%" height="50"></canvas>
 			
@@ -46,7 +46,7 @@
 			
 			<div class="col-md-3">
 				
-				<h4><?= $locales->DASHBOARD_RARE->$lang ?> <small><?= $locales->DASHBOARD_LAST24HOURS->$lang ?></small></h4>
+				<h4><?= $locales->DASHBOARD_RARE ?> <small><?= $locales->DASHBOARD_LAST24HOURS ?></small></h4>
 				
 				<canvas id="rare" width="100%" height="50"></canvas>
 			
@@ -54,7 +54,7 @@
 			
 			<div class="col-md-3">
 				
-				<h4><?= $locales->DASHBOARD_MYTHIC->$lang ?> <small><?= $locales->DASHBOARD_LAST24HOURS->$lang ?></small></h4>
+				<h4><?= $locales->DASHBOARD_MYTHIC ?> <small><?= $locales->DASHBOARD_LAST24HOURS ?></small></h4>
 				
 				<canvas id="mythics" width="100%" height="50"></canvas>
 			
@@ -65,11 +65,11 @@
 		<div class="row area">
 			
 			<div class="col-md-12">
-				<h2 class="sub-title"><strong><?= $locales->TEAM->$lang ?></strong> <?= $locales->PERFORMANCE->$lang ?></h2>
+				<h2 class="sub-title"><strong><?= $locales->TEAM ?></strong> <?= $locales->PERFORMANCE ?></h2>
 			</div>
 			
 			<div class="col-md-12">
-				<h4><?= $locales->DASHBOARD_PRESTIGE_AVERAGE->$lang ?> <small><?= $locales->DASHBOARD_LAST24HOURS->$lang ?></small></h4>
+				<h4><?= $locales->DASHBOARD_PRESTIGE_AVERAGE ?> <small><?= $locales->DASHBOARD_LAST24HOURS ?></small></h4>
 			</div>
 			
 			<div class="col-md-12">
@@ -80,7 +80,7 @@
 		
 			
 			<div class="col-md-12">
-				<h4><?= $locales->DASHBOARD_GYM_OWNED_PERFORMANCE->$lang ?> <small><?= $locales->DASHBOARD_LAST24HOURS->$lang ?></small></h4>
+				<h4><?= $locales->DASHBOARD_GYM_OWNED_PERFORMANCE ?> <small><?= $locales->DASHBOARD_LAST24HOURS ?></small></h4>
 			</div>
 			
 			<div class="col-md-12">
@@ -96,12 +96,12 @@
 		<div class="row area">
 		
 			<div class="col-md-12">
-				<h2 class="sub-title"><strong><?= $locales->POKESTOPS->$lang ?></strong> <?= $locales->DASHBOARD_ACTIVITY->$lang ?></h2>
+				<h2 class="sub-title"><strong><?= $locales->POKESTOPS ?></strong> <?= $locales->DASHBOARD_ACTIVITY ?></h2>
 			</div>
 		
 			<div class="col-md-12">
 			
-				<h4><?= $locales->DASHBOARD_LURES->$lang ?> <small><?= $locales->DASHBOARD_LAST7DAYS->$lang ?></small></h4>
+				<h4><?= $locales->DASHBOARD_LURES ?> <small><?= $locales->DASHBOARD_LAST7DAYS ?></small></h4>
 			
 				<canvas id="lures" width="100%" height="25"></canvas>
 			

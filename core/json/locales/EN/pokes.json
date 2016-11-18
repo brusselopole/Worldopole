@@ -1,0 +1,3198 @@
+{
+    "1": {
+        "name":"Bulbasaur",
+		"rarity":"Mythic",
+		"candy_name":"Bulbasaur",
+		"quick_move":"Vine Whip",
+		"charge_move":"Power Whip",
+		"description":"Bulbasaur can be seen napping in bright sunlight. There is a seed on its back. By soaking up the sun's rays, the seed grows progressively larger.",
+		"types":[ {
+        	"type": "Grass", "color": "#78c850"
+    	},
+		{
+			"type": "Poison", "color": "#a040a0"
+    	}
+		]
+                
+    }
+    ,
+    "2": {
+        "name":"Ivysaur",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Bulbasaur",
+        "quick_move":"Vine Whip",
+        "charge_move":"Solar Whip",
+        "description":"There is a bud on this Pok\u00e9mon's back. To support its weight, Ivysaur's legs and trunk grow thick and strong. If it starts spending more time lying in the sunlight, it's a sign that the bud will bloom into a large flower soon.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Grass", "color": "#78c850"
+        }
+        ,
+        {
+            "type": "Poison", "color": "#a040a0"
+        }
+        ]
+    }
+    ,
+    "3": {
+        "name":"Venusaur",
+        
+        
+        "rarity":"Unseen",
+        "candy_name":"Bulbasaur",
+        "quick_move":"Vine Whip",
+        "charge_move":"Solar Whip",
+        "description":"There is a large flower on Venusaur's back. The flower is said to take on vivid colors if it gets plenty of nutrition and sunlight. The flower's aroma soothes the emotions of people.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Grass", "color": "#78c850"
+        }
+        ,
+        {
+            "type": "Poison", "color": "#a040a0"
+        }
+        ]
+    }
+    ,
+    "4": {
+        "name":"Charmander",
+        
+        
+        "rarity":"Rare",
+        "candy_name":"Charmander",
+        "quick_move":"Scratch",
+        "charge_move":"Flamethrower",
+        "description":"The flame that burns at the tip of its tail is an indication of its emotions. The flame wavers when Charmander is enjoying itself. If the Pok\u00e9mon becomes enraged, the flame burns fiercely.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Fire", "color": "#f08030"
+        }
+        ]
+    }
+    ,
+    "5": {
+        "name":"Charmeleon",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Charmander",
+        "quick_move":"Scratch",
+        "charge_move":"Flamethrower",
+        "description":"Charmeleon mercilessly destroys its foes using its sharp claws. If it encounters a strong foe, it turns aggressive. In this excited state, the flame at the tip of its tail flares with a bluish white color.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Fire", "color": "#f08030"
+        }
+        ]
+    }
+    ,
+    "6": {
+        "name":"Charizard",
+        
+        
+        "rarity":"Unseen",
+        "candy_name":"Charmander",
+        "quick_move":"Wing Attack",
+        "charge_move":"Fire Blast",
+        "description":"Charizard flies around the sky in search of powerful opponents. It breathes fire of such great heat that it melts anything. However, it never turns its fiery breath on any opponent weaker than itself.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Fire", "color": "#f08030"
+        }
+        ,
+        {
+            "type": "Flying", "color": "#a890f0"
+        }
+        ]
+    }
+    ,
+    "7": {
+        "name":"Squirtle",
+        
+        
+        "rarity":"Common",
+        "candy_name":"Squirtle",
+        "quick_move":"Bubble",
+        "charge_move":"Aqua Tail",
+        "description":"Squirtle's shell is not merely used for protection. The shell's rounded shape and the grooves on its surface help minimize resistance in water, enabling this Pok\u00e9mon to swim at high speeds.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Water", "color": "#6890f0"
+        }
+        ]
+    }
+    ,
+    "8": {
+        "name":"Wartortle",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Squirtle",
+        "quick_move":"Water Gun",
+        "charge_move":"Hydro Pump",
+        "description":"Its tail is large and covered with a rich, thick fur. The tail becomes increasingly deeper in color as Wartortle ages. The scratches on its shell are evidence of this Pok\u00e9mon's toughness as a battler.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Water", "color": "#6890f0"
+        }
+        ]
+    }
+    ,
+    "9": {
+        "name":"Blastoise",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Squirtle",
+        "quick_move":"Water Gun",
+        "charge_move":"Hydro Pump",
+        "description":"Blastoise has water spouts that protrude from its shell. The water spouts are very accurate. They can shoot bullets of water with enough accuracy to strike empty cans from a distance of over 160 feet.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Water", "color": "#6890f0"
+        }
+        ]
+    }
+    ,
+    "10": {
+        "name":"Caterpie",
+        
+        
+        "rarity":"Very common",
+        "candy_name":"Caterpie",
+        "quick_move":"Bug Bite",
+        "charge_move":"Struggle",
+        "description":"Caterpie has a voracious appetite. It can devour leaves bigger than its body right before your eyes. From its antenna, this Pok\u00e9mon releases a terrifically strong odor.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Bug", "color": "#a8b820"
+        }
+        ]
+    }
+    ,
+    "11": {
+        "name":"Metapod",
+        
+        
+        "rarity":"Rare",
+        "candy_name":"Caterpie",
+        "quick_move":"Bug Bite",
+        "charge_move":"Struggle",
+        "description":"The shell covering this Pok\u00e9mon\u2019s body is as hard as an iron slab. Metapod does not move very much. It stays still because it is preparing its soft innards for evolution inside the hard shell.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Bug", "color": "#a8b820"
+        }
+        ]
+    }
+    ,
+    "12": {
+        "name":"Butterfree",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Caterpie",
+        "quick_move":"Bug Bite",
+        "charge_move":"Bug Buzz",
+        "description":"Butterfree has a superior ability to search for delicious honey from flowers. It can even search out, extract, and carry honey from flowers that are blooming over six miles from its nest.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Bug", "color": "#a8b820"
+        }
+        ,
+        {
+            "type": "Flying", "color": "#a890f0"
+        }
+        ]
+    }
+    ,
+    "13": {
+        "name":"Weedle",
+        
+        
+        "rarity":"Very common",
+        "candy_name":"Weedle",
+        "quick_move":"Bug Bite",
+        "charge_move":"Struggle",
+        "description":"Weedle has an extremely acute sense of smell. It is capable of distinguishing its favorite kinds of leaves from those it dislikes just by sniffing with its big red proboscis (nose).",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Bug", "color": "#a8b820"
+        }
+        ,
+        {
+            "type": "Poison", "color": "#a040a0"
+        }
+        ]
+    }
+    ,
+    "14": {
+        "name":"Kakuna",
+        
+        
+        "rarity":"Common",
+        "candy_name":"Weedle",
+        "quick_move":"Bug Bite",
+        "charge_move":"Struggle",
+        "description":"Kakuna remains virtually immobile as it clings to a tree. However, on the inside, it is extremely busy as it prepares for its coming evolution. This is evident from how hot the shell becomes to the touch.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Bug", "color": "#a8b820"
+        }
+        ,
+        {
+            "type": "Poison", "color": "#a040a0"
+        }
+        ]
+    }
+    ,
+    "15": {
+        "name":"Beedrill",
+        
+        
+        "rarity":"Rare",
+        "candy_name":"Weedle",
+        "quick_move":"Bug Bite",
+        "charge_move":"Sludge Bomb",
+        "description":"Beedrill is extremely territorial. No one should ever approach its nest\u2014this is for their own safety. If angered, they will attack in a furious swarm.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Bug", "color": "#a8b820"
+        }
+        ,
+        {
+            "type": "Poison", "color": "#a040a0"
+        }
+        ]
+    }
+    ,
+    "16": {
+        "name":"Pidgey",
+        
+        
+        "rarity":"Very common",
+        "candy_name":"Pidgey",
+        "quick_move":"Tackle",
+        "charge_move":"Aerial Ace",
+        "description":"Pidgey has an extremely sharp sense of direction. It is capable of unerringly returning home to its nest, however far it may be removed from its familiar surroundings.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Normal", "color": "#8a8a59"
+        }
+        ,
+        {
+            "type": "Flying", "color": "#a890f0"
+        }
+        ]
+    }
+    ,
+    "17": {
+        "name":"Pidgeotto",
+        
+        
+        "rarity":"Very common",
+        "candy_name":"Pidgey",
+        "quick_move":"Wing Attack",
+        "charge_move":"Aerial Ace",
+        "description":"Pidgeotto claims a large area as its own territory. This Pok\u00e9mon flies around, patrolling its living space. If its territory is violated, it shows no mercy in thoroughly punishing the foe with its sharp claws.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Normal", "color": "#8a8a59"
+        }
+        ,
+        {
+            "type": "Flying", "color": "#a890f0"
+        }
+        ]
+    }
+    ,
+    "18": {
+        "name":"Pidgeot",
+        
+        
+        "rarity":"Rare",
+        "candy_name":"Pidgey",
+        "quick_move":"Wing Attack",
+        "charge_move":"Aerial Ace",
+        "description":"This Pok\u00e9mon has a dazzling plumage of beautifully glossy feathers. Many Trainers are captivated by the striking beauty of the feathers on its head, compelling them to choose Pidgeot as their Pok\u00e9mon.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Normal", "color": "#8a8a59"
+        }
+        ,
+        {
+            "type": "Flying", "color": "#a890f0"
+        }
+        ]
+    }
+    ,
+    "19": {
+        "name":"Rattata",
+        
+        
+        "rarity":"Very common",
+        "candy_name":"Rattata",
+        "quick_move":"Tackle",
+        "charge_move":"Body Slam",
+        "description":"Rattata is cautious in the extreme. Even while it is asleep, it constantly listens by moving its ears around. It is not picky about where it lives\u2014it will make its nest anywhere.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Normal", "color": "#8a8a59"
+        }
+        ]
+    }
+    ,
+    "20": {
+        "name":"Raticate",
+        
+        
+        "rarity":"Common",
+        "candy_name":"Rattata",
+        "quick_move":"Bite",
+        "charge_move":"Hyper Beam",
+        "description":"Raticate\u2019s sturdy fangs grow steadily. To keep them ground down, it gnaws on rocks and logs. It may even chew on the walls of houses.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Normal", "color": "#8a8a59"
+        }
+        ]
+    }
+    ,
+    "21": {
+        "name":"Spearow",
+        
+        
+        "rarity":"Very common",
+        "candy_name":"Spearow",
+        "quick_move":"Peck",
+        "charge_move":"Aerial Ace",
+        "description":"Spearow has a very loud cry that can be heard over half a mile away. If its high, keening cry is heard echoing all around, it is a sign that they are warning each other of danger.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Normal", "color": "#8a8a59"
+        }
+        ,
+        {
+            "type": "Flying", "color": "#a890f0"
+        }
+        ]
+    }
+    ,
+    "22": {
+        "name":"Fearow",
+        
+        
+        "rarity":"Common",
+        "candy_name":"Fearow",
+        "quick_move":"Steel Wing",
+        "charge_move":"Aerial Ace",
+        "description":"Fearow is recognized by its long neck and elongated beak. They are conveniently shaped for catching prey in soil or water. It deftly moves its long and skinny beak to pluck prey. ",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Normal", "color": "#8a8a59"
+        }
+        ,
+        {
+            "type": "Flying", "color": "#a890f0"
+        }
+        ]
+    }
+    ,
+    "23": {
+        "name":"Ekans",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Ekans",
+        "quick_move":"Poison Sting",
+        "charge_move":"Gunk Shot",
+        "description":"Ekans curls itself up in a spiral while it rests. Assuming this position allows it to quickly respond to a threat from any direction with a glare from its upraised head.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Poison", "color": "#a040a0"
+        }
+        ]
+    }
+    ,
+    "24": {
+        "name":"Arbok",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Ekans",
+        "quick_move":"Bite",
+        "charge_move":"Gunk Shot",
+        "description":"This Pok\u00e9mon is terrifically strong in order to constrict things with its body. It can even flatten steel oil drums. Once Arbok wraps its body around its foe, escaping its crunching embrace is impossible.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Poison", "color": "#a040a0"
+        }
+        ]
+    }
+    ,
+    "25": {
+        "name":"Pikachu",
+        
+        
+        "rarity":"Rare",
+        "candy_name":"Pikachu",
+        "quick_move":"Thunder Shock",
+        "charge_move":"Thunder",
+        "description":"Whenever Pikachu comes across something new, it blasts it with a jolt of electricity. If you come across a blackened berry, it's evidence that this Pok\u00e9mon mistook the intensity of its charge.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Electric", "color": "#f8d030"
+        }
+        ]
+    }
+    ,
+    "26": {
+        "name":"Raichu",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Pikachu",
+        "quick_move":"Spark",
+        "charge_move":"Thunder",
+        "description":"If the electrical sacs become excessively charged, Raichu plants its tail in the ground and discharges. Scorched patches of ground will be found near this Pok\u00e9mon's nest.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Electric", "color": "#f8d030"
+        }
+        ]
+    }
+    ,
+    "27": {
+        "name":"Sandshrew",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Sandshrew",
+        "quick_move":"Mud Shot",
+        "charge_move":"Dig",
+        "description":"Sandshrew's body is configured to absorb water without waste, enabling it to survive in an arid desert. This Pok\u00e9mon curls up to protect itself from its enemies.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Ground", "color": "#e0c068"
+        }
+        ]
+    }
+    ,
+    "28": {
+        "name":"Sandslash",
+        
+        
+        "rarity":"Unseen",
+        "candy_name":"Sandshrew",
+        "quick_move":"Mud Shot",
+        "charge_move":"Earthquake",
+        "description":"Sandslash's body is covered by tough spikes, which are hardened sections of its hide. Once a year, the old spikes fall out, to be replaced with new spikes that grow out from beneath the old ones.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Ground", "color": "#e0c068"
+        }
+        ]
+    }
+    ,
+    "29": {
+        "name":"Nidoran\u2640",
+        
+        
+        "rarity":"Common",
+        "candy_name":"Nidoran\u2640",
+        "quick_move":"Poison Sting",
+        "charge_move":"Body Slam",
+        "description":"Nidoran\u2640 has barbs that secrete a powerful poison. They are thought to have developed as protection for this small-bodied Pok\u00e9mon. When enraged, it releases a horrible toxin from its horn",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Poison", "color": "#a040a0"
+        }
+        ]
+    }
+    ,
+    "30": {
+        "name":"Nidorina",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Nidoran\u2640",
+        "quick_move":"Poison Sting",
+        "charge_move":"Sludge Bomb",
+        "description":"When Nidorina are with their friends or family, they keep their barbs tucked away to prevent hurting each other. This Pok\u00e9mon appears to become nervous if separated from the others.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Poison", "color": "#a040a0"
+        }
+        ]
+    }
+    ,
+    "31": {
+        "name":"Nidoqueen",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Nidoran\u2640",
+        "quick_move":"Poison Jab",
+        "charge_move":"Earthquake",
+        "description":"Nidoqueen's body is encased in extremely hard scales. It is adept at sending foes flying with harsh tackles. This Pok\u00e9mon is at its strongest when it is defending its young.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Poison", "color": "#a040a0"
+        }
+        ,
+        {
+            "type": "Ground", "color": "#e0c068"
+        }
+        ]
+    }
+    ,
+    "32": {
+        "name":"Nidoran\u2642",
+        
+        
+        "rarity":"Common",
+        "candy_name":"Nidoran\u2642",
+        "quick_move":"Poison Sting",
+        "charge_move":"Body Slam",
+        "description":"Nidoran\u2642 has developed muscles for moving its ears. Thanks to them, the ears can be freely moved in any direction. Even the slightest sound does not escape this Pok\u00e9mon's notice.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Poison", "color": "#a040a0"
+        }
+        ]
+    }
+    ,
+    "33": {
+        "name":"Nidorino",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Nidoran\u2642",
+        "quick_move":"Poison Jab",
+        "charge_move":"Sludge Bomb",
+        "description":"Nidorino has a horn that is harder than a diamond. If it senses a hostile presence, all the barbs on its back bristle up at once, and it challenges the foe with all its might.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Poison", "color": "#a040a0"
+        }
+        ]
+    }
+    ,
+    "34": {
+        "name":"Nidoking",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Nidoran\u2642",
+        "quick_move":"Poison Jab",
+        "charge_move":"Earthquake",
+        "description":"Nidoking's thick tail packs enormously destructive power. With one swing, it can topple a metal transmission tower. Once this Pok\u00e9mon goes on a rampage, there is no stopping it.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Poison", "color": "#a040a0"
+        }
+        ,
+        {
+            "type": "Ground", "color": "#e0c068"
+        }
+        ]
+    }
+    ,
+    "35": {
+        "name":"Clefairy",
+        
+        
+        "rarity":"Rare",
+        "candy_name":"Clefairy",
+        "quick_move":"Pound",
+        "charge_move":"Moonblast",
+        "description":"On every night of a full moon, groups of this Pok\u00e9mon come out to play. When dawn arrives, the tired Clefairy return to their quiet mountain retreats and go to sleep nestled up against each other.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Fairy", "color": "#e898e8"
+        }
+        ]
+    }
+    ,
+    "36": {
+        "name":"Clefable",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Clefairy",
+        "quick_move":"Pound",
+        "charge_move":"Moonblast",
+        "description":"Clefable moves by skipping lightly as if it were flying using its wings. Its bouncy step even lets it walk on water. It is known to take strolls on lakes on quiet, moonlit nights.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Fairy", "color": "#e898e8"
+        }
+        ]
+    }
+    ,
+    "37": {
+        "name":"Vulpix",
+        
+        
+        "rarity":"Rare",
+        "candy_name":"Vulpix",
+        "quick_move":"Ember",
+        "charge_move":"Body Slam",
+        "description":"At the time of its birth, Vulpix has one white tail. The tail separates into six if this Pok\u00e9mon receives plenty of love from its trainer. The six tails become magnificently curled.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Fire", "color": "#f08030"
+        }
+        ]
+    }
+    ,
+    "38": {
+        "name":"Ninetales",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Ninetales",
+        "quick_move":"Ember",
+        "charge_move":"Fire Blast",
+        "description":"Ninetales casts a sinister light from its bright red eyes to gain total control over its foe's mind. This Pok\u00e9mon is said to live for one thousand years.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Fire", "color": "#f08030"
+        }
+        ]
+    }
+    ,
+    "39": {
+        "name":"Jigglypuff",
+        
+        
+        "rarity":"Common",
+        "candy_name":"Jigglypuff",
+        "quick_move":"Pound",
+        "charge_move":"Body Slam",
+        "description":"Jigglypuff's vocal cords can freely adjust the wavelength of its voice. This Pok\u00e9mon uses this ability to sing at precisely the right wavelength to make its foes most drowsy.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Normal", "color": "#8a8a59"
+        }
+        ,
+        {
+            "type": "Fairy", "color": "#e898e8"
+        }
+        ]
+    }
+    ,
+    "40": {
+        "name":"Wigglytuff",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Jigglypuff",
+        "quick_move":"Pound",
+        "charge_move":"Hyper Beam",
+        "description":" Wigglytuff has large, saucerlike eyes. The surfaces of its eyes are always covered with a thin layer of tears. If any dust gets in this Pok\u00e9mon's eyes, it is quickly washed away.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Normal", "color": "#8a8a59"
+        }
+        ,
+        {
+            "type": "Fairy", "color": "#e898e8"
+        }
+        ]
+    }
+    ,
+    "41": {
+        "name":"Zubat",
+        
+        
+        "rarity":"Very common",
+        "candy_name":"Zubat",
+        "quick_move":"Bite",
+        "charge_move":"Sludge Bomb",
+        "description":"Zubat remains quietly unmoving in a dark spot during the bright daylight hours. It does so because prolonged exposure to the sun causes its body to become slightly burned.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Poison", "color": "#a040a0"
+        }
+        ,
+        {
+            "type": "Flying", "color": "#a890f0"
+        }
+        ]
+    }
+    ,
+    "42": {
+        "name":"Golbat",
+        
+        
+        "rarity":"Common",
+        "candy_name":"Zubat",
+        "quick_move":"Wing Attack",
+        "charge_move":"Poison Fang",
+        "description":"Golbat loves to drink the blood of living things. It is particularly active in the pitch black of night. This Pok\u00e9mon flits around in the night skies, seeking fresh blood.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Poison", "color": "#a040a0"
+        }
+        ,
+        {
+            "type": "Flying", "color": "#a890f0"
+        }
+        ]
+    }
+    ,
+    "43": {
+        "name":"Oddish",
+        
+        
+        "rarity":"Rare",
+        "candy_name":"Oddish",
+        "quick_move":"Razor Leaf",
+        "charge_move":"Sludge Bomb",
+        "description":"During the daytime, Oddish buries itself in soil to absorb nutrients from the ground using its entire body. The more fertile the soil, the glossier its leaves become.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Grass", "color": "#78c850"
+        }
+        ,
+        {
+            "type": "Poison", "color": "#a040a0"
+        }
+        ]
+    }
+    ,
+    "44": {
+        "name":"Gloom",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Oddish",
+        "quick_move":"Razor Leaf",
+        "charge_move":"Petal Blizzard",
+        "description":"Gloom releases a foul fragrance from the pistil of its flower. When faced with danger, the stench worsens. If this Pok\u00e9mon is feeling calm and secure, it does not release its usual stinky aroma.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Grass", "color": "#78c850"
+        }
+        ,
+        {
+            "type": "Poison", "color": "#a040a0"
+        }
+        ]
+    }
+    ,
+    "45": {
+        "name":"Vileplume",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Oddish",
+        "quick_move":"Razor Leaf",
+        "charge_move":"Solar Beam",
+        "description":"Vileplume's toxic pollen triggers atrocious allergy attacks. That's why it is advisable never to approach any attractive flowers in a jungle, however pretty they may be.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Grass", "color": "#78c850"
+        }
+        ,
+        {
+            "type": "Poison", "color": "#a040a0"
+        }
+        ]
+    }
+    ,
+    "46": {
+        "name":"Paras",
+        
+        
+        "rarity":"Common",
+        "candy_name":"Paras",
+        "quick_move":"Bug Bite",
+        "charge_move":"X Scissor \/ See Bomb",
+        "description":"Paras has parasitic mushrooms growing on its back called tochukaso. They grow large by drawing nutrients from this Bug Pok\u00e9mon host. They are highly valued as a medicine for extending life.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Bug", "color": "#a8b820"
+        }
+        ,
+        {
+            "type": "Grass", "color": "#78c850"
+        }
+        ]
+    }
+    ,
+    "47": {
+        "name":"Parasect",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Paras",
+        "quick_move":"Bug Bite",
+        "charge_move":"Solar Beam",
+        "description":"Parasect is known to infest large trees en masse and drain nutrients from the lower trunk and roots. When an infested tree dies, they move onto another tree all at once.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Bug", "color": "#a8b820"
+        }
+        ,
+        {
+            "type": "Grass", "color": "#78c850"
+        }
+        ]
+    }
+    ,
+    "48": {
+        "name":"Venonat",
+        
+        
+        "rarity":"Very common",
+        "candy_name":"Venonat",
+        "quick_move":"Bug Bite",
+        "charge_move":"Signal Beam",
+        "description":"Venonat is said to have evolved with a coat of thin, stiff hair that covers its entire body for protection. It possesses large eyes that never fail to spot even miniscule prey.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Bug", "color": "#a8b820"
+        }
+        ,
+        {
+            "type": "Poison", "color": "#a040a0"
+        }
+        ]
+    }
+    ,
+    "49": {
+        "name":"Venomoth",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Venonat",
+        "quick_move":"Bug Bite",
+        "charge_move":"Bug Buzz",
+        "description":"Venomoth is nocturnal\u2014it is a Pok\u00e9mon that only becomes active at night. Its favorite prey are small insects that gather around streetlights, attracted by the light in the darkness.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Bug", "color": "#a8b820"
+        }
+        ,
+        {
+            "type": "Poison", "color": "#a040a0"
+        }
+        ]
+    }
+    ,
+    "50": {
+        "name":"Diglett",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Diglett",
+        "quick_move":"Mud Shot",
+        "charge_move":"Dig",
+        "description":"Diglett are raised in most farms. The reason is simple\u2014wherever this Pok\u00e9mon burrows, the soil is left perfectly tilled for planting crops. This soil is made ideal for growing delicious vegetables.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Ground", "color": "#e0c068"
+        }
+        ]
+    }
+    ,
+    "51": {
+        "name":"Dugtrio",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Diglett",
+        "quick_move":"Mud Shot",
+        "charge_move":"Stone Edge",
+        "description":"Dugtrio are actually triplets that emerged from one body. As a result, each triplet thinks exactly like the other two triplets. They work cooperatively to burrow endlessly.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Ground", "color": "#e0c068"
+        }
+        ]
+    }
+    ,
+    "52": {
+        "name":"Meowth",
+        
+        
+        "rarity":"Common",
+        "candy_name":"Meowth",
+        "quick_move":"Scratch",
+        "charge_move":"Body Slam",
+        "description":"Meowth withdraws its sharp claws into its paws to slinkily sneak about without making any incriminating footsteps. For some reason, this Pok\u00e9mon loves shiny coins that glitter with light.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Normal", "color": "#8a8a59"
+        }
+        ]
+    }
+    ,
+    "53": {
+        "name":"Persian",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Meowth",
+        "quick_move":"Scratch",
+        "charge_move":"Play Rough",
+        "description":"Persian has six bold whiskers that give it a look of toughness. The whiskers sense air movements to determine what is in the Pok\u00e9mon's surrounding vicinity. It becomes docile if grabbed by the whiskers.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Normal", "color": "#8a8a59"
+        }
+        ]
+    }
+    ,
+    "54": {
+        "name":"Psyduck",
+        
+        
+        "rarity":"Common",
+        "candy_name":"Psyduck",
+        "quick_move":"Water Gun",
+        "charge_move":"Cross Chop",
+        "description":"Psyduck uses a mysterious power. When it does so, this Pok\u00e9mon generates brain waves that are supposedly only seen in sleepers. This discovery spurred controversy among scholars.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Water", "color": "#6890f0"
+        }
+        ]
+    }
+    ,
+    "55": {
+        "name":"Golduck",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Psyduck",
+        "quick_move":"Water Gun",
+        "charge_move":"Hydro Pump",
+        "description":"The webbed flippers on its forelegs and hind legs and the streamlined body of Golduck give it frightening speed. The Pok\u00e9mon is definitely much faster than even the most athletic swimmer.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Water", "color": "#6890f0"
+        }
+        ]
+    }
+    ,
+    "56": {
+        "name":"Mankey",
+        
+        
+        "rarity":"Rare",
+        "candy_name":"Mankey",
+        "quick_move":"Scratch",
+        "charge_move":"Body Slam",
+        "description":"When Mankey starts shaking and its nasal breathing turns rough, it's a sure sign that it is becoming angry. However, because it goes into a towering rage almost instantly, it is impossible for anyone to flee its wrath.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Fighting", "color": "#c03028"
+        }
+        ]
+    }
+    ,
+    "57": {
+        "name":"Primeape",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Mankey",
+        "quick_move":"Low Kick",
+        "charge_move":"Cross Chop",
+        "description":"When Primeape becomes furious, its blood circulation is boosted. In turn, its muscles are made even stronger. However, it also becomes much less intelligent at the same time.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Fighting", "color": "#c03028"
+        }
+        ]
+    }
+    ,
+    "58": {
+        "name":"Growlithe",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Growlithe",
+        "quick_move":"Bite",
+        "charge_move":"Body Slam",
+        "description":"Growlithe has a superb sense of smell. Once it smells anything, this Pok\u00e9mon won't forget the scent, no matter what. It uses its advanced olfactory sense to determine the emotions of other living things.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Fire", "color": "#f08030"
+        }
+        ]
+    }
+    ,
+    "59": {
+        "name":"Arcanine",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Growlithe",
+        "quick_move":"Fire Fang",
+        "charge_move":"Fire Blast",
+        "description":"Arcanine is known for its high speed. It is said to be capable of running over 6,200 miles in a single day and night. The fire that blazes wildly within this Pok\u00e9mon's body is its source of power.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Fire", "color": "#f08030"
+        }
+        ]
+    }
+    ,
+    "60": {
+        "name":"Poliwag",
+        
+        
+        "rarity":"Common",
+        "candy_name":"Poliwag",
+        "quick_move":"Bubble",
+        "charge_move":"Body Slam",
+        "description":"Poliwag has a very thin skin. It is possible to see the Pok\u00e9mon's spiral innards right through the skin. Despite its thinness, however, the skin is also very flexible. Even sharp fangs bounce right off it.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Water", "color": "#6890f0"
+        }
+        ]
+    }
+    ,
+    "61": {
+        "name":"Poliwhirl",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Poliwag",
+        "quick_move":"Bubble",
+        "charge_move":"Mud Bomb",
+        "description":"The surface of Poliwhirl's body is always wet and slick with an oily fluid. Because of this greasy covering, it can easily slip and slide out of the clutches of any enemy in battle.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Water", "color": "#6890f0"
+        }
+        ]
+    }
+    ,
+    "62": {
+        "name":"Poliwrath",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Poliwag",
+        "quick_move":"Bubble",
+        "charge_move":"Hydro Pump",
+        "description":"Poliwrath's highly developed, brawny muscles never grow fatigued, however much it exercises. It is so tirelessly strong, this Pok\u00e9mon can swim back and forth across the ocean without effort.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Water", "color": "#6890f0"
+        }
+        ]
+    }
+    ,
+    "63": {
+        "name":"Abra",
+        
+        
+        "rarity":"Rare",
+        "candy_name":"Abra",
+        "quick_move":"Zen Headbutt",
+        "charge_move":"Psyshock",
+        "description":"Abra sleeps for eighteen hours a day. However, it can sense the presence of foes even while it is sleeping. In such a situation, this Pok\u00e9mon immediately teleports to safety.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Psychic", "color": "#f85888"
+        }
+        ]
+    }
+    ,
+    "64": {
+        "name":"Kadabra",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Abra",
+        "quick_move":"Psycho Cut",
+        "charge_move":"Shadow Ball",
+        "description":"Kadabra emits a peculiar alpha wave if it develops a headache. Only those people with a particularly strong psyche can hope to become a trainer of this Pok\u00e9mon.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Psychic", "color": "#f85888"
+        }
+        ]
+    }
+    ,
+    "65": {
+        "name":"Alakazam",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Abra",
+        "quick_move":"Psycho Cut",
+        "charge_move":"Psychic",
+        "description":"Alakazam's brain continually grows, making its head far too heavy to support with its neck. This Pok\u00e9mon holds its head up using its psychokinetic power instead.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Psychic", "color": "#f85888"
+        }
+        ]
+    }
+    ,
+    "66": {
+        "name":"Machop",
+        
+        
+        "rarity":"Rare",
+        "candy_name":"Machop",
+        "quick_move":"Low Kick",
+        "charge_move":"Cross Chop",
+        "description":"Machop's muscles are special\u2014they never get sore no matter how much they are used in exercise. This Pok\u00e9mon has sufficient power to hurl a hundred adult humans.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Fighting", "color": "#c03028"
+        }
+        ]
+    }
+    ,
+    "67": {
+        "name":"Machoke",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Machop",
+        "quick_move":"Low Kick",
+        "charge_move":"Cross Chop",
+        "description":"Machoke's thoroughly toned muscles possess the hardness of steel. This Pok\u00e9mon has so much strength, it can easily hold aloft a sumo wrestler on just one finger.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Fighting", "color": "#c03028"
+        }
+        ]
+    }
+    ,
+    "68": {
+        "name":"Machamp",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Machop",
+        "quick_move":"Karate Chop",
+        "charge_move":"Cross Chop",
+        "description":"Machamp has the power to hurl anything aside. However, trying to do any work requiring care and dexterity causes its arms to get tangled. This Pok\u00e9mon tends to leap into action before it thinks.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Fighting", "color": "#c03028"
+        }
+        ]
+    }
+    ,
+    "69": {
+        "name":"Bellsprout",
+        
+        
+        "rarity":"Rare",
+        "candy_name":"Bellsprout",
+        "quick_move":"Vine Whip",
+        "charge_move":"Power Whip",
+        "description":"Bellsprout's thin and flexible body lets it bend and sway to avoid any attack, however strong it may be. From its mouth, this Pok\u00e9mon spits a corrosive fluid that melts even iron.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Grass", "color": "#78c850"
+        }
+        ,
+        {
+            "type": "Poison", "color": "#a040a0"
+        }
+        ]
+    }
+    ,
+    "70": {
+        "name":"Weepinbell",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Bellsprout",
+        "quick_move":"Razor Leaf",
+        "charge_move":"Power Whip",
+        "description":"Weepinbell has a large hook on its rear end. At night, the Pok\u00e9mon hooks on to a tree branch and goes to sleep. If it moves around in its sleep, it may wake up to find itself on the ground.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Grass", "color": "#78c850"
+        }
+        ,
+        {
+            "type": "Poison", "color": "#a040a0"
+        }
+        ]
+    }
+    ,
+    "71": {
+        "name":"Victreebel",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Bellsprout",
+        "quick_move":"Razor Leaf",
+        "charge_move":"Solar Beam",
+        "description":"Victreebel has a long vine that extends from its head. This vine is waved and flicked about as if it were an animal to attract prey. When an unsuspecting prey draws near, this Pok\u00e9mon swallows it whole.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Grass", "color": "#78c850"
+        }
+        ,
+        {
+            "type": "Poison", "color": "#a040a0"
+        }
+        ]
+    }
+    ,
+    "72": {
+        "name":"Tentacool",
+        
+        
+        "rarity":"Rare",
+        "candy_name":"Tentacool",
+        "quick_move":"Bubble",
+        "charge_move":"Water Pulse",
+        "description":"Tentacool's body is largely composed of water. If it is removed from the sea, it dries up like parchment. If this Pok\u00e9mon happens to become dehydrated, put it back into the sea.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Water", "color": "#6890f0"
+        }
+        ,
+        {
+            "type": "Poison", "color": "#a040a0"
+        }
+        ]
+    }
+    ,
+    "73": {
+        "name":"Tentacruel",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Tentacool",
+        "quick_move":"Poison Jab",
+        "charge_move":"Hydro Pump",
+        "description":"Tentacruel has large red orbs on its head. The orbs glow before lashing the vicinity with a harsh ultrasonic blast. This Pok\u00e9mon's outburst creates rough waves around it.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Water", "color": "#6890f0"
+        }
+        ,
+        {
+            "type": "Poison", "color": "#a040a0"
+        }
+        ]
+    }
+    ,
+    "74": {
+        "name":"Geodude",
+        
+        
+        "rarity":"Rare",
+        "candy_name":"Geodude",
+        "quick_move":"Rock Throw",
+        "charge_move":"Dig",
+        "description":" The longer a Geodude lives, the more its edges are chipped and worn away, making it more rounded in appearance. However, this Pok\u00e9mon's heart will remain hard, craggy, and rough always.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Rock", "color": "#b8a038"
+        }
+        ,
+        {
+            "type": "Ground", "color": "#e0c068"
+        }
+        ]
+    }
+    ,
+    "75": {
+        "name":"Graveler",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Geodude",
+        "quick_move":"Mud Shot",
+        "charge_move":"Stone Edge",
+        "description":"Graveler grows by feeding on rocks. Apparently, it prefers to eat rocks that are covered in moss. This Pok\u00e9mon eats its way through a ton of rocks on a daily basis.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Rock", "color": "#b8a038"
+        }
+        ,
+        {
+            "type": "Ground", "color": "#e0c068"
+        }
+        ]
+    }
+    ,
+    "76": {
+        "name":"Golem",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Geodude",
+        "quick_move":"Mud Shot",
+        "charge_move":"Stone Edge",
+        "description":"Golem live up on mountains. If there is a large earthquake, these Pok\u00e9mon will come rolling down off the mountains en masse to the foothills below.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Rock", "color": "#b8a038"
+        }
+        ,
+        {
+            "type": "Ground", "color": "#e0c068"
+        }
+        ]
+    }
+    ,
+    "77": {
+        "name":"Ponyta",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Ponyta",
+        "quick_move":"Ember",
+        "charge_move":"Fire Blast",
+        "description":"Ponyta is very weak at birth. It can barely stand up. This Pok\u00e9mon becomes stronger by stumbling and falling to keep up with its parent.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Fire", "color": "#f08030"
+        }
+        ]
+    }
+    ,
+    "78": {
+        "name":"Rapidash",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Ponyta",
+        "quick_move":"Ember",
+        "charge_move":"Fire Blast",
+        "description":"Rapidash usually can be seen casually cantering in the fields and plains. However, when this Pok\u00e9mon turns serious, its fiery manes flare and blaze as it gallops its way up to 150 mph.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Fire", "color": "#f08030"
+        }
+        ]
+    }
+    ,
+    "79": {
+        "name":"Slowpoke",
+        
+        
+        "rarity":"Rare",
+        "candy_name":"Slowpoke",
+        "quick_move":"Water Gun",
+        "charge_move":"Psychic",
+        "description":"Slowpoke uses its tail to catch prey by dipping it in water at the side of a river. However, this Pok\u00e9mon often forgets what it's doing and often spends entire days just loafing at water's edge.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Water", "color": "#6890f0"
+        }
+        ,
+        {
+            "type": "Psychic", "color": "#f85888"
+        }
+        ]
+    }
+    ,
+    "80": {
+        "name":"Slowbro",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Slowpoke",
+        "quick_move":"Water Gun",
+        "charge_move":"Psychic",
+        "description":"Slowbro's tail has a Shellder firmly attached with a bite. As a result, the tail can't be used for fishing anymore. This causes Slowbro to grudgingly swim and catch prey instead.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Water", "color": "#6890f0"
+        }
+        ,
+        {
+            "type": "Psychic", "color": "#f85888"
+        }
+        ]
+    }
+    ,
+    "81": {
+        "name":"Magnemite",
+        
+        
+        "rarity":"Common",
+        "candy_name":"Magnemite",
+        "quick_move":"Spark",
+        "charge_move":"Thunderbolt",
+        "description":"Magnemite attaches itself to power lines to feed on electricity. If your house has a power outage, check your circuit breakers. You may find a large number of this Pok\u00e9mon clinging to the breaker box.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Electric", "color": "#f8d030"
+        }
+        ,
+        {
+            "type": "Steel", "color": "#b8b8d0"
+        }
+        ]
+    }
+    ,
+    "82": {
+        "name":"Magneton",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Magnemite",
+        "quick_move":"Spark",
+        "charge_move":"Flash Cannon",
+        "description":"Magneton emits a powerful magnetic force that is fatal to mechanical devices. As a result, large cities sound sirens to warn citizens of large-scale outbreaks of this Pok\u00e9mon.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Electric", "color": "#f8d030"
+        }
+        ,
+        {
+            "type": "Steel", "color": "#b8b8d0"
+        }
+        ]
+    }
+    ,
+    "83": {
+        "name":"Farfetch'd",
+        
+        
+        "rarity":"Unseen",
+        "candy_name":null,
+        "quick_move":"Cut",
+        "charge_move":"Leaf Blade",
+        "description":"Farfetch'd is always seen with a stalk from a plant of some sort. Apparently, there are good stalks and bad stalks. This Pok\u00e9mon has been known to fight with others over stalks.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Normal", "color": "#8a8a59"
+        }
+        ,
+        {
+            "type": "Flying", "color": "#a890f0"
+        }
+        ]
+    }
+    ,
+    "84": {
+        "name":"Doduo",
+        
+        
+        "rarity":"Rare",
+        "candy_name":"Doduo",
+        "quick_move":"Peck",
+        "charge_move":"Aerial Ace",
+        "description":"Doduo's two heads never sleep at the same time. Its two heads take turns sleeping, so one head can always keep watch for enemies while the other one sleeps.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Normal", "color": "#8a8a59"
+        }
+        ,
+        {
+            "type": "Flying", "color": "#a890f0"
+        }
+        ]
+    }
+    ,
+    "85": {
+        "name":"Dodrio",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Doduo",
+        "quick_move":"Feint Attack",
+        "charge_move":"Drill Peck",
+        "description":"Watch out if Dodrio's three heads are looking in three separate directions. It's a sure sign that it is on its guard. Don't go near this Pok\u00e9mon if it's being wary-it may decide to peck you.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Normal", "color": "#8a8a59"
+        }
+        ,
+        {
+            "type": "Flying", "color": "#a890f0"
+        }
+        ]
+    }
+    ,
+    "86": {
+        "name":"Seel",
+        
+        
+        "rarity":"Common",
+        "candy_name":"Seel",
+        "quick_move":"Water Gun",
+        "charge_move":"Aqua Tail",
+        "description":" Seel hunts for prey in the frigid sea underneath sheets of ice. When it needs to breathe, it punches a hole through the ice with the sharply protruding section of its head.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Water", "color": "#6890f0"
+        }
+        ]
+    }
+    ,
+    "87": {
+        "name":"Dewgong",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Seel",
+        "quick_move":"Frost Breath",
+        "charge_move":"Blizzard",
+        "description":"Dewgong loves to snooze on bitterly cold ice. The sight of this Pok\u00e9mon sleeping on a glacier was mistakenly thought to be a mermaid by a mariner long ago.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Water", "color": "#6890f0"
+        }
+        ,
+        {
+            "type": "Ice", "color": "#98d8d8"
+        }
+        ]
+    }
+    ,
+    "88": {
+        "name":"Grimer",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Grimer",
+        "quick_move":"Acid",
+        "charge_move":"Sludge Bomb",
+        "description":"Dewgong loves to snooze on bitterly cold ice. The sight of this Pok\u00e9mon sleeping on a glacier was mistakenly thought to be a mermaid by a mariner long ago.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Poison", "color": "#a040a0"
+        }
+        ]
+    }
+    ,
+    "89": {
+        "name":"Muk",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Grimer",
+        "quick_move":"Poison Jab",
+        "charge_move":"Gunk Shot",
+        "description":"From Muk's body seeps a foul fluid that gives off a nose-bendingly horrible stench. Just one drop of this Pok\u00e9mon's body fluid can turn a pool stagnant and rancid.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Poison", "color": "#a040a0"
+        }
+        ]
+    }
+    ,
+    "90": {
+        "name":"Shellder",
+        
+        
+        "rarity":"Common",
+        "candy_name":"Shellder",
+        "quick_move":"Tackle",
+        "charge_move":"Water Pulse",
+        "description":"At night, this Pok\u00e9mon uses its broad tongue to burrow a hole in the seafloor sand and then sleep in it. While it is sleeping, Shellder closes its shell, but leaves its tongue hanging out.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Water", "color": "#6890f0"
+        }
+        ]
+    }
+    ,
+    "91": {
+        "name":"Cloyster",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Shellder",
+        "quick_move":"Frost Breath",
+        "charge_move":"Blizzard",
+        "description":"Cloyster is capable of swimming in the sea. It does so by swallowing water, then jetting it out toward the rear. This Pok\u00e9mon shoots spikes from its shell using the same system.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Water", "color": "#6890f0"
+        }
+        ,
+        {
+            "type": "Ice", "color": "#98d8d8"
+        }
+        ]
+    }
+    ,
+    "92": {
+        "name":"Gastly",
+        
+        
+        "rarity":"Very common",
+        "candy_name":"Gastly",
+        "quick_move":"Lick",
+        "charge_move":"Sludge Bomb",
+        "description":"Gastly is largely composed of gaseous matter. When exposed to a strong wind, the gaseous body quickly dwindles away. Groups of this Pok\u00e9mon cluster under the eaves of houses to escape the ravages of wind.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Ghost", "color": "#705898"
+        }
+        ,
+        {
+            "type": "Poison", "color": "#a040a0"
+        }
+        ]
+    }
+    ,
+    "93": {
+        "name":"Haunter",
+        
+        
+        "rarity":"Rare",
+        "candy_name":"Gastly",
+        "quick_move":"Shadow Claw",
+        "charge_move":"Sludge Bomb",
+        "description":"Haunter is a dangerous Pok\u00e9mon. If one beckons you while floating in darkness, you must never approach it. This Pok\u00e9mon will try to lick you with its tongue and steal your life away.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Ghost", "color": "#705898"
+        }
+        ,
+        {
+            "type": "Poison", "color": "#a040a0"
+        }
+        ]
+    }
+    ,
+    "94": {
+        "name":"Gengar",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Gastly",
+        "quick_move":"Shadow Claw",
+        "charge_move":"Sludge Bomb",
+        "description":"Sometimes, on a dark night, your shadow thrown by a streetlight will suddenly and startlingly overtake you. It is actually a Gengar running past you, pretending to be your shadow.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Ghost", "color": "#705898"
+        }
+        ,
+        {
+            "type": "Poison", "color": "#a040a0"
+        }
+        ]
+    }
+    ,
+    "95": {
+        "name":"Onix",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Onix",
+        "quick_move":"Rock Throw",
+        "charge_move":"Stone Edge",
+        "description":"Onix has a magnet in its brain. It acts as a compass so that this Pok\u00e9mon does not lose direction while it is tunneling. As it grows older, its body becomes increasingly rounder and smoother.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Rock", "color": "#b8a038"
+        }
+        ,
+        {
+            "type": "Ground", "color": "#e0c068"
+        }
+        ]
+    }
+    ,
+    "96": {
+        "name":"Drowzee",
+        
+        
+        "rarity":"Very common",
+        "candy_name":"Drowzee",
+        "quick_move":"Pound",
+        "charge_move":"Psychic",
+        "description":"If your nose becomes itchy while you are sleeping, it's a sure sign that one of these Pok\u00e9mon is standing above your pillow and trying to eat you dream through your nostrils.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Psychic", "color": "#f85888"
+        }
+        ]
+    }
+    ,
+    "97": {
+        "name":"Hypno",
+        
+        
+        "rarity":"Rare",
+        "candy_name":"Drowzee",
+        "quick_move":"Zen Headbutt",
+        "charge_move":"Psychic",
+        "description":"Hypno holds a pendulum in its hand. The arcing movement and glitter of the pendulum lull the foe into a deep state of hypnosis. While this Pok\u00e9mon searches for prey, it polishes the pendulum.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Psychic", "color": "#f85888"
+        }
+        ]
+    }
+    ,
+    "98": {
+        "name":"Krabby",
+        
+        
+        "rarity":"Very common",
+        "candy_name":"Krabby",
+        "quick_move":"Bubble",
+        "charge_move":"Water Pulse",
+        "description":"Krabby live on beaches, burrowed inside holes dug into the sand. On sandy beaches with little in the way of food, these Pok\u00e9mon can be seen squabbling with each other over territory.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Water", "color": "#6890f0"
+        }
+        ]
+    }
+    ,
+    "99": {
+        "name":"Kingler",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Krabby",
+        "quick_move":"Metal Claw",
+        "charge_move":"X Scissor",
+        "description":"Kingler has an enormous, oversized claw. It waves this huge claw in the air to communicate with others. However, because the claw is so heavy, the Pok\u00e9mon quickly tires.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Water", "color": "#6890f0"
+        }
+        ]
+    }
+    ,
+    "100": {
+        "name":"Voltorb",
+        
+        
+        "rarity":"Rare",
+        "candy_name":"Voltorb",
+        "quick_move":"Spark",
+        "charge_move":"Thunderbolt",
+        "description":"Voltorb was first sighted at a company that manufactures Pok\u00e9 Balls. The link between that sighting and the fact that this Pok\u00e9mon looks very similar to a Pok\u00e9 Ball remains a mystery.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Electric", "color": "#f8d030"
+        }
+        ]
+    }
+    ,
+    "101": {
+        "name":"Electrode",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Voltorb",
+        "quick_move":"Spark",
+        "charge_move":"Thunderbolt",
+        "description":"Electrode eats electricity in the atmosphere. On days when lightning strikes, you can see this Pok\u00e9mon exploding all over the place from eating too much electricity.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Electric", "color": "#f8d030"
+        }
+        ]
+    }
+    ,
+    "102": {
+        "name":"Exeggcute",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Exeggcute",
+        "quick_move":"Confusion",
+        "charge_move":"Psychic",
+        "description":"This Pok\u00e9mon consists of six eggs that form a closely knit cluster. The six eggs attract each other and spin around. When cracks increasingly appear on the eggs, Exeggcute is close to evolution.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Grass", "color": "#78c850"
+        }
+        ,
+        {
+            "type": "Psychic", "color": "#f85888"
+        }
+        ]
+    }
+    ,
+    "103": {
+        "name":"Exeggutor",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Exeggcute",
+        "quick_move":"Zen Headbutt",
+        "charge_move":"Solar Beam",
+        "description":"Exeggutor originally came from the tropics. Its heads steadily grow larger from exposure to strong sunlight. It is said that when the heads fall off, they group together to form Exeggcute.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Grass", "color": "#78c850"
+        }
+        ,
+        {
+            "type": "Psychic", "color": "#f85888"
+        }
+        ]
+    }
+    ,
+    "104": {
+        "name":"Cubone",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Cubone",
+        "quick_move":"Mud Slap",
+        "charge_move":"Bone Club",
+        "description":"Cubone pines for the mother it will never see again. Seeing a likeness of its mother in the full moon, it cries. The stains on the skull the Pok\u00e9mon wears are made by the tears it sheds.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Ground", "color": "#e0c068"
+        }
+        ]
+    }
+    ,
+    "105": {
+        "name":"Marowak",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Cubone",
+        "quick_move":"Mud Slap",
+        "charge_move":"Earthquake",
+        "description":"Marowak is the evolved form of a Cubone that has overcome its sadness at the loss of its mother and grown tough. This Pok\u00e9mon's tempered and hardened spirit is not easily broken.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Ground", "color": "#e0c068"
+        }
+        ]
+    }
+    ,
+    "106": {
+        "name":"Hitmonlee",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Hitmonlee",
+        "quick_move":"Low Kick",
+        "charge_move":"Stone Edge",
+        "description":"Hitmonlee's legs freely contract and stretch. Using these springlike legs, it bowls over foes with devastating kicks. After battle, it rubs down its legs and loosens the muscles to overcome fatigue.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Fighting", "color": "#c03028"
+        }
+        ]
+    }
+    ,
+    "107": {
+        "name":"Hitmonchan",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Hitmonchan",
+        "quick_move":"Rock Smash",
+        "charge_move":"Brick Break",
+        "description":"Hitmonchan is said to possess the spirit of a boxer who had been working toward a world championship. This Pok\u00e9mon has an indomitable spirit and will never give up in the face of adversity.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Fighting", "color": "#c03028"
+        }
+        ]
+    }
+    ,
+    "108": {
+        "name":"Lickitung",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Lickitung",
+        "quick_move":"Zen Headbutt",
+        "charge_move":"Hyper Beam",
+        "description":"Whenever Lickitung comes across something new, it will unfailingly give it a lick. It does so because it memorizes things by texture and by taste. It is somewhat put off by sour things.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Normal", "color": "#8a8a59"
+        }
+        ]
+    }
+    ,
+    "109": {
+        "name":"Koffing",
+        
+        
+        "rarity":"Rare",
+        "candy_name":"Koffing",
+        "quick_move":"Acid",
+        "charge_move":"Sludge Bomb",
+        "description":"If Koffing becomes agitated, it raises the toxicity of its internal gases and then jets them out from all over its body. This Pok\u00e9mon may also overinflate its round body, then explode.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Poison", "color": "#a040a0"
+        }
+        ]
+    }
+    ,
+    "110": {
+        "name":"Weezing",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Koffing",
+        "quick_move":"Acid",
+        "charge_move":"Sludge Bomb",
+        "description":"Weezing loves the gases given off by rotted kitchen garbage. This Pok\u00e9mon will find a dirty, unkempt house and make it its home. At night, when the people in the house are asleep, it will go through the trash.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Poison", "color": "#a040a0"
+        }
+        ]
+    }
+    ,
+    "111": {
+        "name":"Rhyhorn",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Rhyhorn",
+        "quick_move":"Mud Slap",
+        "charge_move":"Stomp",
+        "description":"Rhyhorn runs in a straight line, smashing everything in its path. It is not bothered even if it rushes headlong into a block of steel. This Pok\u00e9mon may feel some pain from the collision the next day, however.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Ground", "color": "#e0c068"
+        }
+        ,
+        {
+            "type": "Rock", "color": "#b8a038"
+        }
+        ]
+    }
+    ,
+    "112": {
+        "name":"Rhydon",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Rhyhorn",
+        "quick_move":"Mud Slap",
+        "charge_move":"Stone Edge",
+        "description":"Rhydon's horn can crush even uncut diamonds. One sweeping blow of its tail can topple a building. This Pok\u00e9mon's hide is extremely tough. Even direct cannon hits don't leave a scratch.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Ground", "color": "#e0c068"
+        }
+        ,
+        {
+            "type": "Rock", "color": "#b8a038"
+        }
+        ]
+    }
+    ,
+    "113": {
+        "name":"Chansey",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Chansey",
+        "quick_move":"Pound",
+        "charge_move":"Psychic",
+        "description":"Chansey lays nutritionally excellent eggs on an everyday basis. The eggs are so delicious, they are easily and eagerly devoured by even those people who have lost their appetite.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Normal", "color": "#8a8a59"
+        }
+        ]
+    }
+    ,
+    "114": {
+        "name":"Tangela",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Tangela",
+        "quick_move":"Vine Whip",
+        "charge_move":"Solar Beam",
+        "description":"Tangela's vines snap off easily if they are grabbed. This happens without pain, allowing it to make a quick getaway. The lost vines are replaced by newly grown vines the very next day.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Grass", "color": "#78c850"
+        }
+        ]
+    }
+    ,
+    "115": {
+        "name":"Kangaskhan",
+        
+        
+        "rarity":"Unseen",
+        "candy_name":"Kangaskhan",
+        "quick_move":"Mud Slap",
+        "charge_move":"Earthquake",
+        "description":"If you come across a young Kangaskhan playing by itself, you must never disturb it or attempt to catch it. The baby Pok\u00e9mon's parent is sure to be in the area, and it will become violently enraged at you.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Normal", "color": "#8a8a59"
+        }
+        ]
+    }
+    ,
+    "116": {
+        "name":"Horsea",
+        
+        
+        "rarity":"Common",
+        "candy_name":"Horsea",
+        "quick_move":"Water Gun",
+        "charge_move":"Dragon Pulse",
+        "description":"Horsea eats small insects and moss off of rocks. If the ocean current turns fast, this Pok\u00e9mon anchors itself by wrapping its tail around rocks or coral to prevent being washed away.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Water", "color": "#6890f0"
+        }
+        ]
+    }
+    ,
+    "117": {
+        "name":"Seadra",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Horsea",
+        "quick_move":"Water Gun",
+        "charge_move":"Hydro Pump",
+        "description":"Seadra sleeps after wriggling itself between the branches of coral. Those trying to harvest coral are occasionally stung by this Pok\u00e9mon's poison barbs if they fail to notice it.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Water", "color": "#6890f0"
+        }
+        ]
+    }
+    ,
+    "118": {
+        "name":"Goldeen",
+        
+        
+        "rarity":"Common",
+        "candy_name":"Goldeen",
+        "quick_move":"Mud Shot",
+        "charge_move":"Aqua Tail",
+        "description":"Goldeen is a very beautiful Pok\u00e9mon with fins that billow elegantly in water. However, don't let your guard down around this Pok\u00e9mon\u2014it could ram you powerfully with its horn.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Water", "color": "#6890f0"
+        }
+        ]
+    }
+    ,
+    "119": {
+        "name":"Seaking",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Goldeen",
+        "quick_move":"Poison Jab",
+        "charge_move":"Megahorn",
+        "description":"In the autumn, Seaking males can be seen performing courtship dances in riverbeds to woo females. During this season, this Pok\u00e9mon's body coloration is at its most beautiful.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Water", "color": "#6890f0"
+        }
+        ]
+    }
+    ,
+    "120": {
+        "name":"Staryu",
+        
+        
+        "rarity":"Common",
+        "candy_name":"Staryu",
+        "quick_move":"Water Gun",
+        "charge_move":"Power Gem",
+        "description":"Staryu's center section has an organ called the core that shines bright red. If you go to a beach toward the end of summer, the glowing cores of these Pok\u00e9mon look like the stars in the sky.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Water", "color": "#6890f0"
+        }
+        ]
+    }
+    ,
+    "121": {
+        "name":"Starmie",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Staryu",
+        "quick_move":"Water Gun",
+        "charge_move":"Hydro Pump",
+        "description":" Starmie's center section-the core-glows brightly in seven colors. Because of its luminous nature, this Pok\u00e9mon has been given the nickname 'the gem of the sea.'",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Water", "color": "#6890f0"
+        }
+        ,
+        {
+            "type": "Psychic", "color": "#f85888"
+        }
+        ]
+    }
+    ,
+    "122": {
+        "name":"Mr. Mime",
+        
+        
+        "rarity":"Common",
+        "candy_name":"Mr. Mime",
+        "quick_move":"Zen Headbutt",
+        "charge_move":"Psychic",
+        "description":"Mr. Mime is a master of pantomime. Its gestures and motions convince watchers that something unseeable actually exists. Once the watchers are convinced, the unseeable thing exists as if it were real.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Psychic", "color": "#f85888"
+        }
+        ,
+        {
+            "type": "Fairy", "color": "#e898e8"
+        }
+        ]
+    }
+    ,
+    "123": {
+        "name":"Scyther",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Scyther",
+        "quick_move":"Steel Wing",
+        "charge_move":"Bug Buzz",
+        "description":"Scyther is blindingly fast. Its blazing speed enhances the effectiveness of the twin scythes on its forearms. This Pok\u00e9mon's scythes are so effective, they can slice through thick logs in one wicked stroke.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Bug", "color": "#a8b820"
+        }
+        ,
+        {
+            "type": "Flying", "color": "#a890f0"
+        }
+        ]
+    }
+    ,
+    "124": {
+        "name":"Jynx",
+        
+        
+        "rarity":"Common",
+        "candy_name":"Jynx",
+        "quick_move":"Frost Breath",
+        "charge_move":"Psyshock",
+        "description":"Jynx walks rhythmically, swaying and shaking its hips as if it were dancing. Its motions are so bouncingly alluring, people seeing it are compelled to shake their hips without giving any thought to what they are doing.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Ice", "color": "#98d8d8"
+        }
+        ,
+        {
+            "type": "Psychic", "color": "#f85888"
+        }
+        ]
+    }
+    ,
+    "125": {
+        "name":"Electabuzz",
+        
+        
+        "rarity":"Rare",
+        "candy_name":"Electabuzz",
+        "quick_move":"Thunder Shock",
+        "charge_move":"Thunder",
+        "description":"When a storm arrives, gangs of this Pok\u00e9mon compete with each other to scale heights that are likely to be stricken by lightning bolts. Some towns use Electabuzz in place of lightning rods.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Electric", "color": "#f8d030"
+        }
+        ]
+    }
+    ,
+    "126": {
+        "name":"Magmar",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Magmar",
+        "quick_move":"Ember",
+        "charge_move":"Fire Blast",
+        "description":"In battle, Magmar blows out intensely hot flames from all over its body to intimidate its opponent. This Pok\u00e9mon's fiery bursts create heat waves that ignite grass and trees in its surroundings.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Fire", "color": "#f08030"
+        }
+        ]
+    }
+    ,
+    "127": {
+        "name":"Pinsir",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Pinsir",
+        "quick_move":"Rock Smash",
+        "charge_move":"X Scissor",
+        "description":"Pinsir is astoundingly strong. It can grip a foe weighing twice its weight in its horns and easily lift it. This Pok\u00e9mon's movements turn sluggish in cold places.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Bug", "color": "#a8b820"
+        }
+        ]
+    }
+    ,
+    "128": {
+        "name":"Tauros",
+        
+        
+        "rarity":"Unseen",
+        "candy_name":"Tauros",
+        "quick_move":"Tackle",
+        "charge_move":"Earthquake",
+        "description":"This Pok\u00e9mon is not satisfied unless it is rampaging at all times. If there is no opponent for Tauros to battle, it will charge at thick trees and knock them down to calm itself.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Normal", "color": "#8a8a59"
+        }
+        ]
+    }
+    ,
+    "129": {
+        "name":"Magikarp",
+        
+        
+        "rarity":"Common",
+        "candy_name":"Magikarp",
+        "quick_move":"Splash",
+        "charge_move":"Struggle",
+        "description":"Magikarp is a pathetic excuse for a Pok\u00e9mon that is only capable of flopping and splashing. This behavior prompted scientists to undertake research into it.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Water", "color": "#6890f0"
+        }
+        ]
+    }
+    ,
+    "130": {
+        "name":"Gyarados",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Magikarp",
+        "quick_move":"Dragon Breath \/ Bite",
+        "charge_move":"Hydro Pump",
+        "description":"When Magikarp evolves into Gyarados, its brain cells undergo a structural transformation. It is said that this transformation is to blame for this Pok\u00e9mon's wildly violent nature.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Water", "color": "#6890f0"
+        }
+        ,
+        {
+            "type": "Flying", "color": "#a890f0"
+        }
+        ]
+    }
+    ,
+    "131": {
+        "name":"Lapras",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Lapras",
+        "quick_move":"Frost Breath",
+        "charge_move":"Blizzard",
+        "description":"People have driven Lapras almost to the point of extinction. In the evenings, this Pok\u00e9mon is said to sing plaintively as it seeks what few others of its kind still remain.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Water", "color": "#6890f0"
+        }
+        ,
+        {
+            "type": "Ice", "color": "#98d8d8"
+        }
+        ]
+    }
+    ,
+    "132": {
+        "name":"Ditto",
+        
+        
+        "rarity":"Unseen",
+        "candy_name":"Ditto",
+        "quick_move":"Pound",
+        "charge_move":"Struggle",
+        "description":"Ditto rearranges its cell structure to transform itself into other shapes. However, if it tries to transform itself into something by relying on its memory, this Pok\u00e9mon manages to get details wrong.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Normal", "color": "#8a8a59"
+        }
+        ]
+    }
+    ,
+    "133": {
+        "name":"Eevee",
+        
+        
+        "rarity":"Very common",
+        "candy_name":"Eevee",
+        "quick_move":"Tackle",
+        "charge_move":"Body Slam",
+        "description":"Eevee has an unstable genetic makeup that suddenly mutates due to the environment in which it lives. Radiation from various stones causes this Pok\u00e9mon to evolve.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Normal", "color": "#8a8a59"
+        }
+        ]
+    }
+    ,
+    "134": {
+        "name":"Vaporeon",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Eevee",
+        "quick_move":"Water Gun",
+        "charge_move":"Hydro Pump",
+        "description":"Vaporeon underwent a spontaneous mutation and grew fins and gills that allow it to live underwater. This Pok\u00e9mon has the ability to freely control water.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Water", "color": "#6890f0"
+        }
+        ]
+    }
+    ,
+    "135": {
+        "name":"Jolteon",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Eevee",
+        "quick_move":"Thunder Shock",
+        "charge_move":"Thunder",
+        "description":"Jolteon's cells generate a low level of electricity. This power is amplified by the static electricity of its fur, enabling the Pok\u00e9mon to drop thunderbolts. The bristling fur is made of electrically charged needles.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Electric", "color": "#f8d030"
+        }
+        ]
+    }
+    ,
+    "136": {
+        "name":"Flareon",
+        
+        
+        "rarity":"Unseen",
+        "candy_name":"Eevee",
+        "quick_move":"Ember",
+        "charge_move":"Fire Blast",
+        "description":"Flareon's fluffy fur has a functional purpose-it releases heat into the air so that its body does not get excessively hot. This Pok\u00e9mon's body temperature can rise to a maximum of 1,650 degrees Fahrenheit.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Fire", "color": "#f08030"
+        }
+        ]
+    }
+    ,
+    "137": {
+        "name":"Porygon",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Porygon",
+        "quick_move":"Tackle",
+        "charge_move":"Discharge",
+        "description":"Porygon is capable of reverting itself entirely back to program data and entering cyberspace. This Pok\u00e9mon is copy-protected so it cannot be duplicated by copying.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Normal", "color": "#8a8a59"
+        }
+        ]
+    }
+    ,
+    "138": {
+        "name":"Omanyte",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Omanyte",
+        "quick_move":"Water Gun",
+        "charge_move":"Ancient Power",
+        "description":"Omanyte is one of the ancient and long-since-extinct Pok\u00e9mon that have been regenerated from fossils by people. If attacked by an enemy, it withdraws itself inside its hard shell.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Rock", "color": "#b8a038"
+        }
+        ,
+        {
+            "type": "Water", "color": "#6890f0"
+        }
+        ]
+    }
+    ,
+    "139": {
+        "name":"Omastar",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Omanyte",
+        "quick_move":"Water Gun",
+        "charge_move":"Hydro Pump",
+        "description":"Omastar uses its tentacles to capture its prey. It is believed to have become extinct because its shell grew too large and heavy, causing its movements to become too slow and ponderous.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Rock", "color": "#b8a038"
+        }
+        ,
+        {
+            "type": "Water", "color": "#6890f0"
+        }
+        ]
+    }
+    ,
+    "140": {
+        "name":"Kabuto",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Kabuto",
+        "quick_move":"Scratch",
+        "charge_move":"Aqua Jet",
+        "description":"Kabuto is a Pok\u00e9mon that has been regenerated from a fossil. However, in extremely rare cases, living examples have been discovered. The Pok\u00e9mon has not changed at all for 300 million years.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Rock", "color": "#b8a038"
+        }
+        ,
+        {
+            "type": "Water", "color": "#6890f0"
+        }
+        ]
+    }
+    ,
+    "141": {
+        "name":"Kabutops",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Kabuto",
+        "quick_move":"Mud Shot",
+        "charge_move":"Stone Edge",
+        "description":"Kabutops swam underwater to hunt for its prey in ancient times. The Pok\u00e9mon was apparently evolving from being a water-dweller to living on land as evident from the beginnings of change in its gills and legs.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Rock", "color": "#b8a038"
+        }
+        ,
+        {
+            "type": "Water", "color": "#6890f0"
+        }
+        ]
+    }
+    ,
+    "142": {
+        "name":"Aerodactyl",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Aerodactyl",
+        "quick_move":"Bite",
+        "charge_move":"Hyper Beam",
+        "description":"Aerodactyl is a Pok\u00e9mon from the age of dinosaurs. It was regenerated from genetic material extracted from amber. It is imagined to have been the king of the skies in ancient times.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Rock", "color": "#b8a038"
+        }
+        ,
+        {
+            "type": "Flying", "color": "#a890f0"
+        }
+        ]
+    }
+    ,
+    "143": {
+        "name":"Snorlax",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Snorlax",
+        "quick_move":"Zen Headbutt",
+        "charge_move":"Body Slam",
+        "description":"Snorlax's typical day consists of nothing more than eating and sleeping. It is such a docile Pok\u00e9mon that there are children who use its expansive belly as a place to play.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Normal", "color": "#8a8a59"
+        }
+        ]
+    }
+    ,
+    "144": {
+        "name":"Articuno",
+        
+        
+        "rarity":"Unseen",
+        "candy_name":"Articuno",
+        "quick_move":"?",
+        "charge_move":"?",
+        "description":"Articuno is a legendary bird Pok\u00e9mon that can control ice. The flapping of its wings chills the air. As a result, it is said that when this Pok\u00e9mon flies, snow will fall.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Ice", "color": "#98d8d8"
+        }
+        ,
+        {
+            "type": "Flying", "color": "#a890f0"
+        }
+        ]
+    }
+    ,
+    "145": {
+        "name":"Zapdos",
+        
+        
+        "rarity":"Unseen",
+        "candy_name":"Zapdos",
+        "quick_move":"?",
+        "charge_move":"?",
+        "description":"Zapdos is a legendary bird Pok\u00e9mon that has the ability to control electricity. It usually lives in thunderclouds. The Pok\u00e9mon gains power if it is stricken by lightning bolts.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Electric", "color": "#f8d030"
+        }
+        ,
+        {
+            "type": "Flying", "color": "#a890f0"
+        }
+        ]
+    }
+    ,
+    "146": {
+        "name":"Moltres",
+        
+        
+        "rarity":"Unseen",
+        "candy_name":"Moltres",
+        "quick_move":"?",
+        "charge_move":"?",
+        "description":"Moltres is a legendary bird Pok\u00e9mon that has the ability to control fire. If this Pok\u00e9mon is injured, it is said to dip its body in the molten magma of a volcano to burn and heal itself.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Fire", "color": "#f08030"
+        }
+        ,
+        {
+            "type": "Flying", "color": "#a890f0"
+        }
+        ]
+    }
+    ,
+    "147": {
+        "name":"Dratini",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Dratini",
+        "quick_move":"Dragon Breath",
+        "charge_move":"Aqua Tail",
+        "description":"Dratini continually molts and sloughs off its old skin. It does so because the life energy within its body steadily builds to reach uncontrollable levels.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Dragon", "color": "#7038f8"
+        }
+        ]
+    }
+    ,
+    "148": {
+        "name":"Dragonair",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Dratini",
+        "quick_move":"Dragon Breath",
+        "charge_move":"Dragon Pulse",
+        "description":"Dragonair stores an enormous amount of energy inside its body. It is said to alter weather conditions in its vicinity by discharging energy from its crystals on its neck and tail.",
+        
+        
+        
+        
+        
+        "types":[ {
+            "type": "Dragon", "color": "#7038f8"
+        }
+        ]
+    }
+    ,
+    "149": {
+        "name":"Dragonite",
+        
+        
+        "rarity":"Mythic",
+        "candy_name":"Dratini",
+        "quick_move":"Dragon Breath",
+        "charge_move":"Dragon Claw",
+        "description":"Dragonite is capable of circling the globe in just 16 hours. It is a kindhearted Pok\u00e9mon that leads lost and foundering ships in a storm to the safety of land.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Dragon", "color": "#7038f8"
+        }
+        ,
+        {
+            "type": "Flying", "color": "#a890f0"
+        }
+        ]
+    }
+    ,
+    "150": {
+        "name":"Mewtwo",
+        
+        
+        "rarity":"Unseen",
+        "candy_name":"Mewtwo",
+        "quick_move":"?",
+        "charge_move":"?",
+        "description":"Mewtwo is a Pok\u00e9mon that was created by genetic manipulation. However, even though the scientific power of humans created this Pok\u00e9mon's body, they failed to endow Mewtwo with a compassionate heart.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Psychic", "color": "#f85888"
+        }
+        ]
+    }
+    ,
+    "151": {
+        "name":"Mew",
+        
+        
+        "rarity":"Unseen",
+        "candy_name":"Mew",
+        "quick_move":"?",
+        "charge_move":"?",
+        "description":"Mew is said to possess the genetic composition of all Pok\u00e9mon. It is capable of making itself invisible at will, so it entirely avoids notice even if it approaches people.",
+        
+        
+        
+        
+        "types":[ {
+            "type": "Psychic", "color": "#f85888"
+        }
+        ]
+    }
+}

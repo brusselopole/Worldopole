@@ -106,7 +106,7 @@ $data = '['.$data.']';
 
 # Polar Graph datas
 
-$pokemon_file		= file_get_contents(SYS_PATH.'/core/json/pokelist_EN.json'); 
+$pokemon_file	= file_get_contents(SYS_PATH.'/core/json/pokedex.json'); 
 $pokemons		= json_decode($pokemon_file);
 
 $atk			= $pokemons->$pokemon_id->atk;	

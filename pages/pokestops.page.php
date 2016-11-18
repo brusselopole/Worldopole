@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-md-12 text-center">
 			<h1>
-				<?= sprintf($locales->POKESTOPS_TITLE->$lang, $config->infos->city); ?>
+				<?= sprintf($locales->POKESTOPS_TITLE, $config->infos->city); ?>
 			</h1>
 			
 		</div>
@@ -14,12 +14,12 @@
 
 	<div class="col-md-6 col-sm-6 col-xs-12 big-data" style="border-right:1px lightgray solid;"> <!-- POKESTOPS -->
 		<img src="core/img/pokestop.png" alt="Pokestop" width=50 class="big-icon">
-		<p><big><strong><?= $pokestop->total ?></strong> Pokestops</big><br> <?= sprintf($locales->INCITY->$lang, $config->infos->city); ?></p>
+		<p><big><strong><?= $pokestop->total ?></strong> Pokestops</big><br> <?= sprintf($locales->INCITY, $config->infos->city); ?></p>
 	</div>
 
 	<div class="col-md-6 col-sm-6 col-xs-12 big-data"> <!-- LURED STOPS -->
 		<img src="core/img/lure-module.png" alt="Lured Pokestop" width=50 class="big-icon">
-		<p><big><strong><?= $pokestop->lured ?></strong> <?= $locales->LURES->$lang ?></big><br> <?= $locales->POKESTOPS_LURES->$lang ?></p>
+		<p><big><strong><?= $pokestop->lured ?></strong> <?= $locales->LURES ?></big><br> <?= $locales->POKESTOPS_LURES ?></p>
 	</div>
 </div>
 

@@ -5,8 +5,8 @@
 	<div class="row">
 		<div class="col-md-12">
 			<ol class="breadcrumb">
-				<li><a href="<?= HOST_URL ?>"><?= $locales->HOME->$lang ?></a></li>
-				<li><a href="pokemon"><?= $locales->NAV_POKEDEX->$lang ?></a></li>
+				<li><a href="<?= HOST_URL ?>"><?= $locales->HOME ?></a></li>
+				<li><a href="pokemon"><?= $locales->NAV_POKEDEX ?></a></li>
 				<li class="active"><?= $pokemon->name ?></li>
 			</ol>
 		</div>
@@ -31,9 +31,9 @@
 			<small>[<?= $pokemon->rarity ?>]</small></h1>
 
 			<p id="share">
-				<a href="https://www.facebook.com/sharer/sharer.php?u=<?= HOST_URL ?>pokemon/<?= $pokemon->id ?>" target="_blank" class="btn btn-primary" title="Share on Facebook"><?= $locales->SHARE->$lang ?> <i class="fa fa-facebook" aria-hidden="true"></i></a> 
+				<a href="https://www.facebook.com/sharer/sharer.php?u=<?= HOST_URL ?>pokemon/<?= $pokemon->id ?>" target="_blank" class="btn btn-primary" title="Share on Facebook"><?= $locales->SHARE ?> <i class="fa fa-facebook" aria-hidden="true"></i></a> 
 				
-				<a href="https://twitter.com/intent/tweet?source=<?= HOST_URL ?>pokemon/<?= $pokemon_id ?>&text=Find <?= $pokemon->name ?> in <?= $config->infos->city ?> <?= HOST_URL ?>pokemon/<?= $pokemon->id ?>" target="_blank" title="Share on Twitter" class="btn btn-info"><?= $locales->SHARE->$lang ?> <i class="fa fa-twitter" aria-hidden="true"></i></a>
+				<a href="https://twitter.com/intent/tweet?source=<?= HOST_URL ?>pokemon/<?= $pokemon_id ?>&text=Find <?= $pokemon->name ?> in <?= $config->infos->city ?> <?= HOST_URL ?>pokemon/<?= $pokemon->id ?>" target="_blank" title="Share on Twitter" class="btn btn-info"><?= $locales->SHARE ?> <i class="fa fa-twitter" aria-hidden="true"></i></a>
 			</p>
 			
 		</div>
@@ -93,29 +93,29 @@
 		
 		<table class="table">
 			<tr>
-				<td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_SEEN->$lang ?></strong></td>
+				<td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_SEEN ?></strong></td>
 				<td class="col-md-4 col-xs-4">
 				
 				<?php if(isset($pokemon->last_position)){ ?>
 				
-					<a href="http://maps.google.com/maps?z=11&t=m&q=loc:<?= $pokemon->last_position->latitude ?>+<?= $pokemon->last_position->longitude ?>" target="_blank"><?= time_ago($pokemon->last_seen,0,$lang) ?></a>
+					<a href="http://maps.google.com/maps?z=11&t=m&q=loc:<?= $pokemon->last_position->latitude ?>+<?= $pokemon->last_position->longitude ?>" target="_blank"><?= time_ago($pokemon->last_seen,0,$locales) ?></a>
 				
 				<?php }else{
-					echo $locales->NEVER->$lang;
+					echo $locales->NEVER;
 				}?>
 				
 				</td>
 			</tr>
 			<tr>
-				<td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_AMOUNT->$lang ?> :</strong></td>
-				<td class="col-md-4 col-xs-4"><?= $pokemon->total_spawn ?> <?= $locales->SEEN->$lang ?></td>
+				<td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_AMOUNT ?> :</strong></td>
+				<td class="col-md-4 col-xs-4"><?= $pokemon->total_spawn ?> <?= $locales->SEEN ?></td>
 			</tr>
 			<tr>
-				<td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_RATE->$lang ?> :</strong></td>
-				<td class="col-md-4 col-xs-4"><?= $pokemon->spawn_rate ?> / <?= $locales->DAY->$lang ?></td>
+				<td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_RATE ?> :</strong></td>
+				<td class="col-md-4 col-xs-4"><?= $pokemon->spawn_rate ?> / <?= $locales->DAY ?></td>
 			</tr>
 			<tr>
-				<td class="col-md-8 col-xs-8"><?php if(isset($pokemon->protected_gyms)) { echo "<strong>" . $locales->POKEMON_GYM->$lang . $pokemon->name . "</strong> :";} ?></td>
+				<td class="col-md-8 col-xs-8"><?php if(isset($pokemon->protected_gyms)) { echo "<strong>" . $locales->POKEMON_GYM . $pokemon->name . "</strong> :";} ?></td>
 				<td class="col-md-4 col-xs-4"><?php if(isset($pokemon->protected_gyms)) { echo $pokemon->protected_gyms ;}?></td>
 			</tr>
 		</table>
@@ -124,15 +124,15 @@
 		<div class="col-md-6" style="padding-top:10px;">
 		<table class="table">
 			<tr>
-				<td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_EVOLUTION->$lang ?> :</strong></td>
-				<td class="col-md-4 col-xs-4"><?php if(isset($pokemon->candies)) { echo $pokemon->candies . " ". $pokemon->candy_name . " " . $locales->POKEMON_CANDIES->$lang ;} else { echo $locales->POKEMON_FINAL->$lang; } ?></td>
+				<td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_EVOLUTION ?> :</strong></td>
+				<td class="col-md-4 col-xs-4"><?php if(isset($pokemon->candies)) { echo $pokemon->candies . " ". $pokemon->candy_name . " " . $locales->POKEMON_CANDIES ;} else { echo $locales->POKEMON_FINAL; } ?></td>
 			</tr>
 			<tr>
-				<td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_QUICK->$lang ?> :</strong></td>
+				<td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_QUICK ?> :</strong></td>
 				<td class="col-md-4 col-xs-4"><?= $pokemon->quick_move ?></td>
 			</tr>
 			<tr>
-				<td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_SPECIAL->$lang ?> :</strong> </td>
+				<td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_SPECIAL ?> :</strong> </td>
 				<td class="col-md-4 col-xs-4"><?= $pokemon->charge_move ?></p></td>
 			</tr>
 	
@@ -145,9 +145,9 @@
 
 <div class="row text-center" id="subnav">
 	<div class="btn-group" role="group">
-		<a class="btn btn-default" href="<?= $_SERVER['REQUEST_URI'] ?>#where" class="page-scroll"><i class="fa fa-map-marker"></i> <?= $locales->POKEMON_MAP->$lang ?></a>
-		<a class="btn btn-default" href="<?= $_SERVER['REQUEST_URI'] ?>#stats" class="page-scroll"><i class="fa fa-pie-chart"></i> <?= $locales->POKEMON_STATS->$lang ?></a>
-		<a class="btn btn-default" href="<?= $_SERVER['REQUEST_URI'] ?>#family" class="page-scroll"><i class="fa fa-share-alt"></i> <?= $locales->POKEMON_FAMILY->$lang ?></a>
+		<a class="btn btn-default" href="<?= $_SERVER['REQUEST_URI'] ?>#where" class="page-scroll"><i class="fa fa-map-marker"></i> <?= $locales->POKEMON_MAP ?></a>
+		<a class="btn btn-default" href="<?= $_SERVER['REQUEST_URI'] ?>#stats" class="page-scroll"><i class="fa fa-pie-chart"></i> <?= $locales->POKEMON_STATS ?></a>
+		<a class="btn btn-default" href="<?= $_SERVER['REQUEST_URI'] ?>#family" class="page-scroll"><i class="fa fa-share-alt"></i> <?= $locales->POKEMON_FAMILY ?></a>
 	</div>
 </div>
 
@@ -158,7 +158,7 @@
 	
 	<div class="col-md-12">
 		
-		<h2 class="text-center sub-title"><?= $locales->POKEMON_WHERE->$lang ?> <?= $pokemon->name ?>?</h2>
+		<h2 class="text-center sub-title"><?= $locales->POKEMON_WHERE ?> <?= $pokemon->name ?>?</h2>
 			
 	</div>
 	
@@ -175,13 +175,13 @@
 
 <div class="row area" id="stats">
 	
-	<h2 class="text-center sub-title"><strong><?= $pokemon->name ?></strong> <?= $locales->POKEMON_BREAKDOWN->$lang ?></h2>
+	<h2 class="text-center sub-title"><strong><?= $pokemon->name ?></strong> <?= $locales->POKEMON_BREAKDOWN ?></h2>
 	
 	
 	<!-- CP Datas -->
 	<div class="col-md-3 stats-data">
 		
-		<p><big><?= $pokemon->max_cp ?></big><br/><?= $locales->POKEMON_CP->$lang ?></p>
+		<p><big><?= $pokemon->max_cp ?></big><br/><?= $locales->POKEMON_CP ?></p>
 
 		<div class="progress" style="margin-bottom:0;">
 			<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="<?= $pokemon->max_cp_percent ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?= $pokemon->max_cp_percent ?>%;min-width:30%;">
@@ -189,7 +189,7 @@
 			</div>
 		</div>
 		
-		<?= $locales->POKEMON_COMPGAME->$lang ?>
+		<?= $locales->POKEMON_COMPGAME ?>
 
 	</div>
 	
@@ -204,7 +204,7 @@
 	<!-- PV Datas --> 
 	<div class="col-md-3 stats-data">
 		
-		<p><big><?= $pokemon->max_pv ?></big><br/><?= $locales->POKEMON_HP->$lang ?></p>
+		<p><big><?= $pokemon->max_pv ?></big><br/><?= $locales->POKEMON_HP ?></p>
 
 		<div class="progress" style="margin-bottom:0;">
 			<div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="<?= $pokemon->max_pv_percent ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?= $pokemon->max_pv_percent ?>%;min-width:30%;">
@@ -212,7 +212,7 @@
 			</div>
 		</div>
 		
-		<?= $locales->POKEMON_COMPGAME->$lang ?>
+		<?= $locales->POKEMON_COMPGAME ?>
 		
 	</div>
 	
@@ -227,7 +227,7 @@
 
 	<div class="col-md-12">
 		
-		<h2 class="text-center sub-title"><strong><?= $pokemon->name ?></strong><?= $locales->POKEMON_FAMILYTITLE->$lang ?></h2>
+		<h2 class="text-center sub-title"><strong><?= $pokemon->name ?></strong><?= $locales->POKEMON_FAMILYTITLE ?></h2>
 		
 		<div class="row">
 		
