@@ -8,7 +8,7 @@
 // Return time ago at human format (eg: 2 hours ago) 
 ########################################################################
 
-function time_ago( $timestamp, $now = 0 ) {
+function time_ago( $timestamp, $now = 0, $locales ) {
 	
 	// Set up our variables.
 	$minute_in_seconds = 60;
