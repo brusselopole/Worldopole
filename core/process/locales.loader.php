@@ -21,12 +21,12 @@ $lang = strtoupper($browser_lang);
 // Check if language is available
 if(isset($lang)){
 	
-	$locale_dir = SYS_PATH.'/core/json/'.$lang;
+	$locale_dir = SYS_PATH.'/core/json/locales/'.$lang;
 	
 	if(is_dir($locale_dir)){
 		
-		$pokemon_file 		= file_get_contents(SYS_PATH.'/core/json/locales/'.$lang.'/pokes.json'); 
-		$translation_file 	= file_get_contents(SYS_PATH.'/core/json/locales/'.$lang.'/translations.json'); 
+		$pokemon_file 		= file_get_contents($locale_dir.'/pokes.json');
+		$translation_file 	= file_get_contents($locale_dir.'/translations.json');
 		 
 
 	}
