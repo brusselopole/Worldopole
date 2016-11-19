@@ -8,6 +8,11 @@ $config_file	= $filePath.'/../../config.php';
 
 include_once($config_file); 
 
+// Manage Time Interval
+// #####################
+
+include_once('timezone.loader.php');
+
 
 # MySQL 
 $mysqli		= new mysqli(SYS_DB_HOST, SYS_DB_USER, SYS_DB_PSWD, SYS_DB_NAME, SYS_DB_PORT);

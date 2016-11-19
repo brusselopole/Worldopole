@@ -16,13 +16,13 @@ $pokemons			= json_decode($pokemon_list_file);
 $pokemon_stats['timestamp'] = $timestamp; 
 
 
-$req 		= "SELECT COUNT(*) as total FROM pokemon WHERE disappear_time > (NOW() - INTERVAL 2 HOUR);";	
+$req 		= "SELECT COUNT(*) as total FROM pokemon WHERE disappear_time > (NOW() ".$time->symbol_reverse." INTERVAL ".$time->delay." HOUR)";
 $result 	= $mysqli->query($req);
 $data 		= $result->fetch_object();
 
 $pokemon_stats['pokemon_now'] 	= $data->total;
 
-$req 		= "SELECT pokemon_id FROM pokemon WHERE disappear_time > (NOW() - INTERVAL 2 HOUR);";
+$req 		= "SELECT pokemon_id FROM pokemon WHERE disappear_time > (NOW() ".$time->symbol_reverse." INTERVAL ".$time->delay." HOUR)";
 $result 	= $mysqli->query($req);
 
 while($data = $result->fetch_object()){
