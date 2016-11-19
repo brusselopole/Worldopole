@@ -28,17 +28,7 @@ $config 	= json_decode(file_get_contents($variables));
 // Manage Time Interval
 // #####################
 
-$time			= new stdClass();
-$time->symbol 	= substr($config->system->time_interval, 0,1);
-$time_delay 	= str_replace($time->symbol, '', $config->system->time_interval); 
-$time->delay 	= $time_delay;
-
-
-if($time->symbol == '+'){
-	$time->symbol_reverse = '-';
-}else{
-	$time->symbol_reverse = '+';
-}
+include_once('timezone.loader.php');
 
 
 # MySQL 

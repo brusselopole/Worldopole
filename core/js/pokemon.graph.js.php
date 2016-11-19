@@ -15,28 +15,10 @@ header('Content-type: text/javascript');
 include_once('../../config.php');
 
 
-// Include & load the variables 
-// ############################
-
-$variables	= realpath(dirname(__FILE__)).'/../json/variables.json';
-$config		= json_decode(file_get_contents($variables)); 
-
-
-
 // Manage Time Interval
 // #####################
 
-$time		= new stdClass();
-$time->symbol	= substr($config->system->time_interval, 0,1);
-$time->delay	= substr($config->system->time_interval, 1,1);
-
-if($time->symbol == '+'){
-	$time->symbol_reverse = '-';
-}else{
-	$time->symbol_reverse = '+';
-}
-
-
+include_once('timezone.loader.php');
 
 
 # Connect MySQL 
