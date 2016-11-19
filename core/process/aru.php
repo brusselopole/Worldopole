@@ -31,6 +31,12 @@ $config 	= json_decode(file_get_contents($variables));
 include_once('timezone.loader.php');
 
 
+// Load the locale elements
+############################
+
+include_once('locales.loader.php');
+
+
 # MySQL 
 $mysqli 	= new mysqli(SYS_DB_HOST, SYS_DB_USER, SYS_DB_PSWD, SYS_DB_NAME, SYS_DB_PORT);
 if($mysqli->connect_error != ''){exit('Error MySQL Connect');}
@@ -135,11 +141,6 @@ switch($request){
 		// Recent spawn
 		// ------------
 		
-		// Update neeeded, pass the lang as param in AJAX request
-		$pokelist_file  = SYS_PATH.'/core/json/locales/EN/pokes.json';
-		$pokemon_file   = file_get_contents($pokelist_file);
-		$pokemons       = json_decode($pokemon_file);
-			
 		if ($config->system->mythic_recents) {
 			// get all mythic pokemon ids
 			$mythic_pokemons = array();
