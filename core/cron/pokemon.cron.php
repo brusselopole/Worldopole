@@ -9,20 +9,20 @@
 // We're using the EN version as far as we know, it's the only valable version of Pokelist for now. 
 // This file is used to rank by rarety 
 
-$pokemon_list_file 	= file_get_contents(SYS_PATH.'/core/json/pokelist_EN.json'); 
+$pokemon_list_file 	= file_get_contents(SYS_PATH.'/core/json/locales/EN/pokes.json');
 $pokemons			= json_decode($pokemon_list_file);
 
 
 $pokemon_stats['timestamp'] = $timestamp; 
 
 
-$req 		= "SELECT COUNT(*) as total FROM pokemon WHERE disappear_time > (NOW() - INTERVAL 2 HOUR);";	
+$req 		= "SELECT COUNT(*) as total FROM pokemon WHERE disappear_time > (NOW() ".$time->symbol_reverse." INTERVAL ".$time->delay." HOUR)";
 $result 	= $mysqli->query($req);
 $data 		= $result->fetch_object();
 
 $pokemon_stats['pokemon_now'] 	= $data->total;
 
-$req 		= "SELECT pokemon_id FROM pokemon WHERE disappear_time > (NOW() - INTERVAL 2 HOUR);";
+$req 		= "SELECT pokemon_id FROM pokemon WHERE disappear_time > (NOW() ".$time->symbol_reverse." INTERVAL ".$time->delay." HOUR)";
 $result 	= $mysqli->query($req);
 
 while($data = $result->fetch_object()){
