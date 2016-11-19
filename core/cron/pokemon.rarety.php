@@ -82,6 +82,6 @@ foreach($pokemons as $pokemon_id => $pokemon_data){
 
 $file_content = json_encode($pokemons); 
 
-file_put_contents($pokedex, $file_content);
+file_put_contents($pokedex_file, $file_content);
 	
 ?>
