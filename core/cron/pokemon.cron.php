@@ -9,7 +9,7 @@
 // We're using the EN version as far as we know, it's the only valable version of Pokelist for now. 
 // This file is used to rank by rarety 
 
-$pokemon_list_file 	= file_get_contents(SYS_PATH.'/core/json/pokelist_EN.json'); 
+$pokemon_list_file 	= file_get_contents(SYS_PATH.'/core/json/locales/EN/pokes.json');
 $pokemons			= json_decode($pokemon_list_file);
 
 
