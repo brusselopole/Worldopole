@@ -28,17 +28,13 @@ $config 	= json_decode(file_get_contents($variables));
 // Manage Time Interval
 // #####################
 
-$time			= new stdClass();
-$time->symbol 	= substr($config->system->time_interval, 0,1);
-$time_delay 	= str_replace($time->symbol, '', $config->system->time_interval); 
-$time->delay 	= $time_delay;
+include_once('timezone.loader.php');
 
 
-if($time->symbol == '+'){
-	$time->symbol_reverse = '-';
-}else{
-	$time->symbol_reverse = '+';
-}
+// Load the locale elements
+############################
+
+include_once('locales.loader.php');
 
 
 # MySQL 
@@ -145,11 +141,6 @@ switch($request){
 		// Recent spawn
 		// ------------
 		
-		// Update neeeded, pass the lang as param in AJAX request
-		$pokelist_file  = SYS_PATH.'/core/json/locales/EN/pokes.json';
-		$pokemon_file   = file_get_contents($pokelist_file);
-		$pokemons       = json_decode($pokemon_file);
-			
 		if ($config->system->mythic_recents) {
 			// get all mythic pokemon ids
 			$mythic_pokemons = array();

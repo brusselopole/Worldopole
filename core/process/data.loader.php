@@ -12,43 +12,11 @@ if(!isset($config->system)){
 }
 
 
-// Set default timezone
-// #####################
-date_default_timezone_set($config->system->timezone);
-
-
 // Manage Time Interval
 // #####################
 
-if(isset($config->system->time_inverval)){
-	
-	echo "Your variables.json is outdated. <br> Please fix the time_inverval typo in file or run the interactive install.";
-	exit(); 
-	
-}
+include_once('timezone.loader.php');
 
-$time_interval = strlen($config->system->time_interval); 
-
-if($time_interval > 3){
-	echo 'Bad formated time_interval in variables.json. Please use +X or -X format only (eg for Brussels : +2) without leading or ending space.';
-	exit(); 
-}
-
-
-$time			= new stdClass();
-$time->symbol 	= substr($config->system->time_interval, 0,1);
-$time_delay 	= str_replace($time->symbol, '', $config->system->time_interval); 
-$time->delay 	= $time_delay;
-
-if($time->symbol == '+'){
-	$time->symbol_reverse = '-';
-}elseif($time->symbol == '-'){
-	$time->symbol_reverse = '+';
-}else{
-	
-	echo 'Bad formated time_interval in variables.json. Please use +X or -X format only (eg for Brussels : +2) without leading or ending space.';
-	exit(); 
-}
 
 	
 // Debug mode

@@ -15,7 +15,7 @@ $data 		= $result->fetch_object();
 
 $pokestop['total'] = $data->total; 
 
-$req 		= "SELECT COUNT(*) as total FROM pokestop WHERE lure_expiration > (NOW() - INTERVAL 2 HOUR)";
+$req 		= "SELECT COUNT(*) as total FROM pokestop WHERE lure_expiration > (NOW() ".$time->symbol_reverse." INTERVAL ".$time->delay." HOUR)";
 $result 	= $mysqli->query($req);
 $data 		= $result->fetch_object();
 
