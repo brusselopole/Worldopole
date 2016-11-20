@@ -66,17 +66,26 @@ $pokemons		= (object) array_merge((array) json_decode(file_get_contents(SYS_PATH
 // Merge the pokedex & pokemon file into a new array 
 #####################################################
 
-$i=0; 
+$i=0;
 
 foreach(json_decode($pokedex_file) as $datas){
-	$pokemons->{$i} = new stdClass();
+
 	foreach($datas as $key => $value){
 		
-		$pokemons->{$i}->{$key} = $value!=null?$value:"";
+		if(!empty($pokemons->{$i})){
+			
+			$pokemons->{$i}->{$key} = $value;
+		}
+		else{
+			
+			$pokemons->{$i} = new StdClass;
+			$pokemons->{$i}->{$key} = $value;
+			
+		}
 		
 	}
 	
 	$i++; 
 }
-	
+
 ?>
