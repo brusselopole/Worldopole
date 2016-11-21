@@ -249,20 +249,21 @@ if(!empty($page)){
 			$i = 1; 
 			
 			foreach($pokemons as $test_pokemon){
-												
-				foreach($test_pokemon->types as $type){
-					
-					if(in_array($type, $types)){
+				if(!empty($test_pokemon->types)){							
+					foreach($test_pokemon->types as $type){
 						
-						if(!in_array($i, $related)){
-						
-							$related[] = $i;
-						
+						if(in_array($type, $types)){
+							
+							if(!in_array($i, $related)){
+							
+								$related[] = $i;
+							
+							}
+							 
+							
 						}
-						 
 						
 					}
-					
 				}
 				
 				$i++; 

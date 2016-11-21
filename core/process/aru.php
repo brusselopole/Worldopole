@@ -293,19 +293,19 @@ switch($request){
 				break;
 				
 				case 1:
-					$icon	= 'map_blue.png';
+					$icon	= 'map_blue_';
 					$team	= 'Team Mystic';
 					$color	= 'rgba(74, 138, 202, .6)';
 				break;
 				
 				case 2:
-					$icon	= 'map_red.png';
+					$icon	= 'map_red_';
 					$team	= 'Team Valor';
 					$color	= 'rgba(240, 68, 58, .6)';
 				break;
 				
 				case 3:
-					$icon	= 'map_yellow.png';
+					$icon	= 'map_yellow_';
 					$team	= 'Team Instinct';
 					$color	= 'rgba(254, 217, 40, .6)';
 				break;
@@ -326,7 +326,9 @@ switch($request){
 			else { $data->gym_level=10; }
 
 			## I know, I revert commit 6e8d2e7 from @kiralydavid but the way it was done broke the page. 
-			
+			if($data->team_id != 0){
+				$icon .= $data->gym_level.".png";
+			}
 			$img = 'core/pokemons/'.$data->guard_pokemon_id.'.png';
 			$html = '
 			<div style="text-align:center">
