@@ -65,7 +65,6 @@ function initMap() {
 						position: new google.maps.LatLng(arr[i][2], arr[i][3]),
 						map: map, 
 						icon: 'core/img/'+arr[i][1],
-						label: ""+arr[i][6]
 					});
 					
 					
