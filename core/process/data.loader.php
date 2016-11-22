@@ -399,50 +399,7 @@ if(!empty($page)){
 		break;
 
 		
-		// Trainers  
-		##########
 		
-		case 'trainer':
-			$trainer_name = "";
-			if(isset($_GET['name'])){			
-				$trainer_name = mysqli_real_escape_string($mysqli,$_GET['name']);
-			}
-			$req = "SELECT name, level, team FROM trainer ORDER BY level DESC LIMIT 30";
-			if($trainer_name != ""){
-				$req = "SELECT name, level, team FROM trainer WHERE name LIKE '%".$trainer_name."%'
-ORDER BY level DESC LIMIT 30";
-			}
-			$result = $mysqli->query($req);
-	        	$trainers = array();
-		        while($data = $result->fetch_object()){
-				$trainers[$data->name] = $data;
-			};
-			foreach($trainers as $trainer){
-				$req = "SELECT DISTINCT gympokemon.pokemon_id, gympokemon.cp, gympokemon.trainer_name, gympokemon.iv_defense, gympokemon.iv_stamina, gympokemon.iv_attack, gymmember.gym_id FROM gympokemon LEFT JOIN gymmember ON gympokemon.pokemon_uid = gymmember.pokemon_uid WHERE gympokemon.trainer_name='".$trainer->name."' ORDER BY gymmember.gym_id DESC, gympokemon.cp DESC";
-				$resultPkms = $mysqli->query($req);
-				$trainer->pokemons = array();
-				$active_gyms=0;
-				while($dataPkm = $resultPkms->fetch_object()){
-					// check whether pokemon is still in gym
-					if ($dataPkm->gym_id == "") {
-						$dataPkm->active = FALSE;
-					} else {
-						$dataPkm->active = TRUE;
-						$active_gyms++;
-					}
-					$trainer->pokemons[] = $dataPkm;
-				}
-				$trainer->gyms = $active_gyms;
-			}
-			// Sort for level first, then gyms
-			foreach($trainers as $trainer){
-				$level[] = $trainer->level;
-				$gyms[] = $trainer->gyms;
-			}
-			array_multisort($level, SORT_DESC, $gyms, SORT_DESC, $trainers);
-	        
- 
-		break; 
 		
 
 		case 'dashboard':
