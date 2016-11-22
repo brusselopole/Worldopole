@@ -5,7 +5,7 @@
 # and you don't want to have other website to get your datas ;) 
 # If you want to use this file as an "API" just remove the first condition. 
 
-$pos = strpos($_SERVER['HTTP_REFERER'],getenv('HTTP_HOST'));
+$pos = !empty($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'],getenv('HTTP_HOST'));
 
 if($pos===false){
 	http_response_code(401); 
@@ -461,6 +461,71 @@ switch($request){
 	
 	
 	break; 
+	
+	case 'trainer':
+			$name = "";
+			$page = "0";
+			$where = "";
+			if(isset($_GET['name'])){			
+				$trainer_name = mysqli_real_escape_string($mysqli,$_GET['name']);
+				$where = " WHERE name LIKE '%".$trainer_name."%'";
+			}
+			
+			if(isset($_GET['page'])){			
+				$page = mysqli_real_escape_string($mysqli,$_GET['page']);
+			}
+			
+			$orderAndLimit = " ORDER BY level DESC LIMIT ".($page*30).",30 ";
+			
+			
+			$req = "SELECT name, level, team FROM trainer ".$where.$orderAndLimit;
+			
+			
+			$result = $mysqli->query($req);
+	        	$trainers = array();
+		        while($data = $result->fetch_object()){
+				$trainers[$data->name] = $data;
+			};
+			foreach($trainers as $trainer){
+				$reqRanking = "SELECT count(1) as rank FROM trainer where trainer.level >= ".$trainer->level;
+				$resultRanking = $mysqli->query($reqRanking);
+				while($data = $resultRanking->fetch_object()){
+					$trainer->rank = $data->rank ;
+				}
+				$req = "SELECT DISTINCT gympokemon.pokemon_id, gympokemon.pokemon_uid, gympokemon.cp, gympokemon.trainer_name, gympokemon.iv_defense, gympokemon.iv_stamina, gympokemon.iv_attack, filtered_gymmember.gym_id ".
+						"FROM gympokemon LEFT JOIN ".
+							"( SELECT  * FROM gymmember GROUP BY gymmember.pokemon_uid HAVING gymmember.gym_id <> '' ) as filtered_gymmember ".
+							"ON gympokemon.pokemon_uid = filtered_gymmember.pokemon_uid ".
+							"WHERE gympokemon.trainer_name='".$trainer->name."' ORDER BY filtered_gymmember.gym_id DESC, gympokemon.cp DESC";
+				$resultPkms = $mysqli->query($req);
+				$trainer->pokemons = array();
+				$active_gyms=0;
+				while($dataPkm = $resultPkms->fetch_object()){
+					// check whether pokemon is still in gym
+					if ($dataPkm->gym_id == "") {
+						$dataPkm->active = FALSE;
+					} else {
+						$dataPkm->active = TRUE;
+						$active_gyms++;
+					}
+					$trainer->pokemons[] = $dataPkm;
+				}
+				$trainer->gyms = $active_gyms;
+			}
+			// Sort for level first, then gyms
+			foreach($trainers as $trainer){
+				$level[] = $trainer->level;
+				$gyms[] = $trainer->gyms;
+			}
+			if(!empty($trainers)){
+				array_multisort($level, SORT_DESC, $gyms, SORT_DESC, $trainers);
+			}
+			$return = json_encode($trainers);
+			
+			echo $return;
+			
+ 
+		break; 
 	
 	default:
 		
