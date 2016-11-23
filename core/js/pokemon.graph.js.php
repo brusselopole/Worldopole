@@ -18,7 +18,7 @@ include_once('../../config.php');
 // Manage Time Interval
 // #####################
 
-include_once('timezone.loader.php');
+include_once('../process/timezone.loader.php');
 
 
 # Connect MySQL 
@@ -91,9 +91,9 @@ $data = '['.$data.']';
 $pokemon_file	= file_get_contents(SYS_PATH.'/core/json/pokedex.json'); 
 $pokemons		= json_decode($pokemon_file);
 
-$atk			= $pokemons->$pokemon_id->atk;	
-$def			= $pokemons->$pokemon_id->def;	
-$stam			= $pokemons->$pokemon_id->stam;		
+$atk			= $pokemons->$pokemon_id->atk;
+$def			= $pokemons->$pokemon_id->def;
+$stam			= $pokemons->$pokemon_id->stam;
 
 
 ?>
