@@ -534,7 +534,7 @@ else{
 		// get all mythic pokemon ids
 		$mythic_pokemons  = array();
 		foreach($pokemons->pokemon as $id=>$pokemon) {
-			if ($pokemon->rarity < 0.01) {
+			if ($pokemon->spawn_rate < 0.01) {
 				$mythic_pokemons[] = $id;
 			}
 		}
