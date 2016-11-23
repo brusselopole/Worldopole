@@ -30,7 +30,7 @@
 			
 			<div class="col-md-3">
 				
-				<h4><?= $locales->DASHBOARD_VERYCOMMON ?> <small><?= $locales->DASHBOARD_LAST24HOURS ?></small></h4>
+				<h4><?= $locales->VERYCOMMON ?> <small><?= $locales->DASHBOARD_LAST24HOURS ?></small></h4>
 				
 				<canvas id="very_common" width="100%" height="50"></canvas>
 			
@@ -38,7 +38,7 @@
 			
 			<div class="col-md-3">
 				
-				<h4><?= $locales->DASHBOARD_COMMON ?> <small><?= $locales->DASHBOARD_LAST24HOURS ?></small></h4>
+				<h4><?= $locales->COMMON ?> <small><?= $locales->DASHBOARD_LAST24HOURS ?></small></h4>
 				
 				<canvas id="common" width="100%" height="50"></canvas>
 			
@@ -46,7 +46,7 @@
 			
 			<div class="col-md-3">
 				
-				<h4><?= $locales->DASHBOARD_RARE ?> <small><?= $locales->DASHBOARD_LAST24HOURS ?></small></h4>
+				<h4><?= $locales->RARE ?> <small><?= $locales->DASHBOARD_LAST24HOURS ?></small></h4>
 				
 				<canvas id="rare" width="100%" height="50"></canvas>
 			
@@ -54,7 +54,7 @@
 			
 			<div class="col-md-3">
 				
-				<h4><?= $locales->DASHBOARD_MYTHIC ?> <small><?= $locales->DASHBOARD_LAST24HOURS ?></small></h4>
+				<h4><?= $locales->MYTHIC ?> <small><?= $locales->DASHBOARD_LAST24HOURS ?></small></h4>
 				
 				<canvas id="mythics" width="100%" height="50"></canvas>
 			

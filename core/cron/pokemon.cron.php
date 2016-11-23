@@ -6,11 +6,13 @@
 // -----------------------------------------------------------------------------------------------------------
 
 
-// We're using the EN version as far as we know, it's the only valable version of Pokelist for now. 
 // This file is used to rank by rarety 
 
-$pokemon_list_file 	= file_get_contents(SYS_PATH.'/core/json/locales/EN/pokes.json');
-$pokemons			= json_decode($pokemon_list_file);
+// Load the pokemons array
+// will load english one because language is not set
+############################
+
+include_once($filePath.'/../process/locales.loader.php');
 
 
 $pokemon_stats['timestamp'] = $timestamp; 
@@ -28,15 +30,12 @@ $result 	= $mysqli->query($req);
 while($data = $result->fetch_object()){
 	
 	$poke_id 	= $data->pokemon_id; 
-	$rarity 	= $pokemons->$poke_id->rarity;
-	
-	@$type[$rarity] = $type[$rarity]+1; 
-	
+	$rarity 	= $pokemons->pokemon->$poke_id->rarity;
+
+	@$rarityarray[$rarity] = $rarityarray[$rarity]+1;
 	
 }
-
-$pokemon_stats['rarity_spawn'] = $type; 
-
+$pokemon_stats['rarity_spawn'] = $rarityarray;
 
 
 // Add the datas in file
@@ -44,6 +43,6 @@ $pokemon_stats['rarity_spawn'] = $type;
 $pokedatas[] 	= $pokemon_stats; 
 $json 		= json_encode($pokedatas); 
 
-file_put_contents($pokemon_file, $json);
+file_put_contents($pokemonstats_file, $json);
 
 ?>

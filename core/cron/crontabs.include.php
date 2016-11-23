@@ -25,11 +25,11 @@ if($mysqli->connect_error != ''){
 
 $gym_file	= SYS_PATH.'/core/json/gym.stats.json';
 $pokestop_file	= SYS_PATH.'/core/json/pokestop.stats.json';
-$pokemon_file	= SYS_PATH.'/core/json/pokemon.stats.json';
+$pokemonstats_file	= SYS_PATH.'/core/json/pokemon.stats.json';
 
 $gymsdatas	= json_decode(file_get_contents($gym_file), true);
 $stopdatas	= json_decode(file_get_contents($pokestop_file), true);
-$pokedatas	= json_decode(file_get_contents($pokemon_file), true);
+$pokedatas	= json_decode(file_get_contents($pokemonstats_file), true);
 
 
 $timestamp	= time();
