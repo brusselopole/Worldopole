@@ -199,7 +199,7 @@ var data_vc = {
 	labels: [<?= implode(',', $labels) ?>],
 	datasets: [
 		{
-			label: "<?= $locales->DASHBOARD_VERYCOMMON ?>",
+			label: "<?= $locales->VERYCOMMON ?>",
 			fill: false,
 			lineTension: 0.1,
 			backgroundColor: "rgba(175,192,192,0.4)",
@@ -237,7 +237,7 @@ var data_comm = {
 	labels: [<?= implode(',', $labels) ?>],
 	datasets: [
 		{
-			label: "<?= $locales->DASHBOARD_COMMON ?>",
+			label: "<?= $locales->COMMON ?>",
 			fill: false,
 			lineTension: 0.1,
 			backgroundColor: "rgba(175,192,192,0.4)",
@@ -274,7 +274,7 @@ var data_rare = {
 	labels: [<?= implode(',', $labels) ?>],
 	datasets: [
 		{
-			label: "<?= $locales->DASHBOARD_RARE ?>",
+			label: "<?= $locales->RARE ?>",
 			fill: false,
 			lineTension: 0.1,
 			backgroundColor: "rgba(175,192,192,0.4)",
@@ -313,7 +313,7 @@ var data_myth = {
 	labels: [<?= implode(',', $labels) ?>],
 	datasets: [
 		{
-			label: "<?= $locales->DASHBOARD_MYTHIC ?>",
+			label: "<?= $locales->MYTHIC ?>",
 			fill: false,
 			lineTension: 0.1,
 			backgroundColor: "rgba(175,192,192,0.4)",

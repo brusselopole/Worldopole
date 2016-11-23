@@ -1,1434 +1,2275 @@
 {
+  "pokemon": {
     "1": {
-
-        "max_cp":"1072",
-        "max_pv":"82",
-        "spawn_rate":0.0162,
-        "candies":"25",
-        "atk":"126",
-        "def":"126",
-        "stam":"90"
-    }
-    ,
-    "2": {
-        "max_cp":"1632",
-        "max_pv":"106",
-        "spawn_rate":0.0005,
-        "candies":"100",
-        "atk":"156",
-        "def":"158",
-        "stam":"120"
-    }
-    ,
-    "3": {
-        "max_cp":"2580",
-        "max_pv":"138",
-        "spawn_rate":0,
-        "atk":"198",
-        "def":"200",
-        "stam":"160"
-    }
-    ,
-    "4": {
-        "max_cp":"955",
-        "max_pv":"73",
-        "rarity":"Rare",
-        "spawn_rate":0.0615,
-        "candies":"25",
-        "atk":"128",
-        "def":"108",
-        "stam":"78"
-    }
-    ,
-    "5": {
-        "max_cp":"1557",
-        "max_pv":"103",
-        "spawn_rate":0.0002,
-        "candies":"100",
-        "atk":"160",
-        "def":"140",
-        "stam":"116"
-    }
-    ,
-    "6": {
-        "max_cp":"2602",
-        "max_pv":"135",
-        "spawn_rate":0,
-        "atk":"212",
-        "def":"182",
-        "stam":"156"
-    }
-    ,
-    "7": {
-        "max_cp":"1009",
-        "max_pv":"81",
-        "spawn_rate":0.3617,
-        "candies":"25",
-        "atk":"112",
-        "def":"142",
-        "stam":"88"
-    }
-    ,
-    "8": {
-        "max_cp":"1583",
-        "max_pv":"105",
-        "spawn_rate":0.0209,
-        "candies":"100",
-        "atk":"144",
-        "def":"176",
-        "stam":"118"
-    }
-    ,
-    "9": {
-        "max_cp":"2542",
-        "max_pv":"136",
-        "spawn_rate":0.0021,
-        "atk":"186",
-        "def":"222",
-        "stam":"158"
-    }
-    ,
+      "atk": "126", 
+      "candies": "25", 
+      "candy_id": "1", 
+      "charge_move": "Power Whip", 
+      "def": "126", 
+      "max_cp": "1072", 
+      "max_pv": "82", 
+      "quick_move": "Vine Whip", 
+      "spawn_rate": 0.0162, 
+      "stam": "90", 
+      "types": [
+        "Grass", 
+        "Poison"
+      ]
+    }, 
     "10": {
-        "max_cp":"444",
-        "max_pv":"92",
-        "spawn_rate":1.887,
-        "candies":"12",
-        "atk":"62",
-        "def":"66",
-        "stam":"90"
-    }
-    ,
-    "11": {
-        "max_cp":"478",
-        "max_pv":"90",
-        "spawn_rate":0.1181,
-        "candies":"50",
-        "atk":"56",
-        "def":"86",
-        "stam":"100"
-    }
-    ,
-    "12": {
-        "max_cp":"1455",
-        "max_pv":"106",
-        "spawn_rate":0.0147,
-        "atk":"144",
-        "def":"144",
-        "stam":"120"
-    }
-    ,
-    "13": {
-        "max_cp":"449",
-        "max_pv":"75",
-        "spawn_rate":8.8658,
-        "candies":"12",
-        "atk":"68",
-        "def":"64",
-        "stam":"80"
-    }
-    ,
-    "14": {
-        "max_cp":"485",
-        "max_pv":"82",
-        "spawn_rate":0.5508,
-        "candies":"50",
-        "atk":"62",
-        "def":"82",
-        "stam":"90"
-    }
-    ,
-    "15": {
-        "max_cp":"1440",
-        "max_pv":"114",
-        "spawn_rate":0.0682,
-        "atk":"144",
-        "def":"130",
-        "stam":"130"
-    }
-    ,
-    "16": {
-        "max_cp":"680",
-        "max_pv":"75",
-        "spawn_rate":26.3265,
-        "candies":"12",
-        "atk":"94",
-        "def":"90",
-        "stam":"80"
-    }
-    ,
-    "17": {
-        "max_cp":"1224",
-        "max_pv":"111",
-        "spawn_rate":1.6346,
-        "candies":"50",
-        "atk":"126",
-        "def":"122",
-        "stam":"126"
-    }
-    ,
-    "18": {
-        "max_cp":"2091",
-        "max_pv":"143",
-        "spawn_rate":0.203,
-        "atk":"170",
-        "def":"166",
-        "stam":"166"
-    }
-    ,
-    "19": {
-        "max_cp":"582",
-        "max_pv":"59",
-        "spawn_rate":24.1422,
-        "candies":"25",
-        "atk":"92",
-        "def":"86",
-        "stam":"60"
-    }
-    ,
-    "20": {
-        "max_cp":"1444",
-        "max_pv":"98",
-        "spawn_rate":0.7652,
-        "atk":"146",
-        "def":"150",
-        "stam":"110"
-    }
-    ,
-    "21": {
-        "max_cp":"687",
-        "max_pv":"75",
-        "spawn_rate":10.7346,
-        "candies":"50",
-        "atk":"102",
-        "def":"78",
-        "stam":"80"
-    }
-    ,
-    "22": {
-        "max_cp":"1746",
-        "max_pv":"114",
-        "spawn_rate":0.3334,
-        "atk":"168",
-        "def":"146",
-        "stam":"130"
-    }
-    ,
-    "23": {
-        "max_cp":"824",
-        "max_pv":"67",
-        "spawn_rate":0.0224,
-        "candies":"50",
-        "atk":"112",
-        "def":"112",
-        "stam":"70"
-    }
-    ,
-    "24": {
-        "max_cp":"1767",
-        "max_pv":"106",
-        "spawn_rate":0.0007,
-        "atk":"166",
-        "def":"166",
-        "stam":"120"
-    }
-    ,
-    "25": {
-        "max_cp":"888",
-        "max_pv":"67",
-        "spawn_rate":0.0515,
-        "candies":"50",
-        "atk":"124",
-        "def":"108",
-        "stam":"70"
-    }
-    ,
-    "26": {
-        "max_cp":"2028",
-        "max_pv":"106",
-        "spawn_rate":0.0004,
-        "atk":"200",
-        "def":"154",
-        "stam":"120"
-    }
-    ,
-    "27": {
-        "max_cp":"799",
-        "max_pv":"90",
-        "rarity":"Mythic",
-        "spawn_rate":0.0144,
-        "candies":"50",
-        "atk":"90",
-        "def":"114",
-        "stam":"100"
-    }
-    ,
-    "28": {
-        "max_cp":"1810",
-        "max_pv":"130",
-        "spawn_rate":0,
-        "atk":"150",
-        "def":"172",
-        "stam":"150"
-    }
-    ,
-    "29": {
-        "max_cp":"876",
-        "max_pv":"98",
-        "spawn_rate":0.3161,
-        "candies":"25",
-        "atk":"100",
-        "def":"104",
-        "stam":"110"
-    }
-    ,
-    "30": {
-        "max_cp":"1405",
-        "max_pv":"122",
-        "spawn_rate":0.0207,
-        "candies":"100",
-        "atk":"132",
-        "def":"136",
-        "stam":"140"
-    }
-    ,
-    "31": {
-        "max_cp":"2485",
-        "max_pv":"154",
-        "spawn_rate":0.001,
-        "atk":"184",
-        "def":"190",
-        "stam":"180"
-    }
-    ,
-    "32": {
-        "max_cp":"843",
-        "max_pv":"84",
-        "rarity":"Common",
-        "spawn_rate":0.3128,
-        "candies":"25",
-        "atk":"110",
-        "def":"94",
-        "stam":"92"
-    }
-    ,
-    "33": {
-        "max_cp":"1373",
-        "max_pv":"108",
-        "spawn_rate":0.019,
-        "candies":"100",
-        "atk":"142",
-        "def":"128",
-        "stam":"122"
-    }
-    ,
-    "34": {
-        "max_cp":"2475",
-        "max_pv":"139",
-        "spawn_rate":0.0011,
-        "atk":"204",
-        "def":"170",
-        "stam":"162"
-    }
-    ,
-    "35": {
-        "max_cp":"1201",
-        "max_pv":"122",
-        "spawn_rate":0.2037,
-        "candies":"50",
-        "atk":"116",
-        "def":"124",
-        "stam":"140"
-    }
-    ,
-    "36": {
-        "max_cp":"2398",
-        "max_pv":"162",
-        "spawn_rate":0.002,
-        "atk":"178",
-        "def":"178",
-        "stam":"190"
-    }
-    ,
-    "37": {
-        "max_cp":"831",
-        "max_pv":"71",
-        "spawn_rate":0.0747,
-        "candies":"50",
-        "atk":"106",
-        "def":"118",
-        "stam":"76"
-    }
-    ,
-    "38": {
-        "max_cp":"2188",
-        "max_pv":"127",
-        "spawn_rate":0.0003,
-        "atk":"176",
-        "def":"194",
-        "stam":"146"
-    }
-    ,
-    "39": {
-        "max_cp":"918",
-        "max_pv":"193",
-        "spawn_rate":0.529,
-        "candies":"50",
-        "atk":"98",
-        "def":"54",
-        "stam":"230"
-    }
-    ,
-    "40": {
-        "max_cp":"2177",
-        "max_pv":"233",
-        "spawn_rate":0.0078,
-        "atk":"168",
-        "def":"108",
-        "stam":"280"
-    }
-    ,
-    "41": {
-        "max_cp":"643",
-        "max_pv":"75",
-        "spawn_rate":3.1991,
-        "candies":"50",
-        "atk":"88",
-        "def":"90",
-        "stam":"80"
-    }
-    ,
-    "42": {
-        "max_cp":"1921",
-        "max_pv":"130",
-        "spawn_rate":0.2968,
-        "atk":"164",
-        "def":"164",
-        "stam":"150"
-    }
-    ,
-    "43": {
-        "max_cp":"1148",
-        "max_pv":"82",
-        "spawn_rate":0.2463,
-        "candies":"25",
-        "atk":"134",
-        "def":"130",
-        "stam":"90"
-    }
-    ,
-    "44": {
-        "max_cp":"1689",
-        "max_pv":"106",
-        "spawn_rate":0.0137,
-        "candies":"100",
-        "atk":"162",
-        "def":"158",
-        "stam":"120"
-    }
-    ,
-    "45": {
-        "max_cp":"2493",
-        "max_pv":"130",
-        "spawn_rate":0.0009,
-        "atk":"202",
-        "def":"190",
-        "stam":"150"
-    }
-    ,
-    "46": {
-        "max_cp":"917",
-        "max_pv":"67",
-        "spawn_rate":0.9564,
-        "candies":"50",
-        "atk":"122",
-        "def":"120",
-        "stam":"70"
-    }
-    ,
-    "47": {
-        "max_cp":"1747",
-        "max_pv":"106",
-        "spawn_rate":0.028,
-        "atk":"162",
-        "def":"170",
-        "stam":"120"
-    }
-    ,
-    "48": {
-        "max_cp":"1029",
-        "max_pv":"106",
-        "spawn_rate":1.1832,
-        "candies":"50",
-        "atk":"108",
-        "def":"118",
-        "stam":"120"
-    }
-    ,
-    "49": {
-        "max_cp":"1890",
-        "max_pv":"122",
-        "spawn_rate":0.0365,
-        "atk":"172",
-        "def":"154",
-        "stam":"140"
-    }
-    ,
-    "50": {
-        "max_cp":"457",
-        "spawn_rate":0.0279,
-        "candies":"50",
-        "atk":"108",
-        "def":"86",
-        "stam":"20"
-    }
-    ,
-    "51": {
-        "max_cp":"1169",
-        "max_pv":"67",
-        "spawn_rate":0.0003,
-        "atk":"148",
-        "def":"140",
-        "stam":"70"
-    }
-    ,
-    "52": {
-        "max_cp":"756",
-        "max_pv":"75",
-        "spawn_rate":0.5367,
-        "candies":"50",
-        "atk":"104",
-        "def":"94",
-        "stam":"80"
-    }
-    ,
-    "53": {
-        "max_cp":"1632",
-        "max_pv":"114",
-        "spawn_rate":0.0025,
-        "atk":"156",
-        "def":"146",
-        "stam":"130"
-    }
-    ,
-    "54": {
-        "max_cp":"1110",
-        "max_pv":"90",
-        "spawn_rate":0.3854,
-        "candies":"50",
-        "atk":"132",
-        "def":"112",
-        "stam":"100"
-    }
-    ,
-    "55": {
-        "max_cp":"2387",
-        "max_pv":"138",
-        "spawn_rate":0.0111,
-        "atk":"194",
-        "def":"176",
-        "stam":"160"
-    }
-    ,
-    "56": {
-        "max_cp":"879",
-        "max_pv":"75",
-        "spawn_rate":0.2283,
-        "candies":"50",
-        "atk":"122",
-        "def":"96",
-        "stam":"80"
-    }
-    ,
-    "57": {
-        "max_cp":"1865",
-        "max_pv":"114",
-        "spawn_rate":0.0011,
-        "atk":"178",
-        "def":"150",
-        "stam":"130"
-    }
-    ,
-    "58": {
-        "max_cp":"1335",
-        "max_pv":"98",
-        "spawn_rate":0.0483,
-        "candies":"50",
-        "atk":"156",
-        "def":"110",
-        "stam":"110"
-    }
-    ,
-    "59": {
-        "max_cp":"2984",
-        "max_pv":"154",
-        "spawn_rate":0.0004,
-        "atk":"230",
-        "def":"180",
-        "stam":"180"
-    }
-    ,
-    "60": {
-        "max_cp":"796",
-        "max_pv":"75",
-        "spawn_rate":0.344,
-        "candies":"25",
-        "atk":"108",
-        "def":"98",
-        "stam":"80"
-    }
-    ,
-    "61": {
-        "max_cp":"1340",
-        "max_pv":"115",
-        "spawn_rate":0.0224,
-        "candies":"100",
-        "atk":"132",
-        "def":"132",
-        "stam":"130"
-    }
-    ,
-    "62": {
-        "max_cp":"2505",
-        "max_pv":"154",
-        "spawn_rate":0.0012,
-        "atk":"180",
-        "def":"202",
-        "stam":"180"
-    }
-    ,
-    "63": {
-        "max_cp":"600",
-        "max_pv":"51",
-        "spawn_rate":0.1557,
-        "candies":"25",
-        "atk":"110",
-        "def":"76",
-        "stam":"50"
-    }
-    ,
-    "64": {
-        "max_cp":"1132",
-        "max_pv":"75",
-        "spawn_rate":0.0107,
-        "candies":"100",
-        "atk":"150",
-        "def":"112",
-        "stam":"80"
-    }
-    ,
-    "65": {
-        "max_cp":"1814",
-        "max_pv":"98",
-        "spawn_rate":0.0004,
-        "atk":"186",
-        "def":"152",
-        "stam":"110"
-    }
-    ,
-    "66": {
-        "max_cp":"1090",
-        "max_pv":"122",
-        "spawn_rate":0.1087,
-        "candies":"25",
-        "atk":"118",
-        "def":"96",
-        "stam":"140"
-    }
-    ,
-    "67": {
-        "max_cp":"1761",
-        "max_pv":"138",
-        "spawn_rate":0.0061,
-        "candies":"100",
-        "atk":"154",
-        "def":"144",
-        "stam":"160"
-    }
-    ,
-    "68": {
-        "max_cp":"2594",
-        "max_pv":"154",
-        "spawn_rate":0.0004,
-        "atk":"198",
-        "def":"180",
-        "stam":"180"
-    }
-    ,
-    "69": {
-        "max_cp":"1117",
-        "max_pv":"90",
-        "spawn_rate":0.2336,
-        "candies":"25",
-        "atk":"158",
-        "def":"78",
-        "stam":"100"
-    }
-    ,
-    "70": {
-        "max_cp":"1724",
-        "max_pv":"114",
-        "spawn_rate":0.0133,
-        "candies":"100",
-        "atk":"190",
-        "def":"110",
-        "stam":"130"
-    }
-    ,
-    "71": {
-        "max_cp":"2531",
-        "max_pv":"138",
-        "spawn_rate":0.0005,
-        "atk":"222",
-        "def":"152",
-        "stam":"160"
-    }
-    ,
-    "72": {
-        "max_cp":"905",
-        "max_pv":"75",
-        "spawn_rate":0.1087,
-        "candies":"50",
-        "atk":"106",
-        "def":"136",
-        "stam":"80"
-    }
-    ,
-    "73": {
-        "max_cp":"2220",
-        "max_pv":"138",
-        "spawn_rate":0.0101,
-        "atk":"170",
-        "def":"196",
-        "stam":"160"
-    }
-    ,
-    "74": {
-        "max_cp":"849",
-        "max_pv":"75",
-        "spawn_rate":0.0928,
-        "candies":"25",
-        "atk":"106",
-        "def":"118",
-        "stam":"80"
-    }
-    ,
-    "75": {
-        "max_cp":"1434",
-        "max_pv":"98",
-        "spawn_rate":0.0026,
-        "candies":"100",
-        "atk":"142",
-        "def":"156",
-        "stam":"110"
-    }
-    ,
-    "76": {
-        "max_cp":"2303",
-        "max_pv":"138",
-        "spawn_rate":0.0001,
-        "atk":"176",
-        "def":"198",
-        "stam":"160"
-    }
-    ,
-    "77": {
-        "max_cp":"1516",
-        "max_pv":"90",
-        "spawn_rate":0.0451,
-        "candies":"50",
-        "atk":"168",
-        "def":"138",
-        "stam":"100"
-    }
-    ,
-    "78": {
-        "max_cp":"2199",
-        "max_pv":"114",
-        "spawn_rate":0.0002,
-        "atk":"200",
-        "def":"170",
-        "stam":"130"
-    }
-    ,
-    "79": {
-        "max_cp":"1219",
-        "max_pv":"154",
-        "spawn_rate":0.1789,
-        "candies":"50",
-        "atk":"110",
-        "def":"110",
-        "stam":"180"
-    }
-    ,
-    "80": {
-        "max_cp":"2597",
-        "max_pv":"162",
-        "spawn_rate":0.0052,
-        "atk":"184",
-        "def":"198",
-        "stam":"190"
-    }
-    ,
-    "81": {
-        "max_cp":"891",
-        "max_pv":"51",
-        "spawn_rate":0.3051,
-        "candies":"50",
-        "atk":"128",
-        "def":"138",
-        "stam":"50"
-    }
-    ,
-    "82": {
-        "max_cp":"1880",
-        "max_pv":"90",
-        "spawn_rate":0.0094,
-        "atk":"186",
-        "def":"180",
-        "stam":"100"
-    }
-    ,
-    "83": {
-        "max_cp":"1264",
-        "max_pv":"94",
-        "spawn_rate":0,
-        "atk":"138",
-        "def":"132",
-        "stam":"104"
-    }
-    ,
-    "84": {
-        "max_cp":"855",
-        "max_pv":"67",
-        "spawn_rate":0.0567,
-        "candies":"50",
-        "atk":"126",
-        "def":"96",
-        "stam":"70"
-    }
-    ,
-    "85": {
-        "max_cp":"1836",
-        "max_pv":"106",
-        "spawn_rate":0.0001,
-        "atk":"182",
-        "def":"150",
-        "stam":"120"
-    }
-    ,
-    "86": {
-        "max_cp":"1107",
-        "max_pv":"114",
-        "spawn_rate":0.3836,
-        "candies":"50",
-        "atk":"104",
-        "def":"138",
-        "stam":"130"
-    }
-    ,
-    "87": {
-        "max_cp":"2146",
-        "max_pv":"154",
-        "spawn_rate":0.0104,
-        "atk":"156",
-        "def":"192",
-        "stam":"180"
-    }
-    ,
-    "88": {
-        "max_cp":"1284",
-        "max_pv":"138",
-        "spawn_rate":0.0324,
-        "candies":"50",
-        "atk":"124",
-        "def":"110",
-        "stam":"160"
-    }
-    ,
-    "89": {
-        "max_cp":"2603",
-        "max_pv":"177",
-        "spawn_rate":0.0012,
-        "atk":"180",
-        "def":"188",
-        "stam":"210"
-    }
-    ,
-    "90": {
-        "max_cp":"823",
-        "max_pv":"59",
-        "spawn_rate":0.6694,
-        "candies":"50",
-        "atk":"120",
-        "def":"112",
-        "stam":"60"
-    }
-    ,
-    "91": {
-        "max_cp":"2053",
-        "max_pv":"90",
-        "spawn_rate":0.0108,
-        "atk":"196",
-        "def":"196",
-        "stam":"100"
-    }
-    ,
-    "92": {
-        "max_cp":"804",
-        "max_pv":"59",
-        "spawn_rate":1.1075,
-        "candies":"25",
-        "atk":"136",
-        "def":"82",
-        "stam":"60"
-    }
-    ,
-    "93": {
-        "max_cp":"1380",
-        "max_pv":"82",
-        "spawn_rate":0.0699,
-        "candies":"100",
-        "atk":"172",
-        "def":"118",
-        "stam":"90"
-    }
-    ,
-    "94": {
-        "max_cp":"2078",
-        "max_pv":"106",
-        "spawn_rate":0.005,
-        "atk":"204",
-        "def":"156",
-        "stam":"120"
-    }
-    ,
-    "95": {
-        "max_cp":"857",
-        "max_pv":"67",
-        "spawn_rate":0.0191,
-        "atk":"90",
-        "def":"186",
-        "stam":"70"
-    }
-    ,
-    "96": {
-        "max_cp":"1075",
-        "max_pv":"106",
-        "spawn_rate":4.7404,
-        "candies":"50",
-        "atk":"104",
-        "def":"140",
-        "stam":"120"
-    }
-    ,
-    "97": {
-        "max_cp":"2184",
-        "max_pv":"146",
-        "spawn_rate":0.1444,
-        "atk":"162",
-        "def":"196",
-        "stam":"170"
-    }
-    ,
-    "98": {
-        "max_cp":"792",
-        "max_pv":"59",
-        "spawn_rate":1.3373,
-        "candies":"50",
-        "atk":"116",
-        "def":"110",
-        "stam":"60"
-    }
-    ,
-    "99": {
-        "max_cp":"1823",
-        "max_pv":"98",
-        "spawn_rate":0.0424,
-        "atk":"178",
-        "def":"168",
-        "stam":"110"
-    }
-    ,
+      "atk": "62", 
+      "candies": "12", 
+      "candy_id": "10", 
+      "charge_move": "Struggle", 
+      "def": "66", 
+      "max_cp": "444", 
+      "max_pv": "92", 
+      "quick_move": "Bug Bite", 
+      "spawn_rate": 1.887, 
+      "stam": "90", 
+      "types": [
+        "Bug"
+      ]
+    }, 
     "100": {
-        "max_cp":"840",
-        "max_pv":"75",
-        "spawn_rate":0.1515,
-        "candies":"50",
-        "atk":"102",
-        "def":"124",
-        "stam":"80"
-    }
-    ,
+      "atk": "102", 
+      "candies": "50", 
+      "candy_id": "100", 
+      "charge_move": "Thunderbolt", 
+      "def": "124", 
+      "max_cp": "840", 
+      "max_pv": "75", 
+      "quick_move": "Spark", 
+      "spawn_rate": 0.1515, 
+      "stam": "80", 
+      "types": [
+        "Electric"
+      ]
+    }, 
     "101": {
-        "max_cp":"1646",
-        "max_pv":"106",
-        "spawn_rate":0.0034,
-        "atk":"150",
-        "def":"174",
-        "stam":"120"
-    }
-    ,
+      "atk": "150", 
+      "candy_id": "100", 
+      "charge_move": "Thunderbolt", 
+      "def": "174", 
+      "max_cp": "1646", 
+      "max_pv": "106", 
+      "quick_move": "Spark", 
+      "spawn_rate": 0.0034, 
+      "stam": "120", 
+      "types": [
+        "Electric"
+      ]
+    }, 
     "102": {
-        "max_cp":"1100",
-        "max_pv":"106",
-        "spawn_rate":0.0134,
-        "candies":"50",
-        "atk":"110",
-        "def":"132",
-        "stam":"120"
-    }
-    ,
+      "atk": "110", 
+      "candies": "50", 
+      "candy_id": "102", 
+      "charge_move": "Psychic", 
+      "def": "132", 
+      "max_cp": "1100", 
+      "max_pv": "106", 
+      "quick_move": "Confusion", 
+      "spawn_rate": 0.0134, 
+      "stam": "120", 
+      "types": [
+        "Grass", 
+        "Psychic"
+      ]
+    }, 
     "103": {
-        "max_cp":"2955",
-        "max_pv":"162",
-        "spawn_rate":0.0002,
-        "atk":"232",
-        "def":"164",
-        "stam":"190"
-    }
-    ,
+      "atk": "232", 
+      "candy_id": "102", 
+      "charge_move": "Solar Beam", 
+      "def": "164", 
+      "max_cp": "2955", 
+      "max_pv": "162", 
+      "quick_move": "Zen Headbutt", 
+      "spawn_rate": 0.0002, 
+      "stam": "190", 
+      "types": [
+        "Grass", 
+        "Psychic"
+      ]
+    }, 
     "104": {
-        "max_cp":"1007",
-        "max_pv":"90",
-        "spawn_rate":0.0191,
-        "candies":"50",
-        "atk":"102",
-        "def":"150",
-        "stam":"100"
-    }
-    ,
+      "atk": "102", 
+      "candies": "50", 
+      "candy_id": "104", 
+      "charge_move": "Bone Club", 
+      "def": "150", 
+      "max_cp": "1007", 
+      "max_pv": "90", 
+      "quick_move": "Mud Slap", 
+      "spawn_rate": 0.0191, 
+      "stam": "100", 
+      "types": [
+        "Ground"
+      ]
+    }, 
     "105": {
-        "max_cp":"1657",
-        "max_pv":"106",
-        "spawn_rate":0.0007,
-        "atk":"140",
-        "def":"202",
-        "stam":"120"
-    }
-    ,
+      "atk": "140", 
+      "candy_id": "104", 
+      "charge_move": "Earthquake", 
+      "def": "202", 
+      "max_cp": "1657", 
+      "max_pv": "106", 
+      "quick_move": "Mud Slap", 
+      "spawn_rate": 0.0007, 
+      "stam": "120", 
+      "types": [
+        "Ground"
+      ]
+    }, 
     "106": {
-        "max_cp":"1493",
-        "max_pv":"90",
-        "spawn_rate":0.0062,
-        "candies":"50",
-        "atk":"148",
-        "def":"172",
-        "stam":"100"
-    }
-    ,
+      "atk": "148", 
+      "candies": "50", 
+      "candy_id": "106", 
+      "charge_move": "Stone Edge", 
+      "def": "172", 
+      "max_cp": "1493", 
+      "max_pv": "90", 
+      "quick_move": "Low Kick", 
+      "spawn_rate": 0.0062, 
+      "stam": "100", 
+      "types": [
+        "Fighting"
+      ]
+    }, 
     "107": {
-        "max_cp":"1517",
-        "max_pv":"90",
-        "spawn_rate":0.0063,
-        "atk":"138",
-        "def":"204",
-        "stam":"100"
-    }
-    ,
+      "atk": "138", 
+      "candy_id": "107", 
+      "charge_move": "Brick Break", 
+      "def": "204", 
+      "max_cp": "1517", 
+      "max_pv": "90", 
+      "quick_move": "Rock Smash", 
+      "spawn_rate": 0.0063, 
+      "stam": "100", 
+      "types": [
+        "Fighting"
+      ]
+    }, 
     "108": {
-        "max_cp":"1627",
-        "max_pv":"154",
-        "spawn_rate":0.0095,
-        "atk":"126",
-        "def":"160",
-        "stam":"180"
-    }
-    ,
+      "atk": "126", 
+      "candy_id": "108", 
+      "charge_move": "Hyper Beam", 
+      "def": "160", 
+      "max_cp": "1627", 
+      "max_pv": "154", 
+      "quick_move": "Zen Headbutt", 
+      "spawn_rate": 0.0095, 
+      "stam": "180", 
+      "types": [
+        "Normal"
+      ]
+    }, 
     "109": {
-        "max_cp":"1152",
-        "max_pv":"75",
-        "spawn_rate":0.2326,
-        "candies":"50",
-        "atk":"136",
-        "def":"142",
-        "stam":"80"
-    }
-    ,
+      "atk": "136", 
+      "candies": "50", 
+      "candy_id": "109", 
+      "charge_move": "Sludge Bomb", 
+      "def": "142", 
+      "max_cp": "1152", 
+      "max_pv": "75", 
+      "quick_move": "Acid", 
+      "spawn_rate": 0.2326, 
+      "stam": "80", 
+      "types": [
+        "Poison"
+      ]
+    }, 
+    "11": {
+      "atk": "56", 
+      "candies": "50", 
+      "candy_id": "10", 
+      "charge_move": "Struggle", 
+      "def": "86", 
+      "max_cp": "478", 
+      "max_pv": "90", 
+      "quick_move": "Bug Bite", 
+      "spawn_rate": 0.1181, 
+      "stam": "100", 
+      "types": [
+        "Bug"
+      ]
+    }, 
     "110": {
-        "max_cp":"2550",
-        "max_pv":"114",
-        "spawn_rate":0.0064,
-        "atk":"190",
-        "def":"198",
-        "stam":"130"
-    }
-    ,
+      "atk": "190", 
+      "candy_id": "109", 
+      "charge_move": "Sludge Bomb", 
+      "def": "198", 
+      "max_cp": "2550", 
+      "max_pv": "114", 
+      "quick_move": "Acid", 
+      "spawn_rate": 0.0064, 
+      "stam": "130", 
+      "types": [
+        "Poison"
+      ]
+    }, 
     "111": {
-        "max_cp":"1182",
-        "max_pv":"138",
-        "spawn_rate":0.0484,
-        "candies":"50",
-        "atk":"110",
-        "def":"116",
-        "stam":"160"
-    }
-    ,
+      "atk": "110", 
+      "candies": "50", 
+      "candy_id": "111", 
+      "charge_move": "Stomp", 
+      "def": "116", 
+      "max_cp": "1182", 
+      "max_pv": "138", 
+      "quick_move": "Mud Slap", 
+      "spawn_rate": 0.0484, 
+      "stam": "160", 
+      "types": [
+        "Ground", 
+        "Rock"
+      ]
+    }, 
     "112": {
-        "max_cp":"2243",
-        "max_pv":"177",
-        "spawn_rate":0.0014,
-        "atk":"166",
-        "def":"160",
-        "stam":"210"
-    }
-    ,
+      "atk": "166", 
+      "candy_id": "111", 
+      "charge_move": "Stone Edge", 
+      "def": "160", 
+      "max_cp": "2243", 
+      "max_pv": "177", 
+      "quick_move": "Mud Slap", 
+      "spawn_rate": 0.0014, 
+      "stam": "210", 
+      "types": [
+        "Ground", 
+        "Rock"
+      ]
+    }, 
     "113": {
-        "max_cp":"675",
-        "max_pv":"407",
-        "spawn_rate":0.0015,
-        "atk":"40",
-        "def":"60",
-        "stam":"500"
-    }
-    ,
+      "atk": "40", 
+      "candy_id": "113", 
+      "charge_move": "Psychic", 
+      "def": "60", 
+      "max_cp": "675", 
+      "max_pv": "407", 
+      "quick_move": "Pound", 
+      "spawn_rate": 0.0015, 
+      "stam": "500", 
+      "types": [
+        "Normal"
+      ]
+    }, 
     "114": {
-        "max_cp":"1740",
-        "max_pv":"114",
-        "spawn_rate":0.0003,
-        "atk":"164",
-        "def":"152",
-        "stam":"130"
-    }
-    ,
+      "atk": "164", 
+      "candy_id": "114", 
+      "charge_move": "Solar Beam", 
+      "def": "152", 
+      "max_cp": "1740", 
+      "max_pv": "114", 
+      "quick_move": "Vine Whip", 
+      "spawn_rate": 0.0003, 
+      "stam": "130", 
+      "types": [
+        "Grass"
+      ]
+    }, 
     "115": {
-        "max_cp":"2043",
-        "max_pv":"177",
-        "spawn_rate":0,
-        "atk":"142",
-        "def":"178",
-        "stam":"210"
-    }
-    ,
+      "atk": "142", 
+      "candy_id": "115", 
+      "charge_move": "Earthquake", 
+      "def": "178", 
+      "max_cp": "2043", 
+      "max_pv": "177", 
+      "quick_move": "Mud Slap", 
+      "spawn_rate": 0, 
+      "stam": "210", 
+      "types": [
+        "Normal"
+      ]
+    }, 
     "116": {
-        "max_cp":"795",
-        "max_pv":"59",
-        "spawn_rate":0.6714,
-        "candies":"50",
-        "atk":"122",
-        "def":"100",
-        "stam":"60"
-    }
-    ,
+      "atk": "122", 
+      "candies": "50", 
+      "candy_id": "116", 
+      "charge_move": "Dragon Pulse", 
+      "def": "100", 
+      "max_cp": "795", 
+      "max_pv": "59", 
+      "quick_move": "Water Gun", 
+      "spawn_rate": 0.6714, 
+      "stam": "60", 
+      "types": [
+        "Water"
+      ]
+    }, 
     "117": {
-        "max_cp":"1713",
-        "max_pv":"98",
-        "spawn_rate":0.0213,
-        "atk":"176",
-        "def":"150",
-        "stam":"110"
-    }
-    ,
+      "atk": "176", 
+      "candy_id": "116", 
+      "charge_move": "Hydro Pump", 
+      "def": "150", 
+      "max_cp": "1713", 
+      "max_pv": "98", 
+      "quick_move": "Water Gun", 
+      "spawn_rate": 0.0213, 
+      "stam": "110", 
+      "types": [
+        "Water"
+      ]
+    }, 
     "118": {
-        "max_cp":"965",
-        "max_pv":"82",
-        "spawn_rate":0.3613,
-        "candies":"50",
-        "atk":"112",
-        "def":"126",
-        "stam":"90"
-    }
-    ,
+      "atk": "112", 
+      "candies": "50", 
+      "candy_id": "118", 
+      "charge_move": "Aqua Tail", 
+      "def": "126", 
+      "max_cp": "965", 
+      "max_pv": "82", 
+      "quick_move": "Mud Shot", 
+      "spawn_rate": 0.3613, 
+      "stam": "90", 
+      "types": [
+        "Water"
+      ]
+    }, 
     "119": {
-        "max_cp":"2044",
-        "max_pv":"138",
-        "spawn_rate":0.0415,
-        "atk":"172",
-        "def":"160",
-        "stam":"160"
-    }
-    ,
+      "atk": "172", 
+      "candy_id": "118", 
+      "charge_move": "Megahorn", 
+      "def": "160", 
+      "max_cp": "2044", 
+      "max_pv": "138", 
+      "quick_move": "Poison Jab", 
+      "spawn_rate": 0.0415, 
+      "stam": "160", 
+      "types": [
+        "Water"
+      ]
+    }, 
+    "12": {
+      "atk": "144", 
+      "candy_id": "10", 
+      "charge_move": "Bug Buzz", 
+      "def": "144", 
+      "max_cp": "1455", 
+      "max_pv": "106", 
+      "quick_move": "Bug Bite", 
+      "spawn_rate": 0.0147, 
+      "stam": "120", 
+      "types": [
+        "Bug", 
+        "Flying"
+      ]
+    }, 
     "120": {
-        "max_cp":"938",
-        "max_pv":"59",
-        "spawn_rate":0.3436,
-        "candies":"50",
-        "atk":"130",
-        "def":"128",
-        "stam":"60"
-    }
-    ,
+      "atk": "130", 
+      "candies": "50", 
+      "candy_id": "120", 
+      "charge_move": "Power Gem", 
+      "def": "128", 
+      "max_cp": "938", 
+      "max_pv": "59", 
+      "quick_move": "Water Gun", 
+      "spawn_rate": 0.3436, 
+      "stam": "60", 
+      "types": [
+        "Water"
+      ]
+    }, 
     "121": {
-        "max_cp":"2182",
-        "max_pv":"106",
-        "spawn_rate":0.0052,
-        "atk":"194",
-        "def":"192",
-        "stam":"120"
-    }
-    ,
+      "atk": "194", 
+      "candy_id": "120", 
+      "charge_move": "Hydro Pump", 
+      "def": "192", 
+      "max_cp": "2182", 
+      "max_pv": "106", 
+      "quick_move": "Water Gun", 
+      "spawn_rate": 0.0052, 
+      "stam": "120", 
+      "types": [
+        "Water", 
+        "Psychic"
+      ]
+    }, 
     "122": {
-        "max_cp":"1494",
-        "max_pv":"75",
-        "spawn_rate":0.2867,
-        "atk":"154",
-        "def":"196",
-        "stam":"80"
-    }
-    ,
+      "atk": "154", 
+      "candy_id": "122", 
+      "charge_move": "Psychic", 
+      "def": "196", 
+      "max_cp": "1494", 
+      "max_pv": "75", 
+      "quick_move": "Zen Headbutt", 
+      "spawn_rate": 0.2867, 
+      "stam": "80", 
+      "types": [
+        "Psychic", 
+        "Fairy"
+      ]
+    }, 
     "123": {
-        "max_cp":"2074",
-        "max_pv":"122",
-        "spawn_rate":0.0081,
-        "atk":"176",
-        "def":"180",
-        "stam":"140"
-    }
-    ,
+      "atk": "176", 
+      "candy_id": "123", 
+      "charge_move": "Bug Buzz", 
+      "def": "180", 
+      "max_cp": "2074", 
+      "max_pv": "122", 
+      "quick_move": "Steel Wing", 
+      "spawn_rate": 0.0081, 
+      "stam": "140", 
+      "types": [
+        "Bug", 
+        "Flying"
+      ]
+    }, 
     "124": {
-        "max_cp":"1717",
-        "max_pv":"114",
-        "spawn_rate":0.3207,
-        "atk":"172",
-        "def":"134",
-        "stam":"130"
-    }
-    ,
+      "atk": "172", 
+      "candy_id": "124", 
+      "charge_move": "Psyshock", 
+      "def": "134", 
+      "max_cp": "1717", 
+      "max_pv": "114", 
+      "quick_move": "Frost Breath", 
+      "spawn_rate": 0.3207, 
+      "stam": "130", 
+      "types": [
+        "Ice", 
+        "Psychic"
+      ]
+    }, 
     "125": {
-        "max_cp":"2119",
-        "max_pv":"114",
-        "spawn_rate":0.0642,
-        "atk":"198",
-        "def":"160",
-        "stam":"130"
-    }
-    ,
+      "atk": "198", 
+      "candy_id": "125", 
+      "charge_move": "Thunder", 
+      "def": "160", 
+      "max_cp": "2119", 
+      "max_pv": "114", 
+      "quick_move": "Thunder Shock", 
+      "spawn_rate": 0.0642, 
+      "stam": "130", 
+      "types": [
+        "Electric"
+      ]
+    }, 
     "126": {
-        "max_cp":"2265",
-        "max_pv":"114",
-        "spawn_rate":0.0237,
-        "atk":"214",
-        "def":"158",
-        "stam":"130"
-    }
-    ,
+      "atk": "214", 
+      "candy_id": "126", 
+      "charge_move": "Fire Blast", 
+      "def": "158", 
+      "max_cp": "2265", 
+      "max_pv": "114", 
+      "quick_move": "Ember", 
+      "spawn_rate": 0.0237, 
+      "stam": "130", 
+      "types": [
+        "Fire"
+      ]
+    }, 
     "127": {
-        "max_cp":"2122",
-        "max_pv":"114",
-        "spawn_rate":0.0271,
-        "atk":"184",
-        "def":"186",
-        "stam":"130"
-    }
-    ,
+      "atk": "184", 
+      "candy_id": "127", 
+      "charge_move": "X Scissor", 
+      "def": "186", 
+      "max_cp": "2122", 
+      "max_pv": "114", 
+      "quick_move": "Rock Smash", 
+      "spawn_rate": 0.0271, 
+      "stam": "130", 
+      "types": [
+        "Bug"
+      ]
+    }, 
     "128": {
-        "max_cp":"1845",
-        "max_pv":"130",
-        "spawn_rate":0,
-        "atk":"148",
-        "def":"184",
-        "stam":"150"
-    }
-    ,
+      "atk": "148", 
+      "candy_id": "128", 
+      "charge_move": "Earthquake", 
+      "def": "184", 
+      "max_cp": "1845", 
+      "max_pv": "130", 
+      "quick_move": "Tackle", 
+      "spawn_rate": 0, 
+      "stam": "150", 
+      "types": [
+        "Normal"
+      ]
+    }, 
     "129": {
-        "max_cp":"263",
-        "max_pv":"43",
-        "spawn_rate":0.6765,
-        "candies":"400",
-        "atk":"42",
-        "def":"84",
-        "stam":"40"
-    }
-    ,
+      "atk": "42", 
+      "candies": "400", 
+      "candy_id": "129", 
+      "charge_move": "Struggle", 
+      "def": "84", 
+      "max_cp": "263", 
+      "max_pv": "43", 
+      "quick_move": "Splash", 
+      "spawn_rate": 0.6765, 
+      "stam": "40", 
+      "types": [
+        "Water"
+      ]
+    }, 
+    "13": {
+      "atk": "68", 
+      "candies": "12", 
+      "candy_id": "13", 
+      "charge_move": "Struggle", 
+      "def": "64", 
+      "max_cp": "449", 
+      "max_pv": "75", 
+      "quick_move": "Bug Bite", 
+      "spawn_rate": 8.8658, 
+      "stam": "80", 
+      "types": [
+        "Bug", 
+        "Poison"
+      ]
+    }, 
     "130": {
-        "max_cp":"2689",
-        "max_pv":"162",
-        "spawn_rate":0.0005,
-        "atk":"192",
-        "def":"196",
-        "stam":"190"
-    }
-    ,
+      "atk": "192", 
+      "candy_id": "129", 
+      "charge_move": "Hydro Pump", 
+      "def": "196", 
+      "max_cp": "2689", 
+      "max_pv": "162", 
+      "quick_move": "Dragon Breath / Bite", 
+      "spawn_rate": 0.0005, 
+      "stam": "190", 
+      "types": [
+        "Water", 
+        "Flying"
+      ]
+    }, 
     "131": {
-        "max_cp":"2981",
-        "max_pv":"217",
-        "spawn_rate":0.0049,
-        "atk":"186",
-        "def":"190",
-        "stam":"260"
-    }
-    ,
+      "atk": "186", 
+      "candy_id": "131", 
+      "charge_move": "Blizzard", 
+      "def": "190", 
+      "max_cp": "2981", 
+      "max_pv": "217", 
+      "quick_move": "Frost Breath", 
+      "spawn_rate": 0.0049, 
+      "stam": "260", 
+      "types": [
+        "Water", 
+        "Ice"
+      ]
+    }, 
     "132": {
-        "max_cp":"920",
-        "max_pv":"87",
-        "spawn_rate":0,
-        "atk":"110",
-        "def":"110",
-        "stam":"96"
-    }
-    ,
+      "atk": "110", 
+      "candy_id": "132", 
+      "charge_move": "Struggle", 
+      "def": "110", 
+      "max_cp": "920", 
+      "max_pv": "87", 
+      "quick_move": "Pound", 
+      "spawn_rate": 0, 
+      "stam": "96", 
+      "types": [
+        "Normal"
+      ]
+    }, 
     "133": {
-        "max_cp":"1077",
-        "max_pv":"98",
-        "spawn_rate":1.3484,
-        "candies":"25",
-        "atk":"114",
-        "def":"128",
-        "stam":"110"
-    }
-    ,
+      "atk": "114", 
+      "candies": "25", 
+      "candy_id": "133", 
+      "charge_move": "Body Slam", 
+      "def": "128", 
+      "max_cp": "1077", 
+      "max_pv": "98", 
+      "quick_move": "Tackle", 
+      "spawn_rate": 1.3484, 
+      "stam": "110", 
+      "types": [
+        "Normal"
+      ]
+    }, 
     "134": {
-        "max_cp":"2816",
-        "max_pv":"217",
-        "spawn_rate":0.0051,
-        "atk":"186",
-        "def":"168",
-        "stam":"260"
-    }
-    ,
+      "atk": "186", 
+      "candy_id": "133", 
+      "charge_move": "Hydro Pump", 
+      "def": "168", 
+      "max_cp": "2816", 
+      "max_pv": "217", 
+      "quick_move": "Water Gun", 
+      "spawn_rate": 0.0051, 
+      "stam": "260", 
+      "types": [
+        "Water"
+      ]
+    }, 
     "135": {
-        "max_cp":"2140",
-        "max_pv":"114",
-        "spawn_rate":0.0004,
-        "atk":"192",
-        "def":"174",
-        "stam":"130"
-    }
-    ,
+      "atk": "192", 
+      "candy_id": "133", 
+      "charge_move": "Thunder", 
+      "def": "174", 
+      "max_cp": "2140", 
+      "max_pv": "114", 
+      "quick_move": "Thunder Shock", 
+      "spawn_rate": 0.0004, 
+      "stam": "130", 
+      "types": [
+        "Electric"
+      ]
+    }, 
     "136": {
-        "max_cp":"2643",
-        "max_pv":"114",
-        "spawn_rate":0,
-        "atk":"238",
-        "def":"178",
-        "stam":"130"
-    }
-    ,
+      "atk": "238", 
+      "candy_id": "133", 
+      "charge_move": "Fire Blast", 
+      "def": "178", 
+      "max_cp": "2643", 
+      "max_pv": "114", 
+      "quick_move": "Ember", 
+      "spawn_rate": 0, 
+      "stam": "130", 
+      "types": [
+        "Fire"
+      ]
+    }, 
     "137": {
-        "max_cp":"1692",
-        "max_pv":"114",
-        "spawn_rate":0.0324,
-        "atk":"156",
-        "def":"158",
-        "stam":"130"
-    }
-    ,
+      "atk": "156", 
+      "candy_id": "137", 
+      "charge_move": "Discharge", 
+      "def": "158", 
+      "max_cp": "1692", 
+      "max_pv": "114", 
+      "quick_move": "Tackle", 
+      "spawn_rate": 0.0324, 
+      "stam": "130", 
+      "types": [
+        "Normal"
+      ]
+    }, 
     "138": {
-        "max_cp":"1120",
-        "max_pv":"67",
-        "spawn_rate":0.0187,
-        "candies":"50",
-        "atk":"132",
-        "def":"160",
-        "stam":"70"
-    }
-    ,
+      "atk": "132", 
+      "candies": "50", 
+      "candy_id": "138", 
+      "charge_move": "Ancient Power", 
+      "def": "160", 
+      "max_cp": "1120", 
+      "max_pv": "67", 
+      "quick_move": "Water Gun", 
+      "spawn_rate": 0.0187, 
+      "stam": "70", 
+      "types": [
+        "Rock", 
+        "Water"
+      ]
+    }, 
     "139": {
-        "max_cp":"2234",
-        "max_pv":"122",
-        "spawn_rate":0.0003,
-        "atk":"180",
-        "def":"202",
-        "stam":"140"
-    }
-    ,
+      "atk": "180", 
+      "candy_id": "138", 
+      "charge_move": "Hydro Pump", 
+      "def": "202", 
+      "max_cp": "2234", 
+      "max_pv": "122", 
+      "quick_move": "Water Gun", 
+      "spawn_rate": 0.0003, 
+      "stam": "140", 
+      "types": [
+        "Rock", 
+        "Water"
+      ]
+    }, 
+    "14": {
+      "atk": "62", 
+      "candies": "50", 
+      "candy_id": "13", 
+      "charge_move": "Struggle", 
+      "def": "82", 
+      "max_cp": "485", 
+      "max_pv": "82", 
+      "quick_move": "Bug Bite", 
+      "spawn_rate": 0.5508, 
+      "stam": "90", 
+      "types": [
+        "Bug", 
+        "Poison"
+      ]
+    }, 
     "140": {
-        "max_cp":"1105",
-        "max_pv":"59",
-        "spawn_rate":0.0155,
-        "candies":"50",
-        "atk":"148",
-        "def":"142",
-        "stam":"60"
-    }
-    ,
+      "atk": "148", 
+      "candies": "50", 
+      "candy_id": "140", 
+      "charge_move": "Aqua Jet", 
+      "def": "142", 
+      "max_cp": "1105", 
+      "max_pv": "59", 
+      "quick_move": "Scratch", 
+      "spawn_rate": 0.0155, 
+      "stam": "60", 
+      "types": [
+        "Rock", 
+        "Water"
+      ]
+    }, 
     "141": {
-        "max_cp":"2130",
-        "max_pv":"106",
-        "spawn_rate":0.0004,
-        "atk":"190",
-        "def":"190",
-        "stam":"120"
-    }
-    ,
+      "atk": "190", 
+      "candy_id": "140", 
+      "charge_move": "Stone Edge", 
+      "def": "190", 
+      "max_cp": "2130", 
+      "max_pv": "106", 
+      "quick_move": "Mud Shot", 
+      "spawn_rate": 0.0004, 
+      "stam": "120", 
+      "types": [
+        "Rock", 
+        "Water"
+      ]
+    }, 
     "142": {
-        "max_cp":"2165",
-        "max_pv":"138",
-        "spawn_rate":0.002,
-        "atk":"182",
-        "def":"162",
-        "stam":"160"
-    }
-    ,
+      "atk": "182", 
+      "candy_id": "142", 
+      "charge_move": "Hyper Beam", 
+      "def": "162", 
+      "max_cp": "2165", 
+      "max_pv": "138", 
+      "quick_move": "Bite", 
+      "spawn_rate": 0.002, 
+      "stam": "160", 
+      "types": [
+        "Rock", 
+        "Flying"
+      ]
+    }, 
     "143": {
-        "max_cp":"3113",
-        "max_pv":"264",
-        "spawn_rate":0.0025,
-        "atk":"180",
-        "def":"180",
-        "stam":"320"
-    }
-    ,
+      "atk": "180", 
+      "candy_id": "143", 
+      "charge_move": "Body Slam", 
+      "def": "180", 
+      "max_cp": "3113", 
+      "max_pv": "264", 
+      "quick_move": "Zen Headbutt", 
+      "spawn_rate": 0.0025, 
+      "stam": "320", 
+      "types": [
+        "Normal"
+      ]
+    }, 
     "144": {
-        "max_cp":"2978",
-        "max_pv":"154",
-        "spawn_rate":0,
-        "atk":"198",
-        "def":"242",
-        "stam":"180"
-    }
-    ,
+      "atk": "198", 
+      "candy_id": "144", 
+      "charge_move": "?", 
+      "def": "242", 
+      "max_cp": "2978", 
+      "max_pv": "154", 
+      "quick_move": "?", 
+      "spawn_rate": 0, 
+      "stam": "180", 
+      "types": [
+        "Ice", 
+        "Flying"
+      ]
+    }, 
     "145": {
-        "max_cp":"3114",
-        "max_pv":"154",
-        "spawn_rate":0,
-        "atk":"232",
-        "def":"194",
-        "stam":"180"
-    }
-    ,
+      "atk": "232", 
+      "candy_id": "145", 
+      "charge_move": "?", 
+      "def": "194", 
+      "max_cp": "3114", 
+      "max_pv": "154", 
+      "quick_move": "?", 
+      "spawn_rate": 0, 
+      "stam": "180", 
+      "types": [
+        "Electric", 
+        "Flying"
+      ]
+    }, 
     "146": {
-        "max_cp":"3240",
-        "max_pv":"154",
-        "spawn_rate":0,
-        "atk":"242",
-        "def":"194",
-        "stam":"180"
-    }
-    ,
+      "atk": "242", 
+      "candy_id": "146", 
+      "charge_move": "?", 
+      "def": "194", 
+      "max_cp": "3240", 
+      "max_pv": "154", 
+      "quick_move": "?", 
+      "spawn_rate": 0, 
+      "stam": "180", 
+      "types": [
+        "Fire", 
+        "Flying"
+      ]
+    }, 
     "147": {
-        "max_cp":"983",
-        "max_pv":"76",
-        "spawn_rate":0.0406,
-        "candies":"25",
-        "atk":"128",
-        "def":"110",
-        "stam":"82"
-    }
-    ,
+      "atk": "128", 
+      "candies": "25", 
+      "candy_id": "147", 
+      "charge_move": "Aqua Tail", 
+      "def": "110", 
+      "max_cp": "983", 
+      "max_pv": "76", 
+      "quick_move": "Dragon Breath", 
+      "spawn_rate": 0.0406, 
+      "stam": "82", 
+      "types": [
+        "Dragon"
+      ]
+    }, 
     "148": {
-        "max_cp":"1748",
-        "max_pv":"108",
-        "spawn_rate":0.002,
-        "candies":"100",
-        "atk":"170",
-        "def":"152",
-        "stam":"122"
-    }
-    ,
+      "atk": "170", 
+      "candies": "100", 
+      "candy_id": "147", 
+      "charge_move": "Dragon Pulse", 
+      "def": "152", 
+      "max_cp": "1748", 
+      "max_pv": "108", 
+      "quick_move": "Dragon Breath", 
+      "spawn_rate": 0.002, 
+      "stam": "122", 
+      "types": [
+        "Dragon"
+      ]
+    }, 
     "149": {
-        "max_cp":"3500",
-        "max_pv":"155",
-        "spawn_rate":0.0007,
-        "atk":"250",
-        "def":"212",
-        "stam":"182"
-    }
-    ,
+      "atk": "250", 
+      "candy_id": "147", 
+      "charge_move": "Dragon Claw", 
+      "def": "212", 
+      "max_cp": "3500", 
+      "max_pv": "155", 
+      "quick_move": "Dragon Breath", 
+      "spawn_rate": 0.0007, 
+      "stam": "182", 
+      "types": [
+        "Dragon", 
+        "Flying"
+      ]
+    }, 
+    "15": {
+      "atk": "144", 
+      "candy_id": "13", 
+      "charge_move": "Sludge Bomb", 
+      "def": "130", 
+      "max_cp": "1440", 
+      "max_pv": "114", 
+      "quick_move": "Bug Bite", 
+      "spawn_rate": 0.0682, 
+      "stam": "130", 
+      "types": [
+        "Bug", 
+        "Poison"
+      ]
+    }, 
     "150": {
-        "max_cp":"4145",
-        "max_pv":"179",
-        "spawn_rate":0,
-        "atk":"284",
-        "def":"202",
-        "stam":"212"
-    }
-    ,
+      "atk": "284", 
+      "candy_id": "150", 
+      "charge_move": "?", 
+      "def": "202", 
+      "max_cp": "4145", 
+      "max_pv": "179", 
+      "quick_move": "?", 
+      "spawn_rate": 0, 
+      "stam": "212", 
+      "types": [
+        "Psychic"
+      ]
+    }, 
     "151": {
-        "max_cp":"3299",
-        "max_pv":"169",
-        "spawn_rate":0,
-        "atk":"220",
-        "def":"220",
-        "stam":"200"
+      "atk": "220", 
+      "candy_id": "151", 
+      "charge_move": "?", 
+      "def": "220", 
+      "max_cp": "3299", 
+      "max_pv": "169", 
+      "quick_move": "?", 
+      "spawn_rate": 0, 
+      "stam": "200", 
+      "types": [
+        "Psychic"
+      ]
+    }, 
+    "16": {
+      "atk": "94", 
+      "candies": "12", 
+      "candy_id": "16", 
+      "charge_move": "Aerial Ace", 
+      "def": "90", 
+      "max_cp": "680", 
+      "max_pv": "75", 
+      "quick_move": "Tackle", 
+      "spawn_rate": 26.3265, 
+      "stam": "80", 
+      "types": [
+        "Normal", 
+        "Flying"
+      ]
+    }, 
+    "17": {
+      "atk": "126", 
+      "candies": "50", 
+      "candy_id": "16", 
+      "charge_move": "Aerial Ace", 
+      "def": "122", 
+      "max_cp": "1224", 
+      "max_pv": "111", 
+      "quick_move": "Wing Attack", 
+      "spawn_rate": 1.6346, 
+      "stam": "126", 
+      "types": [
+        "Normal", 
+        "Flying"
+      ]
+    }, 
+    "18": {
+      "atk": "170", 
+      "candy_id": "16", 
+      "charge_move": "Aerial Ace", 
+      "def": "166", 
+      "max_cp": "2091", 
+      "max_pv": "143", 
+      "quick_move": "Wing Attack", 
+      "spawn_rate": 0.203, 
+      "stam": "166", 
+      "types": [
+        "Normal", 
+        "Flying"
+      ]
+    }, 
+    "19": {
+      "atk": "92", 
+      "candies": "25", 
+      "candy_id": "19", 
+      "charge_move": "Body Slam", 
+      "def": "86", 
+      "max_cp": "582", 
+      "max_pv": "59", 
+      "quick_move": "Tackle", 
+      "spawn_rate": 24.1422, 
+      "stam": "60", 
+      "types": [
+        "Normal"
+      ]
+    }, 
+    "2": {
+      "atk": "156", 
+      "candies": "100", 
+      "candy_id": "1", 
+      "charge_move": "Solar Whip", 
+      "def": "158", 
+      "max_cp": "1632", 
+      "max_pv": "106", 
+      "quick_move": "Vine Whip", 
+      "spawn_rate": 0.0005, 
+      "stam": "120", 
+      "types": [
+        "Grass", 
+        "Poison"
+      ]
+    }, 
+    "20": {
+      "atk": "146", 
+      "candy_id": "19", 
+      "charge_move": "Hyper Beam", 
+      "def": "150", 
+      "max_cp": "1444", 
+      "max_pv": "98", 
+      "quick_move": "Bite", 
+      "spawn_rate": 0.7652, 
+      "stam": "110", 
+      "types": [
+        "Normal"
+      ]
+    }, 
+    "21": {
+      "atk": "102", 
+      "candies": "50", 
+      "candy_id": "21", 
+      "charge_move": "Aerial Ace", 
+      "def": "78", 
+      "max_cp": "687", 
+      "max_pv": "75", 
+      "quick_move": "Peck", 
+      "spawn_rate": 10.7346, 
+      "stam": "80", 
+      "types": [
+        "Normal", 
+        "Flying"
+      ]
+    }, 
+    "22": {
+      "atk": "168", 
+      "candy_id": "22", 
+      "charge_move": "Aerial Ace", 
+      "def": "146", 
+      "max_cp": "1746", 
+      "max_pv": "114", 
+      "quick_move": "Steel Wing", 
+      "spawn_rate": 0.3334, 
+      "stam": "130", 
+      "types": [
+        "Normal", 
+        "Flying"
+      ]
+    }, 
+    "23": {
+      "atk": "112", 
+      "candies": "50", 
+      "candy_id": "23", 
+      "charge_move": "Gunk Shot", 
+      "def": "112", 
+      "max_cp": "824", 
+      "max_pv": "67", 
+      "quick_move": "Poison Sting", 
+      "spawn_rate": 0.0224, 
+      "stam": "70", 
+      "types": [
+        "Poison"
+      ]
+    }, 
+    "24": {
+      "atk": "166", 
+      "candy_id": "23", 
+      "charge_move": "Gunk Shot", 
+      "def": "166", 
+      "max_cp": "1767", 
+      "max_pv": "106", 
+      "quick_move": "Bite", 
+      "spawn_rate": 0.0007, 
+      "stam": "120", 
+      "types": [
+        "Poison"
+      ]
+    }, 
+    "25": {
+      "atk": "124", 
+      "candies": "50", 
+      "candy_id": "25", 
+      "charge_move": "Thunder", 
+      "def": "108", 
+      "max_cp": "888", 
+      "max_pv": "67", 
+      "quick_move": "Thunder Shock", 
+      "spawn_rate": 0.0515, 
+      "stam": "70", 
+      "types": [
+        "Electric"
+      ]
+    }, 
+    "26": {
+      "atk": "200", 
+      "candy_id": "25", 
+      "charge_move": "Thunder", 
+      "def": "154", 
+      "max_cp": "2028", 
+      "max_pv": "106", 
+      "quick_move": "Spark", 
+      "spawn_rate": 0.0004, 
+      "stam": "120", 
+      "types": [
+        "Electric"
+      ]
+    }, 
+    "27": {
+      "atk": "90", 
+      "candies": "50", 
+      "candy_id": "27", 
+      "charge_move": "Dig", 
+      "def": "114", 
+      "max_cp": "799", 
+      "max_pv": "90", 
+      "quick_move": "Mud Shot", 
+      "rarity": "Mythic", 
+      "spawn_rate": 0.0144, 
+      "stam": "100", 
+      "types": [
+        "Ground"
+      ]
+    }, 
+    "28": {
+      "atk": "150", 
+      "candy_id": "27", 
+      "charge_move": "Earthquake", 
+      "def": "172", 
+      "max_cp": "1810", 
+      "max_pv": "130", 
+      "quick_move": "Mud Shot", 
+      "spawn_rate": 0, 
+      "stam": "150", 
+      "types": [
+        "Ground"
+      ]
+    }, 
+    "29": {
+      "atk": "100", 
+      "candies": "25", 
+      "candy_id": "29", 
+      "charge_move": "Body Slam", 
+      "def": "104", 
+      "max_cp": "876", 
+      "max_pv": "98", 
+      "quick_move": "Poison Sting", 
+      "spawn_rate": 0.3161, 
+      "stam": "110", 
+      "types": [
+        "Poison"
+      ]
+    }, 
+    "3": {
+      "atk": "198", 
+      "candy_id": "1", 
+      "charge_move": "Solar Whip", 
+      "def": "200", 
+      "max_cp": "2580", 
+      "max_pv": "138", 
+      "quick_move": "Vine Whip", 
+      "spawn_rate": 0, 
+      "stam": "160", 
+      "types": [
+        "Grass", 
+        "Poison"
+      ]
+    }, 
+    "30": {
+      "atk": "132", 
+      "candies": "100", 
+      "candy_id": "29", 
+      "charge_move": "Sludge Bomb", 
+      "def": "136", 
+      "max_cp": "1405", 
+      "max_pv": "122", 
+      "quick_move": "Poison Sting", 
+      "spawn_rate": 0.0207, 
+      "stam": "140", 
+      "types": [
+        "Poison"
+      ]
+    }, 
+    "31": {
+      "atk": "184", 
+      "candy_id": "29", 
+      "charge_move": "Earthquake", 
+      "def": "190", 
+      "max_cp": "2485", 
+      "max_pv": "154", 
+      "quick_move": "Poison Jab", 
+      "spawn_rate": 0.001, 
+      "stam": "180", 
+      "types": [
+        "Poison", 
+        "Ground"
+      ]
+    }, 
+    "32": {
+      "atk": "110", 
+      "candies": "25", 
+      "candy_id": "32", 
+      "charge_move": "Body Slam", 
+      "def": "94", 
+      "max_cp": "843", 
+      "max_pv": "84", 
+      "quick_move": "Poison Sting", 
+      "rarity": "Common", 
+      "spawn_rate": 0.3128, 
+      "stam": "92", 
+      "types": [
+        "Poison"
+      ]
+    }, 
+    "33": {
+      "atk": "142", 
+      "candies": "100", 
+      "candy_id": "32", 
+      "charge_move": "Sludge Bomb", 
+      "def": "128", 
+      "max_cp": "1373", 
+      "max_pv": "108", 
+      "quick_move": "Poison Jab", 
+      "spawn_rate": 0.019, 
+      "stam": "122", 
+      "types": [
+        "Poison"
+      ]
+    }, 
+    "34": {
+      "atk": "204", 
+      "candy_id": "32", 
+      "charge_move": "Earthquake", 
+      "def": "170", 
+      "max_cp": "2475", 
+      "max_pv": "139", 
+      "quick_move": "Poison Jab", 
+      "spawn_rate": 0.0011, 
+      "stam": "162", 
+      "types": [
+        "Poison", 
+        "Ground"
+      ]
+    }, 
+    "35": {
+      "atk": "116", 
+      "candies": "50", 
+      "candy_id": "35", 
+      "charge_move": "Moonblast", 
+      "def": "124", 
+      "max_cp": "1201", 
+      "max_pv": "122", 
+      "quick_move": "Pound", 
+      "spawn_rate": 0.2037, 
+      "stam": "140", 
+      "types": [
+        "Fairy"
+      ]
+    }, 
+    "36": {
+      "atk": "178", 
+      "candy_id": "35", 
+      "charge_move": "Moonblast", 
+      "def": "178", 
+      "max_cp": "2398", 
+      "max_pv": "162", 
+      "quick_move": "Pound", 
+      "spawn_rate": 0.002, 
+      "stam": "190", 
+      "types": [
+        "Fairy"
+      ]
+    }, 
+    "37": {
+      "atk": "106", 
+      "candies": "50", 
+      "candy_id": "37", 
+      "charge_move": "Body Slam", 
+      "def": "118", 
+      "max_cp": "831", 
+      "max_pv": "71", 
+      "quick_move": "Ember", 
+      "spawn_rate": 0.0747, 
+      "stam": "76", 
+      "types": [
+        "Fire"
+      ]
+    }, 
+    "38": {
+      "atk": "176", 
+      "candy_id": "38", 
+      "charge_move": "Fire Blast", 
+      "def": "194", 
+      "max_cp": "2188", 
+      "max_pv": "127", 
+      "quick_move": "Ember", 
+      "spawn_rate": 0.0003, 
+      "stam": "146", 
+      "types": [
+        "Fire"
+      ]
+    }, 
+    "39": {
+      "atk": "98", 
+      "candies": "50", 
+      "candy_id": "39", 
+      "charge_move": "Body Slam", 
+      "def": "54", 
+      "max_cp": "918", 
+      "max_pv": "193", 
+      "quick_move": "Pound", 
+      "spawn_rate": 0.529, 
+      "stam": "230", 
+      "types": [
+        "Normal", 
+        "Fairy"
+      ]
+    }, 
+    "4": {
+      "atk": "128", 
+      "candies": "25", 
+      "candy_id": "4", 
+      "charge_move": "Flamethrower", 
+      "def": "108", 
+      "max_cp": "955", 
+      "max_pv": "73", 
+      "quick_move": "Scratch", 
+      "rarity": "Rare", 
+      "spawn_rate": 0.0615, 
+      "stam": "78", 
+      "types": [
+        "Fire"
+      ]
+    }, 
+    "40": {
+      "atk": "168", 
+      "candy_id": "39", 
+      "charge_move": "Hyper Beam", 
+      "def": "108", 
+      "max_cp": "2177", 
+      "max_pv": "233", 
+      "quick_move": "Pound", 
+      "spawn_rate": 0.0078, 
+      "stam": "280", 
+      "types": [
+        "Normal", 
+        "Fairy"
+      ]
+    }, 
+    "41": {
+      "atk": "88", 
+      "candies": "50", 
+      "candy_id": "41", 
+      "charge_move": "Sludge Bomb", 
+      "def": "90", 
+      "max_cp": "643", 
+      "max_pv": "75", 
+      "quick_move": "Bite", 
+      "spawn_rate": 3.1991, 
+      "stam": "80", 
+      "types": [
+        "Poison", 
+        "Flying"
+      ]
+    }, 
+    "42": {
+      "atk": "164", 
+      "candy_id": "41", 
+      "charge_move": "Poison Fang", 
+      "def": "164", 
+      "max_cp": "1921", 
+      "max_pv": "130", 
+      "quick_move": "Wing Attack", 
+      "spawn_rate": 0.2968, 
+      "stam": "150", 
+      "types": [
+        "Poison", 
+        "Flying"
+      ]
+    }, 
+    "43": {
+      "atk": "134", 
+      "candies": "25", 
+      "candy_id": "43", 
+      "charge_move": "Sludge Bomb", 
+      "def": "130", 
+      "max_cp": "1148", 
+      "max_pv": "82", 
+      "quick_move": "Razor Leaf", 
+      "spawn_rate": 0.2463, 
+      "stam": "90", 
+      "types": [
+        "Grass", 
+        "Poison"
+      ]
+    }, 
+    "44": {
+      "atk": "162", 
+      "candies": "100", 
+      "candy_id": "43", 
+      "charge_move": "Petal Blizzard", 
+      "def": "158", 
+      "max_cp": "1689", 
+      "max_pv": "106", 
+      "quick_move": "Razor Leaf", 
+      "spawn_rate": 0.0137, 
+      "stam": "120", 
+      "types": [
+        "Grass", 
+        "Poison"
+      ]
+    }, 
+    "45": {
+      "atk": "202", 
+      "candy_id": "43", 
+      "charge_move": "Solar Beam", 
+      "def": "190", 
+      "max_cp": "2493", 
+      "max_pv": "130", 
+      "quick_move": "Razor Leaf", 
+      "spawn_rate": 0.0009, 
+      "stam": "150", 
+      "types": [
+        "Grass", 
+        "Poison"
+      ]
+    }, 
+    "46": {
+      "atk": "122", 
+      "candies": "50", 
+      "candy_id": "46", 
+      "charge_move": "X Scissor / See Bomb", 
+      "def": "120", 
+      "max_cp": "917", 
+      "max_pv": "67", 
+      "quick_move": "Bug Bite", 
+      "spawn_rate": 0.9564, 
+      "stam": "70", 
+      "types": [
+        "Bug", 
+        "Grass"
+      ]
+    }, 
+    "47": {
+      "atk": "162", 
+      "candy_id": "46", 
+      "charge_move": "Solar Beam", 
+      "def": "170", 
+      "max_cp": "1747", 
+      "max_pv": "106", 
+      "quick_move": "Bug Bite", 
+      "spawn_rate": 0.028, 
+      "stam": "120", 
+      "types": [
+        "Bug", 
+        "Grass"
+      ]
+    }, 
+    "48": {
+      "atk": "108", 
+      "candies": "50", 
+      "candy_id": "48", 
+      "charge_move": "Signal Beam", 
+      "def": "118", 
+      "max_cp": "1029", 
+      "max_pv": "106", 
+      "quick_move": "Bug Bite", 
+      "spawn_rate": 1.1832, 
+      "stam": "120", 
+      "types": [
+        "Bug", 
+        "Poison"
+      ]
+    }, 
+    "49": {
+      "atk": "172", 
+      "candy_id": "48", 
+      "charge_move": "Bug Buzz", 
+      "def": "154", 
+      "max_cp": "1890", 
+      "max_pv": "122", 
+      "quick_move": "Bug Bite", 
+      "spawn_rate": 0.0365, 
+      "stam": "140", 
+      "types": [
+        "Bug", 
+        "Poison"
+      ]
+    }, 
+    "5": {
+      "atk": "160", 
+      "candies": "100", 
+      "candy_id": "4", 
+      "charge_move": "Flamethrower", 
+      "def": "140", 
+      "max_cp": "1557", 
+      "max_pv": "103", 
+      "quick_move": "Scratch", 
+      "spawn_rate": 0.0002, 
+      "stam": "116", 
+      "types": [
+        "Fire"
+      ]
+    }, 
+    "50": {
+      "atk": "108", 
+      "candies": "50", 
+      "candy_id": "50", 
+      "charge_move": "Dig", 
+      "def": "86", 
+      "max_cp": "457", 
+      "quick_move": "Mud Shot", 
+      "spawn_rate": 0.0279, 
+      "stam": "20", 
+      "types": [
+        "Ground"
+      ]
+    }, 
+    "51": {
+      "atk": "148", 
+      "candy_id": "50", 
+      "charge_move": "Stone Edge", 
+      "def": "140", 
+      "max_cp": "1169", 
+      "max_pv": "67", 
+      "quick_move": "Mud Shot", 
+      "spawn_rate": 0.0003, 
+      "stam": "70", 
+      "types": [
+        "Ground"
+      ]
+    }, 
+    "52": {
+      "atk": "104", 
+      "candies": "50", 
+      "candy_id": "52", 
+      "charge_move": "Body Slam", 
+      "def": "94", 
+      "max_cp": "756", 
+      "max_pv": "75", 
+      "quick_move": "Scratch", 
+      "spawn_rate": 0.5367, 
+      "stam": "80", 
+      "types": [
+        "Normal"
+      ]
+    }, 
+    "53": {
+      "atk": "156", 
+      "candy_id": "52", 
+      "charge_move": "Play Rough", 
+      "def": "146", 
+      "max_cp": "1632", 
+      "max_pv": "114", 
+      "quick_move": "Scratch", 
+      "spawn_rate": 0.0025, 
+      "stam": "130", 
+      "types": [
+        "Normal"
+      ]
+    }, 
+    "54": {
+      "atk": "132", 
+      "candies": "50", 
+      "candy_id": "54", 
+      "charge_move": "Cross Chop", 
+      "def": "112", 
+      "max_cp": "1110", 
+      "max_pv": "90", 
+      "quick_move": "Water Gun", 
+      "spawn_rate": 0.3854, 
+      "stam": "100", 
+      "types": [
+        "Water"
+      ]
+    }, 
+    "55": {
+      "atk": "194", 
+      "candy_id": "54", 
+      "charge_move": "Hydro Pump", 
+      "def": "176", 
+      "max_cp": "2387", 
+      "max_pv": "138", 
+      "quick_move": "Water Gun", 
+      "spawn_rate": 0.0111, 
+      "stam": "160", 
+      "types": [
+        "Water"
+      ]
+    }, 
+    "56": {
+      "atk": "122", 
+      "candies": "50", 
+      "candy_id": "56", 
+      "charge_move": "Body Slam", 
+      "def": "96", 
+      "max_cp": "879", 
+      "max_pv": "75", 
+      "quick_move": "Scratch", 
+      "spawn_rate": 0.2283, 
+      "stam": "80", 
+      "types": [
+        "Fighting"
+      ]
+    }, 
+    "57": {
+      "atk": "178", 
+      "candy_id": "56", 
+      "charge_move": "Cross Chop", 
+      "def": "150", 
+      "max_cp": "1865", 
+      "max_pv": "114", 
+      "quick_move": "Low Kick", 
+      "spawn_rate": 0.0011, 
+      "stam": "130", 
+      "types": [
+        "Fighting"
+      ]
+    }, 
+    "58": {
+      "atk": "156", 
+      "candies": "50", 
+      "candy_id": "58", 
+      "charge_move": "Body Slam", 
+      "def": "110", 
+      "max_cp": "1335", 
+      "max_pv": "98", 
+      "quick_move": "Bite", 
+      "spawn_rate": 0.0483, 
+      "stam": "110", 
+      "types": [
+        "Fire"
+      ]
+    }, 
+    "59": {
+      "atk": "230", 
+      "candy_id": "58", 
+      "charge_move": "Fire Blast", 
+      "def": "180", 
+      "max_cp": "2984", 
+      "max_pv": "154", 
+      "quick_move": "Fire Fang", 
+      "spawn_rate": 0.0004, 
+      "stam": "180", 
+      "types": [
+        "Fire"
+      ]
+    }, 
+    "6": {
+      "atk": "212", 
+      "candy_id": "4", 
+      "charge_move": "Fire Blast", 
+      "def": "182", 
+      "max_cp": "2602", 
+      "max_pv": "135", 
+      "quick_move": "Wing Attack", 
+      "spawn_rate": 0, 
+      "stam": "156", 
+      "types": [
+        "Fire", 
+        "Flying"
+      ]
+    }, 
+    "60": {
+      "atk": "108", 
+      "candies": "25", 
+      "candy_id": "60", 
+      "charge_move": "Body Slam", 
+      "def": "98", 
+      "max_cp": "796", 
+      "max_pv": "75", 
+      "quick_move": "Bubble", 
+      "spawn_rate": 0.344, 
+      "stam": "80", 
+      "types": [
+        "Water"
+      ]
+    }, 
+    "61": {
+      "atk": "132", 
+      "candies": "100", 
+      "candy_id": "60", 
+      "charge_move": "Mud Bomb", 
+      "def": "132", 
+      "max_cp": "1340", 
+      "max_pv": "115", 
+      "quick_move": "Bubble", 
+      "spawn_rate": 0.0224, 
+      "stam": "130", 
+      "types": [
+        "Water"
+      ]
+    }, 
+    "62": {
+      "atk": "180", 
+      "candy_id": "60", 
+      "charge_move": "Hydro Pump", 
+      "def": "202", 
+      "max_cp": "2505", 
+      "max_pv": "154", 
+      "quick_move": "Bubble", 
+      "spawn_rate": 0.0012, 
+      "stam": "180", 
+      "types": [
+        "Water"
+      ]
+    }, 
+    "63": {
+      "atk": "110", 
+      "candies": "25", 
+      "candy_id": "63", 
+      "charge_move": "Psyshock", 
+      "def": "76", 
+      "max_cp": "600", 
+      "max_pv": "51", 
+      "quick_move": "Zen Headbutt", 
+      "spawn_rate": 0.1557, 
+      "stam": "50", 
+      "types": [
+        "Psychic"
+      ]
+    }, 
+    "64": {
+      "atk": "150", 
+      "candies": "100", 
+      "candy_id": "63", 
+      "charge_move": "Shadow Ball", 
+      "def": "112", 
+      "max_cp": "1132", 
+      "max_pv": "75", 
+      "quick_move": "Psycho Cut", 
+      "spawn_rate": 0.0107, 
+      "stam": "80", 
+      "types": [
+        "Psychic"
+      ]
+    }, 
+    "65": {
+      "atk": "186", 
+      "candy_id": "63", 
+      "charge_move": "Psychic", 
+      "def": "152", 
+      "max_cp": "1814", 
+      "max_pv": "98", 
+      "quick_move": "Psycho Cut", 
+      "spawn_rate": 0.0004, 
+      "stam": "110", 
+      "types": [
+        "Psychic"
+      ]
+    }, 
+    "66": {
+      "atk": "118", 
+      "candies": "25", 
+      "candy_id": "66", 
+      "charge_move": "Cross Chop", 
+      "def": "96", 
+      "max_cp": "1090", 
+      "max_pv": "122", 
+      "quick_move": "Low Kick", 
+      "spawn_rate": 0.1087, 
+      "stam": "140", 
+      "types": [
+        "Fighting"
+      ]
+    }, 
+    "67": {
+      "atk": "154", 
+      "candies": "100", 
+      "candy_id": "66", 
+      "charge_move": "Cross Chop", 
+      "def": "144", 
+      "max_cp": "1761", 
+      "max_pv": "138", 
+      "quick_move": "Low Kick", 
+      "spawn_rate": 0.0061, 
+      "stam": "160", 
+      "types": [
+        "Fighting"
+      ]
+    }, 
+    "68": {
+      "atk": "198", 
+      "candy_id": "66", 
+      "charge_move": "Cross Chop", 
+      "def": "180", 
+      "max_cp": "2594", 
+      "max_pv": "154", 
+      "quick_move": "Karate Chop", 
+      "spawn_rate": 0.0004, 
+      "stam": "180", 
+      "types": [
+        "Fighting"
+      ]
+    }, 
+    "69": {
+      "atk": "158", 
+      "candies": "25", 
+      "candy_id": "69", 
+      "charge_move": "Power Whip", 
+      "def": "78", 
+      "max_cp": "1117", 
+      "max_pv": "90", 
+      "quick_move": "Vine Whip", 
+      "spawn_rate": 0.2336, 
+      "stam": "100", 
+      "types": [
+        "Grass", 
+        "Poison"
+      ]
+    }, 
+    "7": {
+      "atk": "112", 
+      "candies": "25", 
+      "candy_id": "7", 
+      "charge_move": "Aqua Tail", 
+      "def": "142", 
+      "max_cp": "1009", 
+      "max_pv": "81", 
+      "quick_move": "Bubble", 
+      "spawn_rate": 0.3617, 
+      "stam": "88", 
+      "types": [
+        "Water"
+      ]
+    }, 
+    "70": {
+      "atk": "190", 
+      "candies": "100", 
+      "candy_id": "69", 
+      "charge_move": "Power Whip", 
+      "def": "110", 
+      "max_cp": "1724", 
+      "max_pv": "114", 
+      "quick_move": "Razor Leaf", 
+      "spawn_rate": 0.0133, 
+      "stam": "130", 
+      "types": [
+        "Grass", 
+        "Poison"
+      ]
+    }, 
+    "71": {
+      "atk": "222", 
+      "candy_id": "69", 
+      "charge_move": "Solar Beam", 
+      "def": "152", 
+      "max_cp": "2531", 
+      "max_pv": "138", 
+      "quick_move": "Razor Leaf", 
+      "spawn_rate": 0.0005, 
+      "stam": "160", 
+      "types": [
+        "Grass", 
+        "Poison"
+      ]
+    }, 
+    "72": {
+      "atk": "106", 
+      "candies": "50", 
+      "candy_id": "72", 
+      "charge_move": "Water Pulse", 
+      "def": "136", 
+      "max_cp": "905", 
+      "max_pv": "75", 
+      "quick_move": "Bubble", 
+      "spawn_rate": 0.1087, 
+      "stam": "80", 
+      "types": [
+        "Water", 
+        "Poison"
+      ]
+    }, 
+    "73": {
+      "atk": "170", 
+      "candy_id": "72", 
+      "charge_move": "Hydro Pump", 
+      "def": "196", 
+      "max_cp": "2220", 
+      "max_pv": "138", 
+      "quick_move": "Poison Jab", 
+      "spawn_rate": 0.0101, 
+      "stam": "160", 
+      "types": [
+        "Water", 
+        "Poison"
+      ]
+    }, 
+    "74": {
+      "atk": "106", 
+      "candies": "25", 
+      "candy_id": "74", 
+      "charge_move": "Dig", 
+      "def": "118", 
+      "max_cp": "849", 
+      "max_pv": "75", 
+      "quick_move": "Rock Throw", 
+      "spawn_rate": 0.0928, 
+      "stam": "80", 
+      "types": [
+        "Rock", 
+        "Ground"
+      ]
+    }, 
+    "75": {
+      "atk": "142", 
+      "candies": "100", 
+      "candy_id": "74", 
+      "charge_move": "Stone Edge", 
+      "def": "156", 
+      "max_cp": "1434", 
+      "max_pv": "98", 
+      "quick_move": "Mud Shot", 
+      "spawn_rate": 0.0026, 
+      "stam": "110", 
+      "types": [
+        "Rock", 
+        "Ground"
+      ]
+    }, 
+    "76": {
+      "atk": "176", 
+      "candy_id": "74", 
+      "charge_move": "Stone Edge", 
+      "def": "198", 
+      "max_cp": "2303", 
+      "max_pv": "138", 
+      "quick_move": "Mud Shot", 
+      "spawn_rate": 0.0001, 
+      "stam": "160", 
+      "types": [
+        "Rock", 
+        "Ground"
+      ]
+    }, 
+    "77": {
+      "atk": "168", 
+      "candies": "50", 
+      "candy_id": "77", 
+      "charge_move": "Fire Blast", 
+      "def": "138", 
+      "max_cp": "1516", 
+      "max_pv": "90", 
+      "quick_move": "Ember", 
+      "spawn_rate": 0.0451, 
+      "stam": "100", 
+      "types": [
+        "Fire"
+      ]
+    }, 
+    "78": {
+      "atk": "200", 
+      "candy_id": "77", 
+      "charge_move": "Fire Blast", 
+      "def": "170", 
+      "max_cp": "2199", 
+      "max_pv": "114", 
+      "quick_move": "Ember", 
+      "spawn_rate": 0.0002, 
+      "stam": "130", 
+      "types": [
+        "Fire"
+      ]
+    }, 
+    "79": {
+      "atk": "110", 
+      "candies": "50", 
+      "candy_id": "79", 
+      "charge_move": "Psychic", 
+      "def": "110", 
+      "max_cp": "1219", 
+      "max_pv": "154", 
+      "quick_move": "Water Gun", 
+      "spawn_rate": 0.1789, 
+      "stam": "180", 
+      "types": [
+        "Water", 
+        "Psychic"
+      ]
+    }, 
+    "8": {
+      "atk": "144", 
+      "candies": "100", 
+      "candy_id": "7", 
+      "charge_move": "Hydro Pump", 
+      "def": "176", 
+      "max_cp": "1583", 
+      "max_pv": "105", 
+      "quick_move": "Water Gun", 
+      "spawn_rate": 0.0209, 
+      "stam": "118", 
+      "types": [
+        "Water"
+      ]
+    }, 
+    "80": {
+      "atk": "184", 
+      "candy_id": "79", 
+      "charge_move": "Psychic", 
+      "def": "198", 
+      "max_cp": "2597", 
+      "max_pv": "162", 
+      "quick_move": "Water Gun", 
+      "spawn_rate": 0.0052, 
+      "stam": "190", 
+      "types": [
+        "Water", 
+        "Psychic"
+      ]
+    }, 
+    "81": {
+      "atk": "128", 
+      "candies": "50", 
+      "candy_id": "81", 
+      "charge_move": "Thunderbolt", 
+      "def": "138", 
+      "max_cp": "891", 
+      "max_pv": "51", 
+      "quick_move": "Spark", 
+      "spawn_rate": 0.3051, 
+      "stam": "50", 
+      "types": [
+        "Electric", 
+        "Steel"
+      ]
+    }, 
+    "82": {
+      "atk": "186", 
+      "candy_id": "81", 
+      "charge_move": "Flash Cannon", 
+      "def": "180", 
+      "max_cp": "1880", 
+      "max_pv": "90", 
+      "quick_move": "Spark", 
+      "spawn_rate": 0.0094, 
+      "stam": "100", 
+      "types": [
+        "Electric", 
+        "Steel"
+      ]
+    }, 
+    "83": {
+      "atk": "138", 
+      "charge_move": "Leaf Blade", 
+      "def": "132", 
+      "max_cp": "1264", 
+      "max_pv": "94", 
+      "quick_move": "Cut", 
+      "spawn_rate": 0, 
+      "stam": "104", 
+      "types": [
+        "Normal", 
+        "Flying"
+      ]
+    }, 
+    "84": {
+      "atk": "126", 
+      "candies": "50", 
+      "candy_id": "84", 
+      "charge_move": "Aerial Ace", 
+      "def": "96", 
+      "max_cp": "855", 
+      "max_pv": "67", 
+      "quick_move": "Peck", 
+      "spawn_rate": 0.0567, 
+      "stam": "70", 
+      "types": [
+        "Normal", 
+        "Flying"
+      ]
+    }, 
+    "85": {
+      "atk": "182", 
+      "candy_id": "84", 
+      "charge_move": "Drill Peck", 
+      "def": "150", 
+      "max_cp": "1836", 
+      "max_pv": "106", 
+      "quick_move": "Feint Attack", 
+      "spawn_rate": 0.0001, 
+      "stam": "120", 
+      "types": [
+        "Normal", 
+        "Flying"
+      ]
+    }, 
+    "86": {
+      "atk": "104", 
+      "candies": "50", 
+      "candy_id": "86", 
+      "charge_move": "Aqua Tail", 
+      "def": "138", 
+      "max_cp": "1107", 
+      "max_pv": "114", 
+      "quick_move": "Water Gun", 
+      "spawn_rate": 0.3836, 
+      "stam": "130", 
+      "types": [
+        "Water"
+      ]
+    }, 
+    "87": {
+      "atk": "156", 
+      "candy_id": "86", 
+      "charge_move": "Blizzard", 
+      "def": "192", 
+      "max_cp": "2146", 
+      "max_pv": "154", 
+      "quick_move": "Frost Breath", 
+      "spawn_rate": 0.0104, 
+      "stam": "180", 
+      "types": [
+        "Water", 
+        "Ice"
+      ]
+    }, 
+    "88": {
+      "atk": "124", 
+      "candies": "50", 
+      "candy_id": "88", 
+      "charge_move": "Sludge Bomb", 
+      "def": "110", 
+      "max_cp": "1284", 
+      "max_pv": "138", 
+      "quick_move": "Acid", 
+      "spawn_rate": 0.0324, 
+      "stam": "160", 
+      "types": [
+        "Poison"
+      ]
+    }, 
+    "89": {
+      "atk": "180", 
+      "candy_id": "88", 
+      "charge_move": "Gunk Shot", 
+      "def": "188", 
+      "max_cp": "2603", 
+      "max_pv": "177", 
+      "quick_move": "Poison Jab", 
+      "spawn_rate": 0.0012, 
+      "stam": "210", 
+      "types": [
+        "Poison"
+      ]
+    }, 
+    "9": {
+      "atk": "186", 
+      "candy_id": "7", 
+      "charge_move": "Hydro Pump", 
+      "def": "222", 
+      "max_cp": "2542", 
+      "max_pv": "136", 
+      "quick_move": "Water Gun", 
+      "spawn_rate": 0.0021, 
+      "stam": "158", 
+      "types": [
+        "Water"
+      ]
+    }, 
+    "90": {
+      "atk": "120", 
+      "candies": "50", 
+      "candy_id": "90", 
+      "charge_move": "Water Pulse", 
+      "def": "112", 
+      "max_cp": "823", 
+      "max_pv": "59", 
+      "quick_move": "Tackle", 
+      "spawn_rate": 0.6694, 
+      "stam": "60", 
+      "types": [
+        "Water"
+      ]
+    }, 
+    "91": {
+      "atk": "196", 
+      "candy_id": "90", 
+      "charge_move": "Blizzard", 
+      "def": "196", 
+      "max_cp": "2053", 
+      "max_pv": "90", 
+      "quick_move": "Frost Breath", 
+      "spawn_rate": 0.0108, 
+      "stam": "100", 
+      "types": [
+        "Water", 
+        "Ice"
+      ]
+    }, 
+    "92": {
+      "atk": "136", 
+      "candies": "25", 
+      "candy_id": "92", 
+      "charge_move": "Sludge Bomb", 
+      "def": "82", 
+      "max_cp": "804", 
+      "max_pv": "59", 
+      "quick_move": "Lick", 
+      "spawn_rate": 1.1075, 
+      "stam": "60", 
+      "types": [
+        "Ghost", 
+        "Poison"
+      ]
+    }, 
+    "93": {
+      "atk": "172", 
+      "candies": "100", 
+      "candy_id": "92", 
+      "charge_move": "Sludge Bomb", 
+      "def": "118", 
+      "max_cp": "1380", 
+      "max_pv": "82", 
+      "quick_move": "Shadow Claw", 
+      "spawn_rate": 0.0699, 
+      "stam": "90", 
+      "types": [
+        "Ghost", 
+        "Poison"
+      ]
+    }, 
+    "94": {
+      "atk": "204", 
+      "candy_id": "92", 
+      "charge_move": "Sludge Bomb", 
+      "def": "156", 
+      "max_cp": "2078", 
+      "max_pv": "106", 
+      "quick_move": "Shadow Claw", 
+      "spawn_rate": 0.005, 
+      "stam": "120", 
+      "types": [
+        "Ghost", 
+        "Poison"
+      ]
+    }, 
+    "95": {
+      "atk": "90", 
+      "candy_id": "95", 
+      "charge_move": "Stone Edge", 
+      "def": "186", 
+      "max_cp": "857", 
+      "max_pv": "67", 
+      "quick_move": "Rock Throw", 
+      "spawn_rate": 0.0191, 
+      "stam": "70", 
+      "types": [
+        "Rock", 
+        "Ground"
+      ]
+    }, 
+    "96": {
+      "atk": "104", 
+      "candies": "50", 
+      "candy_id": "96", 
+      "charge_move": "Psychic", 
+      "def": "140", 
+      "max_cp": "1075", 
+      "max_pv": "106", 
+      "quick_move": "Pound", 
+      "spawn_rate": 4.7404, 
+      "stam": "120", 
+      "types": [
+        "Psychic"
+      ]
+    }, 
+    "97": {
+      "atk": "162", 
+      "candy_id": "96", 
+      "charge_move": "Psychic", 
+      "def": "196", 
+      "max_cp": "2184", 
+      "max_pv": "146", 
+      "quick_move": "Zen Headbutt", 
+      "spawn_rate": 0.1444, 
+      "stam": "170", 
+      "types": [
+        "Psychic"
+      ]
+    }, 
+    "98": {
+      "atk": "116", 
+      "candies": "50", 
+      "candy_id": "98", 
+      "charge_move": "Water Pulse", 
+      "def": "110", 
+      "max_cp": "792", 
+      "max_pv": "59", 
+      "quick_move": "Bubble", 
+      "spawn_rate": 1.3373, 
+      "stam": "60", 
+      "types": [
+        "Water"
+      ]
+    }, 
+    "99": {
+      "atk": "178", 
+      "candy_id": "98", 
+      "charge_move": "X Scissor", 
+      "def": "168", 
+      "max_cp": "1823", 
+      "max_pv": "98", 
+      "quick_move": "Metal Claw", 
+      "spawn_rate": 0.0424, 
+      "stam": "110", 
+      "types": [
+        "Water"
+      ]
     }
+  }, 
+  "typecolors": {
+    "Bug": "#a8b820", 
+    "Dragon": "#7038f8", 
+    "Electric": "#f8d030", 
+    "Fairy": "#e898e8", 
+    "Fighting": "#c03028", 
+    "Fire": "#f08030", 
+    "Flying": "#a890f0", 
+    "Ghost": "#705898", 
+    "Grass": "#78c850", 
+    "Ground": "#e0c068", 
+    "Ice": "#98d8d8", 
+    "Normal": "#8a8a59", 
+    "Poison": "#a040a0", 
+    "Psychic": "#f85888", 
+    "Rock": "#b8a038", 
+    "Steel": "#b8b8d0", 
+    "Water": "#6890f0"
+  }
 }
