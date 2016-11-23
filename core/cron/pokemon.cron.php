@@ -28,7 +28,7 @@ $result 	= $mysqli->query($req);
 while($data = $result->fetch_object()){
 	
 	$poke_id 	= $data->pokemon_id; 
-	$rarity 	= $pokemons->$poke_id->rarity;
+	$rarity 	= $pokemons->pokemon->$poke_id->rarity;
 	
 	@$type[$rarity] = $type[$rarity]+1; 
 	

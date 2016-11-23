@@ -144,8 +144,8 @@ switch($request){
 		if ($config->system->mythic_recents) {
 			// get all mythic pokemon ids
 			$mythic_pokemons = array();
-			foreach($pokemons as $id=>$pokemon) {
-				if ($pokemon->rarity === "Mythic") {
+			foreach($pokemons->pokemon as $id=>$pokemon) {
+				if ($pokemon->spawn_rate < 0.01) {
 					$mythic_pokemons[] = $id;
 				}
 			}
@@ -168,8 +168,8 @@ switch($request){
 		
 			<div class="col-md-1 col-xs-4 pokemon-single" pokeid="'.$pokeid.'" style="display:none;">
 						
-				<a href="pokemon/'.$pokeid.'"><img src="core/pokemons/'.$pokeid.'.png" alt="'.$pokemons->$pokeid->name.'" class="img-responsive"></a>
-				<p class="pkmn-name"><a href="pokemon/'.$pokeid.'">'.$pokemons->$pokeid->name.'</a></p>
+				<a href="pokemon/'.$pokeid.'"><img src="core/pokemons/'.$pokeid.'.png" alt="'.$pokemons->pokemon->$pokeid->name.'" class="img-responsive"></a>
+				<p class="pkmn-name"><a href="pokemon/'.$pokeid.'">'.$pokemons->pokemon->$pokeid->name.'</a></p>
 			
 			</div>	
 				

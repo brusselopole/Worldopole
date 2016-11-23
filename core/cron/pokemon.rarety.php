@@ -39,31 +39,21 @@ foreach($pokelist as $pokemon){
 	// Unseen 
 	
 	if($arrondis >= 1){
-		
 		$pokelist[$key]['status'] = 'Very common'; 
-		
 	}elseif($arrondis >= 0.20){
-		
 		$pokelist[$key]['status'] = 'Common';
-		
 	}elseif($arrondis >= 0.01){
-		
 		$pokelist[$key]['status'] = 'Rare';
-		
 	}elseif($arrondis > 0){
-		
 		$pokelist[$key]['status'] = 'Mythic';
-		
 	}else{
-		
 		$pokelist[$key]['status'] = 'Unseen';
-		
 	}
 	
 }
 
 
-foreach($pokemons as $pokemon_id => $pokemon_data){
+foreach($pokemons->pokemon as $pokemon_id => $pokemon_data){
 	
 	if(isset($pokelist[$pokemon_id])){
 		

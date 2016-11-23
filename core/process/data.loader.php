@@ -145,7 +145,7 @@ if(!empty($page)){
 			
 			$pokemon_id 			= mysqli_real_escape_string($mysqli,$_GET['id']);
 			
-			if(!is_object($pokemons->$pokemon_id)){
+			if(!is_object($pokemons->pokemon->$pokemon_id)){
 				
 				header('Location:/404');
 				exit(); 
@@ -154,7 +154,7 @@ if(!empty($page)){
 			
 						
 			$pokemon			= new stdClass(); 			 
-			$pokemon			= $pokemons->$pokemon_id;
+			$pokemon			= $pokemons->pokemon->$pokemon_id;
 			$pokemon->id			= $pokemon_id;
 			
 			
@@ -248,7 +248,7 @@ if(!empty($page)){
 			$related = array(); 
 			$i = 1; 
 			
-			foreach($pokemons as $test_pokemon){
+			foreach($pokemons->pokemon as $test_pokemon){
 				if(!empty($test_pokemon->types)){							
 					foreach($test_pokemon->types as $type){
 						
@@ -301,7 +301,7 @@ if(!empty($page)){
 				$pokedex->$i->id 		= $i; 
 				$pokedex->$i->permalink 	= 'pokemon/'.$i; 
 				$pokedex->$i->img		= 'core/pokemons/'.$i.'.png'; 
-				$pokedex->$i->name		= $pokemons->$i->name; 
+				$pokedex->$i->name		= $pokemons->pokemon->$i->name; 
 				$pokedex->$i->spawn 		= isset($data_array[$i])? $data_array[$i] : 0;
 							
 			}
@@ -534,8 +534,8 @@ else{
 	if ($config->system->mythic_recents) {
 		// get all mythic pokemon ids
 		$mythic_pokemons  = array();
-		foreach($pokemons as $id=>$pokemon) {
-			if ($pokemon->rarity === "Mythic") {
+		foreach($pokemons->pokemon as $id=>$pokemon) {
+			if ($pokemon->rarity < 0.01) {
 				$mythic_pokemons[] = $id;
 			}
 		}

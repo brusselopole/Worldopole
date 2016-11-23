@@ -71,7 +71,7 @@
 
 				<p>
 				<?php foreach($pokemon->types as $type){ ?>
-					<span class="label label-default" style="background-color:<?= $type->color ?>"><?= $type->type ?></span>
+					<span class="label label-default" style="background-color:<?= $pokemons->typecolors->$type ?>"><?= $type ?></span>
 				<?php }?>
 				</p>
 				
@@ -240,7 +240,7 @@
 			<div class="col-md-1 col-sm-2 col-xs-3 pokemon-single">
 			
 				<a href="pokemon/<?= $related_mon ?>">
-					<img src="core/pokemons/<?= $related_mon ?>.png" alt="<?= $pokemons->$related_mon->name ?>.png" class="img-responsive">
+					<img src="core/pokemons/<?= $related_mon ?>.png" alt="<?= $pokemons->pokemon->$related_mon->name ?>.png" class="img-responsive">
 				</a>
 			
 			</div>
