@@ -48,40 +48,7 @@
 		</tr>
 		</thead>
 		<tbody id="trainersContainer">
-			<tr id="trainerInfos" class="trainersTemplate">
-				<td id="trainerIndex"></td>
-				<td id="trainerRank"></td>
-				<td ><a id="trainerNameLink" href=""><span id="trainerName"></span></a></td>
-				<td id="trainerLevel"></td>
-				<td id="trainerGyms"></td>
-			</tr>
-			<tr id="trainerPokemons"  class="trainersTemplate">
-				<td colspan="5" class="">
-					<div class="container">
-						<div class="col-md-1 col-xs-4 pokemon-single trainersTemplate" style="text-align: center" id="trainerPokemon">
-							<a id="trainerPokemonLink" href="">
-							<img src="" class="img-responsive pkmn-image" id="trainerPokemonImage">
-							</a>
-							<p class="pkmn-name" id="trainerPokemonCp"></p>
-							<div class="progress" style="height: 6px">
-								<div id="trainerPokemonStamina" title="IV Stamina: " class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="45" >
-									<span class="sr-only">Stamina IV : </span>
-								</div>
-							
-								<div id="trainerPokemonAttack" title="IV Attack: " class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="45" >
-									<span class="sr-only">Attack IV : </span>
-								</div>
-
-								<div id="trainerPokemonDefense" title="IV Defense: " class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="45" >
-									<span class="sr-only">Defense IV : </span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</td>
-			</tr>
-			
-			
+		
 		</tbody>
 		<tfoot>
 			<tr class="trainerLoader">
