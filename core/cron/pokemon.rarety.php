@@ -5,7 +5,7 @@
 // ------------------------------------------------------
 
 
-$pokemons	= json_decode($pokedex_file);
+$pokemons_new	= json_decode($pokedex_file_content);
 
 $req 		= "SELECT pokemon_id, COUNT(1) as total FROM pokemon GROUP BY pokemon_id ORDER BY pokemon_id ASC";
 $result 	= $mysqli->query($req);
@@ -31,47 +31,23 @@ foreach($pokelist as $pokemon){
 	$arrondis			= round($pourcent , 4); 
 	$pokelist[$key]['rate'] 	= $arrondis; 
 	
-	
-	// >= 1          = Very common
-	// 0.20 - 1      = Common
-	// 0.01 - 0.20   = Rare
-	// > 0  - 0.01   = Mythic
-	// Unseen 
-	
-	if($arrondis >= 1){
-		$pokelist[$key]['status'] = 'Very common'; 
-	}elseif($arrondis >= 0.20){
-		$pokelist[$key]['status'] = 'Common';
-	}elseif($arrondis >= 0.01){
-		$pokelist[$key]['status'] = 'Rare';
-	}elseif($arrondis > 0){
-		$pokelist[$key]['status'] = 'Mythic';
-	}else{
-		$pokelist[$key]['status'] = 'Unseen';
-	}
-	
 }
 
 
-foreach($pokemons->pokemon as $pokemon_id => $pokemon_data){
+foreach($pokemons_new->pokemon as $pokemon_id => $pokemon_data){
 	
 	if(isset($pokelist[$pokemon_id])){
-		
-		$pokemon_data->rarity 		= $pokelist[$pokemon_id]['status'];
 		$pokemon_data->spawn_rate 	= $pokelist[$pokemon_id]['rate']; 
-		
 	}
 	else{
-		$pokemon_data->rarity 		= 'Unseen';
 		$pokemon_data->spawn_rate 	= 0.0000;
-		
 	}
 	
 	
 }
 
-$file_content = json_encode($pokemons); 
-
+$file_content = json_encode($pokemons_new, JSON_PRETTY_PRINT);
+unset($pokemons_new);
 file_put_contents($pokedex_file, $file_content);
 	
 ?>

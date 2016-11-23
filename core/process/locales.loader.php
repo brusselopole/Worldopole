@@ -48,7 +48,8 @@ if(isset($lang)){
 // JSON globale file for Pokémon 
 ################################
 
-$pokedex_file	= file_get_contents(SYS_PATH.'/core/json/pokedex.json');
+$pokedex_file		= SYS_PATH.'/core/json/pokedex.json';
+$pokedex_file_content	= file_get_contents($pokedex_file);
 
 
 // Merge translation files
@@ -66,7 +67,7 @@ $pokemon_trans	= (object) array_merge((array) json_decode(file_get_contents(SYS_
 // Merge the pokedex & pokemon file into a new array 
 #####################################################
 
-$pokemons = json_decode($pokedex_file);
+$pokemons = json_decode($pokedex_file_content);
 
 foreach ($pokemons->pokemon as $pokeid => $pokemon) {
 	// Merge name and description from translation files

@@ -102,17 +102,16 @@ include_once('locales.loader.php');
 // ( for Brusselopole we use CRONTAB but as we're not sure that every had access to it we build this really simple false crontab system
 // => check filemtime, if > 24h launch an update. )
 
-//$pokelist_filetime	= filemtime($pokedex_file);
-//$now			= time();
-//$diff			= $now - $pokelist_filetime;
+$pokelist_filetime	= filemtime($pokedex_file);
+$now			= time();
+$diff			= $now - $pokelist_filetime;
 
 // Update each 24h
-//$update_delay		= 86400;
+$update_delay		= 86400;
 
-//if($diff > $update_delay){
-//	include_once(SYS_PATH.'/core/cron/pokemon.rarety.php');
-//}
-
+if($diff > $update_delay){
+	include_once(SYS_PATH.'/core/cron/pokemon.rarety.php');
+}
 
 
 
