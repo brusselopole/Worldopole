@@ -22,7 +22,7 @@
 </div>
 </header>
 
-<div class="row area">
+<div class="row area" id="trainersGraph">
 	<div class="col-md-12 text-center">
 		<h2 class="sub-title">Trainer <strong>level</strong> distribution</h2>
 	</div>
