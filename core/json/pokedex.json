@@ -9,7 +9,6 @@
       "max_cp": "1072", 
       "max_pv": "82", 
       "quick_move": "Vine Whip", 
-      "spawn_rate": 0.0162, 
       "stam": "90", 
       "types": [
         "Grass", 
@@ -25,7 +24,6 @@
       "max_cp": "444", 
       "max_pv": "92", 
       "quick_move": "Bug Bite", 
-      "spawn_rate": 1.887, 
       "stam": "90", 
       "types": [
         "Bug"
@@ -40,7 +38,6 @@
       "max_cp": "840", 
       "max_pv": "75", 
       "quick_move": "Spark", 
-      "spawn_rate": 0.1515, 
       "stam": "80", 
       "types": [
         "Electric"
@@ -54,7 +51,6 @@
       "max_cp": "1646", 
       "max_pv": "106", 
       "quick_move": "Spark", 
-      "spawn_rate": 0.0034, 
       "stam": "120", 
       "types": [
         "Electric"
@@ -69,7 +65,6 @@
       "max_cp": "1100", 
       "max_pv": "106", 
       "quick_move": "Confusion", 
-      "spawn_rate": 0.0134, 
       "stam": "120", 
       "types": [
         "Grass", 
@@ -84,7 +79,6 @@
       "max_cp": "2955", 
       "max_pv": "162", 
       "quick_move": "Zen Headbutt", 
-      "spawn_rate": 0.0002, 
       "stam": "190", 
       "types": [
         "Grass", 
@@ -100,7 +94,6 @@
       "max_cp": "1007", 
       "max_pv": "90", 
       "quick_move": "Mud Slap", 
-      "spawn_rate": 0.0191, 
       "stam": "100", 
       "types": [
         "Ground"
@@ -114,7 +107,6 @@
       "max_cp": "1657", 
       "max_pv": "106", 
       "quick_move": "Mud Slap", 
-      "spawn_rate": 0.0007, 
       "stam": "120", 
       "types": [
         "Ground"
@@ -129,7 +121,6 @@
       "max_cp": "1493", 
       "max_pv": "90", 
       "quick_move": "Low Kick", 
-      "spawn_rate": 0.0062, 
       "stam": "100", 
       "types": [
         "Fighting"
@@ -143,7 +134,6 @@
       "max_cp": "1517", 
       "max_pv": "90", 
       "quick_move": "Rock Smash", 
-      "spawn_rate": 0.0063, 
       "stam": "100", 
       "types": [
         "Fighting"
@@ -157,7 +147,6 @@
       "max_cp": "1627", 
       "max_pv": "154", 
       "quick_move": "Zen Headbutt", 
-      "spawn_rate": 0.0095, 
       "stam": "180", 
       "types": [
         "Normal"
@@ -172,7 +161,6 @@
       "max_cp": "1152", 
       "max_pv": "75", 
       "quick_move": "Acid", 
-      "spawn_rate": 0.2326, 
       "stam": "80", 
       "types": [
         "Poison"
@@ -187,7 +175,6 @@
       "max_cp": "478", 
       "max_pv": "90", 
       "quick_move": "Bug Bite", 
-      "spawn_rate": 0.1181, 
       "stam": "100", 
       "types": [
         "Bug"
@@ -201,7 +188,6 @@
       "max_cp": "2550", 
       "max_pv": "114", 
       "quick_move": "Acid", 
-      "spawn_rate": 0.0064, 
       "stam": "130", 
       "types": [
         "Poison"
@@ -216,7 +202,6 @@
       "max_cp": "1182", 
       "max_pv": "138", 
       "quick_move": "Mud Slap", 
-      "spawn_rate": 0.0484, 
       "stam": "160", 
       "types": [
         "Ground", 
@@ -231,7 +216,6 @@
       "max_cp": "2243", 
       "max_pv": "177", 
       "quick_move": "Mud Slap", 
-      "spawn_rate": 0.0014, 
       "stam": "210", 
       "types": [
         "Ground", 
@@ -246,7 +230,6 @@
       "max_cp": "675", 
       "max_pv": "407", 
       "quick_move": "Pound", 
-      "spawn_rate": 0.0015, 
       "stam": "500", 
       "types": [
         "Normal"
@@ -260,7 +243,6 @@
       "max_cp": "1740", 
       "max_pv": "114", 
       "quick_move": "Vine Whip", 
-      "spawn_rate": 0.0003, 
       "stam": "130", 
       "types": [
         "Grass"
@@ -274,7 +256,6 @@
       "max_cp": "2043", 
       "max_pv": "177", 
       "quick_move": "Mud Slap", 
-      "spawn_rate": 0, 
       "stam": "210", 
       "types": [
         "Normal"
@@ -289,7 +270,6 @@
       "max_cp": "795", 
       "max_pv": "59", 
       "quick_move": "Water Gun", 
-      "spawn_rate": 0.6714, 
       "stam": "60", 
       "types": [
         "Water"
@@ -303,7 +283,6 @@
       "max_cp": "1713", 
       "max_pv": "98", 
       "quick_move": "Water Gun", 
-      "spawn_rate": 0.0213, 
       "stam": "110", 
       "types": [
         "Water"
@@ -318,7 +297,6 @@
       "max_cp": "965", 
       "max_pv": "82", 
       "quick_move": "Mud Shot", 
-      "spawn_rate": 0.3613, 
       "stam": "90", 
       "types": [
         "Water"
@@ -332,7 +310,6 @@
       "max_cp": "2044", 
       "max_pv": "138", 
       "quick_move": "Poison Jab", 
-      "spawn_rate": 0.0415, 
       "stam": "160", 
       "types": [
         "Water"
@@ -346,7 +323,6 @@
       "max_cp": "1455", 
       "max_pv": "106", 
       "quick_move": "Bug Bite", 
-      "spawn_rate": 0.0147, 
       "stam": "120", 
       "types": [
         "Bug", 
@@ -362,7 +338,6 @@
       "max_cp": "938", 
       "max_pv": "59", 
       "quick_move": "Water Gun", 
-      "spawn_rate": 0.3436, 
       "stam": "60", 
       "types": [
         "Water"
@@ -376,7 +351,6 @@
       "max_cp": "2182", 
       "max_pv": "106", 
       "quick_move": "Water Gun", 
-      "spawn_rate": 0.0052, 
       "stam": "120", 
       "types": [
         "Water", 
@@ -391,7 +365,6 @@
       "max_cp": "1494", 
       "max_pv": "75", 
       "quick_move": "Zen Headbutt", 
-      "spawn_rate": 0.2867, 
       "stam": "80", 
       "types": [
         "Psychic", 
@@ -406,7 +379,6 @@
       "max_cp": "2074", 
       "max_pv": "122", 
       "quick_move": "Steel Wing", 
-      "spawn_rate": 0.0081, 
       "stam": "140", 
       "types": [
         "Bug", 
@@ -421,7 +393,6 @@
       "max_cp": "1717", 
       "max_pv": "114", 
       "quick_move": "Frost Breath", 
-      "spawn_rate": 0.3207, 
       "stam": "130", 
       "types": [
         "Ice", 
@@ -436,7 +407,6 @@
       "max_cp": "2119", 
       "max_pv": "114", 
       "quick_move": "Thunder Shock", 
-      "spawn_rate": 0.0642, 
       "stam": "130", 
       "types": [
         "Electric"
@@ -450,7 +420,6 @@
       "max_cp": "2265", 
       "max_pv": "114", 
       "quick_move": "Ember", 
-      "spawn_rate": 0.0237, 
       "stam": "130", 
       "types": [
         "Fire"
@@ -464,7 +433,6 @@
       "max_cp": "2122", 
       "max_pv": "114", 
       "quick_move": "Rock Smash", 
-      "spawn_rate": 0.0271, 
       "stam": "130", 
       "types": [
         "Bug"
@@ -478,7 +446,6 @@
       "max_cp": "1845", 
       "max_pv": "130", 
       "quick_move": "Tackle", 
-      "spawn_rate": 0, 
       "stam": "150", 
       "types": [
         "Normal"
@@ -493,7 +460,6 @@
       "max_cp": "263", 
       "max_pv": "43", 
       "quick_move": "Splash", 
-      "spawn_rate": 0.6765, 
       "stam": "40", 
       "types": [
         "Water"
@@ -508,7 +474,6 @@
       "max_cp": "449", 
       "max_pv": "75", 
       "quick_move": "Bug Bite", 
-      "spawn_rate": 8.8658, 
       "stam": "80", 
       "types": [
         "Bug", 
@@ -523,7 +488,6 @@
       "max_cp": "2689", 
       "max_pv": "162", 
       "quick_move": "Dragon Breath / Bite", 
-      "spawn_rate": 0.0005, 
       "stam": "190", 
       "types": [
         "Water", 
@@ -538,7 +502,6 @@
       "max_cp": "2981", 
       "max_pv": "217", 
       "quick_move": "Frost Breath", 
-      "spawn_rate": 0.0049, 
       "stam": "260", 
       "types": [
         "Water", 
@@ -553,7 +516,6 @@
       "max_cp": "920", 
       "max_pv": "87", 
       "quick_move": "Pound", 
-      "spawn_rate": 0, 
       "stam": "96", 
       "types": [
         "Normal"
@@ -568,7 +530,6 @@
       "max_cp": "1077", 
       "max_pv": "98", 
       "quick_move": "Tackle", 
-      "spawn_rate": 1.3484, 
       "stam": "110", 
       "types": [
         "Normal"
@@ -582,7 +543,6 @@
       "max_cp": "2816", 
       "max_pv": "217", 
       "quick_move": "Water Gun", 
-      "spawn_rate": 0.0051, 
       "stam": "260", 
       "types": [
         "Water"
@@ -596,7 +556,6 @@
       "max_cp": "2140", 
       "max_pv": "114", 
       "quick_move": "Thunder Shock", 
-      "spawn_rate": 0.0004, 
       "stam": "130", 
       "types": [
         "Electric"
@@ -610,7 +569,6 @@
       "max_cp": "2643", 
       "max_pv": "114", 
       "quick_move": "Ember", 
-      "spawn_rate": 0, 
       "stam": "130", 
       "types": [
         "Fire"
@@ -624,7 +582,6 @@
       "max_cp": "1692", 
       "max_pv": "114", 
       "quick_move": "Tackle", 
-      "spawn_rate": 0.0324, 
       "stam": "130", 
       "types": [
         "Normal"
@@ -639,7 +596,6 @@
       "max_cp": "1120", 
       "max_pv": "67", 
       "quick_move": "Water Gun", 
-      "spawn_rate": 0.0187, 
       "stam": "70", 
       "types": [
         "Rock", 
@@ -654,7 +610,6 @@
       "max_cp": "2234", 
       "max_pv": "122", 
       "quick_move": "Water Gun", 
-      "spawn_rate": 0.0003, 
       "stam": "140", 
       "types": [
         "Rock", 
@@ -670,7 +625,6 @@
       "max_cp": "485", 
       "max_pv": "82", 
       "quick_move": "Bug Bite", 
-      "spawn_rate": 0.5508, 
       "stam": "90", 
       "types": [
         "Bug", 
@@ -686,7 +640,6 @@
       "max_cp": "1105", 
       "max_pv": "59", 
       "quick_move": "Scratch", 
-      "spawn_rate": 0.0155, 
       "stam": "60", 
       "types": [
         "Rock", 
@@ -701,7 +654,6 @@
       "max_cp": "2130", 
       "max_pv": "106", 
       "quick_move": "Mud Shot", 
-      "spawn_rate": 0.0004, 
       "stam": "120", 
       "types": [
         "Rock", 
@@ -716,7 +668,6 @@
       "max_cp": "2165", 
       "max_pv": "138", 
       "quick_move": "Bite", 
-      "spawn_rate": 0.002, 
       "stam": "160", 
       "types": [
         "Rock", 
@@ -731,7 +682,6 @@
       "max_cp": "3113", 
       "max_pv": "264", 
       "quick_move": "Zen Headbutt", 
-      "spawn_rate": 0.0025, 
       "stam": "320", 
       "types": [
         "Normal"
@@ -745,7 +695,6 @@
       "max_cp": "2978", 
       "max_pv": "154", 
       "quick_move": "?", 
-      "spawn_rate": 0, 
       "stam": "180", 
       "types": [
         "Ice", 
@@ -760,7 +709,6 @@
       "max_cp": "3114", 
       "max_pv": "154", 
       "quick_move": "?", 
-      "spawn_rate": 0, 
       "stam": "180", 
       "types": [
         "Electric", 
@@ -775,7 +723,6 @@
       "max_cp": "3240", 
       "max_pv": "154", 
       "quick_move": "?", 
-      "spawn_rate": 0, 
       "stam": "180", 
       "types": [
         "Fire", 
@@ -791,7 +738,6 @@
       "max_cp": "983", 
       "max_pv": "76", 
       "quick_move": "Dragon Breath", 
-      "spawn_rate": 0.0406, 
       "stam": "82", 
       "types": [
         "Dragon"
@@ -806,7 +752,6 @@
       "max_cp": "1748", 
       "max_pv": "108", 
       "quick_move": "Dragon Breath", 
-      "spawn_rate": 0.002, 
       "stam": "122", 
       "types": [
         "Dragon"
@@ -820,7 +765,6 @@
       "max_cp": "3500", 
       "max_pv": "155", 
       "quick_move": "Dragon Breath", 
-      "spawn_rate": 0.0007, 
       "stam": "182", 
       "types": [
         "Dragon", 
@@ -835,7 +779,6 @@
       "max_cp": "1440", 
       "max_pv": "114", 
       "quick_move": "Bug Bite", 
-      "spawn_rate": 0.0682, 
       "stam": "130", 
       "types": [
         "Bug", 
@@ -850,7 +793,6 @@
       "max_cp": "4145", 
       "max_pv": "179", 
       "quick_move": "?", 
-      "spawn_rate": 0, 
       "stam": "212", 
       "types": [
         "Psychic"
@@ -864,7 +806,6 @@
       "max_cp": "3299", 
       "max_pv": "169", 
       "quick_move": "?", 
-      "spawn_rate": 0, 
       "stam": "200", 
       "types": [
         "Psychic"
@@ -879,7 +820,6 @@
       "max_cp": "680", 
       "max_pv": "75", 
       "quick_move": "Tackle", 
-      "spawn_rate": 26.3265, 
       "stam": "80", 
       "types": [
         "Normal", 
@@ -895,7 +835,6 @@
       "max_cp": "1224", 
       "max_pv": "111", 
       "quick_move": "Wing Attack", 
-      "spawn_rate": 1.6346, 
       "stam": "126", 
       "types": [
         "Normal", 
@@ -910,7 +849,6 @@
       "max_cp": "2091", 
       "max_pv": "143", 
       "quick_move": "Wing Attack", 
-      "spawn_rate": 0.203, 
       "stam": "166", 
       "types": [
         "Normal", 
@@ -926,7 +864,6 @@
       "max_cp": "582", 
       "max_pv": "59", 
       "quick_move": "Tackle", 
-      "spawn_rate": 24.1422, 
       "stam": "60", 
       "types": [
         "Normal"
@@ -941,7 +878,6 @@
       "max_cp": "1632", 
       "max_pv": "106", 
       "quick_move": "Vine Whip", 
-      "spawn_rate": 0.0005, 
       "stam": "120", 
       "types": [
         "Grass", 
@@ -956,7 +892,6 @@
       "max_cp": "1444", 
       "max_pv": "98", 
       "quick_move": "Bite", 
-      "spawn_rate": 0.7652, 
       "stam": "110", 
       "types": [
         "Normal"
@@ -971,7 +906,6 @@
       "max_cp": "687", 
       "max_pv": "75", 
       "quick_move": "Peck", 
-      "spawn_rate": 10.7346, 
       "stam": "80", 
       "types": [
         "Normal", 
@@ -986,7 +920,6 @@
       "max_cp": "1746", 
       "max_pv": "114", 
       "quick_move": "Steel Wing", 
-      "spawn_rate": 0.3334, 
       "stam": "130", 
       "types": [
         "Normal", 
@@ -1002,7 +935,6 @@
       "max_cp": "824", 
       "max_pv": "67", 
       "quick_move": "Poison Sting", 
-      "spawn_rate": 0.0224, 
       "stam": "70", 
       "types": [
         "Poison"
@@ -1016,7 +948,6 @@
       "max_cp": "1767", 
       "max_pv": "106", 
       "quick_move": "Bite", 
-      "spawn_rate": 0.0007, 
       "stam": "120", 
       "types": [
         "Poison"
@@ -1031,7 +962,6 @@
       "max_cp": "888", 
       "max_pv": "67", 
       "quick_move": "Thunder Shock", 
-      "spawn_rate": 0.0515, 
       "stam": "70", 
       "types": [
         "Electric"
@@ -1045,7 +975,6 @@
       "max_cp": "2028", 
       "max_pv": "106", 
       "quick_move": "Spark", 
-      "spawn_rate": 0.0004, 
       "stam": "120", 
       "types": [
         "Electric"
@@ -1061,7 +990,6 @@
       "max_pv": "90", 
       "quick_move": "Mud Shot", 
       "rarity": "Mythic", 
-      "spawn_rate": 0.0144, 
       "stam": "100", 
       "types": [
         "Ground"
@@ -1075,7 +1003,6 @@
       "max_cp": "1810", 
       "max_pv": "130", 
       "quick_move": "Mud Shot", 
-      "spawn_rate": 0, 
       "stam": "150", 
       "types": [
         "Ground"
@@ -1090,7 +1017,6 @@
       "max_cp": "876", 
       "max_pv": "98", 
       "quick_move": "Poison Sting", 
-      "spawn_rate": 0.3161, 
       "stam": "110", 
       "types": [
         "Poison"
@@ -1104,7 +1030,6 @@
       "max_cp": "2580", 
       "max_pv": "138", 
       "quick_move": "Vine Whip", 
-      "spawn_rate": 0, 
       "stam": "160", 
       "types": [
         "Grass", 
@@ -1120,7 +1045,6 @@
       "max_cp": "1405", 
       "max_pv": "122", 
       "quick_move": "Poison Sting", 
-      "spawn_rate": 0.0207, 
       "stam": "140", 
       "types": [
         "Poison"
@@ -1134,7 +1058,6 @@
       "max_cp": "2485", 
       "max_pv": "154", 
       "quick_move": "Poison Jab", 
-      "spawn_rate": 0.001, 
       "stam": "180", 
       "types": [
         "Poison", 
@@ -1151,7 +1074,6 @@
       "max_pv": "84", 
       "quick_move": "Poison Sting", 
       "rarity": "Common", 
-      "spawn_rate": 0.3128, 
       "stam": "92", 
       "types": [
         "Poison"
@@ -1166,7 +1088,6 @@
       "max_cp": "1373", 
       "max_pv": "108", 
       "quick_move": "Poison Jab", 
-      "spawn_rate": 0.019, 
       "stam": "122", 
       "types": [
         "Poison"
@@ -1180,7 +1101,6 @@
       "max_cp": "2475", 
       "max_pv": "139", 
       "quick_move": "Poison Jab", 
-      "spawn_rate": 0.0011, 
       "stam": "162", 
       "types": [
         "Poison", 
@@ -1196,7 +1116,6 @@
       "max_cp": "1201", 
       "max_pv": "122", 
       "quick_move": "Pound", 
-      "spawn_rate": 0.2037, 
       "stam": "140", 
       "types": [
         "Fairy"
@@ -1210,7 +1129,6 @@
       "max_cp": "2398", 
       "max_pv": "162", 
       "quick_move": "Pound", 
-      "spawn_rate": 0.002, 
       "stam": "190", 
       "types": [
         "Fairy"
@@ -1225,7 +1143,6 @@
       "max_cp": "831", 
       "max_pv": "71", 
       "quick_move": "Ember", 
-      "spawn_rate": 0.0747, 
       "stam": "76", 
       "types": [
         "Fire"
@@ -1239,7 +1156,6 @@
       "max_cp": "2188", 
       "max_pv": "127", 
       "quick_move": "Ember", 
-      "spawn_rate": 0.0003, 
       "stam": "146", 
       "types": [
         "Fire"
@@ -1254,7 +1170,6 @@
       "max_cp": "918", 
       "max_pv": "193", 
       "quick_move": "Pound", 
-      "spawn_rate": 0.529, 
       "stam": "230", 
       "types": [
         "Normal", 
@@ -1271,7 +1186,6 @@
       "max_pv": "73", 
       "quick_move": "Scratch", 
       "rarity": "Rare", 
-      "spawn_rate": 0.0615, 
       "stam": "78", 
       "types": [
         "Fire"
@@ -1285,7 +1199,6 @@
       "max_cp": "2177", 
       "max_pv": "233", 
       "quick_move": "Pound", 
-      "spawn_rate": 0.0078, 
       "stam": "280", 
       "types": [
         "Normal", 
@@ -1301,7 +1214,6 @@
       "max_cp": "643", 
       "max_pv": "75", 
       "quick_move": "Bite", 
-      "spawn_rate": 3.1991, 
       "stam": "80", 
       "types": [
         "Poison", 
@@ -1316,7 +1228,6 @@
       "max_cp": "1921", 
       "max_pv": "130", 
       "quick_move": "Wing Attack", 
-      "spawn_rate": 0.2968, 
       "stam": "150", 
       "types": [
         "Poison", 
@@ -1332,7 +1243,6 @@
       "max_cp": "1148", 
       "max_pv": "82", 
       "quick_move": "Razor Leaf", 
-      "spawn_rate": 0.2463, 
       "stam": "90", 
       "types": [
         "Grass", 
@@ -1348,7 +1258,6 @@
       "max_cp": "1689", 
       "max_pv": "106", 
       "quick_move": "Razor Leaf", 
-      "spawn_rate": 0.0137, 
       "stam": "120", 
       "types": [
         "Grass", 
@@ -1363,7 +1272,6 @@
       "max_cp": "2493", 
       "max_pv": "130", 
       "quick_move": "Razor Leaf", 
-      "spawn_rate": 0.0009, 
       "stam": "150", 
       "types": [
         "Grass", 
@@ -1379,7 +1287,6 @@
       "max_cp": "917", 
       "max_pv": "67", 
       "quick_move": "Bug Bite", 
-      "spawn_rate": 0.9564, 
       "stam": "70", 
       "types": [
         "Bug", 
@@ -1394,7 +1301,6 @@
       "max_cp": "1747", 
       "max_pv": "106", 
       "quick_move": "Bug Bite", 
-      "spawn_rate": 0.028, 
       "stam": "120", 
       "types": [
         "Bug", 
@@ -1410,7 +1316,6 @@
       "max_cp": "1029", 
       "max_pv": "106", 
       "quick_move": "Bug Bite", 
-      "spawn_rate": 1.1832, 
       "stam": "120", 
       "types": [
         "Bug", 
@@ -1425,7 +1330,6 @@
       "max_cp": "1890", 
       "max_pv": "122", 
       "quick_move": "Bug Bite", 
-      "spawn_rate": 0.0365, 
       "stam": "140", 
       "types": [
         "Bug", 
@@ -1441,7 +1345,6 @@
       "max_cp": "1557", 
       "max_pv": "103", 
       "quick_move": "Scratch", 
-      "spawn_rate": 0.0002, 
       "stam": "116", 
       "types": [
         "Fire"
@@ -1455,7 +1358,6 @@
       "def": "86", 
       "max_cp": "457", 
       "quick_move": "Mud Shot", 
-      "spawn_rate": 0.0279, 
       "stam": "20", 
       "types": [
         "Ground"
@@ -1469,7 +1371,6 @@
       "max_cp": "1169", 
       "max_pv": "67", 
       "quick_move": "Mud Shot", 
-      "spawn_rate": 0.0003, 
       "stam": "70", 
       "types": [
         "Ground"
@@ -1484,7 +1385,6 @@
       "max_cp": "756", 
       "max_pv": "75", 
       "quick_move": "Scratch", 
-      "spawn_rate": 0.5367, 
       "stam": "80", 
       "types": [
         "Normal"
@@ -1498,7 +1398,6 @@
       "max_cp": "1632", 
       "max_pv": "114", 
       "quick_move": "Scratch", 
-      "spawn_rate": 0.0025, 
       "stam": "130", 
       "types": [
         "Normal"
@@ -1513,7 +1412,6 @@
       "max_cp": "1110", 
       "max_pv": "90", 
       "quick_move": "Water Gun", 
-      "spawn_rate": 0.3854, 
       "stam": "100", 
       "types": [
         "Water"
@@ -1527,7 +1425,6 @@
       "max_cp": "2387", 
       "max_pv": "138", 
       "quick_move": "Water Gun", 
-      "spawn_rate": 0.0111, 
       "stam": "160", 
       "types": [
         "Water"
@@ -1542,7 +1439,6 @@
       "max_cp": "879", 
       "max_pv": "75", 
       "quick_move": "Scratch", 
-      "spawn_rate": 0.2283, 
       "stam": "80", 
       "types": [
         "Fighting"
@@ -1556,7 +1452,6 @@
       "max_cp": "1865", 
       "max_pv": "114", 
       "quick_move": "Low Kick", 
-      "spawn_rate": 0.0011, 
       "stam": "130", 
       "types": [
         "Fighting"
@@ -1571,7 +1466,6 @@
       "max_cp": "1335", 
       "max_pv": "98", 
       "quick_move": "Bite", 
-      "spawn_rate": 0.0483, 
       "stam": "110", 
       "types": [
         "Fire"
@@ -1585,7 +1479,6 @@
       "max_cp": "2984", 
       "max_pv": "154", 
       "quick_move": "Fire Fang", 
-      "spawn_rate": 0.0004, 
       "stam": "180", 
       "types": [
         "Fire"
@@ -1599,7 +1492,6 @@
       "max_cp": "2602", 
       "max_pv": "135", 
       "quick_move": "Wing Attack", 
-      "spawn_rate": 0, 
       "stam": "156", 
       "types": [
         "Fire", 
@@ -1615,7 +1507,6 @@
       "max_cp": "796", 
       "max_pv": "75", 
       "quick_move": "Bubble", 
-      "spawn_rate": 0.344, 
       "stam": "80", 
       "types": [
         "Water"
@@ -1630,7 +1521,6 @@
       "max_cp": "1340", 
       "max_pv": "115", 
       "quick_move": "Bubble", 
-      "spawn_rate": 0.0224, 
       "stam": "130", 
       "types": [
         "Water"
@@ -1644,7 +1534,6 @@
       "max_cp": "2505", 
       "max_pv": "154", 
       "quick_move": "Bubble", 
-      "spawn_rate": 0.0012, 
       "stam": "180", 
       "types": [
         "Water"
@@ -1659,7 +1548,6 @@
       "max_cp": "600", 
       "max_pv": "51", 
       "quick_move": "Zen Headbutt", 
-      "spawn_rate": 0.1557, 
       "stam": "50", 
       "types": [
         "Psychic"
@@ -1674,7 +1562,6 @@
       "max_cp": "1132", 
       "max_pv": "75", 
       "quick_move": "Psycho Cut", 
-      "spawn_rate": 0.0107, 
       "stam": "80", 
       "types": [
         "Psychic"
@@ -1688,7 +1575,6 @@
       "max_cp": "1814", 
       "max_pv": "98", 
       "quick_move": "Psycho Cut", 
-      "spawn_rate": 0.0004, 
       "stam": "110", 
       "types": [
         "Psychic"
@@ -1703,7 +1589,6 @@
       "max_cp": "1090", 
       "max_pv": "122", 
       "quick_move": "Low Kick", 
-      "spawn_rate": 0.1087, 
       "stam": "140", 
       "types": [
         "Fighting"
@@ -1718,7 +1603,6 @@
       "max_cp": "1761", 
       "max_pv": "138", 
       "quick_move": "Low Kick", 
-      "spawn_rate": 0.0061, 
       "stam": "160", 
       "types": [
         "Fighting"
@@ -1732,7 +1616,6 @@
       "max_cp": "2594", 
       "max_pv": "154", 
       "quick_move": "Karate Chop", 
-      "spawn_rate": 0.0004, 
       "stam": "180", 
       "types": [
         "Fighting"
@@ -1747,7 +1630,6 @@
       "max_cp": "1117", 
       "max_pv": "90", 
       "quick_move": "Vine Whip", 
-      "spawn_rate": 0.2336, 
       "stam": "100", 
       "types": [
         "Grass", 
@@ -1763,7 +1645,6 @@
       "max_cp": "1009", 
       "max_pv": "81", 
       "quick_move": "Bubble", 
-      "spawn_rate": 0.3617, 
       "stam": "88", 
       "types": [
         "Water"
@@ -1778,7 +1659,6 @@
       "max_cp": "1724", 
       "max_pv": "114", 
       "quick_move": "Razor Leaf", 
-      "spawn_rate": 0.0133, 
       "stam": "130", 
       "types": [
         "Grass", 
@@ -1793,7 +1673,6 @@
       "max_cp": "2531", 
       "max_pv": "138", 
       "quick_move": "Razor Leaf", 
-      "spawn_rate": 0.0005, 
       "stam": "160", 
       "types": [
         "Grass", 
@@ -1809,7 +1688,6 @@
       "max_cp": "905", 
       "max_pv": "75", 
       "quick_move": "Bubble", 
-      "spawn_rate": 0.1087, 
       "stam": "80", 
       "types": [
         "Water", 
@@ -1824,7 +1702,6 @@
       "max_cp": "2220", 
       "max_pv": "138", 
       "quick_move": "Poison Jab", 
-      "spawn_rate": 0.0101, 
       "stam": "160", 
       "types": [
         "Water", 
@@ -1840,7 +1717,6 @@
       "max_cp": "849", 
       "max_pv": "75", 
       "quick_move": "Rock Throw", 
-      "spawn_rate": 0.0928, 
       "stam": "80", 
       "types": [
         "Rock", 
@@ -1856,7 +1732,6 @@
       "max_cp": "1434", 
       "max_pv": "98", 
       "quick_move": "Mud Shot", 
-      "spawn_rate": 0.0026, 
       "stam": "110", 
       "types": [
         "Rock", 
@@ -1871,7 +1746,6 @@
       "max_cp": "2303", 
       "max_pv": "138", 
       "quick_move": "Mud Shot", 
-      "spawn_rate": 0.0001, 
       "stam": "160", 
       "types": [
         "Rock", 
@@ -1887,7 +1761,6 @@
       "max_cp": "1516", 
       "max_pv": "90", 
       "quick_move": "Ember", 
-      "spawn_rate": 0.0451, 
       "stam": "100", 
       "types": [
         "Fire"
@@ -1901,7 +1774,6 @@
       "max_cp": "2199", 
       "max_pv": "114", 
       "quick_move": "Ember", 
-      "spawn_rate": 0.0002, 
       "stam": "130", 
       "types": [
         "Fire"
@@ -1916,7 +1788,6 @@
       "max_cp": "1219", 
       "max_pv": "154", 
       "quick_move": "Water Gun", 
-      "spawn_rate": 0.1789, 
       "stam": "180", 
       "types": [
         "Water", 
@@ -1932,7 +1803,6 @@
       "max_cp": "1583", 
       "max_pv": "105", 
       "quick_move": "Water Gun", 
-      "spawn_rate": 0.0209, 
       "stam": "118", 
       "types": [
         "Water"
@@ -1946,7 +1816,6 @@
       "max_cp": "2597", 
       "max_pv": "162", 
       "quick_move": "Water Gun", 
-      "spawn_rate": 0.0052, 
       "stam": "190", 
       "types": [
         "Water", 
@@ -1962,7 +1831,6 @@
       "max_cp": "891", 
       "max_pv": "51", 
       "quick_move": "Spark", 
-      "spawn_rate": 0.3051, 
       "stam": "50", 
       "types": [
         "Electric", 
@@ -1977,7 +1845,6 @@
       "max_cp": "1880", 
       "max_pv": "90", 
       "quick_move": "Spark", 
-      "spawn_rate": 0.0094, 
       "stam": "100", 
       "types": [
         "Electric", 
@@ -1991,7 +1858,6 @@
       "max_cp": "1264", 
       "max_pv": "94", 
       "quick_move": "Cut", 
-      "spawn_rate": 0, 
       "stam": "104", 
       "types": [
         "Normal", 
@@ -2007,7 +1873,6 @@
       "max_cp": "855", 
       "max_pv": "67", 
       "quick_move": "Peck", 
-      "spawn_rate": 0.0567, 
       "stam": "70", 
       "types": [
         "Normal", 
@@ -2022,7 +1887,6 @@
       "max_cp": "1836", 
       "max_pv": "106", 
       "quick_move": "Feint Attack", 
-      "spawn_rate": 0.0001, 
       "stam": "120", 
       "types": [
         "Normal", 
@@ -2038,7 +1902,6 @@
       "max_cp": "1107", 
       "max_pv": "114", 
       "quick_move": "Water Gun", 
-      "spawn_rate": 0.3836, 
       "stam": "130", 
       "types": [
         "Water"
@@ -2052,7 +1915,6 @@
       "max_cp": "2146", 
       "max_pv": "154", 
       "quick_move": "Frost Breath", 
-      "spawn_rate": 0.0104, 
       "stam": "180", 
       "types": [
         "Water", 
@@ -2068,7 +1930,6 @@
       "max_cp": "1284", 
       "max_pv": "138", 
       "quick_move": "Acid", 
-      "spawn_rate": 0.0324, 
       "stam": "160", 
       "types": [
         "Poison"
@@ -2082,7 +1943,6 @@
       "max_cp": "2603", 
       "max_pv": "177", 
       "quick_move": "Poison Jab", 
-      "spawn_rate": 0.0012, 
       "stam": "210", 
       "types": [
         "Poison"
@@ -2096,7 +1956,6 @@
       "max_cp": "2542", 
       "max_pv": "136", 
       "quick_move": "Water Gun", 
-      "spawn_rate": 0.0021, 
       "stam": "158", 
       "types": [
         "Water"
@@ -2111,7 +1970,6 @@
       "max_cp": "823", 
       "max_pv": "59", 
       "quick_move": "Tackle", 
-      "spawn_rate": 0.6694, 
       "stam": "60", 
       "types": [
         "Water"
@@ -2125,7 +1983,6 @@
       "max_cp": "2053", 
       "max_pv": "90", 
       "quick_move": "Frost Breath", 
-      "spawn_rate": 0.0108, 
       "stam": "100", 
       "types": [
         "Water", 
@@ -2141,7 +1998,6 @@
       "max_cp": "804", 
       "max_pv": "59", 
       "quick_move": "Lick", 
-      "spawn_rate": 1.1075, 
       "stam": "60", 
       "types": [
         "Ghost", 
@@ -2157,7 +2013,6 @@
       "max_cp": "1380", 
       "max_pv": "82", 
       "quick_move": "Shadow Claw", 
-      "spawn_rate": 0.0699, 
       "stam": "90", 
       "types": [
         "Ghost", 
@@ -2172,7 +2027,6 @@
       "max_cp": "2078", 
       "max_pv": "106", 
       "quick_move": "Shadow Claw", 
-      "spawn_rate": 0.005, 
       "stam": "120", 
       "types": [
         "Ghost", 
@@ -2187,7 +2041,6 @@
       "max_cp": "857", 
       "max_pv": "67", 
       "quick_move": "Rock Throw", 
-      "spawn_rate": 0.0191, 
       "stam": "70", 
       "types": [
         "Rock", 
@@ -2203,7 +2056,6 @@
       "max_cp": "1075", 
       "max_pv": "106", 
       "quick_move": "Pound", 
-      "spawn_rate": 4.7404, 
       "stam": "120", 
       "types": [
         "Psychic"
@@ -2217,7 +2069,6 @@
       "max_cp": "2184", 
       "max_pv": "146", 
       "quick_move": "Zen Headbutt", 
-      "spawn_rate": 0.1444, 
       "stam": "170", 
       "types": [
         "Psychic"
@@ -2232,7 +2083,6 @@
       "max_cp": "792", 
       "max_pv": "59", 
       "quick_move": "Bubble", 
-      "spawn_rate": 1.3373, 
       "stam": "60", 
       "types": [
         "Water"
@@ -2246,7 +2096,6 @@
       "max_cp": "1823", 
       "max_pv": "98", 
       "quick_move": "Metal Claw", 
-      "spawn_rate": 0.0424, 
       "stam": "110", 
       "types": [
         "Water"

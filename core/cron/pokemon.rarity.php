@@ -4,9 +4,6 @@
 // This file is loaded once every 24h by data the loader. 
 // ------------------------------------------------------
 
-
-$pokemons_new	= json_decode($pokedex_file_content);
-
 $req 		= "SELECT pokemon_id, COUNT(1) as total FROM pokemon GROUP BY pokemon_id ORDER BY pokemon_id ASC";
 $result 	= $mysqli->query($req);
 
@@ -33,21 +30,29 @@ foreach($pokelist as $pokemon){
 	
 }
 
-
-foreach($pokemons_new->pokemon as $pokemon_id => $pokemon_data){
+// create new array if file doesn't exist
+// else use file content
+if (!is_file($pokedex_rarity_file)) {
+	$pokemons_rarity 	= new stdClass();
+} else {
+	$pokemons_rarity 	= json_decode($pokedex_rarity_file_content);
+}
+// use pokedex.json file for loop
+// because pokemon.rarity.json might not exist yet
+foreach($pokemons->pokemon as $pokemon_id => $notUsed){
 	
 	if(isset($pokelist[$pokemon_id])){
-		$pokemon_data->spawn_rate 	= $pokelist[$pokemon_id]['rate']; 
+		$pokemons_rarity->$pokemon_id 	= $pokelist[$pokemon_id]['rate']; 
 	}
 	else{
-		$pokemon_data->spawn_rate 	= 0.0000;
+		$pokemons_rarity->$pokemon_id 	= 0.0000;
 	}
 	
 	
 }
 
-$file_content = json_encode($pokemons_new, JSON_PRETTY_PRINT);
-unset($pokemons_new);
-file_put_contents($pokedex_file, $file_content);
+$file_content = json_encode($pokemons_rarity);
+unset($pokemons_rarity);
+file_put_contents($pokedex_rarity_file, $file_content);
 	
 ?>

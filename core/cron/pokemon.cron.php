@@ -6,7 +6,7 @@
 // -----------------------------------------------------------------------------------------------------------
 
 
-// This file is used to rank by rarety 
+// This file is used to rank by rarity 
 
 // Load the pokemons array
 // will load english one because language is not set
