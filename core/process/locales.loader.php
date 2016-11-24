@@ -86,8 +86,8 @@ foreach ($pokemons->pokemon as $pokeid => $pokemon) {
 	$pokemon->charge_move 		= $pokemon_trans->charge_moves->$charge_move;
 
 	// Replace types with translation
-	foreach ($pokemon->types as $idx => $type) {
-		$pokemon->types[$idx] = $pokemon_trans->types->$type;
+	foreach ($pokemon->types as &$type) {
+		$type = $pokemon_trans->types->$type;
 	}
 
 	// Resolve candy_id to candy_name
