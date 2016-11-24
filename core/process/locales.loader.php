@@ -1,5 +1,6 @@
 <?php 
 
+
 // Language setting
 ###################
 
@@ -58,9 +59,14 @@ $pokedex_file_content	= file_get_contents($pokedex_file);
 // always overwrite english if available
 ########################################
 
-$locales		= (object) array_merge((array) json_decode(file_get_contents(SYS_PATH.'/core/json/locales/EN/translations.json')), (array) json_decode($translation_file));
-// TODO fix doesn't work yet
-$pokemon_trans	= (object) array_merge((array) json_decode(file_get_contents(SYS_PATH.'/core/json/locales/EN/pokes.json')), (array) json_decode($pokemon_file));
+$locales 		= (object) array_replace(json_decode(file_get_contents(SYS_PATH.'/core/json/locales/EN/translations.json'), true),json_decode($translation_file, true));
+
+// Recursive replace because of multi level array
+$pokemon_trans_array 	= array_replace_recursive(json_decode(file_get_contents(SYS_PATH.'/core/json/locales/EN/pokes.json'), true), json_decode($pokemon_file, true));
+
+// convert associative array back to object array (recursive)
+$pokemon_trans 		= json_decode(json_encode($pokemon_trans_array), false);
+unset($pokemon_trans_array);
 
 
 // Merge the pokedex & pokemon file into a new array 
