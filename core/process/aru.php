@@ -500,7 +500,7 @@ switch($request){
 				$resultPkms = $mysqli->query($req);
 				$trainer->pokemons = array();
 				$active_gyms=0;
-				while($dataPkm = $resultPkms->fetch_object()){
+				while($resultPkms && $dataPkm = $resultPkms->fetch_object()){
 					// check whether pokemon is still in gym
 					if ($dataPkm->gym_id == "") {
 						$dataPkm->active = FALSE;
