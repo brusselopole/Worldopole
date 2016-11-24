@@ -14,7 +14,7 @@ $(function() {
 	});
 	$( "#searchTrainer" ).submit(function( event ) {
 		page = 0;
-		$('#trainersGraph').remove();
+		$('input#name').val()!=''?$('#trainersGraph').hide():$('#trainersGraph').show();
 		$('#trainersContainer tr:not(.trainersTemplate)').remove();
 		loadTrainers(page,$('input#name').val());
 		page++;
@@ -23,7 +23,7 @@ $(function() {
 	function loadTrainers(page,name=''){
 		$('.trainerLoader').show();
 		
-		var trainerIndex = 0+(page*30);
+		var trainerIndex = 0+(page*10);
 		$.ajax({
 			'async': false,
 			'type': "GET",
@@ -54,7 +54,7 @@ $(function() {
 				var trainersPokemonsContainer = $('<div>',{class : "container"});
 				for(pokeIndex = 0; pokeIndex<trainer.pokemons.length;pokeIndex++){
 					var pokemon = trainer.pokemons[pokeIndex];
-					var trainerPokemon = $('<div>',{id : 'trainerPokemon_'+pokemon.pokemon_uid, class: "col-md-1 col-xs-4 pokemon-single" });
+					var trainerPokemon = $('<div>',{id : 'trainerPokemon_'+pokemon.pokemon_uid, class: "col-md-1 col-xs-4 pokemon-single", style: "text-align: center" });
 					trainerPokemon.append($('<a>',{href : 'pokemon/'+pokemon.pokemon_id}).append($('<img />',{src : 'core/pokemons/'+pokemon.pokemon_id+'.png', 'class' : 'img-responsive '+(pokemon.gym_id==null?"unseen":"")})));
 					trainerPokemon.append($('<p>',{class : 'pkmn-name'}).append(pokemon.cp));
 					var progressBar = $('<div>',{class : 'progress'}).css('height','6px');
