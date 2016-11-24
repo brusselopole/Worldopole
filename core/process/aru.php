@@ -475,7 +475,7 @@ switch($request){
 				$page = mysqli_real_escape_string($mysqli,$_GET['page']);
 			}
 			
-			$orderAndLimit = " ORDER BY level DESC LIMIT ".($page*30).",30 ";
+			$orderAndLimit = " ORDER BY level DESC LIMIT ".($page*10).",10 ";
 			
 			
 			$req = "SELECT name, level, team FROM trainer ".$where.$orderAndLimit;
