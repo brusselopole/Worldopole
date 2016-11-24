@@ -1,6 +1,7 @@
 # Worldopole
 Based on [Brusselopole](http://www.brusselopole.be), Worldopole is an open source version of the website, allowing you to display in a nice way the data you have gathered of the Pokemon in your city such as Team Gym Battles, Pokemon nests and Pokéstops. This app is a base and will help you build your own version of Brusselopole with more data-visualisation! 
 
+Up-to-date demo: [Berlinopole](https://obihoernchen.net/pokemon/)
 Chat with us on our official Discord: https://discord.gg/SDvsxkN
 
 ## Requirements
