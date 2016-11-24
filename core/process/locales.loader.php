@@ -63,7 +63,6 @@ $locales		= (object) array_merge((array) json_decode(file_get_contents(SYS_PATH.
 $pokemon_trans	= (object) array_merge((array) json_decode(file_get_contents(SYS_PATH.'/core/json/locales/EN/pokes.json')), (array) json_decode($pokemon_file));
 
 
-
 // Merge the pokedex & pokemon file into a new array 
 #####################################################
 
@@ -120,5 +119,19 @@ foreach($pokemons->typecolors as $type => $color) {
 }
 // Replace typecolors array with translated one
 $pokemons->typecolors = $types_temp;
+
+// unset unused variables to prevent issues with other php scripts
+unset($browser_lang);
+unset($lang);
+unset($locale_dir);
+unset($pokemon_file);
+unset($translation_file);
+unset($pokemon_trans);
+unset($types_temp);
+unset($type_trans);
+unset($quick_move);
+unset($charge_move);
+unset($candy_id);
+unset($spawn_rate);
 
 ?>
