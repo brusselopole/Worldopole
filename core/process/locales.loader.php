@@ -1,5 +1,6 @@
 <?php 
 
+
 // Language setting
 ###################
 
@@ -58,10 +59,14 @@ $pokedex_file_content	= file_get_contents($pokedex_file);
 // always overwrite english if available
 ########################################
 
-$locales		= (object) array_merge((array) json_decode(file_get_contents(SYS_PATH.'/core/json/locales/EN/translations.json')), (array) json_decode($translation_file));
-// TODO fix doesn't work yet
-$pokemon_trans	= (object) array_merge((array) json_decode(file_get_contents(SYS_PATH.'/core/json/locales/EN/pokes.json')), (array) json_decode($pokemon_file));
+$locales 		= (object) array_replace(json_decode(file_get_contents(SYS_PATH.'/core/json/locales/EN/translations.json'), true),json_decode($translation_file, true));
 
+// Recursive replace because of multi level array
+$pokemon_trans_array 	= array_replace_recursive(json_decode(file_get_contents(SYS_PATH.'/core/json/locales/EN/pokes.json'), true), json_decode($pokemon_file, true));
+
+// convert associative array back to object array (recursive)
+$pokemon_trans 		= json_decode(json_encode($pokemon_trans_array), false);
+unset($pokemon_trans_array);
 
 
 // Merge the pokedex & pokemon file into a new array 
@@ -81,8 +86,8 @@ foreach ($pokemons->pokemon as $pokeid => $pokemon) {
 	$pokemon->charge_move 		= $pokemon_trans->charge_moves->$charge_move;
 
 	// Replace types with translation
-	foreach ($pokemon->types as $idx => $type) {
-		$pokemon->types[$idx] = $pokemon_trans->types->$type;
+	foreach ($pokemon->types as &$type) {
+		$type = $pokemon_trans->types->$type;
 	}
 
 	// Resolve candy_id to candy_name
@@ -120,5 +125,19 @@ foreach($pokemons->typecolors as $type => $color) {
 }
 // Replace typecolors array with translated one
 $pokemons->typecolors = $types_temp;
+
+// unset unused variables to prevent issues with other php scripts
+unset($browser_lang);
+unset($lang);
+unset($locale_dir);
+unset($pokemon_file);
+unset($translation_file);
+unset($pokemon_trans);
+unset($types_temp);
+unset($type_trans);
+unset($quick_move);
+unset($charge_move);
+unset($candy_id);
+unset($spawn_rate);
 
 ?>

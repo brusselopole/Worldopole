@@ -27,13 +27,14 @@ $pokemon_stats['pokemon_now'] 	= $data->total;
 $req 		= "SELECT pokemon_id FROM pokemon WHERE disappear_time > (NOW() ".$time->symbol_reverse." INTERVAL ".$time->delay." HOUR)";
 $result 	= $mysqli->query($req);
 
+$rarityarray = array();
 while($data = $result->fetch_object()){
 	
 	$poke_id 	= $data->pokemon_id; 
 	$rarity 	= $pokemons->pokemon->$poke_id->rarity;
-
-	@$rarityarray[$rarity] = $rarityarray[$rarity]+1;
 	
+	isset($rarityarray[$rarity]) ? $rarityarray[$rarity]++ : $rarityarray[$rarity] = 1;
+
 }
 $pokemon_stats['rarity_spawn'] = $rarityarray;
 

@@ -37,12 +37,12 @@ if (directory() != '') {
 }
  
 if (isset($_SERVER['REQUEST_SCHEME'])) {
-	define('HOST_URL'		,$_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].''.$subdirectory);	// Host
+	@define('HOST_URL'		,$_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].''.$subdirectory);	// Host
 } else {
 	if (isset($_SERVER['HTTPS']) AND $_SERVER['HTTPS'] == 'on') {
-		define('HOST_URL'	,'https://'.$_SERVER['HTTP_HOST']);						// Host
+		@define('HOST_URL'	,'https://'.$_SERVER['HTTP_HOST']);						// Host
 	} else {
-		define('HOST_URL'	,'http://'.$_SERVER['HTTP_HOST']);						// Host
+		@define('HOST_URL'	,'http://'.$_SERVER['HTTP_HOST']);						// Host
 	}
 }
 
