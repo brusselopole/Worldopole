@@ -231,6 +231,12 @@ include_once('core/process/data.loader.php');
 
 					<?php
 					break;
+					
+				case 'trainer': ?>
+				
+					<script src="core/js/trainer.content.js"></script>
+					<?php
+					break;
 			}
 		}
 		?>

@@ -386,3 +386,33 @@ div#gymLastModified{
 div#gymDefenders{
 	padding : 0px 15px 5px 15px;
 }
+
+
+/****************
+trainers details styles
+****************/
+
+.trainersTemplate {
+	display: none;
+}
+
+.loader {
+  border: 16px solid whitesmoke;
+  border-radius: 50%;
+  border-top: 16px solid grey;
+  width: 60px;
+  height: 60px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  margin: auto;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
