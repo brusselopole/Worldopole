@@ -234,7 +234,7 @@ include_once('core/process/data.loader.php');
 					
 				case 'trainer': ?>
 				
-					<script src="core/js/trainer.content.js"></script>
+					<script src="<?php auto_ver('core/js/trainer.content.js') ?>"></script>
 					<?php
 					break;
 			}

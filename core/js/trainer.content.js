@@ -1,5 +1,4 @@
 $(function() {
-	$('.trainerLoader').hide();
 	var page = 0;
 	
 	loadTrainers(page);
@@ -21,8 +20,6 @@ $(function() {
 		event.preventDefault();
 	});
 	function loadTrainers(page,name=''){
-		$('.trainerLoader').show();
-		
 		var trainerIndex = 0+(page*10);
 		$.ajax({
 			'async': false,
@@ -30,6 +27,7 @@ $(function() {
 			'global': false,
 			'dataType': 'json',
 			'url': "core/process/aru.php",
+			'beforeSend' : function(){$('#trainerLoader').show(); },
 			'data': { 
 				'request': "", 
 				'target': 'arrange_url',
@@ -71,8 +69,7 @@ $(function() {
 				$('#trainersContainer').append(trainersPokemonsRow);
 				
 			});
-			
-			$('.trainerLoader').hide();
+			$('#trainerLoader').hide(); 
 		
 		});
 	};

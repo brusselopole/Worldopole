@@ -28,11 +28,11 @@
 	</div>
 	
 	<div class="col-md-12">
-		<canvas id="trainer_lvl" width="100%" height="20"></canvas>
+		<canvas id="trainer_lvl" height="75"></canvas>
 	</div>
 </div>
-<script async defer src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.min.js"></script>
-<script async defer src="core/js/trainer.graph.js.php"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.min.js"></script>
+<script src="core/js/trainer.graph.js.php"></script>
 
 
 
@@ -51,11 +51,12 @@
 		
 		</tbody>
 		<tfoot>
-			<tr class="trainerLoader">
-				<td colspan="5"><div class="loader"></div></td>
-			</tr>
+			
 		</tfoot>
 		
 	</table>
+</div>
+<div id="trainerLoader">
+	<div class="loader"></div>
 </div>
 
