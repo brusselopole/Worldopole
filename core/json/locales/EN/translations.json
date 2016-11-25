@@ -1,5 +1,4 @@
 {
-"CITY": "%s", 
 "DASHBOARD_ACTIVITY": "activity", 
 "DASHBOARD_GRAPH_INSTINCT_GYM_OWNED": "Instinct Gym Owned", 
 "DASHBOARD_GRAPH_INSTINCT_PRESTIGE_AVERAGE": "Instinct Prestige Average", 
@@ -22,7 +21,6 @@
 "ERROR": "Page <strong>not found</strong><br><small>There must have been some kind of mistake.</small>", 
 "FIGHT_TITLE": "The <strong>fight</strong> is on", 
 "FIND": "Find ", 
-"FOOTER_DATA": "Data collected since the <strong>2nd of August 2016</strong>", 
 "FOOTER_POKEMON_CONTENT": "<p>Pokémon Go is ©2016 Niantic, Inc. ©2016 Pokémon. ©1995–2016 Nintendo / Creatures Inc. / GAME FREAK inc.</p><p>Pokémon and Pokémon character names are trademarks of Nintendo.</p><p>Other trademarks are the property of their respective owners.</p>", 
 "FOOTER_SUB": "This website or the authors have no relationship with Niantic, Nintendo or other any Pokémon Go responsible.", 
 "FOOTER_TITLE": "Thanks and copyrights", 
@@ -72,7 +70,6 @@
 "POKEMON_STATS": "Stats", 
 "POKEMON_WHERE": "Where can you <strong>hunt</strong>", 
 "POKESTOPS": "Pokéstops", 
-"POKESTOPS_INCITY": "in %s", 
 "POKESTOPS_LURES": "active right now", 
 "POKESTOPS_METADESC": "Find your way around %s using our Pokéstops finder.", 
 "POKESTOPS_METATITLE": "All Pokéstops in %s", 

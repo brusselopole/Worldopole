@@ -1,5 +1,4 @@
 {
-"CITY": "%s", 
 "DASHBOARD_ACTIVITY": "- Actividad", 
 "DASHBOARD_GRAPH_INSTINCT_GYM_OWNED": "Instinto - Arenas conquistado", 
 "DASHBOARD_GRAPH_INSTINCT_PRESTIGE_AVERAGE": "Instinto - Medio de lujo", 
@@ -22,7 +21,6 @@
 "ERROR": "Página <strong>no encontrada</strong><br/><small>&nsbp;</small>", 
 "FIGHT_TITLE": "El <strong>combate</strong> ha iniciado", 
 "FIND": "Buscar ", 
-"FOOTER_DATA": "Información recolectada desde el <strong>2 de Agosto de 2016</strong>", 
 "FOOTER_POKEMON_CONTENT": "<p>Pokémon Go es ©2016 Niantic, Inc. ©2016 Pokémon. ©1995–2016 Nintendo / Creatures Inc. / GAME FREAK inc.</p><p>Pokémon y los nombres de los personajes de Pokémon son marcas registradas por Nintendo.</p><p>Otras marcas están registradas por sus respectivos dueños.</p>", 
 "FOOTER_SUB": "Ni este sitio ni los autores tienen relación alguna con Niantic, Nintendo u otra entidad responsable por Pokémon Go.", 
 "FOOTER_TITLE": "Agradecimientos y derechos", 
@@ -72,7 +70,6 @@
 "POKEMON_STATS": "Características", 
 "POKEMON_WHERE": "Dónde puedes <strong>cazar</strong>", 
 "POKESTOPS": "Poképaradas", 
-"POKESTOPS_INCITY": "en %s", 
 "POKESTOPS_LURES": "activos en este momento", 
 "POKESTOPS_METADESC": "Encuentra tu camino en %s usando nuestro buscador de Poképaradas", 
 "POKESTOPS_METATITLE": "Todas las Poképaradas de %s", 
