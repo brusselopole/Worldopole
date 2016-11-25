@@ -21,6 +21,8 @@ See [Wiki](https://github.com/brusselopole/Worldopole/wiki)
 
 [Feature Requests](http://feathub.com/brusselopole/Worldopole)
 
+[Help to translate](https://github.com/brusselopole/Worldopole/wiki/Help-to-translate)
+
 ## License
 Worldopole is released under the MIT License.
 
