@@ -140,6 +140,7 @@ include_once('core/process/data.loader.php');
 						<p>Made in Brussels<br/>Based on <a href="https://github.com/brusselopole">Brusselopole</a> by <a href="http://56k.be/" target="_blank">56k</a> & <a href="http://vandereecken.me" target="_blank">Nithou</a></p>
 						<h3>Pokémon™</h3>
 						<p><?= $locales->FOOTER_POKEMON_CONTENT ?></p>
+					</div>
 				</div>
 			</div>
 		</footer>
