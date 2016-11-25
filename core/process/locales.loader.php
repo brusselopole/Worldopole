@@ -20,29 +20,30 @@ $lang = strtoupper($browser_lang);
 
 
 // Check if language is available
-if(isset($lang)){
-	
+if (isset($lang)) {
 	$locale_dir = SYS_PATH.'/core/json/locales/'.$lang;
 	
-	if(is_dir($locale_dir) && is_file($locale_dir.'/pokes.json') && is_file($locale_dir.'/translations.json')){
+	// If there's no pokedex in languague we'll use the english one.
+	if(is_dir($locale_dir)) {
+		// Allow partial translations
+		if (is_file($locale_dir.'/pokes.json')) {
+			$pokemon_file		= file_get_contents($locale_dir.'/pokes.json');
+		} else {
+			$pokemon_file		= file_get_contents(SYS_PATH.'/core/json/locales/EN/pokes.json');
+		}
 		
-		$pokemon_file 		= file_get_contents($locale_dir.'/pokes.json');
-		$translation_file 	= file_get_contents($locale_dir.'/translations.json');
-		
+		if (is_file($locale_dir.'/translations.json')) {
+			$translation_file	= file_get_contents($locale_dir.'/translations.json');
+		} else {
+			$translation_file	= file_get_contents(SYS_PATH.'/core/json/locales/EN/translations.json');
+		}
+	} else {
+		$pokemon_file 			= file_get_contents(SYS_PATH.'/core/json/locales/EN/pokes.json');
+		$translation_file 		= file_get_contents(SYS_PATH.'/core/json/locales/EN/translations.json');
 	}
-	// If there's no pokedex in languague we'll use the english one. 
-	else{
-		
-		$pokemon_file 		= file_get_contents(SYS_PATH.'/core/json/locales/EN/pokes.json'); 
-		$translation_file 	= file_get_contents(SYS_PATH.'/core/json/locales/EN/translations.json');
-		
-	}	 
-	 
-}else{
-
-	$pokemon_file 		= file_get_contents(SYS_PATH.'/core/json/locales/EN/pokes.json'); 
-	$translation_file 	= file_get_contents(SYS_PATH.'/core/json/locales/EN/translations.json');
-
+} else {
+	$pokemon_file			= file_get_contents(SYS_PATH.'/core/json/locales/EN/pokes.json'); 
+	$translation_file		= file_get_contents(SYS_PATH.'/core/json/locales/EN/translations.json');
 }
 
 
@@ -65,15 +66,15 @@ unset($pokemon_trans_array);
 // Merge the pokedex, pokemon translation and rarity file into a new array 
 ##########################################################################
 
-$pokedex_file                   = file_get_contents(SYS_PATH.'/core/json/pokedex.json');
+$pokedex_file 			= file_get_contents(SYS_PATH.'/core/json/pokedex.json');
 $pokemons 			= json_decode($pokedex_file);
 
-$pokedex_rarity_file            = SYS_PATH.'/core/json/pokedex.rarity.json';
+$pokedex_rarity_file 		= SYS_PATH.'/core/json/pokedex.rarity.json';
 // initial create of pokedex.rarity.json if it doesn't exist
 if (!is_file($pokedex_rarity_file)) {
-        include_once(SYS_PATH.'/core/cron/pokemon.rarity.php');
+	include_once(SYS_PATH.'/core/cron/pokemon.rarity.php');
 }
-$pokedex_rarity_file_content    = file_get_contents($pokedex_rarity_file);
+$pokedex_rarity_file_content = file_get_contents($pokedex_rarity_file);
 $pokemons_rarity = json_decode($pokedex_rarity_file_content);
 
 foreach ($pokemons->pokemon as $pokeid => $pokemon) {
