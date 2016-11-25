@@ -24,7 +24,7 @@
 
 <div class="row area" id="trainersGraph">
 	<div class="col-md-12 text-center">
-		<h2 class="sub-title">Trainer <strong>level</strong> distribution</h2>
+		<h2 class="sub-title"><?= $locales->TRAINER_GRAPH ?></h2>
 	</div>
 	
 	<div class="col-md-12">
