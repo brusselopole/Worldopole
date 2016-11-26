@@ -97,15 +97,54 @@
 				<div id="gymInfos">
 					<div id="circleImage">				
 					</div>
-					<div id="levelMeter">
-						<div id="levelBar">
-						</div>
-					</div>
+					
 					<div id="gymName">
 						
-					</div>							
-					<div id="gymLevel">
-						Level: <span id="gymLevelDisplay"></span>
+					</div>
+					<div id="levelMeter">
+						<div class="progress">
+							<div class="bar-step" style="left: 1.92%">
+								<div class="label-percent">1</div>
+								<div class="label-line"></div>
+							</div>
+							<div class="bar-step" style="left: 3.84%">
+								<div class="label-percent">2</div>
+								<div class="label-line"></div>
+							</div>
+							<div class="bar-step" style="left: 7.68%">
+								<div class="label-percent">3</div>
+								<div class="label-line"></div>
+							</div>
+							<div class="bar-step" style="left: 15.36%">
+								<div class="label-percent">4</div>
+								<div class="label-line"></div>
+							</div>
+							<div class="bar-step" style="left: 23.4%">
+								<div class="label-percent">5</div>
+								<div class="label-line"></div>
+							</div>
+							<div class="bar-step" style="left: 30.72%">
+								<div class="label-percent">6</div>
+								<div class="label-line"></div>
+							</div>
+							<div class="bar-step" style="left: 38.4%">
+								<div class="label-percent">7</div>
+								<div class="label-line"></div>
+							</div>
+							<div class="bar-step" style="left: 57.6%">
+								<div class="label-percent">8</div>
+								<div class="label-line"></div>
+							</div>
+							<div class="bar-step" style="left: 76.8%">
+								<div class="label-percent">9</div>
+								<div class="label-line"></div>
+							</div>
+							<div class="bar-step" style="left: 96%">
+								<div class="label-percent">10</div>
+								<div class="label-line"></div>
+							</div>
+							<div class="progress-bar progress-bar-success" id="gymPrestigeBar" ></div>
+					   </div>
 					</div>
 					<div id="gymPrestige">
 						Prestige: <span id="gymPrestigeDisplay"></span>
