@@ -19,7 +19,7 @@
 				
 				<?php if($pokemon->id-1 > 0){ ?>
 			
-				<p align="left" class="nav-links"><a href="pokemon/<?= $pokemon->id-1 ?>"><i class="fa fa-chevron-left"></i></a></p>
+				<p class="nav-links"><a href="pokemon/<?= $pokemon->id-1 ?>"><i class="fa fa-chevron-left"></i></a></p>
 			
 				<?php }?>
 				
@@ -43,7 +43,7 @@
 			
 			<?php if($pokemon->id+1 < $config->system->max_pokemon ){ ?>
 			
-			<p align="right" class="nav-links"><a href="pokemon/<?= $pokemon->id+1 ?>"><i class="fa fa-chevron-right"></i></a></p>
+			<p class="nav-links"><a href="pokemon/<?= $pokemon->id+1 ?>"><i class="fa fa-chevron-right"></i></a></p>
 				
 			<?php } ?>
 		</div>
@@ -133,7 +133,7 @@
 			</tr>
 			<tr>
 				<td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_SPECIAL ?> :</strong> </td>
-				<td class="col-md-4 col-xs-4"><?= $pokemon->charge_move ?></p></td>
+				<td class="col-md-4 col-xs-4"><?= $pokemon->charge_move ?></td>
 			</tr>
 	
 		</table>

@@ -1,5 +1,4 @@
 {
-"CITY": "%s", 
 "DASHBOARD_ACTIVITY": "- aktywność", 
 "DASHBOARD_GRAPH_INSTINCT_GYM_OWNED": "Gymy pod kontrolą Instynktu", 
 "DASHBOARD_GRAPH_INSTINCT_PRESTIGE_AVERAGE": "Średni prestiż Instynktu", 
@@ -22,7 +21,6 @@
 "ERROR": "Strona <strong>nie znaleziona</strong><br/><small>Nastąpiła jakaś pomyłka.</small>", 
 "FIGHT_TITLE": "Trwa <strong>walka</strong> o", 
 "FIND": "Znajdź ", 
-"FOOTER_DATA": "Informacje zbbierane od <strong>12 go września 2016", 
 "FOOTER_POKEMON_CONTENT": "<p>Pokémon Go jest znakiem zastrzeżonym ©2016 Niantic, Inc. ©2016 Pokémon. ©1995–2016 Nintendo / Creatures Inc. / GAME FREAK inc.</p><p>Pokémony i nazwy bohaterów są znakami zastrzeżonymi Nintendo.</p><p>Pozostałe znaki są wlasnością odpowiednich firm.</p>", 
 "FOOTER_SUB": "Ta strona i jej autorzy nie mają żadnych relacji z Niantic, Nintendo i nie są powiązani z Pokémon Go.", 
 "FOOTER_TITLE": "Podziękowania i technikalia", 
@@ -72,7 +70,6 @@
 "POKEMON_STATS": "Cechy", 
 "POKEMON_WHERE": "Gdzie możesz <strong>złapać</strong>", 
 "POKESTOPS": "Pokéstopy", 
-"POKESTOPS_INCITY": "w %s", 
 "POKESTOPS_LURES": "aktywne w tej chwili", 
 "POKESTOPS_METADESC": "Znajdź swoją drogę za pomocą wyszukiwarki Pokéstopów", 
 "POKESTOPS_METATITLE": "Wszystkie Pokéstopy w %s", 

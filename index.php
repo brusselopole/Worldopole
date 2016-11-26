@@ -137,8 +137,10 @@ include_once('core/process/data.loader.php');
 						<h2><?= $locales->FOOTER_TITLE ?></h2>
 						<p><?= $locales->FOOTER_SUB ?></p>
 						<?= $locales->FOOTER_VISUAL_CONTENT ?>
-						<p class="text-center">Made in Brussels<br/>Based on <a href="https://github.com/brusselopole">Brusselopole</a> by <a href="http://56k.be/" target="_blank">56k</a> & <a href="http://vandereecken.me" target="_blank">Nithou</a></p>
-					</div>	
+						<p>Made in Brussels<br/>Based on <a href="https://github.com/brusselopole">Brusselopole</a> by <a href="http://56k.be/" target="_blank">56k</a> & <a href="http://vandereecken.me" target="_blank">Nithou</a></p>
+						<h3>Pokémon™</h3>
+						<?= $locales->FOOTER_POKEMON_CONTENT ?>
+					</div>
 				</div>
 			</div>
 		</footer>
