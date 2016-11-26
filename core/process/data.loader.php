@@ -97,22 +97,21 @@ include_once('locales.loader.php');
 
 
 
-// Update the pokemon list for rarety
+// Update the pokemon.rarity.json file
 ######################################
 // ( for Brusselopole we use CRONTAB but as we're not sure that every had access to it we build this really simple false crontab system
 // => check filemtime, if > 24h launch an update. )
 
-//$pokelist_filetime	= filemtime($pokedex_file);
-//$now			= time();
-//$diff			= $now - $pokelist_filetime;
+$pokedex_rarity_filetime	= filemtime($pokedex_rarity_file);
+$now				= time();
+$diff				= $now - $pokedex_rarity_filetime;
 
 // Update each 24h
-//$update_delay		= 86400;
+$update_delay		= 86400;
 
-//if($diff > $update_delay){
-//	include_once(SYS_PATH.'/core/cron/pokemon.rarety.php');
-//}
-
+if($diff > $update_delay){
+	include_once(SYS_PATH.'/core/cron/pokemon.rarity.php');
+}
 
 
 
@@ -145,7 +144,7 @@ if(!empty($page)){
 			
 			$pokemon_id 			= mysqli_real_escape_string($mysqli,$_GET['id']);
 			
-			if(!is_object($pokemons->$pokemon_id)){
+			if(!is_object($pokemons->pokemon->$pokemon_id)){
 				
 				header('Location:/404');
 				exit(); 
@@ -154,7 +153,7 @@ if(!empty($page)){
 			
 						
 			$pokemon			= new stdClass(); 			 
-			$pokemon			= $pokemons->$pokemon_id;
+			$pokemon			= $pokemons->pokemon->$pokemon_id;
 			$pokemon->id			= $pokemon_id;
 			
 			
@@ -248,7 +247,7 @@ if(!empty($page)){
 			$related = array(); 
 			$i = 1; 
 			
-			foreach($pokemons as $test_pokemon){
+			foreach($pokemons->pokemon as $test_pokemon){
 				if(!empty($test_pokemon->types)){							
 					foreach($test_pokemon->types as $type){
 						
@@ -301,7 +300,7 @@ if(!empty($page)){
 				$pokedex->$i->id 		= $i; 
 				$pokedex->$i->permalink 	= 'pokemon/'.$i; 
 				$pokedex->$i->img		= 'core/pokemons/'.$i.'.png'; 
-				$pokedex->$i->name		= $pokemons->$i->name; 
+				$pokedex->$i->name		= $pokemons->pokemon->$i->name; 
 				$pokedex->$i->spawn 		= isset($data_array[$i])? $data_array[$i] : 0;
 							
 			}
@@ -400,50 +399,7 @@ if(!empty($page)){
 		break;
 
 		
-		// Trainers  
-		##########
 		
-		case 'trainer':
-			$trainer_name = "";
-			if(isset($_GET['name'])){			
-				$trainer_name = mysqli_real_escape_string($mysqli,$_GET['name']);
-			}
-			$req = "SELECT name, level, team FROM trainer ORDER BY level DESC LIMIT 30";
-			if($trainer_name != ""){
-				$req = "SELECT name, level, team FROM trainer WHERE name LIKE '%".$trainer_name."%'
-ORDER BY level DESC LIMIT 30";
-			}
-			$result = $mysqli->query($req);
-	        	$trainers = array();
-		        while($data = $result->fetch_object()){
-				$trainers[$data->name] = $data;
-			};
-			foreach($trainers as $trainer){
-				$req = "SELECT DISTINCT gympokemon.pokemon_id, gympokemon.cp, gympokemon.trainer_name, gympokemon.iv_defense, gympokemon.iv_stamina, gympokemon.iv_attack, gymmember.gym_id FROM gympokemon LEFT JOIN gymmember ON gympokemon.pokemon_uid = gymmember.pokemon_uid WHERE gympokemon.trainer_name='".$trainer->name."' ORDER BY gymmember.gym_id DESC, gympokemon.cp DESC";
-				$resultPkms = $mysqli->query($req);
-				$trainer->pokemons = array();
-				$active_gyms=0;
-				while($dataPkm = $resultPkms->fetch_object()){
-					// check whether pokemon is still in gym
-					if ($dataPkm->gym_id == "") {
-						$dataPkm->active = FALSE;
-					} else {
-						$dataPkm->active = TRUE;
-						$active_gyms++;
-					}
-					$trainer->pokemons[] = $dataPkm;
-				}
-				$trainer->gyms = $active_gyms;
-			}
-			// Sort for level first, then gyms
-			foreach($trainers as $trainer){
-				$level[] = $trainer->level;
-				$gyms[] = $trainer->gyms;
-			}
-			array_multisort($level, SORT_DESC, $gyms, SORT_DESC, $trainers);
-	        
- 
-		break; 
 		
 
 		case 'dashboard':
@@ -534,8 +490,8 @@ else{
 	if ($config->system->mythic_recents) {
 		// get all mythic pokemon ids
 		$mythic_pokemons  = array();
-		foreach($pokemons as $id=>$pokemon) {
-			if ($pokemon->rarity === "Mythic") {
+		foreach($pokemons->pokemon as $id=>$pokemon) {
+			if ($pokemon->spawn_rate < 0.01) {
 				$mythic_pokemons[] = $id;
 			}
 		}
