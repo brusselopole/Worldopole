@@ -2,15 +2,15 @@ function initMap() {
 	var locations;
 	$('.gym_details').hide();
 	//ensure that gmaps is loaded before loading infobox (nasty but usefull trick) 
-	$.getScript("//rawgit.com/googlemaps/v3-utility-library/master/infobox/src/infobox.js",function(){
+	$.getScript("//rawgit.com/googlemaps/v3-utility-library/master/infobox/src/infobox.js").done(function(){
 		$.ajax({
-		'async': false,
+		'async': true,
 		'type': "GET",
 		'global': false,
 		'dataType': 'text',
 		'url': "core/process/aru.php",
-		'data': { 'request': "", 'target': 'arrange_url', 'method': 'method_target', 'type' : 'gym_map' },
-		'success': function (data) {
+		'data': { 'request': "", 'target': 'arrange_url', 'method': 'method_target', 'type' : 'gym_map' }}
+		).done(function (data) {
 			
 			
 			// Get website variables 
@@ -73,7 +73,7 @@ function initMap() {
 							infowindow.setContent(arr[i][0]);
 							infowindow.open(map, marker);
 							$.ajax({
-								'async': false,
+								'async': true,
 								'type': "GET",
 								'global': false,
 								'dataType': 'json',
@@ -96,9 +96,7 @@ function initMap() {
 				}
 				map.set('styles',[{"featureType":"all","elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#333333"},{"lightness":40}]},{"featureType":"all","elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#ffffff"},{"lightness":16}]},{"featureType":"all","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#fefefe"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#fefefe"},{"lightness":17},{"weight":1.2}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":20}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":21}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#dedede"},{"lightness":21}]},{"featureType":"poi.park","elementType":"geometry.fill","stylers":[{"color":"#c2ffd7"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffffff"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#ffffff"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":16}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#f2f2f2"},{"lightness":19}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#e9e9e9"},{"lightness":17}]},{"featureType":"water","elementType":"geometry.fill","stylers":[{"color":"#b3d8f9"}]}]);
 			});
-		}
-	});
-	
+		});
 	});
 	var locations;
 
@@ -115,9 +113,11 @@ function setGymDetails(gym) {
 	$('#gym_details_template #gymLevelDisplay').html(gym.gymDetails.gymInfos.level);
 	$('#gym_details_template #gymDefenders').html(gym.infoWindow);
 	$('#gym_details_template #gymPrestigeDisplay').html(gym.gymDetails.gymInfos.points);
+	
 	$('#gym_details_template #gymLastModifiedDisplay').html(gym.gymDetails.gymInfos.last_modified);
 	var teamColor = gym.gymDetails.gymInfos.team == "1" ? '#0086ff':gym.gymDetails.gymInfos.team == "2" ? '#ff1a1a':gym.gymDetails.gymInfos.team == "3" ? '#ff960b':'white';
 	$('#gym_details_template #gymInfos').css("border-color", teamColor);
+	$('#gym_details_template #gymPrestigeBar').css({'width':((gym.gymDetails.gymInfos.points/52000)*100)+'%', 'background-color':teamColor});
 
 	$('#gym_details_template').show();
 }
