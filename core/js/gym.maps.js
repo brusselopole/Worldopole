@@ -110,7 +110,6 @@ function setGymDetails(gym) {
 	$('#gym_details_template #circleImage').css("background", "url("+imgurl+") no-repeat center");
 	$('#gym_details_template #gymName').html(gym.gymDetails.gymInfos.name);
 	$('#gym_details_template #gymDescription').html(gym.gymDetails.gymInfos.description);
-	$('#gym_details_template #gymLevelDisplay').html(gym.gymDetails.gymInfos.level);
 	$('#gym_details_template #gymDefenders').html(gym.infoWindow);
 	$('#gym_details_template #gymPrestigeDisplay').html(gym.gymDetails.gymInfos.points);
 	

@@ -100,9 +100,6 @@
 					
 					<div id="gymName">
 						
-					</div>							
-					<div id="gymLevel">
-						Level: <span id="gymLevelDisplay"></span>
 					</div>
 					<div id="levelMeter">
 						<div class="progress">

@@ -364,34 +364,29 @@ div#gymName{
 	white-space: nowrap;
 	text-overflow: ellipsis;
 }
-div#gymLevel{
-	position: absolute;
-	left:120px;
-	top: 35px;
-	font-size: large;
-}
+
 div#levelMeter{
 	position: absolute;
 	left:120px;
-	top: 70px;
+	top: 50px;
 	width: 225px;
 	font-size: large;
 }
 div#levelMeter .progress{
 	width: 225px;
-	height: 10px;
+	height: 12px;
 }
 div#gymPrestige{
 	position: absolute;
 	left:120px;
-	top: 90px;
+	top: 70px;
 	font-size: large;
 	
 }
 div#gymLastModified{
 	position: absolute;
 	left:120px;
-	top: 120px;
+	top: 95px;
 }
 
 div#gymDefenders{
@@ -438,7 +433,7 @@ trainers details styles
 }
 .label-line {
     background: #000;
-    height:10px;
+    height:12px;
 	width:1px;
 }
 
