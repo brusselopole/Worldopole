@@ -368,19 +368,47 @@ div#gymName{
 div#levelMeter{
 	position: absolute;
 	left:120px;
-	top: 50px;
+	top: 40px;
 	width: 225px;
 	font-size: large;
 }
 div#levelMeter .progress{
 	width: 225px;
-	height: 12px;
+	height: 20px;
 }
+
+
+.bar-step {
+    position:absolute;
+	z-index:1000;
+    font-size:14px;
+	top: 2px;
+}
+.label-line {
+    background: #000;
+    height:20px;
+	width:1px;
+	top: -2px;
+	position: absolute;
+}
+
+
+.label-percent {
+	position: relative;
+	top: -1px;
+	text-align: center;
+	color: black;
+}
+
+.active .label-percent {
+	color: white;
+}
+
 div#gymPrestige{
 	position: absolute;
 	left:120px;
 	top: 70px;
-	font-size: large;
+	font-size: 14px;
 	
 }
 div#gymLastModified{
@@ -425,21 +453,6 @@ trainers details styles
   100% { transform: rotate(360deg); }
 }
 
-.bar-step {
-    position:absolute;
-	z-index:1000;
-    font-size:7px;
-	top: -10px;
-}
-.label-line {
-    background: #000;
-    height:12px;
-	width:1px;
-}
-
-.label-percent {
-    margin-left: 5px;   
-}
 
 .team_background_1 {
 	background-color : rgb(255, 150, 11);

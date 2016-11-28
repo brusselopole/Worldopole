@@ -114,9 +114,28 @@ function setGymDetails(gym) {
 	$('#gym_details_template #gymPrestigeDisplay').html(gym.gymDetails.gymInfos.points);
 	
 	$('#gym_details_template #gymLastModifiedDisplay').html(gym.gymDetails.gymInfos.last_modified);
-	var teamColor = gym.gymDetails.gymInfos.team == "1" ? '#0086ff':gym.gymDetails.gymInfos.team == "2" ? '#ff1a1a':gym.gymDetails.gymInfos.team == "3" ? '#ff960b':'white';
+	var teamColor = gym.gymDetails.gymInfos.team == "1" ? 'rgb(0, 170, 255)':gym.gymDetails.gymInfos.team == "2" ? 'rgb(255, 118, 118)':gym.gymDetails.gymInfos.team == "3" ? 'rgb(255, 190, 8)':'white';
 	$('#gym_details_template #gymInfos').css("border-color", teamColor);
-	$('#gym_details_template #gymPrestigeBar').css({'width':((gym.gymDetails.gymInfos.points/52000)*100)+'%', 'background-color':teamColor});
-
+	var gymPrestige = gym.gymDetails.gymInfos.points;
+	//Set rank positions (50000 = 90% for rank 10 to be visible)
+	var gymPercent = 50000/90;
+	$('.bar-step').removeClass('active');
+	$('.gymRank1').css({width:(2000/gymPercent)+'%',left:'0'}).addClass(gymPrestige>0?'active':'');
+	$('.gymRank2').css({width:((4000/gymPercent)-(2000/gymPercent))+'%',left:(2000/gymPercent)+'%'}).addClass((gymPrestige>2000)?'active':'');
+	$('.gymRank3').css({width:((8000/gymPercent)-(4000/gymPercent))+'%',left:(4000/gymPercent)+'%'}).addClass((gymPrestige>4000)?'active':'');
+	$('.gymRank4').css({width:((12000/gymPercent)-(8000/gymPercent))+'%',left:(8000/gymPercent)+'%'}).addClass((gymPrestige>8000)?'active':'');
+	$('.gymRank5').css({width:((16000/gymPercent)-(12000/gymPercent))+'%',left:(12000/gymPercent)+'%'}).addClass((gymPrestige>12000)?'active':'');
+	$('.gymRank6').css({width:((20000/gymPercent)-(16000/gymPercent))+'%',left:(16000/gymPercent)+'%'}).addClass((gymPrestige>16000)?'active':'');
+	$('.gymRank7').css({width:((30000/gymPercent)-(20000/gymPercent))+'%',left:(20000/gymPercent)+'%'}).addClass((gymPrestige>20000)?'active':'');
+	$('.gymRank8').css({width:((40000/gymPercent)-(30000/gymPercent))+'%',left:(30000/gymPercent)+'%'}).addClass((gymPrestige>30000)?'active':'');
+	$('.gymRank9').css({width:((50000/gymPercent)-(40000/gymPercent))+'%',left:(40000/gymPercent)+'%'}).addClass((gymPrestige>40000)?'active':'');
+	$('.gymRank10').css({width:'10%',left:(50000/gymPercent)+'%'}).addClass((gymPrestige>50000)?'active':'');
+	
+	if(gymPrestige>50000){
+		//compensate for last rank 
+		gymPrestige=(50000+((gymPrestige-50000)*2.775))
+	}
+	
+	$('#gym_details_template #gymPrestigeBar').css({'width':((gymPrestige/55550)*100)+'%', 'background-color':teamColor});
 	$('#gym_details_template').show();
 }

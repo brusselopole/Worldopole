@@ -104,88 +104,42 @@
 					</div>
 					<div id="levelMeter">
 						<div class="progress">
-							<div class="bar-step" style="left: 1.92%">
+							<div class="bar-step  gymRank1" >
 								<div class="label-percent">1</div>
+							</div>
+							<div class="bar-step gymRank2" style="left: 3.84%; width:3.84%;">
+								<div class="label-percent ">2</div>
 								<div class="label-line"></div>
 							</div>
-							<div class="bar-step" style="left: 3.84%">
-								<div class="label-percent">2</div>
+							<div class="bar-step gymRank3" style="left: 7.68%; width:7.68%;">
+								<div class="label-percent ">3</div>
 								<div class="label-line"></div>
 							</div>
-							<div class="bar-step" style="left: 7.68%">
-								<div class="label-percent">3</div>
+							<div class="bar-step gymRank4" style="left: 15.36%; width:7.68%;">
+								<div class="label-percent ">4</div>
 								<div class="label-line"></div>
 							</div>
-							<div class="bar-step" style="left: 15.36%">
-								<div class="label-percent">4</div>
+							<div class="bar-step gymRank5" style="left: 23.4%; width:8.04%;">
+								<div class="label-percent ">5</div>
 								<div class="label-line"></div>
 							</div>
-							<div class="bar-step" style="left: 23.4%">
-								<div class="label-percent">5</div>
+							<div class="bar-step gymRank6" style="left: 30.72%; width:7.32%;">
+								<div class="label-percent ">6</div>
 								<div class="label-line"></div>
 							</div>
-							<div class="bar-step" style="left: 30.72%">
-								<div class="label-percent">6</div>
+							<div class="bar-step gymRank7" style="left: 38.4%; width:19.2%;">
+								<div class="label-percent ">7</div>
 								<div class="label-line"></div>
 							</div>
-							<div class="bar-step" style="left: 38.4%">
-								<div class="label-percent">7</div>
+							<div class="bar-step gymRank8" style="left: 57.6%; width:19.2%;">
+								<div class="label-percent ">8</div>
 								<div class="label-line"></div>
 							</div>
-							<div class="bar-step" style="left: 57.6%">
-								<div class="label-percent">8</div>
+							<div class="bar-step gymRank9" style="left: 76.8%; width:19.2%;">
+								<div class="label-percent ">9</div>
 								<div class="label-line"></div>
 							</div>
-							<div class="bar-step" style="left: 76.8%">
-								<div class="label-percent">9</div>
-								<div class="label-line"></div>
-							</div>
-							<div class="bar-step" style="left: 96%">
-								<div class="label-percent">10</div>
-								<div class="label-line"></div>
-							</div>
-							<div class="progress-bar progress-bar-success" id="gymPrestigeBar" ></div>
-					   </div>
-					</div>
-					<div id="levelMeter">
-						<div class="progress">
-							<div class="bar-step" style="left: 1.92%">
-								<div class="label-percent">1</div>
-								<div class="label-line"></div>
-							</div>
-							<div class="bar-step" style="left: 3.84%">
-								<div class="label-percent">2</div>
-								<div class="label-line"></div>
-							</div>
-							<div class="bar-step" style="left: 7.68%">
-								<div class="label-percent">3</div>
-								<div class="label-line"></div>
-							</div>
-							<div class="bar-step" style="left: 15.36%">
-								<div class="label-percent">4</div>
-								<div class="label-line"></div>
-							</div>
-							<div class="bar-step" style="left: 23.4%">
-								<div class="label-percent">5</div>
-								<div class="label-line"></div>
-							</div>
-							<div class="bar-step" style="left: 30.72%">
-								<div class="label-percent">6</div>
-								<div class="label-line"></div>
-							</div>
-							<div class="bar-step" style="left: 38.4%">
-								<div class="label-percent">7</div>
-								<div class="label-line"></div>
-							</div>
-							<div class="bar-step" style="left: 57.6%">
-								<div class="label-percent">8</div>
-								<div class="label-line"></div>
-							</div>
-							<div class="bar-step" style="left: 76.8%">
-								<div class="label-percent">9</div>
-								<div class="label-line"></div>
-							</div>
-							<div class="bar-step" style="left: 96%">
+							<div class="bar-step gymRank10" style="left: 90%; width:10%;">
 								<div class="label-percent">10</div>
 								<div class="label-line"></div>
 							</div>
