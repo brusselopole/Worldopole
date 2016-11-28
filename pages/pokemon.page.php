@@ -81,7 +81,7 @@
 	</div>
 
 	<div class="col-md-6" style="padding-top:10px;">
-		<canvas id="myChart" width="100%" height="40"></canvas>
+		<canvas id="spawn_chart" width="100%" height="40"></canvas>
 	</div>
 
 </div>
@@ -196,7 +196,7 @@
 	<!-- Chart -->
 	<div class="col-md-6">
 		
-		<canvas id="myPolarChart" width="100%" height="60"></canvas>
+		<canvas id="polar_chart" width="100%" height="60"></canvas>
 		
 	</div>
 	<!-- /Chart --> 
