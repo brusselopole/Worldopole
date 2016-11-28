@@ -102,7 +102,7 @@ $stam			= $pokemons->pokemon->$pokemon_id->stam;
 Chart.defaults.global.legend.display = false;
 
 
-var ctx = $("#myChart");
+var ctx = $("#spawn_chart");
 
 var data = {
 	labels: ["1am","2am","3am","4am","5am","6am","7am","8am","9am","10am","11am","12am","1pm","2pm","3pm","4pm","5pm","6pm","7pm","8pm","9pm","10pm","11pm","12pm"],
@@ -124,7 +124,7 @@ var myBarChart = new Chart(ctx, {
 
 
 
-var ctx2 = $("#myPolarChart");
+var ctx2 = $("#polar_chart");
 
 var data2 = {
 	datasets: [{
