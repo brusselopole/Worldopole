@@ -136,7 +136,7 @@ var data2 = {
 		backgroundColor: [
 			"rgba(249,96,134,0.8)",
 			"rgba(88,194,193,0.8)",
-			"rgba(250,209,77,0.8)"
+			"rgba(92,184,92,0.8)"
 		],
 		label: 'My dataset' // for legend
 	}],
