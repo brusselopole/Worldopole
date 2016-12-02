@@ -25,7 +25,7 @@ $(function() {
 		
 		var trainerIndex = 0+(page*10);
 		$.ajax({
-			'async': false,
+			'async': true,
 			'type': "GET",
 			'global': false,
 			'dataType': 'json',
@@ -45,7 +45,13 @@ $(function() {
 				var trainersInfos = $('<tr>',{id: 'trainerInfos_'+trainer.name}).css('border-bottom','2px solid '+(trainer.team=="3"?"#ffbe08":trainer.team=="2"?"#ff7676":"#00aaff"));
 				trainersInfos.append($('<td>',{id : 'trainerIndex_'+trainer.name, text : trainerIndex}));
 				trainersInfos.append($('<td>',{id : 'trainerRank_'+trainer.name, text : trainer.rank}));
-				trainersInfos.append($('<td>',{id : 'trainerName_'+trainer.name, text : trainerName}).click(function(e){$('input#name').val(trainerName);$( "#searchTrainer" ).submit();e.preventDefault()}));
+				trainersInfos.append($('<td>',{id : 'trainerName_'+trainer.name, text : trainerName}).click(
+					function(e){
+						e.preventDefault();$('input#name').val(trainerName);
+						$( "#searchTrainer" ).submit();
+						$('#trainerName_'+trainer.name).unbind('click');
+					}
+				));
 				trainersInfos.append($('<td>',{id : 'trainerLevel_'+trainer.name, text : trainer.level}));
 				trainersInfos.append($('<td>',{id : 'trainerGyms_'+trainer.name, text : trainer.gyms}));
 				$('#trainersContainer').append(trainersInfos);
