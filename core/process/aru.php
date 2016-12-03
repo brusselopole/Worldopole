@@ -492,25 +492,34 @@ switch($request){
 				while($data = $resultRanking->fetch_object()){
 					$trainer->rank = $data->rank ;
 				}
-				$req = "SELECT DISTINCT gympokemon.pokemon_id, gympokemon.pokemon_uid, gympokemon.cp, gympokemon.trainer_name, gympokemon.iv_defense, gympokemon.iv_stamina, gympokemon.iv_attack, filtered_gymmember.gym_id ".
-						"FROM gympokemon LEFT JOIN ".
-							"( SELECT  * FROM gymmember GROUP BY gymmember.pokemon_uid HAVING gymmember.gym_id <> '' ) as filtered_gymmember ".
-							"ON gympokemon.pokemon_uid = filtered_gymmember.pokemon_uid ".
-							"WHERE gympokemon.trainer_name='".$trainer->name."' ORDER BY filtered_gymmember.gym_id DESC, gympokemon.cp DESC";
+				$req = "(SELECT DISTINCT gympokemon.pokemon_id, gympokemon.pokemon_uid, gympokemon.cp, gympokemon.trainer_name, gympokemon.iv_defense, gympokemon.iv_stamina, gympokemon.iv_attack, filtered_gymmember.gym_id, '1' as active ".
+						"FROM gympokemon INNER JOIN ".
+						"( SELECT  * FROM gymmember GROUP BY gymmember.pokemon_uid HAVING gymmember.gym_id <> '' ) as filtered_gymmember ".
+						"ON gympokemon.pokemon_uid = filtered_gymmember.pokemon_uid ".
+						"WHERE gympokemon.trainer_name='".$trainer->name."' ORDER BY gympokemon.cp DESC)";
+							
 				$resultPkms = $mysqli->query($req);
 				$trainer->pokemons = array();
 				$active_gyms=0;
+				$pkmCount = 0;
 				while($resultPkms && $dataPkm = $resultPkms->fetch_object()){
-					// check whether pokemon is still in gym
-					if ($dataPkm->gym_id == "") {
-						$dataPkm->active = FALSE;
-					} else {
-						$dataPkm->active = TRUE;
-						$active_gyms++;
-					}
-					$trainer->pokemons[] = $dataPkm;
+					$active_gyms++;
+					$trainer->pokemons[$pkmCount++] = $dataPkm;
 				}
 				$trainer->gyms = $active_gyms;
+				
+				$req =  "(SELECT DISTINCT gympokemon.pokemon_id, gympokemon.pokemon_uid, gympokemon.cp, gympokemon.trainer_name, gympokemon.iv_defense, gympokemon.iv_stamina, gympokemon.iv_attack, null as gym_id, '0' as active ".
+						"FROM gympokemon LEFT JOIN ".
+						"( SELECT  * FROM gymmember HAVING gymmember.gym_id <> '' ) as filtered_gymmember ".
+						"ON gympokemon.pokemon_uid = filtered_gymmember.pokemon_uid ".
+						"WHERE filtered_gymmember.pokemon_uid is null AND gympokemon.trainer_name='".$trainer->name."' ORDER BY gympokemon.cp DESC ) ";
+							
+				$resultPkms = $mysqli->query($req);
+				
+				while($resultPkms && $dataPkm = $resultPkms->fetch_object()){
+					$trainer->pokemons[$pkmCount++] = $dataPkm;
+				}
+				
 			}
 			// Sort for level first, then gyms
 			foreach($trainers as $trainer){
