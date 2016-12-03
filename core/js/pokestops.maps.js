@@ -3,7 +3,7 @@ function initMap() {
 	var locations;
 
 	$.ajax({
-		'async': false,
+		'async': true,
 		'type': "GET",
 		'global': false,
 		'dataType': 'text',
