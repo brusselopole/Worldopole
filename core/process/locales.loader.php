@@ -4,20 +4,19 @@
 // Language setting
 ###################
 
-if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])){
-
-	$browser_lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-
-}else{
-
-	$browser_lang = 'en';
-
+if (empty($config->system->forced_lang)) {
+	if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])){
+		$browser_lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+	} else {
+		$browser_lang = 'en';
+	}
+} else {
+	// Use forced language
+	$browser_lang = $config->system->forced_lang;
 }
-
 
 // Activate lang
 $lang = strtoupper($browser_lang); 
-
 
 // Check if language is available
 if (isset($lang)) {

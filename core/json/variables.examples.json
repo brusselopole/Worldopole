@@ -25,14 +25,8 @@
 		"GMaps_Key"		:	"#GMAPS_KEY#",
 		"timezone"		:	"Europe/Paris",
 		"max_pokemon"		:	151,
-		"mythic_recents"        :       false
-	},
-	"lang":{
-		"en"			:	true,
-		"fr"			:	true,
-		"es"			:	true,
-		"de"			:	true,
-		"pl"			:	true
+		"mythic_recents"        :       false,
+		"forced_lang"		:	""
 	},
 	"menu":[
 		{
