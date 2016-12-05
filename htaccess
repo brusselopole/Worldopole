@@ -1,7 +1,6 @@
 SetEnv REGISTER_GLOBALS 0
 SetEnv ZEND_OPTIMIZER 1
 SetEnv MAGIC_QUOTES 0
-SetEnv PHP_VER 5
 ServerSignature Off
 php_flag magic_quotes_gpc Off
 AddDefaultCharset utf-8
