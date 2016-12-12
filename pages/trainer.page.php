@@ -37,10 +37,11 @@
 		<thead>
 		<tr>
 			<th>#</th>
-			<th>Rank</th>
+			<th>Same Level</th>
 			<th>Name</th>
 			<th>Level</th>
 			<th>Gyms</th>
+			<th>Last Seen</th>
 		</tr>
 		</thead>
 		<tbody id="trainersContainer">
@@ -48,7 +49,7 @@
 		</tbody>
 		<tfoot>
 			<tr class="trainerLoader">
-				<td colspan="5"><div class="loader"></div></td>
+				<td colspan="6"><div class="loader"></div></td>
 			</tr>
 		</tfoot>
 		

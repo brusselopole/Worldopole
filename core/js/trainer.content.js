@@ -54,9 +54,10 @@ $(function() {
 				));
 				trainersInfos.append($('<td>',{id : 'trainerLevel_'+trainer.name, text : trainer.level}));
 				trainersInfos.append($('<td>',{id : 'trainerGyms_'+trainer.name, text : trainer.gyms}));
+				trainersInfos.append($('<td>',{id : 'trainerLastSeen_'+trainer.name, text : trainer.last_seen}));
 				$('#trainersContainer').append(trainersInfos);
 				var trainersPokemonsRow = $('<tr>',{id: 'trainerPokemons_'+trainer.name});
-				var trainersPokemons = $('<td>',{colspan : 5});
+				var trainersPokemons = $('<td>',{colspan : 6});
 				var trainersPokemonsContainer = $('<div>',{class : "container"});
 				for(pokeIndex = 0; pokeIndex<trainer.pokemons.length;pokeIndex++){
 					var pokemon = trainer.pokemons[pokeIndex];

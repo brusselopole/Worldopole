@@ -478,12 +478,13 @@ switch($request){
 			$orderAndLimit = " ORDER BY level DESC LIMIT ".($page*10).",10 ";
 			
 			
-			$req = "SELECT name, level, team FROM trainer ".$where.$orderAndLimit;
+			$req = "SELECT * FROM trainer ".$where.$orderAndLimit;
 			
 			
 			$result = $mysqli->query($req);
 	        	$trainers = array();
 		        while($data = $result->fetch_object()){
+				$data->last_seen = date("Y-m-d", strtotime($data->last_seen));
 				$trainers[$data->name] = $data;
 			};
 			foreach($trainers as $trainer){
