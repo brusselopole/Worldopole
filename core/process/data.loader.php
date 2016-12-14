@@ -375,8 +375,6 @@ if(!empty($page)){
 				
 				while($data = $result->fetch_object()){
 					
-					$gym['valor']['fav_pokemon'][]		= $data->guard_pokemon_id;
-					
 					$teams->$team_key->guardians->$i	= $data->guard_pokemon_id;
 					
 					$i++; 
