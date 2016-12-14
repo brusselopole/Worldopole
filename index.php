@@ -161,7 +161,7 @@ include_once('core/process/data.loader.php');
 				updateCounter(<?= $home->teams->valor ?>,'.total-valor-js');
 				updateCounter(<?= $home->teams->mystic ?>,'.total-mystic-js');
 				updateCounter(<?= $home->teams->instinct ?>,'.total-instinct-js');
-				updateCounter(<?= $home->teams->rocket ?>,'.total-new-js');			
+				updateCounter(<?= $home->teams->rocket ?>,'.total-rocket-js');
 			</script>
 		<?php
 		} else { 
