@@ -375,7 +375,7 @@ switch($request){
 	case 'gym_defenders':
 		
 		$gym_id = $mysqli->real_escape_string($_GET['gym_id']);
-		
+		$mysqli->query("SET NAMES utf8");
 		$req 		= "SELECT gymdetails.name as name, gymdetails.description as description, gym.gym_points as points, gymdetails.url as url, gym.team_id as team,  (gym.last_modified ".$time->symbol." INTERVAL ".$time->delay." HOUR) as last_modified, gym.guard_pokemon_id as guard_pokemon_id FROM gymdetails LEFT JOIN gym on gym.gym_id = gymdetails.gym_id WHERE gym.gym_id='".$gym_id."'";
 		$result 	= $mysqli->query($req);
 		$gymData['gymDetails']['gymInfos'] = false;
