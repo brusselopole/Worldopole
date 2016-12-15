@@ -242,31 +242,19 @@ if(!empty($page)){
 						
 			foreach($pokemon->types as $type){
 				$types[] = $type; 
-			}			
+			}
 			
 			$related = array(); 
-			$i = 1; 
-			
-			foreach($pokemons->pokemon as $test_pokemon){
-				if(!empty($test_pokemon->types)){							
+			foreach($pokemons->pokemon as $pokeid => $test_pokemon){
+				if(!empty($test_pokemon->types)){
 					foreach($test_pokemon->types as $type){
-						
 						if(in_array($type, $types)){
-							
-							if(!in_array($i, $related)){
-							
-								$related[] = $i;
-							
+							if(!in_array($pokeid, $related)){
+								$related[] = $pokeid;
 							}
-							 
-							
 						}
-						
 					}
 				}
-				
-				$i++; 
-							
 			}
 		
 		break; 
