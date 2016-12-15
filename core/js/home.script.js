@@ -32,7 +32,7 @@ function updateCounter(new_value, classname){
 			updateCounter(red,'.total-valor-js');
 			updateCounter(blue,'.total-mystic-js');
 			updateCounter(yellow,'.total-instinct-js');
-			updateCounter(neutral,'.total-new-js');
+			updateCounter(neutral,'.total-rocket-js');
 			
 		},
 		complete: function() {
