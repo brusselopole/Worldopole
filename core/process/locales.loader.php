@@ -91,6 +91,7 @@ foreach ($pokemons->pokemon as $pokeid => $pokemon) {
 	foreach ($pokemon->types as &$type) {
 		$type = $pokemon_trans->types->$type;
 	}
+	unset($type);
 
 	// Resolve candy_id to candy_name
 	if(isset($pokemon->candy_id)) {
