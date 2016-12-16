@@ -27,12 +27,9 @@ function time_ago( $timestamp, $now = 0, $locales ) {
 		$locales->NEVER;
 	}
 	else {
-		$timestamp-=900;
-		
-		// Make sure the timestamp to check is in the past.
-		if ( $timestamp > $now ) {
-			throw new Exception( 'Timestamp is in the future' );
-		}
+        
+        // Calculate the time difference between the current time reference point and the timestamp we're comparing. The difference is defined negative, wenn in the future.
+        $time_difference = (int) ($now - $timestamp );
 	
 		// Calculate the time difference between the current time reference point and the timestamp we're comparing.
 		$time_difference = (int) abs( $now - $timestamp );
@@ -61,7 +58,14 @@ function time_ago( $timestamp, $now = 0, $locales ) {
 		if ( $difference_value != 1 ) {
 			$difference_label = $difference_label.'S'; 
 		}
-		$time_ago = $difference_value.' '.$locales->$difference_label; 	
+        
+        // Different outputs for past or future. TO-DO: locals and switch word order for other language cases
+        if ( $difference_value < 0 ) {  // Timestamp is in the future
+            $time_ago = 'noch '.-$difference_value.' '.$locales->$difference_label.' aktiv';    // Still german formatting.
+        } else {    // Timestamp is in the past
+            $time_ago = 'vor '.$difference_value.' '.$locales->$difference_label;
+        }
+        
 	}
 
 	return $time_ago;

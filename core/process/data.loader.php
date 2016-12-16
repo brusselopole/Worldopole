@@ -482,33 +482,42 @@ else{
 			}
 		}
 	
-		// get all mythic pokemon
-		$req 		= "SELECT DISTINCT pokemon_id, disappear_time FROM pokemon
-				   WHERE pokemon_id IN (".implode(",", $mythic_pokemons).")
-				   ORDER BY disappear_time DESC LIMIT 0,12";
-	} else {
-		// get all pokemon
-		$req		= "SELECT DISTINCT pokemon_id, disappear_time FROM pokemon ORDER BY disappear_time DESC LIMIT 0,12";
-	}
-	$result 	= $mysqli->query($req);
-	$recents	= array(); 
+        // get all mythic pokemon
+        $req            = "SELECT DISTINCT pokemon_id, disappear_time, latitude, longitude FROM pokemon
+        WHERE pokemon_id IN (".implode(",", $mythic_pokemons).")
+        ORDER BY disappear_time DESC LIMIT 0,12";
+    } else {
+        // get all pokemon
+        $req            = "SELECT DISTINCT pokemon_id, disappear_time, latitude, longitude FROM pokemon ORDER BY disappear_time DESC LIMIT 0,12";
+    }
+    $result         = $mysqli->query($req);
+    $parents        = array();
 
-	if ($result->num_rows > 0) {
-		while($data = $result->fetch_object()){
-			$recents[] = $data->pokemon_id;
-		}
-	}
+    if ($result->num_rows > 0) {
+        while($data = $result->fetch_object()){
+            $parent = new stdClass();
+            
+            $parent->id = $data->pokemon_id;
+            $parent->last_seen = strtotime($data->disappear_time)+60*60;    // TO-DO: implement soft coded time->delay
+            
+            $last_location = new stdClass();
+            $parent->last_location->latitude = $data->latitude;
+            $parent->last_location->longitude = $data->longitude;
+            
+            $parents[] = $parent;
+        }
+    }
 		
 	
-	// Team battle 
+	// Team battle
 	// -----------
 
 	$home->teams = new stdClass();
 	
-	// Team 
+	// Team
 	// 1 = bleu
-	// 2 = rouge 
-	// 3 = jaune 
+	// 2 = rouge
+	// 3 = jaune
 	
 	$req = "SELECT count( DISTINCT(gym_id) ) as total FROM gym WHERE team_id = '1'  "; 
 	$result = $mysqli->query($req); 

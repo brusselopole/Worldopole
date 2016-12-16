@@ -48,38 +48,45 @@
 </div>
 
 
-<div class="row area big-padding"> <!-- LAST 10 POKEMONS -->
-	
-	<div class="col-md-12 text-center">
-		
-		<h2 class="text-center sub-title"><?= $locales->RECENT_SPAWNS ?></h2>
-		
-		<div class="last-mon-js">
-		
-		<?php foreach($recents as $pokemon){ ?>
-		
-			<div class="col-md-1 col-xs-4 pokemon-single" pokeid="<?= $pokemon ?>">
-			
-				<a href="pokemon/<?= $pokemon ?>"><img src="core/pokemons/<?= $pokemon ?>.png" alt="<?= $pokemons->pokemon->$pokemon->name ?>" class="img-responsive"></a>
-				<p class="pkmn-name"><a href="pokemon/<?= $pokemon ?>"><?= $pokemons->pokemon->$pokemon->name ?></a></p>
-			
-			</div>
-			
-		<?php }?>
-		
-		</div>
-	
+<div class="row area big-padding"> <!-- LAST 12 POKEMONS -->
 
-	</div>			
-	
+    <div class="col-md-12 text-center">
+
+        <h2 class="text-center sub-title"><?= $locales->RECENT_SPAWNS ?></h2>
+
+        <div class="last-mon-js">
+        <?php foreach($parents as $parent){
+            $id = $parent->id;
+            $last_seen = $parent->last_seen;
+            $latitude = $parent->last_location->latitude;
+            $longitude = $parent->last_location->longitude; ?>
+
+            <div class="col-md-1 col-xs-4 pokemon-single" pokeid="<?= $id ?>">
+
+                <a href="pokemon/<?= $id ?>"><img src="core/pokemons/<?= $id ?>.png" alt="<?= $pokemons->pokemon->$id->name ?>" class="img-responsive">
+                <p class="pkmn-name">
+                    <?= $pokemons->pokemon->$id->name ?>
+                </a>
+                <br><br>
+                <a href="http://maps.google.com/maps?z=11&t=m&q=loc:<?= $latitude ?>+<?= $longitude ?>" target="_blank">
+                <?= time_ago($last_seen, 0, $locales) ?>
+                </a>
+                </p>
+            </div>
+
+        <?php }?>
+        </div>
+
+    </div>
+
 </div>
 
-	
+
 <div class="row big padding">
 	<h2 class="text-center sub-title"><?= $locales->FIGHT_TITLE ?></h2>
-	
+
 	<?php foreach($home->teams as $team => $total){ ?>
-		
+
 		<div class="col-md-3 col-sm-6 col-sm-12 team">
 
 			<div class="row">
