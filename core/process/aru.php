@@ -177,8 +177,6 @@ switch($request){
             
                 <a href="pokemon/'.$id.'"><img src="core/pokemons/'.$id.'.png" alt="'.$pokemons->pokemon->$id->name.'" class="img-responsive"></a>
                 <a href="pokemon/'.$id.'"><p class="pkmn-name">'.$pokemons->pokemon->$id->name.'</a>
-                </a>
-                <br><br>
                 <a href="http://maps.google.com/maps?z=11&t=m&q=loc:'.$recent->last_location->latitude.'+'.$recent->last_location->longitude.'" target="_blank">
                     '.time_ago($recent->last_seen, 0, $locales).'
                 </a>
