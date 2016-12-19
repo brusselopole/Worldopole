@@ -491,20 +491,20 @@ else{
         $req            = "SELECT DISTINCT pokemon_id, disappear_time, latitude, longitude FROM pokemon ORDER BY disappear_time DESC LIMIT 0,12";
     }
     $result         = $mysqli->query($req);
-    $parents        = array();
+    $recents        = array();
 
     if ($result->num_rows > 0) {
         while($data = $result->fetch_object()){
-            $parent = new stdClass();
+            $recent = new stdClass();
             
-            $parent->id = $data->pokemon_id;
-            $parent->last_seen = strtotime($data->disappear_time)+60*60;    // TO-DO: implement soft coded time->delay
+            $recent->id = $data->pokemon_id;
+            $recent->last_seen = strtotime($data->disappear_time)+60*60;    // TO-DO: implement soft coded time->delay
             
-            $last_location = new stdClass();
-            $parent->last_location->latitude = $data->latitude;
-            $parent->last_location->longitude = $data->longitude;
+            $recent->last_location = new stdClass();
+            $recent->last_location->latitude = $data->latitude;
+            $recent->last_location->longitude = $data->longitude;
             
-            $parents[] = $parent;
+            $recents[] = $recent;
         }
     }
 		

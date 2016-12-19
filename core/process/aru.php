@@ -151,41 +151,52 @@ switch($request){
 			}
 
 			// get last mythic pokemon
-			$req		= "SELECT pokemon_id FROM pokemon
+			$req		= "SELECT pokemon_id, disappear_time, latitude, longitude FROM pokemon
 					   WHERE pokemon_id IN (".implode(",", $mythic_pokemons).")
 					   ORDER BY disappear_time DESC LIMIT 0,1";
 		} else {
 			// get last pokemon
-			$req		= "SELECT pokemon_id FROM pokemon ORDER BY disappear_time DESC LIMIT 0,1";
+			$req		= "SELECT pokemon_id, disappear_time, latitude, longitude FROM pokemon ORDER BY disappear_time DESC LIMIT 0,1";
 		}
 		$result 	= $mysqli->query($req);
-		$recents	= array(); 
 		$data 		= $result->fetch_object();
-		$pokeid 	= $data->pokemon_id;
+        
+        $recent = new stdClass();
+        
+        $recent->id = $data->pokemon_id;
+        $recent->last_seen = strtotime($data->disappear_time)+60*60;    // TO-DO: implement soft coded time->delay
+        
+        $recent->last_location = new stdClass();
+        $recent->last_location->latitude = $data->latitude;
+        $recent->last_location->longitude = $data->longitude;
 		
-		if($_GET['last_id'] != $pokeid){
+		if($_GET['last_id'] != $id){
 			$html = '
-		
-			<div class="col-md-1 col-xs-4 pokemon-single" pokeid="'.$pokeid.'" style="display:none;">
-						
-				<a href="pokemon/'.$pokeid.'"><img src="core/pokemons/'.$pokeid.'.png" alt="'.$pokemons->pokemon->$pokeid->name.'" class="img-responsive"></a>
-				<p class="pkmn-name"><a href="pokemon/'.$pokeid.'">'.$pokemons->pokemon->$pokeid->name.'</a></p>
-			
-			</div>	
-				
+            
+            <div class="col-md-1 col-xs-4 pokemon-single" pokeid="'.$id.'" style="display:none;">
+            
+                <a href="pokemon/'.$id.'"><img src="core/pokemons/'.$id.'.png" alt="'.$pokemons->pokemon->$id->name.'" class="img-responsive"></a>
+                <a href="pokemon/'.$id.'"><p class="pkmn-name">'.$pokemons->pokemon->$id->name.'</a>
+                </a>
+                <br><br>
+                <a href="http://maps.google.com/maps?z=11&t=m&q=loc:'.$recent->last_location->latitude.'+'.$recent->last_location->longitude.'" target="_blank">
+                    '.time_ago($recent->last_seen, 0, $locales).'
+                </a>
+            </div>
+
 			';
-			
-			
-			echo $html; 
+
+
+			echo $html;
 		}
-	
-	break; 
-	
-	
-	
+
+	break;
+
+
+
 	####################################
 	//
-	// List Pokestop 
+	// List Pokestop
 	//
 	####################################
 

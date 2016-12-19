@@ -55,23 +55,17 @@
         <h2 class="text-center sub-title"><?= $locales->RECENT_SPAWNS ?></h2>
 
         <div class="last-mon-js">
-        <?php foreach($parents as $parent){
-            $id = $parent->id;
-            $last_seen = $parent->last_seen;
-            $latitude = $parent->last_location->latitude;
-            $longitude = $parent->last_location->longitude; ?>
+        <?php foreach($recents as $recent){
+            $id = $recent->id; ?>
 
             <div class="col-md-1 col-xs-4 pokemon-single" pokeid="<?= $id ?>">
 
-                <a href="pokemon/<?= $id ?>"><img src="core/pokemons/<?= $id ?>.png" alt="<?= $pokemons->pokemon->$id->name ?>" class="img-responsive">
-                <p class="pkmn-name">
-                    <?= $pokemons->pokemon->$id->name ?>
+
+                <a href="pokemon/<?= $id ?>"><img src="core/pokemons/<?= $id ?>.png" alt="<?= $pokemons->pokemon->$id->name ?>" class="img-responsive"></a>
+                <a href="pokemon/<?= $id ?>"><p class="pkmn-name"><?= $pokemons->pokemon->$id->name ?></p></a>
+                <a href="http://maps.google.com/maps?z=11&t=m&q=loc:<?= $recent->last_location->latitude ?>+<?= $recent->last_location->longitude ?>" target="_blank">
+                    <?= time_ago($recent->last_seen, 0, $locales) ?>
                 </a>
-                <br><br>
-                <a href="http://maps.google.com/maps?z=11&t=m&q=loc:<?= $latitude ?>+<?= $longitude ?>" target="_blank">
-                <?= time_ago($last_seen, 0, $locales) ?>
-                </a>
-                </p>
             </div>
 
         <?php }?>
