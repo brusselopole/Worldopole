@@ -28,11 +28,8 @@ function time_ago( $timestamp, $now = 0, $locales ) {
 	}
 	else {
         
-        // Calculate the time difference between the current time reference point and the timestamp we're comparing. The difference is defined negative, wenn in the future.
+        // Calculate the time difference between the current time reference point and the timestamp we're comparing. The difference is defined negative, when in the future.
         $time_difference = (int) ($now - $timestamp );
-	
-		// Calculate the time difference between the current time reference point and the timestamp we're comparing.
-		$time_difference = (int) abs( $now - $timestamp );
 		
 		// Calculate the time ago using the smallest applicable unit.
 		if ( $time_difference < $hour_in_seconds ) {
