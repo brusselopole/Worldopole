@@ -36,7 +36,7 @@ $mysqli 	= new mysqli(SYS_DB_HOST, SYS_DB_USER, SYS_DB_PSWD, SYS_DB_NAME, SYS_DB
 
 if($mysqli->connect_error != ''){
 	
-	header('Location:/offline.html');
+	header('Location:'.HOST_URL.'offline.html');
 	exit();
 	
 }
