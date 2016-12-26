@@ -94,7 +94,7 @@ echo
 # Replace default values with the ones set above
 echo "Writing $CONFIG_PHP ..."
 sed 	-e "s/#SYS_DB_NAME#/$SYS_DB_NAME/" \
-    	-e "s/#SYS_DB_USER#/$SYS_DB_USER/" \
+	-e "s/#SYS_DB_USER#/$SYS_DB_USER/" \
 	-e "s/#SYS_DB_PSWD#/$SYS_DB_PSWD/" \
 	-e "s/#SYS_DB_HOST#/$SYS_DB_HOST/" \
 	-e "s/3306/$SYS_DB_PORT/" \
@@ -103,11 +103,11 @@ sed 	-e "s/#SYS_DB_NAME#/$SYS_DB_NAME/" \
 # We have to escape the / from timezone
 TIMEZONE=$(echo "$TIMEZONE" | sed 's/\//\\\//g')
 echo "Writing $VARIABLES_JSON ..."
-sed     -e "s/\"Worldopole\"/\"$SITE_NAME\"/" \
-        -e "s/\"Weuuurld\"/\"$CITY\"/" \
-        -e "s/\"50.844441\"/\"$MAP_CENTER_LAT\"/" \
-        -e "s/\"4.363557\"/\"$MAP_CENTER_LONG\"/" \
-        -e "s/\"+2\"/\"$TIME_INTERVAL\"/" \
+sed	-e "s/\"Worldopole\"/\"$SITE_NAME\"/" \
+	-e "s/\"Weuuurld\"/\"$CITY\"/" \
+	-e "s/\"50.844441\"/\"$MAP_CENTER_LAT\"/" \
+	-e "s/\"4.363557\"/\"$MAP_CENTER_LONG\"/" \
+	-e "s/\"+2\"/\"$TIME_INTERVAL\"/" \
 	-e "s/#GMAPS_KEY#/$GMAPS_KEY/" \
 	-e "s/\"Europe\/Paris\"/\"$TIMEZONE\"/" \
 "$VARIABLES_JSON_EX" > "$VARIABLES_JSON"

@@ -69,7 +69,7 @@
 		
 		
 		<?php
-		    break;
+			break;
 		
 		case 'pokestops':
 		?>
@@ -95,7 +95,7 @@
 
 		
 		<?php
-		    break;
+			break;
 		
 		case 'gym':
 		?>
@@ -120,7 +120,7 @@
 		<meta name="twitter:image" content="<?= HOST_URL ?>core/img/logo.jpg" />
 
 		<?php
-		    break;
+			break;
 
 		case 'trainer':
 		?>
@@ -144,7 +144,7 @@
 		<meta name="twitter:image" content="<?= HOST_URL ?>core/img/logo.jpg" />
 
 		<?php
-		    break;
+			break;
 
 		case 'dashboard':
 		?>
@@ -169,7 +169,7 @@
 
 
 		<?php
-		    break;
+			break;
 		
 		case 'pokedex':
 		?>
@@ -193,7 +193,7 @@
 		<meta name="twitter:image" content="<?= HOST_URL ?>core/img/logo.jpg" />
 		
 		<?php
-		    break;
+			break;
 	}
 }
 	

@@ -124,7 +124,7 @@ switch ($request) {
 		echo $json;
 	
 	
-	    break;
+		break;
 	
 	
 	
@@ -176,7 +176,7 @@ switch ($request) {
 			echo $html;
 		}
 	
-	    break;
+		break;
 	
 	
 	
@@ -217,7 +217,7 @@ switch ($request) {
 	
 		echo $return;
 	
-	    break;
+		break;
 	
 	
 	
@@ -249,7 +249,7 @@ switch ($request) {
 		echo $json;
 	
 	
-	    break;
+		break;
 
 	####################################
 	//
@@ -276,25 +276,25 @@ switch ($request) {
 					$icon	= 'map_white.png';
 					$team	= 'No Team (yet)';
 					$color	= 'rgba(0, 0, 0, .6)';
-				    break;
+					break;
 				
 				case 1:
 					$icon	= 'map_blue_';
 					$team	= 'Team Mystic';
 					$color	= 'rgba(74, 138, 202, .6)';
-				    break;
+					break;
 				
 				case 2:
 					$icon	= 'map_red_';
 					$team	= 'Team Valor';
 					$color	= 'rgba(240, 68, 58, .6)';
-				    break;
+					break;
 				
 				case 3:
 					$icon	= 'map_yellow_';
 					$team	= 'Team Instinct';
 					$color	= 'rgba(254, 217, 40, .6)';
-				    break;
+					break;
 			}
 		
 			// Set gym level
@@ -358,7 +358,7 @@ switch ($request) {
 		
 		echo $return;
 	
-	    break;
+		break;
 		
 		
 	####################################
@@ -460,7 +460,7 @@ switch ($request) {
 		echo $return;
 	
 	
-	    break;
+		break;
 	
 	case 'trainer':
 			$name = "";
@@ -482,7 +482,7 @@ switch ($request) {
 			
 			
 			$result = $mysqli->query($req);
-	        	$trainers = array();
+			$trainers = array();
 		while ($data = $result->fetch_object()) {
 			$data->last_seen = date("Y-m-d", strtotime($data->last_seen));
 			$trainers[$data->name] = $data;

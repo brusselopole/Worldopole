@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<ruleset name="MyStandard">
+<ruleset name="PSR2-tabs">
 	<description>PSR2 with tabs instead of spaces.</description>
 	<arg name="tab-width" value="4"/>
 	<rule ref="PSR2">

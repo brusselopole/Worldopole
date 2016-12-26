@@ -232,7 +232,7 @@ if (!empty($page)) {
 				}
 			}
 		
-		    break;
+			break;
 		
 		
 		
@@ -265,7 +265,7 @@ if (!empty($page)) {
 			}
 					
 		
-		    break;
+			break;
 		
 		
 		// Pokestops
@@ -288,7 +288,7 @@ if (!empty($page)) {
 			
 		
 		
-		    break;
+			break;
 
 
 		// Gyms
@@ -345,7 +345,7 @@ if (!empty($page)) {
 			}
 						
 					
-		    break;
+			break;
 
 		
 		
@@ -379,7 +379,7 @@ if (!empty($page)) {
 
 			
 		
-		    break;
+			break;
 	}
 } /////////////
 // Homepage

@@ -120,115 +120,115 @@ if (!function_exists('http_response_code')) {
 			switch ($code) {
 				case 100:
 					$text = 'Continue';
-	                break;
+					break;
 				case 101:
 					$text = 'Switching Protocols';
-	                break;
+					break;
 				case 200:
 					$text = 'OK';
-	                break;
+					break;
 				case 201:
 					$text = 'Created';
-	                break;
+					break;
 				case 202:
 					$text = 'Accepted';
-	                break;
+					break;
 				case 203:
 					$text = 'Non-Authoritative Information';
-	                break;
+					break;
 				case 204:
 					$text = 'No Content';
-	                break;
+					break;
 				case 205:
 					$text = 'Reset Content';
-	                break;
+					break;
 				case 206:
 					$text = 'Partial Content';
-	                break;
+					break;
 				case 300:
 					$text = 'Multiple Choices';
-	                break;
+					break;
 				case 301:
 					$text = 'Moved Permanently';
-	                break;
+					break;
 				case 302:
 					$text = 'Moved Temporarily';
-	                break;
+					break;
 				case 303:
 					$text = 'See Other';
-	                break;
+					break;
 				case 304:
 					$text = 'Not Modified';
-	                break;
+					break;
 				case 305:
 					$text = 'Use Proxy';
-	                break;
+					break;
 				case 400:
 					$text = 'Bad Request';
-	                break;
+					break;
 				case 401:
 					$text = 'Unauthorized';
-	                break;
+					break;
 				case 402:
 					$text = 'Payment Required';
-	                break;
+					break;
 				case 403:
 					$text = 'Forbidden';
-	                break;
+					break;
 				case 404:
 					$text = 'Not Found';
-	                break;
+					break;
 				case 405:
 					$text = 'Method Not Allowed';
-	                break;
+					break;
 				case 406:
 					$text = 'Not Acceptable';
-	                break;
+					break;
 				case 407:
 					$text = 'Proxy Authentication Required';
-	                break;
+					break;
 				case 408:
 					$text = 'Request Time-out';
-	                break;
+					break;
 				case 409:
 					$text = 'Conflict';
-	                break;
+					break;
 				case 410:
 					$text = 'Gone';
-	                break;
+					break;
 				case 411:
 					$text = 'Length Required';
-	                break;
+					break;
 				case 412:
 					$text = 'Precondition Failed';
-	                break;
+					break;
 				case 413:
 					$text = 'Request Entity Too Large';
-	                break;
+					break;
 				case 414:
 					$text = 'Request-URI Too Large';
-	                break;
+					break;
 				case 415:
 					$text = 'Unsupported Media Type';
-	                break;
+					break;
 				case 500:
 					$text = 'Internal Server Error';
-	                break;
+					break;
 				case 501:
 					$text = 'Not Implemented';
-	                break;
+					break;
 				case 502:
 					$text = 'Bad Gateway';
-	                break;
+					break;
 				case 503:
 					$text = 'Service Unavailable';
-	                break;
+					break;
 				case 504:
 					$text = 'Gateway Time-out';
-	                break;
+					break;
 				case 505:
 					$text = 'HTTP Version not supported';
-	                break;
+					break;
 				default:
 					exit('Unknown http status code "' . htmlentities($code) . '"');
 				break;
