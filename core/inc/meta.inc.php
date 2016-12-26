@@ -18,7 +18,7 @@
 		<meta name="msapplication-TileImage" content="core/meta-icons/ms-icon-144x144.png">
 		<meta name="theme-color" content="#ffffff">
 
-<?php if(!isset($_GET['page'])){ ?>
+<?php if (!isset($_GET['page'])) { ?>
 
 		<title><?= $config->infos->site_name ?> | <?= strip_tags($config->infos->site_title); ?></title>
 		
@@ -43,14 +43,9 @@
 		<meta name="twitter:image" content="<?= HOST_URL ?>core/img/logo.jpg" />
 
 
-<?php }else{	
-	
-	
-	switch($_GET['page']){
-		
-		
+<?php } else {
+	switch ($_GET['page']) {
 		case 'pokemon':
-		
 		?>
 		
 		<title><?= $config->infos->site_name ?> | <?= $locales->FIND ?> <?= $pokemon->name ?> <?= sprintf($locales->INCITY, $config->infos->city); ?></title>
@@ -74,7 +69,7 @@
 		
 		
 		<?php
-		break; 
+		    break;
 		
 		case 'pokestops':
 		?>
@@ -100,7 +95,7 @@
 
 		
 		<?php
-		break;
+		    break;
 		
 		case 'gym':
 		?>
@@ -125,7 +120,7 @@
 		<meta name="twitter:image" content="<?= HOST_URL ?>core/img/logo.jpg" />
 
 		<?php
-		break;	
+		    break;
 
 		case 'trainer':
 		?>
@@ -149,7 +144,7 @@
 		<meta name="twitter:image" content="<?= HOST_URL ?>core/img/logo.jpg" />
 
 		<?php
-		break;
+		    break;
 
 		case 'dashboard':
 		?>
@@ -174,7 +169,7 @@
 
 
 		<?php
-		break;
+		    break;
 		
 		case 'pokedex':
 		?>
@@ -198,11 +193,8 @@
 		<meta name="twitter:image" content="<?= HOST_URL ?>core/img/logo.jpg" />
 		
 		<?php
-		break;
-		
+		    break;
 	}
-	
-	
 }
 	
 	

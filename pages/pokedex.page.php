@@ -22,13 +22,19 @@
 	<div class="col-md-12 flex-container results">
 	
 
-		<?php foreach($pokedex as $pokemon){ ?>
+		<?php foreach ($pokedex as $pokemon) { ?>
 			
 			<div class="flex-item pokemon-single">
 			
-				<a href="<?= $pokemon->permalink ?>"><img src="<?= $pokemon->img ?>" alt="<?= $pokemon->name ?>" class="img-responsive <?php if($pokemon->spawn == 0){ echo 'unseen'; } ?> "></a>
+				<a href="<?= $pokemon->permalink ?>"><img src="<?= $pokemon->img ?>" alt="<?= $pokemon->name ?>" class="img-responsive <?php if ($pokemon->spawn == 0) {
+					echo 'unseen';
+} ?> "></a>
 				<p class="pkmn-name"><a href="<?= $pokemon->permalink ?>"><?= $pokemon->name ?></a></p>
-				<p><?php if($pokemon->spawn ==0){ echo $locales->UNSEEN ; }else{ echo $pokemon->spawn. $locales->SEEN ; } ?> </p>
+				<p><?php if ($pokemon->spawn ==0) {
+					echo $locales->UNSEEN ;
+} else {
+	echo $pokemon->spawn. $locales->SEEN ;
+} ?> </p>
 			
 			</div>
 			

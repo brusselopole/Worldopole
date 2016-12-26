@@ -13,15 +13,13 @@
 <div class="row teams">
 
 
-	<?php 
+	<?php
 	
-	foreach($teams as $team_name => $team){ 
+	foreach ($teams as $team_name => $team) {
+		// We do not display the team rocket result as it's not a real team
 		
-		// We do not display the team rocket result as it's not a real team 
-		
-		if($team_name != 'rocket'){
-		
-			$upper_team_name = strtoupper($team_name); 
+		if ($team_name != 'rocket') {
+			$upper_team_name = strtoupper($team_name);
 			$lower_team_name	= strtolower($team_name);
 		
 	?>
@@ -43,7 +41,7 @@
 		<div class="row">
 			<p style="margin-top:1em"><?= $locales->GYMS_GUARDIANS ?></p>
 			
-			<?php foreach($team->guardians as $guardian){ ?>
+			<?php foreach ($team->guardians as $guardian) { ?>
 			
 				<div class="col-xs-4 pokemon-single">
 					<a href="pokemon/<?= $guardian ?>">
@@ -57,7 +55,8 @@
 		</div>
 	</div>
 
-	<?php } }?>
+	<?php                                                                                                                                                                                                                 }
+	}?>
 
 
 </div>

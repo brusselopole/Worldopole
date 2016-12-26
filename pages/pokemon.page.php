@@ -17,7 +17,7 @@
 		
 		<div class="col-sm-1 hidden-xs">
 				
-				<?php if($pokemon->id-1 > 0){ ?>
+				<?php if ($pokemon->id-1 > 0) { ?>
 			
 				<p class="nav-links"><a href="pokemon/<?= $pokemon->id-1 ?>"><i class="fa fa-chevron-left"></i></a></p>
 			
@@ -41,7 +41,7 @@
 		
 		<div class="col-sm-1 hidden-xs">
 			
-			<?php if($pokemon->id+1 < $config->system->max_pokemon ){ ?>
+			<?php if ($pokemon->id+1 < $config->system->max_pokemon) { ?>
 			
 			<p class="nav-links"><a href="pokemon/<?= $pokemon->id+1 ?>"><i class="fa fa-chevron-right"></i></a></p>
 				
@@ -70,7 +70,7 @@
 				<p><?= $pokemon->description ?></p>
 
 				<p>
-				<?php foreach($pokemon->types as $type){ ?>
+				<?php foreach ($pokemon->types as $type) { ?>
 					<span class="label label-default" style="background-color:<?= $pokemons->typecolors->$type ?>"><?= $type ?></span>
 				<?php }?>
 				</p>
@@ -96,13 +96,13 @@
 				<td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_SEEN ?></strong></td>
 				<td class="col-md-4 col-xs-4">
 				
-				<?php if(isset($pokemon->last_position)){ ?>
+				<?php if (isset($pokemon->last_position)) { ?>
 				
-					<a href="https://maps.google.com/?q=<?= $pokemon->last_position->latitude ?>,<?= $pokemon->last_position->longitude ?>&ll=<?= $pokemon->last_position->latitude ?>,<?= $pokemon->last_position->longitude ?>&z=16" target="_blank"><?= time_ago($pokemon->last_seen,0,$locales) ?></a>
+					<a href="https://maps.google.com/?q=<?= $pokemon->last_position->latitude ?>,<?= $pokemon->last_position->longitude ?>&ll=<?= $pokemon->last_position->latitude ?>,<?= $pokemon->last_position->longitude ?>&z=16" target="_blank"><?= time_ago($pokemon->last_seen, 0, $locales) ?></a>
 				
-				<?php }else{
+				<?php } else {
 					echo $locales->NEVER;
-				}?>
+}?>
 				
 				</td>
 			</tr>
@@ -115,8 +115,12 @@
 				<td class="col-md-4 col-xs-4"><?= $pokemon->spawn_rate ?> / <?= $locales->DAY ?></td>
 			</tr>
 			<tr>
-				<td class="col-md-8 col-xs-8"><?php if(isset($pokemon->protected_gyms)) { echo "<strong>" . $locales->POKEMON_GYM . $pokemon->name . "</strong> :";} ?></td>
-				<td class="col-md-4 col-xs-4"><?php if(isset($pokemon->protected_gyms)) { echo $pokemon->protected_gyms ;}?></td>
+				<td class="col-md-8 col-xs-8"><?php if (isset($pokemon->protected_gyms)) {
+					echo "<strong>" . $locales->POKEMON_GYM . $pokemon->name . "</strong> :";
+} ?></td>
+				<td class="col-md-4 col-xs-4"><?php if (isset($pokemon->protected_gyms)) {
+					echo $pokemon->protected_gyms ;
+}?></td>
 			</tr>
 		</table>
 		</div>
@@ -125,7 +129,11 @@
 		<table class="table">
 			<tr>
 				<td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_EVOLUTION ?> :</strong></td>
-				<td class="col-md-4 col-xs-4"><?php if(isset($pokemon->candies)) { echo $pokemon->candies . " ". $pokemon->candy_name . " " . $locales->POKEMON_CANDIES ;} else { echo $locales->POKEMON_FINAL; } ?></td>
+				<td class="col-md-4 col-xs-4"><?php if (isset($pokemon->candies)) {
+					echo $pokemon->candies . " ". $pokemon->candy_name . " " . $locales->POKEMON_CANDIES ;
+} else {
+	echo $locales->POKEMON_FINAL;
+} ?></td>
 			</tr>
 			<tr>
 				<td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_QUICK ?> :</strong></td>
@@ -233,8 +241,7 @@
 		
 		<?php
 			
-		foreach($related as $related_mon){
-			
+		foreach ($related as $related_mon) {
 			?>
 			
 			<div class="col-md-1 col-sm-2 col-xs-3 pokemon-single">
@@ -247,7 +254,6 @@
 			
 			
 			<?php
-			
 		}
 					
 		?>

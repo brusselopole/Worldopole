@@ -4,11 +4,11 @@
 // ############################
 
 $variables 	= realpath(dirname(__FILE__)).'/../json/variables.json';
-$config 	= json_decode(file_get_contents($variables)); 
+$config 	= json_decode(file_get_contents($variables));
 
-if(!isset($config->system)){
+if (!isset($config->system)) {
 	echo 'Could not load variables.';
-	exit(); 
+	exit();
 }
 
 
@@ -22,7 +22,7 @@ include_once('timezone.loader.php');
 // Debug mode
 #############
 
-if(SYS_DEVELOPMENT_MODE){
+if (SYS_DEVELOPMENT_MODE) {
 	error_reporting(E_ALL);
 }
 	
@@ -30,15 +30,13 @@ if(SYS_DEVELOPMENT_MODE){
 // MySQL Connect
 #################
 
- 
+	
 $mysqli 	= new mysqli(SYS_DB_HOST, SYS_DB_USER, SYS_DB_PSWD, SYS_DB_NAME, SYS_DB_PORT);
 
 
-if($mysqli->connect_error != ''){
-	
+if ($mysqli->connect_error != '') {
 	header('Location:'.HOST_URL.'offline.html');
 	exit();
-	
 }
 
 
@@ -48,10 +46,8 @@ if($mysqli->connect_error != ''){
 ##############################################################
 
 
-if(!file_exists(SYS_PATH.'/install/website.lock')){
-	
-	if(!file_exists(SYS_PATH.'/install/done.lock')){
-	
+if (!file_exists(SYS_PATH.'/install/website.lock')) {
+	if (!file_exists(SYS_PATH.'/install/done.lock')) {
 		if (version_compare(phpversion(), '5.3.10', '<')) {
 			echo "Sorry, your PHP version isn't high enough and contain security hole. Please update";
 			exit();
@@ -61,33 +57,23 @@ if(!file_exists(SYS_PATH.'/install/website.lock')){
 		include_once('install/tester.php');
 		
 		data_test();
-		rights_test(); 
+		rights_test();
 		
-		if(file_exists(SYS_PATH.'/install/website.lock')){
-			
+		if (file_exists(SYS_PATH.'/install/website.lock')) {
 			header('Location:/');
-			exit(); 
-			
-		}
-		else{
-			
-			$content = time(); 
+			exit();
+		} else {
+			$content = time();
 			file_put_contents(SYS_PATH.'/install/done.lock', $content);
-			
 		}
-	
 	}
-	
-}
-else{
-	
+} else {
 	$content = file_get_contents(SYS_PATH.'/install/website.lock');
-	echo $content; 
+	echo $content;
 	
 	exit();
-	
 }
- 
+	
 
 // Load the locale elements 
 ############################
@@ -109,7 +95,7 @@ $diff				= $now - $pokedex_rarity_filetime;
 // Update each 24h
 $update_delay		= 86400;
 
-if($diff > $update_delay){
+if ($diff > $update_delay) {
 	include_once(SYS_PATH.'/core/cron/pokemon.rarity.php');
 }
 
@@ -122,64 +108,58 @@ if($diff > $update_delay){
 //
 ########################## 
 
-if(isset($_GET['page'])){
+if (isset($_GET['page'])) {
 	$page = htmlentities($_GET['page']);
-}else{
-	$page = ''; 
+} else {
+	$page = '';
 }
 
-if(!empty($page)){
-	
-	switch($page){
-		
-		
-		// Single Pokemon 
+if (!empty($page)) {
+	switch ($page) {
+		// Single Pokemon
 		#################
 		
 		case 'pokemon':
-		
-			// Current Pokemon datas 
+			// Current Pokemon datas
 			// ---------------------
 			
 			
-			$pokemon_id 			= mysqli_real_escape_string($mysqli,$_GET['id']);
+			$pokemon_id 			= mysqli_real_escape_string($mysqli, $_GET['id']);
 			
-			if(!is_object($pokemons->pokemon->$pokemon_id)){
-				
+			if (!is_object($pokemons->pokemon->$pokemon_id)) {
 				header('Location:/404');
-				exit(); 
-				
+				exit();
 			}
 			
 						
-			$pokemon			= new stdClass(); 			 
+			$pokemon			= new stdClass();
 			$pokemon			= $pokemons->pokemon->$pokemon_id;
 			$pokemon->id			= $pokemon_id;
 			
 			
 			
-			// Some math 
+			// Some math
 			// ----------
 			
-			$pokemon->max_cp_percent 	= percent(4145,$pokemon->max_cp);
-			$pokemon->max_pv_percent 	= percent(407,$pokemon->max_pv);
+			$pokemon->max_cp_percent 	= percent(4145, $pokemon->max_cp);
+			$pokemon->max_pv_percent 	= percent(407, $pokemon->max_pv);
 			
 			
 			
-			// Get Dabase results 
+			// Get Dabase results
 			//-------------------
 			
 			
-			// Total gym protected 
+			// Total gym protected
 			
-			$req 		= "SELECT count( DISTINCT(gym_id) ) as total FROM gym WHERE guard_pokemon_id = '".$pokemon_id."'  "; 
-			$result 	= $mysqli->query($req); 
+			$req 		= "SELECT count( DISTINCT(gym_id) ) as total FROM gym WHERE guard_pokemon_id = '".$pokemon_id."'  ";
+			$result 	= $mysqli->query($req);
 			$data 		= $result->fetch_object();
 			
-			$pokemon->protected_gyms = $data->total; 
+			$pokemon->protected_gyms = $data->total;
 			
 			
-			// Total spawn 
+			// Total spawn
 			
 			$req 		= "SELECT COUNT(*) as total FROM pokemon WHERE pokemon_id = '".$pokemon_id."'";
 			$result 	= $mysqli->query($req);
@@ -188,15 +168,14 @@ if(!empty($page)){
 			$pokemon->total_spawn 	= $data->total;
 			
 			
-			// Spawn rate 
+			// Spawn rate
 			
-			if($pokemon->total_spawn > 0){
-				
+			if ($pokemon->total_spawn > 0) {
 				$req 		= "SELECT COUNT(DISTINCT DATE(disappear_time)) as total FROM pokemon";
 				$result 	= $mysqli->query($req);
 				$data		= $result->fetch_object();
 				
-				$pokemon->total_days = $data->total; 
+				$pokemon->total_days = $data->total;
 				
 				
 				$req 		= "SELECT COUNT(*) as total, DATE(disappear_time ".$time->symbol." INTERVAL ".$time->delay." HOUR) as disappear_time
@@ -205,16 +184,14 @@ if(!empty($page)){
 				
 				$result 	= $mysqli->query($req);
 				
-				$pokemon->spawn_rate 	= round( ($pokemon->total_spawn/$pokemon->total_days) , 2);
-				
-			}else{
-				
-				$pokemon->total_days 	= 0; 
-				$pokemon->spawn_rate	= 0; 
+				$pokemon->spawn_rate 	= round(($pokemon->total_spawn/$pokemon->total_days), 2);
+			} else {
+				$pokemon->total_days 	= 0;
+				$pokemon->spawn_rate	= 0;
 			}
 			
 						
-			// Last seen 
+			// Last seen
 			
 			$req 		= "SELECT (disappear_time ".$time->symbol." INTERVAL ".$time->delay." HOUR) as disappear_time, latitude, longitude 
 			FROM pokemon 
@@ -224,15 +201,13 @@ if(!empty($page)){
 			$result 	= $mysqli->query($req);
 			$data 		= $result->fetch_object();
 						
-			if(isset($data)){
-			
+			if (isset($data)) {
 				$last_spawn 				= $data;
 				
 				$pokemon->last_seen			= strtotime($data->disappear_time);
 				$pokemon->last_position			= new stdClass();
 				$pokemon->last_position->latitude 	= $data->latitude;
-				$pokemon->last_position->longitude 	= $data->longitude; 
-			
+				$pokemon->last_position->longitude 	= $data->longitude;
 			}
 			
 			
@@ -240,16 +215,16 @@ if(!empty($page)){
 			// ----------------
 			
 						
-			foreach($pokemon->types as $type){
-				$types[] = $type; 
+			foreach ($pokemon->types as $type) {
+				$types[] = $type;
 			}
 			
-			$related = array(); 
-			foreach($pokemons->pokemon as $pokeid => $test_pokemon){
-				if(!empty($test_pokemon->types)){
-					foreach($test_pokemon->types as $type){
-						if(in_array($type, $types)){
-							if(!in_array($pokeid, $related)){
+			$related = array();
+			foreach ($pokemons->pokemon as $pokeid => $test_pokemon) {
+				if (!empty($test_pokemon->types)) {
+					foreach ($test_pokemon->types as $type) {
+						if (in_array($type, $types)) {
+							if (!in_array($pokeid, $related)) {
 								$related[] = $pokeid;
 							}
 						}
@@ -257,7 +232,7 @@ if(!empty($page)){
 				}
 			}
 		
-		break; 
+		    break;
 		
 		
 		
@@ -265,51 +240,45 @@ if(!empty($page)){
 		##########
 		
 		case 'pokedex':
-		
-			
 			// Pokemon List from the JSON file
 			// --------------------------------
 			
 			
-			$max 		= $config->system->max_pokemon; 
+			$max 		= $config->system->max_pokemon;
 			$pokedex 	= new stdClass();
 			
 			$req 		= "SELECT COUNT(*) as total,pokemon_id FROM pokemon GROUP by pokemon_id ";
 			$result 	= $mysqli->query($req);
 			$data_array = array();
 
-			while($data = $result->fetch_object()){
+			while ($data = $result->fetch_object()) {
 				$data_array[$data->pokemon_id] = $data->total;
 			};
 			 
-			for( $i= 1 ; $i <= $max ; $i++ ){
-				
+			for ($i= 1; $i <= $max; $i++) {
 				$pokedex->$i			= new stdClass();
-				$pokedex->$i->id 		= $i; 
-				$pokedex->$i->permalink 	= 'pokemon/'.$i; 
-				$pokedex->$i->img		= 'core/pokemons/'.$i.'.png'; 
-				$pokedex->$i->name		= $pokemons->pokemon->$i->name; 
+				$pokedex->$i->id 		= $i;
+				$pokedex->$i->permalink 	= 'pokemon/'.$i;
+				$pokedex->$i->img		= 'core/pokemons/'.$i.'.png';
+				$pokedex->$i->name		= $pokemons->pokemon->$i->name;
 				$pokedex->$i->spawn 		= isset($data_array[$i])? $data_array[$i] : 0;
-							
 			}
 					
 		
-		break; 
+		    break;
 		
 		
 		// Pokestops
 		############
 		
 		case 'pokestops':
-		
-		
 			$pokestop 	= new stdClass();
 			
 			$req 		= "SELECT COUNT(*) as total FROM pokestop";
 			$result 	= $mysqli->query($req);
 			$data 		= $result->fetch_object();
 			
-			$pokestop->total = $data->total; 
+			$pokestop->total = $data->total;
 			
 			$req 		= "SELECT COUNT(*) as total FROM pokestop WHERE lure_expiration > (NOW() ".$time->symbol_reverse." INTERVAL ".$time->delay." HOUR)";
 			$result 	= $mysqli->query($req);
@@ -319,7 +288,7 @@ if(!empty($page)){
 			
 		
 		
-		break;
+		    break;
 
 
 		// Gyms
@@ -327,9 +296,8 @@ if(!empty($page)){
 
 		
 		case 'gym':
-		
 			// 3 Teams (teamm rocket is neutral)
-			// 1 Fight 
+			// 1 Fight
 			
 			$teams 				= new stdClass();
 						
@@ -351,22 +319,18 @@ if(!empty($page)){
 			
 			
 			
-			foreach($teams as $team_key => $team_values){
+			foreach ($teams as $team_key => $team_values) {
+				// Team Guardians
 				
+				$req 	= "SELECT COUNT(*) as total, guard_pokemon_id FROM gym WHERE team_id = '".$team_values->id."' GROUP BY guard_pokemon_id ORDER BY total DESC LIMIT 0,3 ";
+				$result = $mysqli->query($req);
 				
-				// Team Guardians 
+				$i=0;
 				
-				$req 	= "SELECT COUNT(*) as total, guard_pokemon_id FROM gym WHERE team_id = '".$team_values->id."' GROUP BY guard_pokemon_id ORDER BY total DESC LIMIT 0,3 "; 	
-				$result = $mysqli->query($req); 
-				
-				$i=0; 
-				
-				while($data = $result->fetch_object()){
-					
+				while ($data = $result->fetch_object()) {
 					$teams->$team_key->guardians->$i	= $data->guard_pokemon_id;
 					
-					$i++; 
-				
+					$i++;
 				}
 				
 				
@@ -378,71 +342,56 @@ if(!empty($page)){
 
 				$teams->$team_key->gym_owned	= $data->total;
 				$teams->$team_key->average	= $data->average_points;
-				
 			}
 						
 					
-		break;
+		    break;
 
 		
 		
 		
 
 		case 'dashboard':
-		
-			// This case is only used for test purpose. 
+			// This case is only used for test purpose.
 			
 			$stats_file	= SYS_PATH.'/core/json/gym.stats.json';
 
-			if(!is_file($stats_file)){
-				
+			if (!is_file($stats_file)) {
 				echo "Sorry, no Gym stats file was found. <br> Did you enable cron? ";
-				exit(); 
-				
+				exit();
 			}
 			
 			
 			$stats_file	= SYS_PATH.'/core/json/pokemon.stats.json';
 
-			if(!is_file($stats_file)){
-				
+			if (!is_file($stats_file)) {
 				echo "Sorry, no Pokémon stats file was found. <br> Did you enabled cron?";
-				exit(); 
-				
+				exit();
 			}
 			
 			
 			$stats_file	= SYS_PATH.'/core/json/pokestop.stats.json';
 
-			if(!is_file($stats_file)){
-				
+			if (!is_file($stats_file)) {
 				echo "Sorry, no Pokéstop stats file was found. <br> Did you enabled cron?";
-				exit(); 
-				
+				exit();
 			}
 
 			
 		
-		break;
-		
+		    break;
 	}
-	
-}
-
-
-/////////////
+} /////////////
 // Homepage
 ///////////// 
 
-else{
-	
-	
+else {
 	$home = new stdClass();
 	
-	// Right now 
+	// Right now
 	// ---------
 	
-	$req 		= "SELECT COUNT(*) as total FROM pokemon WHERE disappear_time > (NOW() ".$time->symbol_reverse." INTERVAL ".$time->delay." HOUR);";	
+	$req 		= "SELECT COUNT(*) as total FROM pokemon WHERE disappear_time > (NOW() ".$time->symbol_reverse." INTERVAL ".$time->delay." HOUR);";
 	$result 	= $mysqli->query($req);
 	$data 		= $result->fetch_object();
 
@@ -450,24 +399,24 @@ else{
 	$home->pokemon_now = $data->total;
 	 	
 	
-	// Lured stops 
+	// Lured stops
 	// -----------
 	
-	$req 		= "SELECT COUNT(*) as total FROM pokestop WHERE lure_expiration > (NOW() ".$time->symbol_reverse." INTERVAL ".$time->delay." HOUR);";	
+	$req 		= "SELECT COUNT(*) as total FROM pokestop WHERE lure_expiration > (NOW() ".$time->symbol_reverse." INTERVAL ".$time->delay." HOUR);";
 	$result 	= $mysqli->query($req);
 	$data 		= $result->fetch_object();
 	
-	$home->pokestop_lured = $data->total; 	
+	$home->pokestop_lured = $data->total;
 	
 	
-	// Gyms 
+	// Gyms
 	// ----
 	
 	$req 		= "SELECT COUNT(DISTINCT(gym_id)) as total FROM gym";
 	$result 	= $mysqli->query($req);
 	$data 		= $result->fetch_object();
 	
-	$home->gyms = $data->total; 	
+	$home->gyms = $data->total;
 	
 	
 	// Recent spawns
@@ -476,7 +425,7 @@ else{
 	if ($config->system->mythic_recents) {
 		// get all mythic pokemon ids
 		$mythic_pokemons  = array();
-		foreach($pokemons->pokemon as $id=>$pokemon) {
+		foreach ($pokemons->pokemon as $id => $pokemon) {
 			if ($pokemon->spawn_rate < 0.01) {
 				$mythic_pokemons[] = $id;
 			}
@@ -491,52 +440,49 @@ else{
 		$req		= "SELECT DISTINCT pokemon_id, disappear_time FROM pokemon ORDER BY disappear_time DESC LIMIT 0,12";
 	}
 	$result 	= $mysqli->query($req);
-	$recents	= array(); 
+	$recents	= array();
 
 	if ($result->num_rows > 0) {
-		while($data = $result->fetch_object()){
+		while ($data = $result->fetch_object()) {
 			$recents[] = $data->pokemon_id;
 		}
 	}
 		
 	
-	// Team battle 
+	// Team battle
 	// -----------
 
 	$home->teams = new stdClass();
 	
-	// Team 
+	// Team
 	// 1 = bleu
-	// 2 = rouge 
-	// 3 = jaune 
+	// 2 = rouge
+	// 3 = jaune
 	
-	$req = "SELECT count( DISTINCT(gym_id) ) as total FROM gym WHERE team_id = '1'  "; 
-	$result = $mysqli->query($req); 
+	$req = "SELECT count( DISTINCT(gym_id) ) as total FROM gym WHERE team_id = '1'  ";
+	$result = $mysqli->query($req);
 	$data 	= $result->fetch_object();
 	
-	$home->teams->mystic 	= $data->total; 
+	$home->teams->mystic 	= $data->total;
 
 	
-	$req = "SELECT count( DISTINCT(gym_id) ) as total FROM gym WHERE team_id = '2'  "; 
-	$result = $mysqli->query($req); 
+	$req = "SELECT count( DISTINCT(gym_id) ) as total FROM gym WHERE team_id = '2'  ";
+	$result = $mysqli->query($req);
 	$data 	= $result->fetch_object();
 	
-	$home->teams->valor 	= $data->total; 
+	$home->teams->valor 	= $data->total;
 		
 	
-	$req = "SELECT count( DISTINCT(gym_id) ) as total FROM gym WHERE team_id = '3'  "; 
-	$result = $mysqli->query($req); 
+	$req = "SELECT count( DISTINCT(gym_id) ) as total FROM gym WHERE team_id = '3'  ";
+	$result = $mysqli->query($req);
 	$data 	= $result->fetch_object();
 	
-	$home->teams->instinct 	= $data->total; 
+	$home->teams->instinct 	= $data->total;
 	
 	
-	$req = "SELECT count( DISTINCT(gym_id) ) as total FROM gym WHERE team_id = '0'  "; 
-	$result = $mysqli->query($req); 
+	$req = "SELECT count( DISTINCT(gym_id) ) as total FROM gym WHERE team_id = '0'  ";
+	$result = $mysqli->query($req);
 	$data 	= $result->fetch_object();
 	
-	$home->teams->rocket 	= $data->total; 
-		
+	$home->teams->rocket 	= $data->total;
 }
-
-?>

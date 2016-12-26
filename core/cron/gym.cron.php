@@ -8,13 +8,13 @@
 // -----------------------------------------------------------------------------------------------------------
 
 
-$gym['timestamp']	= $timestamp; 
+$gym['timestamp']	= $timestamp;
 
 $req		= "SELECT count( DISTINCT(gym_id) ) as total FROM gym";
-$result		= $mysqli->query($req); 
+$result		= $mysqli->query($req);
 $data		= $result->fetch_object();
 
-$gym['total'] 	= $data->total; 
+$gym['total'] 	= $data->total;
 
 
 // Mystic
@@ -49,9 +49,7 @@ $gym['team']['instinct']['average'] 	= $data->average_points;
 
 // Add the datas in file
 
-$gymsdatas[]		= $gym; 
-$json			= json_encode($gymsdatas); 
+$gymsdatas[]		= $gym;
+$json			= json_encode($gymsdatas);
 
 file_put_contents($gym_file, $json);
-
-?>
