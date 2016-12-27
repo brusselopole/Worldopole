@@ -3,12 +3,12 @@
 ########################################################################
 // Human Time Ago 
 // @param $timestamp	=> timestamp (mandatory)
-// @param $now		=> timestamp (optionnal)
+// @param $locales	=> locales (mandatory)
 //
 // Return time ago at human format (eg: 2 hours ago) 
 ########################################################################
 
-function time_ago($timestamp, $now = 0, $locales)
+function time_ago($timestamp, $locales)
 {
 	
 	// Set up our variables.
@@ -19,52 +19,46 @@ function time_ago($timestamp, $now = 0, $locales)
 	$month_in_seconds  = $day_in_seconds * 30;
 	$year_in_seconds   = $day_in_seconds * 365;
 
-	// Get the current time if a reference point has not been provided.
-	if ($now == '0') {
-		$now = time();
-	}
+	// current time
+	$now = time();
 	
-	if ($timestamp == 0) {
-		$locales->NEVER;
+	// Calculate the time difference between the current time reference point and the timestamp we're comparing.
+	// The difference is defined negative, when in the future.
+	$time_difference = $now - $timestamp;
+
+	// Calculate the time ago using the smallest applicable unit.
+	if ($time_difference < $hour_in_seconds) {
+		$difference_value = abs(round($time_difference / $minute_in_seconds));
+		$difference_label = 'MINUTE';
+	} elseif ($time_difference < $day_in_seconds) {
+		$difference_value = abs(round($time_difference / $hour_in_seconds));
+		$difference_label = 'HOUR';
+	} elseif ($time_difference < $week_in_seconds) {
+		$difference_value = abs(round($time_difference / $day_in_seconds));
+		$difference_label = 'DAY';
+	} elseif ($time_difference < $month_in_seconds) {
+		$difference_value = abs(round($time_difference / $week_in_seconds));
+		$difference_label = 'WEEK';
+	} elseif ($time_difference < $year_in_seconds) {
+		$difference_value = abs(round($time_difference / $month_in_seconds));
+		$difference_label = 'MONTH';
 	} else {
-		$timestamp-=900;
-		
-		// Make sure the timestamp to check is in the past.
-		if ($timestamp > $now) {
-			throw new Exception('Timestamp is in the future');
-		}
-	
-		// Calculate the time difference between the current time reference point and the timestamp we're comparing.
-		$time_difference = (int) abs($now - $timestamp);
-		
-		// Calculate the time ago using the smallest applicable unit.
-		if ($time_difference < $hour_in_seconds) {
-			$difference_value = round($time_difference / $minute_in_seconds);
-			$difference_label = 'MINUTE';
-		} elseif ($time_difference < $day_in_seconds) {
-			$difference_value = round($time_difference / $hour_in_seconds);
-			$difference_label = 'HOUR';
-		} elseif ($time_difference < $week_in_seconds) {
-			$difference_value = round($time_difference / $day_in_seconds);
-			$difference_label = 'DAY';
-		} elseif ($time_difference < $month_in_seconds) {
-			$difference_value = round($time_difference / $week_in_seconds);
-			$difference_label = 'WEEK';
-		} elseif ($time_difference < $year_in_seconds) {
-			$difference_value = round($time_difference / $month_in_seconds);
-			$difference_label = 'MONTH';
-		} else {
-			$difference_value = round($time_difference / $year_in_seconds);
-			$difference_label = 'YEAR';
-		}
-		
-		if ($difference_value != 1) {
-			$difference_label = $difference_label.'S';
-		}
-		$time_ago = $difference_value.' '.$locales->$difference_label;
+		$difference_value = abs(round($time_difference / $year_in_seconds));
+		$difference_label = 'YEAR';
 	}
 
-	return $time_ago;
+	// plural
+	if ($difference_value != 1) {
+		$difference_label = $difference_label.'S';
+	}
+
+	if ($time_difference <= 0) {
+		// Present
+		return sprintf($locales->TIME_LEFT, $difference_value.' '.$locales->$difference_label);
+	} else {
+		// Past
+		return sprintf($locales->TIME_AGO, $difference_value.' '.$locales->$difference_label);
+	}
 }
 
 
