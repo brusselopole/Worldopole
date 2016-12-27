@@ -11,7 +11,7 @@ include_once('../../config.php');
 // ############################
 
 $variables	= realpath(dirname(__FILE__)).'/../json/variables.json';
-$config		= json_decode(file_get_contents($variables)); 
+$config		= json_decode(file_get_contents($variables));
 
 
 // Include & load locales (because it's REALLY REALLY REALLY IMPORTANT TO HAVE A FULLY TRANSLATE DASHBOARD )
@@ -25,78 +25,66 @@ include_once(SYS_PATH.'/core/process/locales.loader.php');
 // ####################################
 
 $stats_file	= SYS_PATH.'/core/json/pokemon.stats.json';
-$stats		= json_decode(file_get_contents($stats_file)); 
+$stats		= json_decode(file_get_contents($stats_file));
 
 
-$now		= time(); 
-$yesterday	= $now-86400; 
+$now		= time();
+$yesterday	= $now-86400;
 $lastweek	= $now-604800;
 
-$i=0; 
+$i=0;
 
-foreach($stats as $data){
-	
-	if($data->timestamp > $lastweek){
-		$labels_global[]	= '"'.date('D H:i', $data->timestamp ).'"';
+foreach ($stats as $data) {
+	if ($data->timestamp > $lastweek) {
+		$labels_global[]	= '"'.date('D H:i', $data->timestamp).'"';
 		$total[]		= $data->pokemon_now;
 	}
 	
-	if($data->timestamp > $yesterday){
-		
-		$labels[] = '"'.date('H:i', $data->timestamp ).'"'; 
+	if ($data->timestamp > $yesterday) {
+		$labels[] = '"'.date('H:i', $data->timestamp).'"';
 
 		$veryCommonLocale = $locales->VERYCOMMON;
 		$commonLocale = $locales->COMMON;
 		$rareLocale = $locales->RARE;
 		$mythicLocale = $locales->MYTHIC;
 
-		if(!empty($data->rarity_spawn->$veryCommonLocale)){
+		if (!empty($data->rarity_spawn->$veryCommonLocale)) {
 			$veco[]		= $data->rarity_spawn->$veryCommonLocale;
-		}
-		else{
-			$veco[]		= 0; 
+		} else {
+			$veco[]		= 0;
 		}
 		
 	
-		if(!empty($data->rarity_spawn->$commonLocale)){
+		if (!empty($data->rarity_spawn->$commonLocale)) {
 			$commo[]	= $data->rarity_spawn->$commonLocale;
-		}
-		else{
-			$commo[]	= 0; 
+		} else {
+			$commo[]	= 0;
 		}
 		
 	
-		if(!empty($data->rarity_spawn->$rareLocale)){
+		if (!empty($data->rarity_spawn->$rareLocale)) {
 			$rare[]		= $data->rarity_spawn->$rareLocale;
-		}
-		else{
-			$rare[]		= 0; 
+		} else {
+			$rare[]		= 0;
 		}
 		
 	
-		if(!empty($data->rarity_spawn->$mythicLocale)){
+		if (!empty($data->rarity_spawn->$mythicLocale)) {
 			$myth[]		= $data->rarity_spawn->$mythicLocale;
+		} else {
+			$myth[]		= 0;
 		}
-		else{
-			$myth[]		= 0; 
 	}
-	
-	}
-		
-		 
-	
-}	
+}
 
 
 $stats_file	= SYS_PATH.'/core/json/gym.stats.json';
-$stats		= json_decode(file_get_contents($stats_file)); 
+$stats		= json_decode(file_get_contents($stats_file));
 
 
-foreach($stats as $data){
-	
-	if($data->timestamp > $yesterday){
-	
-		$labels_gym[]			= '"'.date('H:i', $data->timestamp ).'"';
+foreach ($stats as $data) {
+	if ($data->timestamp > $yesterday) {
+		$labels_gym[]			= '"'.date('H:i', $data->timestamp).'"';
 		
 		$mystic_average[]		= $data->team->mystic->average;
 		$mystic_owned[]			= $data->team->mystic->gym_owned;
@@ -106,25 +94,19 @@ foreach($stats as $data){
 		
 		$instinct_average[]		= $data->team->instinct->average;
 		$instinct_owned[]		= $data->team->instinct->gym_owned;
-	
 	}
-		
 }
 
 
 $stats_file	= SYS_PATH.'/core/json/pokestop.stats.json';
-$stats		= json_decode(file_get_contents($stats_file)); 
+$stats		= json_decode(file_get_contents($stats_file));
 
 
-foreach($stats as $data){
-	
-	if($data->timestamp > $lastweek){
-	
-		$labels_stops[]			= '"'.date('D H:i', $data->timestamp ).'"';
-		$lure[]				= $data->lured; 
-	
+foreach ($stats as $data) {
+	if ($data->timestamp > $lastweek) {
+		$labels_stops[]			= '"'.date('D H:i', $data->timestamp).'"';
+		$lure[]				= $data->lured;
 	}
-
 }
 
 	
@@ -180,7 +162,7 @@ var data = {
 			pointHoverBorderWidth: 2,
 			pointRadius: 1,
 			pointHitRadius: 10,
-			data: [<?= implode(',', $total )?>],
+			data: [<?= implode(',', $total)?>],
 			spanGaps: false,
 		}
 	]
@@ -221,7 +203,7 @@ var data_vc = {
 			pointHoverBorderWidth: 2,
 			pointRadius: 1,
 			pointHitRadius: 10,
-			data: [<?= implode(',', $veco )?>],
+			data: [<?= implode(',', $veco)?>],
 			spanGaps: false,
 		}
 	]
@@ -259,7 +241,7 @@ var data_comm = {
 			pointHoverBorderWidth: 2,
 			pointRadius: 1,
 			pointHitRadius: 10,
-			data: [<?= implode(',', $commo )?>],
+			data: [<?= implode(',', $commo)?>],
 			spanGaps: false,
 		}
 	]
@@ -296,7 +278,7 @@ var data_rare = {
 			pointHoverBorderWidth: 2,
 			pointRadius: 1,
 			pointHitRadius: 10,
-			data: [<?= implode(',', $rare )?>],
+			data: [<?= implode(',', $rare)?>],
 			spanGaps: false,
 		}
 	]
@@ -335,7 +317,7 @@ var data_myth = {
 			pointHoverBorderWidth: 2,
 			pointRadius: 1,
 			pointHitRadius: 10,
-			data: [<?= implode(',', $myth )?>],
+			data: [<?= implode(',', $myth)?>],
 			spanGaps: false,
 		}
 	]
@@ -377,7 +359,7 @@ var data_av = {
 			pointHoverBorderWidth: 2,
 			pointRadius: 1,
 			pointHitRadius: 10,
-			data: [<?= implode(',', $mystic_average )?>],
+			data: [<?= implode(',', $mystic_average)?>],
 			spanGaps: false,
 		}, 
 		{
@@ -399,7 +381,7 @@ var data_av = {
 			pointHoverBorderWidth: 2,
 			pointRadius: 1,
 			pointHitRadius: 10,
-			data: [<?= implode(',', $valor_average )?>],
+			data: [<?= implode(',', $valor_average)?>],
 			spanGaps: false,
 		}, 
 		{
@@ -421,7 +403,7 @@ var data_av = {
 			pointHoverBorderWidth: 2,
 			pointRadius: 1,
 			pointHitRadius: 10,
-			data: [<?= implode(',', $instinct_average )?>],
+			data: [<?= implode(',', $instinct_average)?>],
 			spanGaps: false,
 		}
 	]
@@ -465,7 +447,7 @@ var data_team_gym = {
 			pointHoverBorderWidth: 2,
 			pointRadius: 1,
 			pointHitRadius: 10,
-			data: [<?= implode(',', $mystic_owned )?>],
+			data: [<?= implode(',', $mystic_owned)?>],
 			spanGaps: false,
 		},
 		{
@@ -487,7 +469,7 @@ var data_team_gym = {
 			pointHoverBorderWidth: 2,
 			pointRadius: 1,
 			pointHitRadius: 10,
-			data: [<?= implode(',', $valor_owned )?>],
+			data: [<?= implode(',', $valor_owned)?>],
 			spanGaps: false,
 		},
 		{
@@ -509,7 +491,7 @@ var data_team_gym = {
 			pointHoverBorderWidth: 2,
 			pointRadius: 1,
 			pointHitRadius: 10,
-			data: [<?= implode(',', $instinct_owned )?>],
+			data: [<?= implode(',', $instinct_owned)?>],
 			spanGaps: false,
 		}
 	]
@@ -554,7 +536,7 @@ var data_lure = {
 			pointHoverBorderWidth: 2,
 			pointRadius: 1,
 			pointHitRadius: 10,
-			data: [<?= implode(',', $lure )?>],
+			data: [<?= implode(',', $lure)?>],
 			spanGaps: false,
 		}
 	]

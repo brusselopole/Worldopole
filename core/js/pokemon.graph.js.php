@@ -2,10 +2,10 @@
 
 # Test to check if the file is called properly 
 
-if(!isset($_GET['id'])){
+if (!isset($_GET['id'])) {
 	http_response_code(400);
 	echo 'Bad Request';
-	exit(); 
+	exit();
 }
 
 # Send Javascript header 
@@ -23,11 +23,13 @@ include_once('../process/timezone.loader.php');
 
 # Connect MySQL 
 $mysqli = new mysqli(SYS_DB_HOST, SYS_DB_USER, SYS_DB_PSWD, SYS_DB_NAME, SYS_DB_PORT);
-if($mysqli->connect_error != ''){exit('Error MySQL Connect');}
+if ($mysqli->connect_error != '') {
+	exit('Error MySQL Connect');
+}
 
 # Chart Graph datas	 
 
-$pokemon_id = mysqli_real_escape_string($mysqli,$_GET['id']);
+$pokemon_id = mysqli_real_escape_string($mysqli, $_GET['id']);
 
 $req		= "SELECT COUNT(*) as total, HOUR(disappear_time ".$time->symbol." INTERVAL ".$time->delay." HOUR) as disappear_time 
 			FROM pokemon 
@@ -35,60 +37,49 @@ $req		= "SELECT COUNT(*) as total, HOUR(disappear_time ".$time->symbol." INTERVA
 			GROUP BY HOUR(disappear_time ".$time->symbol." INTERVAL ".$time->delay." HOUR) 
 			ORDER BY HOUR(disappear_time ".$time->symbol." INTERVAL ".$time->delay." HOUR), disappear_time";
 		
-$result		= $mysqli->query($req); 
+$result		= $mysqli->query($req);
 
-while($data = $result->fetch_object()){	
-	
-		
-	if($data->disappear_time < 10){
-		$data->disappear_time = '0'.$data->disappear_time; 
+while ($data = $result->fetch_object()) {
+	if ($data->disappear_time < 10) {
+		$data->disappear_time = '0'.$data->disappear_time;
 	}
 	
 	$array[$data->disappear_time] = $data->total;
-			
 }
 
 // Create the h24 array with associated values
-for( $i= 0 ; $i <= 23 ; $i++ ){
-	
-	if($i < 10){
-		$key = '0'.$i; 
-	}else{
-		$key = $i; 
+for ($i= 0; $i <= 23; $i++) {
+	if ($i < 10) {
+		$key = '0'.$i;
+	} else {
+		$key = $i;
 	}
 	
-	if(isset($array[$key])){
-
+	if (isset($array[$key])) {
 		$spawn[$key] = $array[$key];
-
-	}else{
-
-		$spawn[$key] = 0; 
-
+	} else {
+		$spawn[$key] = 0;
 	}
-	
 }
 
 // Result for midnight are at the end in format PM 
-if(isset($spawn['00'])){
-	
-	$spawn[] = $spawn['00']; 
+if (isset($spawn['00'])) {
+	$spawn[] = $spawn['00'];
 	unset($spawn['00']);
 	
-	$spawn = array_values($spawn);	
-}
-else{
+	$spawn = array_values($spawn);
+} else {
 	$spawn = array_values($spawn);
 }
 
-$data = implode(',', $spawn); 
+$data = implode(',', $spawn);
 $data = '['.$data.']';
 
 
 
 # Polar Graph datas
 
-$pokemon_file	= file_get_contents(SYS_PATH.'/core/json/pokedex.json'); 
+$pokemon_file	= file_get_contents(SYS_PATH.'/core/json/pokedex.json');
 $pokemons		= json_decode($pokemon_file);
 
 $atk			= $pokemons->pokemon->$pokemon_id->atk;

@@ -11,12 +11,14 @@ include_once('../../config.php');
 // ############################
 
 $variables	= realpath(dirname(__FILE__)).'/../json/variables.json';
-$config		= json_decode(file_get_contents($variables)); 
+$config		= json_decode(file_get_contents($variables));
 
 
 # Connect MySQL 
 $mysqli = new mysqli(SYS_DB_HOST, SYS_DB_USER, SYS_DB_PSWD, SYS_DB_NAME, SYS_DB_PORT);
-if($mysqli->connect_error != ''){exit('Error MySQL Connect');}
+if ($mysqli->connect_error != '') {
+	exit('Error MySQL Connect');
+}
 
 # Chart Graph datas	 
 
@@ -84,21 +86,27 @@ var data_trainer_lvl = {
 		backgroundColor: "rgba(59,129,255,0.6)",
 		borderColor: "rgba(59,129,255,1)",
 			borderWidth: 1,
-			data: [<?php if (isset($trainer_lvl[1])) { echo implode(',', $trainer_lvl[1]); } ?>],
+			data: [<?php if (isset($trainer_lvl[1])) {
+				echo implode(',', $trainer_lvl[1]);
+} ?>],
 	},
 	{
 		label: "Valor trainer level count",
 		backgroundColor: "rgba(247,10,20,0.6)",
 		borderColor: "rgba(247,10,20,1)",
 			borderWidth: 1,
-		data: [<?php if (isset($trainer_lvl[2])) { echo implode(',', $trainer_lvl[2]); } ?>],
+		data: [<?php if (isset($trainer_lvl[2])) {
+			echo implode(',', $trainer_lvl[2]);
+} ?>],
 	},
 	{
 		label: "Instinct trainer level count",
 		backgroundColor: "rgba(248,153,0,0.6)",
 		borderColor: "rgba(248,153,0,1)",
 			borderWidth: 1,
-		data: [<?php if (isset($trainer_lvl[3])) { echo implode(',', $trainer_lvl[3]); } ?>],
+		data: [<?php if (isset($trainer_lvl[3])) {
+			echo implode(',', $trainer_lvl[3]);
+} ?>],
 	}
 	]
 };

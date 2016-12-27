@@ -15,7 +15,7 @@
 include_once($filePath.'/../process/locales.loader.php');
 
 
-$pokemon_stats['timestamp'] = $timestamp; 
+$pokemon_stats['timestamp'] = $timestamp;
 
 
 $req 		= "SELECT COUNT(*) as total FROM pokemon WHERE disappear_time > (NOW() ".$time->symbol_reverse." INTERVAL ".$time->delay." HOUR)";
@@ -28,22 +28,18 @@ $req 		= "SELECT pokemon_id FROM pokemon WHERE disappear_time > (NOW() ".$time->
 $result 	= $mysqli->query($req);
 
 $rarityarray = array();
-while($data = $result->fetch_object()){
-	
-	$poke_id 	= $data->pokemon_id; 
+while ($data = $result->fetch_object()) {
+	$poke_id 	= $data->pokemon_id;
 	$rarity 	= $pokemons->pokemon->$poke_id->rarity;
 	
 	isset($rarityarray[$rarity]) ? $rarityarray[$rarity]++ : $rarityarray[$rarity] = 1;
-
 }
 $pokemon_stats['rarity_spawn'] = $rarityarray;
 
 
 // Add the datas in file
 
-$pokedatas[] 	= $pokemon_stats; 
-$json 		= json_encode($pokedatas); 
+$pokedatas[] 	= $pokemon_stats;
+$json 		= json_encode($pokedatas);
 
 file_put_contents($pokemonstats_file, $json);
-
-?>

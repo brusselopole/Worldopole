@@ -1,7 +1,7 @@
 <?php
 	
 include_once('config.php');
-include_once('functions.php');	
+include_once('functions.php');
 include_once('core/process/data.loader.php');
 
 ?>
@@ -34,7 +34,7 @@ include_once('core/process/data.loader.php');
 
 		<?php
 		// Google Analytics
-		if(is_file("analyticstracking.php")) {
+		if (is_file("analyticstracking.php")) {
 			include_once("analyticstracking.php");
 		}
 		?>
@@ -57,28 +57,28 @@ include_once('core/process/data.loader.php');
 					<ul class="nav navbar-nav navbar-right">
 						
 						<?php
-						if (!isset($config->menu)) {	
+						if (!isset($config->menu)) {
 							echo "Please update variables.json file with menu values";
-							exit(); 	
+							exit();
 						}
 						
 						foreach ($config->menu as $menu) {
 							if (isset($menu->locale)) {
-								$locale = $menu->locale; 
+								$locale = $menu->locale;
 								$text	= $locales->$locale;
 							} elseif (isset($menu->text)) {
-								$text	= $menu->text; 
+								$text	= $menu->text;
 							}
 							
-							switch ($menu->type) {	
-								case 'link':	
+							switch ($menu->type) {
+								case 'link':
 									?>
 									
 									<li>
 										<a href="<?= $menu->href ?>" class="menu-label"><i class="fa <?= $menu->icon ?>" aria-hidden="true"></i> <?= $text ?></a>
 									</li>
 									
-									<?php									
+									<?php
 									break;
 
 								case 'link_external':
@@ -88,8 +88,8 @@ include_once('core/process/data.loader.php');
 										<a href="<?= $menu->href ?>" target="_blank" class="menu-label"><i class="fa <?= $menu->icon ?>" aria-hidden="true"></i> <?= $menu->text ?></a>
 									</li>
 									
-									<?php	
-									break; 
+									<?php
+									break;
 								
 								case 'html':
 									?>
@@ -97,9 +97,9 @@ include_once('core/process/data.loader.php');
 									<li> <?= $menu->value ?> </li>
 									
 									<?php
-									break; 					
-							}	
-						}	
+									break;
+							}
+						}
 						?>
 						
 					</ul>
@@ -111,17 +111,14 @@ include_once('core/process/data.loader.php');
 			<?php
 			# Include the pages
 			if (!empty($_GET['page'])) {
-				
 				$file = SYS_PATH.'/pages/'.$page.'.page.php';
 				
 				if (file_exists($file)) {
 					echo '<!-- Page :: '.$page.' -->';
 					include($file);
-					
 				} else {
 					include('pages/home.page.php');
 				}
-				
 			} else {
 				include('pages/home.page.php');
 			}
@@ -148,7 +145,7 @@ include_once('core/process/data.loader.php');
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<script src="core/js/bootstrap.min.js"></script>
 		
-		<?php // Load scripts only for page 
+		<?php // Load scripts only for page
 		if (empty($page)) { ?>
 			
 			<script src="<?php auto_ver('core/js/home.script.js') ?>"></script>
@@ -164,11 +161,10 @@ include_once('core/process/data.loader.php');
 				updateCounter(<?= $home->teams->rocket ?>,'.total-rocket-js');
 			</script>
 		<?php
-		} else { 
-			
+		} else {
 			switch ($page) {
-						
-				case 'pokemon': ?>
+				case 'pokemon':
+					?>
 				
 					<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.min.js"></script>
 					<script src="core/js/pokemon.graph.js.php?id=<?= $pokemon_id ?>"></script>	
@@ -179,7 +175,8 @@ include_once('core/process/data.loader.php');
 					<?php
 					break;
 				
-				case 'pokestops': ?>
+				case 'pokestops':
+					?>
 				
 					<script src="<?php auto_ver('core/js/pokestops.maps.js') ?>"></script>
 					<script src="https://maps.googleapis.com/maps/api/js?key=<?= $config->system->GMaps_Key ?>&libraries=visualization&callback=initMap"></script> 
@@ -187,7 +184,8 @@ include_once('core/process/data.loader.php');
 					<?php
 					break;
 					
-				case 'gym': ?>
+				case 'gym':
+					?>
 				
 					<script src="<?php auto_ver('core/js/gym.script.js') ?>"></script>
 					<script>
@@ -207,7 +205,8 @@ include_once('core/process/data.loader.php');
 					<?php
 					break;
 					
-				case 'pokedex': ?>
+				case 'pokedex':
+					?>
 				
 					<script src="core/js/holmes.min.js"></script>
 					<script>				
@@ -226,7 +225,8 @@ include_once('core/process/data.loader.php');
 					<?php
 					break;
 				
-				case 'dashboard': ?>
+				case 'dashboard':
+					?>
 				
 					<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.min.js"></script>
 					<script src="core/js/dashboard.graph.js.php"></script>
@@ -234,7 +234,8 @@ include_once('core/process/data.loader.php');
 					<?php
 					break;
 					
-				case 'trainer': ?>
+				case 'trainer':
+					?>
 				
 					<script src="<?php auto_ver('core/js/trainer.content.js') ?>"></script>
 					<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.min.js"></script>

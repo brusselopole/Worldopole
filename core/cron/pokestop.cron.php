@@ -7,13 +7,13 @@
 // Total lured
 // -----------------------------------------------------------------------------------------------------------
 
-$pokestop['timestamp'] = $timestamp; 
+$pokestop['timestamp'] = $timestamp;
 
 $req 		= "SELECT COUNT(*) as total FROM pokestop";
 $result 	= $mysqli->query($req);
 $data 		= $result->fetch_object();
 
-$pokestop['total'] = $data->total; 
+$pokestop['total'] = $data->total;
 
 $req 		= "SELECT COUNT(*) as total FROM pokestop WHERE lure_expiration > (NOW() ".$time->symbol_reverse." INTERVAL ".$time->delay." HOUR)";
 $result 	= $mysqli->query($req);
@@ -25,9 +25,7 @@ $pokestop['lured'] = $data->total;
 
 // Add the datas in file
 
-$stopdatas[] 	= $pokestop; 
-$json 		= json_encode($stopdatas); 
+$stopdatas[] 	= $pokestop;
+$json 		= json_encode($stopdatas);
 
 file_put_contents($pokestop_file, $json);
-
-?>

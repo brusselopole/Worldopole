@@ -46,7 +46,7 @@
 "MYSTIC": "Mystic", 
 "NAV_DASHBOARD": "Dashboard", 
 "NAV_POKEDEX": "All Pokémon", 
-"NEVER": "We miss it", 
+"NEVER": "Never",
 "PERFORMANCE": "Performance", 
 "POKEDEX_METADESC": "Browse the Pokedex and get all informations about your favorites Pokémon", 
 "POKEDEX_METATITLE": "Browse the Pokédex", 
@@ -95,5 +95,7 @@
 "WIDGET_LURES_SUB": "activated in %s", 
 "WIDGET_POKEMON_SUB": "in %s right now", 
 "YEAR": "year", 
-"YEARS": "years"
+"YEARS": "years",
+"TIME_AGO": "%s ago",
+"TIME_LEFT": "%s left"
 }

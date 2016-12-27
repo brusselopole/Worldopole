@@ -2,10 +2,10 @@
 
 # Test to check if the file is called properly 
 
-if(!isset($_GET['id'])){
+if (!isset($_GET['id'])) {
 	http_response_code(400);
 	echo 'Bad Request';
-	exit(); 
+	exit();
 }
 
 # Send Javascript header 
@@ -17,10 +17,12 @@ include_once('../../config.php');
 
 # Connect MySQL 
 $mysqli = new mysqli(SYS_DB_HOST, SYS_DB_USER, SYS_DB_PSWD, SYS_DB_NAME, SYS_DB_PORT);
-if($mysqli->connect_error != ''){exit('Error MySQL Connect');}
+if ($mysqli->connect_error != '') {
+	exit('Error MySQL Connect');
+}
 
 # Heatmap datas
-$pokemon_id = mysqli_real_escape_string($mysqli,$_GET['id']);
+$pokemon_id = mysqli_real_escape_string($mysqli, $_GET['id']);
 
 ?>
 
@@ -32,7 +34,7 @@ function initMap() {
 	$.getJSON( "core/json/variables.json", function( jsondata ) {
 				
 		var variables = jsondata; 
- 		 		
+
 		var lattitude = Number(variables['system']['map_center_lat']); 
 		var longitude = Number(variables['system']['map_center_long']);
 		var zoom_level = Number(variables['system']['zoom_level']);
@@ -85,21 +87,17 @@ function initMap() {
 		
 			<?php
 			
-			// As the map is rendering by the client, we do recommand to keep a limit on your request. 
-			// 10k is already alotof datas ;) 
+			// As the map is rendering by the client, we do recommand to keep a limit on your request.
+			// 10k is already alotof datas ;)
 			
 			$req 	= "SELECT latitude, longitude FROM pokemon WHERE pokemon_id = '".$pokemon_id."' ORDER BY disappear_time DESC LIMIT 0,10000";
 			$result = $mysqli->query($req);
 			
-			while($data = $result->fetch_object()){
-			 
-			
+			while ($data = $result->fetch_object()) {
 			?>
-			
-			 new google.maps.LatLng(<?= $data->latitude ?>, <?= $data->longitude ?>),
-			
-			<?php }?>
-		
+			new google.maps.LatLng(<?= $data->latitude ?>, <?= $data->longitude ?>),
+			<?php
+			}?>
 		];
 		
 }

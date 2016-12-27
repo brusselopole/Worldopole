@@ -379,14 +379,14 @@ div#levelMeter .progress{
 
 
 .bar-step {
-    position:absolute;
+	position:absolute;
 	z-index:1000;
-    font-size:14px;
+	font-size:14px;
 	top: 2px;
 }
 .label-line {
-    background: #000;
-    height:20px;
+	background: #000;
+	height:20px;
 	width:1px;
 	top: -2px;
 	position: absolute;

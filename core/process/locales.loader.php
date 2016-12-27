@@ -1,11 +1,11 @@
-<?php 
+<?php
 
 
 // Language setting
 ###################
 
 if (empty($config->system->forced_lang)) {
-	if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])){
+	if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
 		$browser_lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
 	} else {
 		$browser_lang = 'en';
@@ -16,14 +16,14 @@ if (empty($config->system->forced_lang)) {
 }
 
 // Activate lang
-$lang = strtoupper($browser_lang); 
+$lang = strtoupper($browser_lang);
 
 // Check if language is available
 if (isset($lang)) {
 	$locale_dir = SYS_PATH.'/core/json/locales/'.$lang;
 	
 	// If there's no pokedex in languague we'll use the english one.
-	if(is_dir($locale_dir)) {
+	if (is_dir($locale_dir)) {
 		// Allow partial translations
 		if (is_file($locale_dir.'/pokes.json')) {
 			$pokemon_file		= file_get_contents($locale_dir.'/pokes.json');
@@ -41,7 +41,7 @@ if (isset($lang)) {
 		$translation_file 		= file_get_contents(SYS_PATH.'/core/json/locales/EN/translations.json');
 	}
 } else {
-	$pokemon_file			= file_get_contents(SYS_PATH.'/core/json/locales/EN/pokes.json'); 
+	$pokemon_file			= file_get_contents(SYS_PATH.'/core/json/locales/EN/pokes.json');
 	$translation_file		= file_get_contents(SYS_PATH.'/core/json/locales/EN/translations.json');
 }
 
@@ -52,7 +52,7 @@ if (isset($lang)) {
 // always overwrite english if available
 ########################################
 
-$locales 		= (object) array_replace(json_decode(file_get_contents(SYS_PATH.'/core/json/locales/EN/translations.json'), true),json_decode($translation_file, true));
+$locales 		= (object) array_replace(json_decode(file_get_contents(SYS_PATH.'/core/json/locales/EN/translations.json'), true), json_decode($translation_file, true));
 
 // Recursive replace because of multi level array
 $pokemon_trans_array 	= array_replace_recursive(json_decode(file_get_contents(SYS_PATH.'/core/json/locales/EN/pokes.json'), true), json_decode($pokemon_file, true));
@@ -94,7 +94,7 @@ foreach ($pokemons->pokemon as $pokeid => $pokemon) {
 	unset($type);
 
 	// Resolve candy_id to candy_name
-	if(isset($pokemon->candy_id)) {
+	if (isset($pokemon->candy_id)) {
 		$candy_id 				= $pokemon->candy_id;
 		$pokemon->candy_name	= $pokemon_trans->pokemon->$candy_id->name;
 		unset($pokemon->candy_id);
@@ -108,22 +108,22 @@ foreach ($pokemons->pokemon as $pokeid => $pokemon) {
 	// 0.01 - 0.20   = Rare
 	// > 0  - 0.01   = Mythic
 	// Unseen
-	if($spawn_rate >= 1){
+	if ($spawn_rate >= 1) {
 		$pokemon->rarity = $locales->VERYCOMMON;
-	}elseif($spawn_rate >= 0.20){
+	} elseif ($spawn_rate >= 0.20) {
 		$pokemon->rarity = $locales->COMMON;
-	}elseif($spawn_rate >= 0.01){
+	} elseif ($spawn_rate >= 0.01) {
 		$pokemon->rarity = $locales->RARE;
-	}elseif($spawn_rate > 0){
+	} elseif ($spawn_rate > 0) {
 		$pokemon->rarity = $locales->MYTHIC;
-	}else{
+	} else {
 		$pokemon->rarity = $locales->UNSEEN;
 	}
 }
 
 // Translate typecolors array keys as well
 $types_temp = new stdClass();
-foreach($pokemons->typecolors as $type => $color) {
+foreach ($pokemons->typecolors as $type => $color) {
 	$type_trans = $pokemon_trans->types->$type;
 	$types_temp->$type_trans = $color;
 }
@@ -145,5 +145,3 @@ unset($quick_move);
 unset($charge_move);
 unset($candy_id);
 unset($spawn_rate);
-
-?>
