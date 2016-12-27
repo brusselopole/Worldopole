@@ -41,7 +41,7 @@ include_once('locales.loader.php');
 # MySQL 
 $mysqli 	= new mysqli(SYS_DB_HOST, SYS_DB_USER, SYS_DB_PSWD, SYS_DB_NAME, SYS_DB_PORT);
 if($mysqli->connect_error != ''){exit('Error MySQL Connect');}
-
+$mysqli->set_charset('utf8');
 $request 	= $_GET['type']; 
 
 switch($request){
@@ -383,13 +383,12 @@ switch($request){
 	case 'gym_defenders':
 		
 		$gym_id = $mysqli->real_escape_string($_GET['gym_id']);
-		
 		$req 		= "SELECT gymdetails.name as name, gymdetails.description as description, gym.gym_points as points, gymdetails.url as url, gym.team_id as team,  (gym.last_modified ".$time->symbol." INTERVAL ".$time->delay." HOUR) as last_modified, gym.guard_pokemon_id as guard_pokemon_id FROM gymdetails LEFT JOIN gym on gym.gym_id = gymdetails.gym_id WHERE gym.gym_id='".$gym_id."'";
 		$result 	= $mysqli->query($req);
 		$gymData['gymDetails']['gymInfos'] = false;
 		while($data = $result->fetch_object()){
-			$gymData['gymDetails']['gymInfos']['name'] = htmlentities($data->name, ENT_QUOTES | ENT_IGNORE, 'UTF-8');
-			$gymData['gymDetails']['gymInfos']['description'] = htmlentities($data->description, ENT_QUOTES | ENT_IGNORE, 'UTF-8');
+			$gymData['gymDetails']['gymInfos']['name'] = $data->name;
+			$gymData['gymDetails']['gymInfos']['description'] = $data->description;
 			if($data->url == null){
 				$gymData['gymDetails']['gymInfos']['url'] = '';
 			}
