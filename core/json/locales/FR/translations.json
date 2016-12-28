@@ -98,5 +98,7 @@
 "WIDGET_LURES_SUB": "actifs sur %s", 
 "WIDGET_POKEMON_SUB": "à %s maintenant", 
 "YEAR": "an", 
-"YEARS": "an"
+"YEARS": "an",
+"TIME_AGO": "il y a %s",
+"TIME_LEFT": "%s restantes"
 }
