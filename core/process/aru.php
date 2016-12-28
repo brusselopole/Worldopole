@@ -487,6 +487,9 @@ switch ($request) {
 			case 1:
 				$order=" ORDER BY active DESC ";
 				break;
+			case 2:
+				$order=" ORDER BY maxCp DESC ";
+				break;
 			default:
 				$order=" ORDER BY level DESC, active DESC ";
 		}
@@ -494,9 +497,9 @@ switch ($request) {
 		$limit = " LIMIT ".($page*10).",10 ";
 
 
-		$req = "SELECT trainer.*, count(actives_pokemons.trainer_name) as active ".
-				"FROM trainer LEFT JOIN (SELECT DISTINCT gympokemon.pokemon_id, gympokemon.pokemon_uid, gympokemon.trainer_name ".
-					"FROM gympokemon INNER JOIN ( SELECT * FROM gymmember GROUP BY gymmember.pokemon_uid HAVING gymmember.gym_id <> '' ) as filtered_gymmember ".
+		$req = "SELECT trainer.*, count(actives_pokemons.trainer_name) as active, max(actives_pokemons.cp) as maxCp ".
+				"FROM trainer LEFT JOIN (SELECT DISTINCT gympokemon.pokemon_id, gympokemon.pokemon_uid, gympokemon.trainer_name, gympokemon.cp ".
+					"FROM gympokemon INNER JOIN ( SELECT gymmember.pokemon_uid, gymmember.gym_id FROM gymmember GROUP BY gymmember.pokemon_uid, gymmember.gym_id HAVING gymmember.gym_id <> '' ) as filtered_gymmember ".
 				"ON gympokemon.pokemon_uid = filtered_gymmember.pokemon_uid) as actives_pokemons on actives_pokemons.trainer_name = trainer.name ".
 				"GROUP BY trainer.name ".$where.$order.$limit;
 
@@ -514,7 +517,7 @@ switch ($request) {
 			}
 			$req = "(SELECT DISTINCT gympokemon.pokemon_id, gympokemon.pokemon_uid, gympokemon.cp, gympokemon.trainer_name, gympokemon.iv_defense, gympokemon.iv_stamina, gympokemon.iv_attack, filtered_gymmember.gym_id, '1' as active ".
 				"FROM gympokemon INNER JOIN ".
-				"( SELECT * FROM gymmember GROUP BY gymmember.pokemon_uid HAVING gymmember.gym_id <> '' ) as filtered_gymmember ".
+				"( SELECT gymmember.pokemon_uid, gymmember.gym_id FROM gymmember GROUP BY gymmember.pokemon_uid, gymmember.gym_id HAVING gymmember.gym_id <> '' ) as filtered_gymmember ".
 				"ON gympokemon.pokemon_uid = filtered_gymmember.pokemon_uid ".
 				"WHERE gympokemon.trainer_name='".$trainer->name."' ORDER BY gympokemon.cp DESC)";
 							
