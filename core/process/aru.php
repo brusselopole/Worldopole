@@ -368,7 +368,7 @@ switch ($request) {
 	
 	case 'gym_defenders':
 		$gym_id = $mysqli->real_escape_string($_GET['gym_id']);
-		$req 		= "SELECT gymdetails.name as name, gymdetails.description as description, gym.gym_points as points, gymdetails.url as url, gym.team_id as team,  (gym.last_modified ".$time->symbol." INTERVAL ".$time->delay." HOUR) as last_modified, gym.guard_pokemon_id as guard_pokemon_id FROM gymdetails LEFT JOIN gym on gym.gym_id = gymdetails.gym_id WHERE gym.gym_id='".$gym_id."'";
+		$req 		= "SELECT gymdetails.name as name, gymdetails.description as description, gym.gym_points as points, gymdetails.url as url, gym.team_id as team, (gym.last_modified ".$time->symbol." INTERVAL ".$time->delay." HOUR) as last_modified, gym.guard_pokemon_id as guard_pokemon_id FROM gymdetails LEFT JOIN gym on gym.gym_id = gymdetails.gym_id WHERE gym.gym_id='".$gym_id."'";
 		$result 	= $mysqli->query($req);
 		$gymData['gymDetails']['gymInfos'] = false;
 		while ($data = $result->fetch_object()) {
@@ -469,18 +469,18 @@ switch ($request) {
 		$team=0;
 		$ranking=0;
 		if (isset($_GET['name'])) {
-		    $trainer_name = mysqli_real_escape_string($mysqli, $_GET['name']);
-		    $where = " HAVING name LIKE '%".$trainer_name."%'";
+			$trainer_name = mysqli_real_escape_string($mysqli, $_GET['name']);
+			$where = " HAVING name LIKE '%".$trainer_name."%'";
 		}
 		if (isset($_GET['team']) && $_GET['team']!=0) {
-		    $team = mysqli_real_escape_string($mysqli, $_GET['team']);
-		    $where .= ($where==""?" HAVING":"AND ")." team = ".$team;
+			$team = mysqli_real_escape_string($mysqli, $_GET['team']);
+			$where .= ($where==""?" HAVING":"AND ")." team = ".$team;
 		}
 		if (isset($_GET['page'])) {
-		    $page = mysqli_real_escape_string($mysqli, $_GET['page']);
+			$page = mysqli_real_escape_string($mysqli, $_GET['page']);
 		}
 		if (isset($_GET['ranking'])) {
-		    $ranking = mysqli_real_escape_string($mysqli, $_GET['ranking']);
+			$ranking = mysqli_real_escape_string($mysqli, $_GET['ranking']);
 		}
 
 		switch ($ranking) {
@@ -496,7 +496,7 @@ switch ($request) {
 
 		$req = "SELECT trainer.*, count(actives_pokemons.trainer_name) as active ".
 				"FROM trainer LEFT JOIN (SELECT DISTINCT gympokemon.pokemon_id, gympokemon.pokemon_uid, gympokemon.trainer_name ".
-					"FROM gympokemon INNER JOIN ( SELECT  * FROM gymmember GROUP BY gymmember.pokemon_uid HAVING gymmember.gym_id <> '' ) as filtered_gymmember ".
+					"FROM gympokemon INNER JOIN ( SELECT * FROM gymmember GROUP BY gymmember.pokemon_uid HAVING gymmember.gym_id <> '' ) as filtered_gymmember ".
 				"ON gympokemon.pokemon_uid = filtered_gymmember.pokemon_uid) as actives_pokemons on actives_pokemons.trainer_name = trainer.name ".
 				"GROUP BY trainer.name ".$where.$order.$limit;
 
@@ -514,7 +514,7 @@ switch ($request) {
 			}
 			$req = "(SELECT DISTINCT gympokemon.pokemon_id, gympokemon.pokemon_uid, gympokemon.cp, gympokemon.trainer_name, gympokemon.iv_defense, gympokemon.iv_stamina, gympokemon.iv_attack, filtered_gymmember.gym_id, '1' as active ".
 				"FROM gympokemon INNER JOIN ".
-				"( SELECT  * FROM gymmember GROUP BY gymmember.pokemon_uid HAVING gymmember.gym_id <> '' ) as filtered_gymmember ".
+				"( SELECT * FROM gymmember GROUP BY gymmember.pokemon_uid HAVING gymmember.gym_id <> '' ) as filtered_gymmember ".
 				"ON gympokemon.pokemon_uid = filtered_gymmember.pokemon_uid ".
 				"WHERE gympokemon.trainer_name='".$trainer->name."' ORDER BY gympokemon.cp DESC)";
 							
@@ -528,9 +528,9 @@ switch ($request) {
 			}
 			$trainer->gyms = $active_gyms;
 				
-			$req =  "(SELECT DISTINCT gympokemon.pokemon_id, gympokemon.pokemon_uid, gympokemon.cp, gympokemon.trainer_name, gympokemon.iv_defense, gympokemon.iv_stamina, gympokemon.iv_attack, null as gym_id, '0' as active ".
+			$req = "(SELECT DISTINCT gympokemon.pokemon_id, gympokemon.pokemon_uid, gympokemon.cp, gympokemon.trainer_name, gympokemon.iv_defense, gympokemon.iv_stamina, gympokemon.iv_attack, null as gym_id, '0' as active ".
 				"FROM gympokemon LEFT JOIN ".
-				"( SELECT  * FROM gymmember HAVING gymmember.gym_id <> '' ) as filtered_gymmember ".
+				"( SELECT * FROM gymmember HAVING gymmember.gym_id <> '' ) as filtered_gymmember ".
 				"ON gympokemon.pokemon_uid = filtered_gymmember.pokemon_uid ".
 				"WHERE filtered_gymmember.pokemon_uid is null AND gympokemon.trainer_name='".$trainer->name."' ORDER BY gympokemon.cp DESC ) ";
 							
@@ -540,13 +540,10 @@ switch ($request) {
 				$trainer->pokemons[$pkmCount++] = $dataPkm;
 			}
 		}
-			// Sort for level first, then gyms
-			
 			$return = json_encode($trainers);
 			
 			echo $return;
 			
-	
 		break;
 	
 	default:
