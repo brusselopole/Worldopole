@@ -27,6 +27,7 @@
                                 <ul class="dropdown-menu dropdown-menu-right">
                                   <li><a class="rankingOrderItems" id="levelsFirst" href="#">&nbsp;<?= $locales->TRAINERS_SEARCH_LEVELS_FIRST ?></a></li>
                                   <li><a class="rankingOrderItems" id="gymsFirst" href="#">&nbsp;<?= $locales->TRAINERS_SEARCH_GYMS_FIRST ?></a></li>
+				  				  <li><a class="rankingOrderItems" id="maxCpFirst" href="#">&nbsp;<?= $locales->TRAINERS_SEARCH_MAX_CP_FIRST ?></a></li>
                                 </ul>
                             </div>
 			</div>
