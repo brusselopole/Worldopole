@@ -1,7 +1,9 @@
 $(function() {
 	$('.trainerLoader').hide();
 	var page = 0;
-	
+        var teamSelector=0; //0=all;1=Blue;2=Red;3=Yellow
+        var rankingFilter=0; //0=Level & Gyms; 1=Level; 2=Gyms
+
 	loadTrainers(page);
 	page++;
 	var win = $(window);
@@ -16,11 +18,47 @@ $(function() {
 		page = 0;
 		$('input#name').val()!=''?$('#trainersGraph').hide():$('#trainersGraph').show();
 		$('#trainersContainer tr:not(.trainersTemplate)').remove();
-		loadTrainers(page,$('input#name').val());
+		loadTrainers(page,$('input#name').val(),teamSelector,rankingFilter);
 		page++;
 		event.preventDefault();
 	});
-	function loadTrainers(page,name=''){
+        $( ".teamSelectorItems" ).click(function( event ) {
+		switch ($(this).attr("id"))
+                {
+                    case "AllTeamsFilter":
+                        teamSelector=0;
+                        break;
+                    case "BlueTeamFilter":
+                        teamSelector=1;
+                        break;
+                    case "RedTeamFilter":
+                        teamSelector=2;
+                        break;
+                    case "YellowFilter":
+                        teamSelector=3;
+                        break;
+                }
+                $("#teamSelectorText").html($(this).html());
+		event.preventDefault();
+                $( "#searchTrainer" ).submit();
+                
+	});
+        $( ".rankingOrderItems" ).click(function( event ) {
+		switch ($(this).attr("id"))
+                {
+                    case "levelsFirst":
+                        rankingFilter=0;
+                        break;
+                    case "gymsFirst":
+                        rankingFilter=1;
+                        break;
+                }
+                $("#rankingOrderText").html($(this).html());
+		event.preventDefault();
+                $( "#searchTrainer" ).submit();
+                
+	});
+	function loadTrainers(page,name='',teamSelector,rankingFilter){
 		$('.trainerLoader').show();
 		
 		var trainerIndex = 0+(page*10);
@@ -36,7 +74,9 @@ $(function() {
 				'method': 'method_target',
 				'type' : 'trainer',
 				'page' : page,
-				'name' : name
+				'name' : name,
+                                'team' : teamSelector,
+                                'ranking' :rankingFilter
 			}
 		}).done(function (data) {	
 			$.each(data, function(trainerName, trainer){

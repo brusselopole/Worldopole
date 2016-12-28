@@ -432,6 +432,19 @@ trainers details styles
 	display: none;
 }
 
+
+/****************
+trainers search styles
+****************/
+
+#searchTrainer button {
+    height: 40px;
+}
+
+#searchTrainer input {
+    height: 40px;
+}
+
 .loader {
   border: 16px solid whitesmoke;
   border-radius: 50%;
