@@ -52,6 +52,9 @@ $(function() {
 			case "gymsFirst":
 				rankingFilter=1;
 				break;
+                        case "maxCpFirst":
+				rankingFilter=2;
+				break;
 		}
 		$("#rankingOrderText").html($(this).html());
 		event.preventDefault();

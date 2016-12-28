@@ -85,6 +85,7 @@
 "TRAINERS_SEARCH_ALL_TEAMS" : "Toutes les équipes",
 "TRAINERS_SEARCH_LEVELS_FIRST" : "Classer par niveau",
 "TRAINERS_SEARCH_GYMS_FIRST" : "Classer par arènes",
+"TRAINERS_SEARCH_MAX_CP_FIRST" : "Classer par max PC",
 "TRAINER_GRAPH": "<strong>Niveaux</strong> des entraîneurs Pokémon", 
 "UNSEEN": "absent", 
 "MYTHIC": "Mythique", 
