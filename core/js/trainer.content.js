@@ -1,8 +1,8 @@
 $(function() {
 	$('.trainerLoader').hide();
 	var page = 0;
-        var teamSelector=0; //0=all;1=Blue;2=Red;3=Yellow
-        var rankingFilter=0; //0=Level & Gyms; 1=Level; 2=Gyms
+	var teamSelector=0; //0=all;1=Blue;2=Red;3=Yellow
+	var rankingFilter=0; //0=Level & Gyms; 1=Level; 2=Gyms
 
 	loadTrainers(page);
 	page++;
@@ -22,41 +22,41 @@ $(function() {
 		page++;
 		event.preventDefault();
 	});
-        $( ".teamSelectorItems" ).click(function( event ) {
+	$( ".teamSelectorItems" ).click(function( event ) {
 		switch ($(this).attr("id"))
-                {
-                    case "AllTeamsFilter":
-                        teamSelector=0;
-                        break;
-                    case "BlueTeamFilter":
-                        teamSelector=1;
-                        break;
-                    case "RedTeamFilter":
-                        teamSelector=2;
-                        break;
-                    case "YellowFilter":
-                        teamSelector=3;
-                        break;
-                }
-                $("#teamSelectorText").html($(this).html());
+		{
+			case "AllTeamsFilter":
+				teamSelector=0;
+				break;
+			case "BlueTeamFilter":
+				teamSelector=1;
+				break;
+			case "RedTeamFilter":
+				teamSelector=2;
+				break;
+			case "YellowFilter":
+				teamSelector=3;
+				break;
+		}
+		$("#teamSelectorText").html($(this).html());
 		event.preventDefault();
-                $( "#searchTrainer" ).submit();
-                
+		$( "#searchTrainer" ).submit();
+		
 	});
-        $( ".rankingOrderItems" ).click(function( event ) {
+	$( ".rankingOrderItems" ).click(function( event ) {
 		switch ($(this).attr("id"))
-                {
-                    case "levelsFirst":
-                        rankingFilter=0;
-                        break;
-                    case "gymsFirst":
-                        rankingFilter=1;
-                        break;
-                }
-                $("#rankingOrderText").html($(this).html());
+		{
+			case "levelsFirst":
+				rankingFilter=0;
+				break;
+			case "gymsFirst":
+				rankingFilter=1;
+				break;
+		}
+		$("#rankingOrderText").html($(this).html());
 		event.preventDefault();
-                $( "#searchTrainer" ).submit();
-                
+		$( "#searchTrainer" ).submit();
+		
 	});
 	function loadTrainers(page,name='',teamSelector,rankingFilter){
 		$('.trainerLoader').show();
@@ -68,15 +68,15 @@ $(function() {
 			'global': false,
 			'dataType': 'json',
 			'url': "core/process/aru.php",
-			'data': { 
-				'request': "", 
+			'data': {
+				'request': "",
 				'target': 'arrange_url',
 				'method': 'method_target',
 				'type' : 'trainer',
 				'page' : page,
 				'name' : name,
-                                'team' : teamSelector,
-                                'ranking' :rankingFilter
+				'team' : teamSelector,
+				'ranking' :rankingFilter
 			}
 		}).done(function (data) {	
 			$.each(data, function(trainerName, trainer){
