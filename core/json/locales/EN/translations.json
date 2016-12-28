@@ -84,7 +84,7 @@
 "TRAINERS_TITLE": "Find the real <strong>Pokémon Master</strong><br><small>Trainers and their Pokémon in gyms</small>", 
 "TRAINER_GRAPH": "Trainer <strong>level</strong> distribution", 
 "TRAINERS_SEARCH_ALL_TEAMS" : "All teams",
-"TRAINERS_SEARCH_LEVELS_FIRST" : "Order by levels",
+"TRAINERS_SEARCH_LEVELS_FIRST" : "Order by level",
 "TRAINERS_SEARCH_GYMS_FIRST" : "Order by gyms",
 "UNSEEN": "unseen", 
 "MYTHIC": "Mythic",
