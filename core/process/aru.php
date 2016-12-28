@@ -1,5 +1,4 @@
 <?php
-
 # Well, this file can only be loaded by your own server
 # as it contains json datas formatted 
 # and you don't want to have other website to get your datas ;) 
@@ -463,46 +462,46 @@ switch ($request) {
 		break;
 	
 	case 'trainer':
-			$name = "";
-			$page = "0";
-			$where = "";
-			$order="";
-			$team=0;
-			$ranking=0;
-			if(isset($_GET['name'])){			
-				$trainer_name = mysqli_real_escape_string($mysqli,$_GET['name']);
-				$where = " HAVING name LIKE '%".$trainer_name."%'";
-			}
-			if(isset($_GET['team'])&&$_GET['team']!=0){			
-				$team = mysqli_real_escape_string($mysqli,$_GET['team']);
-				$where .= ($where==""?" HAVING":"AND ")." team = ".$team;
-			}
-			if (isset($_GET['page'])) {
-				$page = mysqli_real_escape_string($mysqli, $_GET['page']);
-			}
-			if(isset($_GET['ranking'])){			
-				$ranking = mysqli_real_escape_string($mysqli,$_GET['ranking']);
-			}
-			
-			switch($ranking){
-				case 1:
-					$order=" ORDER BY active DESC ";
-					break;
-				default:
-					$order=" ORDER BY level DESC, active DESC ";
-			}
+		$name = "";
+		$page = "0";
+		$where = "";
+		$order="";
+		$team=0;
+		$ranking=0;
+		if (isset($_GET['name'])) {
+		    $trainer_name = mysqli_real_escape_string($mysqli, $_GET['name']);
+		    $where = " HAVING name LIKE '%".$trainer_name."%'";
+		}
+		if (isset($_GET['team']) && $_GET['team']!=0) {
+		    $team = mysqli_real_escape_string($mysqli, $_GET['team']);
+		    $where .= ($where==""?" HAVING":"AND ")." team = ".$team;
+		}
+		if (isset($_GET['page'])) {
+		    $page = mysqli_real_escape_string($mysqli, $_GET['page']);
+		}
+		if (isset($_GET['ranking'])) {
+		    $ranking = mysqli_real_escape_string($mysqli, $_GET['ranking']);
+		}
 
-			$limit = " LIMIT ".($page*10).",10 ";
-			
-			
-			$req = "SELECT trainer.*, count(actives_pokemons.trainer_name) as active ".
-					"FROM trainer LEFT JOIN (SELECT DISTINCT gympokemon.pokemon_id, gympokemon.pokemon_uid, gympokemon.trainer_name ".
-						"FROM gympokemon INNER JOIN ( SELECT  * FROM gymmember GROUP BY gymmember.pokemon_uid HAVING gymmember.gym_id <> '' ) as filtered_gymmember ".
-					"ON gympokemon.pokemon_uid = filtered_gymmember.pokemon_uid) as actives_pokemons on actives_pokemons.trainer_name = trainer.name ".
-					"GROUP BY trainer.name ".$where.$order.$limit;
+		switch ($ranking) {
+			case 1:
+				$order=" ORDER BY active DESC ";
+				break;
+			default:
+				$order=" ORDER BY level DESC, active DESC ";
+		}
 
-			$result = $mysqli->query($req);
-			$trainers = array();
+		$limit = " LIMIT ".($page*10).",10 ";
+
+
+		$req = "SELECT trainer.*, count(actives_pokemons.trainer_name) as active ".
+				"FROM trainer LEFT JOIN (SELECT DISTINCT gympokemon.pokemon_id, gympokemon.pokemon_uid, gympokemon.trainer_name ".
+					"FROM gympokemon INNER JOIN ( SELECT  * FROM gymmember GROUP BY gymmember.pokemon_uid HAVING gymmember.gym_id <> '' ) as filtered_gymmember ".
+				"ON gympokemon.pokemon_uid = filtered_gymmember.pokemon_uid) as actives_pokemons on actives_pokemons.trainer_name = trainer.name ".
+				"GROUP BY trainer.name ".$where.$order.$limit;
+
+		$result = $mysqli->query($req);
+		$trainers = array();
 		while ($data = $result->fetch_object()) {
 			$data->last_seen = date("Y-m-d", strtotime($data->last_seen));
 			$trainers[$data->name] = $data;
