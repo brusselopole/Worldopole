@@ -10,7 +10,7 @@ $(function() {
 	win.scroll(function() {
 		// End of the document reached?
 		if ($(document).height() - win.height() == win.scrollTop()) {
-			loadTrainers(page,$('input#name').val());
+			loadTrainers(page,$('input#name').val(),teamSelector,rankingFilter);
 			page++;
 		}
 	});
