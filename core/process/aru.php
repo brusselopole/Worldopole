@@ -79,7 +79,8 @@ switch ($request) {
 		$req 		= "SELECT count( DISTINCT(gym_id) ) as total FROM gym";
 		$result 	= $mysqli->query($req);
 		$data 		= $result->fetch_object();
-		$total_gym 	= $data->total;
+
+		$values[] 	= $data->total;
 		
 		// Team
 		// 1 = bleu
