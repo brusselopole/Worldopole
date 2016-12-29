@@ -58,7 +58,7 @@
 		
 		<?php foreach ($recents as $pokemon) { ?>
 		
-			<div class="col-md-1 col-xs-4 pokemon-single" pokeid="<?= $pokemon ?>">
+			<div class="col-md-1 col-xs-4 pokemon-single" data-pokeid="<?= $pokemon ?>">
 			
 				<a href="pokemon/<?= $pokemon ?>"><img src="core/pokemons/<?= $pokemon ?>.png" alt="<?= $pokemons->pokemon->$pokemon->name ?>" class="img-responsive"></a>
 				<p class="pkmn-name"><a href="pokemon/<?= $pokemon ?>"><?= $pokemons->pokemon->$pokemon->name ?></a></p>

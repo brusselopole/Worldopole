@@ -163,7 +163,7 @@ switch ($request) {
 		if ($_GET['last_id'] != $pokeid) {
 			$html = '
 		
-			<div class="col-md-1 col-xs-4 pokemon-single" pokeid="'.$pokeid.'" style="display:none;">
+			<div class="col-md-1 col-xs-4 pokemon-single" data-pokeid="'.$pokeid.'" style="display:none;">
 						
 				<a href="pokemon/'.$pokeid.'"><img src="core/pokemons/'.$pokeid.'.png" alt="'.$pokemons->pokemon->$pokeid->name.'" class="img-responsive"></a>
 				<p class="pkmn-name"><a href="pokemon/'.$pokeid.'">'.$pokemons->pokemon->$pokeid->name.'</a></p>

@@ -48,7 +48,7 @@ function updateCounter(new_value, classname){
 
 (function spawn() {
  
-	var last_id = $('.last-mon-js div:first-child').attr('pokeid'); 
+	var last_id = $('.last-mon-js div:first-child').attr('data-pokeid');
 	//console.log(last_id); 
 	 
 	$.ajax({
