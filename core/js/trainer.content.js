@@ -106,7 +106,7 @@ $(function() {
 				var trainersPokemonsRow = $('<tr>',{id: 'trainerPokemons_'+trainer.name});
 				var trainersPokemons = $('<td>',{colspan : 6});
 				var trainersPokemonsContainer = $('<div>',{class : ""});
-				for(pokeIndex = 0; pokeIndex<trainer.pokemons.length;pokeIndex++){
+				for(var pokeIndex = 0; pokeIndex<trainer.pokemons.length;pokeIndex++){
 					var pokemon = trainer.pokemons[pokeIndex];
 					var trainerPokemon = $('<div>',{id : 'trainerPokemon_'+pokemon.pokemon_uid, class: "col-md-1 col-xs-4 pokemon-single", style: "text-align: center" });
 					trainerPokemon.append($('<a>',{href : 'pokemon/'+pokemon.pokemon_id}).append($('<img />',{src : 'core/pokemons/'+pokemon.pokemon_id+'.png', 'class' : 'img-responsive '+(pokemon.gym_id==null?"unseen":"")})));

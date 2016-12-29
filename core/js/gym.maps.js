@@ -28,9 +28,7 @@ function initMap() {
 				var arr = [];
 				
 				for (i = 0; i < locations.length; i++) { 
-					activite = jQuery.parseJSON(locations[i]);
-					//console.log(activite);
-					arr.push(activite);	 
+					arr.push(jQuery.parseJSON(locations[i]));
 				} 
 				
 				
