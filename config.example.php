@@ -35,14 +35,16 @@ if (directory() != '') {
 } else {
 	$subdirectory = '/';
 }
-	
-if (isset($_SERVER['REQUEST_SCHEME'])) {
-	@define('HOST_URL', $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].''.$subdirectory);	// Host
-} else {
-	if (isset($_SERVER['HTTPS']) and $_SERVER['HTTPS'] == 'on') {
-		@define('HOST_URL', 'https://'.$_SERVER['HTTP_HOST']);						// Host
+
+if (isset($_SERVER['HTTP_HOST'])) {
+	if (isset($_SERVER['REQUEST_SCHEME'])) {
+		define('HOST_URL', $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].$subdirectory);
 	} else {
-		@define('HOST_URL', 'http://'.$_SERVER['HTTP_HOST']);						// Host
+		if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') {
+			define('HOST_URL', 'https://'.$_SERVER['HTTP_HOST'].$subdirectory);
+		} else {
+			define('HOST_URL', 'http://'.$_SERVER['HTTP_HOST'].$subdirectory);
+		}
 	}
 }
 
