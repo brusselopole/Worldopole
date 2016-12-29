@@ -33,7 +33,7 @@
 			<p id="share">
 				<a href="https://www.facebook.com/sharer/sharer.php?u=<?= HOST_URL ?>pokemon/<?= $pokemon->id ?>" target="_blank" class="btn btn-primary" title="Share on Facebook"><?= $locales->SHARE ?> <i class="fa fa-facebook" aria-hidden="true"></i></a> 
 				
-				<a href="https://twitter.com/intent/tweet?source=<?= HOST_URL ?>pokemon/<?= $pokemon_id ?>&text=Find <?= $pokemon->name ?> in <?= $config->infos->city ?> <?= HOST_URL ?>pokemon/<?= $pokemon->id ?>" target="_blank" title="Share on Twitter" class="btn btn-info"><?= $locales->SHARE ?> <i class="fa fa-twitter" aria-hidden="true"></i></a>
+				<a href="https://twitter.com/intent/tweet?source=<?= HOST_URL ?>pokemon/<?= $pokemon_id ?>&text=Find%20<?= $pokemon->name ?>%20in:%20<?= $config->infos->city ?>%20<?= HOST_URL ?>pokemon/<?= $pokemon->id ?>" target="_blank" title="Share on Twitter" class="btn btn-info"><?= $locales->SHARE ?> <i class="fa fa-twitter" aria-hidden="true"></i></a>
 			</p>
 			
 		</div>
@@ -153,9 +153,9 @@
 
 <div class="row text-center" id="subnav">
 	<div class="btn-group" role="group">
-		<a class="btn btn-default" href="<?= $_SERVER['REQUEST_URI'] ?>#where" class="page-scroll"><i class="fa fa-map-marker"></i> <?= $locales->POKEMON_MAP ?></a>
-		<a class="btn btn-default" href="<?= $_SERVER['REQUEST_URI'] ?>#stats" class="page-scroll"><i class="fa fa-pie-chart"></i> <?= $locales->POKEMON_STATS ?></a>
-		<a class="btn btn-default" href="<?= $_SERVER['REQUEST_URI'] ?>#family" class="page-scroll"><i class="fa fa-share-alt"></i> <?= $locales->POKEMON_FAMILY ?></a>
+		<a class="btn btn-default page-scroll" href="<?= $_SERVER['REQUEST_URI'] ?>#where"><i class="fa fa-map-marker"></i> <?= $locales->POKEMON_MAP ?></a>
+		<a class="btn btn-default page-scroll" href="<?= $_SERVER['REQUEST_URI'] ?>#stats"><i class="fa fa-pie-chart"></i> <?= $locales->POKEMON_STATS ?></a>
+		<a class="btn btn-default page-scroll" href="<?= $_SERVER['REQUEST_URI'] ?>#family"><i class="fa fa-share-alt"></i> <?= $locales->POKEMON_FAMILY ?></a>
 	</div>
 </div>
 
