@@ -1,25 +1,27 @@
-function updateCounter(new_value, classname){
+function updateCounter(new_value, classname)
+{
 		
-	var CurrentValue = $(classname).text(); 
+	var CurrentValue = $(classname).text();
 	
 	$({someValue: CurrentValue}).animate({someValue: new_value}, {
 		duration: 3000,
-		easing:'swing', 
-		step: function() {
+		easing:'swing',
+		step: function () {
 			$(classname).text(Math.round(this.someValue));
 		}
-	});	
+	});
 	
 }
 
 
-(function cron() {
- 
+(function cron()
+{
+	
 	$.ajax({
 		url: 'core/process/aru.php?type=home_update',
-		success: function(data) {
+		success: function (data) {
 					
-			var pokemon	= data[0]; 
+			var pokemon	= data[0];
 			var lure	= data[1];
 
 			var gym		= data[2];
@@ -37,7 +39,7 @@ function updateCounter(new_value, classname){
 			updateCounter(neutral,'.total-rocket-js');
 			
 		},
-		complete: function() {
+		complete: function () {
 			// Schedule the next request when the current one's complete
 			setTimeout(cron, 5000);
 		}
@@ -46,17 +48,17 @@ function updateCounter(new_value, classname){
 
 
 
-(function spawn() {
- 
+(function spawn()
+{
+	
 	var last_id = $('.last-mon-js div:first-child').attr('data-pokeid');
-	//console.log(last_id); 
+	//console.log(last_id);
 	 
 	$.ajax({
 		url: 'core/process/aru.php?type=spawnlist_update&last_id='+last_id,
-		success: function(data) {
+		success: function (data) {
 			
-			if(data != ''){
-
+			if (data != '') {
 				//console.log(data);
 				$('.last-mon-js').prepend(data);
 				
@@ -68,7 +70,7 @@ function updateCounter(new_value, classname){
 			
 			
 		},
-		complete: function() {
+		complete: function () {
 			// Schedule the next request when the current one's complete
 			setTimeout(spawn, 5000);
 		}

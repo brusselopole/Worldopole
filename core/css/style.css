@@ -49,7 +49,7 @@ Navigation
 ****************/
 
 .navbar-default{
-	background-color: #fff; 
+	background-color: #fff;
 }
 
 #logo-img {
@@ -124,7 +124,7 @@ Pokedex display
 }
 
 img.unseen{
-	-webkit-filter: grayscale(1); 
+	-webkit-filter: grayscale(1);
 	filter: grayscale(1);
 	opacity:0.5;
 }
@@ -145,7 +145,7 @@ Pokémon single pages
 ****************/
 
 #map{
-	height: 80vh; 
+	height: 80vh;
 }
 
 #poke-img {
@@ -438,31 +438,31 @@ trainers search styles
 ****************/
 
 #searchTrainer button {
-    height: 40px;
+	height: 40px;
 }
 
 #searchTrainer input {
-    height: 40px;
+	height: 40px;
 }
 
 .loader {
-  border: 16px solid whitesmoke;
-  border-radius: 50%;
-  border-top: 16px solid grey;
-  width: 60px;
-  height: 60px;
-  -webkit-animation: spin 2s linear infinite;
-  animation: spin 2s linear infinite;
-  margin: auto;
+	border: 16px solid whitesmoke;
+	border-radius: 50%;
+	border-top: 16px solid grey;
+	width: 60px;
+	height: 60px;
+	-webkit-animation: spin 2s linear infinite;
+	animation: spin 2s linear infinite;
+	margin: auto;
 }
 
 @-webkit-keyframes spin {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
+	0% { -webkit-transform: rotate(0deg); }
+	100% { -webkit-transform: rotate(360deg); }
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
 }
 

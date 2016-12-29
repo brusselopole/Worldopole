@@ -1,23 +1,25 @@
-function updateCounter(new_value, classname){
+function updateCounter(new_value, classname)
+{
 		
-	var CurrentValue = $(classname).text(); 
+	var CurrentValue = $(classname).text();
 	
 	$({someValue: CurrentValue}).animate({someValue: new_value}, {
 		duration: 3000,
-		easing:'swing', 
-		step: function() {
+		easing:'swing',
+		step: function () {
 			$(classname).text(Math.round(this.someValue));
 		}
-	});	
+	});
 	
 }
 
 
-(function cron() {
+(function cron()
+{
 
 	$.ajax({
 		url: 'core/process/aru.php?type=update_gym',
-		success: function(data) {	
+		success: function (data) {
 			
 			var mysgym = data[0];
 			var mysave = data[1];
@@ -39,7 +41,7 @@ function updateCounter(new_value, classname){
 			updateCounter(mysave,'.average-mystic-js');
 			
 		},
-		complete: function() {
+		complete: function () {
 			// Schedule the next request when the current one's complete
 			setTimeout(cron, 5000);
 		}
