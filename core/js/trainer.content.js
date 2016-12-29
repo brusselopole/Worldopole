@@ -37,6 +37,8 @@ $(function() {
 			case "YellowFilter":
 				teamSelector=3;
 				break;
+			default:
+				teamSelector=0;
 		}
 		$("#teamSelectorText").html($(this).html());
 		event.preventDefault();
@@ -55,6 +57,8 @@ $(function() {
                         case "maxCpFirst":
 				rankingFilter=2;
 				break;
+			default:
+				rankingFilter=0;
 		}
 		$("#rankingOrderText").html($(this).html());
 		event.preventDefault();

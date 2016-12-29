@@ -225,7 +225,6 @@ if (!function_exists('http_response_code')) {
 					break;
 				default:
 					exit('Unknown http status code "' . htmlentities($code) . '"');
-				break;
 			}
 			$protocol = (isset($_SERVER['SERVER_PROTOCOL']) ? $_SERVER['SERVER_PROTOCOL'] : 'HTTP/1.0');
 			header($protocol . ' ' . $code . ' ' . $text);

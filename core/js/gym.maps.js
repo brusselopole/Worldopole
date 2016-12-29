@@ -1,5 +1,4 @@
 function initMap() {
-	var locations;
 	$('.gym_details').hide();
 	//ensure that gmaps is loaded before loading infobox (nasty but usefull trick) 
 	$.getScript("//rawgit.com/googlemaps/v3-utility-library/master/infobox/src/infobox.js").done(function(){
@@ -25,8 +24,8 @@ function initMap() {
 				
 				// Convert return to JSON Array 
 				
-				locations = jQuery.parseJSON(data);
-				var arr = new Array();
+				var locations = jQuery.parseJSON(data);
+				var arr = [];
 				
 				for (i = 0; i < locations.length; i++) { 
 					activite = jQuery.parseJSON(locations[i]);
@@ -53,7 +52,7 @@ function initMap() {
 					infoBoxClearance: new google.maps.Size(1, 1)
 				});
 				
-				google.maps.event.addListener(map, "click", function(event) {
+				google.maps.event.addListener(map, "click", function() {
 					infowindow.close();
 				});
 				
@@ -98,9 +97,6 @@ function initMap() {
 			});
 		});
 	});
-	var locations;
-
-	
 }
 
 function setGymDetails(gym) {

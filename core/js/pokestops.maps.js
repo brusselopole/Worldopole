@@ -24,7 +24,7 @@ function initMap() {
 			// Convert return to JSON Array 
 			
 			locations = jQuery.parseJSON(data);
-			var arr = new Array();
+			var arr = [];
 			
 			for (i = 0; i < locations.length; i++) { 
 				activite = jQuery.parseJSON(locations[i]);
@@ -44,7 +44,6 @@ function initMap() {
 		
 			var infowindow = new google.maps.InfoWindow();
 			
-			var image = 'core/img/pokestap.png';
 			var marker, i;
 		
 			for (i = 0; i < arr.length; i++) { 

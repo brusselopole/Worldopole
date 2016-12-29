@@ -34,7 +34,7 @@ for ($teamid = 1; $teamid <= 3; $teamid++) {
 		}
 		
 		# only if data isn't empty
-		if ($data) {
+		if (!empty($data)) {
 			# fill empty levels counts with 0
 			for ($i = 5; $i <= 40; $i++) {
 				if (!isset($data[$i])) {
