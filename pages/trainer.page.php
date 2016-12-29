@@ -49,26 +49,27 @@
 </div>
 
 <div class="row">
-	<table class="table">
-		<thead>
-		<tr>
-			<th>#</th>
-			<th>Same Level</th>
-			<th>Name</th>
-			<th>Level</th>
-			<th>Gyms</th>
-			<th>Last Seen</th>
-		</tr>
-		</thead>
-		<tbody id="trainersContainer">
-		
-		</tbody>
-		<tfoot>
-			<tr class="trainerLoader">
-				<td colspan="6"><div class="loader"></div></td>
+	<div class="col-md-12">
+		<table class="table" id="trainersTable">
+			<thead>
+			<tr>
+				<th>#</th>
+				<th>Same Level</th>
+				<th>Name</th>
+				<th>Level</th>
+				<th>Gyms</th>
+				<th>Last Seen</th>
 			</tr>
-		</tfoot>
+			</thead>
+			<tbody id="trainersContainer">
 		
-	</table>
+			</tbody>
+			<tfoot>
+				<tr class="trainerLoader">
+					<td colspan="6"><div class="loader"></div></td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
 </div>
 
