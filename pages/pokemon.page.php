@@ -153,9 +153,9 @@
 
 <div class="row text-center" id="subnav">
 	<div class="btn-group" role="group">
-		<a class="btn btn-default page-scroll" href="<?= $_SERVER['REQUEST_URI'] ?>#where"><i class="fa fa-map-marker"></i> <?= $locales->POKEMON_MAP ?></a>
-		<a class="btn btn-default page-scroll" href="<?= $_SERVER['REQUEST_URI'] ?>#stats"><i class="fa fa-pie-chart"></i> <?= $locales->POKEMON_STATS ?></a>
-		<a class="btn btn-default page-scroll" href="<?= $_SERVER['REQUEST_URI'] ?>#family"><i class="fa fa-share-alt"></i> <?= $locales->POKEMON_FAMILY ?></a>
+		<a class="btn btn-default page-scroll" href="pokemon/<?= $pokemon->id ?>#where"><i class="fa fa-map-marker"></i> <?= $locales->POKEMON_MAP ?></a>
+		<a class="btn btn-default page-scroll" href="pokemon/<?= $pokemon->id ?>#stats"><i class="fa fa-pie-chart"></i> <?= $locales->POKEMON_STATS ?></a>
+		<a class="btn btn-default page-scroll" href="pokemon/<?= $pokemon->id ?>#family"><i class="fa fa-share-alt"></i> <?= $locales->POKEMON_FAMILY ?></a>
 	</div>
 </div>
 
