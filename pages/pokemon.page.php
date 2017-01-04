@@ -95,7 +95,7 @@
 			<tr>
 				<td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_SEEN ?></strong></td>
 				<td class="col-md-4 col-xs-4">
-				
+
 				<?php if (isset($pokemon->last_position)) { ?>
 				
 					<a href="https://maps.google.com/?q=<?= $pokemon->last_position->latitude ?>,<?= $pokemon->last_position->longitude ?>&ll=<?= $pokemon->last_position->latitude ?>,<?= $pokemon->last_position->longitude ?>&z=16" target="_blank"><?= time_ago($pokemon->last_seen, $locales) ?></a>

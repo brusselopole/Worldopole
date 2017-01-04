@@ -13,6 +13,7 @@ if ($pos===false) {
 
 
 include_once('../../config.php');
+include_once('../../functions.php');
 
 
 
@@ -133,7 +134,7 @@ switch ($request) {
 	// Update latests spawn on homepage
 	//
 	####################################
-	
+
 	case 'spawnlist_update':
 		// Recent spawn
 		// ------------
@@ -179,7 +180,7 @@ switch ($request) {
 		break;
 	
 	
-	
+
 	####################################
 	//
 	// List Pokestop

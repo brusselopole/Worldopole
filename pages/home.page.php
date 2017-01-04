@@ -68,13 +68,10 @@
 		<?php }?>
 		
 		</div>
-	
 
-	</div>			
-	
 </div>
 
-	
+
 <div class="row big padding">
 	<h2 class="text-center sub-title"><?= $locales->FIGHT_TITLE ?></h2>
 	
