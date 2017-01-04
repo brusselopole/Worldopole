@@ -1,6 +1,6 @@
 # Worldopole
 
-[![Build Status](https://scrutinizer-ci.com/g/brusselopole/Worldopole/badges/build.png?b=master)](https://scrutinizer-ci.com/g/brusselopole/Worldopole/build-status/master) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/brusselopole/Worldopole/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/brusselopole/Worldopole/?branch=master) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Build Status](https://scrutinizer-ci.com/g/brusselopole/Worldopole/badges/build.png?b=master)](https://scrutinizer-ci.com/g/brusselopole/Worldopole/build-status/master) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/brusselopole/Worldopole/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/brusselopole/Worldopole/?branch=master) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![Discord](https://discordapp.com/api/guilds/221110649562988544/widget.png)](https://discord.gg/SDvsxkN)
 
 Based on [Brusselopole](http://www.brusselopole.be), Worldopole is an open source version of the website, allowing you to display in a nice way the data you have gathered of the Pokemon in your city such as Team Gym Battles, Pokemon nests and Pokéstops. This app is a base and will help you build your own version of Brusselopole with more data-visualisation! 
 
