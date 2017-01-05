@@ -135,49 +135,92 @@ switch ($request) {
 	//
 	####################################
 
-	case 'spawnlist_update':
-		// Recent spawn
-		// ------------
-		
-		if ($config->system->mythic_recents) {
-			// get all mythic pokemon ids
-			$mythic_pokemons = array();
-			foreach ($pokemons->pokemon as $id => $pokemon) {
-				if ($pokemon->spawn_rate < 0.01) {
-					$mythic_pokemons[] = $id;
-				}
-			}
-
-			// get last mythic pokemon
-			$req		= "SELECT pokemon_id FROM pokemon
-					   WHERE pokemon_id IN (".implode(",", $mythic_pokemons).")
-					   ORDER BY disappear_time DESC LIMIT 0,1";
-		} else {
-			// get last pokemon
-			$req		= "SELECT pokemon_id FROM pokemon ORDER BY disappear_time DESC LIMIT 0,1";
-		}
-		$result 	= $mysqli->query($req);
-		$recents	= array();
-		$data 		= $result->fetch_object();
-		$pokeid 	= $data->pokemon_id;
-		
-		if ($_GET['last_id'] != $pokeid) {
-			$html = '
-		
-			<div class="col-md-1 col-xs-4 pokemon-single" data-pokeid="'.$pokeid.'" style="display:none;">
-						
-				<a href="pokemon/'.$pokeid.'"><img src="core/pokemons/'.$pokeid.'.png" alt="'.$pokemons->pokemon->$pokeid->name.'" class="img-responsive"></a>
-				<p class="pkmn-name"><a href="pokemon/'.$pokeid.'">'.$pokemons->pokemon->$pokeid->name.'</a></p>
-			
-			</div>	
-				
-			';
-			
-			
-			echo $html;
-		}
-	
-		break;
+    case 'spawnlist_update':
+        
+        // Recent spawn
+        // ------------
+        
+        if ($config->system->mythic_recents) {
+            // get all mythic pokemon ids
+            $mythic_pokemons = array();
+            foreach($pokemons->pokemon as $id=>$pokemon) {
+                if ($pokemon->spawn_rate < 0.01) {
+                    $mythic_pokemons[] = $id;
+                }
+            }
+            
+            // get last mythic pokemon
+            $req		= "SELECT pokemon_id, disappear_time, latitude, longitude, individual_attack, individual_defense, individual_stamina FROM pokemon
+                        WHERE pokemon_id IN (".implode(",", $mythic_pokemons).")
+                        ORDER BY disappear_time DESC LIMIT 0,1";
+        } else {
+            // get last pokemon
+            $req		= "SELECT pokemon_id, disappear_time, latitude, longitude, individual_attack, individual_defense, individual_stamina FROM pokemon ORDER BY disappear_time DESC LIMIT 0,1";
+        }
+        $result 	= $mysqli->query($req);
+        $data 		= $result->fetch_object();
+        $id 	= $data->pokemon_id;
+        $last_seen = strtotime($data->disappear_time)+60*60;    // TO-DO: implement soft coded time->delay
+        $last_location = new stdClass();
+        $last_location->latitude = $data->latitude;
+        $last_location->longitude = $data->longitude;
+        $iv = new stdClass();
+        $iv->attack = $data->individual_attack;
+        $iv->defense = $data->individual_defense;
+        $iv->stamina = $data->individual_stamina;
+        $iv->percentage = (( $recent->iv->attack + $recent->iv->defense + $recent->iv->stamina ) / 45 ) * 100;
+        if($_GET['last_id'] != $id){
+            if( $iv->percentage > 0 ){
+                $html = '
+                        <div class="col-md-1 col-xs-4 pokemon-single" pokeid="'.$id.'" style="display:none;">
+                            <a href="pokemon/'.$id.'"><img src="core/pokemons/'.$id.'.png" alt="'.$pokemons->pokemon->$id->name.'" class="img-responsive"></a>
+                            <a href="pokemon/'.$id.'"><p class="pkmn-name">'.$pokemons->pokemon->$id->name.'</p></a>
+                            <a href="https://maps.google.com/?q='.$last_location->latitude.','.$last_location->longitude.'&ll='.$last_location->latitude.','.$last_location->longitude.'&z=15" target="_blank">
+                                '.time_ago($last_seen, 0, $locales).'
+                            </a>
+                            <p><strong>IV: '.round($iv->percentage).' %</strong></p>
+                            <div class="progress" style="height: 6px">
+                                <div title="IV Stamina: '. $iv->stamina .'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'. $iv->stamina .'" aria-valuemin="0" aria-valuemax="45" style="width: '. ((100/15)*$iv->stamina)/3 .'%">
+                                    <span class="sr-only">Stamina IV : '. $iv->stamina .'</span>
+                                </div>
+                                <div title="IV attack: '. $iv->attack .'" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="'. $iv->attack .'" aria-valuemin="0" aria-valuemax="45" style="width: '. ((100/15)*$iv->attack)/3 .'%">
+                                    <span class="sr-only">attack IV : '. $iv->attack .'</span>
+                                </div>
+                                <div title="IV defense: '. $iv->defense .'" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="'. $iv->defense .'" aria-valuemin="0" aria-valuemax="45" style="width: '. ((100/15)*$iv->defense)/3 .'%">
+                                    <span class="sr-only">defense IV : '. $iv->defense .'</span>
+                                </div>
+                            </div>
+                        </div>
+                        ';
+                echo    $html;
+            } else {
+                $html = '
+                        <div class="col-md-1 col-xs-4 pokemon-single" pokeid="'.$id.'" style="display:none;">
+                            <a href="pokemon/'.$id.'"><img src="core/pokemons/'.$id.'.png" alt="'.$pokemons->pokemon->$id->name.'" class="img-responsive"></a>
+                            <a href="pokemon/'.$id.'"><p class="pkmn-name">'.$pokemons->pokemon->$id->name.'</p></a>
+                            <a href="https://maps.google.com/?q='.$last_location->latitude.','.$last_location->longitude.'&ll='.$last_location->latitude.','.$last_location->longitude.'&z=15" target="_blank">
+                                '.time_ago($last_seen, 0, $locales).'
+                            </a>
+                            <p><strong>IV:</strong> <code>?</code></p>
+                            <div class="progress" style="height: 6px">
+                                <div title="IV Stamina: '. $iv->stamina .'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'. $iv->stamina .'" aria-valuemin="0" aria-valuemax="45" style="width: '. ((100/15)*$iv->stamina)/3 .'%">
+                                    <span class="sr-only">Stamina IV : '. $iv->stamina .'</span>
+                                </div>
+                                <div title="IV attack: '. $iv->attack .'" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="'. $iv->attack .'" aria-valuemin="0" aria-valuemax="45" style="width: '. ((100/15)*$iv->attack)/3 .'%">
+                                    <span class="sr-only">attack IV : '. $iv->attack .'</span>
+                                </div>
+                                <div title="IV defense: '. $iv->defense .'" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="'. $iv->defense .'" aria-valuemin="0" aria-valuemax="45" style="width: '. ((100/15)*$iv->defense)/3 .'%">
+                                    <span class="sr-only">defense IV : '. $iv->defense .'</span>
+                                </div>
+                            </div>
+                        </div>
+                        ';
+                echo $html;
+            }
+        }
+        
+        
+        break;
 	
 	
 
