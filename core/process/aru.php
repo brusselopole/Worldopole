@@ -136,14 +136,13 @@ switch ($request) {
 	####################################
 
     case 'spawnlist_update':
-        
         // Recent spawn
         // ------------
         
         if ($config->system->mythic_recents) {
             // get all mythic pokemon ids
             $mythic_pokemons = array();
-            foreach($pokemons->pokemon as $id=>$pokemon) {
+            foreach ($pokemons->pokemon as $id => $pokemon) {
                 if ($pokemon->spawn_rate < 0.01) {
                     $mythic_pokemons[] = $id;
                 }
@@ -169,8 +168,8 @@ switch ($request) {
         $iv->defense = $data->individual_defense;
         $iv->stamina = $data->individual_stamina;
         $iv->percentage = (( $iv->attack + $iv->defense + $iv->stamina ) / 45 ) * 100;
-        if($_GET['last_id'] != $id){
-            if( $iv->percentage > 0 ){
+        if ($_GET['last_id'] != $id) {
+            if ($iv->percentage > 0) {
                 $html = '
                         <div class="col-md-1 col-xs-4 pokemon-single" pokeid="'.$id.'" style="display:none;">
                             <a href="pokemon/'.$id.'"><img src="core/pokemons/'.$id.'.png" alt="'.$pokemons->pokemon->$id->name.'" class="img-responsive"></a>

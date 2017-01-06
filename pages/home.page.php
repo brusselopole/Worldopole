@@ -52,7 +52,7 @@
     <div class="col-md-12 text-center">
         <h2 class="text-center sub-title"><?= $locales->RECENT_SPAWNS ?></h2>
         <div class="last-mon-js">
-        <?php foreach($recents as $recent){
+        <?php foreach ($recents as $recent) {
             $id = $recent->id; ?>
             <div class="col-md-1 col-xs-4 pokemon-single" pokeid="<?= $id ?>">
                 <a href="pokemon/<?= $id ?>"><img src="core/pokemons/<?= $id ?>.png" alt="<?= $pokemons->pokemon->$id->name ?>" class="img-responsive"></a>
@@ -61,7 +61,7 @@
                     <?= time_ago($recent->last_seen, $locales) ?>
                 </a>
                 <?php
-                    if( $recent->iv->percentage > 0 ){
+                    if ($recent->iv->percentage > 0) {
                         echo '<p><strong>IV: '.round($recent->iv->percentage).' %</strong></p>';
                     } else {
                         echo '<p><strong>IV:</strong> <code>?</code></p>';

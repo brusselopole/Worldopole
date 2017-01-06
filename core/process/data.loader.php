@@ -443,7 +443,7 @@ else {
 	$recents	= array();
 
     if ($result->num_rows > 0) {
-        while($data = $result->fetch_object()){
+        while ($data = $result->fetch_object()) {
             $recent = new stdClass();
             $recent->id = $data->pokemon_id;
             $recent->last_seen = strtotime($data->disappear_time)+60*60;
