@@ -54,10 +54,10 @@ function time_ago($timestamp, $locales)
 
 	if ($time_difference <= 0) {
 		// Present
-		//return sprintf($locales->TIME_LEFT, $difference_value.' '.$locales->$difference_label);
+		return sprintf($locales->TIME_LEFT, $difference_value.' '.$locales->$difference_label);
 	} else {
 		// Past
-		//return sprintf($locales->TIME_AGO, $difference_value.' '.$locales->$difference_label);
+		return sprintf($locales->TIME_AGO, $difference_value.' '.$locales->$difference_label);
 	}
 }
 

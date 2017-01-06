@@ -1,6 +1,3 @@
-<head>
-    <meta http-equiv="refresh" content="300;url=https://pokemap-bergstrasse.de/">
-</head>
 <header id="single-header">
 	<div class="row">
 		<div class="col-md-12 text-center">
@@ -61,7 +58,7 @@
                 <a href="pokemon/<?= $id ?>"><img src="core/pokemons/<?= $id ?>.png" alt="<?= $pokemons->pokemon->$id->name ?>" class="img-responsive"></a>
                 <a href="pokemon/<?= $id ?>"><p class="pkmn-name"><?= $pokemons->pokemon->$id->name ?></p></a>
                 <a href="https://maps.google.com/?q=<?= $recent->last_location->latitude ?>,<?= $recent->last_location->longitude ?>&ll=<?= $recent->last_location->latitude ?>,<?= $recent->last_location->longitude ?>&z=15" target="_blank">
-                    <?= time_ago($recent->last_seen, 0, $locales) ?>
+                    <?= time_ago($recent->last_seen, $locales) ?>
                 </a>
                 <?php
                     if( $recent->iv->percentage > 0 ){
