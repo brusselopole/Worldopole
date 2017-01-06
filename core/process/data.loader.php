@@ -280,7 +280,7 @@ if (!empty($page)) {
 			
 			$pokestop->total = $data->total;
 			
-			$req 		= "SELECT COUNT(*) as total FROM pokestop WHERE lure_expiration > (NOW() ".$time->symbol_reverse." INTERVAL ".$time->delay." HOUR)";
+			$req 		= "SELECT COUNT(*) as total FROM pokestop WHERE lure_expiration > UTC_TIMESTAMP()";
 			$result 	= $mysqli->query($req);
 			$data 		= $result->fetch_object();
 			
@@ -391,7 +391,7 @@ else {
 	// Right now
 	// ---------
 	
-	$req 		= "SELECT COUNT(*) as total FROM pokemon WHERE disappear_time > (NOW() ".$time->symbol_reverse." INTERVAL ".$time->delay." HOUR);";
+	$req 		= "SELECT COUNT(*) as total FROM pokemon WHERE disappear_time > UTC_TIMESTAMP()";
 	$result 	= $mysqli->query($req);
 	$data 		= $result->fetch_object();
 
@@ -402,7 +402,7 @@ else {
 	// Lured stops
 	// -----------
 	
-	$req 		= "SELECT COUNT(*) as total FROM pokestop WHERE lure_expiration > (NOW() ".$time->symbol_reverse." INTERVAL ".$time->delay." HOUR);";
+	$req 		= "SELECT COUNT(*) as total FROM pokestop WHERE lure_expiration > UTC_TIMESTAMP()";
 	$result 	= $mysqli->query($req);
 	$data 		= $result->fetch_object();
 	
