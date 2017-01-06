@@ -423,7 +423,7 @@ else {
 			}
 		}
 		// get all mythic pokemon
-        $req 		= "SELECT DISTINCT pokemon_id, disappear_time, latitude, longitude, individual_attack, individual_defense, individual_stamina FROM pokemon ORDER BY disappear_time DESC LIMIT 0,12";
+		$req 		= "SELECT DISTINCT pokemon_id, disappear_time, latitude, longitude, individual_attack, individual_defense, individual_stamina FROM pokemon ORDER BY disappear_time DESC LIMIT 0,12";
 	} else {
 		// get all pokemon
 		$req		= "SELECT DISTINCT pokemon_id, disappear_time, latitude, longitude, individual_attack, individual_defense, individual_stamina FROM pokemon ORDER BY disappear_time DESC LIMIT 0,12";
@@ -431,27 +431,27 @@ else {
 	$result 	= $mysqli->query($req);
 	$recents	= array();
 
-    if ($result->num_rows > 0) {
-        while ($data = $result->fetch_object()) {
-            $recent = new stdClass();
-            $recent->id = $data->pokemon_id;
-            if ($time->symbol == "-") {
-                $recent->last_seen = strtotime($data->disappear_time)-60*60*$time->delay;
-            } else {
-                $recent->last_seen = strtotime($data->disappear_time)+60*60*$time->delay;
-            }
-            $recent->last_location = new stdClass();
-            $recent->last_location->latitude = $data->latitude;
-            $recent->last_location->longitude = $data->longitude;
-            $recent->iv = new stdClass();
-            $recent->iv->attack = $data->individual_attack;
-            $recent->iv->defense = $data->individual_defense;
-            $recent->iv->stamina = $data->individual_stamina;
-            $recent->iv->percentage = (( $recent->iv->attack + $recent->iv->defense + $recent->iv->stamina ) / 45 ) * 100;
-            
-            $recents[] = $recent;
-        }
-    }
+	if ($result->num_rows > 0) {
+		while ($data = $result->fetch_object()) {
+			$recent = new stdClass();
+			$recent->id = $data->pokemon_id;
+			if ($time->symbol == "-") {
+				$recent->last_seen = strtotime($data->disappear_time)-60*60*$time->delay;
+			} else {
+				$recent->last_seen = strtotime($data->disappear_time)+60*60*$time->delay;
+			}
+			$recent->last_location = new stdClass();
+			$recent->last_location->latitude = $data->latitude;
+			$recent->last_location->longitude = $data->longitude;
+			$recent->iv = new stdClass();
+			$recent->iv->attack = $data->individual_attack;
+			$recent->iv->defense = $data->individual_defense;
+			$recent->iv->stamina = $data->individual_stamina;
+			$recent->iv->percentage = (( $recent->iv->attack + $recent->iv->defense + $recent->iv->stamina ) / 45 ) * 100;
+			
+			$recents[] = $recent;
+		}
+	}
 		
 	
 	// Team battle
