@@ -159,23 +159,27 @@ switch ($request) {
         $result 	= $mysqli->query($req);
         $data 		= $result->fetch_object();
         $id 	= $data->pokemon_id;
-        if ($time->symbol == "-") {
-            $last_seen = strtotime($data->disappear_time)-60*60*$time->delay;
-        } else {
-            $last_seen = strtotime($data->disappear_time)+60*60*$time->delay;
-        }
-        $last_location = new stdClass();
-        $last_location->latitude = $data->latitude;
-        $last_location->longitude = $data->longitude;
-        $iv = new stdClass();
-        $iv->attack = $data->individual_attack;
-        $iv->defense = $data->individual_defense;
-        $iv->stamina = $data->individual_stamina;
-        $iv->percentage = (( $iv->attack + $iv->defense + $iv->stamina ) / 45 ) * 100;
+        
         if ($_GET['last_id'] != $id) {
+            if ($time->symbol == "-") {
+                $last_seen = strtotime($data->disappear_time)-60*60*$time->delay;
+            } else {
+                $last_seen = strtotime($data->disappear_time)+60*60*$time->delay;
+            }
+            
+            $last_location = new stdClass();
+            $last_location->latitude = $data->latitude;
+            $last_location->longitude = $data->longitude;
+            
+            $iv = new stdClass();
+            $iv->attack = $data->individual_attack;
+            $iv->defense = $data->individual_defense;
+            $iv->stamina = $data->individual_stamina;
+            $iv->percentage = (( $iv->attack + $iv->defense + $iv->stamina ) / 45 ) * 100;
+            
             if ($iv->percentage > 0) {
                 $html = '
-                        <div class="col-md-1 col-xs-4 pokemon-single" pokeid="'.$id.'" style="display:none;">
+                        <div class="col-md-1 col-xs-4 pokemon-single" data-pokeid="'.$id.'" style="display:none;">
                             <a href="pokemon/'.$id.'"><img src="core/pokemons/'.$id.'.png" alt="'.$pokemons->pokemon->$id->name.'" class="img-responsive"></a>
                             <a href="pokemon/'.$id.'"><p class="pkmn-name">'.$pokemons->pokemon->$id->name.'</p></a>
                             <a href="https://maps.google.com/?q='.$last_location->latitude.','.$last_location->longitude.'&ll='.$last_location->latitude.','.$last_location->longitude.'&z=15" target="_blank">
@@ -198,7 +202,7 @@ switch ($request) {
                 echo    $html;
             } else {
                 $html = '
-                        <div class="col-md-1 col-xs-4 pokemon-single" pokeid="'.$id.'" style="display:none;">
+                        <div class="col-md-1 col-xs-4 pokemon-single" data-pokeid="'.$id.'" style="display:none;">
                             <a href="pokemon/'.$id.'"><img src="core/pokemons/'.$id.'.png" alt="'.$pokemons->pokemon->$id->name.'" class="img-responsive"></a>
                             <a href="pokemon/'.$id.'"><p class="pkmn-name">'.$pokemons->pokemon->$id->name.'</p></a>
                             <a href="https://maps.google.com/?q='.$last_location->latitude.','.$last_location->longitude.'&ll='.$last_location->latitude.','.$last_location->longitude.'&z=15" target="_blank">

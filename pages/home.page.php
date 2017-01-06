@@ -54,7 +54,7 @@
         <div class="last-mon-js">
         <?php foreach ($recents as $recent) {
             $id = $recent->id; ?>
-            <div class="col-md-1 col-xs-4 pokemon-single" pokeid="<?= $id ?>">
+            <div class="col-md-1 col-xs-4 pokemon-single" data-pokeid="<?= $id ?>">
                 <a href="pokemon/<?= $id ?>"><img src="core/pokemons/<?= $id ?>.png" alt="<?= $pokemons->pokemon->$id->name ?>" class="img-responsive"></a>
                 <a href="pokemon/<?= $id ?>"><p class="pkmn-name"><?= $pokemons->pokemon->$id->name ?></p></a>
                 <a href="https://maps.google.com/?q=<?= $recent->last_location->latitude ?>,<?= $recent->last_location->longitude ?>&ll=<?= $recent->last_location->latitude ?>,<?= $recent->last_location->longitude ?>&z=15" target="_blank">
