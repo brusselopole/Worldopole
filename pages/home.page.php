@@ -49,44 +49,37 @@
 
 
 <div class="row area big-padding"> <!-- LAST 12 POKEMONS -->
-    <div class="col-md-12 text-center">
-        <h2 class="text-center sub-title"><?= $locales->RECENT_SPAWNS ?></h2>
-        <div class="last-mon-js">
-        <?php foreach ($recents as $recent) {
-			$id = $recent->id; ?>
+	<div class="col-md-12 text-center">
+		<h2 class="text-center sub-title"><?= $locales->RECENT_SPAWNS ?></h2>
+		<div class="last-mon-js">
+		<?php foreach ($recents as $pokemon) {
+			$id = $pokemon->id ?>
 			<div class="col-md-1 col-xs-4 pokemon-single" data-pokeid="<?= $id ?>">
 				<a href="pokemon/<?= $id ?>"><img src="core/pokemons/<?= $id ?>.png" alt="<?= $pokemons->pokemon->$id->name ?>" class="img-responsive"></a>
 				<a href="pokemon/<?= $id ?>"><p class="pkmn-name"><?= $pokemons->pokemon->$id->name ?></p></a>
-				<a href="https://maps.google.com/?q=<?= $recent->last_location->latitude ?>,<?= $recent->last_location->longitude ?>&ll=<?= $recent->last_location->latitude ?>,<?= $recent->last_location->longitude ?>&z=15" target="_blank">
-					<?= time_ago($recent->last_seen, $locales) ?>
+				<a href="https://maps.google.com/?q=<?= $pokemon->last_location->latitude ?>,<?= $pokemon->last_location->longitude ?>&ll=<?= $pokemon->last_location->latitude ?>,<?= $pokemon->last_location->longitude ?>&z=16" target="_blank">
+					<?= time_ago($pokemon->last_seen, $locales) ?>
 				</a>
 				<?php
-				if ($recent->iv->percentage > 0) {
-					echo '<p><strong>IV: '.round($recent->iv->percentage).' %</strong></p>';
-				} else {
-					echo '<p><strong>IV:</strong> <code>?</code></p>';
-				}
-					$html =	'
-                            <div class="progress" style="height: 6px">
-                                <div title="IV Stamina: '. $recent->iv->stamina .'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'. $recent->iv->stamina .'" aria-valuemin="0" aria-valuemax="45" style="width: '. ((100/15)*$recent->iv->stamina)/3 .'%">
-                                    <span class="sr-only">Stamina IV : '. $recent->iv->stamina .'</span>
-                                </div>
-                                <div title="IV attack: '. $recent->iv->attack .'" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="'. $recent->iv->attack .'" aria-valuemin="0" aria-valuemax="45" style="width: '. ((100/15)*$recent->iv->attack)/3 .'%">
-                                    <span class="sr-only">attack IV : '. $recent->iv->attack .'</span>
-                                </div>
-                                <div title="IV defense: '. $recent->iv->defense .'" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="'. $recent->iv->defense .'" aria-valuemin="0" aria-valuemax="45" style="width: '. ((100/15)*$recent->iv->defense)/3 .'%">
-                                    <span class="sr-only">defense IV : '. $recent->iv->defense .'</span>
-                                </div>
-                            </div>
-                            ';
-	
-					echo 	$html;
+				if (isset($pokemon->iv->percentage)) {
 				?>
+				<p><strong>IV: '.round($pokemon->iv->percentage).' %</strong></p>';
+				<div class="progress" style="height: 6px">
+					<div title="IV Stamina: '. $pokemon->iv->stamina .'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'. $pokemon->iv->stamina .'" aria-valuemin="0" aria-valuemax="45" style="width: '. ((100/15)*$pokemon->iv->stamina)/3 .'%">
+						<span class="sr-only">Stamina IV : '. $pokemon->iv->stamina .'</span>
+					</div>
+					<div title="IV attack: '. $pokemon->iv->attack .'" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="'. $pokemon->iv->attack .'" aria-valuemin="0" aria-valuemax="45" style="width: '. ((100/15)*$pokemon->iv->attack)/3 .'%">
+						<span class="sr-only">attack IV : '. $pokemon->iv->attack .'</span>
+					</div>
+					<div title="IV defense: '. $pokemon->iv->defense .'" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="'. $pokemon->iv->defense .'" aria-valuemin="0" aria-valuemax="45" style="width: '. ((100/15)*$pokemon->iv->defense)/3 .'%">
+						<span class="sr-only">defense IV : '. $pokemon->iv->defense .'</span>
+					</div>
+				</div>
+				<?php } ?>
 			</div>
 		<?php } ?>
 		</div>
 	</div>
-
 </div>
 
 

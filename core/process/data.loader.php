@@ -423,10 +423,13 @@ else {
 			}
 		}
 		// get all mythic pokemon
-		$req 		= "SELECT DISTINCT pokemon_id, disappear_time, latitude, longitude, individual_attack, individual_defense, individual_stamina FROM pokemon ORDER BY disappear_time DESC LIMIT 0,12";
+		$req 		= "SELECT DISTINCT pokemon_id, disappear_time, latitude, longitude, individual_attack, individual_defense, individual_stamina FROM pokemon
+				   WHERE pokemon_id IN (".implode(",", $mythic_pokemons).")
+				   ORDER BY disappear_time DESC LIMIT 0,12";
 	} else {
 		// get all pokemon
-		$req		= "SELECT DISTINCT pokemon_id, disappear_time, latitude, longitude, individual_attack, individual_defense, individual_stamina FROM pokemon ORDER BY disappear_time DESC LIMIT 0,12";
+		$req		= "SELECT DISTINCT pokemon_id, disappear_time, latitude, longitude, individual_attack, individual_defense, individual_stamina FROM pokemon
+				   ORDER BY disappear_time DESC LIMIT 0,12";
 	}
 	$result 	= $mysqli->query($req);
 	$recents	= array();
@@ -447,7 +450,9 @@ else {
 			$recent->iv->attack = $data->individual_attack;
 			$recent->iv->defense = $data->individual_defense;
 			$recent->iv->stamina = $data->individual_stamina;
-			$recent->iv->percentage = (( $recent->iv->attack + $recent->iv->defense + $recent->iv->stamina ) / 45 ) * 100;
+			if (isset($recent->iv->attack) && isset($recent->iv->defense) && isset($recent->iv->stamina)) {
+				$recent->iv->percentage = (( $recent->iv->attack + $recent->iv->defense + $recent->iv->stamina ) / 45 ) * 100;
+			}
 			
 			$recents[] = $recent;
 		}
