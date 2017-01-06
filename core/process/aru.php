@@ -159,7 +159,11 @@ switch ($request) {
         $result 	= $mysqli->query($req);
         $data 		= $result->fetch_object();
         $id 	= $data->pokemon_id;
-        $last_seen = strtotime($data->disappear_time)+60*60;    // TO-DO: implement soft coded time->delay
+        if ($time->symbol == "-") {
+            $last_seen = strtotime($data->disappear_time)-60*60*$time->delay;
+        } else {
+            $last_seen = strtotime($data->disappear_time)+60*60*$time->delay;
+        }
         $last_location = new stdClass();
         $last_location->latitude = $data->latitude;
         $last_location->longitude = $data->longitude;
