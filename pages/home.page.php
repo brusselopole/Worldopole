@@ -60,9 +60,7 @@
 				<a href="https://maps.google.com/?q=<?= $pokemon->last_location->latitude ?>,<?= $pokemon->last_location->longitude ?>&ll=<?= $pokemon->last_location->latitude ?>,<?= $pokemon->last_location->longitude ?>&z=16" target="_blank">
 					<?= time_ago($pokemon->last_seen, $locales) ?>
 				</a>
-				<?php
-				if (isset($pokemon->iv->percentage)) {
-				?>
+				<?php if (isset($pokemon->iv->percentage)) { ?>
 				<p><strong>IV: <?= round($pokemon->iv->percentage) ?> %</strong></p>
 				<div class="progress" style="height: 6px">
 					<div title="IV Stamina: <?= $pokemon->iv->stamina ?>" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<?= $pokemon->iv->stamina ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= ((100/15)*$pokemon->iv->stamina)/3 ?>%">

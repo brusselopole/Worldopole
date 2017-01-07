@@ -181,17 +181,10 @@ switch ($request) {
                             <a href="pokemon/'.$pokeid.'"><p class="pkmn-name">'.$pokemons->pokemon->$pokeid->name.'</p></a>
                             <a href="https://maps.google.com/?q='.$last_location->latitude.','.$last_location->longitude.'&ll='.$last_location->latitude.','.$last_location->longitude.'&z=16" target="_blank">
                                 '.time_ago($last_seen, $locales).'
-                            </a>
-                        </div>';
+                            </a>';
             
 			if (isset($iv->percentage)) {
-				$html = '
-                        <div class="col-md-1 col-xs-4 pokemon-single" data-pokeid="'.$pokeid.'" style="display:none;">
-                            <a href="pokemon/'.$pokeid.'"><img src="core/pokemons/'.$pokeid.'.png" alt="'.$pokemons->pokemon->$pokeid->name.'" class="img-responsive"></a>
-                            <a href="pokemon/'.$pokeid.'"><p class="pkmn-name">'.$pokemons->pokemon->$pokeid->name.'</p></a>
-                            <a href="https://maps.google.com/?q='.$last_location->latitude.','.$last_location->longitude.'&ll='.$last_location->latitude.','.$last_location->longitude.'&z=16" target="_blank">
-                            '.time_ago($last_seen, $locales).'
-                            </a>
+				$html .= '
                             <p><strong>IV: '.round($iv->percentage).' %</strong></p>
                             <div class="progress" style="height: 6px">
                                 <div title="IV Stamina: '. $iv->stamina .'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'. $iv->stamina .'" aria-valuemin="0" aria-valuemax="45" style="width: '. ((100/15)*$iv->stamina)/3 .'%">
