@@ -176,14 +176,6 @@ if (!empty($page)) {
 				$data		= $result->fetch_object();
 				
 				$pokemon->total_days = $data->total;
-				
-				
-				$req 		= "SELECT COUNT(*) as total, DATE(disappear_time ".$time->symbol." INTERVAL ".$time->delay." HOUR) as disappear_time
-				FROM pokemon WHERE pokemon_id = '".$pokemon_id."' 
-				GROUP BY DATE(disappear_time ".$time->symbol." INTERVAL ".$time->delay." HOUR) ";
-				
-				$result 	= $mysqli->query($req);
-				
 				$pokemon->spawn_rate 	= round(($pokemon->total_spawn/$pokemon->total_days), 2);
 			} else {
 				$pokemon->total_days 	= 0;
