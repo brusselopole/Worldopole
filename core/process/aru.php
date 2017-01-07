@@ -181,19 +181,27 @@ switch ($request) {
                             <a href="pokemon/'.$pokeid.'"><p class="pkmn-name">'.$pokemons->pokemon->$pokeid->name.'</p></a>
                             <a href="https://maps.google.com/?q='.$last_location->latitude.','.$last_location->longitude.'&ll='.$last_location->latitude.','.$last_location->longitude.'&z=16" target="_blank">
                                 '.time_ago($last_seen, $locales).'
-                            </a>';
+                            </a>
+                        </div>';
+            
 			if (isset($iv->percentage)) {
-				$html .= '
+				$html = '
+                        <div class="col-md-1 col-xs-4 pokemon-single" data-pokeid="'.$pokeid.'" style="display:none;">
+                            <a href="pokemon/'.$pokeid.'"><img src="core/pokemons/'.$pokeid.'.png" alt="'.$pokemons->pokemon->$pokeid->name.'" class="img-responsive"></a>
+                            <a href="pokemon/'.$pokeid.'"><p class="pkmn-name">'.$pokemons->pokemon->$pokeid->name.'</p></a>
+                            <a href="https://maps.google.com/?q='.$last_location->latitude.','.$last_location->longitude.'&ll='.$last_location->latitude.','.$last_location->longitude.'&z=16" target="_blank">
+                            '.time_ago($last_seen, $locales).'
+                            </a>
                             <p><strong>IV: '.round($iv->percentage).' %</strong></p>
                             <div class="progress" style="height: 6px">
                                 <div title="IV Stamina: '. $iv->stamina .'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'. $iv->stamina .'" aria-valuemin="0" aria-valuemax="45" style="width: '. ((100/15)*$iv->stamina)/3 .'%">
-                                    <span class="sr-only">Stamina IV : '. $iv->stamina .'</span>
+                                    <span class="sr-only">Stamina IV: '. $iv->stamina .'</span>
                                 </div>
                                 <div title="IV attack: '. $iv->attack .'" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="'. $iv->attack .'" aria-valuemin="0" aria-valuemax="45" style="width: '. ((100/15)*$iv->attack)/3 .'%">
-                                    <span class="sr-only">attack IV : '. $iv->attack .'</span>
+                                    <span class="sr-only">Attack IV: '. $iv->attack .'</span>
                                 </div>
                                 <div title="IV defense: '. $iv->defense .'" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="'. $iv->defense .'" aria-valuemin="0" aria-valuemax="45" style="width: '. ((100/15)*$iv->defense)/3 .'%">
-                                    <span class="sr-only">defense IV : '. $iv->defense .'</span>
+                                    <span class="sr-only">Defense IV: '. $iv->defense .'</span>
                                 </div>
                             </div>
                         </div>';
@@ -456,15 +464,15 @@ switch ($request) {
 					<p class="pkmn-name">'.$data->cp.'</p>
 					<div class="progress" style="height: 4px; width: 40px; margin-bottom: 10px; margin-top: 2px; margin-left: auto; margin-right: auto">
 						<div title="IV Stamina: '.$data->iv_stamina.'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'.$data->iv_stamina.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(((100/15)*$data->iv_stamina)/3).'%">
-							<span class="sr-only">Stamina IV : '.$data->iv_stamina.'</span>
+							<span class="sr-only">Stamina IV: '.$data->iv_stamina.'</span>
 						</div>
 					
 						<div title="IV Attack: '.$data->iv_attack.'" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="'.$data->iv_attack.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(((100/15)*$data->iv_attack)/3).'%">
-							<span class="sr-only">Attack IV : '.$data->iv_attack.'</span>
+							<span class="sr-only">Attack IV: '.$data->iv_attack.'</span>
 						</div>
 
 						<div title="IV Defense: '.$data->iv_defense.'" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="'.$data->iv_defense.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(((100/15)*$data->iv_defense)/3).'%">
-							<span class="sr-only">Defense IV : '.$data->iv_defense.'</span>
+							<span class="sr-only">Defense IV: '.$data->iv_defense.'</span>
 						</div>
 					</div>
 				</div>'

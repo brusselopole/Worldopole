@@ -439,9 +439,11 @@ else {
 			$recent = new stdClass();
 			$recent->id = $data->pokemon_id;
 			$recent->last_seen = strtotime($data->disappear_time_real);
+            
 			$recent->last_location = new stdClass();
 			$recent->last_location->latitude = $data->latitude;
 			$recent->last_location->longitude = $data->longitude;
+            
 			$recent->iv = new stdClass();
 			$recent->iv->attack = $data->individual_attack;
 			$recent->iv->defense = $data->individual_defense;
