@@ -21,7 +21,6 @@
 		"map_center_lat"	:	"50.844441",
 		"map_center_long"	:	"4.363557",
 		"zoom_level"		:	"13",
-		"time_interval"		:	"+2",
 		"GMaps_Key"		:	"#GMAPS_KEY#",
 		"timezone"		:	"Europe/Paris",
 		"max_pokemon"		:	151,

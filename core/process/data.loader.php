@@ -176,14 +176,6 @@ if (!empty($page)) {
 				$data		= $result->fetch_object();
 				
 				$pokemon->total_days = $data->total;
-				
-				
-				$req 		= "SELECT COUNT(*) as total, DATE(disappear_time ".$time->symbol." INTERVAL ".$time->delay." HOUR) as disappear_time
-				FROM pokemon WHERE pokemon_id = '".$pokemon_id."' 
-				GROUP BY DATE(disappear_time ".$time->symbol." INTERVAL ".$time->delay." HOUR) ";
-				
-				$result 	= $mysqli->query($req);
-				
 				$pokemon->spawn_rate 	= round(($pokemon->total_spawn/$pokemon->total_days), 2);
 			} else {
 				$pokemon->total_days 	= 0;
@@ -193,7 +185,7 @@ if (!empty($page)) {
 						
 			// Last seen
 			
-			$req 		= "SELECT (disappear_time ".$time->symbol." INTERVAL ".$time->delay." HOUR) as disappear_time, latitude, longitude 
+			$req 		= "SELECT disappear_time, (CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) as disappear_time_real, latitude, longitude
 			FROM pokemon 
 			WHERE pokemon_id = '".$pokemon_id."' 
 			ORDER BY disappear_time DESC 
@@ -204,7 +196,7 @@ if (!empty($page)) {
 			if (isset($data)) {
 				$last_spawn 				= $data;
 				
-				$pokemon->last_seen			= strtotime($data->disappear_time);
+				$pokemon->last_seen			= strtotime($data->disappear_time_real);
 				$pokemon->last_position			= new stdClass();
 				$pokemon->last_position->latitude 	= $data->latitude;
 				$pokemon->last_position->longitude 	= $data->longitude;
@@ -280,7 +272,7 @@ if (!empty($page)) {
 			
 			$pokestop->total = $data->total;
 			
-			$req 		= "SELECT COUNT(*) as total FROM pokestop WHERE lure_expiration > (NOW() ".$time->symbol_reverse." INTERVAL ".$time->delay." HOUR)";
+			$req 		= "SELECT COUNT(*) as total FROM pokestop WHERE lure_expiration > UTC_TIMESTAMP()";
 			$result 	= $mysqli->query($req);
 			$data 		= $result->fetch_object();
 			
@@ -391,7 +383,7 @@ else {
 	// Right now
 	// ---------
 	
-	$req 		= "SELECT COUNT(*) as total FROM pokemon WHERE disappear_time > (NOW() ".$time->symbol_reverse." INTERVAL ".$time->delay." HOUR);";
+	$req 		= "SELECT COUNT(*) as total FROM pokemon WHERE disappear_time > UTC_TIMESTAMP()";
 	$result 	= $mysqli->query($req);
 	$data 		= $result->fetch_object();
 
@@ -402,7 +394,7 @@ else {
 	// Lured stops
 	// -----------
 	
-	$req 		= "SELECT COUNT(*) as total FROM pokestop WHERE lure_expiration > (NOW() ".$time->symbol_reverse." INTERVAL ".$time->delay." HOUR);";
+	$req 		= "SELECT COUNT(*) as total FROM pokestop WHERE lure_expiration > UTC_TIMESTAMP()";
 	$result 	= $mysqli->query($req);
 	$data 		= $result->fetch_object();
 	
