@@ -185,7 +185,7 @@ if (!empty($page)) {
 						
 			// Last seen
 			
-			$req 		= "SELECT (disappear_time ".$time->symbol." INTERVAL ".$time->delay." HOUR) as disappear_time, latitude, longitude 
+			$req 		= "SELECT disappear_time, (CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) as disappear_time_real, latitude, longitude
 			FROM pokemon 
 			WHERE pokemon_id = '".$pokemon_id."' 
 			ORDER BY disappear_time DESC 
@@ -196,7 +196,7 @@ if (!empty($page)) {
 			if (isset($data)) {
 				$last_spawn 				= $data;
 				
-				$pokemon->last_seen			= strtotime($data->disappear_time);
+				$pokemon->last_seen			= strtotime($data->disappear_time_real);
 				$pokemon->last_position			= new stdClass();
 				$pokemon->last_position->latitude 	= $data->latitude;
 				$pokemon->last_position->longitude 	= $data->longitude;

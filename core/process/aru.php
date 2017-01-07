@@ -259,7 +259,7 @@ switch ($request) {
 	
 	
 	case 'gym_map':
-		$req 		= "SELECT gym_id, team_id, guard_pokemon_id, gym_points, latitude, longitude, (last_modified ".$time->symbol." INTERVAL ".$time->delay." HOUR) as last_modified FROM gym";
+		$req 		= "SELECT gym_id, team_id, guard_pokemon_id, gym_points, latitude, longitude, (CONVERT_TZ(last_modified, '+00:00', '".$time_offset."')) as last_modified FROM gym";
 		$result 	= $mysqli->query($req);
 		
 		
@@ -369,7 +369,7 @@ switch ($request) {
 	
 	case 'gym_defenders':
 		$gym_id = $mysqli->real_escape_string($_GET['gym_id']);
-		$req 		= "SELECT gymdetails.name as name, gymdetails.description as description, gym.gym_points as points, gymdetails.url as url, gym.team_id as team, (gym.last_modified ".$time->symbol." INTERVAL ".$time->delay." HOUR) as last_modified, gym.guard_pokemon_id as guard_pokemon_id FROM gymdetails LEFT JOIN gym on gym.gym_id = gymdetails.gym_id WHERE gym.gym_id='".$gym_id."'";
+		$req 		= "SELECT gymdetails.name as name, gymdetails.description as description, gym.gym_points as points, gymdetails.url as url, gym.team_id as team, (CONVERT_TZ(gym.last_modified, '+00:00', '".$time_offset."')) as last_modified, gym.guard_pokemon_id as guard_pokemon_id FROM gymdetails LEFT JOIN gym on gym.gym_id = gymdetails.gym_id WHERE gym.gym_id='".$gym_id."'";
 		$result 	= $mysqli->query($req);
 		$gymData['gymDetails']['gymInfos'] = false;
 		while ($data = $result->fetch_object()) {

@@ -31,20 +31,20 @@ if ($mysqli->connect_error != '') {
 
 $pokemon_id = mysqli_real_escape_string($mysqli, $_GET['id']);
 
-$req		= "SELECT COUNT(*) as total, HOUR(disappear_time ".$time->symbol." INTERVAL ".$time->delay." HOUR) as disappear_time 
-			FROM pokemon 
-			WHERE pokemon_id = '".$pokemon_id."' 
-			GROUP BY HOUR(disappear_time ".$time->symbol." INTERVAL ".$time->delay." HOUR) 
-			ORDER BY HOUR(disappear_time ".$time->symbol." INTERVAL ".$time->delay." HOUR), disappear_time";
+$req		= "SELECT COUNT(*) as total, HOUR(CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) as disappear_hour
+			FROM pokemon
+			WHERE pokemon_id = '".$pokemon_id."'
+			GROUP BY disappear_hour
+			ORDER BY disappear_hour";
 		
 $result		= $mysqli->query($req);
 
 while ($data = $result->fetch_object()) {
-	if ($data->disappear_time < 10) {
-		$data->disappear_time = '0'.$data->disappear_time;
+	if ($data->disappear_hour < 10) {
+		$data->disappear_hour = '0'.$data->disappear_hour;
 	}
 	
-	$array[$data->disappear_time] = $data->total;
+	$array[$data->disappear_hour] = $data->total;
 }
 
 // Create the h24 array with associated values
