@@ -149,23 +149,19 @@ switch ($request) {
 			}
 			
 			// get last mythic pokemon
-			$req		= "SELECT pokemon_id, disappear_time, latitude, longitude, individual_attack, individual_defense, individual_stamina FROM pokemon
+			$req		= "SELECT pokemon_id, disappear_time, (CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) as disappear_time_real, latitude, longitude, individual_attack, individual_defense, individual_stamina FROM pokemon
                         WHERE pokemon_id IN (".implode(",", $mythic_pokemons).")
                         ORDER BY disappear_time DESC LIMIT 0,1";
 		} else {
 			// get last pokemon
-			$req		= "SELECT pokemon_id, disappear_time, latitude, longitude, individual_attack, individual_defense, individual_stamina FROM pokemon ORDER BY disappear_time DESC LIMIT 0,1";
+			$req		= "SELECT pokemon_id, disappear_time, (CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) as disappear_time_real, latitude, longitude, individual_attack, individual_defense, individual_stamina FROM pokemon ORDER BY disappear_time DESC LIMIT 0,1";
 		}
 		$result = $mysqli->query($req);
 		$data = $result->fetch_object();
 		$pokeid = $data->pokemon_id;
 		
 		if ($_GET['last_id'] != $pokeid) {
-			if ($time->symbol == "-") {
-				$last_seen = strtotime($data->disappear_time)-60*60*$time->delay;
-			} else {
-				$last_seen = strtotime($data->disappear_time)+60*60*$time->delay;
-			}
+			$last_seen = strtotime($data->disappear_time_real);
 			
 			$last_location = new stdClass();
 			$last_location->latitude = $data->latitude;
