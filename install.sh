@@ -22,7 +22,6 @@ SITE_NAME="Worldopole"
 CITY="Weuuurld"
 MAP_CENTER_LAT="50.844441"
 MAP_CENTER_LONG="4.363557"
-TIME_INTERVAL="+2"
 GMAPS_KEY=""
 TIMEZONE="Europe/Paris"
 
@@ -55,7 +54,6 @@ until [ "$answer" == 'y' ]; do
 	CITY=$(readinput "City Name: " "$CITY")
 	MAP_CENTER_LAT=$(readinput "Map Center Latitude: " "$MAP_CENTER_LAT")
 	MAP_CENTER_LONG=$(readinput "Map Center Longitude: " "$MAP_CENTER_LONG")
-	TIME_INTERVAL=$(readinput "Time Difference between Server Timezone and UTC (+/-hours): " "$TIME_INTERVAL")
 	GMAPS_KEY=$(readinput "GMaps API Key: " "$GMAPS_KEY")
 	TIMEZONE=$(readinput "Server Timezone (see http://php.net/manual/en/timezones.php): " "$TIMEZONE")
 
@@ -75,7 +73,6 @@ until [ "$answer" == 'y' ]; do
 	echo "City Name: $CITY"
 	echo "Map Center Latitude: $MAP_CENTER_LAT"
 	echo "Map Center Longitude: $MAP_CENTER_LONG"
-	echo "Time Difference between Server Timezone and UTC: $TIME_INTERVAL"
 	echo "GMaps API Key: $GMAPS_KEY"
 	echo "Server Timezone: $TIMEZONE"
 	echo
@@ -107,7 +104,6 @@ sed	-e "s/\"Worldopole\"/\"$SITE_NAME\"/" \
 	-e "s/\"Weuuurld\"/\"$CITY\"/" \
 	-e "s/\"50.844441\"/\"$MAP_CENTER_LAT\"/" \
 	-e "s/\"4.363557\"/\"$MAP_CENTER_LONG\"/" \
-	-e "s/\"+2\"/\"$TIME_INTERVAL\"/" \
 	-e "s/#GMAPS_KEY#/$GMAPS_KEY/" \
 	-e "s/\"Europe\/Paris\"/\"$TIMEZONE\"/" \
 "$VARIABLES_JSON_EX" > "$VARIABLES_JSON"
