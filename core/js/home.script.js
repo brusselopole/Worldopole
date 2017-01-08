@@ -62,10 +62,10 @@ function updateCounter(new_value, classname)
 				//console.log(data);
 				$('.last-mon-js').prepend(data);
 				
-				$('.last-mon-js div:last-child').fadeOut();
-				$('.last-mon-js div:first-child').fadeIn();
+				$('.last-mon-js > div:last-child').fadeOut();
+				$('.last-mon-js > div:first-child').fadeIn();
 					
-					$('.last-mon-js div:last-child').remove();
+                $('.last-mon-js > div:last-child').remove();
 			}
 			
 			

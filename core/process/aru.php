@@ -171,7 +171,7 @@ switch ($request) {
 			$iv->attack = $data->individual_attack;
 			$iv->defense = $data->individual_defense;
 			$iv->stamina = $data->individual_stamina;
-			if (isset($recent->iv->attack) && isset($recent->iv->defense) && isset($recent->iv->stamina)) {
+			if (isset($iv->attack) && isset($iv->defense) && isset($iv->stamina)) {
 				$iv->percentage = (( $iv->attack + $iv->defense + $iv->stamina ) / 45 ) * 100;
 			}
 			
