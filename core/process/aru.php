@@ -176,7 +176,7 @@ switch ($request) {
 			}
 			
 			$html = '
-                        <div class="col-md-1 col-xs-4 pokemon-single" data-pokeid="'.$pokeid.'" style="height:175px display:none;">
+                        <div class="col-md-1 col-xs-4 pokemon-single" data-pokeid="'.$pokeid.'" style="display: none;">
                             <a href="pokemon/'.$pokeid.'"><img src="core/pokemons/'.$pokeid.'.png" alt="'.$pokemons->pokemon->$pokeid->name.'" class="img-responsive"></a>
                             <a href="pokemon/'.$pokeid.'"><p class="pkmn-name">'.$pokemons->pokemon->$pokeid->name.'</p></a>
                             <a href="https://maps.google.com/?q='.$last_location->latitude.','.$last_location->longitude.'&ll='.$last_location->latitude.','.$last_location->longitude.'&z=16" target="_blank">
@@ -185,7 +185,7 @@ switch ($request) {
             
 			if ($iv->available) {
 				$html .= '
-                            <div class="progress" style="height: 6px">
+                            <div class="progress" style="height: 6px; width: 80%; margin: 5px auto 0 auto;">
                                 <div title="Stamina IV: '. $iv->stamina .'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'. $iv->stamina .'" aria-valuemin="0" aria-valuemax="45" style="width: '. ((100/15)*$iv->stamina)/3 .'%">
                                     <span class="sr-only">Stamina IV: '. $iv->stamina .'</span>
                                 </div>
@@ -196,6 +196,11 @@ switch ($request) {
                                     <span class="sr-only">Defense IV: '. $iv->defense .'</span>
                                 </div>
                             </div>';
+			} else {
+				$html .= '
+				<div class="progress" style="height: 6px; width: 80%; margin: 5px auto 0 auto;">
+					<div title="IV not available" class="progress-bar" role="progressbar" style="width: 100%; background-color:#aaaaaa;" aria-valuenow="1" aria-valuemin="0" aria-valuemax="1"></div>
+				</div>';
 			}
             $html .= '</div>';
 

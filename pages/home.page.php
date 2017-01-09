@@ -54,14 +54,14 @@
 		<div class="last-mon-js">
 		<?php foreach ($recents as $pokemon) {
 			$id = $pokemon->id ?>
-			<div class="col-md-1 col-xs-4 pokemon-single" data-pokeid="<?= $id ?>" style="175px;">
+			<div class="col-md-1 col-xs-3 pokemon-single" data-pokeid="<?= $id ?>">
 				<a href="pokemon/<?= $id ?>"><img src="core/pokemons/<?= $id ?>.png" alt="<?= $pokemons->pokemon->$id->name ?>" class="img-responsive"></a>
 				<a href="pokemon/<?= $id ?>"><p class="pkmn-name"><?= $pokemons->pokemon->$id->name ?></p></a>
 				<a href="https://maps.google.com/?q=<?= $pokemon->last_location->latitude ?>,<?= $pokemon->last_location->longitude ?>&ll=<?= $pokemon->last_location->latitude ?>,<?= $pokemon->last_location->longitude ?>&z=16" target="_blank">
 					<small><?= time_ago($pokemon->last_seen, $locales) ?></small>
 				</a>
 				<?php if ($pokemon->iv->available) { ?>
-				<div class="progress" style="height: 6px">
+				<div class="progress" style="height: 6px; width: 80%; margin: 5px auto 0 auto;">
 					<div title="Stamina IV: <?= $pokemon->iv->stamina ?>" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<?= $pokemon->iv->stamina ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= ((100/15)*$pokemon->iv->stamina)/3 ?>%">
 						<span class="sr-only">Stamina IV: <?= $pokemon->iv->stamina ?></span>
 					</div>
@@ -71,6 +71,10 @@
 					<div title="Defense IV: <?= $pokemon->iv->defense ?>" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="<?= $pokemon->iv->defense ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= ((100/15)*$pokemon->iv->defense)/3 ?>%">
 						<span class="sr-only">Defense IV: <?= $pokemon->iv->defense ?></span>
 					</div>
+				</div>
+				<?php } else { ?>
+				<div class="progress" style="height: 6px; width: 80%; margin: 5px auto 0 auto;">
+					<div title="IV not available" class="progress-bar" role="progressbar" style="width: 100%; background-color:#aaaaaa;" aria-valuenow="1" aria-valuemin="0" aria-valuemax="1"></div>
 				</div>
 				<?php } ?>
 			</div>
