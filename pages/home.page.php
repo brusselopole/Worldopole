@@ -48,7 +48,7 @@
 </div>
 
 
-<div class="row area big-padding"> <!-- LAST 12 POKEMONS -->
+<div class="row area big-padding">
 	<div class="col-md-12 text-center">
 		<h2 class="text-center sub-title"><?= $locales->RECENT_SPAWNS ?></h2>
 		<div class="last-mon-js">
