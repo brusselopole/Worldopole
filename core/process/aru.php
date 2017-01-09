@@ -199,6 +199,7 @@ switch ($request) {
                             </div>
                         </div>';
 			}
+            $html .= '</div>';
 
             echo $html;
 		}
