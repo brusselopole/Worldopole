@@ -424,12 +424,12 @@ else {
 		}
 	
 		// get all mythic pokemon
-		$req 		= "SELECT DISTINCT pokemon_id, disappear_time FROM pokemon
+		$req 		= "SELECT DISTINCT pokemon_id, disappear_time, last_modified FROM pokemon
 				   WHERE pokemon_id IN (".implode(",", $mythic_pokemons).")
 				   ORDER BY last_modified DESC LIMIT 0,12";
 	} else {
 		// get all pokemon
-		$req		= "SELECT DISTINCT pokemon_id, disappear_time FROM pokemon ORDER BY last_modified DESC LIMIT 0,12";
+		$req		= "SELECT DISTINCT pokemon_id, disappear_time, last_modified FROM pokemon ORDER BY last_modified DESC LIMIT 0,12";
 	}
 	$result 	= $mysqli->query($req);
 	$recents	= array();

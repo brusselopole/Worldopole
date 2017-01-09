@@ -148,12 +148,12 @@ switch ($request) {
 			}
 
 			// get last mythic pokemon
-			$req		= "SELECT pokemon_id FROM pokemon
+			$req		= "SELECT pokemon_id FROM pokemon, last_modified
 					   WHERE pokemon_id IN (".implode(",", $mythic_pokemons).")
 					   ORDER BY last_modified DESC LIMIT 0,1";
 		} else {
 			// get last pokemon
-			$req		= "SELECT pokemon_id FROM pokemon ORDER BY last_modified DESC LIMIT 0,1";
+			$req		= "SELECT pokemon_id FROM pokemon, last_modified ORDER BY last_modified DESC LIMIT 0,1";
 		}
 		$result 	= $mysqli->query($req);
 		$recents	= array();
