@@ -61,7 +61,7 @@
 					<small><?= time_ago($pokemon->last_seen, $locales) ?></small>
 				</a>
 				<?php if ($pokemon->iv->available) { ?>
-				<div class="progress" style="height: 6px; width: 80%; margin: 5px auto 0 auto;">
+				<div class="progress" style="height: 6px; width: 80%; margin: 5px auto 15px auto;">
 					<div title="Stamina IV: <?= $pokemon->iv->stamina ?>" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<?= $pokemon->iv->stamina ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= ((100/15)*$pokemon->iv->stamina)/3 ?>%">
 						<span class="sr-only">Stamina IV: <?= $pokemon->iv->stamina ?></span>
 					</div>
@@ -73,7 +73,7 @@
 					</div>
 				</div>
 				<?php } else { ?>
-				<div class="progress" style="height: 6px; width: 80%; margin: 5px auto 0 auto;">
+				<div class="progress" style="height: 6px; width: 80%; margin: 5px auto 15px auto;">
 					<div title="IV not available" class="progress-bar" role="progressbar" style="width: 100%; background-color:#aaaaaa;" aria-valuenow="1" aria-valuemin="0" aria-valuemax="1"></div>
 				</div>
 				<?php } ?>
