@@ -63,7 +63,7 @@ $(function () {
 		$("#searchTrainer").submit();
 		
 	});
-	function loadTrainers(page,name='',teamSelector,rankingFilter)
+	function loadTrainers(page,name,teamSelector,rankingFilter)
 	{
 		$('.trainerLoader').show();
 		
