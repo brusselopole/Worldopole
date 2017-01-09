@@ -58,10 +58,9 @@
 				<a href="pokemon/<?= $id ?>"><img src="core/pokemons/<?= $id ?>.png" alt="<?= $pokemons->pokemon->$id->name ?>" class="img-responsive"></a>
 				<a href="pokemon/<?= $id ?>"><p class="pkmn-name"><?= $pokemons->pokemon->$id->name ?></p></a>
 				<a href="https://maps.google.com/?q=<?= $pokemon->last_location->latitude ?>,<?= $pokemon->last_location->longitude ?>&ll=<?= $pokemon->last_location->latitude ?>,<?= $pokemon->last_location->longitude ?>&z=16" target="_blank">
-					<?= time_ago($pokemon->last_seen, $locales) ?>
+					<small><?= time_ago($pokemon->last_seen, $locales) ?></small>
 				</a>
-				<?php if (isset($pokemon->iv->percentage)) { ?>
-				<p><strong>IV: <?= round($pokemon->iv->percentage) ?> %</strong></p>
+				<?php if ($pokemon->iv->available) { ?>
 				<div class="progress" style="height: 6px">
 					<div title="Stamina IV: <?= $pokemon->iv->stamina ?>" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<?= $pokemon->iv->stamina ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= ((100/15)*$pokemon->iv->stamina)/3 ?>%">
 						<span class="sr-only">Stamina IV: <?= $pokemon->iv->stamina ?></span>

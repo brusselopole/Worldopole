@@ -449,7 +449,7 @@ else {
 			$recent->iv->defense = $data->individual_defense;
 			$recent->iv->stamina = $data->individual_stamina;
 			if (isset($recent->iv->attack) && isset($recent->iv->defense) && isset($recent->iv->stamina)) {
-				$recent->iv->percentage = (( $recent->iv->attack + $recent->iv->defense + $recent->iv->stamina ) / 45 ) * 100;
+				$recent->iv->available = true;
 			}
 			
 			$recents[] = $recent;
