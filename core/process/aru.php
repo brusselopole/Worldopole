@@ -176,7 +176,7 @@ switch ($request) {
 			}
 			
 			$html = '
-                        <div class="col-md-1 col-xs-4 pokemon-single" data-pokeid="'.$pokeid.'" style="display:none;">
+                        <div class="col-md-1 col-xs-4 pokemon-single" data-pokeid="'.$pokeid.'" style="height:175px display:none;">
                             <a href="pokemon/'.$pokeid.'"><img src="core/pokemons/'.$pokeid.'.png" alt="'.$pokemons->pokemon->$pokeid->name.'" class="img-responsive"></a>
                             <a href="pokemon/'.$pokeid.'"><p class="pkmn-name">'.$pokemons->pokemon->$pokeid->name.'</p></a>
                             <a href="https://maps.google.com/?q='.$last_location->latitude.','.$last_location->longitude.'&ll='.$last_location->latitude.','.$last_location->longitude.'&z=16" target="_blank">
