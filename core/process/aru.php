@@ -196,8 +196,7 @@ switch ($request) {
                                 <div title="Defense IV: '. $iv->defense .'" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="'. $iv->defense .'" aria-valuemin="0" aria-valuemax="45" style="width: '. ((100/15)*$iv->defense)/3 .'%">
                                     <span class="sr-only">Defense IV: '. $iv->defense .'</span>
                                 </div>
-                            </div>
-                        </div>';
+                            </div>';
 			}
             $html .= '</div>';
 
