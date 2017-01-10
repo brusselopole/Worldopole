@@ -52,13 +52,13 @@
 	<div class="col-md-12 text-center">
 		<h2 class="text-center sub-title"><?= $locales->RECENT_SPAWNS ?></h2>
 		<div class="last-mon-js">
-		<?php foreach ($recents as $key=>$pokemon) {
+		<?php foreach ($recents as $key => $pokemon) {
 			$id = $pokemon->id; ?>
 			<div class="col-md-1 col-xs-3 pokemon-single" data-pokeid="<?= $id ?>">
 				<a href="pokemon/<?= $id ?>"><img src="core/pokemons/<?= $id ?>.png" alt="<?= $pokemons->pokemon->$id->name ?>" class="img-responsive"></a>
 				<a href="pokemon/<?= $id ?>"><p class="pkmn-name"><?= $pokemons->pokemon->$id->name ?></p></a>
 				<a href="https://maps.google.com/?q=<?= $pokemon->last_location->latitude ?>,<?= $pokemon->last_location->longitude ?>&ll=<?= $pokemon->last_location->latitude ?>,<?= $pokemon->last_location->longitude ?>&z=16" target="_blank">
-					<small id="timer-<?= $key ?>-js">00:00</small>
+					<small id="timer-<?= $key ?>-js">00:00:00</small>
 				</a>
 				<?php if ($pokemon->iv->available) { ?>
 				<div class="progress" style="height: 6px; width: 80%; margin: 5px auto 15px auto;">
@@ -78,18 +78,10 @@
 				</div>
 				<?php } ?>
 			</div>
-			<script>
-				if (window.addEventListener) {
-					window.addEventListener('load', function() {
-						startTimer(<?= $pokemon->last_seen - time() ?>,"#timer-<?= $key ?>-js")
-					}, false);
-				} else if (window.attachEvent) { // IE
-					window.attachEvent('onload', function() {
-						startTimer(<?= $pokemon->last_seen - time() ?>,"#timer-<?= $key ?>-js)")
-					});
-				}
-			</script>
-		<?php } ?>
+		<?php
+			// Array with ids and countdowns to start at the end of this file
+			$timers["#timer-".$key."-js"] = $pokemon->last_seen - time();
+		} ?>
 		</div>
 	</div>
 </div>
@@ -110,6 +102,15 @@
 		
 		</div>	
 
-	<?php }?>
-			
+	<?php } ?>
 </div>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+		<?php
+		array_reverse($timers);
+		foreach($timers as $id => $countdown) { ?>
+			startTimer(<?= $countdown ?>,"<?= $id ?>");
+		<?php }	?>
+	}, false);
+</script>

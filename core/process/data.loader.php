@@ -450,6 +450,8 @@ else {
 			$recent->iv->stamina = $data->individual_stamina;
 			if (isset($recent->iv->attack) && isset($recent->iv->defense) && isset($recent->iv->stamina)) {
 				$recent->iv->available = true;
+			} else {
+				$recent->iv->available = false;
 			}
 			
 			$recents[] = $recent;

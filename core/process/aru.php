@@ -173,6 +173,8 @@ switch ($request) {
 			$iv->stamina = $data->individual_stamina;
 			if (isset($iv->attack) && isset($iv->defense) && isset($iv->stamina)) {
 				$iv->available = true;
+			} else {
+				$iv->available = false;
 			}
 			
 			$html = '
@@ -180,7 +182,7 @@ switch ($request) {
                             <a href="pokemon/'.$pokeid.'"><img src="core/pokemons/'.$pokeid.'.png" alt="'.$pokemons->pokemon->$pokeid->name.'" class="img-responsive"></a>
                             <a href="pokemon/'.$pokeid.'"><p class="pkmn-name">'.$pokemons->pokemon->$pokeid->name.'</p></a>
                             <a href="https://maps.google.com/?q='.$last_location->latitude.','.$last_location->longitude.'&ll='.$last_location->latitude.','.$last_location->longitude.'&z=16" target="_blank">
-                                <small>'.time_ago($last_seen, $locales).'</small>
+                                <small id="timer-'.time().'-js">00:00:00</small>
                             </a>';
             
 			if ($iv->available) {
@@ -202,9 +204,16 @@ switch ($request) {
 					<div title="IV not available" class="progress-bar" role="progressbar" style="width: 100%; background-color:#BBBBBB;" aria-valuenow="1" aria-valuemin="0" aria-valuemax="1"></div>
 				</div>';
 			}
-            $html .= '</div>';
+			$html .= '
+			</div>';
 
-            echo $html;
+			$new_spawn[] = $html;
+			$countdown = $last_seen - time();
+			$new_spawn[] = $countdown;
+			$new_spawn[] = "#timer-".time()."-js";
+
+			header('Content-Type: application/json');
+			echo json_encode($new_spawn);
 		}
 		
 		
