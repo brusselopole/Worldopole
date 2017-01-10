@@ -21,3 +21,5 @@ config.php
 /core/json/pokestop.stats.json
 /core/json/pokedex.rarity.json
 analyticstracking.php
+website.lock
+.gitignore
