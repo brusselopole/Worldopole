@@ -444,14 +444,16 @@ else {
 			$recent->last_location->latitude = $data->latitude;
 			$recent->last_location->longitude = $data->longitude;
             
-			$recent->iv = new stdClass();
-			$recent->iv->attack = $data->individual_attack;
-			$recent->iv->defense = $data->individual_defense;
-			$recent->iv->stamina = $data->individual_stamina;
-			if (isset($recent->iv->attack) && isset($recent->iv->defense) && isset($recent->iv->stamina)) {
-				$recent->iv->available = true;
-			} else {
-				$recent->iv->available = false;
+			if ($config->system->recents_show_iv) {
+				$recent->iv = new stdClass();
+				$recent->iv->attack = $data->individual_attack;
+				$recent->iv->defense = $data->individual_defense;
+				$recent->iv->stamina = $data->individual_stamina;
+				if (isset($recent->iv->attack) && isset($recent->iv->defense) && isset($recent->iv->stamina)) {
+					$recent->iv->available = true;
+				} else {
+					$recent->iv->available = false;
+				}
 			}
 			
 			$recents[] = $recent;

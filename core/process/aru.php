@@ -167,14 +167,16 @@ switch ($request) {
 			$last_location->latitude = $data->latitude;
 			$last_location->longitude = $data->longitude;
 			
-			$iv = new stdClass();
-			$iv->attack = $data->individual_attack;
-			$iv->defense = $data->individual_defense;
-			$iv->stamina = $data->individual_stamina;
-			if (isset($iv->attack) && isset($iv->defense) && isset($iv->stamina)) {
-				$iv->available = true;
-			} else {
-				$iv->available = false;
+			if ($config->system->recents_show_iv) {
+				$iv = new stdClass();
+				$iv->attack = $data->individual_attack;
+				$iv->defense = $data->individual_defense;
+				$iv->stamina = $data->individual_stamina;
+				if (isset($iv->attack) && isset($iv->defense) && isset($iv->stamina)) {
+					$iv->available = true;
+				} else {
+					$iv->available = false;
+				}
 			}
 			
 			$html = '
@@ -184,25 +186,26 @@ switch ($request) {
                             <a href="https://maps.google.com/?q='.$last_location->latitude.','.$last_location->longitude.'&ll='.$last_location->latitude.','.$last_location->longitude.'&z=16" target="_blank">
                                 <small id="timer-'.time().'-js">00:00:00</small>
                             </a>';
-            
-			if ($iv->available) {
-				$html .= '
-                            <div class="progress" style="height: 6px; width: 80%; margin: 5px auto 0 auto;">
-                                <div title="Stamina IV: '. $iv->stamina .'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'. $iv->stamina .'" aria-valuemin="0" aria-valuemax="45" style="width: '. ((100/15)*$iv->stamina)/3 .'%">
-                                    <span class="sr-only">Stamina IV: '. $iv->stamina .'</span>
-                                </div>
-                                <div title="Attack IV: '. $iv->attack .'" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="'. $iv->attack .'" aria-valuemin="0" aria-valuemax="45" style="width: '. ((100/15)*$iv->attack)/3 .'%">
-                                    <span class="sr-only">Attack IV: '. $iv->attack .'</span>
-                                </div>
-                                <div title="Defense IV: '. $iv->defense .'" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="'. $iv->defense .'" aria-valuemin="0" aria-valuemax="45" style="width: '. ((100/15)*$iv->defense)/3 .'%">
-                                    <span class="sr-only">Defense IV: '. $iv->defense .'</span>
-                                </div>
-                            </div>';
-			} else {
-				$html .= '
-				<div class="progress" style="height: 6px; width: 80%; margin: 5px auto 0 auto;">
-					<div title="IV not available" class="progress-bar" role="progressbar" style="width: 100%; background-color:#BBBBBB;" aria-valuenow="1" aria-valuemin="0" aria-valuemax="1"></div>
-				</div>';
+			if ($config->system->recents_show_iv) {
+				if ($iv->available) {
+					$html .= '
+				    <div class="progress" style="height: 6px; width: 80%; margin: 5px auto 0 auto;">
+					<div title="Stamina IV: '. $iv->stamina .'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'. $iv->stamina .'" aria-valuemin="0" aria-valuemax="45" style="width: '. ((100/15)*$iv->stamina)/3 .'%">
+					    <span class="sr-only">Stamina IV: '. $iv->stamina .'</span>
+					</div>
+					<div title="Attack IV: '. $iv->attack .'" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="'. $iv->attack .'" aria-valuemin="0" aria-valuemax="45" style="width: '. ((100/15)*$iv->attack)/3 .'%">
+					    <span class="sr-only">Attack IV: '. $iv->attack .'</span>
+					</div>
+					<div title="Defense IV: '. $iv->defense .'" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="'. $iv->defense .'" aria-valuemin="0" aria-valuemax="45" style="width: '. ((100/15)*$iv->defense)/3 .'%">
+					    <span class="sr-only">Defense IV: '. $iv->defense .'</span>
+					</div>
+				    </div>';
+				} else {
+					$html .= '
+					<div class="progress" style="height: 6px; width: 80%; margin: 5px auto 0 auto;">
+						<div title="IV not available" class="progress-bar" role="progressbar" style="width: 100%; background-color:#BBBBBB;" aria-valuenow="1" aria-valuemin="0" aria-valuemax="1"></div>
+					</div>';
+				}
 			}
 			$html .= '
 			</div>';
