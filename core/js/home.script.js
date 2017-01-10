@@ -83,7 +83,7 @@ function updateCounter(new_value, classname)
 })();
 
 // Array with timer IDs
-timers = [];
+var timers = [];
 
 function startTimer(duration, element)
 {

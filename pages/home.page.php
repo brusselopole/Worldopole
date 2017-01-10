@@ -52,7 +52,8 @@
 	<div class="col-md-12 text-center">
 		<h2 class="text-center sub-title"><?= $locales->RECENT_SPAWNS ?></h2>
 		<div class="last-mon-js">
-		<?php foreach ($recents as $key => $pokemon) {
+		<?php
+		foreach ($recents as $key => $pokemon) {
 			$id = $pokemon->id; ?>
 			<div class="col-md-1 col-xs-3 pokemon-single" data-pokeid="<?= $id ?>">
 				<a href="pokemon/<?= $id ?>"><img src="core/pokemons/<?= $id ?>.png" alt="<?= $pokemons->pokemon->$id->name ?>" class="img-responsive"></a>
@@ -74,7 +75,8 @@
 							<span class="sr-only">Defense IV: <?= $pokemon->iv->defense ?></span>
 						</div>
 					</div>
-					<?php } else { ?>
+					<?php
+					} else { ?>
 					<div class="progress" style="height: 6px; width: 80%; margin: 5px auto 15px auto;">
 						<div title="IV not available" class="progress-bar" role="progressbar" style="width: 100%; background-color:#CCCCCC;" aria-valuenow="1" aria-valuemin="0" aria-valuemax="1"></div>
 					</div>
@@ -112,8 +114,9 @@
 <script>
 	document.addEventListener('DOMContentLoaded', function() {
 		<?php
-		foreach(array_reverse($timers) as $id => $countdown) { ?>
+		foreach (array_reverse($timers) as $id => $countdown) { ?>
 			startTimer(<?= $countdown ?>,"<?= $id ?>");
-		<?php }	?>
+		<?php
+		} ?>
 	}, false);
 </script>
