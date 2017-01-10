@@ -88,7 +88,7 @@ var timers = [];
 function startTimer(duration, element)
 {
 	var countdown = duration, hours, minutes, seconds;
-	timers.push(setInterval(function() {
+	timers.push(setInterval(function () {
 		hours = Math.abs(parseInt(countdown / 3600, 10));
 		minutes = Math.abs(parseInt((countdown / 60) % 60, 10));
 		seconds = Math.abs(parseInt(countdown % 60, 10));
