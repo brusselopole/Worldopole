@@ -100,9 +100,10 @@ function startTimer(duration, element)
 		var output = hours + ":" + minutes + ":" + seconds
 		if (--countdown >= 0) {
 			$(element).text(output);
+            $(element).css({ 'color': 'rgb(62, 150, 62)'});
 		} else {
 			$(element).text("- " + output);
-			$(element).css({ 'color': 'rgb(200, 50, 50)'});
+			$(element).css({ 'color': 'rgb(210, 118, 118)'});
 		}
 	}, 1000));
 }
