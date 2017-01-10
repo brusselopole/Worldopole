@@ -108,8 +108,7 @@
 <script>
 	document.addEventListener('DOMContentLoaded', function() {
 		<?php
-		array_reverse($timers);
-		foreach($timers as $id => $countdown) { ?>
+		foreach(array_reverse($timers) as $id => $countdown) { ?>
 			startTimer(<?= $countdown ?>,"<?= $id ?>");
 		<?php }	?>
 	}, false);
