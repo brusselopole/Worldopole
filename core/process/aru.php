@@ -203,7 +203,7 @@ switch ($request) {
 				} else {
 					$html .= '
 					<div class="progress" style="height: 6px; width: 80%; margin: 5px auto 0 auto;">
-						<div title="IV not available" class="progress-bar" role="progressbar" style="width: 100%; background-color:#BBBBBB;" aria-valuenow="1" aria-valuemin="0" aria-valuemax="1"></div>
+						<div title="IV not available" class="progress-bar" role="progressbar" style="width: 100%; background-color:#CCCCCC;" aria-valuenow="1" aria-valuemin="0" aria-valuemax="1"></div>
 					</div>';
 				}
 			}
