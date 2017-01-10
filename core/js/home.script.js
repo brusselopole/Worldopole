@@ -75,3 +75,25 @@ function updateCounter(new_value, classname)
 		}
 	});
 })();
+
+function startTimer(duration, classname) {
+	console.log(duration);
+	var timer = duration, minutes, seconds;
+	setInterval(function() {
+		hours = Math.abs(parseInt(timer / 3600, 10));
+		minutes = Math.abs(parseInt((timer / 60) % 60, 10));
+		seconds = Math.abs(parseInt(timer % 60, 10));
+
+		hours = hours < 10 ? "0" + hours : hours;
+		minutes = minutes < 10 ? "0" + minutes : minutes;
+		seconds = seconds < 10 ? "0" + seconds: seconds;
+
+		output = hours + ":" + minutes + ":" + seconds
+		if (--timer >= 0) {
+			$(classname).text(output);
+		} else {
+			$(classname).text("- " + output);
+			$(classname).css({ 'color': 'rgb(200, 50, 50)'});
+		}
+	}, 1000);
+}

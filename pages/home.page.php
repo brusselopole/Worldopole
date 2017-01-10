@@ -52,13 +52,13 @@
 	<div class="col-md-12 text-center">
 		<h2 class="text-center sub-title"><?= $locales->RECENT_SPAWNS ?></h2>
 		<div class="last-mon-js">
-		<?php foreach ($recents as $pokemon) {
-			$id = $pokemon->id ?>
+		<?php foreach ($recents as $key=>$pokemon) {
+			$id = $pokemon->id; ?>
 			<div class="col-md-1 col-xs-3 pokemon-single" data-pokeid="<?= $id ?>">
 				<a href="pokemon/<?= $id ?>"><img src="core/pokemons/<?= $id ?>.png" alt="<?= $pokemons->pokemon->$id->name ?>" class="img-responsive"></a>
 				<a href="pokemon/<?= $id ?>"><p class="pkmn-name"><?= $pokemons->pokemon->$id->name ?></p></a>
 				<a href="https://maps.google.com/?q=<?= $pokemon->last_location->latitude ?>,<?= $pokemon->last_location->longitude ?>&ll=<?= $pokemon->last_location->latitude ?>,<?= $pokemon->last_location->longitude ?>&z=16" target="_blank">
-					<small><?= time_ago($pokemon->last_seen, $locales) ?></small>
+					<small id="timer-<?= $key ?>-js">00:00</small>
 				</a>
 				<?php if ($pokemon->iv->available) { ?>
 				<div class="progress" style="height: 6px; width: 80%; margin: 5px auto 15px auto;">
@@ -74,10 +74,21 @@
 				</div>
 				<?php } else { ?>
 				<div class="progress" style="height: 6px; width: 80%; margin: 5px auto 15px auto;">
-					<div title="IV not available" class="progress-bar" role="progressbar" style="width: 100%; background-color:#aaaaaa;" aria-valuenow="1" aria-valuemin="0" aria-valuemax="1"></div>
+					<div title="IV not available" class="progress-bar" role="progressbar" style="width: 100%; background-color:#BBBBBB;" aria-valuenow="1" aria-valuemin="0" aria-valuemax="1"></div>
 				</div>
 				<?php } ?>
 			</div>
+			<script>
+				if (window.addEventListener) {
+					window.addEventListener('load', function() {
+						startTimer(<?= $pokemon->last_seen - time() ?>,"#timer-<?= $key ?>-js")
+					}, false);
+				} else if (window.attachEvent) { // IE
+					window.attachEvent('onload', function() {
+						startTimer(<?= $pokemon->last_seen - time() ?>,"#timer-<?= $key ?>-js)")
+					});
+				}
+			</script>
 		<?php } ?>
 		</div>
 	</div>
