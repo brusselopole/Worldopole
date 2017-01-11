@@ -109,6 +109,18 @@ foreach ($stats as $data) {
 	}
 }
 
+
+$stats_file	= SYS_PATH.'/core/json/captcha.stats.json';
+$stats		= json_decode(file_get_contents($stats_file));
+
+
+foreach ($stats as $data) {
+	if($data->timestamp > $lastweek){
+		$labels_captcha[]		= '"'.date('D H:i', $data->timestamp ).'"';
+		$captcha_accs[]			= $data->captcha_accs;
+	}
+}
+
 	
 ?>
 
@@ -546,5 +558,47 @@ var data_lure = {
 var myLineChart = new Chart(ctx_lure, {
 	type: 'line',
 	data: data_lure, 
+	options : options
+});
+
+
+// Captcha
+// -------------
+
+
+var ctx_captcha_accs = $("#captcha");
+
+var data_captcha_accs = {
+	labels: [<?= implode(',', $labels_captcha) ?>],
+	datasets: [
+		{
+			label: "Anzahl der Captcha",
+			fill: true,
+			lineTension: 0.1,
+			backgroundColor: "rgba(255,0,0,0.4)",
+			borderColor: "rgba(255,0,0,1)",
+			borderCapStyle: 'butt',
+			borderDash: [],
+			borderDashOffset: 0.0,
+			borderJoinStyle: 'miter',
+			pointBorderColor: "rgba(255,0,0,1)",
+			pointBackgroundColor: "#fff",
+			pointBorderWidth: 1,
+			pointHoverRadius: 5,
+			pointHoverBackgroundColor: "rgba(255,0,0,1)",
+			pointHoverBorderColor: "rgba(255,0,0,1)",
+			pointHoverBorderWidth: 2,
+			pointRadius: 1,
+			pointHitRadius: 10,
+			data: [<?= implode(',', $captcha_accs )?>],
+			spanGaps: false,
+		}
+	]
+};
+
+
+var myLineChart = new Chart(ctx_captcha_accs, {
+	type: 'line',
+	data: data_captcha_accs,
 	options : options
 });

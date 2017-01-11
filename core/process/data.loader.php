@@ -369,8 +369,15 @@ if (!empty($page)) {
 				exit();
 			}
 
+
+			$stats_file	= SYS_PATH.'/core/json/captcha.stats.json';
+
+			if(!is_file($stats_file)){
+				echo "Sorry, no Captcha stats file were found  <br> Have you enable cron?";
+				exit();
+			}
+
 			
-		
 			break;
 	}
 } /////////////

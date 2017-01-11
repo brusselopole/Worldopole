@@ -26,10 +26,13 @@ if ($mysqli->connect_error != '') {
 $gym_file	= SYS_PATH.'/core/json/gym.stats.json';
 $pokestop_file	= SYS_PATH.'/core/json/pokestop.stats.json';
 $pokemonstats_file	= SYS_PATH.'/core/json/pokemon.stats.json';
+$captcha_file    = SYS_PATH.'/core/json/captcha.stats.json';
+
 
 $gymsdatas	= json_decode(file_get_contents($gym_file), true);
 $stopdatas	= json_decode(file_get_contents($pokestop_file), true);
 $pokedatas	= json_decode(file_get_contents($pokemonstats_file), true);
+$capdatas    = json_decode(file_get_contents($captcha_file), true);
 
 
 $timestamp	= time();
@@ -37,3 +40,4 @@ $timestamp	= time();
 include_once(SYS_PATH.'/core/cron/gym.cron.php');
 include_once(SYS_PATH.'/core/cron/pokemon.cron.php');
 include_once(SYS_PATH.'/core/cron/pokestop.cron.php');
+include_once(SYS_PATH.'/core/cron/captcha.cron.php');

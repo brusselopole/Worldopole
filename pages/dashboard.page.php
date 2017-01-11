@@ -109,6 +109,23 @@
 						
 		
 		</div>
+		
+		<div class="row area">
+
+			<div class="col-md-12 col-xs-12">
+				<h2 class="sub-title"><strong>Captcha</strong> Aktivität</h2>
+			</div>
+
+			<div class="col-md-12 col-xs-12">
+			
+				<h4>Anzahl Captcha: <small>Letzte 7 Tage</small></h4>
+			
+				<canvas id="captcha" width="100%" height="25"></canvas>
+
+			</div>
+
+
+		</div>
 
 	
 	</div>
