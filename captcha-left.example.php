@@ -9,7 +9,7 @@
 	# EDIT ME PLEASE
 
 	$mysql = new mysqli();
-	$mysql->connect('#SYS_DB_HOST#', '#SYS_DB_USER#'', '#SYS_DB_PSWD#', '#SYS_DB_NAME#', '#SYS_DB_PORT#(MOSTLY 3306)');
+	$mysql->connect('#SYS_DB_HOST#', '#SYS_DB_USER#', '#SYS_DB_PSWD#', '#SYS_DB_NAME#', '3306');
 
 
 	// get amount of accounts requiring a captcha
