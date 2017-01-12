@@ -105,8 +105,8 @@ function stopTimer()
 	clearInterval(lastTimer);
 }
 
-function formatDuration(duration) {
-    var countdown = duration, hours, minutes, seconds;
+function formatDuration(remainingTime) {
+    var countdown = remainingTime, hours, minutes, seconds;
     hours = Math.abs(parseInt(countdown / 3600, 10));
     minutes = Math.abs(parseInt((countdown / 60) % 60, 10));
     seconds = Math.abs(parseInt(countdown % 60, 10));
