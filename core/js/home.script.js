@@ -58,13 +58,19 @@ function updateCounter(new_value, classname)
 		url: 'core/process/aru.php?type=spawnlist_update&last_id='+last_id,
 		success: function (data) {
 			
-			if (data != '') {
-				//console.log(data);
-				$('.last-mon-js').prepend(data);
+			if (!$.isEmptyObject(data)) {
+				$('.last-mon-js').prepend(data[0]);
 				
+				// stop timer of last child
+				stopTimer();
+
+				// replace child
 				$('.last-mon-js > div:last-child').fadeOut();
 				$('.last-mon-js > div:first-child').fadeIn();
 				$('.last-mon-js > div:last-child').remove();
+
+				// start timer for new child
+				startTimer(data[1],data[2]);
 			}
 			
 			
@@ -75,3 +81,35 @@ function updateCounter(new_value, classname)
 		}
 	});
 })();
+
+// Array with timer IDs
+var timers = [];
+
+function startTimer(duration, element)
+{
+	var countdown = duration, hours, minutes, seconds;
+	timers.push(setInterval(function () {
+		hours = Math.abs(parseInt(countdown / 3600, 10));
+		minutes = Math.abs(parseInt((countdown / 60) % 60, 10));
+		seconds = Math.abs(parseInt(countdown % 60, 10));
+
+		hours = hours < 10 ? "0" + hours : hours;
+		minutes = minutes < 10 ? "0" + minutes : minutes;
+		seconds = seconds < 10 ? "0" + seconds: seconds;
+
+		var output = hours + ":" + minutes + ":" + seconds
+		if (--countdown >= 0) {
+			$(element).text(output);
+            		$(element).css({ 'color': 'rgb(62, 150, 62)'});
+		} else {
+			$(element).text("- " + output);
+			$(element).css({ 'color': 'rgb(210, 118, 118)'});
+		}
+	}, 1000));
+}
+
+function stopTimer()
+{
+	var lastTimer = timers.shift();
+	clearInterval(lastTimer);
+}
