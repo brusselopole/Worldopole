@@ -139,7 +139,7 @@ switch ($request) {
 		// ------------
 		$total_spawns = array();
 		$last_uid_param = "";
-		if(isset($_GET['last_uid'])) {
+		if (isset($_GET['last_uid'])) {
 			$last_uid_param = $_GET['last_uid'];
 		}
 		if ($config->system->mythic_recents) {
