@@ -161,6 +161,7 @@ switch ($request) {
 			$pokeid = $data->pokemon_id;
 			$pokeuid = $data->encounter_id;
 
+			$total_spawns = [];
 			if ($_GET['last_uid'] != $pokeuid) {
 				$last_seen = strtotime($data->disappear_time_real);
 
