@@ -115,7 +115,7 @@ $stats		= json_decode(file_get_contents($stats_file));
 
 
 foreach ($stats as $data) {
-	if($data->timestamp > $lastweek){
+	if ($data->timestamp > $lastweek) {
 		$labels_captcha[]		= '"'.date('D H:i', $data->timestamp ).'"';
 		$captcha_accs[]			= $data->captcha_accs;
 	}

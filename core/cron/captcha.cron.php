@@ -26,5 +26,3 @@ $capdatas[] 	= $captcha;
 $json 		= json_encode($capdatas);
 
 file_put_contents($captcha_file, $json);
-
-?>
