@@ -43,8 +43,10 @@
 		<h2 class="sub-title"><?= $locales->TRAINER_GRAPH ?></h2>
 	</div>
 	
-	<div class="col-md-12" style="height:20vh">
-		<canvas id="trainer_lvl"></canvas>
+	<div class="col-md-12">
+		<div style="height:20vh">
+			<canvas id="trainer_lvl"></canvas>
+		</div>
 	</div>
 </div>
 
