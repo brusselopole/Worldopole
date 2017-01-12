@@ -137,7 +137,11 @@ switch ($request) {
 	case 'spawnlist_update':
 		// Recent spawn
 		// ------------
-
+		$total_spawns = array();
+		$last_uid_param = "";
+		if(isset($_GET['last_uid'])) {
+			$last_uid_param = $_GET['last_uid'];
+		}
 		if ($config->system->mythic_recents) {
 			// get all mythic pokemon ids
 			$mythic_pokemons = array();
@@ -161,8 +165,7 @@ switch ($request) {
 			$pokeid = $data->pokemon_id;
 			$pokeuid = $data->encounter_id;
 
-			$total_spawns = [];
-			if ($_GET['last_uid'] != $pokeuid) {
+			if ($last_uid_param != $pokeuid) {
 				$last_seen = strtotime($data->disappear_time_real);
 
 				$last_location = new stdClass();
