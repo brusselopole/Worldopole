@@ -51,26 +51,29 @@ function updateCounter(new_value, classname)
 (function spawn()
 {
 	
-	var last_id = $('.last-mon-js div:first-child').attr('data-pokeid');
-	//console.log(last_id);
+	var last_uid = $('.last-mon-js div:first-child').attr('data-pokeuid');
 	 
 	$.ajax({
-		url: 'core/process/aru.php?type=spawnlist_update&last_id='+last_id,
+		url: 'core/process/aru.php?type=spawnlist_update&last_uid='+last_uid,
 		success: function (data) {
 			
 			if (!$.isEmptyObject(data)) {
-				$('.last-mon-js').prepend(data[0]);
+                           
+                                $(data).each(function(index,element) {
+                                    $('.last-mon-js').prepend(element.html);
 				
-				// stop timer of last child
-				stopTimer();
+                                    // stop timer of last child
+                                    
+                                    stopTimer();
+                                    // replace child
+                                    $('.last-mon-js > div:last-child').fadeOut();
+                                    $('.last-mon-js > div:first-child').fadeIn();
+                                    $('.last-mon-js > div:last-child').remove();
 
-				// replace child
-				$('.last-mon-js > div:last-child').fadeOut();
-				$('.last-mon-js > div:first-child').fadeIn();
-				$('.last-mon-js > div:last-child').remove();
-
-				// start timer for new child
-				startTimer(data[1],data[2]);
+                                    // start timer for new child
+                                    startTimer(element.countdown,element.pokemon_uid);
+                                });
+				
 			}
 			
 			
@@ -86,24 +89,12 @@ function updateCounter(new_value, classname)
 var timers = [];
 
 function startTimer(duration, element)
-{
-	var countdown = duration, hours, minutes, seconds;
-	timers.push(setInterval(function () {
-		hours = Math.abs(parseInt(countdown / 3600, 10));
-		minutes = Math.abs(parseInt((countdown / 60) % 60, 10));
-		seconds = Math.abs(parseInt(countdown % 60, 10));
-
-		hours = hours < 10 ? "0" + hours : hours;
-		minutes = minutes < 10 ? "0" + minutes : minutes;
-		seconds = seconds < 10 ? "0" + seconds: seconds;
-
-		var output = hours + ":" + minutes + ":" + seconds
-		if (--countdown >= 0) {
-			$(element).text(output);
-            		$(element).css({ 'color': 'rgb(62, 150, 62)'});
+{       timers.push(setInterval(function () {
+                $("[data-pokeuid='"+element+"']").find('.pokemon-timer').text(formatDuration(duration));
+		if (--duration >= 0) {
+            		$("[data-pokeuid='"+element+"']").find('.pokemon-timer').css({ 'color': 'rgb(62, 150, 62)'});
 		} else {
-			$(element).text("- " + output);
-			$(element).css({ 'color': 'rgb(210, 118, 118)'});
+			$("[data-pokeuid='"+element+"']").find('.pokemon-timer').css({ 'color': 'rgb(210, 118, 118)'});
 		}
 	}, 1000));
 }
@@ -112,4 +103,18 @@ function stopTimer()
 {
 	var lastTimer = timers.shift();
 	clearInterval(lastTimer);
+}
+
+function formatDuration(duration) {
+    var countdown = duration, hours, minutes, seconds;
+    hours = Math.abs(parseInt(countdown / 3600, 10));
+    minutes = Math.abs(parseInt((countdown / 60) % 60, 10));
+    seconds = Math.abs(parseInt(countdown % 60, 10));
+
+    hours = hours < 10 ? "0" + hours : hours;
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds: seconds;
+
+    var output = (countdown<0?"- ":"")+hours + ":" + minutes + ":" + seconds;
+    return output;
 }
