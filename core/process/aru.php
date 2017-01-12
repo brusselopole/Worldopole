@@ -157,39 +157,39 @@ switch ($request) {
 		}
 		$result = $mysqli->query($req);
 		while ($data = $result->fetch_object()) {
-		    $new_spawn = array();
-		    $pokeid = $data->pokemon_id;
-		    $pokeuid = $data->encounter_id;
+			$new_spawn = array();
+			$pokeid = $data->pokemon_id;
+			$pokeuid = $data->encounter_id;
 
-		    if ($_GET['last_uid'] != $pokeuid) {
-			    $last_seen = strtotime($data->disappear_time_real);
+			if ($_GET['last_uid'] != $pokeuid) {
+				$last_seen = strtotime($data->disappear_time_real);
 
-			    $last_location = new stdClass();
-			    $last_location->latitude = $data->latitude;
-			    $last_location->longitude = $data->longitude;
+				$last_location = new stdClass();
+				$last_location->latitude = $data->latitude;
+				$last_location->longitude = $data->longitude;
 
-			    if ($config->system->recents_show_iv) {
-				    $iv = new stdClass();
-				    $iv->attack = $data->individual_attack;
-				    $iv->defense = $data->individual_defense;
-				    $iv->stamina = $data->individual_stamina;
-				    if (isset($iv->attack) && isset($iv->defense) && isset($iv->stamina)) {
-					    $iv->available = true;
-				    } else {
-					    $iv->available = false;
-				    }
-			    }
+				if ($config->system->recents_show_iv) {
+					$iv = new stdClass();
+					$iv->attack = $data->individual_attack;
+					$iv->defense = $data->individual_defense;
+					$iv->stamina = $data->individual_stamina;
+					if (isset($iv->attack) && isset($iv->defense) && isset($iv->stamina)) {
+						$iv->available = true;
+					} else {
+						$iv->available = false;
+					}
+				}
 
-			    $html = '
+				$html = '
 			    <div class="col-md-1 col-xs-4 pokemon-single" data-pokeid="'.$pokeid.'" data-pokeuid="'.$pokeuid.'" style="display: none;">
 				<a href="pokemon/'.$pokeid.'"><img src="core/pokemons/'.$pokeid.'.png" alt="'.$pokemons->pokemon->$pokeid->name.'" class="img-responsive"></a>
 				<a href="pokemon/'.$pokeid.'"><p class="pkmn-name">'.$pokemons->pokemon->$pokeid->name.'</p></a>
 				<a href="https://maps.google.com/?q='.$last_location->latitude.','.$last_location->longitude.'&ll='.$last_location->latitude.','.$last_location->longitude.'&z=16" target="_blank">
 				    <small class="pokemon-timer">00:00:00</small>
 				</a>';
-			    if ($config->system->recents_show_iv) {
-				    if ($iv->available) {
-					    $html .= '
+				if ($config->system->recents_show_iv) {
+					if ($iv->available) {
+						$html .= '
 					<div class="progress" style="height: 6px; width: 80%; margin: 5px auto 0 auto;">
 					    <div title="Stamina IV: '. $iv->stamina .'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'. $iv->stamina .'" aria-valuemin="0" aria-valuemax="45" style="width: '. ((100/15)*$iv->stamina)/3 .'%">
 						<span class="sr-only">Stamina IV: '. $iv->stamina .'</span>
@@ -201,25 +201,25 @@ switch ($request) {
 						<span class="sr-only">Defense IV: '. $iv->defense .'</span>
 					    </div>
 					</div>';
-				    } else {
-					    $html .= '
+					} else {
+						$html .= '
 					    <div class="progress" style="height: 6px; width: 80%; margin: 5px auto 15px auto;">
 						    <div title="IV not available" class="progress-bar" role="progressbar" style="width: 100%; background-color: rgba(240,240,240,1);" aria-valuenow="1" aria-valuemin="0" aria-valuemax="1">
 							    <span class="sr-only">IV not available</span>
 						    </div>
 					    </div>';
-				    }
-			    }
-			    $html .= '
+					}
+				}
+				$html .= '
 			    </div>';
-			    $new_spawn['html'] = $html;
-			    $countdown = $last_seen - time();
-			    $new_spawn['countdown'] = $countdown;
-			    $new_spawn['pokemon_uid'] = $pokeuid;
-			    $total_spawns[] = $new_spawn;
-		    } else {
-			    break;
-		    }
+				$new_spawn['html'] = $html;
+				$countdown = $last_seen - time();
+				$new_spawn['countdown'] = $countdown;
+				$new_spawn['pokemon_uid'] = $pokeuid;
+				$total_spawns[] = $new_spawn;
+			} else {
+				break;
+			}
 		}
 		header('Content-Type: application/json');
 		echo json_encode($total_spawns);
