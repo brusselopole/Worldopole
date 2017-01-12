@@ -131,7 +131,9 @@ var options = {
 				fontFamily: "monospace"
 			}
 		}]
-	}
+	},
+	responsive: true,
+	maintainAspectRatio: false
 };
 
 
