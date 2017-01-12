@@ -148,12 +148,12 @@ switch ($request) {
 			}
 			
 			// get last mythic pokemon
-			$req		= "SELECT pokemon_id, disappear_time, (CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) as disappear_time_real, latitude, longitude, individual_attack, individual_defense, individual_stamina FROM pokemon
+			$req		= "SELECT pokemon_id, disappear_time, last_modified, (CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) as disappear_time_real, latitude, longitude, individual_attack, individual_defense, individual_stamina FROM pokemon
                         WHERE pokemon_id IN (".implode(",", $mythic_pokemons).")
-                        ORDER BY disappear_time DESC LIMIT 0,1";
+                        ORDER BY last_modified DESC LIMIT 0,1";
 		} else {
 			// get last pokemon
-			$req		= "SELECT pokemon_id, disappear_time, (CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) as disappear_time_real, latitude, longitude, individual_attack, individual_defense, individual_stamina FROM pokemon ORDER BY disappear_time DESC LIMIT 0,1";
+			$req		= "SELECT pokemon_id, disappear_time, last_modified, (CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) as disappear_time_real, latitude, longitude, individual_attack, individual_defense, individual_stamina FROM pokemon ORDER BY last_modified DESC LIMIT 0,1";
 		}
 		$result = $mysqli->query($req);
 		$data = $result->fetch_object();
