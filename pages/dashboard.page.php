@@ -96,7 +96,7 @@
 <?php if ($config->system->captcha_support) { ?>
 		<div class="row area">
 <?php } else { ?>
-        <div class="row">
+		<div class="row">
 <?php } ?>
 		
 			<div class="col-md-12">
