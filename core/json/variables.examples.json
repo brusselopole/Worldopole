@@ -25,6 +25,7 @@
 		"timezone"		:	"Europe/Paris",
 		"max_pokemon"		:	151,
 		"mythic_recents"        :       false,
+		"captcha_support"	:	false,
 		"forced_lang"		:	""
 	},
 	"menu":[

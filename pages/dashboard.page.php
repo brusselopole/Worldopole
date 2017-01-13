@@ -109,26 +109,25 @@
 						
 		
 		</div>
-		
+
+<?php if ($config->system->captcha_support) { ?>
 		<div class="row area">
 
 			<div class="col-md-12">
 				<h2 class="sub-title"><strong>reCaptcha</strong> <?= $locales->DASHBOARD_ACTIVITY ?></h2>
 			</div>
 
-			<div class="col-md-12 col-xs-12">
+			<div class="col-md-12">
 			
 				<h4><?= $locales->DASHBOARD_CAPTCHA ?> <small><?= $locales->DASHBOARD_LAST7DAYS ?></small></h4>
-			
-				<canvas id="captcha" width="100%" height="25"></canvas>
-				
-				<div style="height:30vh">
+                <div style="height:30vh">
  					<canvas id="captcha"></canvas>
  				</div>
-			</div>
+            </div>
 
 
 		</div>
+<?php } ?>
 
 	
 	</div>
