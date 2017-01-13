@@ -1,16 +1,16 @@
 <?php
 
 ########################################################################
-// Human Time Ago 
+// Human Time Ago
 // @param $timestamp	=> timestamp (mandatory)
 // @param $locales	=> locales (mandatory)
 //
-// Return time ago at human format (eg: 2 hours ago) 
+// Return time ago at human format (eg: 2 hours ago)
 ########################################################################
 
 function time_ago($timestamp, $locales)
 {
-	
+
 	// Set up our variables.
 	$minute_in_seconds = 60;
 	$hour_in_seconds   = $minute_in_seconds * 60;
@@ -21,7 +21,7 @@ function time_ago($timestamp, $locales)
 
 	// current time
 	$now = time();
-	
+
 	// Calculate the time difference between the current time reference point and the timestamp we're comparing.
 	// The difference is defined negative, when in the future.
 	$time_difference = $now - $timestamp;
@@ -63,8 +63,8 @@ function time_ago($timestamp, $locales)
 
 
 ########################################################################
-// Percent calculator 
-// @param $val		=> int (mandatory)	
+// Percent calculator
+// @param $val		=> int (mandatory)
 // @param $val_total	=> int (mandatory)
 //
 // Return pourcent from total
@@ -74,14 +74,14 @@ function percent($val, $val_total)
 {
 	$count1 = $val_total / $val;
 	$count2 = $count1 * 100;
-	
+
 	$count = number_format($count2, 0);
-	
+
 	return $count;
 }
 
 ########################################################################
-// File datetime 
+// File datetime
 // @param $file		=> string (mandatory)
 //
 // Return last_modified file format timestamp
@@ -115,7 +115,7 @@ if (!function_exists('http_response_code')) {
 				// Informational 1xx
 				100 => 'Continue',
 				101 => 'Switching Protocols',
-			
+
 				// Success 2xx
 				200 => 'OK',
 				201 => 'Created',
@@ -124,7 +124,7 @@ if (!function_exists('http_response_code')) {
 				204 => 'No Content',
 				205 => 'Reset Content',
 				206 => 'Partial Content',
-			
+
 				// Redirection 3xx
 				300 => 'Multiple Choices',
 				301 => 'Moved Permanently',
@@ -134,7 +134,7 @@ if (!function_exists('http_response_code')) {
 				305 => 'Use Proxy',
 				// 306 is deprecated but reserved
 				307 => 'Temporary Redirect',
-			
+
 				// Client Error 4xx
 				400 => 'Bad Request',
 				401 => 'Unauthorized',
@@ -154,7 +154,7 @@ if (!function_exists('http_response_code')) {
 				415 => 'Unsupported Media Type',
 				416 => 'Requested Range Not Satisfiable',
 				417 => 'Expectation Failed',
-			
+
 				// Server Error 5xx
 				500 => 'Internal Server Error',
 				501 => 'Not Implemented',
@@ -164,11 +164,11 @@ if (!function_exists('http_response_code')) {
 				505 => 'HTTP Version Not Supported',
 				509 => 'Bandwidth Limit Exceeded'
 			);
-			
+
 			if (isset($messages[$code])) {
 				$text = $messages[$code];
 			} else {
-				exit('Unknown http status code "' . htmlentities($code) . '"');
+				return 'Unknown http status code "' . htmlentities($code) . '"';
 			}
 
 			$protocol = (isset($_SERVER['SERVER_PROTOCOL']) ? $_SERVER['SERVER_PROTOCOL'] : 'HTTP/1.0');
@@ -177,7 +177,7 @@ if (!function_exists('http_response_code')) {
 		} else {
 			$code = (isset($GLOBALS['http_response_code']) ? $GLOBALS['http_response_code'] : 200);
 		}
-		
+
 		return $code;
 	}
 }
