@@ -10,7 +10,7 @@
 $captcha['timestamp'] = $timestamp;
 
 // get amount of accounts requiring a captcha
-$req = "SELECT COUNT(*) as total FROM workerstatus WHERE message LIKE '%encountering a captcha%' and last_modified > UTC_TIMESTAMP() - INTERVAL 60 SECONDS";
+$req = "SELECT COUNT(*) as total FROM workerstatus WHERE message LIKE '%encountering a captcha%' and last_modified > UTC_TIMESTAMP() - INTERVAL 60 SECOND";
 $result 	= $mysqli->query($req);
 $data 		= $result->fetch_object();
 
