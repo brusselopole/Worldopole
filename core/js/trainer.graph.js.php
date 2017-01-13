@@ -70,7 +70,9 @@ var options = {
 				autoSkipPadding: 10
 			}
 		}]
-	}
+	},
+	responsive: true,
+	maintainAspectRatio: false
 };
 
 // Trainer level

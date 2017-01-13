@@ -23,41 +23,42 @@
 			<div class="col-md-12">
 			
 				<h4><?= $locales->DASHBOARD_SPAWN_TOTAL ?> <small><?= $locales->DASHBOARD_LAST7DAYS ?></small></h4>
-			
-				<canvas id="total_spawn" width="100%" height="25"></canvas>
-			
+				<div style="height:30vh">
+					<canvas id="total_spawn"></canvas>
+				</div>
 			</div>
 			
 			<div class="col-md-3">
 				
 				<h4><?= $locales->VERYCOMMON ?> <small><?= $locales->DASHBOARD_LAST24HOURS ?></small></h4>
-				
-				<canvas id="very_common" width="100%" height="50"></canvas>
-			
+				<div style="height:15vh">
+					<canvas id="very_common"></canvas>
+				</div>
 			</div>
 			
 			<div class="col-md-3">
 				
 				<h4><?= $locales->COMMON ?> <small><?= $locales->DASHBOARD_LAST24HOURS ?></small></h4>
-				
-				<canvas id="common" width="100%" height="50"></canvas>
+				<div style="height:15vh">
+					<canvas id="common"></canvas>
+				</div>
 			
 			</div>
 			
 			<div class="col-md-3">
 				
 				<h4><?= $locales->RARE ?> <small><?= $locales->DASHBOARD_LAST24HOURS ?></small></h4>
-				
-				<canvas id="rare" width="100%" height="50"></canvas>
-			
+				<div style="height:15vh">
+					<canvas id="rare"></canvas>
+				</div>
 			</div>
 			
 			<div class="col-md-3">
 				
 				<h4><?= $locales->MYTHIC ?> <small><?= $locales->DASHBOARD_LAST24HOURS ?></small></h4>
-				
-				<canvas id="mythics" width="100%" height="50"></canvas>
-			
+				<div style="height:15vh">
+					<canvas id="mythics"></canvas>
+				</div>
 			</div>
 		
 		</div>
@@ -73,9 +74,9 @@
 			</div>
 			
 			<div class="col-md-12">
-				
-				<canvas id="team_av" width="100%" height="25"></canvas>
-				
+				<div style="height:30vh">
+					<canvas id="team_av"></canvas>
+				</div>
 			</div>
 		
 			
@@ -84,9 +85,9 @@
 			</div>
 			
 			<div class="col-md-12">
-				
-				<canvas id="team_gym" width="100%" height="25"></canvas>
-				
+				<div style="height:30vh">
+					<canvas id="team_gym"></canvas>
+				</div>
 			</div>
 			
 		
@@ -102,9 +103,9 @@
 			<div class="col-md-12">
 			
 				<h4><?= $locales->DASHBOARD_LURES ?> <small><?= $locales->DASHBOARD_LAST7DAYS ?></small></h4>
-			
-				<canvas id="lures" width="100%" height="25"></canvas>
-			
+				<div style="height:30vh">
+					<canvas id="lures"></canvas>
+				</div>
 			</div>
 						
 		

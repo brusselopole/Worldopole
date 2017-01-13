@@ -44,7 +44,9 @@
 	</div>
 	
 	<div class="col-md-12">
-		<canvas id="trainer_lvl" width="100%" height="20"></canvas>
+		<div style="height:20vh">
+			<canvas id="trainer_lvl"></canvas>
+		</div>
 	</div>
 </div>
 
