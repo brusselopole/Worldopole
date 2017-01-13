@@ -575,7 +575,7 @@ var myLineChart = new Chart(ctx_lure, {
 		labels: [<?= implode(',', $labels_captcha) ?>],
 		datasets: [
 			{
-				label: "Anzahl der Captcha",
+				label: "<?= $locales->DASHBOARD_CAPTCHA ?>",
 				fill: true,
 				lineTension: 0.1,
 				backgroundColor: "rgba(255,183,0,0.4)",
