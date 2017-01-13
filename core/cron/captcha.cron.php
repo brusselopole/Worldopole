@@ -9,7 +9,7 @@
 
 $captcha['timestamp'] = $timestamp;
 
-    // get amount of accounts requiring a captcha
+// get amount of accounts requiring a captcha
 $datetime = date("Y-m-d H:i:s", time() - 3610);
 $req = "SELECT COUNT(*) as total FROM workerstatus WHERE message LIKE '%encountering a captcha%' and last_modified > '$datetime'";
 $result 	= $mysqli->query($req);

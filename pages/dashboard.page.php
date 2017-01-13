@@ -121,10 +121,10 @@
 			<div class="col-md-12">
 			
 				<h4><?= $locales->DASHBOARD_CAPTCHA ?> <small><?= $locales->DASHBOARD_LAST7DAYS ?></small></h4>
-                <div style="height:30vh">
- 					<canvas id="captcha"></canvas>
- 				</div>
-            </div>
+				<div style="height:30vh">
+						<canvas id="captcha"></canvas>
+					</div>
+			</div>
 
 
 		</div>
