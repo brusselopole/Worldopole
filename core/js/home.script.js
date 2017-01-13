@@ -58,21 +58,18 @@ function updateCounter(new_value, classname)
 		success: function (data) {
 			
 			if (!$.isEmptyObject(data)) {
-			
-				$(data).each(function(index,element) {
-					$('.last-mon-js').prepend(element.html);
-				
-					// stop timer of last child
-					stopTimer();
-				
-					// replace child
-					$('.last-mon-js > div:last-child').fadeOut();
-					$('.last-mon-js > div:first-child').fadeIn();
-					$('.last-mon-js > div:last-child').remove();
+			$(data).each(function(index,element) {
+				$('.last-mon-js').prepend(element.html);
+				// stop timer of last child
+				stopTimer();
+				// replace child
+				$('.last-mon-js > div:last-child').fadeOut();
+				$('.last-mon-js > div:first-child').fadeIn();
+				$('.last-mon-js > div:last-child').remove();
 
-					// start timer for new child
-					startTimer(element.countdown,element.pokemon_uid);
-				});
+				// start timer for new child
+				startTimer(element.countdown,element.pokemon_uid);
+			});
 				
 			}
 			
@@ -90,13 +87,15 @@ var timers = [];
 
 function startTimer(duration, element)
 {
+	var currentDuration = duration;
 	timers.push(setInterval(function () {
-		$("[data-pokeuid='"+element+"']").find('.pokemon-timer').text(formatDuration(duration));
-		if (--duration >= 0) {
-			$("[data-pokeuid='"+element+"']").find('.pokemon-timer').css({ 'color': 'rgb(62, 150, 62)'});
-		} else {
-			$("[data-pokeuid='"+element+"']").find('.pokemon-timer').css({ 'color': 'rgb(210, 118, 118)'});
+		$("[data-pokeuid='"+element+"']").find('.pokemon-timer').text(formatDuration(currentDuration));
+		currentDuration--;
+		var color = 'rgb(62, 150, 62)';
+		if ((currentDuration) < 0) {
+			color = 'rgb(210, 118, 118)';
 		}
+		$("[data-pokeuid='"+element+"']").find('.pokemon-timer').css({ 'color': color});
 	}, 1000));
 }
 
@@ -106,8 +105,7 @@ function stopTimer()
 	clearInterval(lastTimer);
 }
 
-function formatDuration(remainingTime)
-{
+function formatDuration(remainingTime) {
 	var countdown = remainingTime, hours, minutes, seconds;
 	hours = Math.abs(parseInt(countdown / 3600, 10));
 	minutes = Math.abs(parseInt((countdown / 60) % 60, 10));
