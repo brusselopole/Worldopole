@@ -79,7 +79,7 @@
 </div>
 <?php } ?>
 
-<div class="row area">
+<div class="row">
 	
 	<div class="col-md-12">
 	

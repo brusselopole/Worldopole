@@ -10,7 +10,7 @@
 	</div>
 </header>
 
-<div class="row area">
+<div class="row">
 	
 	<div class="col-md-12">
 
@@ -93,8 +93,11 @@
 		
 		</div>
 		
-		
+<?php if ($config->system->captcha_support) { ?>
 		<div class="row area">
+<?php } else { ?>
+        <div class="row">
+<?php } ?>
 		
 			<div class="col-md-12">
 				<h2 class="sub-title"><strong><?= $locales->POKESTOPS ?></strong> <?= $locales->DASHBOARD_ACTIVITY ?></h2>
@@ -112,7 +115,7 @@
 		</div>
 
 <?php if ($config->system->captcha_support) { ?>
-		<div class="row area">
+		<div class="row">
 
 			<div class="col-md-12">
 				<h2 class="sub-title"><strong>reCaptcha</strong> <?= $locales->DASHBOARD_ACTIVITY ?></h2>
