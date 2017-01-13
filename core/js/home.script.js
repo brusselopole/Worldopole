@@ -58,19 +58,18 @@ function updateCounter(new_value, classname)
 		success: function (data) {
 			
 			if (!$.isEmptyObject(data)) {
-			$(data).each(function(index,element) {
-				$('.last-mon-js').prepend(element.html);
-				// stop timer of last child
-				stopTimer();
-				// replace child
-				$('.last-mon-js > div:last-child').fadeOut();
-				$('.last-mon-js > div:first-child').fadeIn();
-				$('.last-mon-js > div:last-child').remove();
+				$(data).each(function (index,element) {
+					$('.last-mon-js').prepend(element.html);
+					// stop timer of last child
+					stopTimer();
+					// replace child
+					$('.last-mon-js > div:last-child').fadeOut();
+					$('.last-mon-js > div:first-child').fadeIn();
+					$('.last-mon-js > div:last-child').remove();
 
-				// start timer for new child
-				startTimer(element.countdown,element.pokemon_uid);
-			});
-				
+					// start timer for new child
+					startTimer(element.countdown,element.pokemon_uid);
+				});
 			}
 			
 			
@@ -105,7 +104,8 @@ function stopTimer()
 	clearInterval(lastTimer);
 }
 
-function formatDuration(remainingTime) {
+function formatDuration(remainingTime)
+{
 	var countdown = remainingTime, hours, minutes, seconds;
 	hours = Math.abs(parseInt(countdown / 3600, 10));
 	minutes = Math.abs(parseInt((countdown / 60) % 60, 10));
