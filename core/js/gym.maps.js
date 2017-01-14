@@ -124,12 +124,12 @@ function setGymDetails(gym)
 		break;
 	}
 	var currentGymPrestige = gym.gymDetails.gymInfos.points;
-	formatGyms(currentGymPrestige,currentTeamColor);
+	formatGyms(currentGymPrestige, currentTeamColor);
 	$('#gym_details_template').show();
 }
 
-function formatGyms(gymPrestige,teamColor){
-	
+function formatGyms(gymPrestigeValue,teamColor){
+	var gymPrestige = gymPrestigeValue;
 	var gymRanks = [
 	{
 		level : 1,
@@ -193,7 +193,7 @@ function formatGyms(gymPrestige,teamColor){
 	$('.bar-step').removeClass('active');
 	for (var i in gymRanks) {
 		var width = (((gymRanks[i].prestigeMax)-(gymRanks[i].prestigeMin))/gymPercent);
-		if(gymRanks[i].level == 10) {
+		if(gymRanks[i].level > 9) {
 			width = 10;
 		}
 		var left = (gymRanks[i].prestigeMin/gymPercent);
