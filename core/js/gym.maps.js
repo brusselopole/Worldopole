@@ -107,20 +107,13 @@ function setGymDetails(gym)
 	$('#gym_details_template #gymPrestigeDisplay').html(gym.gymDetails.gymInfos.points);
 	
 	$('#gym_details_template #gymLastModifiedDisplay').html(gym.gymDetails.gymInfos.last_modified);
-	switch (gym.gymDetails.gymInfos.team) {
-		case "1":
-			var currentTeamColor = 'rgb(0, 170, 255)';
-		break;
-		case "2":
-			var currentTeamColor = 'rgb(255, 118, 118)';
-		break;
-		case "3":
-			var currentTeamColor = 'rgb(255, 190, 8)';
-		break;
-			
-		default:
-			var currentTeamColor = 'white';
-		break;
+	var currentTeamColor = 'white';
+	if(gym.gymDetails.gymInfos.team=="1") {
+		currentTeamColor = 'rgb(0, 170, 255)';
+	} else if(gym.gymDetails.gymInfos.team=="2") {
+		currentTeamColor = 'rgb(255, 118, 118)';
+	} else if(gym.gymDetails.gymInfos.team=="3") {
+		currentTeamColor = 'rgb(255, 190, 8)';
 	}
 	var currentGymPrestige = gym.gymDetails.gymInfos.points;
 	formatGyms(currentGymPrestige, currentTeamColor);
