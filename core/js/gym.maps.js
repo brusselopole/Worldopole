@@ -107,20 +107,19 @@ function setGymDetails(gym)
 	$('#gym_details_template #gymPrestigeDisplay').html(gym.gymDetails.gymInfos.points);
 	
 	$('#gym_details_template #gymLastModifiedDisplay').html(gym.gymDetails.gymInfos.last_modified);
-	var currentTeamColor = 'white';
 	switch (gym.gymDetails.gymInfos.team) {
 		case "1":
-			currentTeamColor = 'rgb(0, 170, 255)';
+			var currentTeamColor = 'rgb(0, 170, 255)';
 		break;
 		case "2":
-			currentTeamColor = 'rgb(255, 118, 118)';
+			var currentTeamColor = 'rgb(255, 118, 118)';
 		break;
 		case "3":
-			currentTeamColor = 'rgb(255, 190, 8)';
+			var currentTeamColor = 'rgb(255, 190, 8)';
 		break;
 			
 		default:
-			currentTeamColor = 'white';
+			var currentTeamColor = 'white';
 		break;
 	}
 	var currentGymPrestige = gym.gymDetails.gymInfos.points;
@@ -192,6 +191,9 @@ function formatGyms(gymPrestigeValue,teamColor){
 	}
 	$('.bar-step').removeClass('active');
 	for (var i in gymRanks) {
+		if (!gymRanks.hasOwnProperty(i)) {
+			continue; // Skip keys from the prototype.
+		}
 		var width = (((gymRanks[i].prestigeMax)-(gymRanks[i].prestigeMin))/gymPercent);
 		if(gymRanks[i].level > 9) {
 			width = 10;
