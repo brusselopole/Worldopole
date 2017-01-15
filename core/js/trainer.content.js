@@ -107,9 +107,9 @@ $(function () {
 				var trainersPokemonsContainer = $('<div>',{class : ""});
 				for (var pokeIndex = 0; pokeIndex<trainer.pokemons.length; pokeIndex++) {
 					var pokemon = trainer.pokemons[pokeIndex];
-					var progressBar = $('<div>',{class : 'progress'}).css('height','6px');		 +                   var progressBar = $('<div>',{class : 'progress', style : "margin-bottom: 0"}).css('height','18px');
-					progressBar.append($('<div>',{title: 'IV Stamina :'+pokemon.iv_stamina, class: 'progress-bar progress-bar-success' ,role : 'progressbar', 'aria-valuenow' :pokemon.iv_stamina, 'aria-valuemin' : 0, 'aria-valuemax' : 45}).css('width',((100/45)*pokemon.iv_stamina ) + '%'))		 +					progressBar.append($('<div>',{title: 'IV Stamina :'+pokemon.iv_stamina, class: 'progress-bar progress-bar-success' ,role : 'progressbar', 'aria-valuenow' :pokemon.iv_stamina, 'aria-valuemin' : 0, 'aria-valuemax' : 45 ,text: pokemon.iv_stamina}).css('width',((100/3)*1 ) + '%'))
-					progressBar.append($('<div>',{title: 'IV Attack :'+pokemon.iv_attack, class: 'progress-bar progress-bar-danger' ,role : 'progressbar', 'aria-valuenow' : pokemon.iv_attack, 'ria-valuemin' : 0, 'aria-valuemax' : 45}).css('width',((100/45)*pokemon.iv_attack ) + '%'))		 +					progressBar.append($('<div>',{title: 'IV Attack :'+pokemon.iv_attack, class: 'progress-bar progress-bar-danger' ,role : 'progressbar', 'aria-valuenow' : pokemon.iv_attack, 'ria-valuemin' : 0, 'aria-valuemax' : 45 ,text: pokemon.iv_attack}).css('width',((100/3)*1 ) + '%'))
+					var progressBar = $('<div>',{class : 'progress'}).css('height','6px');
+					progressBar.append($('<div>',{title: 'IV Stamina :'+pokemon.iv_stamina, class: 'progress-bar progress-bar-success' ,role : 'progressbar', 'aria-valuenow' :pokemon.iv_stamina, 'aria-valuemin' : 0, 'aria-valuemax' : 45}).css('width',((100/45)*pokemon.iv_stamina ) + '%'))
+					progressBar.append($('<div>',{title: 'IV Attack :'+pokemon.iv_attack, class: 'progress-bar progress-bar-danger' ,role : 'progressbar', 'aria-valuenow' : pokemon.iv_attack, 'ria-valuemin' : 0, 'aria-valuemax' : 45}).css('width',((100/45)*pokemon.iv_attack ) + '%'))
 					progressBar.append($('<div>',{title: 'IV Defense :'+pokemon.iv_defense, class: 'progress-bar progress-bar-info' ,role : 'progressbar', 'aria-valuenow': pokemon.iv_defense, 'aria-valuemin' : 0, 'aria-valuemax' : 45}).css('width',((100/45)*pokemon.iv_defense ) + '%'))
                     if (pokemon.last_scanned == 0) {
                         trainerPokemon.append($('<p>',{class : 'pkmn-name',text: "Today"}));
