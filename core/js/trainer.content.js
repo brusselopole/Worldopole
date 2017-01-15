@@ -95,7 +95,7 @@ $(function () {
 					function (e) {
 						e.preventDefault();$('input#name').val(trainerName);
 						$("#searchTrainer").submit();
-						$('#trainerName_'+trainer.name).unbind('click');
+						$('#trainerName_'+trainer.name).off('click');
 					}
 				));
 				trainersInfos.append($('<td>',{id : 'trainerLevel_'+trainer.name, text : trainer.level}));
