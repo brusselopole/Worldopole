@@ -28,9 +28,15 @@ $pokestop_file	= SYS_PATH.'/core/json/pokestop.stats.json';
 $pokemonstats_file	= SYS_PATH.'/core/json/pokemon.stats.json';
 
 
-$gymsdatas	= json_decode(file_get_contents($gym_file), true);
-$stopdatas	= json_decode(file_get_contents($pokestop_file), true);
-$pokedatas	= json_decode(file_get_contents($pokemonstats_file), true);
+if (is_file($gym_file)) {
+	$gymsdatas	= json_decode(file_get_contents($gym_file), true);
+}
+if (is_file($pokestop_file)) {
+	$stopdatas	= json_decode(file_get_contents($pokestop_file), true);
+}
+if (is_file($pokemonstats_file)) {
+	$pokedatas	= json_decode(file_get_contents($pokemonstats_file), true);
+}
 
 $timestamp	= time();
 

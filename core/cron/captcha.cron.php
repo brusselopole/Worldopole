@@ -6,7 +6,9 @@
 // -----------------------------------------------------------------------------------------------------------
 
 $captcha_file	= SYS_PATH.'/core/json/captcha.stats.json';
-$capdatas	= json_decode(file_get_contents($captcha_file), true);
+if (is_file($captcha_file)) {
+	$capdatas	= json_decode(file_get_contents($captcha_file), true);
+}
 
 
 $variables_secret = SYS_PATH.'/core/json/variables.secret.json';

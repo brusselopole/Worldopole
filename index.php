@@ -113,7 +113,7 @@ include_once('core/process/data.loader.php');
 			if (!empty($_GET['page'])) {
 				$file = SYS_PATH.'/pages/'.$page.'.page.php';
 				
-				if (file_exists($file)) {
+				if (is_file($file)) {
 					echo '<!-- Page :: '.$page.' -->';
 					include($file);
 				} else {
