@@ -183,9 +183,6 @@ switch ($request) {
 						$iv->available = false;
 					}
 				}
-                
-
-        
 
 				$html = '
 			    <div class="col-md-1 col-xs-4 pokemon-single" data-pokeid="'.$pokeid.'" data-pokeuid="'.$pokeuid.'" style="display: none;">
