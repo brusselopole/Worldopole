@@ -65,13 +65,10 @@ if ($config_secret->captcha_key=="") {
 		$capXml = simplexml_load_string($fileContents);
 
 		foreach ($capXml as $key => $value) {
-
-			if (
-					($numberDays==0
-						&& ((int)$value->Attributes()->hour >= (int)date("H",$lastCaptcha["timestamp"])
-						&& ((int)$value->Attributes()->hour <= (int)date("H")))
-					)
-					|| $numberDays>0) {
+			if ((	$numberDays==0
+				&& ((int)$value->Attributes()->hour >= (int)date("H", $lastCaptcha["timestamp"])
+				&& ((int)$value->Attributes()->hour <= (int)date("H")))
+			    ) || $numberDays>0) {
 				$captcha['timestamp'] =
 						strtotime(date("Y-m-d", $day) . " " . $value->Attributes()->hour . ":00");
 				$captcha['captcha_accs'] = (string)$value->volume;
