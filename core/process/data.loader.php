@@ -3,7 +3,7 @@
 // Include & load the variables
 // ############################
 
-$variables 	= realpath(dirname(__FILE__)).'/../json/variables.json';
+$variables 	= SYS_PATH.'/core/json/variables.json';
 $config 	= json_decode(file_get_contents($variables));
 
 if (!isset($config->system)) {
