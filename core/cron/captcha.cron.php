@@ -44,16 +44,16 @@ if ($config_secret->captcha_key=="") {
 				$config_secret->captcha_key . "&action=getstats&date=" . date("Y-m-d", $day);
 
 		$ch = curl_init();
-		curl_setopt ($ch, CURLOPT_URL, $captchaUrl);
-		curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, 5);
-		curl_setopt ($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_URL, $captchaUrl);
+		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		$fileContents = curl_exec($ch);
 		if (curl_errno($ch)) {
-		  echo curl_error($ch);
-		  echo "\n<br />";
-		  $fileContents = '';
+			echo curl_error($ch);
+			echo "\n<br />";
+			$fileContents = '';
 		} else {
-		  curl_close($ch);
+			curl_close($ch);
 		}
 
 		if (!is_string($fileContents) || !strlen($fileContents)) {
