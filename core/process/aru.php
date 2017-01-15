@@ -19,7 +19,7 @@ include_once('../../config.php');
 // Include & load the variables
 // ############################
 
-$variables 	= realpath(dirname(__FILE__)).'/../json/variables.json';
+$variables 	= $variables 	= SYS_PATH.'/core/json/variables.json';
 $config 	= json_decode(file_get_contents($variables));
 
 
@@ -154,10 +154,10 @@ switch ($request) {
 			// get last mythic pokemon
 			$req		= "SELECT pokemon_id, encounter_id, disappear_time, last_modified, (CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) as disappear_time_real, latitude, longitude, individual_attack, individual_defense, individual_stamina FROM pokemon
                         WHERE pokemon_id IN (".implode(",", $mythic_pokemons).")
-                        ORDER BY disappear_time DESC LIMIT 0,12";
+                        ORDER BY last_modified DESC LIMIT 0,12";
 		} else {
 			// get last pokemon
-			$req		= "SELECT pokemon_id, encounter_id, disappear_time, last_modified, (CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) as disappear_time_real, latitude, longitude, individual_attack, individual_defense, individual_stamina FROM pokemon ORDER BY disappear_time DESC LIMIT 0,12";
+			$req		= "SELECT pokemon_id, encounter_id, disappear_time, last_modified, (CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) as disappear_time_real, latitude, longitude, individual_attack, individual_defense, individual_stamina FROM pokemon ORDER BY last_modified DESC LIMIT 0,12";
 		}
 		$result = $mysqli->query($req);
 		while ($data = $result->fetch_object()) {
