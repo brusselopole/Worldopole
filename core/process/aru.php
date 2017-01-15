@@ -19,7 +19,7 @@ include_once('../../config.php');
 // Include & load the variables
 // ############################
 
-$variables 	= SYS_PATH.'/core/json/variables.json';
+$variables 	= realpath(dirname(__FILE__)).'/../json/variables.json';
 $config 	= json_decode(file_get_contents($variables));
 
 
@@ -154,10 +154,10 @@ switch ($request) {
 			// get last mythic pokemon
 			$req		= "SELECT pokemon_id, encounter_id, disappear_time, last_modified, (CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) as disappear_time_real, latitude, longitude, individual_attack, individual_defense, individual_stamina FROM pokemon
                         WHERE pokemon_id IN (".implode(",", $mythic_pokemons).")
-                        ORDER BY last_modified DESC LIMIT 0,12";
+                        ORDER BY disappear_time DESC LIMIT 0,12";
 		} else {
 			// get last pokemon
-			$req		= "SELECT pokemon_id, encounter_id, disappear_time, last_modified, (CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) as disappear_time_real, latitude, longitude, individual_attack, individual_defense, individual_stamina FROM pokemon ORDER BY last_modified DESC LIMIT 0,12";
+			$req		= "SELECT pokemon_id, encounter_id, disappear_time, last_modified, (CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) as disappear_time_real, latitude, longitude, individual_attack, individual_defense, individual_stamina FROM pokemon ORDER BY disappear_time DESC LIMIT 0,12";
 		}
 		$result = $mysqli->query($req);
 		while ($data = $result->fetch_object()) {
@@ -183,34 +183,38 @@ switch ($request) {
 						$iv->available = false;
 					}
 				}
+                
+
+        
 
 				$html = '
 			    <div class="col-md-1 col-xs-4 pokemon-single" data-pokeid="'.$pokeid.'" data-pokeuid="'.$pokeuid.'" style="display: none;">
 				<a href="pokemon/'.$pokeid.'"><img src="core/pokemons/'.$pokeid.'.png" alt="'.$pokemons->pokemon->$pokeid->name.'" class="img-responsive"></a>
-				<a href="pokemon/'.$pokeid.'"><p class="pkmn-name">'.$pokemons->pokemon->$pokeid->name.'</p></a>
-				<a href="https://maps.google.com/?q='.$last_location->latitude.','.$last_location->longitude.'&ll='.$last_location->latitude.','.$last_location->longitude.'&z=16" target="_blank">
-				    <small class="pokemon-timer">00:00:00</small>
-				</a>';
+				<a href="pokemon/'.$pokeid.'"><p class="pkmn-name">'.$pokemons->pokemon->$pokeid->name.'</p></a>';
+                
 				if ($config->system->recents_show_iv) {
 					if ($iv->available) {
 						$html .= '
-					<div class="progress" style="height: 6px; width: 80%; margin: 5px auto 0 auto;">
-					    <div title="Stamina IV: '. $iv->stamina .'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'. $iv->stamina .'" aria-valuemin="0" aria-valuemax="45" style="width: '. ((100/15)*$iv->stamina)/3 .'%">
-						<span class="sr-only">Stamina IV: '. $iv->stamina .'</span>
-					    </div>
-					    <div title="Attack IV: '. $iv->attack .'" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="'. $iv->attack .'" aria-valuemin="0" aria-valuemax="45" style="width: '. ((100/15)*$iv->attack)/3 .'%">
-						<span class="sr-only">Attack IV: '. $iv->attack .'</span>
-					    </div>
-					    <div title="Defense IV: '. $iv->defense .'" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="'. $iv->defense .'" aria-valuemin="0" aria-valuemax="45" style="width: '. ((100/15)*$iv->defense)/3 .'%">
-						<span class="sr-only">Defense IV: '. $iv->defense .'</span>
-					    </div>
-					</div>';
+                        <div class="progress" style="height: 15px; width: 80%; margin: 5px auto 15px auto; margin-bottom: 0;">
+                            <div title="Attack IV: <?= $pokemon->iv->attack ?>" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="<?= $pokemon->iv->attack ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= (100/3) ?>%; line-height: 16px;">
+                                <span class="sr-only">Attack IV: <?= $pokemon->iv->attack ?></span><?= $pokemon->iv->attack ?>
+                            </div>
+                            <div title="Defense IV: <?= $pokemon->iv->defense ?>" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="<?= $pokemon->iv->defense ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= (100/3) ?>%; line-height: 16px;">
+                                <span class="sr-only">Defense IV: <?= $pokemon->iv->defense ?></span><?= $pokemon->iv->defense ?>
+                            </div>
+                            <div title="Stamina IV: <?= $pokemon->iv->stamina ?>" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<?= $pokemon->iv->stamina ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= (100/3) ?>%; line-height: 16px;">
+                                <span class="sr-only">Stamina IV: <?= $pokemon->iv->stamina ?></span><?= $pokemon->iv->stamina ?>
+                            </div>
+                            <a href="https://maps.google.com/?q='.$last_location->latitude.','.$last_location->longitude.'&ll='.$last_location->latitude.','.$last_location->longitude.'&z=16" target="_blank"><small class="pokemon-timer">00:00:00</small></a>
+                        </div>';
+
 					} else {
 						$html .= '
 					    <div class="progress" style="height: 6px; width: 80%; margin: 5px auto 15px auto;">
 						    <div title="IV not available" class="progress-bar" role="progressbar" style="width: 100%; background-color: rgba(240,240,240,1);" aria-valuenow="1" aria-valuemin="0" aria-valuemax="1">
 							    <span class="sr-only">IV not available</span>
 						    </div>
+                        <small class="pokemon-timer">00:00:00</small>
 					    </div>';
 					}
 				}
@@ -550,7 +554,7 @@ switch ($request) {
 
 
 		$req = "SELECT trainer.*, count(actives_pokemons.trainer_name) as active, max(actives_pokemons.cp) as maxCp ".
-				"FROM trainer LEFT JOIN (SELECT DISTINCT gympokemon.pokemon_id, gympokemon.pokemon_uid, gympokemon.trainer_name, gympokemon.cp ".
+				"FROM trainer LEFT JOIN (SELECT DISTINCT gympokemon.pokemon_id, gympokemon.pokemon_uid, gympokemon.trainer_name, gympokemon.cp, DATEDIFF(now(), gympokemon.last_seen) AS last_scanned ".
 					"FROM gympokemon INNER JOIN ( SELECT gymmember.pokemon_uid, gymmember.gym_id FROM gymmember GROUP BY gymmember.pokemon_uid, gymmember.gym_id HAVING gymmember.gym_id <> '' ) as filtered_gymmember ".
 				"ON gympokemon.pokemon_uid = filtered_gymmember.pokemon_uid) as actives_pokemons on actives_pokemons.trainer_name = trainer.name ".
 				"GROUP BY trainer.name ".$where.$order.$limit;
@@ -567,7 +571,7 @@ switch ($request) {
 			while ($data = $resultRanking->fetch_object()) {
 				$trainer->rank = $data->rank ;
 			}
-			$req = "(SELECT DISTINCT gympokemon.pokemon_id, gympokemon.pokemon_uid, gympokemon.cp, gympokemon.trainer_name, gympokemon.iv_defense, gympokemon.iv_stamina, gympokemon.iv_attack, filtered_gymmember.gym_id, '1' as active ".
+			$req = "(SELECT DISTINCT gympokemon.pokemon_id, gympokemon.pokemon_uid, gympokemon.cp, DATEDIFF(now(), gympokemon.last_seen) AS last_scanned, gympokemon.trainer_name, gympokemon.iv_defense, gympokemon.iv_stamina, gympokemon.iv_attack, filtered_gymmember.gym_id, '1' as active ".
 				"FROM gympokemon INNER JOIN ".
 				"( SELECT gymmember.pokemon_uid, gymmember.gym_id FROM gymmember GROUP BY gymmember.pokemon_uid, gymmember.gym_id HAVING gymmember.gym_id <> '' ) as filtered_gymmember ".
 				"ON gympokemon.pokemon_uid = filtered_gymmember.pokemon_uid ".
@@ -583,7 +587,7 @@ switch ($request) {
 			}
 			$trainer->gyms = $active_gyms;
 
-			$req = "(SELECT DISTINCT gympokemon.pokemon_id, gympokemon.pokemon_uid, gympokemon.cp, gympokemon.trainer_name, gympokemon.iv_defense, gympokemon.iv_stamina, gympokemon.iv_attack, null as gym_id, '0' as active ".
+			$req = "(SELECT DISTINCT gympokemon.pokemon_id, gympokemon.pokemon_uid, gympokemon.cp, DATEDIFF(now(), gympokemon.last_seen) AS last_scanned, gympokemon.trainer_name, gympokemon.iv_defense, gympokemon.iv_stamina, gympokemon.iv_attack, null as gym_id, '0' as active ".
 				"FROM gympokemon LEFT JOIN ".
 				"( SELECT * FROM gymmember HAVING gymmember.gym_id <> '' ) as filtered_gymmember ".
 				"ON gympokemon.pokemon_uid = filtered_gymmember.pokemon_uid ".
