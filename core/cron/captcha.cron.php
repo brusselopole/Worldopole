@@ -10,7 +10,10 @@
 $captcha_file	= SYS_PATH.'/core/json/captcha.stats.json';
 $capdatas	= json_decode(file_get_contents($captcha_file), true);
 
-if ($config->system->captcha_key=="") {
+$variables_secret = SYS_PATH.'/core/json/variables_secret.json';
+$config_secret = json_decode(file_get_contents($variables_secret));
+
+if ($config_secret->captcha_key=="") {
 	$captcha['timestamp'] = $timestamp;
 	// get amount of accounts requiring a captcha
 	$req = "SELECT COUNT(*) as total "
@@ -39,7 +42,7 @@ if ($config->system->captcha_key=="") {
 		$day = $endTime-($numberDays*86400);
 		$captchaUrl =
 				"http://2captcha.com/res.php?key=" .
-				$config->system->captcha_key . "&action=getstats&date=" . date("Y-m-d", $day);
+				$config_secret->captcha_key . "&action=getstats&date=" . date("Y-m-d", $day);
 		$fileContents= file_get_contents($captchaUrl);
 		$capXml = simplexml_load_string($fileContents);
 		foreach ($capXml as $key => $value) {
