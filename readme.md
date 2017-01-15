@@ -11,9 +11,9 @@ Up-to-date demos:
 Chat with us on our official Discord: https://discord.gg/SDvsxkN
 
 ## Requirements
-- PHP5+
-- Apache2
-- Mod_Rewrite (htaccess)
+- PHP 5.4+
+- Apache 2.4+
+ - Apache modules (see [Wiki](https://github.com/brusselopole/Worldopole/wiki/Installation-instructions))
 - Existing [PokemonGo-Map](https://github.com/PokemonGoMap/PokemonGo-Map) **MySQL** database
 
 ## To deploy for you
