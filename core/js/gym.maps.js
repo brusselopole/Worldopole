@@ -24,11 +24,11 @@ function initMap()
 				
 					// Convert return to JSON Array
 				
-					var locations = jQuery.parseJSON(data);
+					var locations = JSON.parse(data);
 					var arr = [];
 				
 					for (i = 0; i < locations.length; i++) {
-						arr.push(jQuery.parseJSON(locations[i]));
+						arr.push(JSON.parse(locations[i]));
 					}
 				
 				

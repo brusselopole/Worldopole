@@ -20,15 +20,6 @@ include_once('core/process/data.loader.php');
 		<link href="https://fonts.googleapis.com/css?family=Lato:400,300,700" rel="stylesheet" type="text/css">
 		<link href="core/css/font-awesome.min.css" rel="stylesheet">	
 		<link href="<?php auto_ver('core/css/style.css'); ?>" rel="stylesheet">
-
-		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-		<!--[if lt IE 9]>
-			<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-		<![endif]-->
-		
-		
 	</head>
 	<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
@@ -142,7 +133,8 @@ include_once('core/process/data.loader.php');
 			</div>
 		</footer>
 		
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
 		<script src="core/js/bootstrap.min.js"></script>
 		
 		<?php // Load scripts only for page
