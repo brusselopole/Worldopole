@@ -27,13 +27,13 @@ if ($config_secret->captcha_key=="") {
 	if (!empty($capdatas)) {
 		$lastCaptcha = array_pop($capdatas);
 	} else {
-		$lastCaptcha["timestamp"]=strtotime("-7 days");
+		$lastCaptcha["timestamp"]=strtotime("-7 days", strtotime(gmdate("Y-m-d")));
 	}
 	$lastCaptchaDate = date("Y-m-d", $lastCaptcha["timestamp"]);
 	$startTime = strtotime($lastCaptchaDate);
-	$endTime = strtotime(date("Y-m-d"));
+	$endTime = strtotime(gmdate("Y-m-d"));
 	$timeDiff = abs($endTime - $startTime);
-	$numberDays = intval($timeDiff/86400);  // 86400 seconds in one day
+	$numberDays = intval($timeDiff/86400) ;  // 86400 seconds in one day
 	if ($numberDays>7) {
 		$numberDays=7;
 	}
@@ -61,8 +61,14 @@ if ($config_secret->captcha_key=="") {
 			$fileContents = '';
 		}
 		$capXml = simplexml_load_string($fileContents);
+
 		foreach ($capXml as $key => $value) {
-			if (($numberDays==0 && ($value->Attributes()->hour <= date("H")))
+
+			if (
+					($numberDays==0
+						&& ((int)$value->Attributes()->hour >= (int)date("H",$lastCaptcha["timestamp"])
+						&& ((int)$value->Attributes()->hour <= (int)date("H")))
+					)
 					|| $numberDays>0) {
 				$captcha['timestamp'] =
 						strtotime(date("Y-m-d", $day) . " " . $value->Attributes()->hour . ":00");
@@ -70,7 +76,7 @@ if ($config_secret->captcha_key=="") {
 				$capdatas[] 	= $captcha;
 			}
 		}
-		$numberDays--;
+		--$numberDays;
 	}
 }
 $json 		= json_encode($capdatas);
