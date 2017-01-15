@@ -114,16 +114,16 @@ $(function () {
 					progressBar.append($('<div>',{title: 'IV Stamina :'+pokemon.iv_stamina, class: 'progress-bar progress-bar-success' ,role : 'progressbar', 'aria-valuenow' :pokemon.iv_stamina, 'aria-valuemin' : 0, 'aria-valuemax' : 45}).css('width',((100/45)*pokemon.iv_stamina ) + '%'))
 					progressBar.append($('<div>',{title: 'IV Attack :'+pokemon.iv_attack, class: 'progress-bar progress-bar-danger' ,role : 'progressbar', 'aria-valuenow' : pokemon.iv_attack, 'ria-valuemin' : 0, 'aria-valuemax' : 45}).css('width',((100/45)*pokemon.iv_attack ) + '%'))
 					progressBar.append($('<div>',{title: 'IV Defense :'+pokemon.iv_defense, class: 'progress-bar progress-bar-info' ,role : 'progressbar', 'aria-valuenow': pokemon.iv_defense, 'aria-valuemin' : 0, 'aria-valuemax' : 45}).css('width',((100/45)*pokemon.iv_defense ) + '%'))
-				trainerPokemon.append(progressBar);
-				if (pokemon.last_scanned == 0) {
-                      			trainerPokemon.append($('<p>',{class : 'pkmn-name',text: "Today"}));
-                    		}
-                    		else if (pokemon.last_scanned == 1) {
-                        		trainerPokemon.append($('<p>',{class : 'pkmn-name',text: pokemon.last_scanned + " Day"}));
-                    		}
-                    		else {
-                        		trainerPokemon.append($('<p>',{class : 'pkmn-name',text: pokemon.last_scanned + " Days"}));
-                   		}
+					trainerPokemon.append(progressBar);
+					if (pokemon.last_scanned == 0) {
+                      				trainerPokemon.append($('<p>',{class : 'pkmn-name',text: "Today"}));
+                    			}
+                    			else if (pokemon.last_scanned == 1) {
+                        			trainerPokemon.append($('<p>',{class : 'pkmn-name',text: pokemon.last_scanned + " Day"}));
+                    			}
+                    			else {
+                        			trainerPokemon.append($('<p>',{class : 'pkmn-name',text: pokemon.last_scanned + " Days"}));
+                   			}
 					trainersPokemonsContainer.append(trainerPokemon);
 				}
 				
