@@ -32,22 +32,21 @@ if ($config->system->captcha_key=="") {
 	$endTime = strtotime(date("Y-m-d"));
 	$timeDiff = abs($endTime - $startTime);
 	$numberDays = intval($timeDiff/86400);  // 86400 seconds in one day
-	echo $lastCaptcha["timestamp"]."\n";
 	if ($numberDays>7) {
 		$numberDays=7;
 	}
 	while ($numberDays>=0) {
-		$day = $startTime+($numberDays*86400);
+		$day = $endTime-($numberDays*86400);
 		$captchaUrl =
 				"http://2captcha.com/res.php?key=" .
 				$config->system->captcha_key . "&action=getstats&date=" . date("Y-m-d", $day);
 		$fileContents= file_get_contents($captchaUrl);
 		$capXml = simplexml_load_string($fileContents);
 		foreach ($capXml as $key => $value) {
-			if (($numberDays==0 && ($value->Attributes()->hour >= date("H", $lastCaptcha["timestamp"])))
+			if (($numberDays==0 && ($value->Attributes()->hour <= date("H")))
 					|| $numberDays>0) {
 				$captcha['timestamp'] =
-						strtotime($value->Attributes()->date . " " . $value->Attributes()->hour . ":00");
+						strtotime(date("Y-m-d", $day) . " " . $value->Attributes()->hour . ":00");
 				$captcha['captcha_accs'] = (string)$value->volume;
 				$capdatas[] 	= $captcha;
 			}
