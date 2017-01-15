@@ -7,7 +7,7 @@ $variables 	= SYS_PATH.'/core/json/variables.json';
 $config 	= json_decode(file_get_contents($variables));
 
 if (!isset($config->system)) {
-	echo 'Could not load variables.';
+	echo 'Error: Could not load core/json/variables.json.';
 	exit();
 }
 
@@ -45,33 +45,18 @@ if ($mysqli->connect_error != '') {
 // Those test are performed once.
 ##############################################################
 
+if (!file_exists(SYS_PATH.'/install/done.lock')) {
+	// run install tests
+	include_once('install/tester.php');
 
-if (!file_exists(SYS_PATH.'/install/website.lock')) {
-	if (!file_exists(SYS_PATH.'/install/done.lock')) {
-		if (version_compare(phpversion(), '5.3.10', '<')) {
-			echo "Sorry, your PHP version isn't high enough and contain security hole. Please update";
-			exit();
-		}
-
-
-		include_once('install/tester.php');
-
-		data_test();
-		rights_test();
-
-		if (file_exists(SYS_PATH.'/install/website.lock')) {
-			header('Location:/');
-			exit();
-		} else {
-			$content = time();
-			file_put_contents(SYS_PATH.'/install/done.lock', $content);
-		}
+	// check for error
+	if (file_exists(SYS_PATH.'/install/website.lock')) {
+		echo file_get_contents(SYS_PATH.'/install/website.lock');
+		exit();
+	} else {
+		$content = time();
+		file_put_contents(SYS_PATH.'/install/done.lock', $content);
 	}
-} else {
-	$content = file_get_contents(SYS_PATH.'/install/website.lock');
-	echo $content;
-
-	exit();
 }
 
 
