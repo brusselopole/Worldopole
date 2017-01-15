@@ -194,18 +194,17 @@ switch ($request) {
 				if ($config->system->recents_show_iv) {
 					if ($iv->available) {
 						$html .= '
-                        <div class="progress" style="height: 15px; width: 80%; margin: 5px auto 15px auto; margin-bottom: 0;">
-                            <div title="Attack IV: <?= $pokemon->iv->attack ?>" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="<?= $pokemon->iv->attack ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= (100/3) ?>%; line-height: 16px;">
-                                <span class="sr-only">Attack IV: <?= $pokemon->iv->attack ?></span><?= $pokemon->iv->attack ?>
-                            </div>
-                            <div title="Defense IV: <?= $pokemon->iv->defense ?>" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="<?= $pokemon->iv->defense ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= (100/3) ?>%; line-height: 16px;">
-                                <span class="sr-only">Defense IV: <?= $pokemon->iv->defense ?></span><?= $pokemon->iv->defense ?>
-                            </div>
-                            <div title="Stamina IV: <?= $pokemon->iv->stamina ?>" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<?= $pokemon->iv->stamina ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= (100/3) ?>%; line-height: 16px;">
-                                <span class="sr-only">Stamina IV: <?= $pokemon->iv->stamina ?></span><?= $pokemon->iv->stamina ?>
-                            </div>
-                            <a href="https://maps.google.com/?q='.$last_location->latitude.','.$last_location->longitude.'&ll='.$last_location->latitude.','.$last_location->longitude.'&z=16" target="_blank"><small class="pokemon-timer">00:00:00</small></a>
-                        </div>';
+					<div class="progress" style="height: 6px; width: 80%; margin: 5px auto 0 auto;">
+					    <div title="Stamina IV: '. $iv->stamina .'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'. $iv->stamina .'" aria-valuemin="0" aria-valuemax="45" style="width: '. ((100/15)*$iv->stamina)/3 .'%">
+						<span class="sr-only">Stamina IV: '. $iv->stamina .'</span>
+					    </div>
+					    <div title="Attack IV: '. $iv->attack .'" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="'. $iv->attack .'" aria-valuemin="0" aria-valuemax="45" style="width: '. ((100/15)*$iv->attack)/3 .'%">
+						<span class="sr-only">Attack IV: '. $iv->attack .'</span>
+					    </div>
+					    <div title="Defense IV: '. $iv->defense .'" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="'. $iv->defense .'" aria-valuemin="0" aria-valuemax="45" style="width: '. ((100/15)*$iv->defense)/3 .'%">
+						<span class="sr-only">Defense IV: '. $iv->defense .'</span>
+					    </div>
+					</div>';
 
 					} else {
 						$html .= '
