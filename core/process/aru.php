@@ -188,10 +188,9 @@ switch ($request) {
 			    <div class="col-md-1 col-xs-4 pokemon-single" data-pokeid="'.$pokeid.'" data-pokeuid="'.$pokeuid.'" style="display: none;">
 				<a href="pokemon/'.$pokeid.'"><img src="core/pokemons/'.$pokeid.'.png" alt="'.$pokemons->pokemon->$pokeid->name.'" class="img-responsive"></a>
 				<a href="pokemon/'.$pokeid.'"><p class="pkmn-name">'.$pokemons->pokemon->$pokeid->name.'</p></a>
- -				<a href="https://maps.google.com/?q='.$last_location->latitude.','.$last_location->longitude.'&ll='.$last_location->latitude.','.$last_location->longitude.'&z=16" target="_blank">
- -				    <small class="pokemon-timer">00:00:00</small>
- -				</a>';
-                
+				<a href="https://maps.google.com/?q='.$last_location->latitude.','.$last_location->longitude.'&ll='.$last_location->latitude.','.$last_location->longitude.'&z=16" target="_blank">
+				    <small class="pokemon-timer">00:00:00</small>
+				</a>';
 				if ($config->system->recents_show_iv) {
 					if ($iv->available) {
 						$html .= '
