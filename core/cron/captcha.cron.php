@@ -1,6 +1,4 @@
 <?php
-
-
 // -----------------------------------------------------------------------------------------------------------
 // Pokestops datas
 // Total pokestops
@@ -9,6 +7,7 @@
 
 $captcha_file	= SYS_PATH.'/core/json/captcha.stats.json';
 $capdatas	= json_decode(file_get_contents($captcha_file), true);
+
 
 $variables_secret = SYS_PATH.'/core/json/variables.secret.json';
 $config_secret = json_decode(file_get_contents($variables_secret));
@@ -43,7 +42,24 @@ if ($config_secret->captcha_key=="") {
 		$captchaUrl =
 				"http://2captcha.com/res.php?key=" .
 				$config_secret->captcha_key . "&action=getstats&date=" . date("Y-m-d", $day);
-		$fileContents= file_get_contents($captchaUrl);
+
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, $captchaUrl);
+		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		$fileContents = curl_exec($ch);
+		if (curl_errno($ch)) {
+			echo curl_error($ch);
+			echo "\n<br />";
+			$fileContents = '';
+		} else {
+			curl_close($ch);
+		}
+
+		if (!is_string($fileContents) || !strlen($fileContents)) {
+			echo "Failed to get contents.";
+			$fileContents = '';
+		}
 		$capXml = simplexml_load_string($fileContents);
 		foreach ($capXml as $key => $value) {
 			if (($numberDays==0 && ($value->Attributes()->hour <= date("H")))
