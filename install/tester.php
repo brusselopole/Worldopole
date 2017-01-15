@@ -87,20 +87,23 @@ function permission_test()
 	return $lock_msg;
 }
 
-// Execute tests
-$errors = '';
-$errors .= php_test();
-$errors .= db_test();
-$errors .= permission_test();
+function run_tests()
+{
+	// Execute tests
+	$errors = '';
+	$errors .= php_test();
+	$errors .= db_test();
+	$errors .= permission_test();
 
-// Write lockfile on error
-$lock_file = SYS_PATH.'/install/website.lock';
-if (file_exists($lock_file)) {
-	// delete old lockfile
-	unlink($lock_file);
-}
+	// Write lockfile on error
+	$lock_file = SYS_PATH.'/install/website.lock';
+	if (file_exists($lock_file)) {
+		// delete old lockfile
+		unlink($lock_file);
+	}
 
-// create new file if there is an error
-if ($errors != '') {
-	file_put_contents($lock_file, $errors);
+	// create new file if there is an error
+	if ($errors != '') {
+		file_put_contents($lock_file, $errors);
+	}
 }

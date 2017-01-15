@@ -48,6 +48,7 @@ if ($mysqli->connect_error != '') {
 if (!file_exists(SYS_PATH.'/install/done.lock')) {
 	// run install tests
 	include_once('install/tester.php');
+	run_tests();
 
 	// check for error
 	if (file_exists(SYS_PATH.'/install/website.lock')) {
