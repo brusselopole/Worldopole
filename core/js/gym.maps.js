@@ -107,28 +107,97 @@ function setGymDetails(gym)
 	$('#gym_details_template #gymPrestigeDisplay').html(gym.gymDetails.gymInfos.points);
 	
 	$('#gym_details_template #gymLastModifiedDisplay').html(gym.gymDetails.gymInfos.last_modified);
-	var teamColor = gym.gymDetails.gymInfos.team == "1" ? 'rgb(0, 170, 255)':gym.gymDetails.gymInfos.team == "2" ? 'rgb(255, 118, 118)':gym.gymDetails.gymInfos.team == "3" ? 'rgb(255, 190, 8)':'white';
+	var currentTeamColor = 'white';
+	if(gym.gymDetails.gymInfos.team=="1") {
+		currentTeamColor = 'rgb(0, 170, 255)';
+	} else if(gym.gymDetails.gymInfos.team=="2") {
+		currentTeamColor = 'rgb(255, 118, 118)';
+	} else if(gym.gymDetails.gymInfos.team=="3") {
+		currentTeamColor = 'rgb(255, 190, 8)';
+	}
+	var currentGymPrestige = gym.gymDetails.gymInfos.points;
+	formatGyms(currentGymPrestige, currentTeamColor);
+	$('#gym_details_template').show();
+}
+
+function formatGyms(gymPrestigeValue,teamColor){
+	var gymPrestige = gymPrestigeValue;
+	var gymRanks = [
+	{
+		level : 1,
+		prestigeMax : 2000,
+		prestigeMin : 0
+	},
+	{
+		level : 2,
+		prestigeMax : 4000,
+		prestigeMin : 2000
+	},
+	{
+		level : 3,
+		prestigeMax : 8000,
+		prestigeMin : 4000
+	},
+	{
+		level : 4,
+		prestigeMax : 12000,
+		prestigeMin : 8000
+	},
+	{
+		level : 5,
+		prestigeMax : 16000,
+		prestigeMin : 12000
+	},
+	{
+		level : 6,
+		prestigeMax : 20000,
+		prestigeMin : 16000
+	},
+	{
+		level : 7,
+		prestigeMax : 30000,
+		prestigeMin : 20000
+	},
+	{
+		level : 8,
+		prestigeMax : 40000,
+		prestigeMin : 30000
+	},
+	{
+		level : 9,
+		prestigeMax : 50000,
+		prestigeMin : 40000
+	},
+	{
+		level : 10,
+		prestigeMax : 52000,
+		prestigeMin : 50000
+	}
+	];
+	
 	$('#gym_details_template #gymInfos').css("border-color", teamColor);
-	var gymPrestige = gym.gymDetails.gymInfos.points;
 	//Set rank positions (50000 = 90% for rank 10 to be visible)
 	var gymPercent = 50000/90;
-	$('.bar-step').removeClass('active');
-	$('.gymRank1').css({width:(2000/gymPercent)+'%',left:'0'}).addClass(gymPrestige>0?'active':'');
-	$('.gymRank2').css({width:((4000/gymPercent)-(2000/gymPercent))+'%',left:(2000/gymPercent)+'%'}).addClass((gymPrestige>=2000)?'active':'');
-	$('.gymRank3').css({width:((8000/gymPercent)-(4000/gymPercent))+'%',left:(4000/gymPercent)+'%'}).addClass((gymPrestige>=4000)?'active':'');
-	$('.gymRank4').css({width:((12000/gymPercent)-(8000/gymPercent))+'%',left:(8000/gymPercent)+'%'}).addClass((gymPrestige>=8000)?'active':'');
-	$('.gymRank5').css({width:((16000/gymPercent)-(12000/gymPercent))+'%',left:(12000/gymPercent)+'%'}).addClass((gymPrestige>=12000)?'active':'');
-	$('.gymRank6').css({width:((20000/gymPercent)-(16000/gymPercent))+'%',left:(16000/gymPercent)+'%'}).addClass((gymPrestige>=16000)?'active':'');
-	$('.gymRank7').css({width:((30000/gymPercent)-(20000/gymPercent))+'%',left:(20000/gymPercent)+'%'}).addClass((gymPrestige>=20000)?'active':'');
-	$('.gymRank8').css({width:((40000/gymPercent)-(30000/gymPercent))+'%',left:(30000/gymPercent)+'%'}).addClass((gymPrestige>=30000)?'active':'');
-	$('.gymRank9').css({width:((50000/gymPercent)-(40000/gymPercent))+'%',left:(40000/gymPercent)+'%'}).addClass((gymPrestige>=40000)?'active':'');
-	$('.gymRank10').css({width:'10%',left:(50000/gymPercent)+'%'}).addClass((gymPrestige>=50000)?'active':'');
-	
 	if (gymPrestige>50000) {
 		//compensate for last rank
 		gymPrestige=(50000+((gymPrestige-50000)*2.775))
 	}
-	
+	$('.bar-step').removeClass('active');
+	for (var i in gymRanks) {
+		if (!gymRanks.hasOwnProperty(i)) {
+			continue; // Skip keys from the prototype.
+		}
+		var width = (((gymRanks[i].prestigeMax)-(gymRanks[i].prestigeMin))/gymPercent);
+		if(gymRanks[i].level > 9) {
+			width = 10;
+		}
+		var left = (gymRanks[i].prestigeMin/gymPercent);
+		var active = (gymPrestige >= gymRanks[i].prestigeMax);
+		if(active){
+			$('.gymRank'+gymRanks[i].level).addClass('active');
+		}
+		$('gymRank'+gymRanks[i].level).css({width:width+'%',left:left+'%'});
+		
+	}
 	$('#gym_details_template #gymPrestigeBar').css({'width':((gymPrestige/55550)*100)+'%', 'background-color':teamColor});
-	$('#gym_details_template').show();
 }

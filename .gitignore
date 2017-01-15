@@ -14,7 +14,7 @@ Thumbs.db
 
 config.php
 /core/json/variables.json
-.htaccess
+/.htaccess
 /install/done.lock
 /core/json/pokemon.stats.json
 /core/json/gym.stats.json
