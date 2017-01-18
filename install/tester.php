@@ -82,6 +82,9 @@ function permission_test()
 		$lock_msg .= "Error: Install can not be completed!<br>
                               Please fix install/ and core/json/ directory rights.<br>
                               Apache needs write access to both directories.<br>";
+		// This is really bad exit immediately
+		echo $lock_msg;
+		exit();
 	}
 
 	return $lock_msg;
