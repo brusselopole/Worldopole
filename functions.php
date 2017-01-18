@@ -2,7 +2,7 @@
 
 ########################################################################
 // Human Time Ago
-// @param $timestamp	=> unix timestamp (mandatory)
+// @param $timestamp	=> timestamp (mandatory)
 // @param $locales	=> locales (mandatory)
 //
 // Return time ago at human format (eg: 2 hours ago)
@@ -10,36 +10,49 @@
 
 function time_ago($timestamp, $locales)
 {
-	$then = new DateTime("@$timestamp");
-	$now = new DateTime;
-	$diff = $now->diff($then);
 
-	$label_string = array(
-		'y' => 'YEAR',
-		'm' => 'MONTH',
-		'd' => 'DAY',
-		'h' => 'HOUR',
-		'i' => 'MINUTE'
-	);
-	foreach ($label_string as $key => $label) {
-		if ($diff->$key) {
-			// DateInterval doesn't have weeks build in
-			if (($key === 'd') && ($diff->$key >= 7)) {
-				$difference_value = round($diff->$key / 7);
-				$difference_label = 'WEEK';
-			} else {
-				$difference_value = $diff->$key;
-				$difference_label = $label;
-			}
-			// plural
-			if ($difference_value != 1) {
-				$difference_label .= 'S';
-			}
-			break;
-		}
+	// Set up our variables.
+	$minute_in_seconds = 60;
+	$hour_in_seconds   = $minute_in_seconds * 60;
+	$day_in_seconds	   = $hour_in_seconds * 24;
+	$week_in_seconds   = $day_in_seconds * 7;
+	$month_in_seconds  = $day_in_seconds * 30;
+	$year_in_seconds   = $day_in_seconds * 365;
+
+	// current time
+	$now = time();
+
+	// Calculate the time difference between the current time reference point and the timestamp we're comparing.
+	// The difference is defined negative, when in the future.
+	$time_difference = $now - $timestamp;
+
+	// Calculate the time ago using the smallest applicable unit.
+	if ($time_difference < $hour_in_seconds) {
+		$difference_value = abs(round($time_difference / $minute_in_seconds));
+		$difference_label = 'MINUTE';
+	} elseif ($time_difference < $day_in_seconds) {
+		$difference_value = abs(round($time_difference / $hour_in_seconds));
+		$difference_label = 'HOUR';
+	} elseif ($time_difference < $week_in_seconds) {
+		$difference_value = abs(round($time_difference / $day_in_seconds));
+		$difference_label = 'DAY';
+	} elseif ($time_difference < $month_in_seconds) {
+		$difference_value = abs(round($time_difference / $week_in_seconds));
+		$difference_label = 'WEEK';
+	} elseif ($time_difference < $year_in_seconds) {
+		$difference_value = abs(round($time_difference / $month_in_seconds));
+		$difference_label = 'MONTH';
+	} else {
+		$difference_value = abs(round($time_difference / $year_in_seconds));
+		$difference_label = 'YEAR';
 	}
 
-	if ($diff->invert != 1) {
+	// plural
+	if ($difference_value != 1) {
+		$difference_label = $difference_label.'S';
+	}
+
+	if ($time_difference <= 0) {
 		// Present
 		return sprintf($locales->TIME_LEFT, $difference_value.' '.$locales->$difference_label);
 	} else {
