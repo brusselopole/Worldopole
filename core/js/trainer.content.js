@@ -108,7 +108,7 @@ $(function () {
 				for (var pokeIndex = 0; pokeIndex<trainer.pokemons.length; pokeIndex++) {
 					var pokemon = trainer.pokemons[pokeIndex];
 					var trainerPokemon = $('<div>',{id : 'trainerPokemon_'+pokemon.pokemon_uid, class: "col-md-1 col-xs-4 pokemon-single", style: "text-align: center" });
-					trainerPokemon.append($('<a>',{href : 'pokemon/'+pokemon.pokemon_id}).append($('<img />',{src : 'core/pokemons/'+pokemon.pokemon_id+'.png', 'class' : 'img-responsive '+(pokemon.gym_id===null?"unseen":"")})));
+					trainerPokemon.append($('<a>',{href : 'pokemon/'+pokemon.pokemon_id}).append($('<img />',{src : 'core/pokemons/'+pokemon.pokemon_id+'.svg', 'class' : 'img-responsive svg '+(pokemon.gym_id===null?"unseen":"")})));
 					trainerPokemon.append($('<p>',{class : 'pkmn-name'}).append(pokemon.cp));
 					var progressBar = $('<div>',{class : 'progress'}).css({'height': '6px','margin-bottom': '0'});
 					progressBar.append($('<div>',{title: 'IV Stamina :'+pokemon.iv_stamina, class: 'progress-bar progress-bar-success' ,role : 'progressbar', 'aria-valuenow' :pokemon.iv_stamina, 'aria-valuemin' : 0, 'aria-valuemax' : 45}).css('width',((100/45)*pokemon.iv_stamina ) + '%'))

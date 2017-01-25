@@ -186,7 +186,7 @@ switch ($request) {
 
 				$html = '
 			    <div class="col-md-1 col-xs-4 pokemon-single" data-pokeid="'.$pokeid.'" data-pokeuid="'.$pokeuid.'" style="display: none;">
-				<a href="pokemon/'.$pokeid.'"><img src="core/pokemons/'.$pokeid.'.png" alt="'.$pokemons->pokemon->$pokeid->name.'" class="img-responsive"></a>
+				<a href="pokemon/'.$pokeid.'"><img src="core/pokemons/'.$pokeid.'.svg" alt="'.$pokemons->pokemon->$pokeid->name.'" class="img-responsive"></a>
 				<a href="pokemon/'.$pokeid.'"><p class="pkmn-name">'.$pokemons->pokemon->$pokeid->name.'</p></a>
 				<a href="https://maps.google.com/?q='.$last_location->latitude.','.$last_location->longitude.'&ll='.$last_location->latitude.','.$last_location->longitude.'&z=16" target="_blank">
 				    <small class="pokemon-timer">00:00:00</small>
@@ -376,7 +376,7 @@ switch ($request) {
 			if ($data->team_id != 0) {
 				$icon .= $data->gym_level.".png";
 			}
-			$img = 'core/pokemons/'.$data->guard_pokemon_id.'.png';
+			$img = 'core/pokemons/'.$data->guard_pokemon_id.'.svg';
 			$html = '
 			<div style="text-align:center">
 				<p>Gym owned by:</p>
@@ -475,7 +475,7 @@ switch ($request) {
 				$gymData['infoWindow'] .= '
 				<div style="text-align: center; width: 50px; display: inline-block; margin-right: 3px">
 					<a href="pokemon/'.$data->pokemon_id.'">
-					<img src="core/pokemons/'.$data->pokemon_id.'.png" height="50" style="display:inline-block" >
+					<img src="core/pokemons/'.$data->pokemon_id.'.svg" height="50" style="display:inline-block" class="img-responsive svg">
 					</a>
 					<p class="pkmn-name">'.$data->cp.'</p>
 					<div class="progress" style="height: 4px; width: 40px; margin-bottom: 10px; margin-top: 2px; margin-left: auto; margin-right: auto">
@@ -497,7 +497,7 @@ switch ($request) {
 				$gymData['infoWindow'] .= '
 				<div style="text-align: center; width: 50px; display: inline-block; margin-right: 3px">
 					<a href="pokemon/'.$gymData['gymDetails']['gymInfos']['guardPokemonId'].'">
-					<img src="core/pokemons/'.$gymData['gymDetails']['gymInfos']['guardPokemonId'].'.png" height="50" style="display:inline-block" >
+					<img src="core/pokemons/'.$gymData['gymDetails']['gymInfos']['guardPokemonId'].'.svg" height="50" style="display:inline-block" >
 					</a>
 					<p class="pkmn-name">???</p>
 				</div>'
