@@ -65,10 +65,6 @@
 			"href"		:	"https://twitter.com/brusselopole",
 			"text"		:	"Twitter",
 			"icon"		:	"fa-twitter"
-		},
-		{
-			"type"		:	"html",
-			"value"		:	"<img src='https://assets.pokemon.com/assets/cms2-fr-fr/img/misc/gus/buttons/logo-pokemon-79x45.png' class='img-responsive' alt='Pokemon logo'>"
 		}
 		
 	]
