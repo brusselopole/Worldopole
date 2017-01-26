@@ -26,7 +26,7 @@
 			
 			<div class="flex-item pokemon-single">
 			
-				<a href="<?= $pokemon->permalink ?>"><img src="<?= $pokemon->img ?>" alt="<?= $pokemon->name ?>" class="img-responsive <?php if ($pokemon->spawn == 0) {
+				<a href="<?= $pokemon->permalink ?>"><img src="<?= $pokemon->img ?>" alt="<?= $pokemon->name ?>" class="img-responsive svg <?php if ($pokemon->spawn == 0) {
 					echo 'unseen';
 } ?> "></a>
 				<p class="pkmn-name"><a href="<?= $pokemon->permalink ?>"><?= $pokemon->name ?></a></p>

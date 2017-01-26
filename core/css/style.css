@@ -116,7 +116,7 @@ Pokedex display
 
 .flex-item img {
 	display: inline-block;
-	max-width:105px;
+	max-width: 95px;
 }
 
 .flex-item:last-child img {
@@ -129,7 +129,12 @@ img.unseen{
 	opacity:0.5;
 }
 
-.pokemon-single a:hover img	 {
+.svg {
+	width: 100%;
+	padding: 5px;
+}
+
+.pokemon-single a:hover img {
 	background-image: url('../img/blue-hover.png');
 	background-size: 100% 100%;
 }

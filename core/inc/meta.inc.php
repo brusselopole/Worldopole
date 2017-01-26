@@ -60,12 +60,12 @@
 		<meta property="og:description" content="<?= $locales->FIND ?> <?= $pokemon->name ?> <?= sprintf($locales->INCITY, $config->infos->city); ?>" />
 		<meta property="og:url" content="<?= HOST_URL ?>/pokemon/<?= $pokemon->id ?>" />
 		<meta property="og:site_name" content="<?= $config->infos->site_name ?>" />
-		<meta property="og:image" content="<?= HOST_URL ?>core/pokemons/<?= $pokemon->id ?>.png" />
+		<meta property="og:image" content="<?= HOST_URL ?>core/pokemons/<?= $pokemon->id ?>.svg" />
 		
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:description" content="<?= $locales->FIND ?> <?= $pokemon->name ?> <?= sprintf($locales->INCITY, $config->infos->city); ?>" />
 		<meta name="twitter:title" content="<?= $config->infos->site_name ?> | <?= $pokemon->name ?>" />
-		<meta name="twitter:image" content="<?= HOST_URL ?>core/pokemons/<?= $pokemon->id ?>.png" />
+		<meta name="twitter:image" content="<?= HOST_URL ?>core/pokemons/<?= $pokemon->id ?>.svg" />
 		
 		
 		<?php
