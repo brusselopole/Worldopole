@@ -233,6 +233,26 @@ if (!empty($page)) {
 				$data_array[$data->pokemon_id] = $data->total;
 			};
 
+			if ($config->system->artificial_icons) {
+				if(!is_dir('core/pokemons/pokemon') {
+					mkdir('core/pokemons/pokemon');
+					for ($i= 1; $i <= $max; $i++) {
+						rename('core/pokemons'.$i.'.png', 'core/pokemons/pokemon/'.$i.'.png');
+						rename('core/pokemons/theartificial/'.$i.'.png', 'core/pokemons/'.$i.'.png');
+					}
+					rmdir('core/pokemons/theartificial')
+				}
+			} else {
+				if(!is_dir('core/pokemons/theartificial') {
+					mkdir(core/pokemons/theartificial);
+					for ($i= 1; $i <= $max; $i++) {
+						rename('core/pokemons'.$i.'.png', 'core/pokemons/theartificial/'.$i.'.png');
+						rename('core/pokemons/pokemon/'.$i.'.png', 'core/pokemons/'.$i.'.png');
+					}
+					rmdir('core/pokemons/pokemon')
+				}
+			}
+
 			for ($i= 1; $i <= $max; $i++) {
 				$pokedex->$i			= new stdClass();
 				$pokedex->$i->id 		= $i;
