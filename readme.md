@@ -14,7 +14,7 @@ Chat with us on our official Discord: https://discord.gg/SDvsxkN
 - PHP 5.4+
 - Apache 2.4+
  - Apache modules (see [Wiki](https://github.com/brusselopole/Worldopole/wiki/Installation-instructions))
-- Existing [RocketMap (previously PokemonGo-Map)](https://github.com/RocketMap/RocketMap) **MySQL** database
+- Existing [RocketMap](https://github.com/RocketMap/RocketMap) (previously PokemonGo-Map) **MySQL** database
 
 ## To deploy for you
 See [Wiki](https://github.com/brusselopole/Worldopole/wiki)
