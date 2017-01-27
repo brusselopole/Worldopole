@@ -209,7 +209,7 @@ if (!empty($page)) {
 					}
 				}
 			}
-
+			sort($related);
 			break;
 
 
