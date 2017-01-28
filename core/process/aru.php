@@ -602,7 +602,6 @@ switch ($request) {
 		break;
 
 	case 'pokemon_slider_init':
-
 		$req 		= "SELECT MIN(pokemon.disappear_time) as min, MAX(pokemon.disappear_time) as max from pokemon";
 		$result 	= $mysqli->query($req);
 		$data 		= $result->fetch_object();
@@ -617,7 +616,6 @@ switch ($request) {
 	break;
 
 	case 'pokemon_heatmap_points':
-
 		$json="";
 		if (isset($_GET['start'])&&isset($_GET['end']) && isset($_GET['pokemon_id'])) {
 			$start = Date("Y-m-d H:i",(int)$_GET['start']);

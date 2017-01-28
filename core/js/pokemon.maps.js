@@ -1,3 +1,5 @@
+/** global: google */
+/** global: pokemon_id */
 var map, heatmap;
 
 function initMap() {
@@ -183,7 +185,7 @@ function updateHeatmap() {
 			'end' : Math.floor(dateMax.getTime()/1000)
 		}
 	}).done(function(points){
-		var googlePoints = new Array();
+		var googlePoints = [];
 		for (var i = 0; i < points.length; i++) {
 			googlePoints.push(new google.maps.LatLng(points[i].latitude,points[i].longitude))
 		}
