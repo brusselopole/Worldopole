@@ -601,6 +601,47 @@ switch ($request) {
 
 		break;
 
+	case 'pokemon_slider_init':
+
+		$req 		= "SELECT MIN(pokemon.disappear_time) as min, MAX(pokemon.disappear_time) as max from pokemon";
+		$result 	= $mysqli->query($req);
+		$data 		= $result->fetch_object();
+		$bounds 	= $data;
+
+		header('Content-Type: application/json');
+		$json = json_encode($bounds);
+
+		echo $json;
+
+
+	break;
+
+	case 'pokemon_heatmap_points':
+
+		$json="";
+		if (isset($_GET['start'])&&isset($_GET['end']) && isset($_GET['pokemon_id'])) {
+			$start = Date("Y-m-d H:i",(int)$_GET['start']);
+			$end = Date("Y-m-d H:i",(int)$_GET['end']);
+			$pokemon_id = mysqli_real_escape_string($mysqli, $_GET['pokemon_id']);
+			$where = " WHERE pokemon.pokemon_id = ".$pokemon_id." "
+					. "AND pokemon.disappear_time BETWEEN '".$start."' AND '".$end."'";
+
+			$req 		= "SELECT latitude, longitude FROM pokemon".$where;
+			$result 	= $mysqli->query($req);
+			$points = array();
+			while ($result && $data = $result->fetch_object()) {
+				$points[] 	= $data;
+			}
+
+			$json = json_encode($points);
+		}
+
+		header('Content-Type: application/json');
+
+		echo $json;
+
+	break;
+
 	default:
 		echo "What do you mean?";
 		exit();
