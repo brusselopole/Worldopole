@@ -20,7 +20,7 @@ include_once('core/process/data.loader.php');
 		<link href="https://fonts.googleapis.com/css?family=Lato:400,300,700" rel="stylesheet" type="text/css">
 		<link href="core/css/font-awesome.min.css" rel="stylesheet">
 		<link href="<?php auto_ver('core/css/style.css'); ?>" rel="stylesheet">
-		<?php if($page=="pokemon"){ ?>
+		<?php if ($page=="pokemon") { ?>
 			<link href="<?php auto_ver('core/css/classic-min.css'); ?>" rel="stylesheet">
 		<?php } ?>
 	</head>
