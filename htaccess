@@ -2,10 +2,7 @@ SetEnv REGISTER_GLOBALS 0
 SetEnv ZEND_OPTIMIZER 1
 SetEnv MAGIC_QUOTES 0
 ServerSignature Off
-php_flag magic_quotes_gpc Off
 AddDefaultCharset utf-8
-
-php_value short_open_tag 1
 
 Options +FollowSymlinks
 Options -Indexes
