@@ -209,7 +209,7 @@ if (!empty($page)) {
 					}
 				}
 			}
-
+			sort($related);
 			break;
 
 
@@ -237,7 +237,7 @@ if (!empty($page)) {
 				$pokedex->$i			= new stdClass();
 				$pokedex->$i->id 		= $i;
 				$pokedex->$i->permalink 	= 'pokemon/'.$i;
-				$pokedex->$i->img		= 'core/pokemons/'.$i.'.png';
+				$pokedex->$i->img		= 'core/pokemons/'.$i.$config->system->pokeimg_suffix;
 				$pokedex->$i->name		= $pokemons->pokemon->$i->name;
 				$pokedex->$i->spawn 		= isset($data_array[$i])? $data_array[$i] : 0;
 			}

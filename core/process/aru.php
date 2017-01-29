@@ -186,7 +186,7 @@ switch ($request) {
 
 				$html = '
 			    <div class="col-md-1 col-xs-4 pokemon-single" data-pokeid="'.$pokeid.'" data-pokeuid="'.$pokeuid.'" style="display: none;">
-				<a href="pokemon/'.$pokeid.'"><img src="core/pokemons/'.$pokeid.'.png" alt="'.$pokemons->pokemon->$pokeid->name.'" class="img-responsive"></a>
+				<a href="pokemon/'.$pokeid.'"><img src="core/pokemons/'.$pokeid.$config->system->pokeimg_suffix.'" alt="'.$pokemons->pokemon->$pokeid->name.'" class="img-responsive"></a>
 				<a href="pokemon/'.$pokeid.'"><p class="pkmn-name">'.$pokemons->pokemon->$pokeid->name.'</p></a>
 				<a href="https://maps.google.com/?q='.$last_location->latitude.','.$last_location->longitude.'&ll='.$last_location->latitude.','.$last_location->longitude.'&z=16" target="_blank">
 				    <small class="pokemon-timer">00:00:00</small>
@@ -376,7 +376,7 @@ switch ($request) {
 			if ($data->team_id != 0) {
 				$icon .= $data->gym_level.".png";
 			}
-			$img = 'core/pokemons/'.$data->guard_pokemon_id.'.png';
+			$img = 'core/pokemons/'.$data->guard_pokemon_id.$config->system->pokeimg_suffix;
 			$html = '
 			<div style="text-align:center">
 				<p>Gym owned by:</p>
@@ -475,7 +475,7 @@ switch ($request) {
 				$gymData['infoWindow'] .= '
 				<div style="text-align: center; width: 50px; display: inline-block; margin-right: 3px">
 					<a href="pokemon/'.$data->pokemon_id.'">
-					<img src="core/pokemons/'.$data->pokemon_id.'.png" height="50" style="display:inline-block" >
+					<img src="core/pokemons/'.$data->pokemon_id.$config->system->pokeimg_suffix.'" height="50" style="display:inline-block" >
 					</a>
 					<p class="pkmn-name">'.$data->cp.'</p>
 					<div class="progress" style="height: 4px; width: 40px; margin-bottom: 10px; margin-top: 2px; margin-left: auto; margin-right: auto">
@@ -497,7 +497,7 @@ switch ($request) {
 				$gymData['infoWindow'] .= '
 				<div style="text-align: center; width: 50px; display: inline-block; margin-right: 3px">
 					<a href="pokemon/'.$gymData['gymDetails']['gymInfos']['guardPokemonId'].'">
-					<img src="core/pokemons/'.$gymData['gymDetails']['gymInfos']['guardPokemonId'].'.png" height="50" style="display:inline-block" >
+					<img src="core/pokemons/'.$gymData['gymDetails']['gymInfos']['guardPokemonId'].$config->system->pokeimg_suffix.'" height="50" style="display:inline-block" >
 					</a>
 					<p class="pkmn-name">???</p>
 				</div>'
@@ -600,6 +600,45 @@ switch ($request) {
 			echo $return;
 
 		break;
+
+	case 'pokemon_slider_init':
+		$req 		= "SELECT MIN(pokemon.disappear_time) as min, MAX(pokemon.disappear_time) as max from pokemon";
+		$result 	= $mysqli->query($req);
+		$data 		= $result->fetch_object();
+		$bounds 	= $data;
+
+		header('Content-Type: application/json');
+		$json = json_encode($bounds);
+
+		echo $json;
+
+
+	break;
+
+	case 'pokemon_heatmap_points':
+		$json="";
+		if (isset($_GET['start'])&&isset($_GET['end']) && isset($_GET['pokemon_id'])) {
+			$start = Date("Y-m-d H:i",(int)$_GET['start']);
+			$end = Date("Y-m-d H:i",(int)$_GET['end']);
+			$pokemon_id = mysqli_real_escape_string($mysqli, $_GET['pokemon_id']);
+			$where = " WHERE pokemon.pokemon_id = ".$pokemon_id." "
+					. "AND pokemon.disappear_time BETWEEN '".$start."' AND '".$end."'";
+
+			$req 		= "SELECT latitude, longitude FROM pokemon".$where;
+			$result 	= $mysqli->query($req);
+			$points = array();
+			while ($result && $data = $result->fetch_object()) {
+				$points[] 	= $data;
+			}
+
+			$json = json_encode($points);
+		}
+
+		header('Content-Type: application/json');
+
+		echo $json;
+
+	break;
 
 	default:
 		echo "What do you mean?";

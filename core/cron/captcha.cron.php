@@ -29,11 +29,11 @@ if ($config_secret->captcha_key=="") {
 	if (!empty($capdatas)) {
 		$lastCaptcha = array_pop($capdatas);
 	} else {
-		$lastCaptcha["timestamp"]=strtotime("-7 days", strtotime(gmdate("Y-m-d")));
+		$lastCaptcha["timestamp"]=strtotime("-7 days", strtotime(date("Y-m-d")));
 	}
 	$lastCaptchaDate = date("Y-m-d", $lastCaptcha["timestamp"]);
 	$startTime = strtotime($lastCaptchaDate);
-	$endTime = strtotime(gmdate("Y-m-d"));
+	$endTime = strtotime(date("Y-m-d"))+date("Z");
 	$timeDiff = abs($endTime - $startTime);
 	$numberDays = intval($timeDiff/86400) ;  // 86400 seconds in one day
 	if ($numberDays>7) {
@@ -70,7 +70,7 @@ if ($config_secret->captcha_key=="") {
 				&& ((int)$value->Attributes()->hour <= (int)date("H")))
 				) || $numberDays>0) {
 				$captcha['timestamp'] =
-						strtotime(date("Y-m-d", $day) . " " . $value->Attributes()->hour . ":00");
+						strtotime(date("Y-m-d", $day) . " " . $value->Attributes()->hour . ":00")+date("Z");
 				$captcha['captcha_accs'] = (string)$value->volume;
 				$capdatas[] 	= $captcha;
 			}

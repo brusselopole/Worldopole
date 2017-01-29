@@ -4,7 +4,7 @@
 
 # go to script dir
 BASEDIR=$(dirname "$0")
-cd "$BASEDIR"
+cd "$BASEDIR" || exit 1
 
 # Set some defaults
 # config.php
@@ -28,13 +28,18 @@ TIMEZONE="Europe/Paris"
 readinput() {
 	local prompt_text=$1
 	local default_text=$2
-	read -e -i "$default_text" -p "$prompt_text" input
+	read -r -e -i "$default_text" -p "$prompt_text" input
 	echo "$input"
 }
 
 
 # MAIN
 echo "Welcome to Worldopole installation"
+
+if [ "$EUID" -ne 0 ]; then
+	echo
+	echo "Notice: Running script with other user than root might fail!"
+fi
 echo
 echo "Please enter all the following values and press ENTER to confirm"
 echo
@@ -78,7 +83,7 @@ until [ "$answer" == 'y' ]; do
 	echo
 
 	# yes or no
-	read -n 1 -p "Is everything correct [y/n] " answer
+	read -r -n 1 -p "Is everything correct [y/n] " answer
 	if [ "$answer" != 'y' ]; then
 		echo
 		echo "Do your edits:"

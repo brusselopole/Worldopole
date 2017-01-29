@@ -24,6 +24,7 @@
 		"GMaps_Key"		:	"#GMAPS_KEY#",
 		"timezone"		:	"Europe/Paris",
 		"max_pokemon"		:	151,
+		"pokeimg_suffix"	:	"_flat.png",
 		"mythic_recents"	:	true,
 		"recents_show_iv"	:	false,
 		"captcha_support"	:	false,
