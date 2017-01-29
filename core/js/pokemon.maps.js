@@ -116,16 +116,19 @@ function initSlider(){
 			'type' : 'pokemon_slider_init'
 		}
 	}).done(function(bounds){
-		var selectorMax = new Date(bounds.max);
-		var selectorMin = new Date(bounds.min);
+		var boundMin = new Date(bounds.min.replace(/-/g, "/"));
+		var boundMax = new Date(bounds.max.replace(/-/g, "/"));
+		var selectorMax = boundMax;
+		var selectorMin = boundMin;
+		
 		var maxMinus2Weeks = new Date(selectorMax.getTime() - 2 * 7 * 24 * 60 * 60 * 1000);
 		if(selectorMin < maxMinus2Weeks){
 			selectorMin = maxMinus2Weeks;
 		}
 		$("#timeSelector").dateRangeSlider({
 			bounds:{
-				min: new Date(bounds.min),
-				max: new Date(bounds.max)
+				min: boundMin,
+				max: boundMax
 			},
 			defaultValues:{
 				min: selectorMin,
