@@ -164,6 +164,7 @@ function printPokemon(pokemon,pokeimg_suffix){
 			'aria-valuemin' : 0, 
 			'aria-valuemax' : 45
 		}).css('width',((100/45)*pokemon.iv_defense ) + '%'))
+	progressBar.append(
 		$('<div>',
 			{
 			title: 'IV Stamina :'+pokemon.iv_stamina, 
@@ -173,7 +174,6 @@ function printPokemon(pokemon,pokeimg_suffix){
 			'aria-valuemin' : 0, 
 			'aria-valuemax' : 45
 		}).css('width',((100/45)*pokemon.iv_stamina ) + '%'))
-	progressBar.append(
 	trainerPokemon.append(progressBar);
 	if (pokemon.last_scanned === '0') {
 		trainerPokemon.append($('<small>',{text: "Today"}));
