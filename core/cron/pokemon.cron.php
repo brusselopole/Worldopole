@@ -9,8 +9,7 @@
 // This file is used to rank by rarity 
 
 // Load the pokemons array
-// force english language
-$config->system->forced_lang = 'en';
+// crontabs.include.php forces english lang
 include_once($filePath.'/../process/locales.loader.php');
 
 
