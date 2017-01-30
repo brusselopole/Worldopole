@@ -61,7 +61,7 @@ foreach ($stats as $data) {
 		}
 		
 	
-		if(!empty($data->rarity_spawn->Mythic)){
+		if(!empty($data->rarity_spawn->Rare)){
 			$rare[]		= $data->rarity_spawn->Rare;
 		}
 		else{
