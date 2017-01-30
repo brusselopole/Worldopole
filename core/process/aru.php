@@ -195,14 +195,14 @@ switch ($request) {
 					if ($iv->available) {
 						$html .= '
 					<div class="progress" style="height: 6px; width: 80%; margin: 5px auto 0 auto;">
-					    <div title="Stamina IV: '. $iv->stamina .'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'. $iv->stamina .'" aria-valuemin="0" aria-valuemax="45" style="width: '. ((100/15)*$iv->stamina)/3 .'%">
-						<span class="sr-only">Stamina IV: '. $iv->stamina .'</span>
-					    </div>
 					    <div title="Attack IV: '. $iv->attack .'" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="'. $iv->attack .'" aria-valuemin="0" aria-valuemax="45" style="width: '. ((100/15)*$iv->attack)/3 .'%">
-						<span class="sr-only">Attack IV: '. $iv->attack .'</span>
+							<span class="sr-only">Attack IV: '. $iv->attack .'</span>
 					    </div>
 					    <div title="Defense IV: '. $iv->defense .'" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="'. $iv->defense .'" aria-valuemin="0" aria-valuemax="45" style="width: '. ((100/15)*$iv->defense)/3 .'%">
-						<span class="sr-only">Defense IV: '. $iv->defense .'</span>
+							<span class="sr-only">Defense IV: '. $iv->defense .'</span>
+					    </div>
+					    <div title="Stamina IV: '. $iv->stamina .'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'. $iv->stamina .'" aria-valuemin="0" aria-valuemax="45" style="width: '. ((100/15)*$iv->stamina)/3 .'%">
+							<span class="sr-only">Stamina IV: '. $iv->stamina .'</span>
 					    </div>
 					</div>';
 					} else {
@@ -479,16 +479,14 @@ switch ($request) {
 					</a>
 					<p class="pkmn-name">'.$data->cp.'</p>
 					<div class="progress" style="height: 4px; width: 40px; margin-bottom: 10px; margin-top: 2px; margin-left: auto; margin-right: auto">
-						<div title="Stamina IV: '.$data->iv_stamina.'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'.$data->iv_stamina.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(((100/15)*$data->iv_stamina)/3).'%">
-							<span class="sr-only">Stamina IV: '.$data->iv_stamina.'</span>
-						</div>
-
 						<div title="Attack IV: '.$data->iv_attack.'" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="'.$data->iv_attack.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(((100/15)*$data->iv_attack)/3).'%">
 							<span class="sr-only">Attack IV: '.$data->iv_attack.'</span>
 						</div>
-
 						<div title="Defense IV: '.$data->iv_defense.'" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="'.$data->iv_defense.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(((100/15)*$data->iv_defense)/3).'%">
 							<span class="sr-only">Defense IV: '.$data->iv_defense.'</span>
+						</div>
+						<div title="Stamina IV: '.$data->iv_stamina.'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'.$data->iv_stamina.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(((100/15)*$data->iv_stamina)/3).'%">
+							<span class="sr-only">Stamina IV: '.$data->iv_stamina.'</span>
 						</div>
 					</div>
 				</div>'
