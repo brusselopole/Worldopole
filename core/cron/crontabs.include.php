@@ -8,6 +8,12 @@ $config_file	= $filePath.'/../../config.php';
 
 include_once($config_file);
 
+// Load variables.json
+$variables      = $filePath.'/../json/variables.json';
+$config         = json_decode(file_get_contents($variables));
+// force english language for all cron stuff
+$config->system->forced_lang = 'en';
+
 // Manage Time Interval
 // #####################
 

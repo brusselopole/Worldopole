@@ -9,9 +9,7 @@
 // This file is used to rank by rarity 
 
 // Load the pokemons array
-// will load english one because language is not set
-############################
-
+// crontabs.include.php forces english lang
 include_once($filePath.'/../process/locales.loader.php');
 
 
