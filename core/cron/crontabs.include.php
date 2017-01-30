@@ -8,6 +8,10 @@ $config_file	= $filePath.'/../../config.php';
 
 include_once($config_file);
 
+// Load variables.json
+$variables      = '/../json/variables.json';
+$config         = json_decode(file_get_contents($variables));
+
 // Manage Time Interval
 // #####################
 
