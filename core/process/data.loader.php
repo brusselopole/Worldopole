@@ -127,8 +127,8 @@ if (!empty($page)) {
 			// Some math
 			// ----------
 
-			$pokemon->max_cp_percent 	= percent(4145, $pokemon->max_cp);
-			$pokemon->max_pv_percent 	= percent(407, $pokemon->max_pv);
+			$pokemon->max_cp_percent 	= percent(3581, $pokemon->max_cp);
+			$pokemon->max_pv_percent 	= percent(704, $pokemon->max_pv);
 
 
 
