@@ -53,10 +53,10 @@
 		<h2 class="text-center sub-title">
 			<?php 
 			if ($config->system->mythic_recents) { ?>
-				<?= $locales->RECENT_SPAWNS ?>
+				<?= $locales->RECENT_MYTHIC_SPAWNS ?>
 			<?php 
 			} else { ?>
-				<?= $locales->RECENT_MYTHIC_SPAWNS ?>
+				<?= $locales->RECENT_SPAWNS ?>
 			<?php 
 			} ?>
 		</h2>
