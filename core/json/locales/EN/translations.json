@@ -76,6 +76,7 @@
 "POKESTOPS_METATITLE": "All Pokéstops in %s", 
 "POKESTOPS_TITLE": "Where to <strong>Pokéstop</strong> and fill your bag in <strong>%s</strong><br><small>There's always a <strong>Pokéstop</strong> near you.</small>", 
 "RECENT_SPAWNS": "The most <strong>recent</strong> spawns", 
+"RECENT_MYTHIC_SPAWNS": "The most recent <strong>mythic</strong> spawns", 
 "SEEN": " seen", 
 "SHARE": "Share on", 
 "TEAM": "Team", 
