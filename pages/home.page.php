@@ -50,7 +50,16 @@
 
 <div class="row area big-padding">
 	<div class="col-md-12 text-center">
-		<h2 class="text-center sub-title"><?= $locales->RECENT_SPAWNS ?></h2>
+		<h2 class="text-center sub-title">
+			<?php 
+			if ($config->system->mythic_recents) { ?>
+				<?= $locales->RECENT_MYTHIC_SPAWNS ?>
+			<?php 
+			} else { ?>
+				<?= $locales->RECENT_SPAWNS ?>
+			<?php 
+			} ?>
+		</h2>
 		<div class="last-mon-js">
 		<?php
 		foreach ($recents as $key => $pokemon) {
