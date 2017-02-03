@@ -188,6 +188,8 @@
 
 	<h2 class="text-center sub-title"><strong><?= $pokemon->name ?></strong> <?= $locales->POKEMON_BREAKDOWN ?></h2>
 
+	<!-- Rating -->
+	<p class="text-center stats-data"><big><?= $pokemon->rating ?> / 10</big><br><?= $locales->POKEMON_RATING ?></p>
 
 	<!-- CP Datas -->
 	<div class="col-md-3 stats-data">
