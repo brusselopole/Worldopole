@@ -81,8 +81,8 @@ $stats		= json_decode(file_get_contents($stats_file));
 
 
 foreach ($stats as $data) {
-	if ($data->timestamp > $yesterday) {
-		$labels_gym[]			= '"'.date('H:i', $data->timestamp).'"';
+	if ($data->timestamp > $lastweek) {
+		$labels_gym[]			= '"'.date('D H:i', $data->timestamp).'"';
 		
 		$mystic_average[]		= $data->team->mystic->average;
 		$mystic_owned[]			= $data->team->mystic->gym_owned;

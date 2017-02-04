@@ -70,7 +70,7 @@
 			</div>
 			
 			<div class="col-md-12">
-				<h4><?= $locales->DASHBOARD_PRESTIGE_AVERAGE ?> <small><?= $locales->DASHBOARD_LAST24HOURS ?></small></h4>
+				<h4><?= $locales->DASHBOARD_PRESTIGE_AVERAGE ?> <small><?= $locales->DASHBOARD_LAST7DAYS ?></small></h4>
 			</div>
 			
 			<div class="col-md-12">
@@ -81,7 +81,7 @@
 		
 			
 			<div class="col-md-12">
-				<h4><?= $locales->DASHBOARD_GYM_OWNED_PERFORMANCE ?> <small><?= $locales->DASHBOARD_LAST24HOURS ?></small></h4>
+				<h4><?= $locales->DASHBOARD_GYM_OWNED_PERFORMANCE ?> <small><?= $locales->DASHBOARD_LAST7DAYS ?></small></h4>
 			</div>
 			
 			<div class="col-md-12">
