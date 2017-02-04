@@ -71,6 +71,8 @@
 "POKEMON_SPECIAL": "Best special move", 
 "POKEMON_STATS": "Stats", 
 "POKEMON_WHERE": "Where can you <strong>hunt</strong>", 
+"POKEMON_HEATMAP_BUTTON": "Heatmap",
+"POKEMON_LIVE_BUTTON": "Live",
 "POKESTOPS": "Pokéstops", 
 "POKESTOPS_LURES": "active right now", 
 "POKESTOPS_METADESC": "Find your way around %s using our Pokéstops finder.", 
@@ -104,5 +106,6 @@
 "YEAR": "year", 
 "YEARS": "years",
 "TIME_AGO": "%s ago",
-"TIME_LEFT": "%s left"
+"TIME_LEFT": "%s left",
+"LOADING": "Loading"
 }

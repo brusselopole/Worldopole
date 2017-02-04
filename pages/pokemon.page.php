@@ -162,17 +162,34 @@
 
 
 
-<div class="row area" id="where">
+<div class="row " id="where">
 
 	<div class="col-md-12">
 
 		<h2 class="text-center sub-title"><?= $locales->POKEMON_WHERE ?> <?= $pokemon->name ?>?</h2>
 
 	</div>
-	<div class="col-md-12">
+</div>
+<div class="row  text-center" id="subnav">
+	<div class="btn-group" role="group">
+		<button class="btn btn-default active" id="heatmapSelector"><i class="fa fa-thermometer-three-quarters "></i> <?= $locales->POKEMON_HEATMAP_BUTTON ?></button>
+		<button class="btn btn-default " href="pokemon/<?= $pokemon->id ?>#stats"  id="liveSelector"><i class="fa fa-eye"></i> <?= $locales->POKEMON_LIVE_BUTTON ?></button>
+	</div>
+</div>
+<div class="row area">
+	<div class="col-md-12" id="timeFilterContainer">
 		<div id="timeSelector">
 		</div>
 	</div>
+	<div class="col-md-12" id="liveFilterContainer">
+		<div id="liveFilterSelector">
+		</div>
+	</div>
+	<div class="col-md-12 text-center" id="loaderContainer">
+		<h3><?= $locales->LOADING ?></h3>
+	</div>
+</div>
+<div class="row area" id="map">
 	<div class="col-md-12">
 		<div id="map">
 

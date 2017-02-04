@@ -1,13 +1,13 @@
 <?php
 
-# Send Javascript header 
+# Send Javascript header
 header('Content-type: text/javascript');
 
-# Load Config 
+# Load Config
 include_once('../../config.php');
 
 
-// Include & load the variables 
+// Include & load the variables
 // ############################
 
 $variables	= SYS_PATH.'/core/json/variables.json';
@@ -21,7 +21,7 @@ include_once(SYS_PATH.'/core/process/locales.loader.php');
 
 
 
-// Check if there's a pokemon stat file 
+// Check if there's a pokemon stat file
 // ####################################
 
 $stats_file	= SYS_PATH.'/core/json/pokemon.stats.json';
@@ -33,42 +33,65 @@ $yesterday	= $now-86400;
 $lastweek	= $now-604800;
 
 $i=0;
+$labels_global = array();
+$total = array();
+$labels = array();
+$veco = array();
+$commo = array();
+$rare = array();
+$myth = array();
+$labels_gym = array();
+
+$mystic_average = array();
+$mystic_owned = array();
+
+$valor_average = array();
+$valor_owned = array();
+
+$instinct_average = array();
+$instinct_owned = array();
+
+$labels_stops = array();
+$lure = array();
+
+$labels_captcha = array();
+$captcha_accs = array();
 
 foreach ($stats as $data) {
 	if ($data->timestamp > $lastweek) {
 		$labels_global[]	= '"'.date('D H:i', $data->timestamp).'"';
 		$total[]		= $data->pokemon_now;
 	}
-	
+
 	if($data->timestamp > $yesterday){
-		
-		$labels[] = '"'.date('H:i', $data->timestamp ).'"'; 
-		
+
+		$labels[] = '"'.date('H:i', $data->timestamp ).'"';
+
 
 		if(!empty($data->rarity_spawn->{'Very common'})){
 			$veco[]		= $data->rarity_spawn->{'Very common'};
 		}
-		else{
-			$veco[]		= 0; 
+		else {
+			$veco[]		= 0;
 		}
-		
-	
+
+
 		if(!empty($data->rarity_spawn->Common)){
 			$commo[]	= $data->rarity_spawn->Common;
 		}
-		else{
-			$commo[]	= 0; 
+		else {
+			$commo[]	= 0;
 		}
-		
-	
+
+
 		if(!empty($data->rarity_spawn->Rare)){
 			$rare[]		= $data->rarity_spawn->Rare;
 		}
-		else{
-			$rare[]		= 0; 
+		else {
+			$rare[]		= 0;
 		}
-		
-	
+
+
 		if(!empty($data->rarity_spawn->Mythic)){
 			$myth[]		= $data->rarity_spawn->Mythic;
 		}
@@ -83,13 +106,13 @@ $stats		= json_decode(file_get_contents($stats_file));
 foreach ($stats as $data) {
 	if ($data->timestamp > $lastweek) {
 		$labels_gym[]			= '"'.date('D H:i', $data->timestamp).'"';
-		
+
 		$mystic_average[]		= $data->team->mystic->average;
 		$mystic_owned[]			= $data->team->mystic->gym_owned;
-		
+
 		$valor_average[]		= $data->team->valor->average;
 		$valor_owned[]			= $data->team->valor->gym_owned;
-		
+
 		$instinct_average[]		= $data->team->instinct->average;
 		$instinct_owned[]		= $data->team->instinct->gym_owned;
 	}
@@ -120,11 +143,11 @@ if ($config->system->captcha_support) {
 		}
 	}
 }
-	
+
 ?>
 
 
-// Global Options 
+// Global Options
 // --------------
 
 Chart.defaults.global.legend.display = false;
@@ -183,7 +206,7 @@ var data = {
 
 var myLineChart = new Chart(ctx, {
 	type: 'line',
-	data: data, 
+	data: data,
 	options : options
 });
 
@@ -225,7 +248,7 @@ var data_vc = {
 
 var myLineChart = new Chart(ctx_vc, {
 	type: 'line',
-	data: data_vc, 
+	data: data_vc,
 	options : options
 });
 
@@ -263,7 +286,7 @@ var data_comm = {
 
 var myLineChart = new Chart(ctx_comm, {
 	type: 'line',
-	data: data_comm, 
+	data: data_comm,
 	options : options
 });
 
@@ -300,7 +323,7 @@ var data_rare = {
 
 var myLineChart = new Chart(ctx_rare, {
 	type: 'line',
-	data: data_rare, 
+	data: data_rare,
 	options : options
 });
 
@@ -339,7 +362,7 @@ var data_myth = {
 
 var myLineChart = new Chart(ctx_myth, {
 	type: 'line',
-	data: data_myth, 
+	data: data_myth,
 	options : options
 });
 
@@ -374,7 +397,7 @@ var data_av = {
 			pointHitRadius: 10,
 			data: [<?= implode(',', $mystic_average)?>],
 			spanGaps: false,
-		}, 
+		},
 		{
 			label: "<?= $locales->DASHBOARD_GRAPH_VALOR_PRESTIGE_AVERAGE ?>",
 			fill: false,
@@ -396,7 +419,7 @@ var data_av = {
 			pointHitRadius: 10,
 			data: [<?= implode(',', $valor_average)?>],
 			spanGaps: false,
-		}, 
+		},
 		{
 			label: "<?= $locales->DASHBOARD_GRAPH_INSTINCT_PRESTIGE_AVERAGE ?>",
 			fill: false,
@@ -425,7 +448,7 @@ var data_av = {
 
 var myLineChart = new Chart(team_av, {
 	type: 'line',
-	data: data_av, 
+	data: data_av,
 	options : options
 });
 
@@ -512,7 +535,7 @@ var data_team_gym = {
 
 var myLineChart = new Chart(team_gym, {
 	type: 'line',
-	data: data_team_gym, 
+	data: data_team_gym,
 	options : options
 });
 
@@ -558,7 +581,7 @@ var data_lure = {
 
 var myLineChart = new Chart(ctx_lure, {
 	type: 'line',
-	data: data_lure, 
+	data: data_lure,
 	options : options
 });
 
