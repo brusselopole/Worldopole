@@ -1,3 +1,5 @@
+/** Global: trainerName */
+
 $(function () {
 	$.getJSON( "core/json/variables.json", function( jsondata ) {
 		var pokeimg_suffix=jsondata['system']['pokeimg_suffix'];
@@ -6,8 +8,8 @@ $(function () {
 		var page = 0;
 		var teamSelector=0; //0=all;1=Blue;2=Red;3=Yellow
 		var rankingFilter=0; //0=Level & Gyms; 1=Level; 2=Gyms
-
-		loadTrainers(page,null,null,null,pokeimg_suffix);
+		$('input#name').val(trainerName);
+		loadTrainers(page,$('input#name').val(),null,null,pokeimg_suffix);
 		page++;
 		var win = $(window);
 		win.scroll(function () {
@@ -73,6 +75,7 @@ $(function () {
 
 function loadTrainers(page,name,teamSelector,rankingFilter,pokeimg_suffix) {
 	$('.trainerLoader').show();
+	window.history.pushState("","","trainer?name="+name);
 	var trainerIndex = 0+(page*10);
 	$.ajax({
 		'async': true,

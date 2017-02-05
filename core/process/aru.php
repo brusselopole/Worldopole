@@ -707,7 +707,6 @@ switch ($request) {
 }
 if ($postRequest!=""){
 	switch ($postRequest) {
-
 		case 'pokemon_live':
 			$json="";
 			if (isset( $_POST['pokemon_id'])) {
