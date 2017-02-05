@@ -71,6 +71,8 @@
 "POKEMON_SPECIAL": "Bester Spezial-Move", 
 "POKEMON_STATS": "Statistiken", 
 "POKEMON_WHERE": "Wo <strong>fängst</strong> du", 
+"POKEMON_HEATMAP_BUTTON": "Heatmap",
+"POKEMON_LIVE_BUTTON": "Live",
 "POKESTOPS": "Pokéstops", 
 "POKESTOPS_LURES": "gerade aktiv.", 
 "POKESTOPS_METADESC": "Finde deinen Weg durch %s mit unserer Pokéstop-Karte.", 
@@ -104,7 +106,6 @@
 "YEAR": "Jahr", 
 "YEARS": "Jahre",
 "TIME_AGO": "vor %s",
-"TIME_LEFT": "noch %s"
-"TIME_LEFT": "%s verbleibend",
+"TIME_LEFT": "noch %s",
 "LOADING": "Lädt"
 }
