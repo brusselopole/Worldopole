@@ -673,11 +673,10 @@ switch ($request) {
 		$json="";
 		if (isset($_GET['pokemon_id'])) {
 			$pokemon_id = mysqli_real_escape_string($mysqli, $_GET['pokemon_id']);
-			$where = " WHERE pokemon.pokemon_id = ".$pokemon_id;
+			$where = " WHERE pokemonFiltered.pokemon_id = ".$pokemon_id;
 			$req 		= "SELECT COUNT(*) as total, "
 					. "HOUR(CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) as disappear_hour
-			FROM pokemon
-			WHERE pokemon_id = '".$pokemon_id."'
+			FROM (SELECT * FROM pokemon WHERE pokemon_id = '".$pokemon_id."' LIMIT 10000) as pokemonFiltered
 			GROUP BY disappear_hour
 			ORDER BY disappear_hour";
 			$result 	= $mysqli->query($req);
@@ -713,6 +712,10 @@ if ($postRequest!=""){
 				$pokemon_id = mysqli_real_escape_string($mysqli, $_POST['pokemon_id']);
 				$inmap_pkms_filter="";
 				$where = " WHERE disappear_time >= UTC_TIMESTAMP() AND pokemon.pokemon_id = ".$pokemon_id;
+
+				$reqTestIv = "SELECT MAX(individual_attack) as iv FROM pokemon ".$where;
+				$resultTestIv 	= $mysqli->query($reqTestIv);
+				$testIv = $resultTestIv->fetch_object();
 				if (isset( $_POST['inmap_pokemons'])&&( $_POST['inmap_pokemons']!="")) {
 					foreach ($_POST['inmap_pokemons'] as $inmap) {
 						$inmap_pkms_filter .= "'".$inmap."',";
@@ -720,19 +723,18 @@ if ($postRequest!=""){
 					$inmap_pkms_filter = rtrim($inmap_pkms_filter, ",");
 					$where .= " AND pokemon.encounter_id NOT IN (".$inmap_pkms_filter.") ";
 				}
-				if (isset( $_POST['ivMin'])&&( $_POST['ivMin']!="")) {
+				if ($testIv->iv!=null && isset( $_POST['ivMin'])&&( $_POST['ivMin']!="")) {
 					$ivMin = mysqli_real_escape_string($mysqli, $_POST['ivMin']);
 					$where .= " AND ((100/45)*(individual_attack+individual_defense+individual_stamina)) >= (".$ivMin.") ";
 				}
-				if (isset( $_POST['ivMax'])&&( $_POST['ivMax']!="")) {
+				if ($testIv->iv!=null && isset( $_POST['ivMax'])&&( $_POST['ivMax']!="")) {
 					$ivMax = mysqli_real_escape_string($mysqli, $_POST['ivMax']);
 					$where .= " AND ((100/45)*(individual_attack+individual_defense+individual_stamina)) <=(".$ivMax.") ";
 				}
 				$req = "SELECT pokemon_id, encounter_id, latitude, longitude, disappear_time,"
 						. " (CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) as disappear_time_real, "
 						. " individual_attack, individual_defense, individual_stamina "
-						. "FROM pokemon".$where." ORDER BY disappear_time DESC LIMIT 10000";
-				//echo $req;
+						. "FROM pokemon".$where." ORDER BY disappear_time DESC LIMIT 5000";
 				$result 	= $mysqli->query($req);
 				$points = array();
 				while ($result && $data = $result->fetch_object()) {
