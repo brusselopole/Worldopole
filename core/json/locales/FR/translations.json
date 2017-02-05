@@ -103,5 +103,6 @@
 "YEAR": "an", 
 "YEARS": "an",
 "TIME_AGO": "il y a %s",
-"TIME_LEFT": "%s restantes"
+"TIME_LEFT": "%s restantes",
+"LOADING": "Chargement"
 }

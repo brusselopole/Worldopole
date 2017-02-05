@@ -109,7 +109,6 @@ if (!empty($page)) {
 			// Current Pokemon datas
 			// ---------------------
 
-
 			$pokemon_id 			= mysqli_real_escape_string($mysqli, $_GET['id']);
 
 			if (!is_object($pokemons->pokemon->$pokemon_id)) {
@@ -123,13 +122,11 @@ if (!empty($page)) {
 			$pokemon->id			= $pokemon_id;
 
 
-
 			// Some math
 			// ----------
 
 			$pokemon->max_cp_percent 	= percent(3581, $pokemon->max_cp);
 			$pokemon->max_pv_percent 	= percent(704, $pokemon->max_pv);
-
 
 
 			// Get Dabase results
@@ -144,7 +141,6 @@ if (!empty($page)) {
 
 			$pokemon->protected_gyms = $data->total;
 
-
 			// Total spawn
 
 			$req 		= "SELECT COUNT(*) as total FROM pokemon WHERE pokemon_id = '".$pokemon_id."'";
@@ -152,12 +148,10 @@ if (!empty($page)) {
 			$data 		= $result->fetch_object();
 
 			$pokemon->total_spawn 	= $data->total;
-
-
 			// Spawn rate
 
 			if ($pokemon->total_spawn > 0) {
-				$req 		= "SELECT COUNT(DISTINCT DATE(disappear_time)) as total FROM pokemon";
+				$req 		= "SELECT ROUND((UNIX_TIMESTAMP(max(disappear_time))-UNIX_TIMESTAMP(min(disappear_time)))/(24*60*60)) total FROM pokemon";
 				$result 	= $mysqli->query($req);
 				$data		= $result->fetch_object();
 
@@ -167,7 +161,6 @@ if (!empty($page)) {
 				$pokemon->total_days 	= 0;
 				$pokemon->spawn_rate	= 0;
 			}
-
 
 			// Last seen
 
@@ -187,7 +180,6 @@ if (!empty($page)) {
 				$pokemon->last_position->latitude 	= $data->latitude;
 				$pokemon->last_position->longitude 	= $data->longitude;
 			}
-
 
 			// Related Pokemons
 			// ----------------
@@ -225,12 +217,12 @@ if (!empty($page)) {
 			$max 		= $config->system->max_pokemon;
 			$pokedex 	= new stdClass();
 
-			$req 		= "SELECT COUNT(*) as total,pokemon_id FROM pokemon GROUP by pokemon_id ";
+			$req 		= "SELECT DISTINCT pokemon_id FROM pokemon";
 			$result 	= $mysqli->query($req);
 			$data_array = array();
 
 			while ($data = $result->fetch_object()) {
-				$data_array[$data->pokemon_id] = $data->total;
+				$data_array[$data->pokemon_id] = 1;
 			};
 
 			for ($i= 1; $i <= $max; $i++) {
@@ -363,7 +355,7 @@ if (!empty($page)) {
 					exit();
 				}
 			}
-			
+
 			break;
 	}
 } /////////////

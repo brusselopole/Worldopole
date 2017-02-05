@@ -164,7 +164,7 @@ include_once('core/process/data.loader.php');
 					<script src="core/js/pokemon.graph.js.php?id=<?= $pokemon_id ?>"></script>
 
 					<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-					<script src="<?php auto_ver('core/js/jQDateRangeSlider.min.js') ?>"></script>
+					<script src="<?php auto_ver('core/js/jQAllRangeSliders.min.js') ?>"></script>
 					<script src="<?php auto_ver('core/js/pokemon.maps.js') ?>"></script>
 					<script>
 						var pokemon_id = <?= $pokemon_id ?>;
@@ -220,6 +220,7 @@ include_once('core/process/data.loader.php');
 							}
 						});
 					</script>
+					<script src="<?php auto_ver('core/js/pokedex.content.js') ?>"></script>
 
 					<?php
 					break;

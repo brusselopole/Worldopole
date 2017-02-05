@@ -42,8 +42,15 @@ if ($mysqli->connect_error != '') {
 	exit('Error MySQL Connect');
 }
 $mysqli->set_charset('utf8');
+$request = "";
+if (isset($_GET['type'])){
 $request 	= $_GET['type'];
-
+}
+$postRequest = "";
+if (isset($_POST['type'])){
+	$postRequest = $_POST['type'];
+	$request= "postRequest";
+}
 switch ($request) {
 	############################
 	//
@@ -459,10 +466,13 @@ switch ($request) {
 			}
 		}
 		//print_r($gymData);
-		$req 		= "SELECT * FROM gympokemon inner join gymmember on gympokemon.pokemon_uid=gymmember.pokemon_uid where gym_id='".$gym_id."' ORDER BY cp DESC";
+		$req 		= "SELECT DISTINCT gympokemon.pokemon_uid, "
+				. "pokemon_id, iv_attack, iv_defense, iv_stamina, MAX(cp) as cp, gymmember.gym_id "
+				. "FROM gympokemon inner join gymmember on gympokemon.pokemon_uid=gymmember.pokemon_uid "
+				. "GROUP BY gympokemon.pokemon_uid"
+				. " HAVING gymmember.gym_id='".$gym_id."' ORDER BY cp DESC";
 		$result 	= $mysqli->query($req);
 		$i=0;
-
 
 
 
@@ -609,9 +619,7 @@ switch ($request) {
 		$json = json_encode($bounds);
 
 		echo $json;
-
-
-	break;
+		break;
 
 	case 'pokemon_heatmap_points':
 		$json="";
@@ -621,8 +629,7 @@ switch ($request) {
 			$pokemon_id = mysqli_real_escape_string($mysqli, $_GET['pokemon_id']);
 			$where = " WHERE pokemon.pokemon_id = ".$pokemon_id." "
 					. "AND pokemon.disappear_time BETWEEN '".$start."' AND '".$end."'";
-
-			$req 		= "SELECT latitude, longitude FROM pokemon".$where;
+			$req 		= "SELECT latitude, longitude FROM pokemon".$where." ORDER BY disappear_time DESC LIMIT 10000";
 			$result 	= $mysqli->query($req);
 			$points = array();
 			while ($result && $data = $result->fetch_object()) {
@@ -636,11 +643,120 @@ switch ($request) {
 
 		echo $json;
 
-	break;
+		break;
+
+	case 'pokedex':
+		$json="";
+		if (isset($_GET['pokemon_id'])) {
+			$pokemon_id = mysqli_real_escape_string($mysqli, $_GET['pokemon_id']);
+			$where = " WHERE pokemon.pokemon_id = ".$pokemon_id;
+			$req 		= "SELECT COUNT(encounter_id) as total FROM pokemon".$where;
+			$result 	= $mysqli->query($req);
+			$total = 0;
+			while ($result && $data = $result->fetch_object()) {
+				$total 	= $data;
+			}
+
+			$json = json_encode($total);
+		}
+
+		header('Content-Type: application/json');
+
+		echo $json;
+
+		break;
+
+		case 'postRequest':
+		break;
+
+	case 'pokemon_graph_data':
+		$json="";
+		if (isset($_GET['pokemon_id'])) {
+			$pokemon_id = mysqli_real_escape_string($mysqli, $_GET['pokemon_id']);
+			$where = " WHERE pokemonFiltered.pokemon_id = ".$pokemon_id;
+			$req 		= "SELECT COUNT(*) as total, "
+					. "HOUR(CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) as disappear_hour
+			FROM (SELECT * FROM pokemon WHERE pokemon_id = '".$pokemon_id."' LIMIT 10000) as pokemonFiltered
+			GROUP BY disappear_hour
+			ORDER BY disappear_hour";
+			$result 	= $mysqli->query($req);
+			$array = array();
+			while ($result && $data = $result->fetch_object()) {
+				$array[] = $data->total;
+			}
+			$array[] = array_shift($array);
+			$json = json_encode($array);
+		}
+
+		header('Content-Type: application/json');
+
+		echo $json;
+
+		break;
+
+		case 'postRequest':
+		break;
+
 
 	default:
 		echo "What do you mean?";
 		exit();
 
 	break;
+}
+if ($postRequest!=""){
+	switch ($postRequest) {
+		case 'pokemon_live':
+			$json="";
+			if (isset( $_POST['pokemon_id'])) {
+				$pokemon_id = mysqli_real_escape_string($mysqli, $_POST['pokemon_id']);
+				$inmap_pkms_filter="";
+				$where = " WHERE disappear_time >= UTC_TIMESTAMP() AND pokemon.pokemon_id = ".$pokemon_id;
+
+				$reqTestIv = "SELECT MAX(individual_attack) as iv FROM pokemon ".$where;
+				$resultTestIv 	= $mysqli->query($reqTestIv);
+				$testIv = $resultTestIv->fetch_object();
+				if (isset( $_POST['inmap_pokemons'])&&( $_POST['inmap_pokemons']!="")) {
+					foreach ($_POST['inmap_pokemons'] as $inmap) {
+						$inmap_pkms_filter .= "'".$inmap."',";
+					}
+					$inmap_pkms_filter = rtrim($inmap_pkms_filter, ",");
+					$where .= " AND pokemon.encounter_id NOT IN (".$inmap_pkms_filter.") ";
+				}
+				if ($testIv->iv!=null && isset( $_POST['ivMin'])&&( $_POST['ivMin']!="")) {
+					$ivMin = mysqli_real_escape_string($mysqli, $_POST['ivMin']);
+					$where .= " AND ((100/45)*(individual_attack+individual_defense+individual_stamina)) >= (".$ivMin.") ";
+				}
+				if ($testIv->iv!=null && isset( $_POST['ivMax'])&&( $_POST['ivMax']!="")) {
+					$ivMax = mysqli_real_escape_string($mysqli, $_POST['ivMax']);
+					$where .= " AND ((100/45)*(individual_attack+individual_defense+individual_stamina)) <=(".$ivMax.") ";
+				}
+				$req = "SELECT pokemon_id, encounter_id, latitude, longitude, disappear_time,"
+						. " (CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) as disappear_time_real, "
+						. " individual_attack, individual_defense, individual_stamina "
+						. "FROM pokemon".$where." ORDER BY disappear_time DESC LIMIT 5000";
+				$result 	= $mysqli->query($req);
+				$points = array();
+				while ($result && $data = $result->fetch_object()) {
+					$pokeid=$data->pokemon_id;
+					$data->name = $pokemons->pokemon->$pokeid->name;
+					$points[] 	= $data;
+				}
+
+				$json = json_encode($points);
+			}
+
+			header('Content-Type: application/json');
+
+			echo $json;
+
+		break;
+
+
+
+		default:
+			echo "What do you mean?";
+			exit();
+		break;
+	}
 }
