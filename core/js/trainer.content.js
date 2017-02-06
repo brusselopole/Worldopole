@@ -1,4 +1,4 @@
-/** Global: trainerName */
+/** global: trainerName */
 
 $(function () {
 	$.getJSON( "core/json/variables.json", function( jsondata ) {
@@ -70,14 +70,14 @@ $(function () {
 			$("#searchTrainer").submit();
 			
 		});
-		window.onpopstate = function(event) {
+		window.onpopstate = function() {
 			if (window.history.state && "Trainer" === window.history.state.page) {
 				$('#trainersContainer').empty();
 				$('input#name').val(window.history.state.name);
 				loadTrainers(0,$('input#name').val(),teamSelector,rankingFilter,pokeimg_suffix, false);
 			}
 			else{
-				history.back();
+				window.history.back();
 			}
 		};
 		
