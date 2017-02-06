@@ -81,7 +81,7 @@ function initMap()
                                     {'featureType': 'water','elementType': 'geometry.fill','stylers':
                                     	[{'color': '#5ddad6'}]}]
                           
-					map = new google.maps.Map(document.getElementById('map'), {
+					var map = new google.maps.Map(document.getElementById('map'), {
 						center: {lat: lattitude, lng: longitude},
 						zoom: zoom_level,
 						zoomControl: true,
