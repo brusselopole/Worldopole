@@ -18,6 +18,34 @@ function initMap() {
 		var zoom_level = Number(variables['system']['zoom_level']);
 		var pokeimg_suffix=jsondata['system']['pokeimg_suffix'];
 
+              
+        var darkStyle = [{'featureType': 'all','elementType': 'labels.text.fill','stylers':
+                            [{'saturation': 36},{'color': '#b39964'},{'lightness': 40}]},
+                         {'featureType': 'all','elementType': 'labels.text.stroke','stylers':
+                            [{'visibility': 'on'},{'color': '#000000'},{'lightness': 16}]},
+                         {'featureType': 'all','elementType': 'labels.icon','stylers':
+                            [{'visibility': 'off'}]},
+                         {'featureType': 'administrative','elementType': 'geometry.fill','stylers':
+                            [{'color': '#000000'},{'lightness': 20}]},
+                         {'featureType': 'administrative','elementType': 'geometry.stroke','stylers':
+                            [{'color': '#000000'},{'lightness': 17},{'weight': 1.2}]},
+                         {'featureType': 'landscape','elementType': 'geometry','stylers':
+                            [{'color': '#000000'},{'lightness': 20}]},
+                         {'featureType': 'poi','elementType': 'geometry','stylers':
+                            [{'color': '#000000'},{'lightness': 21}]},
+                         {'featureType': 'road.highway','elementType': 'geometry.fill','stylers':
+                            [{'color': '#000000'},{'lightness': 17}]},
+                         {'featureType': 'road.highway','elementType': 'geometry.stroke','stylers':
+                            [{'color': '#000000'},{'lightness': 29},{'weight': 0.2}]},
+                         {'featureType': 'road.arterial','elementType': 'geometry','stylers':
+                            [{'color': '#000000'},{'lightness': 18}]},
+                         {'featureType': 'road.local','elementType': 'geometry','stylers':
+                            [{'color': '#181818'},{'lightness': 16}]},
+                         {'featureType': 'transit','elementType': 'geometry','stylers':
+                            [{'color': '#000000'},{'lightness': 19}]},
+                         {'featureType': 'water','elementType': 'geometry','stylers':
+                            [{'lightness': 17},{'color': '#525252'}]}]
+              
 		map = new google.maps.Map(document.getElementById('map'), {
 			center: {lat: lattitude, lng: longitude},
 			zoom: zoom_level,
@@ -25,8 +53,18 @@ function initMap() {
 			scaleControl: false,
 			scrollwheel: true,
 			disableDoubleClickZoom: false,
+            streetViewControl: false,
+            mapTypeControlOptions: {
+                                  mapTypeIds: [
+                                               google.maps.MapTypeId.ROADMAP,
+                                               google.maps.MapTypeId.SATELLITE,
+                                               'dark_style',
+                                                ]}
 		});
-		
+              
+        var styledMap = new google.maps.StyledMapType(darkStyle, {name: 'Dark'});
+        map.mapTypes.set('dark_style', styledMap);
+
 		map.set('styles',[
 			{
 				"featureType":"all",
