@@ -245,15 +245,15 @@ switch ($request) {
 	####################################
 
 	case 'pokestop':
-		$req 		= "SELECT latitude, longitude, lure_expiration FROM pokestop";
+		$req 		= "SELECT latitude, longitude, lure_expiration, UTC_TIMESTAMP() as now, (CONVERT_TZ(lure_expiration, '+00:00', '".$time_offset."')) as lure_expiration_real FROM pokestop";
 		$result 	= $mysqli->query($req);
 
 		$i=0;
 
 		while ($data = $result->fetch_object()) {
-			if ($data->lure_expiration != '') {
+			if ($data->lure_expiration >= $data->now) {
 				$icon = 'pokestap_lured.png';
-				$text = 'Lured expire @ '.date('h:i:s', strtotime($data->lure_expiration)+(3600*2)) ;
+				$text = 'Lured expire @ '.date('H:i:s', strtotime($data->lure_expiration_real)) ;
 			} else {
 				$icon = 'pokestap.png';
 				$text = 'Normal stop';
