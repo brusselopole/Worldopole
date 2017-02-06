@@ -253,7 +253,7 @@ switch ($request) {
 		while ($data = $result->fetch_object()) {
 			if ($data->lure_expiration >= $data->now) {
 				$icon = 'pokestap_lured.png';
-				$text = 'Lured expire @ '.date('h:i:s', strtotime($data->lure_expiration_real)) ;
+				$text = 'Lured expire @ '.date('H:i:s', strtotime($data->lure_expiration_real)) ;
 			} else {
 				$icon = 'pokestap.png';
 				$text = 'Normal stop';
