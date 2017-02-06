@@ -156,6 +156,7 @@ function initSelector(pokeimg_suffix){
 	});
 	$('#liveSelector').click(function(){
 		hideHeatmap();
+		map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
 		initLive(pokeimg_suffix);
 		
 		
