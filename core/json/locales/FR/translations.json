@@ -89,6 +89,7 @@
 "TRAINERS_SEARCH_GYMS_FIRST" : "Classer par arènes",
 "TRAINERS_SEARCH_MAX_CP_FIRST" : "Classer par max PC",
 "TRAINER_GRAPH": "<strong>Niveaux</strong> des entraîneurs Pokémon", 
+"TRAINER_LOAD_MORE": "Charger la suite", 
 "UNSEEN": "absent", 
 "MYTHIC": "Mythique", 
 "RARE": "Rare", 

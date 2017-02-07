@@ -1,6 +1,7 @@
 /** global: trainerName */
 
 $(function () {
+	
 	$.getJSON( "core/json/variables.json", function( jsondata ) {
 		var pokeimg_suffix=jsondata['system']['pokeimg_suffix'];
 
@@ -14,12 +15,10 @@ $(function () {
 		
 		page++;
 		var win = $(window);
-		win.scroll(function () {
-			// End of the document reached?
-			if ($(document).height() - win.height() == win.scrollTop()) {
-				loadTrainers(page,$('input#name').val(),teamSelector,rankingFilter,pokeimg_suffix,true);
-				page++;
-			}
+		$('#loadMoreButton').click(function () {
+			
+			loadTrainers(page,$('input#name').val(),teamSelector,rankingFilter,pokeimg_suffix,true);
+			page++;
 		});
 		$("#searchTrainer").submit(function ( event ) {
 			page = 0;
@@ -86,6 +85,7 @@ $(function () {
 
 function loadTrainers(page,name,teamSelector,rankingFilter,pokeimg_suffix,stayOnPage) {
 	$('.trainerLoader').show();
+	
 	if (stayOnPage) {
 		// build a state for this name
 		var state = {name: name, page: 'Trainer'};
@@ -109,10 +109,19 @@ function loadTrainers(page,name,teamSelector,rankingFilter,pokeimg_suffix,stayOn
 			'ranking' :rankingFilter
 		}
 	}).done(function (data) {
+		var internalIndex = 0;
 		$.each(data, function (trainerName, trainer) {
 			trainerIndex++;
+			internalIndex++
 			printTrainer(trainer, trainerIndex,pokeimg_suffix);
 		});
+		if(internalIndex < 10){
+			$('#loadMoreButton').hide();
+		}
+		else{
+			$('#loadMoreButton').removeClass('hidden');
+			$('#loadMoreButton').show();
+		}
 		$('.trainerLoader').hide();
 	});
 };

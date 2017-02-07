@@ -92,6 +92,7 @@
 "TRAINERS_SEARCH_LEVELS_FIRST" : "Order by level",
 "TRAINERS_SEARCH_GYMS_FIRST" : "Order by gyms",
 "TRAINERS_SEARCH_MAX_CP_FIRST" : "Order by Max CP",
+"TRAINER_LOAD_MORE": "Load more", 
 "UNSEEN": "unseen", 
 "MYTHIC": "Mythic",
 "RARE": "Rare",
