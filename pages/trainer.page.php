@@ -87,6 +87,9 @@
 
 			</tbody>
 			<tfoot>
+				<tr class="loadMore text-center">
+					<td colspan="6"><button id="loadMoreButton" class="btn btn-default hidden"><?= $locales->TRAINER_LOAD_MORE ?></button></td>
+				</tr>
 				<tr class="trainerLoader">
 					<td colspan="6"><div class="loader"></div></td>
 				</tr>
@@ -103,5 +106,5 @@ if(isset($_GET['name'])&&$_GET['name']!=""){
 
 ?>
 	var trainerName = "<?= $trainerName ?>";
-	
+
 </script>
