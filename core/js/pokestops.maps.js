@@ -49,7 +49,7 @@ function initMap()
                           
               $.get( 'core/js/pogostyle.js', function( data ) {
                     if (data) {
-                    pogoStyle = JSON.parse(data);
+                    var pogoStyle = JSON.parse(data);
                     }
                     
                     var styledMap_pogo = new google.maps.StyledMapType(pogoStyle, {name: 'PoGo'});
@@ -58,7 +58,7 @@ function initMap()
               
               $.get( 'core/js/darkstyle.js', function( data ) {
                     if (data) {
-                    darkStyle = JSON.parse(data);
+                    var darkStyle = JSON.parse(data);
                     }
                     
                     var styledMap_dark = new google.maps.StyledMapType(darkStyle, {name: 'Dark'});
@@ -67,7 +67,7 @@ function initMap()
               
               $.get( 'core/js/defaultstyle.js', function( data ) {
                     if (data) {
-                    defaultStyle = JSON.parse(data);
+                    var defaultStyle = JSON.parse(data);
                     }
                     
                     map.set('styles',defaultStyle);
