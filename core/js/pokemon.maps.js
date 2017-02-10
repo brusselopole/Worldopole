@@ -35,31 +35,25 @@ function initMap() {
                                 ]}
 					});
                           
-              $.get( 'core/js/pogostyle.js', function( data ) {
-                    if (data) {
-                    var pogoStyle = JSON.parse(data);
-                    }
+          $.get( 'core/js/pogostyle.js', function( data ) {
                     
-                    var styledMap_pogo = new google.maps.StyledMapType(pogoStyle, {name: 'PoGo'});
-                    map.mapTypes.set('pogo_style', styledMap_pogo);
-                    });
+                var pogoStyle = JSON.parse(data);
+                var styledMap_pogo = new google.maps.StyledMapType(pogoStyle, {name: 'PoGo'});
+                map.mapTypes.set('pogo_style', styledMap_pogo);
+                });
               
-              $.get( 'core/js/darkstyle.js', function( data ) {
-                    if (data) {
-                    var darkStyle = JSON.parse(data);
-                    }
+          $.get( 'core/js/darkstyle.js', function( data ) {
                     
-                    var styledMap_dark = new google.maps.StyledMapType(darkStyle, {name: 'Dark'});
-                    map.mapTypes.set('dark_style', styledMap_dark);
-                    });
+                var darkStyle = JSON.parse(data);
+                var styledMap_dark = new google.maps.StyledMapType(darkStyle, {name: 'Dark'});
+                map.mapTypes.set('dark_style', styledMap_dark);
+                });
               
-              $.get( 'core/js/defaultstyle.js', function( data ) {
-                    if (data) {
-                    var defaultStyle = JSON.parse(data);
-                    }
+          $.get( 'core/js/defaultstyle.js', function( data ) {
                     
-                    map.set('styles',defaultStyle);
-                    });
+                var defaultStyle = JSON.parse(data);
+                map.set('styles',defaultStyle);
+                });
 		
 		initHeatmap();
 		initSelector(pokeimg_suffix);
