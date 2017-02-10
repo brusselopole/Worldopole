@@ -1,3 +1,4 @@
+/** global: google */
 function initMap()
 {
 	$('.gym_details').hide();
