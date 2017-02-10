@@ -18,91 +18,47 @@ function initMap() {
 		var zoom_level = Number(variables['system']['zoom_level']);
 		var pokeimg_suffix=jsondata['system']['pokeimg_suffix'];
 
+                          
 		map = new google.maps.Map(document.getElementById('map'), {
-			center: {lat: lattitude, lng: longitude},
-			zoom: zoom_level,
-			zoomControl: true,
-			scaleControl: false,
-			scrollwheel: true,
-			disableDoubleClickZoom: false,
+		  center: {
+		    lat: lattitude,
+		    lng: longitude
+		  },
+		  zoom: zoom_level,
+		  zoomControl: true,
+		  scaleControl: false,
+		  scrollwheel: true,
+		  disableDoubleClickZoom: false,
+		  streetViewControl: false,
+		  mapTypeControlOptions: {
+		    mapTypeIds: [
+		      google.maps.MapTypeId.ROADMAP,
+		      'pogo_style',
+		      'dark_style',
+		    ]
+		  }
 		});
+                          
+          $.get( 'core/js/pogostyle.js', function( data ) {
+                    
+                var pogoStyle = JSON.parse(data);
+                var styledMap_pogo = new google.maps.StyledMapType(pogoStyle, {name: 'PoGo'});
+                map.mapTypes.set('pogo_style', styledMap_pogo);
+                });
+              
+          $.get( 'core/js/darkstyle.js', function( data ) {
+                    
+                var darkStyle = JSON.parse(data);
+                var styledMap_dark = new google.maps.StyledMapType(darkStyle, {name: 'Dark'});
+                map.mapTypes.set('dark_style', styledMap_dark);
+                });
+              
+          $.get( 'core/js/defaultstyle.js', function( data ) {
+                    
+                var defaultStyle = JSON.parse(data);
+                map.set('styles',defaultStyle);
+                });
 		
-		map.set('styles',[
-			{
-				"featureType":"all",
-				"elementType":"labels.text.fill",
-				"stylers":[{"saturation":36},{"color":"#333333"},{"lightness":40}]
-			},
-			{
-				"featureType":"all",
-				"elementType":"labels.text.stroke",
-				"stylers":[{"visibility":"on"},{"color":"#ffffff"},{"lightness":16}]
-			},
-			{
-				"featureType":"all",
-				"elementType":"labels.icon",
-				"stylers":[{"visibility":"off"}]
-			},
-			{
-				"featureType":"administrative",
-				"elementType":"geometry.fill",
-				"stylers":[{"color":"#fefefe"},{"lightness":20}]
-			},
-			{
-				"featureType":"administrative",
-				"elementType":"geometry.stroke",
-				"stylers":[{"color":"#fefefe"},{"lightness":17},{"weight":1.2}]
-			},
-			{
-				"featureType":"landscape",
-				"elementType":"geometry",
-				"stylers":[{"color":"#f5f5f5"},{"lightness":20}]
-			},
-			{
-				"featureType":"poi",
-				"elementType":"geometry",
-				"stylers":[{"color":"#f5f5f5"},{"lightness":21}]
-			},
-			{
-				"featureType":"poi.park",
-				"elementType":"geometry",
-				"stylers":[{"color":"#dedede"},{"lightness":21}]
-			},
-			{
-				"featureType":"poi.park",
-				"elementType":"geometry.fill",
-				"stylers":[{"color":"#c2ffd7"}]
-			},
-			{
-				"featureType":"road.highway",
-				"elementType":"geometry.fill",
-				"stylers":[{"color":"#ffffff"},{"lightness":17}]},
-			{
-				"featureType":"road.highway",
-				"elementType":"geometry.stroke",
-				"stylers":[{"color":"#ffffff"},{"lightness":29},{"weight":0.2}]},
-			{
-				"featureType":"road.arterial",
-				"elementType":"geometry",
-				"stylers":[{"color":"#ffffff"},{"lightness":18}]},
-			{
-				"featureType":"road.local",
-				"elementType":"geometry",
-				"stylers":[{"color":"#ffffff"},{"lightness":16}]},
-			{
-				"featureType":"transit",
-				"elementType":"geometry",
-				"stylers":[{"color":"#f2f2f2"},{"lightness":19}]},
-			{
-				"featureType":"water",
-				"elementType":"geometry",
-				"stylers":[{"color":"#e9e9e9"},{"lightness":17}]},
-			{
-				"featureType":"water",
-				"elementType":"geometry.fill",
-				"stylers":[{"color":"#b3d8f9"}]
-			}
-		]);
 		initHeatmap();
 		initSelector(pokeimg_suffix);
 		});
@@ -118,6 +74,7 @@ function initSelector(pokeimg_suffix){
 	});
 	$('#liveSelector').click(function(){
 		hideHeatmap();
+		map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
 		initLive(pokeimg_suffix);
 		
 		
