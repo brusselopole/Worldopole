@@ -32,44 +32,42 @@ function initMap()
 				}
                           
 				var map = new google.maps.Map(document.getElementById('map'), {
-						center: {lat: lattitude, lng: longitude},
-						zoom: zoom_level,
-						zoomControl: true,
-						scaleControl: false,
-						scrollwheel: true,
-						disableDoubleClickZoom: false,
-                        streetViewControl: false,
-                        mapTypeControlOptions: {
-                                                  mapTypeIds: [
-                                                               google.maps.MapTypeId.ROADMAP,
-                                                               'pogo_style',
-                                                               'dark_style',
-                                                               ]}
-					});
+				  center: {
+				    lat: lattitude,
+				    lng: longitude
+				  },
+				  zoom: zoom_level,
+				  zoomControl: true,
+				  scaleControl: false,
+				  scrollwheel: true,
+				  disableDoubleClickZoom: false,
+				  streetViewControl: false,
+				  mapTypeControlOptions: {
+				    mapTypeIds: [
+				      google.maps.MapTypeId.ROADMAP,
+				      'pogo_style',
+				      'dark_style',
+				    ]
+				  }
+				});
                           
               $.get( 'core/js/pogostyle.js', function( data ) {
-                    if (data) {
-                    var pogoStyle = JSON.parse(data);
-                    }
                     
+                    var pogoStyle = JSON.parse(data);
                     var styledMap_pogo = new google.maps.StyledMapType(pogoStyle, {name: 'PoGo'});
                     map.mapTypes.set('pogo_style', styledMap_pogo);
                     });
               
               $.get( 'core/js/darkstyle.js', function( data ) {
-                    if (data) {
-                    var darkStyle = JSON.parse(data);
-                    }
                     
+                    var darkStyle = JSON.parse(data);
                     var styledMap_dark = new google.maps.StyledMapType(darkStyle, {name: 'Dark'});
                     map.mapTypes.set('dark_style', styledMap_dark);
                     });
               
               $.get( 'core/js/defaultstyle.js', function( data ) {
-                    if (data) {
-                    var defaultStyle = JSON.parse(data);
-                    }
                     
+                    var defaultStyle = JSON.parse(data);
                     map.set('styles',defaultStyle);
                     });
 				
