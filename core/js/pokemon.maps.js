@@ -30,10 +30,10 @@ function initMap() {
 			disableDoubleClickZoom: false,
 			streetViewControl: false,
 			mapTypeControlOptions: {
-			mapTypeIds: [
-				google.maps.MapTypeId.ROADMAP,
-				'pogo_style',
-				'dark_style',
+				mapTypeIds: [
+					google.maps.MapTypeId.ROADMAP,
+					'pogo_style',
+					'dark_style',
 				]
 			}
 		});

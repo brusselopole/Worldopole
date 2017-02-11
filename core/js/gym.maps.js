@@ -31,25 +31,25 @@ function initMap()
 					for (i = 0; i < locations.length; i++) {
 						arr.push(JSON.parse(locations[i]));
 					}
-                          
+					
 					var map = new google.maps.Map(document.getElementById('map'), {
-					  center: {
-					    lat: lattitude,
-					    lng: longitude
-					  },
-					  zoom: zoom_level,
-					  zoomControl: true,
-					  scaleControl: false,
-					  scrollwheel: true,
-					  disableDoubleClickZoom: false,
-					  streetViewControl: false,
-					  mapTypeControlOptions: {
-					    mapTypeIds: [
-					      google.maps.MapTypeId.ROADMAP,
-					      'pogo_style',
-					      'dark_style',
-					    ]
-					  }
+						center: {
+							lat: lattitude,
+							lng: longitude
+						},
+						zoom: zoom_level,
+						zoomControl: true,
+						scaleControl: false,
+						scrollwheel: true,
+						disableDoubleClickZoom: false,
+						streetViewControl: false,
+						mapTypeControlOptions: {
+							mapTypeIds: [
+								google.maps.MapTypeId.ROADMAP,
+								'pogo_style',
+								'dark_style',
+							]
+						}
 					});
 
 					$.getJSON( 'core/json/pogostyle.json', function( data ) {
