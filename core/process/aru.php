@@ -203,14 +203,14 @@ switch ($request) {
 						if ($config->system->iv_numbers) {
 							$html .= '
 							<div class="progress" style="height: 15px; margin-bottom: 0">
-								<div title="Attack IV: <?= $pokemon->iv->attack ?>" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="<?= $pokemon->iv->attack ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= (100/3)  ?>%; line-height: 16px"; font-size: 11px>
-									<span class="sr-only">Attack IV: <?= $pokemon->iv->attack ?></span><?= $pokemon->iv->attack ?>
+								<div title="Attack IV: '. $iv->attack .'" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="'. $iv->attack .'" aria-valuemin="0" aria-valuemax="45" style="width: '. (100/3)  .'%; line-height: 16px"; font-size: 11px>
+									<span class="sr-only">Attack IV: '. $iv->attack .'</span>'. $iv->attack .'
 								</div>
-								<div title="Defense IV: <?= $pokemon->iv->attack ?>" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="<?= $pokemon->iv->defense ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= (100/3)  ?>%; line-height: 16px"; font-size: 11px>
-									<span class="sr-only">Defense IV: <?= $pokemon->iv->defense ?></span><?= $pokemon->iv->defense ?>
+								<div title="Defense IV: '. $iv->attack .'" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="'. $iv->defense .'" aria-valuemin="0" aria-valuemax="45" style="width: '. (100/3)  .'%; line-height: 16px"; font-size: 11px>
+									<span class="sr-only">Defense IV: '. $iv->defense .'</span>'. $iv->defense .'
 								</div>
-								<div title="Stamina IV: <?= $pokemon->iv->attack ?>" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<?= $pokemon->iv->stamina ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= (100/3) ?>%; line-height: 16px"; font-size: 11px>
-									<span class="sr-only">Stamina IV: <?= $pokemon->iv->stamina ?></span><?= $pokemon->iv->stamina ?>
+								<div title="Stamina IV: '. $iv->attack .'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'. $iv->stamina .'" aria-valuemin="0" aria-valuemax="45" style="width: '. (100/3)  .'%; line-height: 16px"; font-size: 11px>
+									<span class="sr-only">Stamina IV: '. $iv->stamina .'</span>'. $iv->stamina .'
 								</div>
 							</div>';
 						} else {
