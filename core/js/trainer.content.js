@@ -176,7 +176,7 @@ function printPokemon(pokemon,pokeimg_suffix,iv_numbers){
 	);
 	trainerPokemon.append($('<p>',{class : 'pkmn-name'}).append(pokemon.cp));
 	if (iv_numbers) {
-		var progressBar = $('<div>',{class : 'progress'}).css({'height': '16px','margin-bottom': '0'});
+		var progressBar = $('<div>',{class : 'progress'}).css({'height': '15px','margin-bottom': '0'});
         progressBar.append(
                            $('<div>',
                              {
@@ -187,7 +187,7 @@ function printPokemon(pokemon,pokeimg_suffix,iv_numbers){
                              'aria-valuenow' : pokemon.iv_attack,
                              'aria-valuemin' : 0,
                              'aria-valuemax' : 45
-                             }).css('width',((100/3) ) + '%'))
+                             }).css({'width':(100/3) + '%','line-height': '16px'}))
         progressBar.append(
                            $('<div>',
                              {
@@ -198,7 +198,7 @@ function printPokemon(pokemon,pokeimg_suffix,iv_numbers){
                              'aria-valuenow': pokemon.iv_defense,
                              'aria-valuemin' : 0,
                              'aria-valuemax' : 45
-                             }).css('width',((100/3) ) + '%'))
+                             }).css({'width':(100/3) + '%','line-height': '16px'}))
         progressBar.append(
                            $('<div>',
                              {
@@ -209,7 +209,7 @@ function printPokemon(pokemon,pokeimg_suffix,iv_numbers){
                              'aria-valuenow' :pokemon.iv_stamina,
                              'aria-valuemin' : 0, 
                              'aria-valuemax' : 45
-                             }).css('width',((100/3) ) + '%'))
+                             }).css({'width':(100/3) + '%','line-height': '16px'}))
         
     } else {
 		var progressBar = $('<div>',{class : 'progress'}).css({'height': '6px','margin-bottom': '0'});
