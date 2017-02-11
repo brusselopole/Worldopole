@@ -108,8 +108,8 @@
 							</div>
 						</div>
 					<?php
-						}
-					} ?>
+					}
+				} ?>
 				</div>
 			<?php
 			// Array with ids and countdowns to start at the end of this file
