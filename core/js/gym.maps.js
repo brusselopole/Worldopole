@@ -51,27 +51,19 @@ function initMap()
 					    ]
 					  }
 					});
-                          
-              $.get( 'core/js/pogostyle.js', function( data ) {
-                    
-                    var pogoStyle = JSON.parse(data);
-                    var styledMap_pogo = new google.maps.StyledMapType(pogoStyle, {name: 'PoGo'});
-                    map.mapTypes.set('pogo_style', styledMap_pogo);
-                    });
-              
-              $.get( 'core/js/darkstyle.js', function( data ) {
-                    
-                    var darkStyle = JSON.parse(data);
-                    var styledMap_dark = new google.maps.StyledMapType(darkStyle, {name: 'Dark'});
-                    map.mapTypes.set('dark_style', styledMap_dark);
-                    });
-              
-              $.get( 'core/js/defaultstyle.js', function( data ) {
-                    
-                    var defaultStyle = JSON.parse(data);
-                    map.set('styles',defaultStyle);
-                    });
-                          
+
+					$.getJSON( 'core/json/pogostyle.json', function( data ) {
+						var styledMap_pogo = new google.maps.StyledMapType(data, {name: 'PoGo'});
+						map.mapTypes.set('pogo_style', styledMap_pogo);
+					});
+					$.getJSON( 'core/json/darkstyle.json', function( data ) {
+						var styledMap_dark = new google.maps.StyledMapType(data, {name: 'Dark'});
+						map.mapTypes.set('dark_style', styledMap_dark);
+					});
+					$.getJSON( 'core/json/defaultstyle.json', function( data ) {
+						map.set('styles', data);
+					});
+					
 					var infowindow = new InfoBox({
 						content: document.getElementById("gym_details_template"),
 						disableAutoPan: false,
