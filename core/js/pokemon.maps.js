@@ -79,6 +79,9 @@ function initLive(pokeimg_suffix){
 		defaultValues:{
 			min: ivMin,
 			max: ivMax
+		},
+		formatter:function(val) {
+			return "IV: "+Math.round(val)+"%";
 		}
 	});
 	
