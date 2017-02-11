@@ -151,7 +151,7 @@
 
 
 
-<div class="row text-center" id="subnav">
+<div class="row area text-center" id="subnav">
 	<div class="btn-group" role="group">
 		<a class="btn btn-default page-scroll" href="pokemon/<?= $pokemon->id ?>#where"><i class="fa fa-map-marker"></i> <?= $locales->POKEMON_MAP ?></a>
 		<a class="btn btn-default page-scroll" href="pokemon/<?= $pokemon->id ?>#stats"><i class="fa fa-pie-chart"></i> <?= $locales->POKEMON_STATS ?></a>
@@ -162,7 +162,7 @@
 
 
 
-<div class="row " id="where">
+<div class="row" id="where">
 
 	<div class="col-md-12">
 
@@ -176,7 +176,7 @@
 		<button class="btn btn-default " href="pokemon/<?= $pokemon->id ?>#stats"  id="liveSelector"><i class="fa fa-eye"></i> <?= $locales->POKEMON_LIVE_BUTTON ?></button>
 	</div>
 </div>
-<div class="row area">
+<div class="row" style="margin-bottom:20px">
 	<div class="col-md-12" id="timeFilterContainer">
 		<div id="timeSelector">
 		</div>
