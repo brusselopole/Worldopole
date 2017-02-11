@@ -212,7 +212,7 @@ switch ($request) {
 								<div title="Stamina IV: <?= $pokemon->iv->attack ?>" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<?= $pokemon->iv->stamina ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= (100/3) ?>%; line-height: 16px"; font-size: 11px>
 									<span class="sr-only">Stamina IV: <?= $pokemon->iv->stamina ?></span><?= $pokemon->iv->stamina ?>
 								</div>
-							</div>'
+							</div>';
 						} else {
 							$html .= '
 							<div class="progress" style="height: 6px; width: 80%; margin: 5px auto 0 auto;">
