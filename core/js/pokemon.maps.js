@@ -18,46 +18,40 @@ function initMap() {
 		var zoom_level = Number(variables['system']['zoom_level']);
 		var pokeimg_suffix=jsondata['system']['pokeimg_suffix'];
 
-                          
 		map = new google.maps.Map(document.getElementById('map'), {
-		  center: {
-		    lat: lattitude,
-		    lng: longitude
-		  },
-		  zoom: zoom_level,
-		  zoomControl: true,
-		  scaleControl: false,
-		  scrollwheel: true,
-		  disableDoubleClickZoom: false,
-		  streetViewControl: false,
-		  mapTypeControlOptions: {
-		    mapTypeIds: [
-		      google.maps.MapTypeId.ROADMAP,
-		      'pogo_style',
-		      'dark_style',
-		    ]
-		  }
+			center: {
+				lat: lattitude,
+				lng: longitude
+			},
+			zoom: zoom_level,
+			zoomControl: true,
+			scaleControl: false,
+			scrollwheel: true,
+			disableDoubleClickZoom: false,
+			streetViewControl: false,
+			mapTypeControlOptions: {
+			mapTypeIds: [
+				google.maps.MapTypeId.ROADMAP,
+				'pogo_style',
+				'dark_style',
+				]
+			}
 		});
-                          
-          $.get( 'core/js/pogostyle.js', function( data ) {
-                    
-                var pogoStyle = JSON.parse(data);
-                var styledMap_pogo = new google.maps.StyledMapType(pogoStyle, {name: 'PoGo'});
-                map.mapTypes.set('pogo_style', styledMap_pogo);
-                });
-              
-          $.get( 'core/js/darkstyle.js', function( data ) {
-                    
-                var darkStyle = JSON.parse(data);
-                var styledMap_dark = new google.maps.StyledMapType(darkStyle, {name: 'Dark'});
-                map.mapTypes.set('dark_style', styledMap_dark);
-                });
-              
-          $.get( 'core/js/defaultstyle.js', function( data ) {
-                    
-                var defaultStyle = JSON.parse(data);
-                map.set('styles',defaultStyle);
-                });
+
+		$.get( 'core/js/pogostyle.js', function( data ) {
+			var pogoStyle = JSON.parse(data);
+			var styledMap_pogo = new google.maps.StyledMapType(pogoStyle, {name: 'PoGo'});
+			map.mapTypes.set('pogo_style', styledMap_pogo);
+		});
+		$.get( 'core/js/darkstyle.js', function( data ) {
+			var darkStyle = JSON.parse(data);
+			var styledMap_dark = new google.maps.StyledMapType(darkStyle, {name: 'Dark'});
+			map.mapTypes.set('dark_style', styledMap_dark);
+		});
+		$.get( 'core/js/defaultstyle.js', function( data ) {
+			var defaultStyle = JSON.parse(data);
+			map.set('styles',defaultStyle);
+		});
 		
 		initHeatmap();
 		initSelector(pokeimg_suffix);
@@ -370,7 +364,7 @@ function getIvColor(ivPercent){
 		ivColor="rgba(0, 0, 255, 0.70)";
 	}
 	if(ivPercent>90){
-		ivColor="rgba(246, 178, 107,  0.90)";
+		ivColor="rgba(246, 178, 107, 0.90)";
 	}
 	if(ivPercent>99){
 		ivColor="rgba(255, 0, 0, 1)";
