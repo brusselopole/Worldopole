@@ -200,18 +200,33 @@ switch ($request) {
 				</a>';
 				if ($config->system->recents_show_iv) {
 					if ($iv->available) {
-						$html .= '
-					<div class="progress" style="height: 6px; width: 80%; margin: 5px auto 0 auto;">
-					    <div title="Attack IV: '. $iv->attack .'" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="'. $iv->attack .'" aria-valuemin="0" aria-valuemax="45" style="width: '. ((100/15)*$iv->attack)/3 .'%">
-							<span class="sr-only">Attack IV: '. $iv->attack .'</span>
-					    </div>
-					    <div title="Defense IV: '. $iv->defense .'" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="'. $iv->defense .'" aria-valuemin="0" aria-valuemax="45" style="width: '. ((100/15)*$iv->defense)/3 .'%">
-							<span class="sr-only">Defense IV: '. $iv->defense .'</span>
-					    </div>
-					    <div title="Stamina IV: '. $iv->stamina .'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'. $iv->stamina .'" aria-valuemin="0" aria-valuemax="45" style="width: '. ((100/15)*$iv->stamina)/3 .'%">
-							<span class="sr-only">Stamina IV: '. $iv->stamina .'</span>
-					    </div>
-					</div>';
+						if ($config->system->iv_numbers) {
+							$html .= '
+							<div class="progress" style="height: 15px; margin-bottom: 0">
+								<div title="Attack IV: <?= $pokemon->iv->attack ?>" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="<?= $pokemon->iv->attack ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= (100/3)  ?>%; line-height: 16px"; font-size: 11px>
+									<span class="sr-only">Attack IV: <?= $pokemon->iv->attack ?></span><?= $pokemon->iv->attack ?>
+								</div>
+								<div title="Defense IV: <?= $pokemon->iv->attack ?>" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="<?= $pokemon->iv->defense ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= (100/3)  ?>%; line-height: 16px"; font-size: 11px>
+									<span class="sr-only">Defense IV: <?= $pokemon->iv->defense ?></span><?= $pokemon->iv->defense ?>
+								</div>
+								<div title="Stamina IV: <?= $pokemon->iv->attack ?>" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<?= $pokemon->iv->stamina ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= (100/3) ?>%; line-height: 16px"; font-size: 11px>
+									<span class="sr-only">Stamina IV: <?= $pokemon->iv->stamina ?></span><?= $pokemon->iv->stamina ?>
+								</div>
+							</div>'
+						} else {
+							$html .= '
+							<div class="progress" style="height: 6px; width: 80%; margin: 5px auto 0 auto;">
+					    		<div title="Attack IV: '. $iv->attack .'" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="'. $iv->attack .'" aria-valuemin="0" aria-valuemax="45" style="width: '. ((100/15)*$iv->attack)/3 .'%">
+									<span class="sr-only">Attack IV: '. $iv->attack .'</span>
+					    		</div>
+					    		<div title="Defense IV: '. $iv->defense .'" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="'. $iv->defense .'" aria-valuemin="0" aria-valuemax="45" style="width: '. ((100/15)*$iv->defense)/3 .'%">
+									<span class="sr-only">Defense IV: '. $iv->defense .'</span>
+					    		</div>
+					    		<div title="Stamina IV: '. $iv->stamina .'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'. $iv->stamina .'" aria-valuemin="0" aria-valuemax="45" style="width: '. ((100/15)*$iv->stamina)/3 .'%">
+									<span class="sr-only">Stamina IV: '. $iv->stamina .'</span>
+					    		</div>
+							</div>';
+						}
 					} else {
 						$html .= '
 					    <div class="progress" style="height: 6px; width: 80%; margin: 5px auto 15px auto;">
@@ -482,25 +497,46 @@ switch ($request) {
 		while ($data = $result->fetch_object()) {
 			$gymData['gymDetails']['pokemons'][] = $data;
 			if ($data != false) {
-				$gymData['infoWindow'] .= '
-				<div style="text-align: center; width: 50px; display: inline-block; margin-right: 3px">
-					<a href="pokemon/'.$data->pokemon_id.'">
-					<img src="core/pokemons/'.$data->pokemon_id.$config->system->pokeimg_suffix.'" height="50" style="display:inline-block" >
-					</a>
-					<p class="pkmn-name">'.$data->cp.'</p>
-					<div class="progress" style="height: 4px; width: 40px; margin-bottom: 10px; margin-top: 2px; margin-left: auto; margin-right: auto">
-						<div title="Attack IV: '.$data->iv_attack.'" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="'.$data->iv_attack.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(((100/15)*$data->iv_attack)/3).'%">
-							<span class="sr-only">Attack IV: '.$data->iv_attack.'</span>
+				if ($config->system->iv_numbers) {
+					$gymData['infoWindow'] .= '
+					<div style="text-align: center; width: 50px; display: inline-block; margin-right: 3px">
+						<a href="pokemon/'.$data->pokemon_id.'">
+						<img src="core/pokemons/'.$data->pokemon_id.$config->system->pokeimg_suffix.'" height="50" style="display:inline-block" >
+						</a>
+						<p class="pkmn-name">'.$data->cp.'</p>
+						<div class="progress" style="height: 15px; margin-bottom: 0">
+							<div title="IV Angriff: '. $data->iv_attack .'" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="'. $data->iv_attack .'" aria-valuemin="0" aria-valuemax="45" style="width: '. (100/3)  .'%; line-height: 16px"; font-size: 11px>
+								<span class="sr-only">Angriff IV : '. $data->iv_attack .'</span>'.$data->iv_attack.'
+								</div>
+								<div title="IV Verteidigung: '. $data->iv_attack .'" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="'. $data->iv_defense .'" aria-valuemin="0" aria-valuemax="45" style="width: '. (100/3)  .'%; line-height: 16px"; font-size: 11px>
+									<span class="sr-only">Verteidigung IV : '. $data->iv_defense .'</span>'. $data->iv_defense .'
+								</div>
+								<div title="IV KP: '. $data->iv_attack .'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'. $data->iv_stamina .'" aria-valuemin="0" aria-valuemax="45" style="width: '. (100/3) .'%; line-height: 16px"; font-size: 11px>
+									<span class="sr-only">KP IV : '. $data->iv_stamina .'</span>'. $data->iv_stamina .'
+								</div>
+							</div>
+						</div>';       
+				}
+				else {
+					$gymData['infoWindow'] .= '
+					<div style="text-align: center; width: 50px; display: inline-block; margin-right: 3px">
+						<a href="pokemon/'.$data->pokemon_id.'">
+						<img src="core/pokemons/'.$data->pokemon_id.$config->system->pokeimg_suffix.'" height="50" style="display:inline-block" >
+						</a>
+						<p class="pkmn-name">'.$data->cp.'</p>
+						<div class="progress" style="height: 4px; width: 40px; margin-bottom: 10px; margin-top: 2px; margin-left: auto; margin-right: auto">
+							<div title="Attack IV: '.$data->iv_attack.'" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="'.$data->iv_attack.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(((100/15)*$data->iv_attack)/3).'%">
+								<span class="sr-only">Attack IV: '.$data->iv_attack.'</span>
+							</div>
+							<div title="Defense IV: '.$data->iv_defense.'" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="'.$data->iv_defense.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(((100/15)*$data->iv_defense)/3).'%">
+								<span class="sr-only">Defense IV: '.$data->iv_defense.'</span>
+							</div>
+							<div title="Stamina IV: '.$data->iv_stamina.'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'.$data->iv_stamina.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(((100/15)*$data->iv_stamina)/3).'%">
+								<span class="sr-only">Stamina IV: '.$data->iv_stamina.'</span>
+							</div>
 						</div>
-						<div title="Defense IV: '.$data->iv_defense.'" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="'.$data->iv_defense.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(((100/15)*$data->iv_defense)/3).'%">
-							<span class="sr-only">Defense IV: '.$data->iv_defense.'</span>
-						</div>
-						<div title="Stamina IV: '.$data->iv_stamina.'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'.$data->iv_stamina.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(((100/15)*$data->iv_stamina)/3).'%">
-							<span class="sr-only">Stamina IV: '.$data->iv_stamina.'</span>
-						</div>
-					</div>
-				</div>'
-				;
+					</div>'
+						; }
 			} else {
 				$gymData['infoWindow'] .= '
 				<div style="text-align: center; width: 50px; display: inline-block; margin-right: 3px">
