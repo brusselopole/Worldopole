@@ -166,8 +166,6 @@ function initHeatmapData(bounds){
 				return next;
 			},
 			label: function(value){
-				console.log(JSON.stringify(migrations,null, 4));
-				console.log(value.getTime());
 				return "Migration #" + migrations[value.getTime()];
 			},
 		}]
