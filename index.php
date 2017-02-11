@@ -20,8 +20,8 @@ include_once('core/process/data.loader.php');
 		<link href="https://fonts.googleapis.com/css?family=Lato:400,300,700" rel="stylesheet" type="text/css">
 		<link href="core/css/font-awesome.min.css" rel="stylesheet">
 		<link href="<?php auto_ver('core/css/style.css'); ?>" rel="stylesheet">
-		<?php if ($page=="pokemon") { ?>
-			<link href="<?php auto_ver('core/css/classic-min.css'); ?>" rel="stylesheet">
+		<?php if ($page == "pokemon") { ?>
+			<link href="<?php auto_ver('core/css/jQRangeSlider-bootstrap.min.css'); ?>" rel="stylesheet">
 		<?php } ?>
 	</head>
 	<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
@@ -164,7 +164,7 @@ include_once('core/process/data.loader.php');
 					<script src="core/js/pokemon.graph.js.php?id=<?= $pokemon_id ?>"></script>
 
 					<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-					<script src="<?php auto_ver('core/js/jQAllRangeSliders.min.js') ?>"></script>
+					<script src="<?php auto_ver('core/js/jQAllRangeSliders-withRuler.min.js') ?>"></script>
 					<script src="<?php auto_ver('core/js/pokemon.maps.js') ?>"></script>
 					<script>
 						var pokemon_id = <?= $pokemon_id ?>;

@@ -8,61 +8,47 @@ var ivMin = 80;
 var ivMax = 100;
 
 function initMap() {
-	
-	$.getJSON( "core/json/variables.json", function( jsondata ) {
-
-		var variables = jsondata;
-
+	$.getJSON( "core/json/variables.json", function( variables ) {
 		var lattitude = Number(variables['system']['map_center_lat']);
 		var longitude = Number(variables['system']['map_center_long']);
 		var zoom_level = Number(variables['system']['zoom_level']);
-		var pokeimg_suffix=jsondata['system']['pokeimg_suffix'];
+		var pokeimg_suffix = variables['system']['pokeimg_suffix'];
 
-                          
 		map = new google.maps.Map(document.getElementById('map'), {
-		  center: {
-		    lat: lattitude,
-		    lng: longitude
-		  },
-		  zoom: zoom_level,
-		  zoomControl: true,
-		  scaleControl: false,
-		  scrollwheel: true,
-		  disableDoubleClickZoom: false,
-		  streetViewControl: false,
-		  mapTypeControlOptions: {
-		    mapTypeIds: [
-		      google.maps.MapTypeId.ROADMAP,
-		      'pogo_style',
-		      'dark_style',
-		    ]
-		  }
+			center: {
+				lat: lattitude,
+				lng: longitude
+			},
+			zoom: zoom_level,
+			zoomControl: true,
+			scaleControl: false,
+			scrollwheel: true,
+			disableDoubleClickZoom: false,
+			streetViewControl: false,
+			mapTypeControlOptions: {
+				mapTypeIds: [
+					google.maps.MapTypeId.ROADMAP,
+					'pogo_style',
+					'dark_style',
+				]
+			}
 		});
-                          
-          $.get( 'core/js/pogostyle.js', function( data ) {
-                    
-                var pogoStyle = JSON.parse(data);
-                var styledMap_pogo = new google.maps.StyledMapType(pogoStyle, {name: 'PoGo'});
-                map.mapTypes.set('pogo_style', styledMap_pogo);
-                });
-              
-          $.get( 'core/js/darkstyle.js', function( data ) {
-                    
-                var darkStyle = JSON.parse(data);
-                var styledMap_dark = new google.maps.StyledMapType(darkStyle, {name: 'Dark'});
-                map.mapTypes.set('dark_style', styledMap_dark);
-                });
-              
-          $.get( 'core/js/defaultstyle.js', function( data ) {
-                    
-                var defaultStyle = JSON.parse(data);
-                map.set('styles',defaultStyle);
-                });
+
+		$.getJSON( 'core/json/pogostyle.json', function( data ) {
+			var styledMap_pogo = new google.maps.StyledMapType(data, {name: 'PoGo'});
+			map.mapTypes.set('pogo_style', styledMap_pogo);
+		});
+		$.getJSON( 'core/json/darkstyle.json', function( data ) {
+			var styledMap_dark = new google.maps.StyledMapType(data, {name: 'Dark'});
+			map.mapTypes.set('dark_style', styledMap_dark);
+		});
+		$.getJSON( 'core/json/defaultstyle.json', function( data ) {
+			map.set('styles', data);
+		});
 		
 		initHeatmap();
 		initSelector(pokeimg_suffix);
-		});
-
+	});
 }
 
 function initSelector(pokeimg_suffix){
@@ -93,6 +79,9 @@ function initLive(pokeimg_suffix){
 		defaultValues:{
 			min: ivMin,
 			max: ivMax
+		},
+		formatter:function(val) {
+			return "IV: "+Math.round(val)+"%";
 		}
 	});
 	
@@ -132,10 +121,17 @@ function initHeatmapData(bounds){
 	var selectorMax = boundMax;
 	var selectorMin = boundMin;
 
-	var maxMinus2Weeks = new Date(selectorMax.getTime() - 2 * 7 * 24 * 60 * 60 * 1000);
+	// two weeks in millisec
+	var twoWeeks = 12096e5;
+	var maxMinus2Weeks = new Date(selectorMax.getTime() - twoWeeks);
 	if(selectorMin < maxMinus2Weeks){
 		selectorMin = maxMinus2Weeks;
 	}
+
+	// dict with millisec => migration nr.
+	var migrations = {};
+	// start at 4 because 06. Oct 2016 was the 4th migration
+	var migr_nr = 4;
 	$("#timeSelector").dateRangeSlider({
 		bounds:{
 			min: boundMin,
@@ -144,7 +140,33 @@ function initHeatmapData(bounds){
 		defaultValues:{
 			min: selectorMin,
 			max: selectorMax
-		}
+		},
+		scales: [{
+			first: function(value) {
+				// 06. Oct 2016 (4th migration). 2 week schedule starts with this migration
+				var migrationStart = new Date("2016-10-06");
+				var now = new Date();
+				var result = new Date();
+				for (var migration = migrationStart; migration <= now; migration.setTime(migration.getTime() + twoWeeks)) {
+					if (migration >= value) {
+						result = migration;
+						migrations[result.getTime()] = migr_nr;
+						break;
+					}
+					migr_nr++;
+				}
+				return result;
+			},
+			next: function(value){
+				var next = new Date(new Date(value).setTime(value.getTime() + twoWeeks));
+				migr_nr++;
+				migrations[next.getTime()] = migr_nr;
+				return next;
+			},
+			label: function(value){
+				return "Migration #" + migrations[value.getTime()];
+			},
+		}]
 	});
 	createHeatmap();
 
@@ -335,7 +357,7 @@ function getIvColor(ivPercent){
 		ivColor="rgba(0, 0, 255, 0.70)";
 	}
 	if(ivPercent>90){
-		ivColor="rgba(246, 178, 107,  0.90)";
+		ivColor="rgba(246, 178, 107, 0.90)";
 	}
 	if(ivPercent>99){
 		ivColor="rgba(255, 0, 0, 1)";
