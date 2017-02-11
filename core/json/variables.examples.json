@@ -28,6 +28,7 @@
 		"mythic_recents"	:	true,
 		"recents_show_iv"	:	false,
 		"captcha_support"	:	false,
+		"iv_numbers"		:	false,
 		"forced_lang"		:	""
 	},
 	"menu":[

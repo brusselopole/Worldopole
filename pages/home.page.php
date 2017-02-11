@@ -73,30 +73,45 @@
 				</a>
 				<?php
 				if ($config->system->recents_show_iv) {
-					if ($pokemon->iv->available) { ?>
-					<div class="progress" style="height: 6px; width: 80%; margin: 5px auto 15px auto;">
-						<div title="Attack IV: <?= $pokemon->iv->attack ?>" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="<?= $pokemon->iv->attack ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= ((100/15)*$pokemon->iv->attack)/3 ?>%">
-							<span class="sr-only">Attack IV: <?= $pokemon->iv->attack ?></span>
-						</div>
-						<div title="Defense IV: <?= $pokemon->iv->defense ?>" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="<?= $pokemon->iv->defense ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= ((100/15)*$pokemon->iv->defense)/3 ?>%">
-							<span class="sr-only">Defense IV: <?= $pokemon->iv->defense ?></span>
-						</div>
-						<div title="Stamina IV: <?= $pokemon->iv->stamina ?>" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<?= $pokemon->iv->stamina ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= ((100/15)*$pokemon->iv->stamina)/3 ?>%">
-							<span class="sr-only">Stamina IV: <?= $pokemon->iv->stamina ?></span>
-						</div>
-					</div>
+					if ($pokemon->iv->available) { 
+						if ($config->system->iv_numbers) { ?>
+							<div class="progress" style="height: 15px; margin-bottom: 0">
+								<div title="Attack IV: <?= $pokemon->iv->attack ?>" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="<?= $pokemon->iv->attack ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= (100/3)  ?>%; line-height: 16px";>
+									<span class="sr-only">Attack IV: <?= $pokemon->iv->attack ?></span><?= $pokemon->iv->attack ?>
+								</div>
+								<div title="Defense IV: <?= $pokemon->iv->attack ?>" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="<?= $pokemon->iv->defense ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= (100/3)  ?>%; line-height: 16px";>
+									<span class="sr-only">Defense IV: <?= $pokemon->iv->defense ?></span><?= $pokemon->iv->defense ?>
+								</div>
+								<div title="Stamina IV: <?= $pokemon->iv->attack ?>" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<?= $pokemon->iv->stamina ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= (100/3) ?>%; line-height: 16px";>
+									<span class="sr-only">Stamina IV: <?= $pokemon->iv->stamina ?></span><?= $pokemon->iv->stamina ?>
+								</div>
+							</div>
+						<?php 
+						} else { ?>
+							<div class="progress" style="height: 6px; width: 80%; margin: 5px auto 15px auto;">
+								<div title="Attack IV: <?= $pokemon->iv->attack ?>" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="<?= $pokemon->iv->attack ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= ((100/15)*$pokemon->iv->attack)/3 ?>%">
+									<span class="sr-only">Attack IV: <?= $pokemon->iv->attack ?></span>
+								</div>
+								<div title="Defense IV: <?= $pokemon->iv->defense ?>" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="<?= $pokemon->iv->defense ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= ((100/15)*$pokemon->iv->defense)/3 ?>%">
+									<span class="sr-only">Defense IV: <?= $pokemon->iv->defense ?></span>
+								</div>
+								<div title="Stamina IV: <?= $pokemon->iv->stamina ?>" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<?= $pokemon->iv->stamina ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= ((100/15)*$pokemon->iv->stamina)/3 ?>%">
+									<span class="sr-only">Stamina IV: <?= $pokemon->iv->stamina ?></span>
+								</div>
+							</div>
 					<?php
+						}
 					} else { ?>
-					<div class="progress" style="height: 6px; width: 80%; margin: 5px auto 15px auto;">
-						<div title="IV not available" class="progress-bar" role="progressbar" style="width: 100%; background-color: rgb(210,210,210);" aria-valuenow="1" aria-valuemin="0" aria-valuemax="1">
-						    <span class="sr-only">IV not available</span>
+						<div class="progress" style="height: 6px; width: 80%; margin: 5px auto 15px auto;">
+							<div title="IV not available" class="progress-bar" role="progressbar" style="width: 100%; background-color: rgb(210,210,210);" aria-valuenow="1" aria-valuemin="0" aria-valuemax="1">
+								<span class="sr-only">IV not available</span>
+							</div>
 						</div>
-					</div>
-				<?php
+					<?php
 					}
 				} ?>
-			</div>
-		<?php
+				</div>
+			<?php
 			// Array with ids and countdowns to start at the end of this file
 			$timers[$uid] = $pokemon->last_seen - time();
 		} ?>
