@@ -151,7 +151,7 @@
 
 
 
-<div class="row area text-center" id="subnav">
+<div class="row area text-center subnav">
 	<div class="btn-group" role="group">
 		<a class="btn btn-default page-scroll" href="pokemon/<?= $pokemon->id ?>#where"><i class="fa fa-map-marker"></i> <?= $locales->POKEMON_MAP ?></a>
 		<a class="btn btn-default page-scroll" href="pokemon/<?= $pokemon->id ?>#stats"><i class="fa fa-pie-chart"></i> <?= $locales->POKEMON_STATS ?></a>
@@ -170,10 +170,10 @@
 
 	</div>
 </div>
-<div class="row  text-center" id="subnav">
+<div class="row text-center subnav">
 	<div class="btn-group" role="group">
-		<button class="btn btn-default active" id="heatmapSelector"><i class="fa fa-thermometer-three-quarters "></i> <?= $locales->POKEMON_HEATMAP_BUTTON ?></button>
-		<button class="btn btn-default " href="pokemon/<?= $pokemon->id ?>#stats"  id="liveSelector"><i class="fa fa-eye"></i> <?= $locales->POKEMON_LIVE_BUTTON ?></button>
+		<a class="btn btn-default active" id="heatmapSelector"><i class="fa fa-thermometer-three-quarters"></i> <?= $locales->POKEMON_HEATMAP_BUTTON ?></a>
+		<a class="btn btn-default " id="liveSelector"><i class="fa fa-eye"></i> <?= $locales->POKEMON_LIVE_BUTTON ?></a>
 	</div>
 </div>
 <div class="row" style="margin-bottom:20px">
@@ -189,13 +189,11 @@
 		<h3><?= $locales->LOADING ?></h3>
 	</div>
 </div>
-<div class="row area" id="map">
+<div class="row area">
 	<div class="col-md-12">
 		<div id="map">
-
 		</div>
 	</div>
-
 </div>
 
 
