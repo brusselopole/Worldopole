@@ -504,14 +504,14 @@ switch ($request) {
 						<img src="core/pokemons/'.$data->pokemon_id.$config->system->pokeimg_suffix.'" height="50" style="display:inline-block" >
 						</a>
 						<p class="pkmn-name">'.$data->cp.'</p>
-						<div class="progress" style="height: 15px; margin-bottom: 0">
-							<div title="IV Angriff: '. $data->iv_attack .'" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="'. $data->iv_attack .'" aria-valuemin="0" aria-valuemax="45" style="width: '. (100/3)  .'%; line-height: 16px"; font-size: 11px>
+						<div class="progress" style="height: 12px; margin-bottom: 0">
+							<div title="IV Angriff: '. $data->iv_attack .'" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="'. $data->iv_attack .'" aria-valuemin="0" aria-valuemax="45" style="width: '. (100/3)  .'%; line-height: 13px"; font-size: 9px>
 								<span class="sr-only">Angriff IV : '. $data->iv_attack .'</span>'.$data->iv_attack.'
 								</div>
-								<div title="IV Verteidigung: '. $data->iv_attack .'" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="'. $data->iv_defense .'" aria-valuemin="0" aria-valuemax="45" style="width: '. (100/3)  .'%; line-height: 16px"; font-size: 11px>
+								<div title="IV Verteidigung: '. $data->iv_attack .'" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="'. $data->iv_defense .'" aria-valuemin="0" aria-valuemax="45" style="width: '. (100/3)  .'%; line-height: 13px"; font-size: 9px>
 									<span class="sr-only">Verteidigung IV : '. $data->iv_defense .'</span>'. $data->iv_defense .'
 								</div>
-								<div title="IV KP: '. $data->iv_attack .'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'. $data->iv_stamina .'" aria-valuemin="0" aria-valuemax="45" style="width: '. (100/3) .'%; line-height: 16px"; font-size: 11px>
+								<div title="IV KP: '. $data->iv_attack .'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'. $data->iv_stamina .'" aria-valuemin="0" aria-valuemax="45" style="width: '. (100/3) .'%; line-height: 13px"; font-size: 9px>
 									<span class="sr-only">KP IV : '. $data->iv_stamina .'</span>'. $data->iv_stamina .'
 								</div>
 							</div>
