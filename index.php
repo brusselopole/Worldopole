@@ -21,7 +21,7 @@ include_once('core/process/data.loader.php');
 		<link href="core/css/font-awesome.min.css" rel="stylesheet">
 		<link href="<?php auto_ver('core/css/style.css'); ?>" rel="stylesheet">
 		<?php if ($page=="pokemon") { ?>
-			<link href="<?php auto_ver('core/css/iThing.min.css'); ?>" rel="stylesheet">
+			<link href="<?php auto_ver('core/css/jQRangeSlider-bootstrap.min.css'); ?>" rel="stylesheet">
 		<?php } ?>
 	</head>
 	<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
