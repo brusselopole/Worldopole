@@ -8,15 +8,11 @@ var ivMin = 80;
 var ivMax = 100;
 
 function initMap() {
-	
-	$.getJSON( "core/json/variables.json", function( jsondata ) {
-
-		var variables = jsondata;
-
+	$.getJSON( "core/json/variables.json", function( variables ) {
 		var lattitude = Number(variables['system']['map_center_lat']);
 		var longitude = Number(variables['system']['map_center_long']);
 		var zoom_level = Number(variables['system']['zoom_level']);
-		var pokeimg_suffix=jsondata['system']['pokeimg_suffix'];
+		var pokeimg_suffix = variables['system']['pokeimg_suffix'];
 
 		map = new google.maps.Map(document.getElementById('map'), {
 			center: {
@@ -52,8 +48,7 @@ function initMap() {
 		
 		initHeatmap();
 		initSelector(pokeimg_suffix);
-		});
-
+	});
 }
 
 function initSelector(pokeimg_suffix){
