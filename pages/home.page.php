@@ -100,6 +100,7 @@
 								</div>
 							</div>
 					<?php
+							   }
 					} else { ?>
 					<div class="progress" style="height: 6px; width: 80%; margin: 5px auto 15px auto;">
 						<div title="IV not available" class="progress-bar" role="progressbar" style="width: 100%; background-color: rgb(210,210,210);" aria-valuenow="1" aria-valuemin="0" aria-valuemax="1">
