@@ -403,7 +403,7 @@ else {
 		// get all mythic pokemon ids
 		$mythic_pokemons  = array();
 		foreach ($pokemons->pokemon as $id => $pokemon) {
-			if ($pokemon->spawn_rate < 0.01) {
+			if ($pokemon->spawn_rate < 0.01 && $pokemon->rating >= $config->system->min_rating) {
 				$mythic_pokemons[] = $id;
 			}
 		}
