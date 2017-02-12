@@ -52,7 +52,7 @@
 	<div class="col-md-12 text-center">
 		<h2 class="text-center sub-title">
 			<?php 
-			if ($config->system->mythic_recents) { ?>
+			if ($config->system->recents_filter) { ?>
 				<?= $locales->RECENT_MYTHIC_SPAWNS ?>
 			<?php 
 			} else { ?>
