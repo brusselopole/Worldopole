@@ -164,7 +164,13 @@ function initHeatmapData(bounds){
 				return next;
 			},
 			label: function(value){
-				return "Migration #" + migrations[value.getTime()];
+				if (isMobileDevice() && isTouchDevice()) {
+					return "#" + migrations[value.getTime()];
+				}
+				else {
+					return "Migration #" + migrations[value.getTime()];
+				}
+				
 			},
 		}]
 	});
@@ -404,4 +410,14 @@ function extractEncountersId(){
 	}
 	
 	return inmapEncounter;
+}
+
+function isTouchDevice() {
+    // Should cover most browsers
+    return 'ontouchstart' in window || navigator.maxTouchPoints
+}
+
+function isMobileDevice() {
+    //  Basic mobile OS (not browser) detection
+    return (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
 }
