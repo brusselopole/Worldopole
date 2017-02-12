@@ -27,9 +27,9 @@
 		"pokeimg_suffix"	:	"_flat.png",
 		"mythic_recents"	:	true,
 		"recents_show_iv"	:	false,
+		"recents_min_rating":	9,
 		"captcha_support"	:	false,
 		"iv_numbers"		:	false,
-		"min_rating"		:	9,
 		"forced_lang"		:	""
 	},
 	"menu":[
