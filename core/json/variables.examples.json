@@ -28,6 +28,7 @@
 		"mythic_recents"	:	true,
 		"recents_show_iv"	:	false,
 		"recents_min_rating":	9,
+		"recents_spawn_rate":	0.01,
 		"captcha_support"	:	false,
 		"iv_numbers"		:	false,
 		"forced_lang"		:	""
