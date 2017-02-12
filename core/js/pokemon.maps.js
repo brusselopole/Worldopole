@@ -1,5 +1,6 @@
 /** global: google */
 /** global: pokemon_id */
+/** global: navigator */
 var map, heatmap;
 var pokemonMarkers = [];
 var updateLiveTimeout;
