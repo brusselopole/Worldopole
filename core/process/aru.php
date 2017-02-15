@@ -347,7 +347,7 @@ switch ($request) {
 
 
 	case 'gym_map':
-		$req 		= "SELECT gym_id, team_id, guard_pokemon_id, gym_points, latitude, longitude, (CONVERT_TZ(last_modified, '+00:00', '".$time_offset."')) as last_modified FROM gym";
+		$req 		= "SELECT gym_id, team_id, guard_pokemon_id, gym_points, latitude, longitude, (CONVERT_TZ(last_scanned, '+00:00', '".$time_offset."')) as last_scanned FROM gym";
 		$result 	= $mysqli->query($req);
 
 
@@ -420,8 +420,8 @@ switch ($request) {
 				<p style="font-weight:400;color:'.$color.'">'.$team.'</p>
 				<p>Protected by</p>
 				<a href="pokemon/'.$data->guard_pokemon_id.'"><img src="'.$img.'" height="40" style="display:inline-block;margin-bottom:10px;" alt="Guard Pokemon image"></a>
-				<p>Level : '.$data->gym_level.' | Prestige : '.$data->gym_points.'<br>
-				Last modified : '.$data->last_modified.'</p>
+				<p>Level: '.$data->gym_level.' | Prestige : '.$data->gym_points.'<br>
+				Last scanned: '.$data->last_scanned.'</p>
 			</div>
 
 			';
@@ -457,7 +457,7 @@ switch ($request) {
 
 	case 'gym_defenders':
 		$gym_id = $mysqli->real_escape_string($_GET['gym_id']);
-		$req 		= "SELECT gymdetails.name as name, gymdetails.description as description, gym.gym_points as points, gymdetails.url as url, gym.team_id as team, (CONVERT_TZ(gym.last_modified, '+00:00', '".$time_offset."')) as last_modified, gym.guard_pokemon_id as guard_pokemon_id FROM gymdetails LEFT JOIN gym on gym.gym_id = gymdetails.gym_id WHERE gym.gym_id='".$gym_id."'";
+		$req 		= "SELECT gymdetails.name as name, gymdetails.description as description, gym.gym_points as points, gymdetails.url as url, gym.team_id as team, (CONVERT_TZ(gym.last_scanned, '+00:00', '".$time_offset."')) as last_scanned, gym.guard_pokemon_id as guard_pokemon_id FROM gymdetails LEFT JOIN gym on gym.gym_id = gymdetails.gym_id WHERE gym.gym_id='".$gym_id."'";
 		$result 	= $mysqli->query($req);
 		$gymData['gymDetails']['gymInfos'] = false;
 		while ($data = $result->fetch_object()) {
@@ -470,7 +470,7 @@ switch ($request) {
 			}
 			$gymData['gymDetails']['gymInfos']['points'] = $data->points;
 			$gymData['gymDetails']['gymInfos']['level'] = 0;
-			$gymData['gymDetails']['gymInfos']['last_modified'] = $data->last_modified;
+			$gymData['gymDetails']['gymInfos']['last_scanned'] = $data->last_scanned;
 			$gymData['gymDetails']['gymInfos']['team'] = $data->team;
 			$gymData['gymDetails']['gymInfos']['guardPokemonId'] = $data->guard_pokemon_id;
 			if ($data->points < 2000) {

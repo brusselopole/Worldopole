@@ -128,7 +128,7 @@ function setGymDetails(gym)
 	$('#gym_details_template #gymDefenders').html(gym.infoWindow);
 	$('#gym_details_template #gymPrestigeDisplay').html(gym.gymDetails.gymInfos.points);
 	
-	$('#gym_details_template #gymLastModifiedDisplay').html(gym.gymDetails.gymInfos.last_modified);
+	$('#gym_details_template #gymLastScannedDisplay').html(gym.gymDetails.gymInfos.last_scanned);
 	var currentTeamColor = 'white';
 	if(gym.gymDetails.gymInfos.team=="1") {
 		currentTeamColor = 'rgb(0, 170, 255)';

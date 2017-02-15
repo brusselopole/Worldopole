@@ -149,8 +149,8 @@
 					<div id="gymPrestige">
 						Prestige: <span id="gymPrestigeDisplay"></span>
 					</div>
-					<div id="gymLastModified">
-						Last modified: <span id="gymLastModifiedDisplay"></span>
+					<div id="gymLastScanned">
+						Last scanned: <span id="gymLastScannedDisplay"></span>
 					</div>
 					<div id="gymDefenders" class="pokemon-single">
 						No Defender yet
