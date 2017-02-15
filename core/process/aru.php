@@ -499,7 +499,7 @@ switch ($request) {
 		$req 		= "SELECT DISTINCT gympokemon.pokemon_uid, "
 				. "pokemon_id, iv_attack, iv_defense, iv_stamina, MAX(cp) as cp, gymmember.gym_id "
 				. "FROM gympokemon inner join gymmember on gympokemon.pokemon_uid=gymmember.pokemon_uid "
-				. "GROUP BY gympokemon.pokemon_uid"
+				. "GROUP BY gympokemon.pokemon_uid, pokemon_id, iv_attack, iv_defense, iv_stamina, gym_id"
 				. " HAVING gymmember.gym_id='".$gym_id."' ORDER BY cp DESC";
 		$result 	= $mysqli->query($req);
 		$i=0;
@@ -530,7 +530,7 @@ switch ($request) {
 									<span class="sr-only">KP IV : '. $data->iv_stamina .'</span>'. $data->iv_stamina .'
 								</div>
 							</div>
-						</div>';       
+						</div>';
 				}
 				else {
 					$gymData['infoWindow'] .= '
