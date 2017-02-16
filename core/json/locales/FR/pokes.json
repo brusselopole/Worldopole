@@ -1009,6 +1009,7 @@
   "charge_moves": {},
   "types": {
     "Bug": "Insecte",
+    "Dark": "Ténèbr.",
     "Dragon": "Dragon",
     "Electric": "Électrik",
     "Fairy": "Fée",

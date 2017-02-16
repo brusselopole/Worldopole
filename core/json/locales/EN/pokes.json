@@ -1096,6 +1096,7 @@
   },
   "types": {
     "Bug": "Bug",
+    "Dark": "Dark",
     "Dragon": "Dragon",
     "Electric": "Electric",
     "Fairy": "Fairy",

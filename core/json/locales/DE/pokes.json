@@ -1096,6 +1096,7 @@
   },
   "types": {
     "Bug": "Käfer",
+    "Dark": "Unlicht",
     "Dragon": "Drache",
     "Electric": "Elektro",
     "Fairy": "Fee",
