@@ -3391,6 +3391,7 @@
   },
   "typecolors": {
     "Bug": "#a8b820",
+    "Dark": "#705848",
     "Dragon": "#7038f8",
     "Electric": "#f8d030",
     "Fairy": "#e898e8",
