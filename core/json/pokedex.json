@@ -2797,7 +2797,10 @@
       "max_cp": "2482",
       "quick_move": "?",
       "stam": "177",
-      "types": []
+      "types": [
+        "Water",
+        "Psychic"
+      ]
     },
     "200": {
       "atk": "167",
