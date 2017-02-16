@@ -3387,6 +3387,18 @@
         "Fire",
         "Flying"
       ]
+    },
+    "251": {
+      "atk": "210",
+      "charge_move": "?",
+      "def": "210",
+      "max_cp": "3090",
+      "quick_move": "?",
+      "stam": "210",
+      "types": [
+        "Grass",
+        "Psychic"
+      ]
     }
   },
   "typecolors": {
