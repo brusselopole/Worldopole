@@ -2256,7 +2256,9 @@
       "charge_move": "?",
       "def": "122",
       "max_cp": "801",
+      "max_pv": "82",
       "quick_move": "?",
+      "rating": 2.5,
       "stam": "90",
       "types": [
         "Grass"
@@ -2267,7 +2269,9 @@
       "charge_move": "?",
       "def": "155",
       "max_cp": "1296",
+      "max_pv": "105",
       "quick_move": "?",
+      "rating": 4.5,
       "stam": "120",
       "types": [
         "Grass"
@@ -2278,7 +2282,9 @@
       "charge_move": "?",
       "def": "202",
       "max_cp": "2227",
+      "max_pv": "137",
       "quick_move": "?",
+      "rating": 7.5,
       "stam": "160",
       "types": [
         "Grass"
@@ -2289,7 +2295,9 @@
       "charge_move": "?",
       "def": "96",
       "max_cp": "831",
+      "max_pv": "72",
       "quick_move": "?",
+      "rating": 3.0,
       "stam": "78",
       "types": [
         "Fire"
@@ -2300,7 +2308,9 @@
       "charge_move": "?",
       "def": "129",
       "max_cp": "1484",
+      "max_pv": "102",
       "quick_move": "?",
+      "rating": 5.0,
       "stam": "116",
       "types": [
         "Fire"
@@ -2311,7 +2321,9 @@
       "charge_move": "?",
       "def": "176",
       "max_cp": "2686",
+      "max_pv": "134",
       "quick_move": "?",
+      "rating": 9.0,
       "stam": "156",
       "types": [
         "Fire"
@@ -2322,7 +2334,9 @@
       "charge_move": "?",
       "def": "116",
       "max_cp": "1011",
+      "max_pv": "90",
       "quick_move": "?",
+      "rating": 3.5,
       "stam": "100",
       "types": [
         "Water"
@@ -2333,7 +2347,9 @@
       "charge_move": "?",
       "def": "151",
       "max_cp": "1598",
+      "max_pv": "113",
       "quick_move": "?",
+      "rating": 5.5,
       "stam": "130",
       "types": [
         "Water"
@@ -2344,7 +2360,9 @@
       "charge_move": "?",
       "def": "197",
       "max_cp": "2721",
+      "max_pv": "145",
       "quick_move": "?",
+      "rating": 9.0,
       "stam": "170",
       "types": [
         "Water"
@@ -2355,7 +2373,9 @@
       "charge_move": "?",
       "def": "77",
       "max_cp": "519",
+      "max_pv": "66",
       "quick_move": "?",
+      "rating": 1.5,
       "stam": "70",
       "types": [
         "Normal"
@@ -2366,7 +2386,9 @@
       "charge_move": "?",
       "def": "130",
       "max_cp": "1667",
+      "max_pv": "145",
       "quick_move": "?",
+      "rating": 5.5,
       "stam": "170",
       "types": [
         "Normal"
@@ -2377,7 +2399,9 @@
       "charge_move": "?",
       "def": "101",
       "max_cp": "640",
+      "max_pv": "105",
       "quick_move": "?",
+      "rating": 2.0,
       "stam": "120",
       "types": [
         "Flying",
@@ -2389,7 +2413,9 @@
       "charge_move": "?",
       "def": "179",
       "max_cp": "2040",
+      "max_pv": "168",
       "quick_move": "?",
+      "rating": 7.0,
       "stam": "200",
       "types": [
         "Flying",
@@ -2401,7 +2427,9 @@
       "charge_move": "?",
       "def": "142",
       "max_cp": "663",
+      "max_pv": "74",
       "quick_move": "?",
+      "rating": 2.0,
       "stam": "80",
       "types": [
         "Bug",
@@ -2413,7 +2441,9 @@
       "charge_move": "?",
       "def": "209",
       "max_cp": "1275",
+      "max_pv": "98",
       "quick_move": "?",
+      "rating": 4.5,
       "stam": "110",
       "types": [
         "Bug",
@@ -2425,7 +2455,9 @@
       "charge_move": "?",
       "def": "73",
       "max_cp": "685",
+      "max_pv": "74",
       "quick_move": "?",
+      "rating": 2.5,
       "stam": "80",
       "types": [
         "Bug",
@@ -2437,7 +2469,9 @@
       "charge_move": "?",
       "def": "128",
       "max_cp": "1636",
+      "max_pv": "121",
       "quick_move": "?",
+      "rating": 5.5,
       "stam": "140",
       "types": [
         "Bug",
@@ -2449,7 +2483,9 @@
       "charge_move": "?",
       "def": "178",
       "max_cp": "2466",
+      "max_pv": "145",
       "quick_move": "?",
+      "rating": 8.0,
       "stam": "170",
       "types": [
         "Flying",
@@ -2461,7 +2497,9 @@
       "charge_move": "?",
       "def": "106",
       "max_cp": "1067",
+      "max_pv": "129",
       "quick_move": "?",
+      "rating": 3.5,
       "stam": "150",
       "types": [
         "Electric",
@@ -2473,7 +2511,9 @@
       "charge_move": "?",
       "def": "146",
       "max_cp": "2077",
+      "max_pv": "207",
       "quick_move": "?",
+      "rating": 7.0,
       "stam": "250",
       "types": [
         "Electric",
@@ -2485,7 +2525,9 @@
       "charge_move": "?",
       "def": "63",
       "max_cp": "376",
+      "max_pv": "43",
       "quick_move": "?",
+      "rating": 1.5,
       "stam": "40",
       "types": [
         "Electric"
@@ -2496,7 +2538,9 @@
       "charge_move": "?",
       "def": "91",
       "max_cp": "620",
+      "max_pv": "90",
       "quick_move": "?",
+      "rating": 2.0,
       "stam": "100",
       "types": [
         "Fairy"
@@ -2507,7 +2551,9 @@
       "charge_move": "?",
       "def": "34",
       "max_cp": "512",
+      "max_pv": "153",
       "quick_move": "?",
+      "rating": 1.5,
       "stam": "180",
       "types": [
         "Fairy",
@@ -2519,7 +2565,9 @@
       "charge_move": "?",
       "def": "116",
       "max_cp": "540",
+      "max_pv": "66",
       "quick_move": "?",
+      "rating": 2.0,
       "stam": "70",
       "types": [
         "Fairy"
@@ -2530,7 +2578,9 @@
       "charge_move": "?",
       "def": "191",
       "max_cp": "1543",
+      "max_pv": "98",
       "quick_move": "?",
+      "rating": 5.0,
       "stam": "110",
       "types": [
         "Fairy",
@@ -2542,7 +2592,9 @@
       "charge_move": "?",
       "def": "89",
       "max_cp": "925",
+      "max_pv": "74",
       "quick_move": "?",
+      "rating": 3.0,
       "stam": "80",
       "types": [
         "Flying",
@@ -2554,7 +2606,9 @@
       "charge_move": "?",
       "def": "146",
       "max_cp": "1975",
+      "max_pv": "113",
       "quick_move": "?",
+      "rating": 6.5,
       "stam": "130",
       "types": [
         "Flying",
@@ -2566,7 +2620,9 @@
       "charge_move": "?",
       "def": "82",
       "max_cp": "887",
+      "max_pv": "98",
       "quick_move": "?",
+      "rating": 3.0,
       "stam": "110",
       "types": [
         "Electric"
@@ -2577,7 +2633,9 @@
       "charge_move": "?",
       "def": "112",
       "max_cp": "1402",
+      "max_pv": "121",
       "quick_move": "?",
+      "rating": 4.5,
       "stam": "140",
       "types": [
         "Electric"
@@ -2588,7 +2646,9 @@
       "charge_move": "?",
       "def": "172",
       "max_cp": "2695",
+      "max_pv": "153",
       "quick_move": "?",
+      "rating": 9.0,
       "stam": "180",
       "types": [
         "Electric"
@@ -2599,7 +2659,9 @@
       "charge_move": "?",
       "def": "189",
       "max_cp": "2108",
+      "max_pv": "129",
       "quick_move": "?",
+      "rating": 7.0,
       "stam": "150",
       "types": [
         "Grass"
@@ -2610,7 +2672,9 @@
       "charge_move": "?",
       "def": "93",
       "max_cp": "420",
+      "max_pv": "121",
       "quick_move": "?",
+      "rating": 1.5,
       "stam": "140",
       "types": [
         "Fairy",
@@ -2622,7 +2686,9 @@
       "charge_move": "?",
       "def": "152",
       "max_cp": "1503",
+      "max_pv": "168",
       "quick_move": "?",
+      "rating": 5.0,
       "stam": "200",
       "types": [
         "Fairy",
@@ -2634,7 +2700,9 @@
       "charge_move": "?",
       "def": "198",
       "max_cp": "2065",
+      "max_pv": "121",
       "quick_move": "?",
+      "rating": 7.0,
       "stam": "140",
       "types": [
         "Rock"
@@ -2645,7 +2713,9 @@
       "charge_move": "?",
       "def": "192",
       "max_cp": "2371",
+      "max_pv": "153",
       "quick_move": "?",
+      "rating": 8.0,
       "stam": "180",
       "types": [
         "Water"
@@ -2656,7 +2726,9 @@
       "charge_move": "?",
       "def": "101",
       "max_cp": "508",
+      "max_pv": "66",
       "quick_move": "?",
+      "rating": 1.5,
       "stam": "70",
       "types": [
         "Flying",
@@ -2668,7 +2740,9 @@
       "charge_move": "?",
       "def": "127",
       "max_cp": "882",
+      "max_pv": "98",
       "quick_move": "?",
+      "rating": 3.0,
       "stam": "110",
       "types": [
         "Flying",
@@ -2680,7 +2754,9 @@
       "charge_move": "?",
       "def": "197",
       "max_cp": "1553",
+      "max_pv": "129",
       "quick_move": "?",
+      "rating": 5.0,
       "stam": "150",
       "types": [
         "Flying",
@@ -2692,7 +2768,9 @@
       "charge_move": "?",
       "def": "112",
       "max_cp": "1188",
+      "max_pv": "98",
       "quick_move": "?",
+      "rating": 4.0,
       "stam": "110",
       "types": [
         "Normal"
@@ -2703,7 +2781,9 @@
       "charge_move": "?",
       "def": "55",
       "max_cp": "316",
+      "max_pv": "58",
       "quick_move": "?",
+      "rating": 1.0,
       "stam": "60",
       "types": [
         "Grass"
@@ -2714,7 +2794,9 @@
       "charge_move": "?",
       "def": "148",
       "max_cp": "2048",
+      "max_pv": "129",
       "quick_move": "?",
+      "rating": 7.0,
       "stam": "150",
       "types": [
         "Grass"
@@ -2725,7 +2807,9 @@
       "charge_move": "?",
       "def": "94",
       "max_cp": "1326",
+      "max_pv": "113",
       "quick_move": "?",
+      "rating": 4.5,
       "stam": "130",
       "types": [
         "Bug",
@@ -2737,7 +2821,9 @@
       "charge_move": "?",
       "def": "75",
       "max_cp": "596",
+      "max_pv": "98",
       "quick_move": "?",
+      "rating": 2.0,
       "stam": "110",
       "types": [
         "Ground",
@@ -2749,7 +2835,9 @@
       "charge_move": "?",
       "def": "152",
       "max_cp": "1929",
+      "max_pv": "160",
       "quick_move": "?",
+      "rating": 6.5,
       "stam": "190",
       "types": [
         "Ground",
@@ -2761,7 +2849,9 @@
       "charge_move": "?",
       "def": "194",
       "max_cp": "3000",
+      "max_pv": "113",
       "quick_move": "?",
+      "rating": 10.0,
       "stam": "130",
       "types": [
         "Psychic"
@@ -2772,7 +2862,9 @@
       "charge_move": "?",
       "def": "250",
       "max_cp": "2052",
+      "max_pv": "160",
       "quick_move": "?",
+      "rating": 7.0,
       "stam": "190",
       "types": [
         "Dark"
@@ -2783,7 +2875,9 @@
       "charge_move": "?",
       "def": "87",
       "max_cp": "1392",
+      "max_pv": "105",
       "quick_move": "?",
+      "rating": 4.5,
       "stam": "120",
       "types": [
         "Dark",
@@ -2795,16 +2889,23 @@
       "charge_move": "?",
       "def": "194",
       "max_cp": "2482",
+      "max_pv": "160",
       "quick_move": "?",
+      "rating": 8.5,
       "stam": "190",
-      "types": []
+      "types": [
+        "Psychic",
+        "Water"
+      ]
     },
     "200": {
       "atk": "167",
       "charge_move": "?",
       "def": "167",
       "max_cp": "1781",
+      "max_pv": "105",
       "quick_move": "?",
+      "rating": 6.0,
       "stam": "120",
       "types": [
         "Ghost"
@@ -2815,7 +2916,9 @@
       "charge_move": "?",
       "def": "91",
       "max_cp": "1022",
+      "max_pv": "87",
       "quick_move": "?",
+      "rating": 3.5,
       "stam": "96",
       "types": [
         "Psychic"
@@ -2826,7 +2929,9 @@
       "charge_move": "?",
       "def": "106",
       "max_cp": "1024",
+      "max_pv": "309",
       "quick_move": "?",
+      "rating": 3.5,
       "stam": "380",
       "types": [
         "Psychic"
@@ -2837,7 +2942,9 @@
       "charge_move": "?",
       "def": "133",
       "max_cp": "1863",
+      "max_pv": "121",
       "quick_move": "?",
+      "rating": 6.0,
       "stam": "140",
       "types": [
         "Normal",
@@ -2849,7 +2956,9 @@
       "charge_move": "?",
       "def": "146",
       "max_cp": "1045",
+      "max_pv": "90",
       "quick_move": "?",
+      "rating": 3.5,
       "stam": "100",
       "types": [
         "Bug"
@@ -2860,7 +2969,9 @@
       "charge_move": "?",
       "def": "242",
       "max_cp": "2263",
+      "max_pv": "129",
       "quick_move": "?",
+      "rating": 7.5,
       "stam": "150",
       "types": [
         "Bug",
@@ -2872,7 +2983,9 @@
       "charge_move": "?",
       "def": "131",
       "max_cp": "1615",
+      "max_pv": "168",
       "quick_move": "?",
+      "rating": 5.5,
       "stam": "200",
       "types": [
         "Normal"
@@ -2883,7 +2996,9 @@
       "charge_move": "?",
       "def": "204",
       "max_cp": "1758",
+      "max_pv": "113",
       "quick_move": "?",
+      "rating": 6.0,
       "stam": "130",
       "types": [
         "Flying",
@@ -2895,7 +3010,9 @@
       "charge_move": "?",
       "def": "333",
       "max_cp": "2439",
+      "max_pv": "129",
       "quick_move": "?",
+      "rating": 8.0,
       "stam": "150",
       "types": [
         "Ground",
@@ -2907,7 +3024,9 @@
       "charge_move": "?",
       "def": "89",
       "max_cp": "1124",
+      "max_pv": "105",
       "quick_move": "?",
+      "rating": 3.5,
       "stam": "120",
       "types": [
         "Fairy"
@@ -2918,7 +3037,9 @@
       "charge_move": "?",
       "def": "137",
       "max_cp": "2440",
+      "max_pv": "153",
       "quick_move": "?",
+      "rating": 8.0,
       "stam": "180",
       "types": [
         "Fairy"
@@ -2929,7 +3050,9 @@
       "charge_move": "?",
       "def": "148",
       "max_cp": "1910",
+      "max_pv": "113",
       "quick_move": "?",
+      "rating": 6.5,
       "stam": "130",
       "types": [
         "Poison",
@@ -2941,7 +3064,9 @@
       "charge_move": "?",
       "def": "191",
       "max_cp": "2801",
+      "max_pv": "121",
       "quick_move": "?",
+      "rating": 9.5,
       "stam": "140",
       "types": [
         "Bug",
@@ -2953,7 +3078,9 @@
       "charge_move": "?",
       "def": "396",
       "max_cp": "300",
+      "max_pv": "43",
       "quick_move": "?",
+      "rating": 1.0,
       "stam": "40",
       "types": [
         "Bug",
@@ -2965,7 +3092,9 @@
       "charge_move": "?",
       "def": "189",
       "max_cp": "2938",
+      "max_pv": "137",
       "quick_move": "?",
+      "rating": 10.0,
       "stam": "160",
       "types": [
         "Bug",
@@ -2977,7 +3106,9 @@
       "charge_move": "?",
       "def": "157",
       "max_cp": "1868",
+      "max_pv": "98",
       "quick_move": "?",
+      "rating": 6.0,
       "stam": "110",
       "types": [
         "Dark",
@@ -2989,7 +3120,9 @@
       "charge_move": "?",
       "def": "93",
       "max_cp": "1184",
+      "max_pv": "105",
       "quick_move": "?",
+      "rating": 4.0,
       "stam": "120",
       "types": [
         "Normal"
@@ -3000,7 +3133,9 @@
       "charge_move": "?",
       "def": "144",
       "max_cp": "2760",
+      "max_pv": "153",
       "quick_move": "?",
+      "rating": 9.0,
       "stam": "180",
       "types": [
         "Normal"
@@ -3011,7 +3146,9 @@
       "charge_move": "?",
       "def": "71",
       "max_cp": "750",
+      "max_pv": "74",
       "quick_move": "?",
+      "rating": 2.5,
       "stam": "80",
       "types": [
         "Fire"
@@ -3022,7 +3159,9 @@
       "charge_move": "?",
       "def": "209",
       "max_cp": "1543",
+      "max_pv": "90",
       "quick_move": "?",
+      "rating": 5.0,
       "stam": "100",
       "types": [
         "Fire",
@@ -3034,7 +3173,9 @@
       "charge_move": "?",
       "def": "74",
       "max_cp": "663",
+      "max_pv": "90",
       "quick_move": "?",
+      "rating": 2.0,
       "stam": "100",
       "types": [
         "Ground",
@@ -3046,7 +3187,9 @@
       "charge_move": "?",
       "def": "147",
       "max_cp": "2284",
+      "max_pv": "168",
       "quick_move": "?",
+      "rating": 7.5,
       "stam": "200",
       "types": [
         "Ground",
@@ -3058,7 +3201,9 @@
       "charge_move": "?",
       "def": "156",
       "max_cp": "1214",
+      "max_pv": "98",
       "quick_move": "?",
+      "rating": 4.0,
       "stam": "110",
       "types": [
         "Rock",
@@ -3070,7 +3215,9 @@
       "charge_move": "?",
       "def": "69",
       "max_cp": "749",
+      "max_pv": "66",
       "quick_move": "?",
+      "rating": 2.5,
       "stam": "70",
       "types": [
         "Water"
@@ -3081,7 +3228,9 @@
       "charge_move": "?",
       "def": "141",
       "max_cp": "2124",
+      "max_pv": "129",
       "quick_move": "?",
+      "rating": 7.0,
       "stam": "150",
       "types": [
         "Water"
@@ -3092,7 +3241,9 @@
       "charge_move": "?",
       "def": "90",
       "max_cp": "937",
+      "max_pv": "82",
       "quick_move": "?",
+      "rating": 3.0,
       "stam": "90",
       "types": [
         "Flying",
@@ -3104,7 +3255,9 @@
       "charge_move": "?",
       "def": "260",
       "max_cp": "2032",
+      "max_pv": "113",
       "quick_move": "?",
+      "rating": 7.0,
       "stam": "130",
       "types": [
         "Flying",
@@ -3116,7 +3269,9 @@
       "charge_move": "?",
       "def": "260",
       "max_cp": "2032",
+      "max_pv": "113",
       "quick_move": "?",
+      "rating": 7.0,
       "stam": "130",
       "types": [
         "Flying",
@@ -3128,7 +3283,9 @@
       "charge_move": "?",
       "def": "93",
       "max_cp": "1110",
+      "max_pv": "82",
       "quick_move": "?",
+      "rating": 3.5,
       "stam": "90",
       "types": [
         "Dark",
@@ -3140,7 +3297,9 @@
       "charge_move": "?",
       "def": "159",
       "max_cp": "2529",
+      "max_pv": "129",
       "quick_move": "?",
+      "rating": 8.5,
       "stam": "150",
       "types": [
         "Dark",
@@ -3152,7 +3311,9 @@
       "charge_move": "?",
       "def": "194",
       "max_cp": "2424",
+      "max_pv": "129",
       "quick_move": "?",
+      "rating": 8.0,
       "stam": "150",
       "types": [
         "Dragon",
@@ -3164,7 +3325,9 @@
       "charge_move": "?",
       "def": "107",
       "max_cp": "1175",
+      "max_pv": "153",
       "quick_move": "?",
+      "rating": 4.0,
       "stam": "180",
       "types": [
         "Ground"
@@ -3175,7 +3338,9 @@
       "charge_move": "?",
       "def": "214",
       "max_cp": "3022",
+      "max_pv": "153",
       "quick_move": "?",
+      "rating": 10.0,
       "stam": "180",
       "types": [
         "Ground"
@@ -3186,7 +3351,9 @@
       "charge_move": "?",
       "def": "183",
       "max_cp": "2546",
+      "max_pv": "145",
       "quick_move": "?",
+      "rating": 8.5,
       "stam": "170",
       "types": [
         "Normal"
@@ -3197,7 +3364,9 @@
       "charge_move": "?",
       "def": "132",
       "max_cp": "1988",
+      "max_pv": "126",
       "quick_move": "?",
+      "rating": 6.5,
       "stam": "146",
       "types": [
         "Normal"
@@ -3208,7 +3377,9 @@
       "charge_move": "?",
       "def": "88",
       "max_cp": "389",
+      "max_pv": "98",
       "quick_move": "?",
+      "rating": 1.5,
       "stam": "110",
       "types": [
         "Normal"
@@ -3219,7 +3390,9 @@
       "charge_move": "?",
       "def": "64",
       "max_cp": "404",
+      "max_pv": "66",
       "quick_move": "?",
+      "rating": 1.5,
       "stam": "70",
       "types": [
         "Fighting"
@@ -3230,7 +3403,9 @@
       "charge_move": "?",
       "def": "214",
       "max_cp": "1905",
+      "max_pv": "90",
       "quick_move": "?",
+      "rating": 6.5,
       "stam": "100",
       "types": [
         "Fighting"
@@ -3241,7 +3416,9 @@
       "charge_move": "?",
       "def": "116",
       "max_cp": "1230",
+      "max_pv": "82",
       "quick_move": "?",
+      "rating": 4.0,
       "stam": "90",
       "types": [
         "Ice",
@@ -3253,7 +3430,9 @@
       "charge_move": "?",
       "def": "110",
       "max_cp": "1073",
+      "max_pv": "82",
       "quick_move": "?",
+      "rating": 3.5,
       "stam": "90",
       "types": [
         "Electric"
@@ -3264,7 +3443,9 @@
       "charge_move": "?",
       "def": "108",
       "max_cp": "1178",
+      "max_pv": "82",
       "quick_move": "?",
+      "rating": 4.0,
       "stam": "90",
       "types": [
         "Fire"
@@ -3275,7 +3456,9 @@
       "charge_move": "?",
       "def": "211",
       "max_cp": "2312",
+      "max_pv": "160",
       "quick_move": "?",
+      "rating": 7.5,
       "stam": "190",
       "types": [
         "Normal"
@@ -3286,7 +3469,9 @@
       "charge_move": "?",
       "def": "229",
       "max_cp": "3219",
+      "max_pv": "411",
       "quick_move": "?",
+      "rating": 10,
       "stam": "510",
       "types": [
         "Normal"
@@ -3297,7 +3482,9 @@
       "charge_move": "?",
       "def": "210",
       "max_cp": "3349",
+      "max_pv": "153",
       "quick_move": "?",
+      "rating": 10,
       "stam": "180",
       "types": [
         "Electric"
@@ -3308,7 +3495,9 @@
       "charge_move": "?",
       "def": "180",
       "max_cp": "3412",
+      "max_pv": "192",
       "quick_move": "?",
+      "rating": 10,
       "stam": "230",
       "types": [
         "Fire"
@@ -3319,7 +3508,9 @@
       "charge_move": "?",
       "def": "235",
       "max_cp": "2823",
+      "max_pv": "168",
       "quick_move": "?",
+      "rating": 9.5,
       "stam": "200",
       "types": [
         "Water"
@@ -3330,7 +3521,9 @@
       "charge_move": "?",
       "def": "93",
       "max_cp": "904",
+      "max_pv": "90",
       "quick_move": "?",
+      "rating": 3.0,
       "stam": "100",
       "types": [
         "Ground",
@@ -3342,7 +3535,9 @@
       "charge_move": "?",
       "def": "133",
       "max_cp": "1608",
+      "max_pv": "121",
       "quick_move": "?",
+      "rating": 5.5,
       "stam": "140",
       "types": [
         "Ground",
@@ -3354,7 +3549,9 @@
       "charge_move": "?",
       "def": "212",
       "max_cp": "3670",
+      "max_pv": "168",
       "quick_move": "?",
+      "rating": 10,
       "stam": "200",
       "types": [
         "Dark",
@@ -3366,7 +3563,9 @@
       "charge_move": "?",
       "def": "323",
       "max_cp": "3598",
+      "max_pv": "178",
       "quick_move": "?",
+      "rating": 10,
       "stam": "212",
       "types": [
         "Flying",
@@ -3378,7 +3577,9 @@
       "charge_move": "?",
       "def": "301",
       "max_cp": "4650",
+      "max_pv": "178",
       "quick_move": "?",
+      "rating": 10,
       "stam": "212",
       "types": [
         "Fire",
@@ -3390,7 +3591,9 @@
       "charge_move": "?",
       "def": "210",
       "max_cp": "3090",
+      "max_pv": "168",
       "quick_move": "?",
+      "rating": 10,
       "stam": "200",
       "types": [
         "Grass",
