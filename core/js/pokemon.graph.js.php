@@ -68,7 +68,7 @@ $pokemons		= json_decode($pokemon_file);
 
 $atk			= $pokemons->pokemon->$pokemon_id->atk;
 $def			= $pokemons->pokemon->$pokemon_id->def;
-$stam			= $pokemons->pokemon->$pokemon_id->stam;
+$sta			= $pokemons->pokemon->$pokemon_id->sta;
 
 
 ?>
@@ -127,7 +127,7 @@ var data2 = {
 		data: [
 			<?= $atk ?>,
 			<?= $def ?>,
-			<?= $stam ?>
+			<?= $sta ?>
 		],
 		backgroundColor: [
 			"rgba(249,96,134,0.8)",

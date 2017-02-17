@@ -7,10 +7,10 @@
       "charge_move": "Power Whip",
       "def": "118",
       "max_cp": 981,
-      "max_pv": 83,
+      "max_hp": 83,
       "quick_move": "Vine Whip",
       "rating": 3.5,
-      "stam": "90",
+      "sta": "90",
       "types": [
         "Grass",
         "Poison"
@@ -23,10 +23,10 @@
       "charge_move": "Solar Whip",
       "def": "151",
       "max_cp": 1552,
-      "max_pv": 107,
+      "max_hp": 107,
       "quick_move": "Vine Whip",
       "rating": 5.5,
-      "stam": "120",
+      "sta": "120",
       "types": [
         "Grass",
         "Poison"
@@ -38,10 +38,10 @@
       "charge_move": "Solar Whip",
       "def": "198",
       "max_cp": 2568,
-      "max_pv": 138,
+      "max_hp": 138,
       "quick_move": "Vine Whip",
       "rating": 9,
-      "stam": "160",
+      "sta": "160",
       "types": [
         "Grass",
         "Poison"
@@ -54,10 +54,10 @@
       "charge_move": "Flamethrower",
       "def": "96",
       "max_cp": 831,
-      "max_pv": 73,
+      "max_hp": 73,
       "quick_move": "Scratch",
       "rating": 3.5,
-      "stam": "78",
+      "sta": "78",
       "types": [
         "Fire"
       ]
@@ -69,10 +69,10 @@
       "charge_move": "Flamethrower",
       "def": "129",
       "max_cp": 1484,
-      "max_pv": 104,
+      "max_hp": 104,
       "quick_move": "Scratch",
       "rating": 5.5,
-      "stam": "116",
+      "sta": "116",
       "types": [
         "Fire"
       ]
@@ -83,10 +83,10 @@
       "charge_move": "Fire Blast",
       "def": "176",
       "max_cp": 2686,
-      "max_pv": 135,
+      "max_hp": 135,
       "quick_move": "Wing Attack",
       "rating": 8.5,
-      "stam": "156",
+      "sta": "156",
       "types": [
         "Fire",
         "Flying"
@@ -99,10 +99,10 @@
       "charge_move": "Aqua Tail",
       "def": "122",
       "max_cp": 808,
-      "max_pv": 81,
+      "max_hp": 81,
       "quick_move": "Bubble",
       "rating": 3.5,
-      "stam": "88",
+      "sta": "88",
       "types": [
         "Water"
       ]
@@ -114,10 +114,10 @@
       "charge_move": "Hydro Pump",
       "def": "155",
       "max_cp": 1324,
-      "max_pv": 105,
+      "max_hp": 105,
       "quick_move": "Water Gun",
       "rating": 5.5,
-      "stam": "118",
+      "sta": "118",
       "types": [
         "Water"
       ]
@@ -128,10 +128,10 @@
       "charge_move": "Hydro Pump",
       "def": "210",
       "max_cp": 2291,
-      "max_pv": 137,
+      "max_hp": 137,
       "quick_move": "Water Gun",
       "rating": 8.5,
-      "stam": "158",
+      "sta": "158",
       "types": [
         "Water"
       ]
@@ -143,10 +143,10 @@
       "charge_move": "Struggle",
       "def": "62",
       "max_cp": 393,
-      "max_pv": 83,
+      "max_hp": 83,
       "quick_move": "Bug Bite",
       "rating": 1.5,
-      "stam": "90",
+      "sta": "90",
       "types": [
         "Bug"
       ]
@@ -158,10 +158,10 @@
       "charge_move": "Struggle",
       "def": "94",
       "max_cp": 419,
-      "max_pv": 91,
+      "max_hp": 91,
       "quick_move": "Bug Bite",
       "rating": 2,
-      "stam": "100",
+      "sta": "100",
       "types": [
         "Bug"
       ]
@@ -172,10 +172,10 @@
       "charge_move": "Bug Buzz",
       "def": "151",
       "max_cp": 1701,
-      "max_pv": 107,
+      "max_hp": 107,
       "quick_move": "Bug Bite",
       "rating": 5.5,
-      "stam": "120",
+      "sta": "120",
       "types": [
         "Bug",
         "Flying"
@@ -188,10 +188,10 @@
       "charge_move": "Struggle",
       "def": "55",
       "max_cp": 397,
-      "max_pv": 75,
+      "max_hp": 75,
       "quick_move": "Bug Bite",
       "rating": 1.5,
-      "stam": "80",
+      "sta": "80",
       "types": [
         "Bug",
         "Poison"
@@ -204,10 +204,10 @@
       "charge_move": "Struggle",
       "def": "86",
       "max_cp": 392,
-      "max_pv": 83,
+      "max_hp": 83,
       "quick_move": "Bug Bite",
       "rating": 2,
-      "stam": "90",
+      "sta": "90",
       "types": [
         "Bug",
         "Poison"
@@ -219,10 +219,10 @@
       "charge_move": "Sludge Bomb",
       "def": "150",
       "max_cp": 1777,
-      "max_pv": 115,
+      "max_hp": 115,
       "quick_move": "Bug Bite",
       "rating": 5.5,
-      "stam": "130",
+      "sta": "130",
       "types": [
         "Bug",
         "Poison"
@@ -235,10 +235,10 @@
       "charge_move": "Aerial Ace",
       "def": "76",
       "max_cp": 580,
-      "max_pv": 75,
+      "max_hp": 75,
       "quick_move": "Tackle",
       "rating": 2.5,
-      "stam": "80",
+      "sta": "80",
       "types": [
         "Normal",
         "Flying"
@@ -251,10 +251,10 @@
       "charge_move": "Aerial Ace",
       "def": "108",
       "max_cp": 1085,
-      "max_pv": 111,
+      "max_hp": 111,
       "quick_move": "Wing Attack",
       "rating": 5,
-      "stam": "126",
+      "sta": "126",
       "types": [
         "Normal",
         "Flying"
@@ -266,10 +266,10 @@
       "charge_move": "Aerial Ace",
       "def": "157",
       "max_cp": 1994,
-      "max_pv": 143,
+      "max_hp": 143,
       "quick_move": "Wing Attack",
       "rating": 6.5,
-      "stam": "166",
+      "sta": "166",
       "types": [
         "Normal",
         "Flying"
@@ -282,10 +282,10 @@
       "charge_move": "Body Slam",
       "def": "70",
       "max_cp": 588,
-      "max_pv": 59,
+      "max_hp": 59,
       "quick_move": "Tackle",
       "rating": 2.5,
-      "stam": "60",
+      "sta": "60",
       "types": [
         "Normal"
       ]
@@ -296,10 +296,10 @@
       "charge_move": "Hyper Beam",
       "def": "144",
       "max_cp": 1549,
-      "max_pv": 99,
+      "max_hp": 99,
       "quick_move": "Bite",
       "rating": 6,
-      "stam": "110",
+      "sta": "110",
       "types": [
         "Normal"
       ]
@@ -311,10 +311,10 @@
       "charge_move": "Aerial Ace",
       "def": "61",
       "max_cp": 673,
-      "max_pv": 75,
+      "max_hp": 75,
       "quick_move": "Peck",
       "rating": 2.5,
-      "stam": "80",
+      "sta": "80",
       "types": [
         "Normal",
         "Flying"
@@ -326,10 +326,10 @@
       "charge_move": "Aerial Ace",
       "def": "135",
       "max_cp": 1814,
-      "max_pv": 115,
+      "max_hp": 115,
       "quick_move": "Steel Wing",
       "rating": 5.5,
-      "stam": "130",
+      "sta": "130",
       "types": [
         "Normal",
         "Flying"
@@ -342,10 +342,10 @@
       "charge_move": "Gunk Shot",
       "def": "102",
       "max_cp": 778,
-      "max_pv": 67,
+      "max_hp": 67,
       "quick_move": "Poison Sting",
       "rating": 3,
-      "stam": "70",
+      "sta": "70",
       "types": [
         "Poison"
       ]
@@ -356,10 +356,10 @@
       "charge_move": "Gunk Shot",
       "def": "158",
       "max_cp": 1737,
-      "max_pv": 107,
+      "max_hp": 107,
       "quick_move": "Bite",
       "rating": 6,
-      "stam": "120",
+      "sta": "120",
       "types": [
         "Poison"
       ]
@@ -371,10 +371,10 @@
       "charge_move": "Thunder",
       "def": "101",
       "max_cp": 787,
-      "max_pv": 67,
+      "max_hp": 67,
       "quick_move": "Thunder Shock",
       "rating": 3.5,
-      "stam": "70",
+      "sta": "70",
       "types": [
         "Electric"
       ]
@@ -385,10 +385,10 @@
       "charge_move": "Thunder",
       "def": "165",
       "max_cp": 2025,
-      "max_pv": 107,
+      "max_hp": 107,
       "quick_move": "Spark",
       "rating": 6,
-      "stam": "120",
+      "sta": "120",
       "types": [
         "Electric"
       ]
@@ -400,10 +400,10 @@
       "charge_move": "Dig",
       "def": "145",
       "max_cp": 1194,
-      "max_pv": 91,
+      "max_hp": 91,
       "quick_move": "Mud Shot",
       "rating": 4,
-      "stam": "100",
+      "sta": "100",
       "types": [
         "Ground"
       ]
@@ -414,10 +414,10 @@
       "charge_move": "Earthquake",
       "def": "202",
       "max_cp": 2328,
-      "max_pv": 130,
+      "max_hp": 130,
       "quick_move": "Mud Shot",
       "rating": 8,
-      "stam": "150",
+      "sta": "150",
       "types": [
         "Ground"
       ]
@@ -429,10 +429,10 @@
       "charge_move": "Body Slam",
       "def": "94",
       "max_cp": 736,
-      "max_pv": 99,
+      "max_hp": 99,
       "quick_move": "Poison Sting",
       "rating": 3,
-      "stam": "110",
+      "sta": "110",
       "types": [
         "Poison"
       ]
@@ -444,10 +444,10 @@
       "charge_move": "Sludge Bomb",
       "def": "126",
       "max_cp": 1218,
-      "max_pv": 122,
+      "max_hp": 122,
       "quick_move": "Poison Sting",
       "rating": 5.5,
-      "stam": "140",
+      "sta": "140",
       "types": [
         "Poison"
       ]
@@ -458,10 +458,10 @@
       "charge_move": "Earthquake",
       "def": "174",
       "max_cp": 2338,
-      "max_pv": 154,
+      "max_hp": 154,
       "quick_move": "Poison Jab",
       "rating": 8,
-      "stam": "180",
+      "sta": "180",
       "types": [
         "Poison",
         "Ground"
@@ -474,10 +474,10 @@
       "charge_move": "Body Slam",
       "def": "76",
       "max_cp": 739,
-      "max_pv": 85,
+      "max_hp": 85,
       "quick_move": "Poison Sting",
       "rating": 3,
-      "stam": "92",
+      "sta": "92",
       "types": [
         "Poison"
       ]
@@ -489,10 +489,10 @@
       "charge_move": "Sludge Bomb",
       "def": "112",
       "max_cp": 1252,
-      "max_pv": 108,
+      "max_hp": 108,
       "quick_move": "Poison Jab",
       "rating": 5.5,
-      "stam": "122",
+      "sta": "122",
       "types": [
         "Poison"
       ]
@@ -503,10 +503,10 @@
       "charge_move": "Earthquake",
       "def": "157",
       "max_cp": 2386,
-      "max_pv": 140,
+      "max_hp": 140,
       "quick_move": "Poison Jab",
       "rating": 7.5,
-      "stam": "162",
+      "sta": "162",
       "types": [
         "Poison",
         "Ground"
@@ -519,10 +519,10 @@
       "charge_move": "Moonblast",
       "def": "116",
       "max_cp": 1085,
-      "max_pv": 122,
+      "max_hp": 122,
       "quick_move": "Pound",
       "rating": 5,
-      "stam": "140",
+      "sta": "140",
       "types": [
         "Fairy"
       ]
@@ -533,10 +533,10 @@
       "charge_move": "Moonblast",
       "def": "171",
       "max_cp": 2353,
-      "max_pv": 162,
+      "max_hp": 162,
       "quick_move": "Pound",
       "rating": 8.5,
-      "stam": "190",
+      "sta": "190",
       "types": [
         "Fairy"
       ]
@@ -548,10 +548,10 @@
       "charge_move": "Body Slam",
       "def": "122",
       "max_cp": 774,
-      "max_pv": 72,
+      "max_hp": 72,
       "quick_move": "Ember",
       "rating": 3,
-      "stam": "76",
+      "sta": "76",
       "types": [
         "Fire"
       ]
@@ -562,10 +562,10 @@
       "charge_move": "Fire Blast",
       "def": "204",
       "max_cp": 2157,
-      "max_pv": 127,
+      "max_hp": 127,
       "quick_move": "Ember",
       "rating": 7,
-      "stam": "146",
+      "sta": "146",
       "types": [
         "Fire"
       ]
@@ -577,10 +577,10 @@
       "charge_move": "Body Slam",
       "def": "44",
       "max_cp": 713,
-      "max_pv": 194,
+      "max_hp": 194,
       "quick_move": "Pound",
       "rating": 4.5,
-      "stam": "230",
+      "sta": "230",
       "types": [
         "Normal",
         "Fairy"
@@ -592,10 +592,10 @@
       "charge_move": "Hyper Beam",
       "def": "93",
       "max_cp": 1906,
-      "max_pv": 233,
+      "max_hp": 233,
       "quick_move": "Pound",
       "rating": 8.5,
-      "stam": "280",
+      "sta": "280",
       "types": [
         "Normal",
         "Fairy"
@@ -608,10 +608,10 @@
       "charge_move": "Sludge Bomb",
       "def": "76",
       "max_cp": 569,
-      "max_pv": 75,
+      "max_hp": 75,
       "quick_move": "Bite",
       "rating": 2.5,
-      "stam": "80",
+      "sta": "80",
       "types": [
         "Poison",
         "Flying"
@@ -623,10 +623,10 @@
       "charge_move": "Poison Fang",
       "def": "153",
       "max_cp": 1830,
-      "max_pv": 130,
+      "max_hp": 130,
       "quick_move": "Wing Attack",
       "rating": 6.5,
-      "stam": "150",
+      "sta": "150",
       "types": [
         "Poison",
         "Flying"
@@ -639,10 +639,10 @@
       "charge_move": "Sludge Bomb",
       "def": "116",
       "max_cp": 1069,
-      "max_pv": 83,
+      "max_hp": 83,
       "quick_move": "Razor Leaf",
       "rating": 3.5,
-      "stam": "90",
+      "sta": "90",
       "types": [
         "Grass",
         "Poison"
@@ -655,10 +655,10 @@
       "charge_move": "Petal Blizzard",
       "def": "139",
       "max_cp": 1512,
-      "max_pv": 107,
+      "max_hp": 107,
       "quick_move": "Razor Leaf",
       "rating": 6,
-      "stam": "120",
+      "sta": "120",
       "types": [
         "Grass",
         "Poison"
@@ -670,10 +670,10 @@
       "charge_move": "Solar Beam",
       "def": "170",
       "max_cp": 2367,
-      "max_pv": 130,
+      "max_hp": 130,
       "quick_move": "Razor Leaf",
       "rating": 8,
-      "stam": "150",
+      "sta": "150",
       "types": [
         "Grass",
         "Poison"
@@ -686,10 +686,10 @@
       "charge_move": "X Scissor / See Bomb",
       "def": "99",
       "max_cp": 836,
-      "max_pv": 67,
+      "max_hp": 67,
       "quick_move": "Bug Bite",
       "rating": 3.5,
-      "stam": "70",
+      "sta": "70",
       "types": [
         "Bug",
         "Grass"
@@ -701,10 +701,10 @@
       "charge_move": "Solar Beam",
       "def": "146",
       "max_cp": 1657,
-      "max_pv": 107,
+      "max_hp": 107,
       "quick_move": "Bug Bite",
       "rating": 6,
-      "stam": "120",
+      "sta": "120",
       "types": [
         "Bug",
         "Grass"
@@ -717,10 +717,10 @@
       "charge_move": "Signal Beam",
       "def": "102",
       "max_cp": 902,
-      "max_pv": 107,
+      "max_hp": 107,
       "quick_move": "Bug Bite",
       "rating": 3.5,
-      "stam": "120",
+      "sta": "120",
       "types": [
         "Bug",
         "Poison"
@@ -732,10 +732,10 @@
       "charge_move": "Bug Buzz",
       "def": "150",
       "max_cp": 1937,
-      "max_pv": 122,
+      "max_hp": 122,
       "quick_move": "Bug Bite",
       "rating": 6.5,
-      "stam": "140",
+      "sta": "140",
       "types": [
         "Bug",
         "Poison"
@@ -748,10 +748,10 @@
       "charge_move": "Dig",
       "def": "88",
       "max_cp": 465,
-      "max_pv": 28,
+      "max_hp": 28,
       "quick_move": "Mud Shot",
       "rating": 1,
-      "stam": "20",
+      "sta": "20",
       "types": [
         "Ground"
       ]
@@ -762,10 +762,10 @@
       "charge_move": "Stone Edge",
       "def": "147",
       "max_cp": 1333,
-      "max_pv": 67,
+      "max_hp": 67,
       "quick_move": "Mud Shot",
       "rating": 3.5,
-      "stam": "70",
+      "sta": "70",
       "types": [
         "Ground"
       ]
@@ -777,10 +777,10 @@
       "charge_move": "Body Slam",
       "def": "81",
       "max_cp": 638,
-      "max_pv": 75,
+      "max_hp": 75,
       "quick_move": "Scratch",
       "rating": 3,
-      "stam": "80",
+      "sta": "80",
       "types": [
         "Normal"
       ]
@@ -791,10 +791,10 @@
       "charge_move": "Play Rough",
       "def": "139",
       "max_cp": 1539,
-      "max_pv": 115,
+      "max_hp": 115,
       "quick_move": "Scratch",
       "rating": 6,
-      "stam": "130",
+      "sta": "130",
       "types": [
         "Normal"
       ]
@@ -806,10 +806,10 @@
       "charge_move": "Cross Chop",
       "def": "96",
       "max_cp": 966,
-      "max_pv": 91,
+      "max_hp": 91,
       "quick_move": "Water Gun",
       "rating": 4.5,
-      "stam": "100",
+      "sta": "100",
       "types": [
         "Water"
       ]
@@ -820,10 +820,10 @@
       "charge_move": "Hydro Pump",
       "def": "163",
       "max_cp": 2270,
-      "max_pv": 138,
+      "max_hp": 138,
       "quick_move": "Water Gun",
       "rating": 8,
-      "stam": "160",
+      "sta": "160",
       "types": [
         "Water"
       ]
@@ -835,10 +835,10 @@
       "charge_move": "Body Slam",
       "def": "87",
       "max_cp": 1002,
-      "max_pv": 75,
+      "max_hp": 75,
       "quick_move": "Scratch",
       "rating": 3.5,
-      "stam": "80",
+      "sta": "80",
       "types": [
         "Fighting"
       ]
@@ -849,10 +849,10 @@
       "charge_move": "Cross Chop",
       "def": "144",
       "max_cp": 2105,
-      "max_pv": 115,
+      "max_hp": 115,
       "quick_move": "Low Kick",
       "rating": 6.5,
-      "stam": "130",
+      "sta": "130",
       "types": [
         "Fighting"
       ]
@@ -864,10 +864,10 @@
       "charge_move": "Body Slam",
       "def": "96",
       "max_cp": 1110,
-      "max_pv": 99,
+      "max_hp": 99,
       "quick_move": "Bite",
       "rating": 5,
-      "stam": "110",
+      "sta": "110",
       "types": [
         "Fire"
       ]
@@ -878,10 +878,10 @@
       "charge_move": "Fire Blast",
       "def": "166",
       "max_cp": 2839,
-      "max_pv": 154,
+      "max_hp": 154,
       "quick_move": "Fire Fang",
       "rating": 8,
-      "stam": "180",
+      "sta": "180",
       "types": [
         "Fire"
       ]
@@ -893,10 +893,10 @@
       "charge_move": "Body Slam",
       "def": "82",
       "max_cp": 695,
-      "max_pv": 75,
+      "max_hp": 75,
       "quick_move": "Bubble",
       "rating": 3.5,
-      "stam": "80",
+      "sta": "80",
       "types": [
         "Water"
       ]
@@ -908,10 +908,10 @@
       "charge_move": "Mud Bomb",
       "def": "130",
       "max_cp": 1313,
-      "max_pv": 115,
+      "max_hp": 115,
       "quick_move": "Bubble",
       "rating": 6,
-      "stam": "130",
+      "sta": "130",
       "types": [
         "Water"
       ]
@@ -922,10 +922,10 @@
       "charge_move": "Hydro Pump",
       "def": "187",
       "max_cp": 2441,
-      "max_pv": 154,
+      "max_hp": 154,
       "quick_move": "Bubble",
       "rating": 9,
-      "stam": "180",
+      "sta": "180",
       "types": [
         "Water"
       ]
@@ -937,10 +937,10 @@
       "charge_move": "Psyshock",
       "def": "103",
       "max_cp": 1148,
-      "max_pv": 51,
+      "max_hp": 51,
       "quick_move": "Zen Headbutt",
       "rating": 2.5,
-      "stam": "50",
+      "sta": "50",
       "types": [
         "Psychic"
       ]
@@ -952,10 +952,10 @@
       "charge_move": "Shadow Ball",
       "def": "138",
       "max_cp": 1859,
-      "max_pv": 75,
+      "max_hp": 75,
       "quick_move": "Psycho Cut",
       "rating": 4.5,
-      "stam": "80",
+      "sta": "80",
       "types": [
         "Psychic"
       ]
@@ -966,10 +966,10 @@
       "charge_move": "Psychic",
       "def": "194",
       "max_cp": 2887,
-      "max_pv": 99,
+      "max_hp": 99,
       "quick_move": "Psycho Cut",
       "rating": 9,
-      "stam": "110",
+      "sta": "110",
       "types": [
         "Psychic"
       ]
@@ -981,10 +981,10 @@
       "charge_move": "Cross Chop",
       "def": "88",
       "max_cp": 1199,
-      "max_pv": 122,
+      "max_hp": 122,
       "quick_move": "Low Kick",
       "rating": 3,
-      "stam": "140",
+      "sta": "140",
       "types": [
         "Fighting"
       ]
@@ -996,10 +996,10 @@
       "charge_move": "Cross Chop",
       "def": "130",
       "max_cp": 1910,
-      "max_pv": 138,
+      "max_hp": 138,
       "quick_move": "Low Kick",
       "rating": 6,
-      "stam": "160",
+      "sta": "160",
       "types": [
         "Fighting"
       ]
@@ -1010,10 +1010,10 @@
       "charge_move": "Cross Chop",
       "def": "162",
       "max_cp": 2889,
-      "max_pv": 154,
+      "max_hp": 154,
       "quick_move": "Karate Chop",
       "rating": 7.5,
-      "stam": "180",
+      "sta": "180",
       "types": [
         "Fighting"
       ]
@@ -1025,10 +1025,10 @@
       "charge_move": "Power Whip",
       "def": "64",
       "max_cp": 916,
-      "max_pv": 91,
+      "max_hp": 91,
       "quick_move": "Vine Whip",
       "rating": 4,
-      "stam": "100",
+      "sta": "100",
       "types": [
         "Grass",
         "Poison"
@@ -1041,10 +1041,10 @@
       "charge_move": "Power Whip",
       "def": "95",
       "max_cp": 1475,
-      "max_pv": 115,
+      "max_hp": 115,
       "quick_move": "Razor Leaf",
       "rating": 6,
-      "stam": "130",
+      "sta": "130",
       "types": [
         "Grass",
         "Poison"
@@ -1056,10 +1056,10 @@
       "charge_move": "Solar Beam",
       "def": "138",
       "max_cp": 2268,
-      "max_pv": 138,
+      "max_hp": 138,
       "quick_move": "Razor Leaf",
       "rating": 8,
-      "stam": "160",
+      "sta": "160",
       "types": [
         "Grass",
         "Poison"
@@ -1072,10 +1072,10 @@
       "charge_move": "Water Pulse",
       "def": "182",
       "max_cp": 956,
-      "max_pv": 75,
+      "max_hp": 75,
       "quick_move": "Bubble",
       "rating": 3.5,
-      "stam": "80",
+      "sta": "80",
       "types": [
         "Water",
         "Poison"
@@ -1087,10 +1087,10 @@
       "charge_move": "Hydro Pump",
       "def": "237",
       "max_cp": 2374,
-      "max_pv": 138,
+      "max_hp": 138,
       "quick_move": "Poison Jab",
       "rating": 8.5,
-      "stam": "160",
+      "sta": "160",
       "types": [
         "Water",
         "Poison"
@@ -1103,10 +1103,10 @@
       "charge_move": "Dig",
       "def": "163",
       "max_cp": 1193,
-      "max_pv": 75,
+      "max_hp": 75,
       "quick_move": "Rock Throw",
       "rating": 3.5,
-      "stam": "80",
+      "sta": "80",
       "types": [
         "Rock",
         "Ground"
@@ -1119,10 +1119,10 @@
       "charge_move": "Stone Edge",
       "def": "196",
       "max_cp": 1815,
-      "max_pv": 99,
+      "max_hp": 99,
       "quick_move": "Mud Shot",
       "rating": 6,
-      "stam": "110",
+      "sta": "110",
       "types": [
         "Rock",
         "Ground"
@@ -1134,10 +1134,10 @@
       "charge_move": "Stone Edge",
       "def": "229",
       "max_cp": 2916,
-      "max_pv": 138,
+      "max_hp": 138,
       "quick_move": "Mud Shot",
       "rating": 9,
-      "stam": "160",
+      "sta": "160",
       "types": [
         "Rock",
         "Ground"
@@ -1150,10 +1150,10 @@
       "charge_move": "Fire Blast",
       "def": "132",
       "max_cp": 1502,
-      "max_pv": 91,
+      "max_hp": 91,
       "quick_move": "Ember",
       "rating": 4.5,
-      "stam": "100",
+      "sta": "100",
       "types": [
         "Fire"
       ]
@@ -1164,10 +1164,10 @@
       "charge_move": "Fire Blast",
       "def": "167",
       "max_cp": 2252,
-      "max_pv": 115,
+      "max_hp": 115,
       "quick_move": "Ember",
       "rating": 7,
-      "stam": "130",
+      "sta": "130",
       "types": [
         "Fire"
       ]
@@ -1179,10 +1179,10 @@
       "charge_move": "Psychic",
       "def": "109",
       "max_cp": 1204,
-      "max_pv": 154,
+      "max_hp": 154,
       "quick_move": "Water Gun",
       "rating": 5,
-      "stam": "180",
+      "sta": "180",
       "types": [
         "Water",
         "Psychic"
@@ -1194,10 +1194,10 @@
       "charge_move": "Psychic",
       "def": "194",
       "max_cp": 2482,
-      "max_pv": 162,
+      "max_hp": 162,
       "quick_move": "Water Gun",
       "rating": 9,
-      "stam": "190",
+      "sta": "190",
       "types": [
         "Water",
         "Psychic"
@@ -1210,10 +1210,10 @@
       "charge_move": "Thunderbolt",
       "def": "128",
       "max_cp": 1083,
-      "max_pv": 51,
+      "max_hp": 51,
       "quick_move": "Spark",
       "rating": 3.5,
-      "stam": "50",
+      "sta": "50",
       "types": [
         "Electric",
         "Steel"
@@ -1225,10 +1225,10 @@
       "charge_move": "Flash Cannon",
       "def": "182",
       "max_cp": 2237,
-      "max_pv": 91,
+      "max_hp": 91,
       "quick_move": "Spark",
       "rating": 8,
-      "stam": "100",
+      "sta": "100",
       "types": [
         "Electric",
         "Steel"
@@ -1239,10 +1239,10 @@
       "charge_move": "Leaf Blade",
       "def": "118",
       "max_cp": 1092,
-      "max_pv": 94,
+      "max_hp": 94,
       "quick_move": "Cut",
       "rating": 4,
-      "stam": "104",
+      "sta": "104",
       "types": [
         "Normal",
         "Flying"
@@ -1255,10 +1255,10 @@
       "charge_move": "Aerial Ace",
       "def": "88",
       "max_cp": 1011,
-      "max_pv": 67,
+      "max_hp": 67,
       "quick_move": "Peck",
       "rating": 2.5,
-      "stam": "70",
+      "sta": "70",
       "types": [
         "Normal",
         "Flying"
@@ -1270,10 +1270,10 @@
       "charge_move": "Drill Peck",
       "def": "145",
       "max_cp": 2138,
-      "max_pv": 107,
+      "max_hp": 107,
       "quick_move": "Feint Attack",
       "rating": 6.5,
-      "stam": "120",
+      "sta": "120",
       "types": [
         "Normal",
         "Flying"
@@ -1286,10 +1286,10 @@
       "charge_move": "Aqua Tail",
       "def": "128",
       "max_cp": 899,
-      "max_pv": 115,
+      "max_hp": 115,
       "quick_move": "Water Gun",
       "rating": 4.5,
-      "stam": "130",
+      "sta": "130",
       "types": [
         "Water"
       ]
@@ -1300,10 +1300,10 @@
       "charge_move": "Blizzard",
       "def": "184",
       "max_cp": 1894,
-      "max_pv": 154,
+      "max_hp": 154,
       "quick_move": "Frost Breath",
       "rating": 8,
-      "stam": "180",
+      "sta": "180",
       "types": [
         "Water",
         "Ice"
@@ -1316,10 +1316,10 @@
       "charge_move": "Sludge Bomb",
       "def": "90",
       "max_cp": 1269,
-      "max_pv": 138,
+      "max_hp": 138,
       "quick_move": "Acid",
       "rating": 4.5,
-      "stam": "160",
+      "sta": "160",
       "types": [
         "Poison"
       ]
@@ -1330,10 +1330,10 @@
       "charge_move": "Gunk Shot",
       "def": "184",
       "max_cp": 2709,
-      "max_pv": 178,
+      "max_hp": 178,
       "quick_move": "Poison Jab",
       "rating": 8.5,
-      "stam": "210",
+      "sta": "210",
       "types": [
         "Poison"
       ]
@@ -1345,10 +1345,10 @@
       "charge_move": "Water Pulse",
       "def": "168",
       "max_cp": 958,
-      "max_pv": 59,
+      "max_hp": 59,
       "quick_move": "Tackle",
       "rating": 3,
-      "stam": "60",
+      "sta": "60",
       "types": [
         "Water"
       ]
@@ -1359,10 +1359,10 @@
       "charge_move": "Blizzard",
       "def": "323",
       "max_cp": 2475,
-      "max_pv": 91,
+      "max_hp": 91,
       "quick_move": "Frost Breath",
       "rating": 8.5,
-      "stam": "100",
+      "sta": "100",
       "types": [
         "Water",
         "Ice"
@@ -1375,10 +1375,10 @@
       "charge_move": "Sludge Bomb",
       "def": "70",
       "max_cp": 1002,
-      "max_pv": 59,
+      "max_hp": 59,
       "quick_move": "Lick",
       "rating": 3.5,
-      "stam": "60",
+      "sta": "60",
       "types": [
         "Ghost",
         "Poison"
@@ -1391,9 +1391,9 @@
       "charge_move": "Sludge Bomb",
       "def": "112",
       "max_cp": 1716,
-      "max_pv": 83,
+      "max_hp": 83,
       "quick_move": "Shadow Claw",
-      "stam": "90",
+      "sta": "90",
       "rating": 5.5,
       "types": [
         "Ghost",
@@ -1406,10 +1406,10 @@
       "charge_move": "Sludge Bomb",
       "def": "156",
       "max_cp": 2619,
-      "max_pv": 107,
+      "max_hp": 107,
       "quick_move": "Shadow Claw",
       "rating": 8.5,
-      "stam": "120",
+      "sta": "120",
       "types": [
         "Ghost",
         "Poison"
@@ -1421,10 +1421,10 @@
       "charge_move": "Stone Edge",
       "def": "288",
       "max_cp": 1002,
-      "max_pv": 67,
+      "max_hp": 67,
       "quick_move": "Rock Throw",
       "rating": 4,
-      "stam": "70",
+      "sta": "70",
       "types": [
         "Rock",
         "Ground"
@@ -1437,10 +1437,10 @@
       "charge_move": "Psychic",
       "def": "158",
       "max_cp": 992,
-      "max_pv": 107,
+      "max_hp": 107,
       "quick_move": "Pound",
       "rating": 4.5,
-      "stam": "120",
+      "sta": "120",
       "types": [
         "Psychic"
       ]
@@ -1451,10 +1451,10 @@
       "charge_move": "Psychic",
       "def": "215",
       "max_cp": 2048,
-      "max_pv": 146,
+      "max_hp": 146,
       "quick_move": "Zen Headbutt",
       "rating": 8,
-      "stam": "170",
+      "sta": "170",
       "types": [
         "Psychic"
       ]
@@ -1466,10 +1466,10 @@
       "charge_move": "Water Pulse",
       "def": "156",
       "max_cp": 1386,
-      "max_pv": 59,
+      "max_hp": 59,
       "quick_move": "Bubble",
       "rating": 3.5,
-      "stam": "60",
+      "sta": "60",
       "types": [
         "Water"
       ]
@@ -1480,10 +1480,10 @@
       "charge_move": "X Scissor",
       "def": "214",
       "max_cp": 2694,
-      "max_pv": 99,
+      "max_hp": 99,
       "quick_move": "Metal Claw",
       "rating": 7.5,
-      "stam": "110",
+      "sta": "110",
       "types": [
         "Water"
       ]
@@ -1495,10 +1495,10 @@
       "charge_move": "Thunderbolt",
       "def": "114",
       "max_cp": 857,
-      "max_pv": 75,
+      "max_hp": 75,
       "quick_move": "Spark",
       "rating": 3.5,
-      "stam": "80",
+      "sta": "80",
       "types": [
         "Electric"
       ]
@@ -1509,10 +1509,10 @@
       "charge_move": "Thunderbolt",
       "def": "179",
       "max_cp": 1900,
-      "max_pv": 107,
+      "max_hp": 107,
       "quick_move": "Spark",
       "rating": 5.5,
-      "stam": "120",
+      "sta": "120",
       "types": [
         "Electric"
       ]
@@ -1524,10 +1524,10 @@
       "charge_move": "Psychic",
       "def": "140",
       "max_cp": 1102,
-      "max_pv": 107,
+      "max_hp": 107,
       "quick_move": "Confusion",
       "rating": 4.5,
-      "stam": "120",
+      "sta": "120",
       "types": [
         "Grass",
         "Psychic"
@@ -1539,10 +1539,10 @@
       "charge_move": "Solar Beam",
       "def": "158",
       "max_cp": 2916,
-      "max_pv": 162,
+      "max_hp": 162,
       "quick_move": "Zen Headbutt",
       "rating": 9.5,
-      "stam": "190",
+      "sta": "190",
       "types": [
         "Grass",
         "Psychic"
@@ -1555,10 +1555,10 @@
       "charge_move": "Bone Club",
       "def": "165",
       "max_cp": 943,
-      "max_pv": 91,
+      "max_hp": 91,
       "quick_move": "Mud Slap",
       "rating": 4,
-      "stam": "100",
+      "sta": "100",
       "types": [
         "Ground"
       ]
@@ -1569,10 +1569,10 @@
       "charge_move": "Earthquake",
       "def": "200",
       "max_cp": 1691,
-      "max_pv": 107,
+      "max_hp": 107,
       "quick_move": "Mud Slap",
       "rating": 6,
-      "stam": "120",
+      "sta": "120",
       "types": [
         "Ground"
       ]
@@ -1584,10 +1584,10 @@
       "charge_move": "Stone Edge",
       "def": "211",
       "max_cp": 2406,
-      "max_pv": 91,
+      "max_hp": 91,
       "quick_move": "Low Kick",
       "rating": 5.5,
-      "stam": "100",
+      "sta": "100",
       "types": [
         "Fighting"
       ]
@@ -1598,10 +1598,10 @@
       "charge_move": "Brick Break",
       "def": "212",
       "max_cp": 2098,
-      "max_pv": 91,
+      "max_hp": 91,
       "quick_move": "Rock Smash",
       "rating": 5.5,
-      "stam": "100",
+      "sta": "100",
       "types": [
         "Fighting"
       ]
@@ -1612,10 +1612,10 @@
       "charge_move": "Hyper Beam",
       "def": "137",
       "max_cp": 1322,
-      "max_pv": 154,
+      "max_hp": 154,
       "quick_move": "Zen Headbutt",
       "rating": 5.5,
-      "stam": "180",
+      "sta": "180",
       "types": [
         "Normal"
       ]
@@ -1627,10 +1627,10 @@
       "charge_move": "Sludge Bomb",
       "def": "164",
       "max_cp": 1091,
-      "max_pv": 75,
+      "max_hp": 75,
       "quick_move": "Acid",
       "rating": 4,
-      "stam": "80",
+      "sta": "80",
       "types": [
         "Poison"
       ]
@@ -1641,10 +1641,10 @@
       "charge_move": "Sludge Bomb",
       "def": "221",
       "max_cp": 2183,
-      "max_pv": 115,
+      "max_hp": 115,
       "quick_move": "Acid",
       "rating": 7,
-      "stam": "130",
+      "sta": "130",
       "types": [
         "Poison"
       ]
@@ -1656,10 +1656,10 @@
       "charge_move": "Stomp",
       "def": "157",
       "max_cp": 1679,
-      "max_pv": 138,
+      "max_hp": 138,
       "quick_move": "Mud Slap",
       "rating": 5,
-      "stam": "160",
+      "sta": "160",
       "types": [
         "Ground",
         "Rock"
@@ -1671,10 +1671,10 @@
       "charge_move": "Stone Edge",
       "def": "206",
       "max_cp": 3300,
-      "max_pv": 178,
+      "max_hp": 178,
       "quick_move": "Mud Slap",
       "rating": 9.5,
-      "stam": "210",
+      "sta": "210",
       "types": [
         "Ground",
         "Rock"
@@ -1686,10 +1686,10 @@
       "charge_move": "Psychic",
       "def": "176",
       "max_cp": 1469,
-      "max_pv": 407,
+      "max_hp": 407,
       "quick_move": "Pound",
       "rating": 8.5,
-      "stam": "500",
+      "sta": "500",
       "types": [
         "Normal"
       ]
@@ -1700,10 +1700,10 @@
       "charge_move": "Solar Beam",
       "def": "205",
       "max_cp": 2208,
-      "max_pv": 115,
+      "max_hp": 115,
       "quick_move": "Vine Whip",
       "rating": 8,
-      "stam": "130",
+      "sta": "130",
       "types": [
         "Grass"
       ]
@@ -1714,10 +1714,10 @@
       "charge_move": "Earthquake",
       "def": "165",
       "max_cp": 2463,
-      "max_pv": 178,
+      "max_hp": 178,
       "quick_move": "Mud Slap",
       "rating": 8.5,
-      "stam": "210",
+      "sta": "210",
       "types": [
         "Normal"
       ]
@@ -1729,10 +1729,10 @@
       "charge_move": "Dragon Pulse",
       "def": "125",
       "max_cp": 921,
-      "max_pv": 59,
+      "max_hp": 59,
       "quick_move": "Water Gun",
       "rating": 3.5,
-      "stam": "60",
+      "sta": "60",
       "types": [
         "Water"
       ]
@@ -1743,10 +1743,10 @@
       "charge_move": "Hydro Pump",
       "def": "182",
       "max_cp": 1979,
-      "max_pv": 99,
+      "max_hp": 99,
       "quick_move": "Water Gun",
       "rating": 7,
-      "stam": "110",
+      "sta": "110",
       "types": [
         "Water"
       ]
@@ -1758,10 +1758,10 @@
       "charge_move": "Aqua Tail",
       "def": "115",
       "max_cp": 1006,
-      "max_pv": 83,
+      "max_hp": 83,
       "quick_move": "Mud Shot",
       "rating": 3.5,
-      "stam": "90",
+      "sta": "90",
       "types": [
         "Water"
       ]
@@ -1772,10 +1772,10 @@
       "charge_move": "Megahorn",
       "def": "154",
       "max_cp": 2040,
-      "max_pv": 138,
+      "max_hp": 138,
       "quick_move": "Poison Jab",
       "rating": 6.5,
-      "stam": "160",
+      "sta": "160",
       "types": [
         "Water"
       ]
@@ -1787,10 +1787,10 @@
       "charge_move": "Power Gem",
       "def": "112",
       "max_cp": 926,
-      "max_pv": 59,
+      "max_hp": 59,
       "quick_move": "Water Gun",
       "rating": 3.5,
-      "stam": "60",
+      "sta": "60",
       "types": [
         "Water"
       ]
@@ -1801,10 +1801,10 @@
       "charge_move": "Hydro Pump",
       "def": "184",
       "max_cp": 2303,
-      "max_pv": 107,
+      "max_hp": 107,
       "quick_move": "Water Gun",
       "rating": 7.5,
-      "stam": "120",
+      "sta": "120",
       "types": [
         "Water",
         "Psychic"
@@ -1816,10 +1816,10 @@
       "charge_move": "Psychic",
       "def": "233",
       "max_cp": 1984,
-      "max_pv": 75,
+      "max_hp": 75,
       "quick_move": "Zen Headbutt",
       "rating": 5,
-      "stam": "80",
+      "sta": "80",
       "types": [
         "Psychic",
         "Fairy"
@@ -1831,10 +1831,10 @@
       "charge_move": "Bug Buzz",
       "def": "170",
       "max_cp": 2464,
-      "max_pv": 122,
+      "max_hp": 122,
       "quick_move": "Steel Wing",
       "rating": 7.5,
-      "stam": "140",
+      "sta": "140",
       "types": [
         "Bug",
         "Flying"
@@ -1846,10 +1846,10 @@
       "charge_move": "Psyshock",
       "def": "182",
       "max_cp": 2512,
-      "max_pv": 115,
+      "max_hp": 115,
       "quick_move": "Frost Breath",
       "rating": 7.5,
-      "stam": "130",
+      "sta": "130",
       "types": [
         "Ice",
         "Psychic"
@@ -1861,10 +1861,10 @@
       "charge_move": "Thunder",
       "def": "173",
       "max_cp": 2196,
-      "max_pv": 115,
+      "max_hp": 115,
       "quick_move": "Thunder Shock",
       "rating": 7.5,
-      "stam": "130",
+      "sta": "130",
       "types": [
         "Electric"
       ]
@@ -1875,10 +1875,10 @@
       "charge_move": "Fire Blast",
       "def": "169",
       "max_cp": 2254,
-      "max_pv": 115,
+      "max_hp": 115,
       "quick_move": "Ember",
       "rating": 7,
-      "stam": "130",
+      "sta": "130",
       "types": [
         "Fire"
       ]
@@ -1889,10 +1889,10 @@
       "charge_move": "X Scissor",
       "def": "197",
       "max_cp": 2770,
-      "max_pv": 115,
+      "max_hp": 115,
       "quick_move": "Rock Smash",
       "rating": 8,
-      "stam": "130",
+      "sta": "130",
       "types": [
         "Bug"
       ]
@@ -1903,10 +1903,10 @@
       "charge_move": "Earthquake",
       "def": "197",
       "max_cp": 2488,
-      "max_pv": 130,
+      "max_hp": 130,
       "quick_move": "Tackle",
       "rating": 7.5,
-      "stam": "150",
+      "sta": "150",
       "types": [
         "Normal"
       ]
@@ -1918,10 +1918,10 @@
       "charge_move": "Struggle",
       "def": "102",
       "max_cp": 220,
-      "max_pv": 43,
+      "max_hp": 43,
       "quick_move": "Splash",
       "rating": 1,
-      "stam": "40",
+      "sta": "40",
       "types": [
         "Water"
       ]
@@ -1932,10 +1932,10 @@
       "charge_move": "Hydro Pump",
       "def": "197",
       "max_cp": 3281,
-      "max_pv": 162,
+      "max_hp": 162,
       "quick_move": "Dragon Breath / Bite",
       "rating": 9,
-      "stam": "190",
+      "sta": "190",
       "types": [
         "Water",
         "Flying"
@@ -1947,10 +1947,10 @@
       "charge_move": "Blizzard",
       "def": "180",
       "max_cp": 2566,
-      "max_pv": 217,
+      "max_hp": 217,
       "quick_move": "Frost Breath",
       "rating": 10,
-      "stam": "260",
+      "sta": "260",
       "types": [
         "Water",
         "Ice"
@@ -1962,10 +1962,10 @@
       "charge_move": "Struggle",
       "def": "91",
       "max_cp": 718,
-      "max_pv": 88,
+      "max_hp": 88,
       "quick_move": "Pound",
       "rating": 7.5,
-      "stam": "96",
+      "sta": "96",
       "types": [
         "Normal"
       ]
@@ -1977,10 +1977,10 @@
       "charge_move": "Body Slam",
       "def": "121",
       "max_cp": 969,
-      "max_pv": 99,
+      "max_hp": 99,
       "quick_move": "Tackle",
       "rating": 4.5,
-      "stam": "110",
+      "sta": "110",
       "types": [
         "Normal"
       ]
@@ -1991,10 +1991,10 @@
       "charge_move": "Hydro Pump",
       "def": "177",
       "max_cp": 3157,
-      "max_pv": 217,
+      "max_hp": 217,
       "quick_move": "Water Gun",
       "rating": 10,
-      "stam": "260",
+      "sta": "260",
       "types": [
         "Water"
       ]
@@ -2005,10 +2005,10 @@
       "charge_move": "Thunder",
       "def": "201",
       "max_cp": 2730,
-      "max_pv": 115,
+      "max_hp": 115,
       "quick_move": "Thunder Shock",
       "rating": 8.5,
-      "stam": "130",
+      "sta": "130",
       "types": [
         "Electric"
       ]
@@ -2019,10 +2019,10 @@
       "charge_move": "Fire Blast",
       "def": "204",
       "max_cp": 2904,
-      "max_pv": 115,
+      "max_hp": 115,
       "quick_move": "Ember",
       "rating": 8,
-      "stam": "130",
+      "sta": "130",
       "types": [
         "Fire"
       ]
@@ -2033,10 +2033,10 @@
       "charge_move": "Discharge",
       "def": "139",
       "max_cp": 1567,
-      "max_pv": 115,
+      "max_hp": 115,
       "quick_move": "Tackle",
       "rating": 4.5,
-      "stam": "130",
+      "sta": "130",
       "types": [
         "Normal"
       ]
@@ -2048,10 +2048,10 @@
       "charge_move": "Ancient Power",
       "def": "174",
       "max_cp": 1345,
-      "max_pv": 67,
+      "max_hp": 67,
       "quick_move": "Water Gun",
       "rating": 4.5,
-      "stam": "70",
+      "sta": "70",
       "types": [
         "Rock",
         "Water"
@@ -2063,10 +2063,10 @@
       "charge_move": "Hydro Pump",
       "def": "227",
       "max_cp": 2685,
-      "max_pv": 122,
+      "max_hp": 122,
       "quick_move": "Water Gun",
       "rating": 9.5,
-      "stam": "140",
+      "sta": "140",
       "types": [
         "Rock",
         "Water"
@@ -2079,10 +2079,10 @@
       "charge_move": "Aqua Jet",
       "def": "162",
       "max_cp": 1172,
-      "max_pv": 59,
+      "max_hp": 59,
       "quick_move": "Scratch",
       "rating": 5,
-      "stam": "60",
+      "sta": "60",
       "types": [
         "Rock",
         "Water"
@@ -2094,10 +2094,10 @@
       "charge_move": "Stone Edge",
       "def": "203",
       "max_cp": 2517,
-      "max_pv": 107,
+      "max_hp": 107,
       "quick_move": "Mud Shot",
       "rating": 8,
-      "stam": "120",
+      "sta": "120",
       "types": [
         "Rock",
         "Water"
@@ -2109,10 +2109,10 @@
       "charge_move": "Hyper Beam",
       "def": "164",
       "max_cp": 2608,
-      "max_pv": 138,
+      "max_hp": 138,
       "quick_move": "Bite",
       "rating": 7.5,
-      "stam": "160",
+      "sta": "160",
       "types": [
         "Rock",
         "Flying"
@@ -2124,10 +2124,10 @@
       "charge_move": "Body Slam",
       "def": "190",
       "max_cp": 3355,
-      "max_pv": 265,
+      "max_hp": 265,
       "quick_move": "Zen Headbutt",
       "rating": 10,
-      "stam": "320",
+      "sta": "320",
       "types": [
         "Normal"
       ]
@@ -2138,10 +2138,10 @@
       "charge_move": "?",
       "def": "249",
       "max_cp": 2933,
-      "max_pv": 154,
+      "max_hp": 154,
       "quick_move": "?",
       "rating": 10,
-      "stam": "180",
+      "sta": "180",
       "types": [
         "Ice",
         "Flying"
@@ -2153,10 +2153,10 @@
       "charge_move": "?",
       "def": "188",
       "max_cp": 3330,
-      "max_pv": 154,
+      "max_hp": 154,
       "quick_move": "?",
       "rating": 10,
-      "stam": "180",
+      "sta": "180",
       "types": [
         "Electric",
         "Flying"
@@ -2168,10 +2168,10 @@
       "charge_move": "?",
       "def": "184",
       "max_cp": 3272,
-      "max_pv": 154,
+      "max_hp": 154,
       "quick_move": "?",
       "rating": 10,
-      "stam": "180",
+      "sta": "180",
       "types": [
         "Fire",
         "Flying"
@@ -2184,11 +2184,11 @@
       "charge_move": "Aqua Tail",
       "def": "94",
       "max_cp": 860,
-      "max_pv": 77,
+      "max_hp": 77,
       "quick_move": "Dragon Breath",
       "rating": 4,
       "rating": 10,
-      "stam": "82",
+      "sta": "82",
       "types": [
         "Dragon"
       ]
@@ -2200,10 +2200,10 @@
       "charge_move": "Dragon Pulse",
       "def": "138",
       "max_cp": 1609,
-      "max_pv": 108,
+      "max_hp": 108,
       "quick_move": "Dragon Breath",
       "rating": 6,
-      "stam": "122",
+      "sta": "122",
       "types": [
         "Dragon"
       ]
@@ -2214,10 +2214,10 @@
       "charge_move": "Dragon Claw",
       "def": "201",
       "max_cp": 3581,
-      "max_pv": 156,
+      "max_hp": 156,
       "quick_move": "Dragon Breath",
       "rating": 10,
-      "stam": "182",
+      "sta": "182",
       "types": [
         "Dragon",
         "Flying"
@@ -2229,10 +2229,10 @@
       "charge_move": "?",
       "def": "200",
       "max_cp": 4760,
-      "max_pv": 179,
+      "max_hp": 179,
       "quick_move": "?",
       "rating": 10,
-      "stam": "212",
+      "sta": "212",
       "types": [
         "Psychic"
       ]
@@ -2243,10 +2243,10 @@
       "charge_move": "?",
       "def": "210",
       "max_cp": 3090,
-      "max_pv": 170,
+      "max_hp": 170,
       "quick_move": "?",
       "rating": 10,
-      "stam": "200",
+      "sta": "200",
       "types": [
         "Psychic"
       ]
@@ -2256,10 +2256,10 @@
       "charge_move": "?",
       "def": "122",
       "max_cp": "801",
-      "max_pv": "82",
+      "max_hp": "82",
       "quick_move": "?",
       "rating": 2.5,
-      "stam": "90",
+      "sta": "90",
       "types": [
         "Grass"
       ]
@@ -2269,10 +2269,10 @@
       "charge_move": "?",
       "def": "155",
       "max_cp": "1296",
-      "max_pv": "105",
+      "max_hp": "105",
       "quick_move": "?",
       "rating": 4.5,
-      "stam": "120",
+      "sta": "120",
       "types": [
         "Grass"
       ]
@@ -2282,10 +2282,10 @@
       "charge_move": "?",
       "def": "202",
       "max_cp": "2227",
-      "max_pv": "137",
+      "max_hp": "137",
       "quick_move": "?",
       "rating": 7.5,
-      "stam": "160",
+      "sta": "160",
       "types": [
         "Grass"
       ]
@@ -2295,10 +2295,10 @@
       "charge_move": "?",
       "def": "96",
       "max_cp": "831",
-      "max_pv": "72",
+      "max_hp": "72",
       "quick_move": "?",
       "rating": 3.0,
-      "stam": "78",
+      "sta": "78",
       "types": [
         "Fire"
       ]
@@ -2308,10 +2308,10 @@
       "charge_move": "?",
       "def": "129",
       "max_cp": "1484",
-      "max_pv": "102",
+      "max_hp": "102",
       "quick_move": "?",
       "rating": 5.0,
-      "stam": "116",
+      "sta": "116",
       "types": [
         "Fire"
       ]
@@ -2321,10 +2321,10 @@
       "charge_move": "?",
       "def": "176",
       "max_cp": "2686",
-      "max_pv": "134",
+      "max_hp": "134",
       "quick_move": "?",
       "rating": 9.0,
-      "stam": "156",
+      "sta": "156",
       "types": [
         "Fire"
       ]
@@ -2334,10 +2334,10 @@
       "charge_move": "?",
       "def": "116",
       "max_cp": "1011",
-      "max_pv": "90",
+      "max_hp": "90",
       "quick_move": "?",
       "rating": 3.5,
-      "stam": "100",
+      "sta": "100",
       "types": [
         "Water"
       ]
@@ -2347,10 +2347,10 @@
       "charge_move": "?",
       "def": "151",
       "max_cp": "1598",
-      "max_pv": "113",
+      "max_hp": "113",
       "quick_move": "?",
       "rating": 5.5,
-      "stam": "130",
+      "sta": "130",
       "types": [
         "Water"
       ]
@@ -2360,10 +2360,10 @@
       "charge_move": "?",
       "def": "197",
       "max_cp": "2721",
-      "max_pv": "145",
+      "max_hp": "145",
       "quick_move": "?",
       "rating": 9.0,
-      "stam": "170",
+      "sta": "170",
       "types": [
         "Water"
       ]
@@ -2373,10 +2373,10 @@
       "charge_move": "?",
       "def": "77",
       "max_cp": "519",
-      "max_pv": "66",
+      "max_hp": "66",
       "quick_move": "?",
       "rating": 1.5,
-      "stam": "70",
+      "sta": "70",
       "types": [
         "Normal"
       ]
@@ -2386,10 +2386,10 @@
       "charge_move": "?",
       "def": "130",
       "max_cp": "1667",
-      "max_pv": "145",
+      "max_hp": "145",
       "quick_move": "?",
       "rating": 5.5,
-      "stam": "170",
+      "sta": "170",
       "types": [
         "Normal"
       ]
@@ -2399,10 +2399,10 @@
       "charge_move": "?",
       "def": "101",
       "max_cp": "640",
-      "max_pv": "105",
+      "max_hp": "105",
       "quick_move": "?",
       "rating": 2.0,
-      "stam": "120",
+      "sta": "120",
       "types": [
         "Flying",
         "Normal"
@@ -2413,10 +2413,10 @@
       "charge_move": "?",
       "def": "179",
       "max_cp": "2040",
-      "max_pv": "168",
+      "max_hp": "168",
       "quick_move": "?",
       "rating": 7.0,
-      "stam": "200",
+      "sta": "200",
       "types": [
         "Flying",
         "Normal"
@@ -2427,10 +2427,10 @@
       "charge_move": "?",
       "def": "142",
       "max_cp": "663",
-      "max_pv": "74",
+      "max_hp": "74",
       "quick_move": "?",
       "rating": 2.0,
-      "stam": "80",
+      "sta": "80",
       "types": [
         "Bug",
         "Flying"
@@ -2441,10 +2441,10 @@
       "charge_move": "?",
       "def": "209",
       "max_cp": "1275",
-      "max_pv": "98",
+      "max_hp": "98",
       "quick_move": "?",
       "rating": 4.5,
-      "stam": "110",
+      "sta": "110",
       "types": [
         "Bug",
         "Flying"
@@ -2455,10 +2455,10 @@
       "charge_move": "?",
       "def": "73",
       "max_cp": "685",
-      "max_pv": "74",
+      "max_hp": "74",
       "quick_move": "?",
       "rating": 2.5,
-      "stam": "80",
+      "sta": "80",
       "types": [
         "Bug",
         "Poison"
@@ -2469,10 +2469,10 @@
       "charge_move": "?",
       "def": "128",
       "max_cp": "1636",
-      "max_pv": "121",
+      "max_hp": "121",
       "quick_move": "?",
       "rating": 5.5,
-      "stam": "140",
+      "sta": "140",
       "types": [
         "Bug",
         "Poison"
@@ -2483,10 +2483,10 @@
       "charge_move": "?",
       "def": "178",
       "max_cp": "2466",
-      "max_pv": "145",
+      "max_hp": "145",
       "quick_move": "?",
       "rating": 8.0,
-      "stam": "170",
+      "sta": "170",
       "types": [
         "Flying",
         "Poison"
@@ -2497,10 +2497,10 @@
       "charge_move": "?",
       "def": "106",
       "max_cp": "1067",
-      "max_pv": "129",
+      "max_hp": "129",
       "quick_move": "?",
       "rating": 3.5,
-      "stam": "150",
+      "sta": "150",
       "types": [
         "Electric",
         "Water"
@@ -2511,10 +2511,10 @@
       "charge_move": "?",
       "def": "146",
       "max_cp": "2077",
-      "max_pv": "207",
+      "max_hp": "207",
       "quick_move": "?",
       "rating": 7.0,
-      "stam": "250",
+      "sta": "250",
       "types": [
         "Electric",
         "Water"
@@ -2525,10 +2525,10 @@
       "charge_move": "?",
       "def": "63",
       "max_cp": "376",
-      "max_pv": "43",
+      "max_hp": "43",
       "quick_move": "?",
       "rating": 1.5,
-      "stam": "40",
+      "sta": "40",
       "types": [
         "Electric"
       ]
@@ -2538,10 +2538,10 @@
       "charge_move": "?",
       "def": "91",
       "max_cp": "620",
-      "max_pv": "90",
+      "max_hp": "90",
       "quick_move": "?",
       "rating": 2.0,
-      "stam": "100",
+      "sta": "100",
       "types": [
         "Fairy"
       ]
@@ -2551,10 +2551,10 @@
       "charge_move": "?",
       "def": "34",
       "max_cp": "512",
-      "max_pv": "153",
+      "max_hp": "153",
       "quick_move": "?",
       "rating": 1.5,
-      "stam": "180",
+      "sta": "180",
       "types": [
         "Fairy",
         "Normal"
@@ -2565,10 +2565,10 @@
       "charge_move": "?",
       "def": "116",
       "max_cp": "540",
-      "max_pv": "66",
+      "max_hp": "66",
       "quick_move": "?",
       "rating": 2.0,
-      "stam": "70",
+      "sta": "70",
       "types": [
         "Fairy"
       ]
@@ -2578,10 +2578,10 @@
       "charge_move": "?",
       "def": "191",
       "max_cp": "1543",
-      "max_pv": "98",
+      "max_hp": "98",
       "quick_move": "?",
       "rating": 5.0,
-      "stam": "110",
+      "sta": "110",
       "types": [
         "Fairy",
         "Flying"
@@ -2592,10 +2592,10 @@
       "charge_move": "?",
       "def": "89",
       "max_cp": "925",
-      "max_pv": "74",
+      "max_hp": "74",
       "quick_move": "?",
       "rating": 3.0,
-      "stam": "80",
+      "sta": "80",
       "types": [
         "Flying",
         "Psychic"
@@ -2606,10 +2606,10 @@
       "charge_move": "?",
       "def": "146",
       "max_cp": "1975",
-      "max_pv": "113",
+      "max_hp": "113",
       "quick_move": "?",
       "rating": 6.5,
-      "stam": "130",
+      "sta": "130",
       "types": [
         "Flying",
         "Psychic"
@@ -2620,10 +2620,10 @@
       "charge_move": "?",
       "def": "82",
       "max_cp": "887",
-      "max_pv": "98",
+      "max_hp": "98",
       "quick_move": "?",
       "rating": 3.0,
-      "stam": "110",
+      "sta": "110",
       "types": [
         "Electric"
       ]
@@ -2633,10 +2633,10 @@
       "charge_move": "?",
       "def": "112",
       "max_cp": "1402",
-      "max_pv": "121",
+      "max_hp": "121",
       "quick_move": "?",
       "rating": 4.5,
-      "stam": "140",
+      "sta": "140",
       "types": [
         "Electric"
       ]
@@ -2646,10 +2646,10 @@
       "charge_move": "?",
       "def": "172",
       "max_cp": "2695",
-      "max_pv": "153",
+      "max_hp": "153",
       "quick_move": "?",
       "rating": 9.0,
-      "stam": "180",
+      "sta": "180",
       "types": [
         "Electric"
       ]
@@ -2659,10 +2659,10 @@
       "charge_move": "?",
       "def": "189",
       "max_cp": "2108",
-      "max_pv": "129",
+      "max_hp": "129",
       "quick_move": "?",
       "rating": 7.0,
-      "stam": "150",
+      "sta": "150",
       "types": [
         "Grass"
       ]
@@ -2672,10 +2672,10 @@
       "charge_move": "?",
       "def": "93",
       "max_cp": "420",
-      "max_pv": "121",
+      "max_hp": "121",
       "quick_move": "?",
       "rating": 1.5,
-      "stam": "140",
+      "sta": "140",
       "types": [
         "Fairy",
         "Water"
@@ -2686,10 +2686,10 @@
       "charge_move": "?",
       "def": "152",
       "max_cp": "1503",
-      "max_pv": "168",
+      "max_hp": "168",
       "quick_move": "?",
       "rating": 5.0,
-      "stam": "200",
+      "sta": "200",
       "types": [
         "Fairy",
         "Water"
@@ -2700,10 +2700,10 @@
       "charge_move": "?",
       "def": "198",
       "max_cp": "2065",
-      "max_pv": "121",
+      "max_hp": "121",
       "quick_move": "?",
       "rating": 7.0,
-      "stam": "140",
+      "sta": "140",
       "types": [
         "Rock"
       ]
@@ -2713,10 +2713,10 @@
       "charge_move": "?",
       "def": "192",
       "max_cp": "2371",
-      "max_pv": "153",
+      "max_hp": "153",
       "quick_move": "?",
       "rating": 8.0,
-      "stam": "180",
+      "sta": "180",
       "types": [
         "Water"
       ]
@@ -2726,10 +2726,10 @@
       "charge_move": "?",
       "def": "101",
       "max_cp": "508",
-      "max_pv": "66",
+      "max_hp": "66",
       "quick_move": "?",
       "rating": 1.5,
-      "stam": "70",
+      "sta": "70",
       "types": [
         "Flying",
         "Grass"
@@ -2740,10 +2740,10 @@
       "charge_move": "?",
       "def": "127",
       "max_cp": "882",
-      "max_pv": "98",
+      "max_hp": "98",
       "quick_move": "?",
       "rating": 3.0,
-      "stam": "110",
+      "sta": "110",
       "types": [
         "Flying",
         "Grass"
@@ -2754,10 +2754,10 @@
       "charge_move": "?",
       "def": "197",
       "max_cp": "1553",
-      "max_pv": "129",
+      "max_hp": "129",
       "quick_move": "?",
       "rating": 5.0,
-      "stam": "150",
+      "sta": "150",
       "types": [
         "Flying",
         "Grass"
@@ -2768,10 +2768,10 @@
       "charge_move": "?",
       "def": "112",
       "max_cp": "1188",
-      "max_pv": "98",
+      "max_hp": "98",
       "quick_move": "?",
       "rating": 4.0,
-      "stam": "110",
+      "sta": "110",
       "types": [
         "Normal"
       ]
@@ -2781,10 +2781,10 @@
       "charge_move": "?",
       "def": "55",
       "max_cp": "316",
-      "max_pv": "58",
+      "max_hp": "58",
       "quick_move": "?",
       "rating": 1.0,
-      "stam": "60",
+      "sta": "60",
       "types": [
         "Grass"
       ]
@@ -2794,10 +2794,10 @@
       "charge_move": "?",
       "def": "148",
       "max_cp": "2048",
-      "max_pv": "129",
+      "max_hp": "129",
       "quick_move": "?",
       "rating": 7.0,
-      "stam": "150",
+      "sta": "150",
       "types": [
         "Grass"
       ]
@@ -2807,10 +2807,10 @@
       "charge_move": "?",
       "def": "94",
       "max_cp": "1326",
-      "max_pv": "113",
+      "max_hp": "113",
       "quick_move": "?",
       "rating": 4.5,
-      "stam": "130",
+      "sta": "130",
       "types": [
         "Bug",
         "Flying"
@@ -2821,10 +2821,10 @@
       "charge_move": "?",
       "def": "75",
       "max_cp": "596",
-      "max_pv": "98",
+      "max_hp": "98",
       "quick_move": "?",
       "rating": 2.0,
-      "stam": "110",
+      "sta": "110",
       "types": [
         "Ground",
         "Water"
@@ -2835,10 +2835,10 @@
       "charge_move": "?",
       "def": "152",
       "max_cp": "1929",
-      "max_pv": "160",
+      "max_hp": "160",
       "quick_move": "?",
       "rating": 6.5,
-      "stam": "190",
+      "sta": "190",
       "types": [
         "Ground",
         "Water"
@@ -2849,10 +2849,10 @@
       "charge_move": "?",
       "def": "194",
       "max_cp": "3000",
-      "max_pv": "113",
+      "max_hp": "113",
       "quick_move": "?",
       "rating": 10.0,
-      "stam": "130",
+      "sta": "130",
       "types": [
         "Psychic"
       ]
@@ -2862,10 +2862,10 @@
       "charge_move": "?",
       "def": "250",
       "max_cp": "2052",
-      "max_pv": "160",
+      "max_hp": "160",
       "quick_move": "?",
       "rating": 7.0,
-      "stam": "190",
+      "sta": "190",
       "types": [
         "Dark"
       ]
@@ -2875,10 +2875,10 @@
       "charge_move": "?",
       "def": "87",
       "max_cp": "1392",
-      "max_pv": "105",
+      "max_hp": "105",
       "quick_move": "?",
       "rating": 4.5,
-      "stam": "120",
+      "sta": "120",
       "types": [
         "Dark",
         "Flying"
@@ -2889,10 +2889,10 @@
       "charge_move": "?",
       "def": "194",
       "max_cp": "2482",
-      "max_pv": "160",
+      "max_hp": "160",
       "quick_move": "?",
       "rating": 8.5,
-      "stam": "190",
+      "sta": "190",
       "types": [
         "Psychic",
         "Water"
@@ -2903,10 +2903,10 @@
       "charge_move": "?",
       "def": "167",
       "max_cp": "1781",
-      "max_pv": "105",
+      "max_hp": "105",
       "quick_move": "?",
       "rating": 6.0,
-      "stam": "120",
+      "sta": "120",
       "types": [
         "Ghost"
       ]
@@ -2916,10 +2916,10 @@
       "charge_move": "?",
       "def": "91",
       "max_cp": "1022",
-      "max_pv": "87",
+      "max_hp": "87",
       "quick_move": "?",
       "rating": 3.5,
-      "stam": "96",
+      "sta": "96",
       "types": [
         "Psychic"
       ]
@@ -2929,10 +2929,10 @@
       "charge_move": "?",
       "def": "106",
       "max_cp": "1024",
-      "max_pv": "309",
+      "max_hp": "309",
       "quick_move": "?",
       "rating": 3.5,
-      "stam": "380",
+      "sta": "380",
       "types": [
         "Psychic"
       ]
@@ -2942,10 +2942,10 @@
       "charge_move": "?",
       "def": "133",
       "max_cp": "1863",
-      "max_pv": "121",
+      "max_hp": "121",
       "quick_move": "?",
       "rating": 6.0,
-      "stam": "140",
+      "sta": "140",
       "types": [
         "Normal",
         "Psychic"
@@ -2956,10 +2956,10 @@
       "charge_move": "?",
       "def": "146",
       "max_cp": "1045",
-      "max_pv": "90",
+      "max_hp": "90",
       "quick_move": "?",
       "rating": 3.5,
-      "stam": "100",
+      "sta": "100",
       "types": [
         "Bug"
       ]
@@ -2969,10 +2969,10 @@
       "charge_move": "?",
       "def": "242",
       "max_cp": "2263",
-      "max_pv": "129",
+      "max_hp": "129",
       "quick_move": "?",
       "rating": 7.5,
-      "stam": "150",
+      "sta": "150",
       "types": [
         "Bug",
         "Steel"
@@ -2983,10 +2983,10 @@
       "charge_move": "?",
       "def": "131",
       "max_cp": "1615",
-      "max_pv": "168",
+      "max_hp": "168",
       "quick_move": "?",
       "rating": 5.5,
-      "stam": "200",
+      "sta": "200",
       "types": [
         "Normal"
       ]
@@ -2996,10 +2996,10 @@
       "charge_move": "?",
       "def": "204",
       "max_cp": "1758",
-      "max_pv": "113",
+      "max_hp": "113",
       "quick_move": "?",
       "rating": 6.0,
-      "stam": "130",
+      "sta": "130",
       "types": [
         "Flying",
         "Ground"
@@ -3010,10 +3010,10 @@
       "charge_move": "?",
       "def": "333",
       "max_cp": "2439",
-      "max_pv": "129",
+      "max_hp": "129",
       "quick_move": "?",
       "rating": 8.0,
-      "stam": "150",
+      "sta": "150",
       "types": [
         "Ground",
         "Steel"
@@ -3024,10 +3024,10 @@
       "charge_move": "?",
       "def": "89",
       "max_cp": "1124",
-      "max_pv": "105",
+      "max_hp": "105",
       "quick_move": "?",
       "rating": 3.5,
-      "stam": "120",
+      "sta": "120",
       "types": [
         "Fairy"
       ]
@@ -3037,10 +3037,10 @@
       "charge_move": "?",
       "def": "137",
       "max_cp": "2440",
-      "max_pv": "153",
+      "max_hp": "153",
       "quick_move": "?",
       "rating": 8.0,
-      "stam": "180",
+      "sta": "180",
       "types": [
         "Fairy"
       ]
@@ -3050,10 +3050,10 @@
       "charge_move": "?",
       "def": "148",
       "max_cp": "1910",
-      "max_pv": "113",
+      "max_hp": "113",
       "quick_move": "?",
       "rating": 6.5,
-      "stam": "130",
+      "sta": "130",
       "types": [
         "Poison",
         "Water"
@@ -3064,10 +3064,10 @@
       "charge_move": "?",
       "def": "191",
       "max_cp": "2801",
-      "max_pv": "121",
+      "max_hp": "121",
       "quick_move": "?",
       "rating": 9.5,
-      "stam": "140",
+      "sta": "140",
       "types": [
         "Bug",
         "Steel"
@@ -3078,10 +3078,10 @@
       "charge_move": "?",
       "def": "396",
       "max_cp": "300",
-      "max_pv": "43",
+      "max_hp": "43",
       "quick_move": "?",
       "rating": 1.0,
-      "stam": "40",
+      "sta": "40",
       "types": [
         "Bug",
         "Rock"
@@ -3092,10 +3092,10 @@
       "charge_move": "?",
       "def": "189",
       "max_cp": "2938",
-      "max_pv": "137",
+      "max_hp": "137",
       "quick_move": "?",
       "rating": 10.0,
-      "stam": "160",
+      "sta": "160",
       "types": [
         "Bug",
         "Fighting"
@@ -3106,10 +3106,10 @@
       "charge_move": "?",
       "def": "157",
       "max_cp": "1868",
-      "max_pv": "98",
+      "max_hp": "98",
       "quick_move": "?",
       "rating": 6.0,
-      "stam": "110",
+      "sta": "110",
       "types": [
         "Dark",
         "Ice"
@@ -3120,10 +3120,10 @@
       "charge_move": "?",
       "def": "93",
       "max_cp": "1184",
-      "max_pv": "105",
+      "max_hp": "105",
       "quick_move": "?",
       "rating": 4.0,
-      "stam": "120",
+      "sta": "120",
       "types": [
         "Normal"
       ]
@@ -3133,10 +3133,10 @@
       "charge_move": "?",
       "def": "144",
       "max_cp": "2760",
-      "max_pv": "153",
+      "max_hp": "153",
       "quick_move": "?",
       "rating": 9.0,
-      "stam": "180",
+      "sta": "180",
       "types": [
         "Normal"
       ]
@@ -3146,10 +3146,10 @@
       "charge_move": "?",
       "def": "71",
       "max_cp": "750",
-      "max_pv": "74",
+      "max_hp": "74",
       "quick_move": "?",
       "rating": 2.5,
-      "stam": "80",
+      "sta": "80",
       "types": [
         "Fire"
       ]
@@ -3159,10 +3159,10 @@
       "charge_move": "?",
       "def": "209",
       "max_cp": "1543",
-      "max_pv": "90",
+      "max_hp": "90",
       "quick_move": "?",
       "rating": 5.0,
-      "stam": "100",
+      "sta": "100",
       "types": [
         "Fire",
         "Rock"
@@ -3173,10 +3173,10 @@
       "charge_move": "?",
       "def": "74",
       "max_cp": "663",
-      "max_pv": "90",
+      "max_hp": "90",
       "quick_move": "?",
       "rating": 2.0,
-      "stam": "100",
+      "sta": "100",
       "types": [
         "Ground",
         "Ice"
@@ -3187,10 +3187,10 @@
       "charge_move": "?",
       "def": "147",
       "max_cp": "2284",
-      "max_pv": "168",
+      "max_hp": "168",
       "quick_move": "?",
       "rating": 7.5,
-      "stam": "200",
+      "sta": "200",
       "types": [
         "Ground",
         "Ice"
@@ -3201,10 +3201,10 @@
       "charge_move": "?",
       "def": "156",
       "max_cp": "1214",
-      "max_pv": "98",
+      "max_hp": "98",
       "quick_move": "?",
       "rating": 4.0,
-      "stam": "110",
+      "sta": "110",
       "types": [
         "Rock",
         "Water"
@@ -3215,10 +3215,10 @@
       "charge_move": "?",
       "def": "69",
       "max_cp": "749",
-      "max_pv": "66",
+      "max_hp": "66",
       "quick_move": "?",
       "rating": 2.5,
-      "stam": "70",
+      "sta": "70",
       "types": [
         "Water"
       ]
@@ -3228,10 +3228,10 @@
       "charge_move": "?",
       "def": "141",
       "max_cp": "2124",
-      "max_pv": "129",
+      "max_hp": "129",
       "quick_move": "?",
       "rating": 7.0,
-      "stam": "150",
+      "sta": "150",
       "types": [
         "Water"
       ]
@@ -3241,10 +3241,10 @@
       "charge_move": "?",
       "def": "90",
       "max_cp": "937",
-      "max_pv": "82",
+      "max_hp": "82",
       "quick_move": "?",
       "rating": 3.0,
-      "stam": "90",
+      "sta": "90",
       "types": [
         "Flying",
         "Ice"
@@ -3255,10 +3255,10 @@
       "charge_move": "?",
       "def": "260",
       "max_cp": "2032",
-      "max_pv": "113",
+      "max_hp": "113",
       "quick_move": "?",
       "rating": 7.0,
-      "stam": "130",
+      "sta": "130",
       "types": [
         "Flying",
         "Water"
@@ -3269,10 +3269,10 @@
       "charge_move": "?",
       "def": "260",
       "max_cp": "2032",
-      "max_pv": "113",
+      "max_hp": "113",
       "quick_move": "?",
       "rating": 7.0,
-      "stam": "130",
+      "sta": "130",
       "types": [
         "Flying",
         "Steel"
@@ -3283,10 +3283,10 @@
       "charge_move": "?",
       "def": "93",
       "max_cp": "1110",
-      "max_pv": "82",
+      "max_hp": "82",
       "quick_move": "?",
       "rating": 3.5,
-      "stam": "90",
+      "sta": "90",
       "types": [
         "Dark",
         "Fire"
@@ -3297,10 +3297,10 @@
       "charge_move": "?",
       "def": "159",
       "max_cp": "2529",
-      "max_pv": "129",
+      "max_hp": "129",
       "quick_move": "?",
       "rating": 8.5,
-      "stam": "150",
+      "sta": "150",
       "types": [
         "Dark",
         "Fire"
@@ -3311,10 +3311,10 @@
       "charge_move": "?",
       "def": "194",
       "max_cp": "2424",
-      "max_pv": "129",
+      "max_hp": "129",
       "quick_move": "?",
       "rating": 8.0,
-      "stam": "150",
+      "sta": "150",
       "types": [
         "Dragon",
         "Water"
@@ -3325,10 +3325,10 @@
       "charge_move": "?",
       "def": "107",
       "max_cp": "1175",
-      "max_pv": "153",
+      "max_hp": "153",
       "quick_move": "?",
       "rating": 4.0,
-      "stam": "180",
+      "sta": "180",
       "types": [
         "Ground"
       ]
@@ -3338,10 +3338,10 @@
       "charge_move": "?",
       "def": "214",
       "max_cp": "3022",
-      "max_pv": "153",
+      "max_hp": "153",
       "quick_move": "?",
       "rating": 10.0,
-      "stam": "180",
+      "sta": "180",
       "types": [
         "Ground"
       ]
@@ -3351,10 +3351,10 @@
       "charge_move": "?",
       "def": "183",
       "max_cp": "2546",
-      "max_pv": "145",
+      "max_hp": "145",
       "quick_move": "?",
       "rating": 8.5,
-      "stam": "170",
+      "sta": "170",
       "types": [
         "Normal"
       ]
@@ -3364,10 +3364,10 @@
       "charge_move": "?",
       "def": "132",
       "max_cp": "1988",
-      "max_pv": "126",
+      "max_hp": "126",
       "quick_move": "?",
       "rating": 6.5,
-      "stam": "146",
+      "sta": "146",
       "types": [
         "Normal"
       ]
@@ -3377,10 +3377,10 @@
       "charge_move": "?",
       "def": "88",
       "max_cp": "389",
-      "max_pv": "98",
+      "max_hp": "98",
       "quick_move": "?",
       "rating": 1.5,
-      "stam": "110",
+      "sta": "110",
       "types": [
         "Normal"
       ]
@@ -3390,10 +3390,10 @@
       "charge_move": "?",
       "def": "64",
       "max_cp": "404",
-      "max_pv": "66",
+      "max_hp": "66",
       "quick_move": "?",
       "rating": 1.5,
-      "stam": "70",
+      "sta": "70",
       "types": [
         "Fighting"
       ]
@@ -3403,10 +3403,10 @@
       "charge_move": "?",
       "def": "214",
       "max_cp": "1905",
-      "max_pv": "90",
+      "max_hp": "90",
       "quick_move": "?",
       "rating": 6.5,
-      "stam": "100",
+      "sta": "100",
       "types": [
         "Fighting"
       ]
@@ -3416,10 +3416,10 @@
       "charge_move": "?",
       "def": "116",
       "max_cp": "1230",
-      "max_pv": "82",
+      "max_hp": "82",
       "quick_move": "?",
       "rating": 4.0,
-      "stam": "90",
+      "sta": "90",
       "types": [
         "Ice",
         "Psychic"
@@ -3430,10 +3430,10 @@
       "charge_move": "?",
       "def": "110",
       "max_cp": "1073",
-      "max_pv": "82",
+      "max_hp": "82",
       "quick_move": "?",
       "rating": 3.5,
-      "stam": "90",
+      "sta": "90",
       "types": [
         "Electric"
       ]
@@ -3443,10 +3443,10 @@
       "charge_move": "?",
       "def": "108",
       "max_cp": "1178",
-      "max_pv": "82",
+      "max_hp": "82",
       "quick_move": "?",
       "rating": 4.0,
-      "stam": "90",
+      "sta": "90",
       "types": [
         "Fire"
       ]
@@ -3456,10 +3456,10 @@
       "charge_move": "?",
       "def": "211",
       "max_cp": "2312",
-      "max_pv": "160",
+      "max_hp": "160",
       "quick_move": "?",
       "rating": 7.5,
-      "stam": "190",
+      "sta": "190",
       "types": [
         "Normal"
       ]
@@ -3469,10 +3469,10 @@
       "charge_move": "?",
       "def": "229",
       "max_cp": "3219",
-      "max_pv": "411",
+      "max_hp": "411",
       "quick_move": "?",
       "rating": 10,
-      "stam": "510",
+      "sta": "510",
       "types": [
         "Normal"
       ]
@@ -3482,10 +3482,10 @@
       "charge_move": "?",
       "def": "210",
       "max_cp": "3349",
-      "max_pv": "153",
+      "max_hp": "153",
       "quick_move": "?",
       "rating": 10,
-      "stam": "180",
+      "sta": "180",
       "types": [
         "Electric"
       ]
@@ -3495,10 +3495,10 @@
       "charge_move": "?",
       "def": "180",
       "max_cp": "3412",
-      "max_pv": "192",
+      "max_hp": "192",
       "quick_move": "?",
       "rating": 10,
-      "stam": "230",
+      "sta": "230",
       "types": [
         "Fire"
       ]
@@ -3508,10 +3508,10 @@
       "charge_move": "?",
       "def": "235",
       "max_cp": "2823",
-      "max_pv": "168",
+      "max_hp": "168",
       "quick_move": "?",
       "rating": 9.5,
-      "stam": "200",
+      "sta": "200",
       "types": [
         "Water"
       ]
@@ -3521,10 +3521,10 @@
       "charge_move": "?",
       "def": "93",
       "max_cp": "904",
-      "max_pv": "90",
+      "max_hp": "90",
       "quick_move": "?",
       "rating": 3.0,
-      "stam": "100",
+      "sta": "100",
       "types": [
         "Ground",
         "Rock"
@@ -3535,10 +3535,10 @@
       "charge_move": "?",
       "def": "133",
       "max_cp": "1608",
-      "max_pv": "121",
+      "max_hp": "121",
       "quick_move": "?",
       "rating": 5.5,
-      "stam": "140",
+      "sta": "140",
       "types": [
         "Ground",
         "Rock"
@@ -3549,10 +3549,10 @@
       "charge_move": "?",
       "def": "212",
       "max_cp": "3670",
-      "max_pv": "168",
+      "max_hp": "168",
       "quick_move": "?",
       "rating": 10,
-      "stam": "200",
+      "sta": "200",
       "types": [
         "Dark",
         "Rock"
@@ -3563,10 +3563,10 @@
       "charge_move": "?",
       "def": "323",
       "max_cp": "3598",
-      "max_pv": "178",
+      "max_hp": "178",
       "quick_move": "?",
       "rating": 10,
-      "stam": "212",
+      "sta": "212",
       "types": [
         "Flying",
         "Psychic"
@@ -3577,10 +3577,10 @@
       "charge_move": "?",
       "def": "301",
       "max_cp": "4650",
-      "max_pv": "178",
+      "max_hp": "178",
       "quick_move": "?",
       "rating": 10,
-      "stam": "212",
+      "sta": "212",
       "types": [
         "Fire",
         "Flying"
@@ -3591,10 +3591,10 @@
       "charge_move": "?",
       "def": "210",
       "max_cp": "3090",
-      "max_pv": "168",
+      "max_hp": "168",
       "quick_move": "?",
       "rating": 10,
-      "stam": "200",
+      "sta": "200",
       "types": [
         "Grass",
         "Psychic"

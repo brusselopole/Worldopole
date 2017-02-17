@@ -232,11 +232,11 @@
 	<!-- PV Datas -->
 	<div class="col-md-3 stats-data">
 
-		<p><big><?= $pokemon->max_pv ?></big><br/><?= $locales->POKEMON_HP ?></p>
+		<p><big><?= $pokemon->max_hp ?></big><br/><?= $locales->POKEMON_HP ?></p>
 
 		<div class="progress" style="margin-bottom:0;">
-			<div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="<?= $pokemon->max_pv_percent ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?= $pokemon->max_pv_percent ?>%;min-width:30%;">
-				<?= $pokemon->max_pv_percent ?> %
+			<div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="<?= $pokemon->max_hp_percent ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?= $pokemon->max_hp_percent ?>%;min-width:30%;">
+				<?= $pokemon->max_hp_percent ?> %
 			</div>
 		</div>
 
