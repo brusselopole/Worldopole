@@ -212,7 +212,7 @@ if (!empty($page)) {
 			$top_direction = isset($_GET['direction']) ? 'ASC' : 'DESC';
 			$top_direction = !isset($_GET['order']) && !isset($_GET['direction']) ? 'DESC' : $top_direction;
 			
-			$req = "SELECT DATE_FORMAT(disappear_time + INTERVAL 1 HOUR, '%d.%m.%Y - %T') AS distime, pokemon_id, disappear_time, latitude, longitude,
+			$req = "SELECT (CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) AS distime, pokemon_id, disappear_time, latitude, longitude,
 					individual_attack, individual_defense, individual_stamina,
 					ROUND(SUM(100*(individual_attack+individual_defense+individual_stamina)/45),1) as IV, move_1, move_2
 					FROM pokemon
@@ -237,7 +237,7 @@ if (!empty($page)) {
 			$best_direction = !isset($_GET['order']) && !isset($_GET['direction']) ? 'DESC' : $best_direction;
 			
 			$req = "SELECT trainer_name, ROUND(SUM(100*(iv_attack+iv_defense+iv_stamina)/45),1) as IV, move_1, move_2, cp,
-					DATE_FORMAT(last_seen + INTERVAL 1 HOUR, '%d.%m.%Y') AS lasttime, last_seen
+					DATE_FORMAT(last_seen, '%Y-%m-%d') AS lasttime, last_seen
 					FROM gympokemon
 					WHERE pokemon_id = '".$pokemon_id."'
 					GROUP BY pokemon_uid
