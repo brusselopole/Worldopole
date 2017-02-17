@@ -203,54 +203,55 @@ if (!empty($page)) {
 			}
 			sort($related);
 			
-            // Top100 Pokemon List
-            
-            // Make it sortable; default sort: IV DESC
-            $top_possible_sort = array('IV', 'individual_attack', 'individual_defense', 'individual_stamina', 'move_1', 'move_2', 'disappear_time');
-            $top_order = isset($_GET['order']) ? $_GET['order'] : '';
-            $top_order_by = in_array($top_order, $top_possible_sort) ? $_GET['order'] : 'IV';
-            $top_direction = isset($_GET['direction']) ? 'ASC' : 'DESC';
-            $top_direction = !isset($_GET['order']) && !isset($_GET['direction']) ? 'DESC' : $top_direction;
-            
-            $req        = "SELECT DATE_FORMAT(disappear_time + INTERVAL 1 HOUR, '%d.%m.%Y - %T') AS distime, pokemon_id, disappear_time, latitude, longitude,
-                            individual_attack, individual_defense, individual_stamina,
-                            ROUND(SUM(100*(individual_attack+individual_defense+individual_stamina)/45),1) as IV, move_1, move_2
-                            FROM pokemon
-                            WHERE pokemon_id = '".$pokemon_id."' AND move_1 IS NOT NULL AND move_1 != '0'   # Check move_1 is enough, we don't want any NULL here
-                            GROUP BY encounter_id
-                            ORDER BY $top_order_by $top_direction, disappear_time DESC  # Secondary sort by date
-                            LIMIT 0,100";
-            
-            $result 	= $mysqli->query($req);
-            $top = array();
-            while($data = $result->fetch_object()){
-                $top[] = $data;
-            }
-
-            // Trainer with highest Pokemon
-            
-            // Make it sortable but use different variable names this time; default sort: cp DESC
-            $best_possible_sort = array('trainer_name', 'IV', 'cp', 'move_1', 'move_2', 'last_seen');
-            $best_order = isset($_GET['order']) ? $_GET['order'] : '';
-            $best_order_by = in_array($best_order, $best_possible_sort) ? $_GET['order'] : 'cp';
-            $best_direction = isset($_GET['direction']) ? 'ASC' : 'DESC';
-            $best_direction = !isset($_GET['order']) && !isset($_GET['direction']) ? 'DESC' : $best_direction;
-            
-            $req        = "SELECT trainer_name, ROUND(SUM(100*(iv_attack+iv_defense+iv_stamina)/45),1) as IV, move_1, move_2, cp,
-                            DATE_FORMAT(last_seen + INTERVAL 1 HOUR, '%d.%m.%Y') AS lasttime, last_seen
-                            FROM gympokemon
-                            WHERE pokemon_id = '".$pokemon_id."'
-                            GROUP BY pokemon_uid
-                            ORDER BY $best_order_by $best_direction, trainer_name ASC   # Secondary sort by name
-                            LIMIT 0,100";
-            
-            $result 	= $mysqli->query($req);
-            $toptrainer = array();
-            while($data = $result->fetch_object()){
-                $toptrainer[] = $data;
-            }			
+			// Top100 Pokemon List
+			
+			// Make it sortable; default sort: IV DESC
+			$top_possible_sort = array('IV', 'individual_attack', 'individual_defense', 'individual_stamina', 'move_1', 'move_2', 'disappear_time');
+			$top_order = isset($_GET['order']) ? $_GET['order'] : '';
+			$top_order_by = in_array($top_order, $top_possible_sort) ? $_GET['order'] : 'IV';
+			$top_direction = isset($_GET['direction']) ? 'ASC' : 'DESC';
+			$top_direction = !isset($_GET['order']) && !isset($_GET['direction']) ? 'DESC' : $top_direction;
+			
+			$req = "SELECT DATE_FORMAT(disappear_time + INTERVAL 1 HOUR, '%d.%m.%Y - %T') AS distime, pokemon_id, disappear_time, latitude, longitude,
+					individual_attack, individual_defense, individual_stamina,
+					ROUND(SUM(100*(individual_attack+individual_defense+individual_stamina)/45),1) as IV, move_1, move_2
+					FROM pokemon
+					WHERE pokemon_id = '".$pokemon_id."' AND move_1 IS NOT NULL AND move_1 != '0'   # Check move_1 is enough, we don't want any NULL here
+					GROUP BY encounter_id
+					ORDER BY $top_order_by $top_direction, disappear_time DESC  # Secondary sort by date
+					LIMIT 0,100";
+			
+			$result = $mysqli->query($req);
+			$top = array();
+			while($data = $result->fetch_object()){
+				$top[] = $data;
+			}
+			
+			// Trainer with highest Pokemon
+			
+			// Make it sortable but use different variable names this time; default sort: cp DESC
+			$best_possible_sort = array('trainer_name', 'IV', 'cp', 'move_1', 'move_2', 'last_seen');
+			$best_order = isset($_GET['order']) ? $_GET['order'] : '';
+			$best_order_by = in_array($best_order, $best_possible_sort) ? $_GET['order'] : 'cp';
+			$best_direction = isset($_GET['direction']) ? 'ASC' : 'DESC';
+			$best_direction = !isset($_GET['order']) && !isset($_GET['direction']) ? 'DESC' : $best_direction;
+			
+			$req = "SELECT trainer_name, ROUND(SUM(100*(iv_attack+iv_defense+iv_stamina)/45),1) as IV, move_1, move_2, cp,
+					DATE_FORMAT(last_seen + INTERVAL 1 HOUR, '%d.%m.%Y') AS lasttime, last_seen
+					FROM gympokemon
+					WHERE pokemon_id = '".$pokemon_id."'
+					GROUP BY pokemon_uid
+					ORDER BY $best_order_by $best_direction, trainer_name ASC   # Secondary sort by name
+					LIMIT 0,100";
+			
+			$result = $mysqli->query($req);
+			$toptrainer = array();
+			while($data = $result->fetch_object()){
+				$toptrainer[] = $data;
+			}
 			
 			$moves_file	= SYS_PATH.'/core/json/moves.json';
+			
 			$moves = json_decode(file_get_contents($moves_file));
 			foreach ($moves as $move_id => $move_name) {
 				$move->$move_id->name = $move_name->name;
