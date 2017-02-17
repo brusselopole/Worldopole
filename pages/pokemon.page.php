@@ -1,4 +1,4 @@
-<?php
+<?
 // get sort order
 $top_possible_sort = array('IV', 'individual_attack', 'individual_defense', 'individual_stamina', 'move_1', 'move_2', 'disappear_time', 'name', 'cp' 'iv_attack', 'iv_defense', 'iv_stamina', 'last_seen');
 $top_order = isset($_GET['order']) ? $_GET['order'] : '';
@@ -63,15 +63,6 @@ $best_direction = !isset($_GET['order']) && !isset($_GET['direction']) ? 'DESC' 
 		</div>
 
 	</div>
-	
-<?php
-//Would be nice if we can choose localized files here @Obihoernchen
-$moves_file	= SYS_PATH.'/core/json/moves.json';
-$moves		= json_decode(file_get_contents($moves_file));
-foreach ($moves as $move_id => $move_name) {
-	$move->$move_id->name = $move_name->name;
-}
-	?>
 </header>
 <!-- /Header -->
 
