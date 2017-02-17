@@ -449,7 +449,7 @@
       "name": "Rizeros"
     },
     "113": {
-      "description": "Chaneira legt täglich ausgesprochen nahrhafte Eier. Sie sind so köstlich, dass sie sogar von Menschen verspeist werden, die gar keinen Appetit haben",
+      "description": "Chaneira legt täglich ausgesprochen nahrhafte Eier. Sie sind so köstlich, dass sie sogar von Menschen verspeist werden, die gar keinen Appetit haben.",
       "name": "Chaneira"
     },
     "114": {
@@ -1096,6 +1096,7 @@
   },
   "types": {
     "Bug": "Käfer",
+    "Dark": "Unlicht",
     "Dragon": "Drache",
     "Electric": "Elektro",
     "Fairy": "Fee",

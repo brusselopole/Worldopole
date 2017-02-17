@@ -458,6 +458,7 @@
   "charge_moves": {},
   "types": {
     "Bug": "むし",
+    "Dark": "あくタイプ",
     "Dragon": "ドラゴン",
     "Electric": "でんき",
     "Fairy": "フェアリー",
