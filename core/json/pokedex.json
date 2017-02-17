@@ -1942,10 +1942,10 @@
       ]
     },
     "131": {
-      "atk": "186",
+      "atk": "165",
       "candy_id": "131",
       "charge_move": "Blizzard",
-      "def": "190",
+      "def": "180",
       "max_cp": 2566,
       "max_pv": 217,
       "quick_move": "Frost Breath",
