@@ -151,15 +151,13 @@ if (!empty($page)) {
 			// Spawn rate
 
 			if ($pokemon->total_spawn > 0) {
-				$req 		= "SELECT ROUND((UNIX_TIMESTAMP(max(disappear_time))-UNIX_TIMESTAMP(min(disappear_time)))/(24*60*60)) total FROM pokemon";
-				$result 	= $mysqli->query($req);
-				$data		= $result->fetch_object();
-
-				$pokemon->total_days = $data->total;
-				$pokemon->spawn_rate 	= round(($pokemon->total_spawn/$pokemon->total_days), 2);
+				$req = "SELECT COUNT(*) as spawns_last_week FROM pokemon WHERE pokemon_id = '".$pokemon_id."' AND disappear_time >= UTC_TIMESTAMP() - INTERVAL 7 DAY";
+				$result = $mysqli->query($req);
+				$data = $result->fetch_object();
+				// Calc spawns_per_day for last week
+				$pokemon->spawns_per_day = round(($data->spawns_last_week/7), 2);
 			} else {
-				$pokemon->total_days 	= 0;
-				$pokemon->spawn_rate	= 0;
+				$pokemon->spawns_per_day = 0;
 			}
 
 			// Last seen

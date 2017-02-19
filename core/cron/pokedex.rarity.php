@@ -5,7 +5,7 @@
 // -----------------------------------------------------
 
 // get alltime pokemon count to set rarity at least to seen
-$req = "SELECT pokemon_id, COUNT(1) as total FROM pokemon GROUP BY pokemon_id ORDER BY pokemon_id ASC";
+$req = "SELECT pokemon_id, COUNT(*) as total FROM pokemon GROUP BY pokemon_id ORDER BY pokemon_id ASC";
 $result = $mysqli->query($req);
 while ($data = $result->fetch_object()) {
 	$pokemon_id = $data->pokemon_id;
@@ -20,14 +20,14 @@ while ($data = $result->fetch_object()) {
 }
 
 // get pokemon from last 7 days to calculate the real rarity for the current week
-$req = "SELECT pokemon_id, COUNT(1) as total FROM pokemon WHERE disappear_time >= UTC_TIMESTAMP() - INTERVAL 7 DAY GROUP BY pokemon_id ORDER BY pokemon_id ASC";
+$req = "SELECT pokemon_id, COUNT(*) as spawns_last_week FROM pokemon WHERE disappear_time >= UTC_TIMESTAMP() - INTERVAL 7 DAY GROUP BY pokemon_id ORDER BY pokemon_id ASC";
 $result = $mysqli->query($req);
 $total_pokemons = 0;
 while ($data = $result->fetch_object()) {
-        $total_pokemons += $data->total;
+        $total_pokemons += $data->spawns_last_week;
 	// do not overwrite pokemon count with 0 (pokemon was seen in alltime query above maybe)
-	if ($data->total > 0) {
-		$pokelist[$data->pokemon_id]['total'] = $data->total;
+	if ($data->spawns_last_week > 0) {
+		$pokelist[$data->pokemon_id]['total'] = $data->spawns_last_week;
 	}
 }
 
