@@ -24,7 +24,7 @@ $req = "SELECT pokemon_id, COUNT(*) as spawns_last_week FROM pokemon WHERE disap
 $result = $mysqli->query($req);
 $total_pokemons = 0;
 while ($data = $result->fetch_object()) {
-        $total_pokemons += $data->spawns_last_week;
+	$total_pokemons += $data->spawns_last_week;
 	// do not overwrite pokemon count with 0 (pokemon was seen in alltime query above maybe)
 	if ($data->spawns_last_week > 0) {
 		$pokelist[$data->pokemon_id]['total'] = $data->spawns_last_week;
