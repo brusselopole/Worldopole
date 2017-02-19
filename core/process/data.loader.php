@@ -69,7 +69,7 @@ include_once('locales.loader.php');
 
 
 
-// Update the pokemon.rarity.json file
+// Update the pokedex.rarity.json file
 ######################################
 // ( for Brusselopole we use CRONTAB but as we're not sure that every had access to it we build this really simple false crontab system
 // => check filemtime, if > 24h launch an update. )
@@ -82,7 +82,7 @@ $diff				= $now - $pokedex_rarity_filetime;
 $update_delay		= 86400;
 
 if ($diff > $update_delay) {
-	include_once(SYS_PATH.'/core/cron/pokemon.rarity.php');
+	include_once(SYS_PATH.'/core/cron/pokedex.rarity.php');
 }
 
 
