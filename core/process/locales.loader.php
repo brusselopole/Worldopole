@@ -21,7 +21,7 @@ $lang = strtoupper($browser_lang);
 // Check if language is available
 if (isset($lang)) {
 	$locale_dir = SYS_PATH.'/core/json/locales/'.$lang;
-	
+
 	// If there's no pokedex in languague we'll use the english one.
 	if (is_dir($locale_dir)) {
 		// Allow partial translations
@@ -30,7 +30,7 @@ if (isset($lang)) {
 		} else {
 			$pokemon_file		= file_get_contents(SYS_PATH.'/core/json/locales/EN/pokes.json');
 		}
-		
+
 		if (is_file($locale_dir.'/translations.json')) {
 			$translation_file	= file_get_contents($locale_dir.'/translations.json');
 		} else {
@@ -62,7 +62,7 @@ $pokemon_trans 		= json_decode(json_encode($pokemon_trans_array), false);
 unset($pokemon_trans_array);
 
 
-// Merge the pokedex, pokemon translation and rarity file into a new array 
+// Merge the pokedex, pokemon translation and rarity file into a new array
 ##########################################################################
 
 $pokedex_file 			= file_get_contents(SYS_PATH.'/core/json/pokedex.json');
@@ -112,7 +112,7 @@ foreach ($pokemons->pokemon as $pokeid => $pokemon) {
 		$pokemon->rarity = $locales->VERYCOMMON;
 	} elseif ($spawn_rate >= 0.20) {
 		$pokemon->rarity = $locales->COMMON;
-	} elseif ($spawn_rate >= 0.01) {
+	} elseif ($spawn_rate >= $config->system->recents_filter_rarity) {
 		$pokemon->rarity = $locales->RARE;
 	} elseif ($spawn_rate > 0) {
 		$pokemon->rarity = $locales->MYTHIC;
