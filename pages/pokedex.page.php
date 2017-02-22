@@ -7,9 +7,10 @@
 			<h3>
 				<?= sprintf($locales->POKEDEX_TOTAL, number_format($total), $config->infos->city) ?>
 			</h3>
-			/*<p>
+			<!-- Uncomment if you regularly delete ultra common data -->
+			<!--<p>
 				<?= $locales->POKEDEX_ULTRA_COMMONS ?>
-			</p>*/
+			</p>-->
 		</div>
 	</div>
 </header>
