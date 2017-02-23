@@ -223,7 +223,7 @@ if (!empty($page)) {
 			
 			$result = $mysqli->query($req);
 			$top = array();
-			while($data = $result->fetch_object()) {
+			while ($data = $result->fetch_object()) {
 				$top[] = $data;
 			}
 			
@@ -246,7 +246,7 @@ if (!empty($page)) {
 			
 			$result = $mysqli->query($req);
 			$toptrainer = array();
-			while($data = $result->fetch_object()) {
+			while ($data = $result->fetch_object()) {
 				$toptrainer[] = $data;
 			}
 			
