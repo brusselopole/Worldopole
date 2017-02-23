@@ -322,7 +322,8 @@
                         <td><a href="https://maps.google.com/?q=<?= $top100->latitude ?>,<?= $top100->longitude ?>&ll=<?= $top100->latitude ?>,<?= $top100->longitude ?>&z=16"
                             target="_blank"><?=$top100->distime ?></a></td>
                     </tr>
-            <?php } ?>
+            <?php
+				} ?>
         </tbody>
     </table>
 </div>
@@ -359,7 +360,8 @@
                         <td><?php echo $move->$move2->name; ?></td>
                         <td><?=$besttrainer->lasttime ?></td>
                     </tr>
-            <?php } ?>
+            <?php
+				} ?>
         </tbody>
     </table>
 </div>
