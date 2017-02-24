@@ -256,7 +256,7 @@ if (!empty($page)) {
 
 			$move = new stdClass();
 			foreach ($moves as $move_id => $move_name) {
-				if (isset($move_name)){
+				if (isset($move_name)) {
 					$move->$move_id = new stdClass();
 					$move->$move_id->name = $move_name->name;
 				}
