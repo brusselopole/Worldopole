@@ -1,4 +1,4 @@
-{
+﻿{
 	"urls":{
 		"fb_valor"		:	"http://bit.ly/ValorBrussels",
 		"fb_mystic"		:	"http://bit.ly/MysticBrussels",
@@ -29,6 +29,7 @@
 		"recents_filter"	:	true,
 		"recents_filter_rating"	:	8,
 		"recents_filter_rarity"	:	0.01,
+		"only_lured_pokestops"  :	false,
 		"captcha_support"	:	false,
 		"iv_numbers"		:	false,
 		"forced_lang"		:	""
