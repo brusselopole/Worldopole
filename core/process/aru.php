@@ -284,7 +284,7 @@ switch ($request) {
 			if ($data->lure_expiration >= $data->now) {
 				$icon = 'pokestap_lured.png';
 				$text = 'Lured expire @ '.date('H:i:s', strtotime($data->lure_expiration_real)) ;
-			} else {
+			} elseif (!($config->system->only_lured_pokestops)) {
 				$icon = 'pokestap.png';
 				$text = 'Normal stop';
 			}
