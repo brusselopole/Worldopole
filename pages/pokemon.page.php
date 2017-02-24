@@ -303,26 +303,26 @@
         </thead>
 
         <tbody>
-            <?php
-                $i = 0;
-                foreach ($top as $top100) {
-                    $i ++;
-                    $move1 = $top100->move_1;
-                    $move2 = $top100->move_2;
-                    ?>
+			<?php
+				$i = 0;
+				foreach ($top as $top100) {
+					$i++;
+					$move1 = $top100->move_1;
+					$move2 = $top100->move_2;
+					?>
 
-                    <tr>
-                        <td><?= $i ?></td>
-                        <td><?= $top100->IV ?> %</td>
-                        <td><?= $top100->individual_attack ?></td>
-                        <td><?= $top100->individual_defense ?></td>
-                        <td><?= $top100->individual_stamina ?></td>
-                        <td><?php echo $move->$move1->name; ?></td>
-                        <td><?php echo $move->$move2->name; ?></td>
-                        <td><a href="https://maps.google.com/?q=<?= $top100->latitude ?>,<?= $top100->longitude ?>&ll=<?= $top100->latitude ?>,<?= $top100->longitude ?>&z=16"
-                            target="_blank"><?=$top100->distime ?></a></td>
-                    </tr>
-            <?php
+					<tr>
+						<td><?= $i ?></td>
+						<td><?= $top100->IV ?> %</td>
+						<td><?= $top100->individual_attack ?></td>
+						<td><?= $top100->individual_defense ?></td>
+						<td><?= $top100->individual_stamina ?></td>
+						<td><?php echo $move->$move1->name; ?></td>
+						<td><?php echo $move->$move2->name; ?></td>
+						<td><a href="https://maps.google.com/?q=<?= $top100->latitude ?>,<?= $top100->longitude ?>&ll=<?= $top100->latitude ?>,<?= $top100->longitude ?>&z=16"
+							   target="_blank"><?=$top100->distime ?></a></td>
+					</tr>
+					<?php
 				} ?>
         </tbody>
     </table>
@@ -343,24 +343,24 @@
             </tr>
         </thead>
         <tbody>
-            <?php
-                $i = 0;
-                foreach ($toptrainer as $besttrainer) {
-                    $i ++;
-                    $move1 = $besttrainer->move_1;
-                    $move2 = $besttrainer->move_2;
-                    ?>
+			<?php
+				$i = 0;
+				foreach ($toptrainer as $besttrainer) {
+					$i++;
+					$move1 = $besttrainer->move_1;
+					$move2 = $besttrainer->move_2;
+					?>
 
-                    <tr>
-                        <td><?= $i ?></td>
-                        <td><?= $besttrainer->trainer_name ?></td>
-                        <td><?= $besttrainer->cp ?></td>
-                        <td><?= $besttrainer->IV ?> %</td>
-                        <td><?php echo $move->$move1->name; ?></td>
-                        <td><?php echo $move->$move2->name; ?></td>
-                        <td><?=$besttrainer->lasttime ?></td>
-                    </tr>
-            <?php
+					<tr>
+						<td><?= $i ?></td>
+						<td><?= $besttrainer->trainer_name ?></td>
+						<td><?= $besttrainer->cp ?></td>
+						<td><?= $besttrainer->IV ?> %</td>
+						<td><?php echo $move->$move1->name; ?></td>
+						<td><?php echo $move->$move2->name; ?></td>
+						<td><?=$besttrainer->lasttime ?></td>
+					</tr>
+					<?php
 				} ?>
         </tbody>
     </table>
