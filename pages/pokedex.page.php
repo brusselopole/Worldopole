@@ -5,7 +5,7 @@
 				<?= $locales->POKEDEX_TITLE ?>
 			</h1>
 			<h3>
-				<?= sprintf($locales->POKEDEX_TOTAL, number_format($total,0,"."," "), $config->infos->city) ?>
+				<?= sprintf($locales->POKEDEX_TOTAL, number_format($total, 0, ".", " "), $config->infos->city) ?>
 			</h3>
 		</div>
 	</div>
@@ -33,9 +33,9 @@
 } ?> "></a>
 				<p class="pkmn-name"><a href="<?= $pokemon->permalink ?>"><?= $pokemon->name ?></a></p>
 				<p><?php if ($pokemon->spawn ==0) {
-					echo $locales->UNSEEN ;
+					echo $locales->UNSEEN;
 } else {
-	echo '<span class="spawn-counter" id="spawn_pokemon_'.$pokemon->id.'">?</span>'. $locales->SEEN ;
+	echo '<span class="spawn-counter" id="spawn_pokemon_'.$pokemon->id.'">?</span>'. $locales->SEEN;
 } ?> </p>
 
 			</div>
