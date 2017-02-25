@@ -16,7 +16,7 @@
 	<div class="col-md-12">
 
 		<div class="search form-group">
-			<input type="search" class="form-control" placeholder="search here" required>
+			<input type="search" class="form-control" placeholder="<?= $locales->POKEDEX_SEARCH ?>" required>
 		</div>
 
 	</div>
