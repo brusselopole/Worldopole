@@ -71,7 +71,7 @@ $pokemons 			= json_decode($pokedex_file);
 $pokedex_rarity_file 		= SYS_PATH.'/core/json/pokedex.rarity.json';
 // initial create of pokedex.rarity.json if it doesn't exist
 if (!is_file($pokedex_rarity_file)) {
-	include_once(SYS_PATH.'/core/cron/pokemon.rarity.php');
+	include_once(SYS_PATH.'/core/cron/pokedex.rarity.php');
 }
 $pokedex_rarity_file_content = file_get_contents($pokedex_rarity_file);
 $pokemons_rarity = json_decode($pokedex_rarity_file_content);

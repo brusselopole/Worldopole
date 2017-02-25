@@ -43,11 +43,11 @@ if ($mysqli->connect_error != '') {
 }
 $mysqli->set_charset('utf8');
 $request = "";
-if (isset($_GET['type'])){
+if (isset($_GET['type'])) {
 $request 	= $_GET['type'];
 }
 $postRequest = "";
-if (isset($_POST['type'])){
+if (isset($_POST['type'])) {
 	$postRequest = $_POST['type'];
 	$request= "postRequest";
 }
@@ -275,7 +275,11 @@ switch ($request) {
 	####################################
 
 	case 'pokestop':
-		$req 		= "SELECT latitude, longitude, lure_expiration, UTC_TIMESTAMP() as now, (CONVERT_TZ(lure_expiration, '+00:00', '".$time_offset."')) as lure_expiration_real FROM pokestop";
+		if (!($config->system->only_lured_pokestops)) {
+			$req 		= "SELECT latitude, longitude, lure_expiration, UTC_TIMESTAMP() as now, (CONVERT_TZ(lure_expiration, '+00:00', '".$time_offset."')) as lure_expiration_real FROM pokestop";
+		} else {
+			$req 		= "SELECT latitude, longitude, lure_expiration, UTC_TIMESTAMP() as now, (CONVERT_TZ(lure_expiration, '+00:00', '".$time_offset."')) as lure_expiration_real FROM pokestop WHERE lure_expiration > UTC_TIMESTAMP()";
+		}
 		$result 	= $mysqli->query($req);
 
 		$i=0;
@@ -531,8 +535,7 @@ switch ($request) {
 								</div>
 							</div>
 						</div>';
-				}
-				else {
+				} else {
 					$gymData['infoWindow'] .= '
 					<div style="text-align: center; width: 50px; display: inline-block; margin-right: 3px">
 						<a href="pokemon/'.$data->pokemon_id.'">
@@ -731,11 +734,10 @@ switch ($request) {
 			GROUP BY disappear_hour
 			ORDER BY disappear_hour";
 			$result 	= $mysqli->query($req);
-			$array = array();
+			$array = array_fill(0, 24, 0);
 			while ($result && $data = $result->fetch_object()) {
-				$array[] = $data->total;
+				$array[$data->disappear_hour] = $data->total;
 			}
-			$array[] = array_shift($array);
 			$json = json_encode($array);
 		}
 
@@ -755,7 +757,7 @@ switch ($request) {
 
 	break;
 }
-if ($postRequest!=""){
+if ($postRequest!="") {
 	switch ($postRequest) {
 		case 'pokemon_live':
 			$json="";

@@ -73,7 +73,7 @@
 				</a>
 				<?php
 				if ($config->system->recents_show_iv) {
-					if ($pokemon->iv->available) { 
+					if ($pokemon->iv->available) {
 						if ($config->system->iv_numbers) { ?>
 							<div class="progress" style="height: 15px; margin-bottom: 0">
 								<div title="Attack IV: <?= $pokemon->iv->attack ?>" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="<?= $pokemon->iv->attack ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= (100/3)  ?>%; line-height: 16px";>
@@ -101,7 +101,7 @@
 							</div>
 					<?php
 						}
-					} else { 
+					} else {
 						if ($config->system->iv_numbers) { ?>
 							<div class="progress" style="height: 15px; margin-bottom: 0">
 								<div title="Attack IV: not available" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="<?= $pokemon->iv->attack ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= (100/3)  ?>%; line-height: 16px";>

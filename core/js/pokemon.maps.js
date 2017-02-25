@@ -168,10 +168,7 @@ function initHeatmapData(bounds){
 				if (isMobileDevice() && isTouchDevice()) {
 					return "#" + migrations[value.getTime()];
 				}
-				else {
-					return "Migration #" + migrations[value.getTime()];
-				}
-				
+				return "Migration #" + migrations[value.getTime()];
 			},
 		}]
 	});

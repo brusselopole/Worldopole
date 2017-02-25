@@ -4,7 +4,9 @@
 			<h1>
 				<?= $locales->POKEDEX_TITLE ?>
 			</h1>
-
+			<h3>
+				<?= sprintf($locales->POKEDEX_TOTAL, number_format($total), $config->infos->city) ?>
+			</h3>
 		</div>
 	</div>
 </header>
