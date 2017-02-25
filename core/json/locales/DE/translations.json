@@ -53,6 +53,7 @@
 "POKEDEX_METATITLE": "Durchsuche den Pokédex",
 "POKEDEX_TITLE": "<strong>Pokédex</strong> Übersicht<br><small>Komm* schnapp sie Dir!</small>", 
 "POKEDEX_TOTAL": "Wir haben bereits <strong> %s </strong> Pokémon in %s gefunden!",
+"POKEDEX_SEARCH": "Pokémon suchen",
 "POKEMON_AMOUNT": "Wie oft wurde es gesehen?",
 "POKEMON_BREAKDOWN": ": Eigenschaften",
 "POKEMON_CANDIES": "Bonbons",
