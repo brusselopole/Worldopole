@@ -275,7 +275,11 @@ switch ($request) {
 	####################################
 
 	case 'pokestop':
-		$req 		= "SELECT latitude, longitude, lure_expiration, UTC_TIMESTAMP() as now, (CONVERT_TZ(lure_expiration, '+00:00', '".$time_offset."')) as lure_expiration_real FROM pokestop";
+		if (!($config->system->only_lured_pokestops)) {
+			$req 		= "SELECT latitude, longitude, lure_expiration, UTC_TIMESTAMP() as now, (CONVERT_TZ(lure_expiration, '+00:00', '".$time_offset."')) as lure_expiration_real FROM pokestop";
+		} else {
+			$req 		= "SELECT latitude, longitude, lure_expiration, UTC_TIMESTAMP() as now, (CONVERT_TZ(lure_expiration, '+00:00', '".$time_offset."')) as lure_expiration_real FROM pokestop WHERE lure_expiration > UTC_TIMESTAMP()";
+		}
 		$result 	= $mysqli->query($req);
 
 		$i=0;
