@@ -43,11 +43,11 @@ if ($mysqli->connect_error != '') {
 }
 $mysqli->set_charset('utf8');
 $request = "";
-if (isset($_GET['type'])){
+if (isset($_GET['type'])) {
 $request 	= $_GET['type'];
 }
 $postRequest = "";
-if (isset($_POST['type'])){
+if (isset($_POST['type'])) {
 	$postRequest = $_POST['type'];
 	$request= "postRequest";
 }
@@ -535,8 +535,7 @@ switch ($request) {
 								</div>
 							</div>
 						</div>';
-				}
-				else {
+				} else {
 					$gymData['infoWindow'] .= '
 					<div style="text-align: center; width: 50px; display: inline-block; margin-right: 3px">
 						<a href="pokemon/'.$data->pokemon_id.'">
@@ -759,7 +758,7 @@ switch ($request) {
 
 	break;
 }
-if ($postRequest!=""){
+if ($postRequest!="") {
 	switch ($postRequest) {
 		case 'pokemon_live':
 			$json="";
