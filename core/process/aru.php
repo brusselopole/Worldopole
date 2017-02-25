@@ -734,11 +734,10 @@ switch ($request) {
 			GROUP BY disappear_hour
 			ORDER BY disappear_hour";
 			$result 	= $mysqli->query($req);
-			$array = array();
+			$array = array_fill(0, 24, 0);
 			while ($result && $data = $result->fetch_object()) {
-				$array[] = $data->total;
+				$array[$data->disappear_hour] = $data->total;
 			}
-			$array[] = array_shift($array);
 			$json = json_encode($array);
 		}
 
