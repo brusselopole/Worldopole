@@ -211,6 +211,11 @@ if (!empty($page)) {
 			// Pokemon List from the JSON file
 			// --------------------------------
 
+			$req = "SELECT TABLE_ROWS as total FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'pokemon' AND TABLE_SCHEMA = '".SYS_DB_NAME."'";
+			$result = $mysqli->query($req);
+        		$data = $result->fetch_object();
+
+        		$total = $data->total;
 
 			$max 		= $config->system->max_pokemon;
 			$pokedex 	= new stdClass();
