@@ -53,6 +53,7 @@
 "POKEDEX_METATITLE": "Zoek in de Pokédex", 
 "POKEDEX_TITLE": "De algemene <strong>Pokédex</strong><br><small>Gotta catch &eacute;m all!</small>", 
 "POKEDEX_TOTAL": "We Hebben al <strong> %s </strong> Pokémon gevonden in %s!",
+"POKEDEX_SEARCH": "Zoek hier",
 "POKEMON_AMOUNT": "Hoeveel keer gezien?", 
 "POKEMON_BREAKDOWN": "stats breakdown", 
 "POKEMON_CANDIES": "candies", 
