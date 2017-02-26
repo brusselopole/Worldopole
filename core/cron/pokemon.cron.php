@@ -32,6 +32,13 @@ while ($data = $result->fetch_object()) {
 	
 	isset($rarityarray[$rarity]) ? $rarityarray[$rarity]++ : $rarityarray[$rarity] = 1;
 }
+
+// Set amount of Pokemon for each rarity to 0 if there weren't any at that time
+isset($rarityarray['Very common']) ?: $rarityarray['Very common'] = 0;
+isset($rarityarray['Common']) ?: $rarityarray['Common'] = 0;
+isset($rarityarray['Rare']) ?: $rarityarray['Rare'] = 0;
+isset($rarityarray['Mythic']) ?: $rarityarray['Mythic'] = 0;
+
 $pokemon_stats['rarity_spawn'] = $rarityarray;
 
 
