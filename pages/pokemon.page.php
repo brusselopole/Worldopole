@@ -329,7 +329,7 @@
 </div>
 <?php } if ($toptrainer) { ?>
 	<div class="row" id="trainer">
-		<h2 class="text-center sub-title">Trainer with best <strong><?= $pokemon->name ?></strong></h2>
+		<h2 class="text-center sub-title"><?= $locales->POKEMON_TOPTRAINER ?> <strong><?= $pokemon->name ?></strong></h2>
 		<table class="table">
 			<thead>
 				<tr>
