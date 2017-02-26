@@ -42,7 +42,6 @@ if (isset($lang)) {
 		} else {
 			$moves_file			= json_decode(file_get_contents(SYS_PATH.'/core/json/locales/EN/moves.json'));
 		}
-		
 	} else {
 		$pokemon_file 			= file_get_contents(SYS_PATH.'/core/json/locales/EN/pokes.json');
 		$translation_file 		= file_get_contents(SYS_PATH.'/core/json/locales/EN/translations.json');
