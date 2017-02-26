@@ -248,19 +248,7 @@ if (!empty($page)) {
 				$toptrainer[] = $data;
 			}
 			
-			$moves_file	= SYS_PATH.'/core/json/moves.json';
-			          
-			$moves = json_decode(file_get_contents($moves_file));
-
-			$move = new stdClass();
-			foreach ($moves as $move_id => $move_name) {
-				if (isset($move_name)) {
-					$move->$move_id = new stdClass();
-					$move->$move_id->name = $move_name->name;
-				}
-			}
-
-
+			break;
 
 		// Pokedex
 		##########
