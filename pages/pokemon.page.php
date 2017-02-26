@@ -49,6 +49,7 @@
 		</div>
 
 	</div>
+
 </header>
 <!-- /Header -->
 
@@ -155,8 +156,7 @@
 		<a class="btn btn-default page-scroll" href="pokemon/<?= $pokemon->id ?>#where"><i class="fa fa-map-marker"></i> <?= $locales->POKEMON_MAP ?></a>
 		<a class="btn btn-default page-scroll" href="pokemon/<?= $pokemon->id ?>#stats"><i class="fa fa-pie-chart"></i> <?= $locales->POKEMON_STATS ?></a>
 		<a class="btn btn-default page-scroll" href="pokemon/<?= $pokemon->id ?>#family"><i class="fa fa-share-alt"></i> <?= $locales->POKEMON_FAMILY ?></a>
-		<a class="btn btn-default page-scroll" href="pokemon/<?= $pokemon->id ?>#top100"><i class="fa fa-share-alt"></i> Top100</a>
-		<a class="btn btn-default page-scroll" href="pokemon/<?= $pokemon->id ?>#trainer"><i class="fa fa-share-alt"></i> Trainer</a>
+		<a class="btn btn-default page-scroll" href="pokemon/<?= $pokemon->id ?>#top100"><i class="fa fa-list"></i> Top100</a>
 	</div>
 </div>
 
@@ -285,6 +285,8 @@
 	</div>
 
 </div>
+
+
 <?php if ($top) { ?>
 	<div class="row area" id="top100">
     	<h2 class="text-center sub-title">Top 100 <strong><?= $pokemon->name ?></strong></h2>
