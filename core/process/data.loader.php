@@ -7,7 +7,9 @@ $variables 	= SYS_PATH.'/core/json/variables.json';
 $config 	= json_decode(file_get_contents($variables));
 
 if (!isset($config->system)) {
-	echo 'Error: Could not load core/json/variables.json.';
+	echo 'Error: Could not load core/json/variables.json.<br>';
+	echo 'json_last_error(): '.json_last_error().'<br>';
+	echo 'Check the file encoding as well. It have to be UTF-8 without BOM!';
 	exit();
 }
 
