@@ -720,17 +720,13 @@ switch ($request) {
 
 		break;
 
-		case 'postRequest':
-		break;
-
 	case 'pokemon_graph_data':
 		$json="";
 		if (isset($_GET['pokemon_id'])) {
 			$pokemon_id = mysqli_real_escape_string($mysqli, $_GET['pokemon_id']);
-			$where = " WHERE pokemonFiltered.pokemon_id = ".$pokemon_id;
 			$req 		= "SELECT COUNT(*) as total, "
 					. "HOUR(CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) as disappear_hour
-			FROM (SELECT * FROM pokemon WHERE pokemon_id = '".$pokemon_id."' LIMIT 10000) as pokemonFiltered
+			FROM (SELECT disappear_time FROM pokemon WHERE pokemon_id = '".$pokemon_id."' LIMIT 10000) as pokemonFiltered
 			GROUP BY disappear_hour
 			ORDER BY disappear_hour";
 			$result 	= $mysqli->query($req);
@@ -738,6 +734,10 @@ switch ($request) {
 			while ($result && $data = $result->fetch_object()) {
 				$array[$data->disappear_hour] = $data->total;
 			}
+			// shift array because AM/PM starts at 1AM not 0:00
+			$array[] = $array[0];
+			array_shift($array);
+
 			$json = json_encode($array);
 		}
 
@@ -747,9 +747,8 @@ switch ($request) {
 
 		break;
 
-		case 'postRequest':
+	case 'postRequest':
 		break;
-
 
 	default:
 		echo "What do you mean?";
