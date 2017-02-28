@@ -21,54 +21,17 @@ include_once('../../config.php');
 include_once('../process/timezone.loader.php');
 
 
-# Connect MySQL
-$mysqli = new mysqli(SYS_DB_HOST, SYS_DB_USER, SYS_DB_PSWD, SYS_DB_NAME, SYS_DB_PORT);
-if ($mysqli->connect_error != '') {
-	exit('Error MySQL Connect');
-}
-
 # Chart Graph datas
-
-$pokemon_id = mysqli_real_escape_string($mysqli, $_GET['id']);
-
-// Create the h24 array with associated values
-for ($i= 0; $i <= 23; $i++) {
-	if ($i < 10) {
-		$key = '0'.$i;
-	} else {
-		$key = $i;
-	}
-
-	if (isset($array[$key])) {
-		$spawn[$key] = $array[$key];
-	} else {
-		$spawn[$key] = 0;
-	}
-}
-
-// Result for midnight are at the end in format PM
-if (isset($spawn['00'])) {
-	$spawn[] = $spawn['00'];
-	unset($spawn['00']);
-
-	$spawn = array_values($spawn);
-} else {
-	$spawn = array_values($spawn);
-}
-
-$data = implode(',', $spawn);
-$data = '['.$data.']';
-
-
+$pokemon_id = $_GET['id'];
 
 # Polar Graph datas
 
 $pokemon_file	= file_get_contents(SYS_PATH.'/core/json/pokedex.json');
-$pokemons		= json_decode($pokemon_file);
+$pokemons	= json_decode($pokemon_file);
 
-$atk			= $pokemons->pokemon->$pokemon_id->atk;
-$def			= $pokemons->pokemon->$pokemon_id->def;
-$sta			= $pokemons->pokemon->$pokemon_id->sta;
+$atk		= $pokemons->pokemon->$pokemon_id->atk;
+$def		= $pokemons->pokemon->$pokemon_id->def;
+$sta		= $pokemons->pokemon->$pokemon_id->sta;
 
 
 ?>
@@ -76,7 +39,6 @@ $sta			= $pokemons->pokemon->$pokemon_id->sta;
 var pokemon_id = '<?= (int)$pokemon_id ?>';
 
 Chart.defaults.global.legend.display = false;
-
 
 function drawSpawnGraph(data){
 	var ctx = $("#spawn_chart");
@@ -116,7 +78,6 @@ $.ajax({
 			'pokemon_id' : pokemon_id
 		}
 }).done(function (data) {
-
 	drawSpawnGraph(data);
 });
 
@@ -133,8 +94,7 @@ var data2 = {
 			"rgba(249,96,134,0.8)",
 			"rgba(88,194,193,0.8)",
 			"rgba(92,184,92,0.8)"
-		],
-		label: 'My dataset' // for legend
+		]
 	}],
 	labels: [
 		"Attack",
