@@ -252,7 +252,7 @@
 
 
 
-<div class="row" id="family">
+<div class="row area" id="family">
 
 	<div class="col-md-12">
 
