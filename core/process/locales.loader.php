@@ -153,6 +153,7 @@ unset($locale_dir);
 unset($pokemon_file);
 unset($translation_file);
 unset($pokedex_file);
+unset($moves_file);
 unset($pokemon_trans);
 unset($types_temp);
 unset($type_trans);
