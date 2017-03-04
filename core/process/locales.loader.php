@@ -36,13 +36,21 @@ if (isset($lang)) {
 		} else {
 			$translation_file	= file_get_contents(SYS_PATH.'/core/json/locales/EN/translations.json');
 		}
+		
+		if (is_file($locale_dir.'/moves.json')) {
+			$moves_file			= json_decode(file_get_contents($locale_dir.'/moves.json'));
+		} else {
+			$moves_file			= json_decode(file_get_contents(SYS_PATH.'/core/json/locales/EN/moves.json'));
+		}
 	} else {
 		$pokemon_file 			= file_get_contents(SYS_PATH.'/core/json/locales/EN/pokes.json');
 		$translation_file 		= file_get_contents(SYS_PATH.'/core/json/locales/EN/translations.json');
+		$moves_file				= json_decode(file_get_contents(SYS_PATH.'/core/json/locales/EN/moves.json'));
 	}
 } else {
 	$pokemon_file			= file_get_contents(SYS_PATH.'/core/json/locales/EN/pokes.json');
 	$translation_file		= file_get_contents(SYS_PATH.'/core/json/locales/EN/translations.json');
+	$moves_file				= json_decode(file_get_contents(SYS_PATH.'/core/json/locales/EN/moves.json'));
 }
 
 
@@ -99,7 +107,15 @@ foreach ($pokemons->pokemon as $pokeid => $pokemon) {
 		$pokemon->candy_name	= $pokemon_trans->pokemon->$candy_id->name;
 		unset($pokemon->candy_id);
 	}
-
+	// Convert move numbers to names
+	$move = new stdClass();
+	foreach ($moves_file as $move_id => $move_name) {
+		if (isset($move_name)) {
+			$move->$move_id = new stdClass();
+			$move->$move_id->name = $move_name->name;
+		}
+	}
+	
 	// Calculate and add rarities to array
 	$spawn_rate = $pokemons_rarity->$pokeid;
 	$pokemon->spawn_rate = $spawn_rate;
@@ -137,6 +153,7 @@ unset($locale_dir);
 unset($pokemon_file);
 unset($translation_file);
 unset($pokedex_file);
+unset($moves_file);
 unset($pokemon_trans);
 unset($types_temp);
 unset($type_trans);
