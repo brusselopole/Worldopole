@@ -785,13 +785,17 @@ if ($postRequest!="") {
 				}
 				$req = "SELECT pokemon_id, encounter_id, latitude, longitude, disappear_time,"
 						. " (CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) as disappear_time_real, "
-						. " individual_attack, individual_defense, individual_stamina "
+						. " individual_attack, individual_defense, individual_stamina, move_1, move_2 "
 						. "FROM pokemon".$where." ORDER BY disappear_time DESC LIMIT 5000";
 				$result 	= $mysqli->query($req);
 				$points = array();
 				while ($result && $data = $result->fetch_object()) {
 					$pokeid=$data->pokemon_id;
 					$data->name = $pokemons->pokemon->$pokeid->name;
+					$move1=$data->move_1;
+					$move2=$data->move_2;
+					$data->quick_move = $move->$move1->name;
+					$data->charge_move = $move->$move2->name;
 					$points[] 	= $data;
 				}
 
