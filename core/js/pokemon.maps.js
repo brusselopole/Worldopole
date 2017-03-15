@@ -323,6 +323,7 @@ function addPokemonMarker(pokemon,pokeimg_suffix) {
 					'</div>'+
 				'</div>'+
 				'<p class="text-center">('+pokemon.individual_attack+"/"+pokemon.individual_defense+"/"+pokemon.individual_stamina+')</p>'+
+				'<p class="text-center">'+pokemon.quick_move+"/"+pokemon.charge_move+'</p>'+
 			'</div>'+
 		'</div>';
 
