@@ -14,7 +14,7 @@
 
 	<div class="col-md-6 col-sm-6 col-xs-12 big-data" style="border-right:1px lightgray solid;"> <!-- POKESTOPS -->
 		<img src="core/img/pokestop.png" alt="Pokestop" width=50 class="big-icon">
-		<p><big><strong><?= $pokestop->total ?></strong> Pokestops</big><br> <?= sprintf($locales->INCITY, $config->infos->city); ?></p>
+		<p><big><strong><?= $pokestop->total ?></strong> <?= $locales->POKESTOPS ?></big><br> <?= sprintf($locales->INCITY, $config->infos->city); ?></p>
 	</div>
 
 	<div class="col-md-6 col-sm-6 col-xs-12 big-data"> <!-- LURED STOPS -->
