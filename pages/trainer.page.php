@@ -21,7 +21,7 @@
 						<li><a class="teamSelectorItems" id="YellowFilter" href="#"><img src="core/img/map_yellow.png" />&nbsp;<?= $locales->INSTINCT ?></a></li>
 					</ul>
 				</div>
-				<input type="text" class="form-control" name="name" id="name" placeholder="Name" value="">
+				<input type="text" class="form-control" name="name" id="name" placeholder="<?= $locales->NAME ?>" value="">
 				<div class="input-group-btn">
 					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  id="rankingSelector"><span id="rankingOrderText"><?= $locales->TRAINERS_SEARCH_LEVELS_FIRST ?></span>&nbsp;<span class="caret"></span></button>
 					<ul class="dropdown-menu dropdown-menu-right">
@@ -41,7 +41,7 @@
 						<li><a class="teamSelectorItems" id="YellowFilter" href="#"><img src="core/img/map_yellow.png" />&nbsp;<?= $locales->INSTINCT ?></a></li>
 					</ul>
 				</div>
-				<input type="text" class="form-control" name="name" id="name" placeholder="Name" value="">
+				<input type="text" class="form-control" name="name" id="name" placeholder="<?= $locales->NAME ?>" value="">
 				<div class="">
 					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  id="rankingSelector"><span id="rankingOrderText"><?= $locales->TRAINERS_SEARCH_LEVELS_FIRST ?></span>&nbsp;<span class="caret"></span></button>
 					<ul class="dropdown-menu dropdown-menu-right">
@@ -52,7 +52,7 @@
 				</div>
 			</div>
 		  </div>
-		  <button type="submit" class="btn btn-primary">Search</button>
+		  <button type="submit" class="btn btn-primary"><?= $locales->SEARCH ?></button>
 		</form>
 	</div>
 </div>
@@ -76,11 +76,11 @@
 			<thead>
 			<tr>
 				<th>#</th>
-				<th>Same Level</th>
-				<th>Name</th>
-				<th>Level</th>
-				<th>Gyms</th>
-				<th>Last Seen</th>
+				<th><?= $locales->TRAINERS_TABLE_SAME_LEVEL ?></th>
+				<th><?= $locales->TRAINERS_TABLE_NAME ?></th>
+				<th><?= $locales->TRAINERS_TABLE_LEVEL ?></th>
+				<th><?= $locales->TRAINERS_TABLE_GYMS ?></th>
+				<th><?= $locales->TRAINERS_TABLE_LAST_SEEN ?></th>
 			</tr>
 			</thead>
 			<tbody id="trainersContainer">
