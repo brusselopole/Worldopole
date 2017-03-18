@@ -641,6 +641,9 @@ switch ($request) {
 			$pkmCount = 0;
 			while ($resultPkms && $dataPkm = $resultPkms->fetch_object()) {
 				$active_gyms++;
+				$dataPkm->today = $locales->TODAY;
+				$dataPkm->day = $locales->DAY;
+				$dataPkm->days = $locales->DAYS;
 				$trainer->pokemons[$pkmCount++] = $dataPkm;
 			}
 			$trainer->gyms = $active_gyms;
