@@ -248,10 +248,10 @@ function printPokemon(pokemon,pokeimg_suffix,iv_numbers){
 		trainerPokemon.append($('<small>',{text: pokemon.today}));
 	}
 	else if (pokemon.last_scanned === '1') {
-		trainerPokemon.append($('<small>',{text: pokemon.last_scanned + pokemon.day}));
+		trainerPokemon.append($('<small>',{text: pokemon.last_scanned + " " + pokemon.day}));
 	}
 	else {
-		trainerPokemon.append($('<small>',{text: pokemon.last_scanned + pokemon.days}));
+		trainerPokemon.append($('<small>',{text: pokemon.last_scanned + " " + pokemon.days}));
 	}
 	return trainerPokemon;
 }
