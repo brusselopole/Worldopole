@@ -245,13 +245,13 @@ function printPokemon(pokemon,pokeimg_suffix,iv_numbers){
 	}
 	trainerPokemon.append(progressBar);
 	if (pokemon.last_scanned === '0') {
-		trainerPokemon.append($('<small>',{text: "Today"}));
+		trainerPokemon.append($('<small>',{text: pokemon.today}));
 	}
 	else if (pokemon.last_scanned === '1') {
-		trainerPokemon.append($('<small>',{text: pokemon.last_scanned + " Day"}));
+		trainerPokemon.append($('<small>',{text: pokemon.last_scanned + pokemon.day}));
 	}
 	else {
-		trainerPokemon.append($('<small>',{text: pokemon.last_scanned + " Days"}));
+		trainerPokemon.append($('<small>',{text: pokemon.last_scanned + pokemon.days}));
 	}
 	return trainerPokemon;
 }
