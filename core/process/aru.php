@@ -654,7 +654,11 @@ switch ($request) {
 			$resultPkms = $mysqli->query($req);
 
 			while ($resultPkms && $dataPkm = $resultPkms->fetch_object()) {
+				$dataPkm->today = $locales->TODAY;
+				$dataPkm->day = $locales->DAY;
+				$dataPkm->days = $locales->DAYS;
 				$trainer->pokemons[$pkmCount++] = $dataPkm;
+				
 			}
 		}
 			$return = json_encode($trainers);
