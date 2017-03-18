@@ -619,10 +619,18 @@ switch ($request) {
 
 		$result = $mysqli->query($req);
 		$trainers = array();
+		$locale = array();
+		$locale["today"] =  $locales->TODAY;
+		$locale["day"] = $locales->DAY;
+		$locale["days"] =  $locales->DAYS;
+		$locale["attack"] =  $locales->ATTACK;
+		$locale["defense"] =  $locales->DEFENSE;
+		$locale["stamina"] =  $locales->STAMINA;
 		while ($data = $result->fetch_object()) {
 			$data->last_seen = date("Y-m-d", strtotime($data->last_seen));
+			$data->locale = $locale;
 			$trainers[$data->name] = $data;
-		};
+		}
 		foreach ($trainers as $trainer) {
 			$reqRanking = "SELECT count(1) as rank FROM trainer where trainer.level >= ".$trainer->level;
 			$resultRanking = $mysqli->query($reqRanking);
@@ -641,9 +649,6 @@ switch ($request) {
 			$pkmCount = 0;
 			while ($resultPkms && $dataPkm = $resultPkms->fetch_object()) {
 				$active_gyms++;
-				$dataPkm->today = $locales->TODAY;
-				$dataPkm->day = $locales->DAY;
-				$dataPkm->days = $locales->DAYS;
 				$trainer->pokemons[$pkmCount++] = $dataPkm;
 			}
 			$trainer->gyms = $active_gyms;
@@ -657,16 +662,12 @@ switch ($request) {
 			$resultPkms = $mysqli->query($req);
 
 			while ($resultPkms && $dataPkm = $resultPkms->fetch_object()) {
-				$dataPkm->today = $locales->TODAY;
-				$dataPkm->day = $locales->DAY;
-				$dataPkm->days = $locales->DAYS;
 				$trainer->pokemons[$pkmCount++] = $dataPkm;
-				
 			}
 		}
-			$return = json_encode($trainers);
+		$return = json_encode($trainers);
 
-			echo $return;
+		echo $return;
 
 		break;
 

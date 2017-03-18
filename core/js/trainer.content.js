@@ -149,8 +149,7 @@ function printTrainer(trainer, trainerIndex,pokeimg_suffix,iv_numbers) {
 	var trainersPokemonsContainer = $('<div>',{class : ""});
 	for (var pokeIndex = 0; pokeIndex<trainer.pokemons.length; pokeIndex++) {
 		var pokemon = trainer.pokemons[pokeIndex];
-
-		trainersPokemonsContainer.append(printPokemon(pokemon,pokeimg_suffix,iv_numbers));
+		trainersPokemonsContainer.append(printPokemon(pokemon,pokeimg_suffix,iv_numbers,trainer.locale));
 	}
 
 	trainersPokemons.append(trainersPokemonsContainer);
@@ -158,7 +157,7 @@ function printTrainer(trainer, trainerIndex,pokeimg_suffix,iv_numbers) {
 	$('#trainersContainer').append(trainersPokemonsRow);
 }
 
-function printPokemon(pokemon,pokeimg_suffix,iv_numbers){
+function printPokemon(pokemon,pokeimg_suffix,iv_numbers,locale){
 	var trainerPokemon = $('<div>',{id : 'trainerPokemon_'+pokemon.pokemon_uid, class: "col-md-1 col-xs-4 pokemon-single", style: "text-align: center" });
 	var gymClass = "";
 	if ((pokemon.gym_id===null)) {
@@ -180,7 +179,7 @@ function printPokemon(pokemon,pokeimg_suffix,iv_numbers){
 		progressBar.append(
 					$('<div>',
 					{
-						title: 'IV Attack :'+pokemon.iv_attack,
+						title: 'IV '+locale.attack+' :'+pokemon.iv_attack,
 						class: 'progress-bar progress-bar-danger' ,
 						role : 'progressbar',
 						text : pokemon.iv_attack,
@@ -191,7 +190,7 @@ function printPokemon(pokemon,pokeimg_suffix,iv_numbers){
 		progressBar.append(
 					$('<div>',
 					{
-						title: 'IV Defense :'+pokemon.iv_defense,
+						title: 'IV '+locale.defense+' :'+pokemon.iv_defense,
 						class: 'progress-bar progress-bar-info' ,
 						role : 'progressbar',
 						text : pokemon.iv_defense,
@@ -202,7 +201,7 @@ function printPokemon(pokemon,pokeimg_suffix,iv_numbers){
 		progressBar.append(
 					$('<div>',
 					{
-						title: 'IV Stamina :'+pokemon.iv_stamina,
+						title: 'IV '+locale.stamina+' :'+pokemon.iv_stamina,
 						class: 'progress-bar progress-bar-success' ,
 						role : 'progressbar',
 						text : pokemon.iv_stamina,
@@ -215,7 +214,7 @@ function printPokemon(pokemon,pokeimg_suffix,iv_numbers){
 		progressBar.append(
 					$('<div>',
 					{
-						title: 'IV Attack :'+pokemon.iv_attack,
+						title: 'IV '+locale.attack+' :'+pokemon.iv_attack,
 						class: 'progress-bar progress-bar-danger' ,
 						role : 'progressbar',
 						'aria-valuenow' : pokemon.iv_attack,
@@ -225,7 +224,7 @@ function printPokemon(pokemon,pokeimg_suffix,iv_numbers){
 		progressBar.append(
 					$('<div>',
 					{
-						title: 'IV Defense :'+pokemon.iv_defense,
+						title: 'IV '+locale.defense+' :'+pokemon.iv_defense,
 						class: 'progress-bar progress-bar-info' ,
 						role : 'progressbar',
 						'aria-valuenow': pokemon.iv_defense,
@@ -235,7 +234,7 @@ function printPokemon(pokemon,pokeimg_suffix,iv_numbers){
 		progressBar.append(
 					$('<div>',
 					{
-						title: 'IV Stamina :'+pokemon.iv_stamina,
+						title: 'IV '+locale.stamina+' :'+pokemon.iv_stamina,
 						class: 'progress-bar progress-bar-success' ,
 						role : 'progressbar',
 						'aria-valuenow' :pokemon.iv_stamina,
@@ -245,13 +244,13 @@ function printPokemon(pokemon,pokeimg_suffix,iv_numbers){
 	}
 	trainerPokemon.append(progressBar);
 	if (pokemon.last_scanned === '0') {
-		trainerPokemon.append($('<small>',{text: pokemon.today}));
+		trainerPokemon.append($('<small>',{text: locale.today}));
 	}
 	else if (pokemon.last_scanned === '1') {
-		trainerPokemon.append($('<small>',{text: pokemon.last_scanned + " " + pokemon.day}));
+		trainerPokemon.append($('<small>',{text: pokemon.last_scanned + " " + locale.day}));
 	}
 	else {
-		trainerPokemon.append($('<small>',{text: pokemon.last_scanned + " " + pokemon.days}));
+		trainerPokemon.append($('<small>',{text: pokemon.last_scanned + " " + locale.days}));
 	}
 	return trainerPokemon;
 }
