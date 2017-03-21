@@ -13,7 +13,7 @@ $req = "SELECT pokemon.pokemon_id, count(pokemon.pokemon_id) as total_pokemon, p
 GROUP BY pokemon.spawnpoint_id, pokemon.pokemon_id HAVING total_pokemon > 6 ORDER BY pokemon.pokemon_id ";
 $result 	= $mysqli->query($req);
 
-while($data = $result->fetch_object()){
+while($data = $result->fetch_object()) {
 	$pokeid = $data->pokemon_id;
 	$nests['pokemon_id'] = $data->pokemon_id;
 	$nests['total_pokemon'] = $data->total_pokemon;
