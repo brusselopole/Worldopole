@@ -21,10 +21,10 @@ var map
 	include_once('../../config.php');
 	include_once('../process/locales.loader.php');
 	# Load nests-file
-	$nest_file	= file_get_contents('../json/nests.stats.json');
+	$nest_file = file_get_contents('../json/nests.stats.json');
 	$nests = json_decode($nest_file, true);
 
-    ?>
+	?>
 
 function initMap() {
     $.getJSON( "core/json/variables.json", function( variables ) {
