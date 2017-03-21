@@ -5,25 +5,25 @@ var map
 
 <?php
 
-	$filePath	= dirname(__FILE__);
-	$config_file	= $filePath.'/../../config.php';
+	$filePath = dirname(__FILE__);
+	$config_file = $filePath.'/../../config.php';
 	include_once($config_file);
-	$variables      = $filePath.'/../json/variables.json';
-	$config         = json_decode(file_get_contents($variables));
+	$variables = $filePath.'/../json/variables.json';
+	$config = json_decode(file_get_contents($variables));
 
 	// I don't know why I have to do this but otherwise not working with correct language...
 	$lang = $config->system->forced_lang;
 	$config->system->forced_lang = $lang;
 
-    # Send Javascript header
-    header('Content-type: text/javascript');
-    # Load Config
-    include_once('../../config.php');
-    include_once('../process/locales.loader.php');
-    # Load nests-file
+	# Send Javascript header
+	header('Content-type: text/javascript');
+	# Load Config
+	include_once('../../config.php');
+	include_once('../process/locales.loader.php');
+	# Load nests-file
 	$nest_file	= file_get_contents('../json/nests.stats.json');
 	$nests = json_decode($nest_file, true);
-    
+
     ?>
 
 function initMap() {
