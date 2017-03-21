@@ -60,6 +60,12 @@
 			"icon"		:	"fa-users"
 		},
 		{
+			"type"		:	"link",
+			"href"		:	"nests",
+			"locale"	:	"NAV_NESTS",
+			"icon"		:	"fa-binoculars"
+		},
+		{
 			"type"		:	"link_external",
 			"href"		:	"https://www.facebook.com/brusselopole/",
 			"text"		:	"Facebook",

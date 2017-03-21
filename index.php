@@ -243,6 +243,15 @@ include_once('core/process/data.loader.php');
 
 					<?php
 					break;
+					
+				case 'nests':
+                    ?>
+
+                    <script src="core/js/nests.maps.js.php"></script>
+					<script src="https://maps.googleapis.com/maps/api/js?key=<?= $config->system->GMaps_Key ?>&libraries=visualization&callback=initMap"></script>
+
+                    <?php
+                    break;
 			}
 		}
 		?>
