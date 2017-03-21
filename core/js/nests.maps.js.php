@@ -130,7 +130,8 @@ function getNests(pokeimg_suffix) {
 		<?php
 			foreach ($nests as $data) { ?>
 				new google.maps.LatLng(<?= $data['latitude'] ?>, <?= $data['longitude'] ?>),
-		<?php } ?>
+		<?php
+									  } ?>
     
 	];
 }
@@ -147,7 +148,8 @@ function getImages(pokeimg_suffix) {
 						anchor: new google.maps.Point(16, 16),
 						labelOrigin : new google.maps.Point(16, 36)   
         		},
-		<?php }?>  
+				<?php
+									  } ?>  
 	];
 }
 	
@@ -156,16 +158,15 @@ function getInfo() {
 	return[
 		<?php
 			foreach ($nests as $data) {
-				$pokeid = $data['pokemon_id'];
-			?>
-        
-			contentString = '<div id="content">'+
-							'<div id="siteNotice">'+
-							'</div>'+
-							'<div id="bodyContent">'+
-							'<p><b><?= $pokemons->pokemon->$pokeid->name ?></b>: <?= $data['total_pokemon'] ?> <?= $locales->NESTS_PER_DAY ?> </p>' +
-							'</div>',
-        
-		<?php }?>
+				$pokeid = $data['pokemon_id']; ?>        
+				contentString = '<div id="content">'+
+								'<div id="siteNotice">'+
+								'</div>'+
+								'<div id="bodyContent">'+
+								'<p><b><?= $pokemons->pokemon->$pokeid->name ?></b>: <?= $data['total_pokemon'] ?> <?= $locales->NESTS_PER_DAY ?> </p>' +
+								'</div>',
+
+				<?php
+									} ?>
 	];
 }
