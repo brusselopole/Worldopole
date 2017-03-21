@@ -131,7 +131,7 @@ function getNests(pokeimg_suffix) {
 			foreach ($nests as $data) { ?>
 				new google.maps.LatLng(<?= $data['latitude'] ?>, <?= $data['longitude'] ?>),
 		<?php
-									  } ?>
+			} ?>
     
 	];
 }
@@ -149,7 +149,7 @@ function getImages(pokeimg_suffix) {
 						labelOrigin : new google.maps.Point(16, 36)   
         		},
 				<?php
-									  } ?>  
+			} ?>  
 	];
 }
 	
@@ -167,6 +167,6 @@ function getInfo() {
 								'</div>',
 
 				<?php
-									} ?>
+			} ?>
 	];
 }
