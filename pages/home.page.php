@@ -140,7 +140,7 @@
 
 		<?php 
 			foreach ($home->teams as $team => $total) {
-				if ($config->system->show_neutral_gym) { ?>
+				if ($home->teams->rocket != 0) { ?>
 
 					<div class="col-md-3 col-sm-6 col-sm-12 team">
 						<div class="row">
