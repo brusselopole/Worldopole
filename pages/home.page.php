@@ -138,20 +138,34 @@
 <div class="row big padding">
 	<h2 class="text-center sub-title"><?= $locales->FIGHT_TITLE ?></h2>
 
-	<?php foreach ($home->teams as $team => $total) { ?>
+		<?php 
+			foreach ($home->teams as $team => $total) {
+				if ($config->system->show_rocket) { ?>
 
-		<div class="col-md-3 col-sm-6 col-sm-12 team">
+					<div class="col-md-3 col-sm-6 col-sm-12 team">
+						<div class="row">
+							<div class="col-xs-12 col-sm-12">
+								<p style="margin-top:0.5em;text-align:center;"><img src="core/img/<?= $team ?>.png" alt="Team <?= $team ?>" class="img-responsive" style="display:inline-block" width=80> <strong class="total-<?= $team ?>-js">0</strong> <?= $locales->GYMS ?></p>
 
-			<div class="row">
-				<div class="col-xs-12 col-sm-12">
-						<p style="margin-top:0.5em;text-align:center;"><img src="core/img/<?= $team ?>.png" alt="Team <?= $team ?>" class="img-responsive" style="display:inline-block" width=80> <strong class="total-<?= $team ?>-js">0</strong> <?= $locales->GYMS ?></p>
-				</div>
-			</div>
+				<?php
+				} else { ?>
 
-		</div>
-
-	<?php } ?>
+					<div class="col-md-4 col-sm-6 col-sm-12 team">
+						<div class="row">
+							<div class="col-xs-12 col-sm-12">
+								<?php
+									if ($team != 'rocket') { ?>
+										<p style="margin-top:0.5em;text-align:center;"><img src="core/img/<?= $team ?>.png" alt="Team <?= $team ?>" class="img-responsive" style="display:inline-block" width=80> <strong class="total-<?= $team ?>-js">0</strong> <?= $locales->GYMS ?></p>
+										<?php
+									}
+				} ?>
+							</div>
+						</div>
+					</div>					
+				<?php
+			} ?>
 </div>
+
 
 <script>
 	document.addEventListener('DOMContentLoaded', function() {
