@@ -80,7 +80,7 @@ function initMap() {
 			  var nestImage = getImages(pokeimg_suffix);
 			  var nestInfo = getInfo();
 
-              for (var i = 0; i < nestData.length; i++) {         
+              for (var i = 0; i <= nestData.length; i++) {         
               
 				  var marker = new google.maps.Marker({
                                                             position: nestData[i],
