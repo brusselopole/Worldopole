@@ -38,6 +38,7 @@
 "HOURS": "Stunden",
 "INCITY": "in %s",
 "INSTINCT": "Intuition",
+"LOADING": "Lädt",
 "LURES": "Lockmodule",
 "METADESCRIPTION": "Alle Daten über PokémonGo in %s : Nester, Statistiken, Häufungen, ... Finde hier die Pokémon, die Dir noch fehlen.",
 "MINUTE": "Minute",
@@ -48,6 +49,9 @@
 "NAV_DASHBOARD": "Dashboard",
 "NAV_POKEDEX": "Alle Pokémon",
 "NAV_NESTS": "Nester",
+"NESTS_METADESC": "Finde Nester und frequente Spawnpunkte",
+"NESTS_TITLE": "Nester und freuqente Spawnpunkte",
+"NESTS_PER_DAY": "pro Tag",
 "NEVER": "Noch nie",
 "PERFORMANCE": "Leistung",
 "POKEDEX_METADESC": "Durchsuche den Pokédex und finde alle Informationen über deine liebsten Pokémon",
@@ -82,9 +86,6 @@
 "POKESTOPS_METADESC": "Finde deinen Weg durch %s mit unserer Pokéstop-Karte.",
 "POKESTOPS_METATITLE": "Alle Pokéstops in %s",
 "POKESTOPS_TITLE": "Finde <strong>Pokéstops</strong> und fülle deinen Beutel in <strong>%s</strong><br><small>Es ist immer ein <strong>Pokéstop</strong> in Deiner Nähe.</small>",
-"NESTS_METADESC": "Finde Nester und frequente Spawnpunkte",
-"NESTS_TITLE": "Nester und freuqente Spawnpunkte",
-"NESTS_PER_DAY": "pro Tag",
 "RECENT_SPAWNS": "Die <strong>letzten</strong> Spawns",
 "RECENT_MYTHIC_SPAWNS": "Die letzten <strong>mythischen</strong> Spawns",
 "SEEN": " gesehen",
@@ -115,5 +116,4 @@
 "YEARS": "Jahre",
 "TIME_AGO": "vor %s",
 "TIME_LEFT": "noch %s",
-"LOADING": "Lädt"
 }
