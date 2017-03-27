@@ -9,7 +9,8 @@
 
 include_once(SYS_PATH.'/core/process/locales.loader.php');
 
-$req = "SELECT p.pokemon_id, max(p.latitude) as latitude, max(p.longitude) as longitude FROM pokemon p 
+$req = "SELECT p.pokemon_id, max(p.latitude) as latitude, max(p.longitude) as longitude, count(p.pokemon_id) as total_pokemon
+FROM pokemon p 
 INNER JOIN spawnpoint s ON (p.spawnpoint_id = s.id) 
 WHERE p.disappear_time > UTC_TIMESTAMP - INTERVAL 24 HOUR 
 AND p.pokemon_id IN(1, 4, 7, 23, 25, 27, 29, 32, 37, 43, 50, 56, 58, 63, 66, 69, 74, 77, 79, 81, 84, 86, 90, 92, 95, 98, 100,
