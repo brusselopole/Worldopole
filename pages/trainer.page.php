@@ -60,7 +60,7 @@
 
 <div class="row area" id="trainersGraph">
 	<div class="col-md-12 text-center">
-		<h2 class="sub-title"><?= $locales->TRAINER_GRAPH ?></h2>
+		<h2 class="sub-title"><?= $locales->TRAINERS_GRAPH ?></h2>
 	</div>
 
 	<div class="col-md-12">
@@ -88,7 +88,7 @@
 			</tbody>
 			<tfoot>
 				<tr class="loadMore text-center">
-					<td colspan="6"><button id="loadMoreButton" class="btn btn-default hidden"><?= $locales->TRAINER_LOAD_MORE ?></button></td>
+					<td colspan="6"><button id="loadMoreButton" class="btn btn-default hidden"><?= $locales->TRAINERS_LOAD_MORE ?></button></td>
 				</tr>
 				<tr class="trainerLoader">
 					<td colspan="6"><div class="loader"></div></td>

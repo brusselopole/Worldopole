@@ -110,10 +110,10 @@ function loadTrainers(page,name,teamSelector,rankingFilter,pokeimg_suffix,stayOn
 		}
 	}).done(function (data) {
 		var internalIndex = 0;
-		$.each(data, function (trainerName, trainer) {
+		$.each(data.trainers, function (trainerName, trainer) {
 			trainerIndex++;
 			internalIndex++
-			printTrainer(trainer, trainerIndex,pokeimg_suffix,iv_numbers);
+			printTrainer(trainer, trainerIndex,pokeimg_suffix,iv_numbers, data.locale);
 		});
 		if(internalIndex < 10){
 			$('#loadMoreButton').hide();
@@ -128,7 +128,7 @@ function loadTrainers(page,name,teamSelector,rankingFilter,pokeimg_suffix,stayOn
 
 
 
-function printTrainer(trainer, trainerIndex,pokeimg_suffix,iv_numbers) {
+function printTrainer(trainer, trainerIndex,pokeimg_suffix,iv_numbers, locale) {
 	var trainersInfos = $('<tr>',{id: 'trainerInfos_'+trainer.name}).css('border-bottom','2px solid '+(trainer.team=="3"?"#ffbe08":trainer.team=="2"?"#ff7676":"#00aaff"));
 	trainersInfos.append($('<td>',{id : 'trainerIndex_'+trainer.name, text : trainerIndex}));
 	trainersInfos.append($('<td>',{id : 'trainerRank_'+trainer.name, text : trainer.rank}));
@@ -149,7 +149,7 @@ function printTrainer(trainer, trainerIndex,pokeimg_suffix,iv_numbers) {
 	var trainersPokemonsContainer = $('<div>',{class : ""});
 	for (var pokeIndex = 0; pokeIndex<trainer.pokemons.length; pokeIndex++) {
 		var pokemon = trainer.pokemons[pokeIndex];
-		trainersPokemonsContainer.append(printPokemon(pokemon,pokeimg_suffix,iv_numbers,trainer.locale));
+		trainersPokemonsContainer.append(printPokemon(pokemon,pokeimg_suffix,iv_numbers, locale));
 	}
 
 	trainersPokemons.append(trainersPokemonsContainer);
@@ -179,7 +179,7 @@ function printPokemon(pokemon,pokeimg_suffix,iv_numbers,locale){
 		progressBar.append(
 					$('<div>',
 					{
-						title: 'IV '+locale.attack+' :'+pokemon.iv_attack,
+						title: locale.ivAttack+' :'+pokemon.iv_attack,
 						class: 'progress-bar progress-bar-danger' ,
 						role : 'progressbar',
 						text : pokemon.iv_attack,
@@ -190,7 +190,7 @@ function printPokemon(pokemon,pokeimg_suffix,iv_numbers,locale){
 		progressBar.append(
 					$('<div>',
 					{
-						title: 'IV '+locale.defense+' :'+pokemon.iv_defense,
+						title: locale.ivDefense+' :'+pokemon.iv_defense,
 						class: 'progress-bar progress-bar-info' ,
 						role : 'progressbar',
 						text : pokemon.iv_defense,
@@ -201,7 +201,7 @@ function printPokemon(pokemon,pokeimg_suffix,iv_numbers,locale){
 		progressBar.append(
 					$('<div>',
 					{
-						title: 'IV '+locale.stamina+' :'+pokemon.iv_stamina,
+						title: locale.ivStamina+' :'+pokemon.iv_stamina,
 						class: 'progress-bar progress-bar-success' ,
 						role : 'progressbar',
 						text : pokemon.iv_stamina,
@@ -214,7 +214,7 @@ function printPokemon(pokemon,pokeimg_suffix,iv_numbers,locale){
 		progressBar.append(
 					$('<div>',
 					{
-						title: 'IV '+locale.attack+' :'+pokemon.iv_attack,
+						title: locale.ivAttack+' :'+pokemon.iv_attack,
 						class: 'progress-bar progress-bar-danger' ,
 						role : 'progressbar',
 						'aria-valuenow' : pokemon.iv_attack,
@@ -224,7 +224,7 @@ function printPokemon(pokemon,pokeimg_suffix,iv_numbers,locale){
 		progressBar.append(
 					$('<div>',
 					{
-						title: 'IV '+locale.defense+' :'+pokemon.iv_defense,
+						title: locale.ivDefense+' :'+pokemon.iv_defense,
 						class: 'progress-bar progress-bar-info' ,
 						role : 'progressbar',
 						'aria-valuenow': pokemon.iv_defense,
@@ -234,7 +234,7 @@ function printPokemon(pokemon,pokeimg_suffix,iv_numbers,locale){
 		progressBar.append(
 					$('<div>',
 					{
-						title: 'IV '+locale.stamina+' :'+pokemon.iv_stamina,
+						title: locale.ivStamina+' :'+pokemon.iv_stamina,
 						class: 'progress-bar progress-bar-success' ,
 						role : 'progressbar',
 						'aria-valuenow' :pokemon.iv_stamina,

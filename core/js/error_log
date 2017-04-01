@@ -1,0 +1,3 @@
+[28-Mar-2017 15:25:00 UTC] PHP Warning:  mysqli::__construct(): MySQL server has gone away in /home/pokemad/public_html/core/js/trainer.graph.js.php on line 18
+[28-Mar-2017 15:25:00 UTC] PHP Warning:  mysqli::__construct(): Error while reading greeting packet. PID=45954 in /home/pokemad/public_html/core/js/trainer.graph.js.php on line 18
+[28-Mar-2017 15:25:00 UTC] PHP Warning:  mysqli::__construct(): (HY000/2006): MySQL server has gone away in /home/pokemad/public_html/core/js/trainer.graph.js.php on line 18

@@ -277,14 +277,14 @@ function updateLive(pokeimg_suffix){
 			'ivMax' : ivMax
 		}
 	}).done(function(pokemons){
-		for (var i = 0; i < pokemons.length; i++) {
-			addPokemonMarker(pokemons[i],pokeimg_suffix)
+		for (var i = 0; i < pokemons.points.length; i++) {
+			addPokemonMarker(pokemons[i],pokeimg_suffix, pokemons.locale)
 		}
 		updateLiveTimeout=setTimeout(function(){ updateLive(pokeimg_suffix) },5000);
 	});
 }
 
-function addPokemonMarker(pokemon,pokeimg_suffix) {
+function addPokemonMarker(pokemon,pokeimg_suffix, locale) {
 	var image = {
 		url:'core/pokemons/'+pokemon.pokemon_id+pokeimg_suffix,
 		scaledSize: new google.maps.Size(32, 32),
@@ -312,14 +312,14 @@ function addPokemonMarker(pokemon,pokeimg_suffix) {
 				
 				'<p></p>'+
 				'<div class="progress" style="height: 6px; width: 120px; margin-bottom: 10px; margin-top: 2px; margin-left: auto; margin-right: auto">'+
-					'<div title="Attack IV: '+pokemon.individual_attack+'" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="'+pokemon.individual_attack+'" aria-valuemin="0" aria-valuemax="45" style="width: '+(((100/15)*pokemon.individual_attack)/3)+'%">'+
-						'<span class="sr-only">Attack IV: '+pokemon.individual_attack+'</span>'+
+					'<div title="'+locale.ivAttack+': '+pokemon.individual_attack+'" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="'+pokemon.individual_attack+'" aria-valuemin="0" aria-valuemax="45" style="width: '+(((100/15)*pokemon.individual_attack)/3)+'%">'+
+						'<span class="sr-only">'+locale.ivAttack+': '+pokemon.individual_attack+'</span>'+
 					'</div>'+
-					'<div title="Defense IV: '+pokemon.individual_defense+'" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="'+pokemon.individual_defense+'" aria-valuemin="0" aria-valuemax="45" style="width: '+(((100/15)*pokemon.individual_defense)/3)+'%">'+
-						'<span class="sr-only">Defense IV: '+pokemon.individual_defense+'</span>'+
+					'<div title="'+locale.ivDefense+': '+pokemon.individual_defense+'" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="'+pokemon.individual_defense+'" aria-valuemin="0" aria-valuemax="45" style="width: '+(((100/15)*pokemon.individual_defense)/3)+'%">'+
+						'<span class="sr-only">'+locale.ivDefense+': '+pokemon.individual_defense+'</span>'+
 					'</div>'+
-					'<div title="Stamina IV: '+pokemon.individual_stamina+'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'+pokemon.individual_stamina+'" aria-valuemin="0" aria-valuemax="45" style="width: '+(((100/15)*pokemon.individual_stamina)/3)+'%">'+
-						'<span class="sr-only">Stamina IV: '+pokemon.individual_stamina+'</span>'+
+					'<div title="'+locale.ivStamina+': '+pokemon.individual_stamina+'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'+pokemon.individual_stamina+'" aria-valuemin="0" aria-valuemax="45" style="width: '+(((100/15)*pokemon.individual_stamina)/3)+'%">'+
+						'<span class="sr-only">'+locale.ivStamina+': '+pokemon.individual_stamina+'</span>'+
 					'</div>'+
 				'</div>'+
 				'<p class="text-center">('+pokemon.individual_attack+"/"+pokemon.individual_defense+"/"+pokemon.individual_stamina+')</p>'+
