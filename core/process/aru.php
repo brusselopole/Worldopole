@@ -245,7 +245,7 @@ switch ($request) {
 						$html .= '
 					    <div class="progress" style="height: 6px; width: 80%; margin: 5px auto 15px auto;">
 						    <div title="IV not available" class="progress-bar" role="progressbar" style="width: 100%; background-color: rgb(210,210,210);" aria-valuenow="1" aria-valuemin="0" aria-valuemax="1">
-							    <span class="sr-only">IV not available</span>
+							    <span class="sr-only">IV '.$locales->NOT_AVAILABLE.'</span>
 						    </div>
 					    </div>';
 						}
@@ -287,10 +287,10 @@ switch ($request) {
 		while ($data = $result->fetch_object()) {
 			if ($data->lure_expiration >= $data->now) {
 				$icon = 'pokestap_lured.png';
-				$text = 'Lured expire @ '.date('H:i:s', strtotime($data->lure_expiration_real)) ;
+				$text = sprintf($locales->POKESTOPS_MAP_LURED, date('H:i:s', strtotime($data->lure_expiration_real)));
 			} else {
 				$icon = 'pokestap.png';
-				$text = 'Normal stop';
+				$text = $locales->POKESTOPS_MAP_REGULAR;
 			}
 
 			$temp[$i][] = $text;

@@ -94,6 +94,8 @@
 "POKEMON_WHERE": "¿Dónde puedes <strong>cazar</strong> a", 
 "POKESTOPS": "Poképaradas", 
 "POKESTOPS_LURES": "activos en este momento", 
+"POKESTOPS_MAP_REGULAR": "Normal",
+"POKESTOPS_MAP_LURED": "Con cebo hasta %s",
 "POKESTOPS_METADESC": "Encuentra tu camino en %s usando nuestro buscador de Poképaradas", 
 "POKESTOPS_METATITLE": "Todas las Poképaradas de %s", 
 "POKESTOPS_TITLE": "Dónde hacer una <strong>Poképarada</strong> y rellenar tu mochila en <strong>%s</strong><br><small>Con suerte habrá una <strong>Poképarada</strong> cerca de ti.</small>", 

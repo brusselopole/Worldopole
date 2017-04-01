@@ -95,6 +95,8 @@
 "POKEMON_WHERE": "Where can you <strong>hunt</strong>",
 "POKESTOPS": "Pokéstops",
 "POKESTOPS_LURES": "active right now",
+"POKESTOPS_MAP_REGULAR": "Normal",
+"POKESTOPS_MAP_LURED": "Lured until %s",
 "POKESTOPS_METADESC": "Find your way around %s using our Pokéstops finder.",
 "POKESTOPS_METATITLE": "All Pokéstops in %s",
 "POKESTOPS_TITLE": "Where to <strong>Pokéstop</strong> and fill your bag in <strong>%s</strong><br><small>There's always a <strong>Pokéstop</strong> near you.</small>",
