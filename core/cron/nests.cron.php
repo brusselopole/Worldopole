@@ -9,7 +9,7 @@
 
 include_once(SYS_PATH.'/core/process/locales.loader.php');
 
-$nest_pokemon_ids = $config->system->nest_pokemon;
+$nest_pokemon_ids = implode(",", $config->system->nest_pokemon);
 
 $req = "SELECT p.pokemon_id, max(p.latitude) as latitude, max(p.longitude) as longitude, count(p.pokemon_id) as total_pokemon
 FROM pokemon p 
