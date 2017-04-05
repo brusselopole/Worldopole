@@ -11,20 +11,20 @@ $(function () {
 		var teamSelector=0; //0=all;1=Blue;2=Red;3=Yellow
 		var rankingFilter=0; //0=Level & Gyms; 1=Level; 2=Gyms
 
-		$('input:visible').val(trainerName);
-		loadTrainers(page,$('input:visible').val(),null,null,pokeimg_suffix,true,iv_numbers);
+		$('input#name').filter(':visible').val(trainerName);
+		loadTrainers(page,$('input#name').filter(':visible').val(),null,null,pokeimg_suffix,true,iv_numbers);
 
 		page++;
 		$('#loadMoreButton').click(function () {
 
-			loadTrainers(page,$('input:visible').val(),teamSelector,rankingFilter,pokeimg_suffix,true,iv_numbers);
+			loadTrainers(page,$('input#name').filter(':visible').val(),teamSelector,rankingFilter,pokeimg_suffix,true,iv_numbers);
 			page++;
 		});
 		$("#searchTrainer").submit(function ( event ) {
 			page = 0;
-			$('input:visible').val()!=''?$('#trainersGraph').hide():$('#trainersGraph').show();
+			$('input#name').filter(':visible').val()!=''?$('#trainersGraph').hide():$('#trainersGraph').show();
 			$('#trainersContainer tr:not(.trainersTemplate)').remove();
-			loadTrainers(page,$('input:visible').val(),teamSelector,rankingFilter,pokeimg_suffix,true,iv_numbers);
+			loadTrainers(page,$('input#name').filter(':visible').val(),teamSelector,rankingFilter,pokeimg_suffix,true,iv_numbers);
 			page++;
 			event.preventDefault();
 		});
@@ -72,8 +72,8 @@ $(function () {
 		window.onpopstate = function() {
 			if (window.history.state && "Trainer" === window.history.state.page) {
 				$('#trainersContainer').empty();
-				$('input:visible').val(window.history.state.name);
-				loadTrainers(0,$('input:visible').val(),teamSelector,rankingFilter,pokeimg_suffix,false,iv_numbers);
+				$('input#name').filter(':visible').val(window.history.state.name);
+				loadTrainers(0,$('input#name').filter(':visible').val(),teamSelector,rankingFilter,pokeimg_suffix,false,iv_numbers);
 			}
 			else{
 				window.history.back();
@@ -135,7 +135,7 @@ function printTrainer(trainer, trainerIndex,pokeimg_suffix,iv_numbers) {
 	trainersInfos.append($('<td>',{id : 'trainerName_'+trainer.name}).append($('<a>',{href: 'trainer?name='+trainer.name, text: trainer.name})).click(
 		function (e) {
 			e.preventDefault();
-			$('input:visible').val(trainer.name);
+			$('input#name').filter(':visible').val(trainer.name);
 			$("#searchTrainer").submit();
 			$('#trainerName_'+trainer.name).off('click');
 		}
