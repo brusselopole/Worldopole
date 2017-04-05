@@ -143,7 +143,7 @@ function getImages(pokeimg_suffix) {
 			foreach ($nests as $data) { ?>
 				image = {
 						url: 'core/pokemons/'+<?= $data['pokemon_id'] ?>+pokeimg_suffix,
-						scaledSize: new google.maps.Size(28, 28),
+						scaledSize: new google.maps.Size(32, 32),
 						origin: new google.maps.Point(0,0),
 						anchor: new google.maps.Point(16, 16),
 						labelOrigin : new google.maps.Point(16, 36)   
