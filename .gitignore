@@ -22,4 +22,5 @@ config.php
 /core/json/pokestop.stats.json
 /core/json/pokedex.rarity.json
 /core/json/captcha.stats.json
+/core/json/nests.stats.json
 analyticstracking.php

@@ -47,6 +47,7 @@
 "IV_DEFENSE": "IV Verteidigung",
 "IV_STAMINA": "IV Ausdauer",
 "LAST_SCANNED": "Letzter Scan",
+"LOADING": "Lädt",
 "LURES": "Lockmodule",
 "METADESCRIPTION": "Alle Daten über PokémonGo in %s : Nester, Statistiken, Häufungen, ... Finde hier die Pokémon, die Dir noch fehlen.",
 "MINUTE": "Minute",
@@ -58,6 +59,10 @@
 "NAME": "Name",
 "NAV_DASHBOARD": "Dashboard",
 "NAV_POKEDEX": "Alle Pokémon",
+"NAV_NESTS": "Nester",
+"NESTS_METADESC": "Finde Nester und frequente Spawnpunkte",
+"NESTS_TITLE": "<strong>Nester</strong> und frequente Spawnpunkte",
+"NESTS_PER_DAY": "pro Tag",
 "NEVER": "Noch nie",
 "NOT_AVAILABLE": "Nicht verfügbar",
 "PERFORMANCE": "Leistung",
@@ -131,6 +136,5 @@
 "YEAR": "Jahr",
 "YEARS": "Jahre",
 "TIME_AGO": "vor %s",
-"TIME_LEFT": "noch %s",
-"LOADING": "Lädt"
+"TIME_LEFT": "noch %s"
 }
