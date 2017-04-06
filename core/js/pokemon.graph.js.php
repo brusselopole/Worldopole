@@ -20,6 +20,10 @@ include_once('../../config.php');
 
 include_once('../process/timezone.loader.php');
 
+// Load the locale elements
+############################
+include_once('../process/locales.loader.php');
+
 
 # Chart Graph datas
 $pokemon_id = $_GET['id'];
@@ -97,9 +101,9 @@ var data2 = {
 		]
 	}],
 	labels: [
-		"Attack",
-		"Defense",
-		"Stamina"
+		" <?= $locales->ATTACK ?>",
+		" <?= $locales->DEFENSE ?>",
+		" <?= $locales->STAMINA ?>"
 	]
 };
 
