@@ -20,6 +20,10 @@ include_once('../../config.php');
 
 include_once('../process/timezone.loader.php');
 
+// Load the locale elements
+############################
+include_once('../process/locales.loader.php');
+
 
 # Chart Graph datas
 $pokemon_id = $_GET['id'];
@@ -44,7 +48,7 @@ function drawSpawnGraph(data){
 	var ctx = $("#spawn_chart");
 
 	var data = {
-		labels: ["1am","2am","3am","4am","5am","6am","7am","8am","9am","10am","11am","12am","1pm","2pm","3pm","4pm","5pm","6pm","7pm","8pm","9pm","10pm","11pm","12pm"],
+		labels: ["01:00","02:00","03:00","04:00","05:00","06:00","07:00","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00","24:00"],
 		datasets: [
 			{
 				backgroundColor: 'rgba(199, 255, 215, 1)',
@@ -97,9 +101,9 @@ var data2 = {
 		]
 	}],
 	labels: [
-		"Attack",
-		"Defense",
-		"Stamina"
+		" <?= $locales->ATTACK ?>",
+		" <?= $locales->DEFENSE ?>",
+		" <?= $locales->STAMINA ?>"
 	]
 };
 

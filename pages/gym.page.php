@@ -147,13 +147,13 @@
 					   </div>
 					</div>
 					<div id="gymPrestige">
-						Prestige: <span id="gymPrestigeDisplay"></span>
+						<?= $locales->PRESTIGE ?>: <span id="gymPrestigeDisplay"></span>
 					</div>
 					<div id="gymLastScanned">
-						Last scanned: <span id="gymLastScannedDisplay"></span>
+						<?= $locales->LAST_SCANNED ?>: <span id="gymLastScannedDisplay"></span>
 					</div>
 					<div id="gymDefenders" class="pokemon-single">
-						No Defender yet
+						<?= $locales->GYMS_NO_DEFENDER ?>
 					</div>
 				</div>
 				
