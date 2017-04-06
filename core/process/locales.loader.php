@@ -12,7 +12,7 @@
  * Licensed under http://www.opensource.org/licenses/bsd-license.php  New BSD License
  */
 
- /**
+/**
  * Parses and sorts a weighed "Accept" HTTP header
  *
  * @param string $header The HTTP "Accept" header to parse
