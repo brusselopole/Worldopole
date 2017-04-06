@@ -31,9 +31,9 @@
 			<small>[<?= $pokemon->rarity ?>]</small></h1>
 
 			<p id="share">
-				<a href="https://www.facebook.com/sharer/sharer.php?u=<?= HOST_URL ?>pokemon/<?= $pokemon->id ?>" target="_blank" class="btn btn-primary" title="Share on Facebook"><?= $locales->SHARE ?> <i class="fa fa-facebook" aria-hidden="true"></i></a>
+				<a href="https://www.facebook.com/sharer/sharer.php?u=<?= HOST_URL ?>pokemon/<?= $pokemon->id ?>" target="_blank" class="btn btn-primary" title="<?php printf($locales->SHARE, "Facebook") ?>" ><?php printf($locales->SHARE, "") ?> <i class="fa fa-facebook" aria-hidden="true"></i></a>
 
-				<a href="https://twitter.com/intent/tweet?source=<?= HOST_URL ?>pokemon/<?= $pokemon_id ?>&text=Find%20<?= $pokemon->name ?>%20in:%20<?= $config->infos->city ?>%20<?= HOST_URL ?>pokemon/<?= $pokemon->id ?>" target="_blank" title="Share on Twitter" class="btn btn-info"><?= $locales->SHARE ?> <i class="fa fa-twitter" aria-hidden="true"></i></a>
+				<a href="https://twitter.com/intent/tweet?source=<?= HOST_URL ?>pokemon/<?= $pokemon_id ?>&text=Find%20<?= $pokemon->name ?>%20in:%20<?= $config->infos->city ?>%20<?= HOST_URL ?>pokemon/<?= $pokemon->id ?>" target="_blank" title="<?php printf($locales->SHARE, "Twitter") ?>" class="btn btn-info"><?php printf($locales->SHARE, "") ?> <i class="fa fa-twitter" aria-hidden="true"></i></a>
 			</p>
 
 		</div>
@@ -130,7 +130,7 @@
 			<tr>
 				<td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_EVOLUTION ?> :</strong></td>
 				<td class="col-md-4 col-xs-4"><?php if (isset($pokemon->candies)) {
-					echo $pokemon->candies . " ". $pokemon->candy_name . " " . $locales->POKEMON_CANDIES ;
+					printf($locales->POKEMON_CANDIES, $pokemon->candies, $pokemon->candy_name);
 } else {
 	echo $locales->POKEMON_FINAL;
 } ?></td>
@@ -295,12 +295,12 @@
 				<tr>
 					<th>#</th>
 					<th><a href="pokemon/<?= $pokemon->id ?>?order=IV<?php echo $top_order == 'IV' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#top50">IV <i class="fa fa-sort" aria-hidden="true"></i></a></th>
-					<th><a href="pokemon/<?= $pokemon->id ?>?order=individual_attack<?php echo $top_order == 'individual_attack' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#top50">A <i class="fa fa-sort" aria-hidden="true"></i></a></th>
-					<th><a href="pokemon/<?= $pokemon->id ?>?order=individual_defense<?php echo $top_order == 'individual_defense' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#top50">D <i class="fa fa-sort" aria-hidden="true"></i></a></th>
-					<th><a href="pokemon/<?= $pokemon->id ?>?order=individual_stamina<?php echo $top_order == 'individual_stamina' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#top50">Sta <i class="fa fa-sort" aria-hidden="true"></i></a></th>
-					<th><a href="pokemon/<?= $pokemon->id ?>?order=move_1<?php echo $top_order == 'move_1' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#top50">1. Move <i class="fa fa-sort" aria-hidden="true"></i></a></th>
-					<th><a href="pokemon/<?= $pokemon->id ?>?order=move_2<?php echo $top_order == 'move_2' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#top50">2. Move <i class="fa fa-sort" aria-hidden="true"></i></a></th>
-					<th><a href="pokemon/<?= $pokemon->id ?>?order=disappear_time<?php echo $top_order == 'disappear_time' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#top50">Date <i class="fa fa-sort" aria-hidden="true"></i></a></th>
+					<th><a href="pokemon/<?= $pokemon->id ?>?order=individual_attack<?php echo $top_order == 'individual_attack' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#top50"><?= $locales->POKEMON_TABLE_ATTACK ?> <i class="fa fa-sort" aria-hidden="true"></i></a></th>
+					<th><a href="pokemon/<?= $pokemon->id ?>?order=individual_defense<?php echo $top_order == 'individual_defense' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#top50"><?= $locales->POKEMON_TABLE_DEFENSE ?> <i class="fa fa-sort" aria-hidden="true"></i></a></th>
+					<th><a href="pokemon/<?= $pokemon->id ?>?order=individual_stamina<?php echo $top_order == 'individual_stamina' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#top50"><?= $locales->POKEMON_TABLE_STAMINA ?> <i class="fa fa-sort" aria-hidden="true"></i></a></th>
+					<th><a href="pokemon/<?= $pokemon->id ?>?order=move_1<?php echo $top_order == 'move_1' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#top50">1. <?= $locales->MOVE ?> <i class="fa fa-sort" aria-hidden="true"></i></a></th>
+					<th><a href="pokemon/<?= $pokemon->id ?>?order=move_2<?php echo $top_order == 'move_2' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#top50">2. <?= $locales->MOVE ?> <i class="fa fa-sort" aria-hidden="true"></i></a></th>
+					<th><a href="pokemon/<?= $pokemon->id ?>?order=disappear_time<?php echo $top_order == 'disappear_time' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#top50"><?= $locales->DATE ?> <i class="fa fa-sort" aria-hidden="true"></i></a></th>
 				</tr>
 			</thead>
 			
@@ -336,12 +336,12 @@
 			<thead>
 				<tr>
 					<th>#</th>
-					<th><a href="pokemon/<?= $pokemon->id ?>?order=trainer_name<?php echo $best_order == 'trainer_name' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#trainer">Name <i class="fa fa-sort" aria-hidden="true"></i></a></th>
+					<th><a href="pokemon/<?= $pokemon->id ?>?order=trainer_name<?php echo $best_order == 'trainer_name' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#trainer"><?= $locales->NAME ?> <i class="fa fa-sort" aria-hidden="true"></i></a></th>
 					<th><a href="pokemon/<?= $pokemon->id ?>?order=cp<?php echo $best_order == 'cp' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#trainer">CP <i class="fa fa-sort" aria-hidden="true"></i></a></th>
 					<th><a href="pokemon/<?= $pokemon->id ?>?order=IV<?php echo $best_order == 'IV' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#trainer">IV <i class="fa fa-sort" aria-hidden="true"></i></a></th>
-					<th><a href="pokemon/<?= $pokemon->id ?>?order=move_1<?php echo $best_order == 'move_1' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#trainer">1. Move <i class="fa fa-sort" aria-hidden="true"></i></a></th>
-					<th><a href="pokemon/<?= $pokemon->id ?>?order=move_2<?php echo $best_order == 'move_2' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#trainer">2. Move <i class="fa fa-sort" aria-hidden="true"></i></a></th>
-					<th><a href="pokemon/<?= $pokemon->id ?>?order=last_seen<?php echo $best_order == 'last_seen' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#trainer">Seen <i class="fa fa-sort" aria-hidden="true"></i></a></th>
+					<th><a href="pokemon/<?= $pokemon->id ?>?order=move_1<?php echo $best_order == 'move_1' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#trainer">1. <?= $locales->MOVE ?> <i class="fa fa-sort" aria-hidden="true"></i></a></th>
+					<th><a href="pokemon/<?= $pokemon->id ?>?order=move_2<?php echo $best_order == 'move_2' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#trainer">2. <?= $locales->MOVE ?> <i class="fa fa-sort" aria-hidden="true"></i></a></th>
+					<th><a href="pokemon/<?= $pokemon->id ?>?order=last_seen<?php echo $best_order == 'last_seen' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#trainer"><?= $locales->POKEMON_TABLE_SEEN ?> <i class="fa fa-sort" aria-hidden="true"></i></a></th>
 				</tr>
 			</thead>
 			<tbody>

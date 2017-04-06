@@ -77,26 +77,26 @@
 						if ($config->system->iv_numbers) { ?>
 							<div class="progress" style="height: 15px; margin-bottom: 0">
 								<div title="Attack IV: <?= $pokemon->iv->attack ?>" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="<?= $pokemon->iv->attack ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= (100/3)  ?>%; line-height: 16px";>
-									<span class="sr-only">Attack IV: <?= $pokemon->iv->attack ?></span><?= $pokemon->iv->attack ?>
+									<span class="sr-only"><?= $locales->ATTACK ?> IV: <?= $pokemon->iv->attack ?></span><?= $pokemon->iv->attack ?>
 								</div>
 								<div title="Defense IV: <?= $pokemon->iv->defense ?>" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="<?= $pokemon->iv->defense ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= (100/3)  ?>%; line-height: 16px";>
-									<span class="sr-only">Defense IV: <?= $pokemon->iv->defense ?></span><?= $pokemon->iv->defense ?>
+									<span class="sr-only"><?= $locales->DEFENSE ?> IV: <?= $pokemon->iv->defense ?></span><?= $pokemon->iv->defense ?>
 								</div>
 								<div title="Stamina IV: <?= $pokemon->iv->stamina ?>" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<?= $pokemon->iv->stamina ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= (100/3) ?>%; line-height: 16px";>
-									<span class="sr-only">Stamina IV: <?= $pokemon->iv->stamina ?></span><?= $pokemon->iv->stamina ?>
+									<span class="sr-only"><?= $locales->STAMINA ?> IV: <?= $pokemon->iv->stamina ?></span><?= $pokemon->iv->stamina ?>
 								</div>
 							</div>
 						<?php 
 						} else { ?>
 							<div class="progress" style="height: 6px; width: 80%; margin: 5px auto 15px auto;">
 								<div title="Attack IV: <?= $pokemon->iv->attack ?>" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="<?= $pokemon->iv->attack ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= ((100/15)*$pokemon->iv->attack)/3 ?>%">
-									<span class="sr-only">Attack IV: <?= $pokemon->iv->attack ?></span>
+									<span class="sr-only"><?= $locales->ATTACK ?> IV: <?= $pokemon->iv->attack ?></span>
 								</div>
 								<div title="Defense IV: <?= $pokemon->iv->defense ?>" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="<?= $pokemon->iv->defense ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= ((100/15)*$pokemon->iv->defense)/3 ?>%">
-									<span class="sr-only">Defense IV: <?= $pokemon->iv->defense ?></span>
+									<span class="sr-only"><?= $locales->DEFENSE ?> IV: <?= $pokemon->iv->defense ?></span>
 								</div>
 								<div title="Stamina IV: <?= $pokemon->iv->stamina ?>" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<?= $pokemon->iv->stamina ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= ((100/15)*$pokemon->iv->stamina)/3 ?>%">
-									<span class="sr-only">Stamina IV: <?= $pokemon->iv->stamina ?></span>
+									<span class="sr-only"><?= $locales->STAMINA ?> IV: <?= $pokemon->iv->stamina ?></span>
 								</div>
 							</div>
 					<?php
@@ -105,20 +105,20 @@
 						if ($config->system->iv_numbers) { ?>
 							<div class="progress" style="height: 15px; margin-bottom: 0">
 								<div title="Attack IV: not available" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="<?= $pokemon->iv->attack ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= (100/3)  ?>%; line-height: 16px";>
-									<span class="sr-only">Attack IV: not available</span>?
+									<span class="sr-only"><?= $locales->ATTACK ?> IV: <?= $locales->NOT_AVAILABLE ?></span>?
 								</div>
 								<div title="Defense IV: not available" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="<?= $pokemon->iv->defense ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= (100/3)  ?>%; line-height: 16px";>
-									<span class="sr-only">Defense IV: not available</span>?
+									<span class="sr-only"><?= $locales->DEFENSE ?> IV: <?= $locales->NOT_AVAILABLE ?></span>?
 								</div>
 								<div title="Stamina IV: not available" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<?= $pokemon->iv->stamina ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= (100/3) ?>%; line-height: 16px";>
-									<span class="sr-only">Stamina IV: not available</span>?
+									<span class="sr-only"><?= $locales->STAMINA ?> IV: <?= $locales->NOT_AVAILABLE ?></span>?
 								</div>
 							</div>
 						<?php 
 						} else { ?>
 						<div class="progress" style="height: 6px; width: 80%; margin: 5px auto 15px auto;">
 							<div title="IV not available" class="progress-bar" role="progressbar" style="width: 100%; background-color: rgb(210,210,210);" aria-valuenow="1" aria-valuemin="0" aria-valuemax="1">
-								<span class="sr-only">IV not available</span>
+								<span class="sr-only">IV <?= $locales->NOT_AVAILABLE ?></span>
 							</div>
 						</div>
 					<?php
@@ -138,20 +138,34 @@
 <div class="row big padding">
 	<h2 class="text-center sub-title"><?= $locales->FIGHT_TITLE ?></h2>
 
-	<?php foreach ($home->teams as $team => $total) { ?>
+		<?php 
+			foreach ($home->teams as $team => $total) {
+				if ($home->teams->rocket) { ?>
 
-		<div class="col-md-3 col-sm-6 col-sm-12 team">
+					<div class="col-md-3 col-sm-6 col-sm-12 team">
+						<div class="row">
+							<div class="col-xs-12 col-sm-12">
+								<p style="margin-top:0.5em;text-align:center;"><img src="core/img/<?= $team ?>.png" alt="Team <?= $team ?>" class="img-responsive" style="display:inline-block" width=80> <strong class="total-<?= $team ?>-js">0</strong> <?= $locales->GYMS ?></p>
 
-			<div class="row">
-				<div class="col-xs-12 col-sm-12">
-						<p style="margin-top:0.5em;text-align:center;"><img src="core/img/<?= $team ?>.png" alt="Team <?= $team ?>" class="img-responsive" style="display:inline-block" width=80> <strong class="total-<?= $team ?>-js">0</strong> <?= $locales->GYMS ?></p>
-				</div>
-			</div>
+				<?php
+				} else { ?>
 
-		</div>
-
-	<?php } ?>
+					<div class="col-md-4 col-sm-6 col-sm-12 team">
+						<div class="row">
+							<div class="col-xs-12 col-sm-12">
+								<?php
+									if ($team != 'rocket') { ?>
+										<p style="margin-top:0.5em;text-align:center;"><img src="core/img/<?= $team ?>.png" alt="Team <?= $team ?>" class="img-responsive" style="display:inline-block" width=80> <strong class="total-<?= $team ?>-js">0</strong> <?= $locales->GYMS ?></p>
+										<?php
+									}
+				} ?>
+							</div>
+						</div>
+					</div>					
+				<?php
+			} ?>
 </div>
+
 
 <script>
 	document.addEventListener('DOMContentLoaded', function() {

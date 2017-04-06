@@ -1,30 +1,30 @@
 /** global: trainerName */
 
 $(function () {
-	
+
 	$.getJSON( "core/json/variables.json", function( jsondata ) {
 		var pokeimg_suffix=jsondata['system']['pokeimg_suffix'];
 		var iv_numbers=jsondata['system']['iv_numbers'];
-		
+
 		$('.trainerLoader').hide();
 		var page = 0;
 		var teamSelector=0; //0=all;1=Blue;2=Red;3=Yellow
 		var rankingFilter=0; //0=Level & Gyms; 1=Level; 2=Gyms
-		
-		$('input#name').val(trainerName);
-		loadTrainers(page,$('input#name').val(),null,null,pokeimg_suffix,true,iv_numbers);
-		
+
+		$('input#name').filter(':visible').val(trainerName);
+		loadTrainers(page,$('input#name').filter(':visible').val(),null,null,pokeimg_suffix,true,iv_numbers);
+
 		page++;
 		$('#loadMoreButton').click(function () {
-			
-			loadTrainers(page,$('input#name').val(),teamSelector,rankingFilter,pokeimg_suffix,true,iv_numbers);
+
+			loadTrainers(page,$('input#name').filter(':visible').val(),teamSelector,rankingFilter,pokeimg_suffix,true,iv_numbers);
 			page++;
 		});
 		$("#searchTrainer").submit(function ( event ) {
 			page = 0;
-			$('input#name').val()!=''?$('#trainersGraph').hide():$('#trainersGraph').show();
+			$('input#name').filter(':visible').val()!=''?$('#trainersGraph').hide():$('#trainersGraph').show();
 			$('#trainersContainer tr:not(.trainersTemplate)').remove();
-			loadTrainers(page,$('input#name').val(),teamSelector,rankingFilter,pokeimg_suffix,true,iv_numbers);
+			loadTrainers(page,$('input#name').filter(':visible').val(),teamSelector,rankingFilter,pokeimg_suffix,true,iv_numbers);
 			page++;
 			event.preventDefault();
 		});
@@ -48,7 +48,7 @@ $(function () {
 			$("#teamSelectorText").html($(this).html());
 			event.preventDefault();
 			$("#searchTrainer").submit();
-			
+
 		});
 		$(".rankingOrderItems").click(function ( event ) {
 			switch ($(this).attr("id")) {
@@ -67,25 +67,25 @@ $(function () {
 			$("#rankingOrderText").html($(this).html());
 			event.preventDefault();
 			$("#searchTrainer").submit();
-			
+
 		});
 		window.onpopstate = function() {
 			if (window.history.state && "Trainer" === window.history.state.page) {
 				$('#trainersContainer').empty();
-				$('input#name').val(window.history.state.name);
-				loadTrainers(0,$('input#name').val(),teamSelector,rankingFilter,pokeimg_suffix,false,iv_numbers);
+				$('input#name').filter(':visible').val(window.history.state.name);
+				loadTrainers(0,$('input#name').filter(':visible').val(),teamSelector,rankingFilter,pokeimg_suffix,false,iv_numbers);
 			}
 			else{
 				window.history.back();
 			}
 		};
-		
+
 	});
 });
 
 function loadTrainers(page,name,teamSelector,rankingFilter,pokeimg_suffix,stayOnPage,iv_numbers) {
 	$('.trainerLoader').show();
-	
+
 	if (stayOnPage) {
 		// build a state for this name
 		var state = {name: name, page: 'Trainer'};
@@ -110,10 +110,10 @@ function loadTrainers(page,name,teamSelector,rankingFilter,pokeimg_suffix,stayOn
 		}
 	}).done(function (data) {
 		var internalIndex = 0;
-		$.each(data, function (trainerName, trainer) {
+		$.each(data.trainers, function (trainerName, trainer) {
 			trainerIndex++;
 			internalIndex++
-			printTrainer(trainer, trainerIndex,pokeimg_suffix,iv_numbers);
+			printTrainer(trainer, trainerIndex,pokeimg_suffix,iv_numbers, data.locale);
 		});
 		if(internalIndex < 10){
 			$('#loadMoreButton').hide();
@@ -128,14 +128,14 @@ function loadTrainers(page,name,teamSelector,rankingFilter,pokeimg_suffix,stayOn
 
 
 
-function printTrainer(trainer, trainerIndex,pokeimg_suffix,iv_numbers) {
+function printTrainer(trainer, trainerIndex,pokeimg_suffix,iv_numbers, locale) {
 	var trainersInfos = $('<tr>',{id: 'trainerInfos_'+trainer.name}).css('border-bottom','2px solid '+(trainer.team=="3"?"#ffbe08":trainer.team=="2"?"#ff7676":"#00aaff"));
 	trainersInfos.append($('<td>',{id : 'trainerIndex_'+trainer.name, text : trainerIndex}));
 	trainersInfos.append($('<td>',{id : 'trainerRank_'+trainer.name, text : trainer.rank}));
 	trainersInfos.append($('<td>',{id : 'trainerName_'+trainer.name}).append($('<a>',{href: 'trainer?name='+trainer.name, text: trainer.name})).click(
 		function (e) {
 			e.preventDefault();
-			$('input#name').val(trainer.name);
+			$('input#name').filter(':visible').val(trainer.name);
 			$("#searchTrainer").submit();
 			$('#trainerName_'+trainer.name).off('click');
 		}
@@ -149,8 +149,7 @@ function printTrainer(trainer, trainerIndex,pokeimg_suffix,iv_numbers) {
 	var trainersPokemonsContainer = $('<div>',{class : ""});
 	for (var pokeIndex = 0; pokeIndex<trainer.pokemons.length; pokeIndex++) {
 		var pokemon = trainer.pokemons[pokeIndex];
-		
-		trainersPokemonsContainer.append(printPokemon(pokemon,pokeimg_suffix,iv_numbers));
+		trainersPokemonsContainer.append(printPokemon(pokemon,pokeimg_suffix,iv_numbers, locale));
 	}
 
 	trainersPokemons.append(trainersPokemonsContainer);
@@ -158,7 +157,7 @@ function printTrainer(trainer, trainerIndex,pokeimg_suffix,iv_numbers) {
 	$('#trainersContainer').append(trainersPokemonsRow);
 }
 
-function printPokemon(pokemon,pokeimg_suffix,iv_numbers){
+function printPokemon(pokemon,pokeimg_suffix,iv_numbers,locale){
 	var trainerPokemon = $('<div>',{id : 'trainerPokemon_'+pokemon.pokemon_uid, class: "col-md-1 col-xs-4 pokemon-single", style: "text-align: center" });
 	var gymClass = "";
 	if ((pokemon.gym_id===null)) {
@@ -180,7 +179,7 @@ function printPokemon(pokemon,pokeimg_suffix,iv_numbers){
 		progressBar.append(
 					$('<div>',
 					{
-						title: 'IV Attack :'+pokemon.iv_attack,
+						title: locale.ivAttack+' :'+pokemon.iv_attack,
 						class: 'progress-bar progress-bar-danger' ,
 						role : 'progressbar',
 						text : pokemon.iv_attack,
@@ -191,7 +190,7 @@ function printPokemon(pokemon,pokeimg_suffix,iv_numbers){
 		progressBar.append(
 					$('<div>',
 					{
-						title: 'IV Defense :'+pokemon.iv_defense,
+						title: locale.ivDefense+' :'+pokemon.iv_defense,
 						class: 'progress-bar progress-bar-info' ,
 						role : 'progressbar',
 						text : pokemon.iv_defense,
@@ -202,7 +201,7 @@ function printPokemon(pokemon,pokeimg_suffix,iv_numbers){
 		progressBar.append(
 					$('<div>',
 					{
-						title: 'IV Stamina :'+pokemon.iv_stamina,
+						title: locale.ivStamina+' :'+pokemon.iv_stamina,
 						class: 'progress-bar progress-bar-success' ,
 						role : 'progressbar',
 						text : pokemon.iv_stamina,
@@ -215,7 +214,7 @@ function printPokemon(pokemon,pokeimg_suffix,iv_numbers){
 		progressBar.append(
 					$('<div>',
 					{
-						title: 'IV Attack :'+pokemon.iv_attack,
+						title: locale.ivAttack+' :'+pokemon.iv_attack,
 						class: 'progress-bar progress-bar-danger' ,
 						role : 'progressbar',
 						'aria-valuenow' : pokemon.iv_attack,
@@ -225,7 +224,7 @@ function printPokemon(pokemon,pokeimg_suffix,iv_numbers){
 		progressBar.append(
 					$('<div>',
 					{
-						title: 'IV Defense :'+pokemon.iv_defense,
+						title: locale.ivDefense+' :'+pokemon.iv_defense,
 						class: 'progress-bar progress-bar-info' ,
 						role : 'progressbar',
 						'aria-valuenow': pokemon.iv_defense,
@@ -235,7 +234,7 @@ function printPokemon(pokemon,pokeimg_suffix,iv_numbers){
 		progressBar.append(
 					$('<div>',
 					{
-						title: 'IV Stamina :'+pokemon.iv_stamina,
+						title: locale.ivStamina+' :'+pokemon.iv_stamina,
 						class: 'progress-bar progress-bar-success' ,
 						role : 'progressbar',
 						'aria-valuenow' :pokemon.iv_stamina,
@@ -245,13 +244,13 @@ function printPokemon(pokemon,pokeimg_suffix,iv_numbers){
 	}
 	trainerPokemon.append(progressBar);
 	if (pokemon.last_scanned === '0') {
-		trainerPokemon.append($('<small>',{text: "Today"}));
+		trainerPokemon.append($('<small>',{text: locale.today}));
 	}
 	else if (pokemon.last_scanned === '1') {
-		trainerPokemon.append($('<small>',{text: pokemon.last_scanned + " Day"}));
+		trainerPokemon.append($('<small>',{text: pokemon.last_scanned + " " + locale.day}));
 	}
 	else {
-		trainerPokemon.append($('<small>',{text: pokemon.last_scanned + " Days"}));
+		trainerPokemon.append($('<small>',{text: pokemon.last_scanned + " " + locale.days}));
 	}
 	return trainerPokemon;
 }
