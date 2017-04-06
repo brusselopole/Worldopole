@@ -37,7 +37,7 @@ if (directory() != '') {
 }
 
 if (isset($_SERVER['HTTP_HOST'])) {
-    if(isset($_SERVER['HTTP_X_FORWARDED_PROTO'])) {
+    if (isset($_SERVER['HTTP_X_FORWARDED_PROTO'])) {
         define('HOST_URL', $_SERVER['HTTP_X_FORWARDED_PROTO'] . '://'.$_SERVER['HTTP_HOST'].$subdirectory);
     }
     else if (isset($_SERVER['REQUEST_SCHEME'])) {
