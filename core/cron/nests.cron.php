@@ -22,7 +22,6 @@ ORDER BY p.pokemon_id";
 $result = $mysqli->query($req);
 
 while ($data = $result->fetch_object()) {
-	$pokeid = $data->pokemon_id;
 	$nests['pokemon_id'] = $data->pokemon_id;
 	$nests['total_pokemon'] = $data->total_pokemon;
 	$nests['latitude'] = $data->latitude;
