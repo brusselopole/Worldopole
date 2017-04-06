@@ -49,6 +49,7 @@ $timestamp	= time();
 include_once(SYS_PATH.'/core/cron/gym.cron.php');
 include_once(SYS_PATH.'/core/cron/pokemon.cron.php');
 include_once(SYS_PATH.'/core/cron/pokestop.cron.php');
+include_once(SYS_PATH.'/core/cron/nests.cron.php');
 if ($config->system->captcha_support) {
 	include_once(SYS_PATH.'/core/cron/captcha.cron.php');
 }

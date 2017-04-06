@@ -18,21 +18,22 @@
 		"text"			:	"<big>Like us on</big><br>Facebook!"
 	},
 	"system":{
-		"map_center_lat"	:	"50.844441",
-		"map_center_long"	:	"4.363557",
-		"zoom_level"		:	"13",
-		"GMaps_Key"		:	"#GMAPS_KEY#",
-		"timezone"		:	"Europe/Paris",
-		"max_pokemon"		:	251,
-		"pokeimg_suffix"	:	"_flat.png",
-		"recents_show_iv"	:	true,
-		"recents_filter"	:	true,
+		"map_center_lat"		:	"50.844441",
+		"map_center_long"		:	"4.363557",
+		"zoom_level"			:	"13",
+		"GMaps_Key"				:	"#GMAPS_KEY#",
+		"timezone"				:	"Europe/Paris",
+		"max_pokemon"			:	251,
+		"nest_exclude_pokemon"	:	[13,16,19,21,161,163,165,167,177,198],
+		"pokeimg_suffix"		:	"_flat.png",
+		"recents_show_iv"		:	true,
+		"recents_filter"		:	true,
 		"recents_filter_rating"	:	8,
 		"recents_filter_rarity"	:	0.01,
 		"only_lured_pokestops"  :	false,
-		"captcha_support"	:	false,
-		"iv_numbers"		:	false,
-		"forced_lang"		:	""
+		"captcha_support"		:	false,
+		"iv_numbers"			:	false,
+		"forced_lang"			:	""
 	},
 	"menu":[
 		{
@@ -58,6 +59,12 @@
 			"href"		:	"trainer",
 			"locale"	:	"TRAINERS",
 			"icon"		:	"fa-users"
+		},
+		{
+			"type"		:	"link",
+			"href"		:	"nests",
+			"locale"	:	"NAV_NESTS",
+			"icon"		:	"fa-binoculars"
 		},
 		{
 			"type"		:	"link_external",
