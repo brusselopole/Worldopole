@@ -37,18 +37,18 @@ if (directory() != '') {
 }
 
 if (isset($_SERVER['HTTP_HOST'])) {
-    if (isset($_SERVER['HTTP_X_FORWARDED_PROTO'])) {
-        define('HOST_URL', $_SERVER['HTTP_X_FORWARDED_PROTO'] . '://'.$_SERVER['HTTP_HOST'].$subdirectory);
-    }
-    else if (isset($_SERVER['REQUEST_SCHEME'])) {
-        define('HOST_URL', $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].$subdirectory);
-    } else {
-        if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') {
-            define('HOST_URL', 'https://'.$_SERVER['HTTP_HOST'].$subdirectory);
-        } else {
-            define('HOST_URL', 'http://'.$_SERVER['HTTP_HOST'].$subdirectory);
-        }
-    }
+	if (isset($_SERVER['HTTP_X_FORWARDED_PROTO'])) {
+		define('HOST_URL', $_SERVER['HTTP_X_FORWARDED_PROTO'] . '://'.$_SERVER['HTTP_HOST'].$subdirectory);
+	}
+	else if (isset($_SERVER['REQUEST_SCHEME'])) {
+		define('HOST_URL', $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].$subdirectory);
+	} else {
+		if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') {
+			define('HOST_URL', 'https://'.$_SERVER['HTTP_HOST'].$subdirectory);
+		} else {
+			define('HOST_URL', 'http://'.$_SERVER['HTTP_HOST'].$subdirectory);
+		}
+	}
 }
 
 ## Subdirectory trick
@@ -60,8 +60,8 @@ function directory()
 	if ($root == $filePath) {
 		return ''; // installed in the root
 	} else {
-		$subdir_path	= explode('/', $filePath);
-		$subdir		= end($subdir_path);
+		$subdir_path = explode('/', $filePath);
+		$subdir = end($subdir_path);
 		return $subdir;
 	}
 }
