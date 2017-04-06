@@ -15,7 +15,7 @@ $req = "SELECT p.pokemon_id, max(p.latitude) as latitude, max(p.longitude) as lo
 FROM pokemon p 
 INNER JOIN spawnpoint s ON (p.spawnpoint_id = s.id) 
 WHERE p.disappear_time > UTC_TIMESTAMP - INTERVAL 24 HOUR 
-AND p.pokemon_id NOT IN (".$nest_pokemon_ids.")
+AND p.pokemon_id NOT IN (".$nest_exclude_pokemon_ids.")
 GROUP BY p.spawnpoint_id, p.pokemon_id 
 HAVING count(p.pokemon_id) >= 6 
 ORDER BY p.pokemon_id";
