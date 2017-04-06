@@ -6,7 +6,7 @@
  */
 
 
-# EDIT ME PLEASE 
+# EDIT ME PLEASE
 
 // mysql db name
 define('SYS_DB_NAME', '#SYS_DB_NAME#');
@@ -20,7 +20,7 @@ define('SYS_DB_HOST', '#SYS_DB_HOST#');
 define('SYS_DB_PORT', 3306);
 
 
-# Please, do not touch me, I'm fine ;) 
+# Please, do not touch me, I'm fine ;)
 
 // full path
 define('SYS_PATH', realpath(dirname(__FILE__)));
@@ -37,18 +37,21 @@ if (directory() != '') {
 }
 
 if (isset($_SERVER['HTTP_HOST'])) {
-	if (isset($_SERVER['REQUEST_SCHEME'])) {
-		define('HOST_URL', $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].$subdirectory);
-	} else {
-		if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') {
-			define('HOST_URL', 'https://'.$_SERVER['HTTP_HOST'].$subdirectory);
-		} else {
-			define('HOST_URL', 'http://'.$_SERVER['HTTP_HOST'].$subdirectory);
-		}
-	}
+    if(isset($_SERVER['HTTP_X_FORWARDED_PROTO'])) {
+        define('HOST_URL', $_SERVER['HTTP_X_FORWARDED_PROTO'] . '://'.$_SERVER['HTTP_HOST'].$subdirectory);
+    }
+    else if (isset($_SERVER['REQUEST_SCHEME'])) {
+        define('HOST_URL', $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].$subdirectory);
+    } else {
+        if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') {
+            define('HOST_URL', 'https://'.$_SERVER['HTTP_HOST'].$subdirectory);
+        } else {
+            define('HOST_URL', 'http://'.$_SERVER['HTTP_HOST'].$subdirectory);
+        }
+    }
 }
 
-## Subdirectory trick 
+## Subdirectory trick
 function directory()
 {
 	$root = $_SERVER['DOCUMENT_ROOT'];
