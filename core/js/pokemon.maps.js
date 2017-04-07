@@ -278,7 +278,7 @@ function updateLive(pokeimg_suffix){
 		}
 	}).done(function(pokemons){
 		for (var i = 0; i < pokemons.points.length; i++) {
-			addPokemonMarker(pokemons[i],pokeimg_suffix, pokemons.locale)
+			addPokemonMarker(pokemons.points[i],pokeimg_suffix, pokemons.locale)
 		}
 		updateLiveTimeout=setTimeout(function(){ updateLive(pokeimg_suffix) },5000);
 	});
