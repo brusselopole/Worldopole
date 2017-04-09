@@ -122,13 +122,13 @@ function getInfo() {
 	return[
 		<?php
 			foreach ($nests as $data) {
-				$pokeid = $data['pokemon_id']; ?>
+				$pokeid = $data['pokemon_id'] ?>
 				contentString = '<div id="content">'+
 						'<div id="siteNotice">'+
 						'</div>'+
 						'<div id="bodyContent">'+
 						'<p><b><?= $pokemons->pokemon->$pokeid->name ?></b>: <?= $data['total_pokemon'] ?> <?= $locales->NESTS_PER_DAY ?> </p>' +
-						'</div>',
+						'<p>from :<?= $data['starttime'] ?> to :<?= $data['endtime'] ?></p></div>',
 		<?php
 			} ?>
 	];
