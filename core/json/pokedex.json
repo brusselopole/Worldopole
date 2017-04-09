@@ -1581,7 +1581,7 @@
     },
     "106": {
       "atk": 224,
-      "candy_id": 106,
+      "candy_id": 236,
       "charge_move": "Close Combat",
       "def": 211,
       "max_cp": 2406,
@@ -1595,7 +1595,7 @@
     },
     "107": {
       "atk": 193,
-      "candy_id": 107,
+      "candy_id": 236,
       "charge_move": "Close Combat",
       "def": 212,
       "max_cp": 2098,
@@ -2032,6 +2032,7 @@
     },
     "137": {
       "atk": 153,
+      "candies": 50,
       "candy_id": 137,
       "charge_move": "Signal Beam",
       "def": 139,
@@ -2271,7 +2272,7 @@
     "153": {
       "atk": 122,
       "candies": 100,
-      "candy_id": 153,
+      "candy_id": 152,
       "charge_move": "Grass Knot",
       "def": 155,
       "max_cp": 1296,
@@ -2285,7 +2286,7 @@
     },
     "154": {
       "atk": 168,
-      "candy_id": 154,
+      "candy_id": 152,
       "charge_move": "Solar Beam",
       "def": 202,
       "max_cp": 2227,
@@ -2315,7 +2316,7 @@
     "156": {
       "atk": 158,
       "candies": 100,
-      "candy_id": 156,
+      "candy_id": 155,
       "charge_move": "Flamethrower",
       "def": 129,
       "max_cp": 1484,
@@ -2329,7 +2330,7 @@
     },
     "157": {
       "atk": 223,
-      "candy_id": 157,
+      "candy_id": 155,
       "charge_move": "Overheat",
       "def": 176,
       "max_cp": 2686,
@@ -2359,7 +2360,7 @@
     "159": {
       "atk": 150,
       "candies": 100,
-      "candy_id": 159,
+      "candy_id": 158,
       "charge_move": "Water Pulse",
       "def": 151,
       "max_cp": 1598,
@@ -2373,7 +2374,7 @@
     },
     "160": {
       "atk": 205,
-      "candy_id": 160,
+      "candy_id": 158,
       "charge_move": "Hydro Pump",
       "def": 197,
       "max_cp": 2721,
@@ -2402,7 +2403,7 @@
     },
     "162": {
       "atk": 148,
-      "candy_id": 162,
+      "candy_id": 161,
       "charge_move": "Hyper Beam",
       "def": 130,
       "max_cp": 1667,
@@ -2432,7 +2433,7 @@
     },
     "164": {
       "atk": 145,
-      "candy_id": 164,
+      "candy_id": 163,
       "charge_move": "Sky Attack",
       "def": 179,
       "max_cp": 2040,
@@ -2463,7 +2464,7 @@
     },
     "166": {
       "atk": 107,
-      "candy_id": 166,
+      "candy_id": 165,
       "charge_move": "Bug Buzz",
       "def": 209,
       "max_cp": 1275,
@@ -2494,7 +2495,7 @@
     },
     "168": {
       "atk": 161,
-      "candy_id": 168,
+      "candy_id": 167,
       "charge_move": "Megahorn",
       "def": 128,
       "max_cp": 1636,
@@ -2509,7 +2510,7 @@
     },
     "169": {
       "atk": 194,
-      "candy_id": 169,
+      "candy_id": 41,
       "charge_move": "Sludge Bomb",
       "def": 178,
       "max_cp": 2466,
@@ -2540,7 +2541,7 @@
     },
     "171": {
       "atk": 146,
-      "candy_id": 171,
+      "candy_id": 170,
       "charge_move": "Hydro Pump",
       "def": 146,
       "max_cp": 2077,
@@ -2556,7 +2557,7 @@
     "172": {
       "atk": 77,
       "candies": 25,
-      "candy_id": 172,
+      "candy_id": 25,
       "charge_move": "Thunderbolt",
       "def": 63,
       "max_cp": 376,
@@ -2571,7 +2572,7 @@
     "173": {
       "atk": 75,
       "candies": 25,
-      "candy_id": 173,
+      "candy_id": 35,
       "charge_move": "Psychic",
       "def": 91,
       "max_cp": 620,
@@ -2586,7 +2587,7 @@
     "174": {
       "atk": 69,
       "candies": 25,
-      "candy_id": 174,
+      "candy_id": 39,
       "charge_move": "Body Slam",
       "def": 34,
       "max_cp": 512,
@@ -2616,7 +2617,7 @@
     },
     "176": {
       "atk": 139,
-      "candy_id": 176,
+      "candy_id": 175,
       "charge_move": "Dazzling Gleam",
       "def": 191,
       "max_cp": 1543,
@@ -2647,7 +2648,7 @@
     },
     "178": {
       "atk": 192,
-      "candy_id": 178,
+      "candy_id": 177,
       "charge_move": "Future Sight",
       "def": 146,
       "max_cp": 1975,
@@ -2678,7 +2679,7 @@
     "180": {
       "atk": 145,
       "candies": 100,
-      "candy_id": 180,
+      "candy_id": 179,
       "charge_move": "Thunderbolt",
       "def": 112,
       "max_cp": 1402,
@@ -2692,7 +2693,7 @@
     },
     "181": {
       "atk": 211,
-      "candy_id": 181,
+      "candy_id": 179,
       "charge_move": "Zap Cannon",
       "def": 172,
       "max_cp": 2695,
@@ -2706,7 +2707,7 @@
     },
     "182": {
       "atk": 169,
-      "candy_id": 182,
+      "candy_id": 43,
       "charge_move": "Leaf Blade",
       "def": 189,
       "max_cp": 2108,
@@ -2735,7 +2736,7 @@
     },
     "184": {
       "atk": 112,
-      "candy_id": 184,
+      "candy_id": 183,
       "charge_move": "Hydro Pump",
       "def": 152,
       "max_cp": 1503,
@@ -2764,7 +2765,7 @@
     },
     "186": {
       "atk": 174,
-      "candy_id": 186,
+      "candy_id": 60,
       "charge_move": "Hydro Pump",
       "def": 192,
       "max_cp": 2371,
@@ -2795,7 +2796,7 @@
     "188": {
       "atk": 91,
       "candies": 100,
-      "candy_id": 188,
+      "candy_id": 187,
       "charge_move": "Grass Knot",
       "def": 127,
       "max_cp": 882,
@@ -2810,7 +2811,7 @@
     },
     "189": {
       "atk": 118,
-      "candy_id": 189,
+      "candy_id": 187,
       "charge_move": "Solar Beam",
       "def": 197,
       "max_cp": 1553,
@@ -2854,7 +2855,7 @@
     },
     "192": {
       "atk": 185,
-      "candy_id": 192,
+      "candy_id": 191,
       "charge_move": "Solar Beam",
       "def": 148,
       "max_cp": 2048,
@@ -2899,7 +2900,7 @@
     },
     "195": {
       "atk": 152,
-      "candy_id": 195,
+      "candy_id": 194,
       "charge_move": "Earthquake",
       "def": 152,
       "max_cp": 1929,
@@ -2914,7 +2915,7 @@
     },
     "196": {
       "atk": 261,
-      "candy_id": 196,
+      "candy_id": 133,
       "charge_move": "Future Sight",
       "def": 194,
       "max_cp": 3000,
@@ -2928,7 +2929,7 @@
     },
     "197": {
       "atk": 126,
-      "candy_id": 197,
+      "candy_id": 133,
       "charge_move": "Foul Play",
       "def": 250,
       "max_cp": 2052,
@@ -2957,7 +2958,7 @@
     },
     "199": {
       "atk": 177,
-      "candy_id": 199,
+      "candy_id": 79,
       "charge_move": "Psychic",
       "def": 194,
       "max_cp": 2482,
@@ -3044,7 +3045,7 @@
     },
     "205": {
       "atk": 161,
-      "candy_id": 205,
+      "candy_id": 204,
       "charge_move": "Heavy Slam",
       "def": 242,
       "max_cp": 2263,
@@ -3088,7 +3089,7 @@
     },
     "208": {
       "atk": 148,
-      "candy_id": 208,
+      "candy_id": 95,
       "charge_move": "Heavy Slam",
       "def": 333,
       "max_cp": 2439,
@@ -3118,7 +3119,7 @@
     },
     "210": {
       "atk": 212,
-      "candy_id": 210,
+      "candy_id": 209,
       "charge_move": "Play Rough",
       "def": 137,
       "max_cp": 2440,
@@ -3147,7 +3148,7 @@
     },
     "212": {
       "atk": 236,
-      "candy_id": 212,
+      "candy_id": 123,
       "charge_move": "Iron Head",
       "def": 191,
       "max_cp": 2801,
@@ -3222,7 +3223,7 @@
     },
     "217": {
       "atk": 236,
-      "candy_id": 217,
+      "candy_id": 216,
       "charge_move": "Hyper Beam",
       "def": 144,
       "max_cp": 2760,
@@ -3251,7 +3252,7 @@
     },
     "219": {
       "atk": 139,
-      "candy_id": 219,
+      "candy_id": 218,
       "charge_move": "Overheat",
       "def": 209,
       "max_cp": 1543,
@@ -3282,7 +3283,7 @@
     },
     "221": {
       "atk": 181,
-      "candy_id": 221,
+      "candy_id": 220,
       "charge_move": "Avalanche",
       "def": 147,
       "max_cp": 2284,
@@ -3327,7 +3328,7 @@
     },
     "224": {
       "atk": 197,
-      "candy_id": 224,
+      "candy_id": 223,
       "charge_move": "Water Pulse",
       "def": 141,
       "max_cp": 2124,
@@ -3402,7 +3403,7 @@
     },
     "229": {
       "atk": 224,
-      "candy_id": 229,
+      "candy_id": 228,
       "charge_move": "Foul Play",
       "def": 159,
       "max_cp": 2529,
@@ -3417,7 +3418,7 @@
     },
     "230": {
       "atk": 194,
-      "candy_id": 230,
+      "candy_id": 117,
       "charge_move": "Outrage",
       "def": 194,
       "max_cp": 2424,
@@ -3447,7 +3448,7 @@
     },
     "232": {
       "atk": 214,
-      "candy_id": 232,
+      "candy_id": 231,
       "charge_move": "Earthquake",
       "def": 214,
       "max_cp": 3022,
@@ -3461,7 +3462,7 @@
     },
     "233": {
       "atk": 198,
-      "candy_id": 233,
+      "candy_id": 137,
       "charge_move": "?",
       "def": 183,
       "max_cp": 2546,
@@ -3518,7 +3519,7 @@
     },
     "237": {
       "atk": 173,
-      "candy_id": 237,
+      "candy_id": 236,
       "charge_move": "Close Combat",
       "def": 214,
       "max_cp": 1905,
@@ -3533,7 +3534,7 @@
     "238": {
       "atk": 153,
       "candies": 25,
-      "candy_id": 238,
+      "candy_id": 124,
       "charge_move": "Ice Beam",
       "def": 116,
       "max_cp": 1230,
@@ -3549,7 +3550,7 @@
     "239": {
       "atk": 135,
       "candies": 25,
-      "candy_id": 239,
+      "candy_id": 125,
       "charge_move": "Thunderbolt",
       "def": 110,
       "max_cp": 1073,
@@ -3564,7 +3565,7 @@
     "240": {
       "atk": 151,
       "candies": 25,
-      "candy_id": 240,
+      "candy_id": 126,
       "charge_move": "Flamethrower",
       "def": 108,
       "max_cp": 1178,
@@ -3592,7 +3593,7 @@
     },
     "242": {
       "atk": 129,
-      "candy_id": 242,
+      "candy_id": 113,
       "charge_move": "Hyper Beam",
       "def": 229,
       "max_cp": 3219,
@@ -3665,7 +3666,7 @@
     "247": {
       "atk": 155,
       "candies": 100,
-      "candy_id": 247,
+      "candy_id": 246,
       "charge_move": "Dig",
       "def": 133,
       "max_cp": 1608,
@@ -3680,7 +3681,7 @@
     },
     "248": {
       "atk": 251,
-      "candy_id": 248,
+      "candy_id": 246,
       "charge_move": "Stone Edge",
       "def": 212,
       "max_cp": 3670,
