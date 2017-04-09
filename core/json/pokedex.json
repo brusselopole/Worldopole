@@ -2143,7 +2143,7 @@
       "max_cp": 2933,
       "max_hp": 153,
       "quick_move": "Frost Breath",
-      "rating": 0.0,
+      "rating": 10.0,
       "sta": 180,
       "types": [
         "Flying",
@@ -2158,7 +2158,7 @@
       "max_cp": 3330,
       "max_hp": 153,
       "quick_move": "Thunder Shock",
-      "rating": 0.0,
+      "rating": 10.0,
       "sta": 180,
       "types": [
         "Electric",
@@ -2173,7 +2173,7 @@
       "max_cp": 3272,
       "max_hp": 153,
       "quick_move": "Ember",
-      "rating": 0.0,
+      "rating": 10.0,
       "sta": 180,
       "types": [
         "Fire",
@@ -2233,7 +2233,7 @@
       "max_cp": 4760,
       "max_hp": 178,
       "quick_move": "Psycho Cut",
-      "rating": 0.0,
+      "rating": 10.0,
       "sta": 212,
       "types": [
         "Psychic"
@@ -2247,7 +2247,7 @@
       "max_cp": 3083,
       "max_hp": 168,
       "quick_move": "Pound",
-      "rating": 0.0,
+      "rating": 10.0,
       "sta": 200,
       "types": [
         "Psychic"
@@ -3612,7 +3612,7 @@
       "max_cp": 3349,
       "max_hp": 153,
       "quick_move": "?",
-      "rating": 0.0,
+      "rating": 10.0,
       "sta": 180,
       "types": [
         "Electric"
@@ -3626,7 +3626,7 @@
       "max_cp": 3412,
       "max_hp": 192,
       "quick_move": "?",
-      "rating": 0.0,
+      "rating": 10.0,
       "sta": 230,
       "types": [
         "Fire"
@@ -3640,7 +3640,7 @@
       "max_cp": 2823,
       "max_hp": 168,
       "quick_move": "?",
-      "rating": 0.0,
+      "rating": 10.0,
       "sta": 200,
       "types": [
         "Water"
@@ -3701,7 +3701,7 @@
       "max_cp": 3598,
       "max_hp": 178,
       "quick_move": "?",
-      "rating": 0.0,
+      "rating": 10.0,
       "sta": 212,
       "types": [
         "Flying",
@@ -3716,7 +3716,7 @@
       "max_cp": 4650,
       "max_hp": 178,
       "quick_move": "?",
-      "rating": 0.0,
+      "rating": 10.0,
       "sta": 212,
       "types": [
         "Fire",
@@ -3731,7 +3731,7 @@
       "max_cp": 3090,
       "max_hp": 168,
       "quick_move": "?",
-      "rating": 0.0,
+      "rating": 10.0,
       "sta": 200,
       "types": [
         "Grass",
