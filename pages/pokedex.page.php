@@ -32,7 +32,6 @@
 					echo 'unseen';
 } ?> "></a>
 				<p class="pkmn-name"><a href="<?= $pokemon->permalink ?>">#<?= sprintf('%03d', $pokemon->id); ?> <?= $pokemon->name ?></a></p>
-
 				<p><?php if ($pokemon->spawn == 0) {
 					echo $locales->UNSEEN;
 } else {
