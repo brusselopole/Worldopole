@@ -6,6 +6,11 @@
 $variables 	= SYS_PATH.'/core/json/variables.json';
 $config 	= json_decode(file_get_contents($variables));
 
+if (!defined('SYS_PATH')) {
+	echo 'Error: config.php does not exist or failed to load.<br>';
+	echo 'Check whether you renamed the config.example.php file!';
+	exit();
+} 
 if (!isset($config->system)) {
 	echo 'Error: Could not load core/json/variables.json.<br>';
 	echo 'json_last_error(): '.json_last_error().'<br>';
