@@ -3,7 +3,7 @@ function initMap()
 {
 	$('.gym_details').hide();
 	//ensure that gmaps is loaded before loading infobox (nasty but usefull trick)
-	$.getScript("//rawgit.com/googlemaps/v3-utility-library/master/infobox/src/infobox.js").done(function () {
+	$.getScript("//cdn.rawgit.com/googlemaps/v3-utility-library/master/infobox/src/infobox.js").done(function () {
 		$.ajax({
 			'async': true,
 			'type': "GET",
