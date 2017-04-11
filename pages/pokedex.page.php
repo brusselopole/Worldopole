@@ -31,11 +31,7 @@
 				<a href="<?= $pokemon->permalink ?>"><img src="<?= $pokemon->img ?>" alt="<?= $pokemon->name ?>" class="img-responsive <?php if ($pokemon->spawn == 0) {
 					echo 'unseen';
 } ?> "></a>
-                <?php if ($config->system->pokedex_numbers) { ?>
-                    <p class="pkmn-name"><a href="<?= $pokemon->permalink ?>">#<?= sprintf('%03d', $pokemon->id); ?> <?= $pokemon->name ?></a></p>
-                <?php } else { ?>
-                    <p class="pkmn-name"><a href="<?= $pokemon->permalink ?>"><?= $pokemon->name ?></a></p>
-                <?php } ?>
+				<p class="pkmn-name"><a href="<?= $pokemon->permalink ?>">#<?= sprintf('%03d', $pokemon->id); ?> <?= $pokemon->name ?></a></p>
 
 				<p><?php if ($pokemon->spawn == 0) {
 					echo $locales->UNSEEN;
