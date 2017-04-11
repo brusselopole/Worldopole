@@ -244,89 +244,19 @@ function printPokemon(pokemon,pokeimg_suffix,iv_numbers,locale){
 	}
 	trainerPokemon.append(progressBar);
 	
-	pokemon_level = '';
-	
-	if (pokemon.cp_multiplier <= '0.094000' && pokemon.additional_cp_multiplier <= '0') {pokemon_level = '1';}
-	else if (pokemon.cp_multiplier <= '0.094000' && pokemon.additional_cp_multiplier > '0') {pokemon_level = '1.5';}
-	else if (pokemon.cp_multiplier <= '0.166398' && pokemon.additional_cp_multiplier <= '0') {pokemon_level = '2';}
-	else if (pokemon.cp_multiplier <= '0.166398' && pokemon.additional_cp_multiplier > '0') {pokemon_level = '2.5';}
-	else if (pokemon.cp_multiplier <= '0.215732' && pokemon.additional_cp_multiplier <= '0') {pokemon_level = '3';}
-	else if (pokemon.cp_multiplier <= '0.215732' && pokemon.additional_cp_multiplier > '0') {pokemon_level = '3.5';}
-	else if (pokemon.cp_multiplier <= '0.255720' && pokemon.additional_cp_multiplier <= '0') {pokemon_level = '4';}
-	else if (pokemon.cp_multiplier <= '0.255720' && pokemon.additional_cp_multiplier > '0') {pokemon_level = '4.5';}
-	else if (pokemon.cp_multiplier <= '0.290250' && pokemon.additional_cp_multiplier <= '0') {pokemon_level = '5';}
-	else if (pokemon.cp_multiplier <= '0.290250' && pokemon.additional_cp_multiplier > '0') {pokemon_level = '5.5';}
-	else if (pokemon.cp_multiplier <= '0.321088' && pokemon.additional_cp_multiplier <= '0') {pokemon_level = '6';}
-	else if (pokemon.cp_multiplier <= '0.321088' && pokemon.additional_cp_multiplier > '0') {pokemon_level = '6.5';}
-	else if (pokemon.cp_multiplier <= '0.349213' && pokemon.additional_cp_multiplier <= '0') {pokemon_level = '7';}
-	else if (pokemon.cp_multiplier <= '0.349213' && pokemon.additional_cp_multiplier > '0') {pokemon_level = '7.5';}
-	else if (pokemon.cp_multiplier <= '0.375236' && pokemon.additional_cp_multiplier <= '0') {pokemon_level = '8';}
-	else if (pokemon.cp_multiplier <= '0.375236' && pokemon.additional_cp_multiplier > '0') {pokemon_level = '8.5';}
-	else if (pokemon.cp_multiplier <= '0.399567' && pokemon.additional_cp_multiplier <= '0') {pokemon_level = '9';}
-	else if (pokemon.cp_multiplier <= '0.399567' && pokemon.additional_cp_multiplier > '0') {pokemon_level = '9.5';}
-	else if (pokemon.cp_multiplier <= '0.422500' && pokemon.additional_cp_multiplier <= '0') {pokemon_level = '10';}
-	else if (pokemon.cp_multiplier <= '0.422500' && pokemon.additional_cp_multiplier > '0') {pokemon_level = '10.5';}
-	else if (pokemon.cp_multiplier <= '0.443108' && pokemon.additional_cp_multiplier <= '0') {pokemon_level = '11';}
-	else if (pokemon.cp_multiplier <= '0.443108' && pokemon.additional_cp_multiplier > '0') {pokemon_level = '11.5';}
-	else if (pokemon.cp_multiplier <= '0.462798' && pokemon.additional_cp_multiplier <= '0') {pokemon_level = '12';}
-	else if (pokemon.cp_multiplier <= '0.462798' && pokemon.additional_cp_multiplier > '0') {pokemon_level = '12.5';}
-	else if (pokemon.cp_multiplier <= '0.481685' && pokemon.additional_cp_multiplier <= '0') {pokemon_level = '13';}
-	else if (pokemon.cp_multiplier <= '0.481685' && pokemon.additional_cp_multiplier > '0') {pokemon_level = '13.5';}
-	else if (pokemon.cp_multiplier <= '0.499858' && pokemon.additional_cp_multiplier <= '0') {pokemon_level = '14';}
-	else if (pokemon.cp_multiplier <= '0.499858' && pokemon.additional_cp_multiplier > '0') {pokemon_level = '14.5';}
-	else if (pokemon.cp_multiplier <= '0.517394' && pokemon.additional_cp_multiplier <= '0') {pokemon_level = '15';}
-	else if (pokemon.cp_multiplier <= '0.517394' && pokemon.additional_cp_multiplier > '0') {pokemon_level = '15.5';}
-	else if (pokemon.cp_multiplier <= '0.534354' && pokemon.additional_cp_multiplier <= '0') {pokemon_level = '16';}
-	else if (pokemon.cp_multiplier <= '0.534354' && pokemon.additional_cp_multiplier > '0') {pokemon_level = '16.5';}
-	else if (pokemon.cp_multiplier <= '0.550793' && pokemon.additional_cp_multiplier <= '0') {pokemon_level = '17';}
-	else if (pokemon.cp_multiplier <= '0.550793' && pokemon.additional_cp_multiplier > '0') {pokemon_level = '17.5';}
-	else if (pokemon.cp_multiplier <= '0.566755' && pokemon.additional_cp_multiplier <= '0') {pokemon_level = '18';}
-	else if (pokemon.cp_multiplier <= '0.566755' && pokemon.additional_cp_multiplier > '0') {pokemon_level = '18.5';}
-	else if (pokemon.cp_multiplier <= '0.582279' && pokemon.additional_cp_multiplier <= '0') {pokemon_level = '19';}
-	else if (pokemon.cp_multiplier <= '0.582279' && pokemon.additional_cp_multiplier > '0') {pokemon_level = '19.5';}
-	else if (pokemon.cp_multiplier <= '0.597400' && pokemon.additional_cp_multiplier <= '0') {pokemon_level = '20';}
-	else if (pokemon.cp_multiplier <= '0.597400' && pokemon.additional_cp_multiplier > '0') {pokemon_level = '20.5';}
-	else if (pokemon.cp_multiplier <= '0.612157' && pokemon.additional_cp_multiplier <= '0') {pokemon_level = '21';}
-	else if (pokemon.cp_multiplier <= '0.612157' && pokemon.additional_cp_multiplier > '0') {pokemon_level = '21.5';}
-	else if (pokemon.cp_multiplier <= '0.626567' && pokemon.additional_cp_multiplier <= '0') {pokemon_level = '22';}
-	else if (pokemon.cp_multiplier <= '0.626567' && pokemon.additional_cp_multiplier > '0') {pokemon_level = '22.5';}
-	else if (pokemon.cp_multiplier <= '0.640653' && pokemon.additional_cp_multiplier <= '0') {pokemon_level = '23';}
-	else if (pokemon.cp_multiplier <= '0.640653' && pokemon.additional_cp_multiplier > '0') {pokemon_level = '23.5';}
-	else if (pokemon.cp_multiplier <= '0.654436' && pokemon.additional_cp_multiplier <= '0') {pokemon_level = '24';}
-	else if (pokemon.cp_multiplier <= '0.654436' && pokemon.additional_cp_multiplier > '0') {pokemon_level = '24.5';}
-	else if (pokemon.cp_multiplier <= '0.667934' && pokemon.additional_cp_multiplier <= '0') {pokemon_level = '25';}
-	else if (pokemon.cp_multiplier <= '0.667934' && pokemon.additional_cp_multiplier > '0') {pokemon_level = '25.5';}
-	else if (pokemon.cp_multiplier <= '0.681165' && pokemon.additional_cp_multiplier <= '0') {pokemon_level = '26';}
-	else if (pokemon.cp_multiplier <= '0.681165' && pokemon.additional_cp_multiplier > '0') {pokemon_level = '26.5';}
-	else if (pokemon.cp_multiplier <= '0.694144' && pokemon.additional_cp_multiplier <= '0') {pokemon_level = '27';}
-	else if (pokemon.cp_multiplier <= '0.694144' && pokemon.additional_cp_multiplier > '0') {pokemon_level = '27.5';}
-	else if (pokemon.cp_multiplier <= '0.706884' && pokemon.additional_cp_multiplier <= '0') {pokemon_level = '28';}
-	else if (pokemon.cp_multiplier <= '0.706884' && pokemon.additional_cp_multiplier > '0') {pokemon_level = '28.5';}
-	else if (pokemon.cp_multiplier <= '0.719399' && pokemon.additional_cp_multiplier <= '0') {pokemon_level = '29';}
-	else if (pokemon.cp_multiplier <= '0.719399' && pokemon.additional_cp_multiplier > '0') {pokemon_level = '29.5';}
-	else if (pokemon.cp_multiplier <= '0.731700' && pokemon.additional_cp_multiplier <= '0') {pokemon_level = '30';}
-	else if (pokemon.cp_multiplier <= '0.731700' && pokemon.additional_cp_multiplier > '0') {pokemon_level = '30.5';}
-	else if (pokemon.cp_multiplier <= '0.737769' && pokemon.additional_cp_multiplier <= '0') {pokemon_level = '31';}
-	else if (pokemon.cp_multiplier <= '0.737769' && pokemon.additional_cp_multiplier > '0') {pokemon_level = '31.5';}
-	else if (pokemon.cp_multiplier <= '0.743789' && pokemon.additional_cp_multiplier <= '0') {pokemon_level = '32';}
-	else if (pokemon.cp_multiplier <= '0.743789' && pokemon.additional_cp_multiplier > '0') {pokemon_level = '32.5';}
-	else if (pokemon.cp_multiplier <= '0.749761' && pokemon.additional_cp_multiplier <= '0') {pokemon_level = '33';}
-	else if (pokemon.cp_multiplier <= '0.749761' && pokemon.additional_cp_multiplier > '0') {pokemon_level = '33.5';}
-	else if (pokemon.cp_multiplier <= '0.755686' && pokemon.additional_cp_multiplier <= '0') {pokemon_level = '34';}
-	else if (pokemon.cp_multiplier <= '0.755686' && pokemon.additional_cp_multiplier > '0') {pokemon_level = '34.5';}
-	else if (pokemon.cp_multiplier <= '0.761564' && pokemon.additional_cp_multiplier <= '0') {pokemon_level = '35';}
-	else if (pokemon.cp_multiplier <= '0.761564' && pokemon.additional_cp_multiplier > '0') {pokemon_level = '35.5';}
-	else if (pokemon.cp_multiplier <= '0.767397' && pokemon.additional_cp_multiplier <= '0') {pokemon_level = '36';}
-	else if (pokemon.cp_multiplier <= '0.767397' && pokemon.additional_cp_multiplier > '0') {pokemon_level = '36.5';}
-	else if (pokemon.cp_multiplier <= '0.773187' && pokemon.additional_cp_multiplier <= '0') {pokemon_level = '37';}
-	else if (pokemon.cp_multiplier <= '0.773187' && pokemon.additional_cp_multiplier > '0') {pokemon_level = '37.5';}
-	else if (pokemon.cp_multiplier <= '0.778933' && pokemon.additional_cp_multiplier <= '0') {pokemon_level = '38';}
-	else if (pokemon.cp_multiplier <= '0.778933' && pokemon.additional_cp_multiplier > '0') {pokemon_level = '38.5';}
-	else if (pokemon.cp_multiplier <= '0.784637' && pokemon.additional_cp_multiplier <= '0') {pokemon_level = '39';}
-	else if (pokemon.cp_multiplier <= '0.784637' && pokemon.additional_cp_multiplier > '0') {pokemon_level = '39.5';}
-	else if (pokemon.cp_multiplier <= '0.790300' && pokemon.additional_cp_multiplier <= '0') {pokemon_level = '40';}
-	else if (pokemon.cp_multiplier <= '0.790300' && pokemon.additional_cp_multiplier > '0') {pokemon_level = '40.5';}
+	var cpm_arr={1:.09399999678134918,1.5:.1351374313235283,2:.16639786958694458,2.5:.1926509141921997,3:.21573247015476227,3.5:.23657265305519104,4:.2557200491428375,4.5:.27353037893772125,5:.29024988412857056,5.5:.3060573786497116,6:.3210875988006592,6.5:.33544503152370453,7:.3492126762866974,7.5:.362457737326622,8:.37523558735847473,8.5:.38759241108516856,9:.39956727623939514,9.5:.4111935495172506,10:.4225000143051148,10.5:.4329264134104144,11:.443107545375824,11.5:.4530599538719858,12:.46279838681221,12.5:.4723360780626535,13:.4816849529743195,13.5:.4908558102324605,14:.4998584389686584,14.5:.5087017565965652,15:.517393946647644,15.5:.5259425118565559,16:.5343543291091919,16.5:.5426357612013817,17:.5507926940917969,17.5:.5588305993005633,18:.5667545199394226,18.5:.574569147080183,19:.5822789072990417,19.5:.5898879119195044,20:.5974000096321106,20.5:.6048236563801765,21:.6121572852134705,21.5:.6194041110575199,22:.6265671253204346,22.5:.633649181574583,23:.6406529545783997,23.5:.6475809663534164,24:.654435634613037,24.5:.6612192690372467,25:.667934000492096,25.5:.6745819002389908,26:.6811649203300476,26.5:.6876849085092545,27:.6941436529159546,27.5:.7005428969860077,28:.7068842053413391,28.5:.7131690979003906,29:.719399094581604,29.5:.7255756109952927,30:.7317000031471252,30.5:.7347410172224045,31:.7377694845199585,31.5:.740785576403141,32:.7437894344329834,32.5:.7467812150716782,33:.74976104,33.5:.752729104,34:.75568551,34.5:.75863037,35:.76156384,35.5:.76448607,36:.76739717,36.5:.77029727,37:.7731865,37.5:.77606494,38:.77893275,38.5:.78179006,39:.78463697,39.5:.78747358,40:.79030001,40.5:.7931164};
 
+	// assume some super high level
+	pokemon_level = 50;
+	$.each(cpm_arr, function(lvl, cpm) {
+		if (pokemon.cp_multiplier <= cpm) {
+			pokemon_level = pokemon_level > lvl ? lvl : pokemon_level;
+		}
+	});
+
+	pokemon_level = Number(pokemon_level) + Number(pokemon.num_upgrades)/2;
+	pokemon_level = pokemon_level.toString();
+	
 	trainerPokemon.append($('<small>').append("L" + " " + pokemon_level));
 	trainerPokemon.append($('<br>').append());
 	
