@@ -31,7 +31,7 @@
 				<a href="<?= $pokemon->permalink ?>"><img src="<?= $pokemon->img ?>" alt="<?= $pokemon->name ?>" class="img-responsive <?php if ($pokemon->spawn == 0) {
 					echo 'unseen';
 } ?> "></a>
-				<p class="pkmn-name"><a href="<?= $pokemon->permalink ?>">#<?= sprintf('%03d', $pokemon->id); ?> <?= $pokemon->name ?></a></p>
+				<p class="pkmn-name"><a href="<?= $pokemon->permalink ?>">#<?= sprintf('%03d<br>%s', $pokemon->id, $pokemon->name) ?></a></p>
 				<p><?php if ($pokemon->spawn == 0) {
 					echo $locales->UNSEEN;
 } else {
