@@ -128,7 +128,9 @@ function getInfo() {
 						'</div>'+
 						'<div id="bodyContent">'+
 						'<p><b><?= $pokemons->pokemon->$pokeid->name ?></b>: <?= $data['total_pokemon'] ?> <?= $locales->NESTS_PER_DAY ?> </p>' +
-						'<p>from :<?= $data['starttime'] ?> to :<?= $data['endtime'] ?></p></div>',
+						'<p>Possible spawntime from :<?= $data['starttime'] ?> to :<?= $data['endtime'] ?><br>' +
+						'Chance to find: <?= round($data['total_pokemon']/0.24, 2) ?>%</p>' +
+						'</div>',
 		<?php
 			} ?>
 	];
