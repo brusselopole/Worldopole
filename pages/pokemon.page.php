@@ -27,7 +27,7 @@
 
 		<div class="col-sm-10 text-center">
 
-			<h1><strong><?= $pokemon->name ?></strong><br>
+			<h1>#<?= sprintf('%03d <strong>%s</strong>', $pokemon->id, $pokemon->name) ?><br>
 			<small>[<?= $pokemon->rarity ?>]</small></h1>
 
 			<p id="share">
