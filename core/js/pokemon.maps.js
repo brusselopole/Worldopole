@@ -1,8 +1,8 @@
 /** global: google */
 /** global: pokemon_id */
 /** global: navigator */
-/** global: min_latitude */
 /** global: max_latitude */
+/** global: min_latitude */
 /** global: max_longitude */
 /** global: min_longitude */
 
@@ -466,5 +466,5 @@ function getArea(coordinates){
 	max_latitude = coordinates.max_latitude;
 	min_latitude = coordinates.min_latitude;
 	max_longitude = coordinates.max_longitude;
-    min_longitude = coordinates.min_longitude;
+	min_longitude = coordinates.min_longitude;
 }
