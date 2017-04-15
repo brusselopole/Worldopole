@@ -290,8 +290,8 @@
 <?php if ($top) { ?>
 	<div class="row area" id="top50">
 		<div class="col-md-12">
-    		<h2 class="text-center sub-title">Top 50 <strong><?= $pokemon->name ?></strong></h2>
-    		<table class="table">
+			<h2 class="text-center sub-title">Top 50 <strong><?= $pokemon->name ?></strong></h2>
+			<table class="table">
 				<thead>
 					<tr>
 						<th>#</th>
@@ -323,12 +323,12 @@
 							<td><?php echo $move->$move1->name; ?></td>
 							<td><?php echo $move->$move2->name; ?></td>
 							<td><a href="https://maps.google.com/?q=<?= $top50->latitude ?>,<?= $top50->longitude ?>&ll=<?= $top50->latitude ?>,<?= $top50->longitude ?>&z=16"
-							   target="_blank"><?=$top50->distime ?></a></td>
+								target="_blank"><?=$top50->distime ?></a></td>
 						</tr>
 						<?php
 					} ?>
-        	</tbody>
-    	</table>
+			</tbody>
+		</table>
 	</div>
 </div>
 
@@ -368,8 +368,8 @@
 						</tr>
 						<?php
 					} ?>
-        	</tbody>
-    	</table>
+			</tbody>
+		</table>
 	</div>
 </div>
 <?php } ?>
