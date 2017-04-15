@@ -1,6 +1,11 @@
 /** global: google */
 /** global: pokemon_id */
 /** global: navigator */
+/** global: min_latitude */
+/** global: max_latitude */
+/** global: max_longitude */
+/** global: min_longitude */
+
 var map, heatmap;
 var pokemonMarkers = [];
 var updateLiveTimeout;
