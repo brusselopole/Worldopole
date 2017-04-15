@@ -706,9 +706,21 @@ switch ($request) {
 		header('Content-Type: application/json');
 
 		echo $json;
-
 		break;
 
+	case 'pokemon_coordinates_area':
+		$json="";
+		$req 		 = "SELECT MAX(latitude) AS max_latitude, MIN(latitude) AS min_latitude, MAX(longitude) AS max_longitude, MIN(longitude) as min_longitude FROM pokemon";
+		$result 	 = $mysqli->query($req);
+		$data 		 = $result->fetch_object();
+		$coordinates = $data;
+		
+        header('Content-Type: application/json');
+		$json = json_encode($coordinates);
+		
+        echo $json;
+		break;
+	
 	case 'pokedex':
 		$json="";
 		if (isset($_GET['pokemon_id'])) {
