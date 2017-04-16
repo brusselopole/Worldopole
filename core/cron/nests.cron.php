@@ -27,9 +27,9 @@ while ($data = $result->fetch_object()) {
 	$nests['latitude'] = $data->latitude;
 	$nests['longitude'] = $data->longitude;
 
-	// Add the datas in file
+	// Add the data to array
 	$nestsdatas[] = $nests;
-	$json = json_encode($nestsdatas);
-
-	file_put_contents(SYS_PATH.'/core/json/nests.stats.json', $json);
 }
+
+// Write file
+file_put_contents(SYS_PATH.'/core/json/nests.stats.json', json_encode($nestsdatas));

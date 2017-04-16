@@ -42,9 +42,6 @@ isset($rarityarray['Mythic']) ?: $rarityarray['Mythic'] = 0;
 $pokemon_stats['rarity_spawn'] = $rarityarray;
 
 
-// Add the datas in file
-
+// Write to file
 $pokedatas[] 	= $pokemon_stats;
-$json 		= json_encode($pokedatas);
-
-file_put_contents($pokemonstats_file, $json);
+file_put_contents($pokemonstats_file, json_encode($pokedatas));

@@ -48,8 +48,5 @@ $gym['team']['instinct']['average'] 	= $data->average_points;
 
 
 // Add the datas in file
-
 $gymsdatas[]		= $gym;
-$json			= json_encode($gymsdatas);
-
-file_put_contents($gym_file, $json);
+file_put_contents($gym_file, json_encode($gymsdatas));

@@ -63,6 +63,6 @@ foreach ($pokemons->pokemon as $pokemon_id => $notUsed) {
 	}
 }
 
-$file_content = json_encode($pokemons_rarity);
+// Write to file
+file_put_contents($pokedex_rarity_file, json_encode($pokemons_rarity));
 unset($pokemons_rarity);
-file_put_contents($pokedex_rarity_file, $file_content);
