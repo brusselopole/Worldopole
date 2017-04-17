@@ -715,10 +715,10 @@ switch ($request) {
 		$data 		 = $result->fetch_object();
 		$coordinates = $data;
 		
-        header('Content-Type: application/json');
+		header('Content-Type: application/json');
 		$json = json_encode($coordinates);
 		
-        echo $json;
+		echo $json;
 		break;
 	
 	case 'pokedex':
