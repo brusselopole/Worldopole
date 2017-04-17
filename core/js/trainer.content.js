@@ -2,9 +2,9 @@
 
 $(function () {
 
-	$.getJSON( "core/json/variables.json", function( jsondata ) {
-		var pokeimg_suffix=jsondata['system']['pokeimg_suffix'];
-		var iv_numbers=jsondata['system']['iv_numbers'];
+	$.getJSON( "core/json/variables.json", function(variables) {
+		var pokeimg_suffix=variables['system']['pokeimg_suffix'];
+		var iv_numbers=variables['system']['iv_numbers'];
 
 		$('.trainerLoader').hide();
 		var page = 0;

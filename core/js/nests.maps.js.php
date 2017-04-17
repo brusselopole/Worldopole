@@ -1,12 +1,12 @@
 <?php
-        # Send Javascript header
-        header('Content-type: text/javascript');
+	# Send Javascript header
+	header('Content-type: text/javascript');
 
-        # Load variables and locales
-        include_once('../../config.php');
-        $variables = SYS_PATH.'/core/json/variables.json';
-        $config = json_decode(file_get_contents($variables));
-        include_once('../process/locales.loader.php');
+	# Load variables and locales
+	include_once('../../config.php');
+	$variables = SYS_PATH.'/core/json/variables.json';
+	$config = json_decode(file_get_contents($variables));
+	include_once('../process/locales.loader.php');
 ?>
 
 /** global: google */
@@ -22,30 +22,30 @@ var pokemon = {
 function initMap() {
 
 	$.getJSON("core/json/variables.json", function (variables) {
-		var lattitude = Number(variables.system.map_center_lat);
+		var latitude = Number(variables.system.map_center_lat);
 		var longitude = Number(variables.system.map_center_long);
 		var zoom_level = Number(variables.system.zoom_level);
 		var pokeimg_suffix = variables.system.pokeimg_suffix;
 
 		map = new google.maps.Map(document.getElementById('map'), {
-						center: {
-							lat: lattitude,
-							lng: longitude
-						},
-						zoom: zoom_level,
-						zoomControl: true,
-						scaleControl: false,
-						scrollwheel: true,
-						disableDoubleClickZoom: false,
-						streetViewControl: false,
-						mapTypeControlOptions: {
-							mapTypeIds: [
-								google.maps.MapTypeId.ROADMAP,
-								'pogo_style',
-								'dark_style',
-							]
-						}
-					});
+			center: {
+					lat: latitude,
+					lng: longitude
+				},
+				zoom: zoom_level,
+				zoomControl: true,
+				scaleControl: false,
+				scrollwheel: true,
+				disableDoubleClickZoom: false,
+				streetViewControl: false,
+				mapTypeControlOptions: {
+					mapTypeIds: [
+						google.maps.MapTypeId.ROADMAP,
+						'pogo_style',
+						'dark_style',
+					]
+				}
+		});
 
 		$.getJSON( 'core/json/pogostyle.json', function( data ) {
 			var styledMap_pogo = new google.maps.StyledMapType(data, {name: 'PoGo'});
