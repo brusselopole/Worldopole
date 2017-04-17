@@ -1,56 +1,145 @@
 <?php
 
+/**
+ * The next 3 functions come from the HTTP2 pear package 
+ * Copyright (c) 2002-2005, 
+ * Stig Bakken <ssb@fast.no>,
+ * Sterling Hughes <sterling@php.net>,
+ * Tomas V.V.Cox <cox@idecnet.com>,
+ * Richard Heyes <richard@php.net>,
+ * Philippe Jausions <Philippe.Jausions@11abacus.com>,
+ * Michael Wallner <mike@php.net>.
+ * Licensed under http://www.opensource.org/licenses/bsd-license.php  New BSD License
+ */
+
+/**
+ * Parses and sorts a weighed "Accept" HTTP header
+ *
+ * @param string $header The HTTP "Accept" header to parse
+ *
+ * @return array Sorted list of "accept" options
+ */
+$sortAccept = function ($header) {
+	$matches = array();
+	foreach (explode(',', $header) as $option) {
+		$option = array_map('trim', explode(';', $option));
+		$l = strtolower($option[0]);
+		if (isset($option[1])) {
+			$q = (float) str_replace('q=', '', $option[1]);
+		} else {
+			$q = null;
+			// Assign default low weight for generic values
+			if ($l == '*/*') {
+				$q = 0.01;
+			} elseif (substr($l, -1) == '*') {
+				$q = 0.02;
+			}
+		}
+		// Unweighted values, get high weight by their position in the
+		// list
+		$matches[$l] = isset($q) ? $q : 1000 - count($matches);
+	}
+	arsort($matches, SORT_NUMERIC);
+	return $matches;
+};
+
+/**
+ * Parses a weighed "Accept" HTTP header and matches it against a list
+ * of supported options
+ *
+ * @param string $header    The HTTP "Accept" header to parse
+ * @param array  $supported A list of supported values
+ *
+ * @return string|NULL a matched option, or NULL if no match
+ */
+$matchAccept = function ($header, $supported) use ($sortAccept) {
+	$matches = $sortAccept($header);
+	foreach ($matches as $key => $q) {
+		if (isset($supported[$key])) {
+			return $supported[$key];
+		}
+	}
+	// If any (i.e. "*") is acceptable, return the first supported format
+	if (isset($matches['*'])) {
+		return array_shift($supported);
+	}
+	return null;
+};
+
+/**
+ * Negotiates language with the user's browser through the Accept-Language
+ * HTTP header or the user's host address.  Language codes are generally in
+ * the form "ll" for a language spoken in only one country, or "ll-CC" for a
+ * language spoken in a particular country.  For example, U.S. English is
+ * "en-US", while British English is "en-UK".  Portugese as spoken in
+ * Portugal is "pt-PT", while Brazilian Portugese is "pt-BR".
+ *
+ * Quality factors in the Accept-Language: header are supported, e.g.:
+ *      Accept-Language: en-UK;q=0.7, en-US;q=0.6, no, dk;q=0.8
+ *
+ * @param array  $supported An associative array of supported languages,
+ *                          whose values must evaluate to true.
+ * @param string $default   The default language to use if none is found.
+ *
+ * @return string The negotiated language result or the supplied default.
+ */
+$negotiateLanguage = function ($supported, $default = 'en-US') use ($matchAccept) {
+	$supp = array();
+	foreach ($supported as $lang => $isSupported) {
+		if ($isSupported) {
+			$supp[strtolower($lang)] = $lang;
+		}
+	}
+	if (!count($supp)) {
+		return $default;
+	}
+	if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+		$match = $matchAccept(
+			$_SERVER['HTTP_ACCEPT_LANGUAGE'],
+			$supp
+		);
+		if (!is_null($match)) {
+			return $match;
+		}
+	}
+	if (isset($_SERVER['REMOTE_HOST'])) {
+		$domain = explode('.', $_SERVER['REMOTE_HOST']);
+		$lang = strtolower(end($domain));
+		if (isset($supp[$lang])) {
+			return $supp[$lang];
+		}
+	}
+	return $default;
+};
 
 // Language setting
 ###################
-
 if (empty($config->system->forced_lang)) {
-	if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
-		$browser_lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-	} else {
-		$browser_lang = 'en';
-	}
+	$directories = glob(SYS_PATH.'/core/json/locales/*', GLOB_ONLYDIR);
+	$directories = array_map("basename", $directories);
+	//print_r($directories);
+	$browser_lang = $negotiateLanguage(array_fill_keys($directories, true), $config->system->default_lang);
+	//print_r($browser_lang);
 } else {
 	// Use forced language
 	$browser_lang = $config->system->forced_lang;
 }
 
 // Activate lang
-$lang = strtoupper($browser_lang);
-
-// Check if language is available
-if (isset($lang)) {
-	$locale_dir = SYS_PATH.'/core/json/locales/'.$lang;
-	
-	// If there's no pokedex in languague we'll use the english one.
-	if (is_dir($locale_dir)) {
-		// Allow partial translations
-		if (is_file($locale_dir.'/pokes.json')) {
-			$pokemon_file		= file_get_contents($locale_dir.'/pokes.json');
-		} else {
-			$pokemon_file		= file_get_contents(SYS_PATH.'/core/json/locales/EN/pokes.json');
-		}
-		
-		if (is_file($locale_dir.'/translations.json')) {
-			$translation_file	= file_get_contents($locale_dir.'/translations.json');
-		} else {
-			$translation_file	= file_get_contents(SYS_PATH.'/core/json/locales/EN/translations.json');
-		}
-		
-		if (is_file($locale_dir.'/moves.json')) {
-			$moves_file			= json_decode(file_get_contents($locale_dir.'/moves.json'));
-		} else {
-			$moves_file			= json_decode(file_get_contents(SYS_PATH.'/core/json/locales/EN/moves.json'));
-		}
-	} else {
-		$pokemon_file 			= file_get_contents(SYS_PATH.'/core/json/locales/EN/pokes.json');
-		$translation_file 		= file_get_contents(SYS_PATH.'/core/json/locales/EN/translations.json');
-		$moves_file				= json_decode(file_get_contents(SYS_PATH.'/core/json/locales/EN/moves.json'));
-	}
+$locale_dir = SYS_PATH.'/core/json/locales/'.strtoupper($browser_lang);
+// Allow partial translations
+$translation_file = "{}";
+$pokemon_file = "{}";
+if (is_file($locale_dir.'/pokes.json')) {
+	$pokemon_file = file_get_contents($locale_dir.'/pokes.json');
+}
+if (is_file($locale_dir.'/translations.json')) {
+	$translation_file = file_get_contents($locale_dir.'/translations.json');
+}
+if (is_file($locale_dir.'/moves.json')) {
+	$moves_file	= json_decode(file_get_contents($locale_dir.'/moves.json'));
 } else {
-	$pokemon_file			= file_get_contents(SYS_PATH.'/core/json/locales/EN/pokes.json');
-	$translation_file		= file_get_contents(SYS_PATH.'/core/json/locales/EN/translations.json');
-	$moves_file				= json_decode(file_get_contents(SYS_PATH.'/core/json/locales/EN/moves.json'));
+	$moves_file	= json_decode(file_get_contents(SYS_PATH.'/core/json/locales/EN/moves.json'));
 }
 
 
@@ -60,40 +149,40 @@ if (isset($lang)) {
 // always overwrite english if available
 ########################################
 
-$locales 		= (object) array_replace(json_decode(file_get_contents(SYS_PATH.'/core/json/locales/EN/translations.json'), true), json_decode($translation_file, true));
+$locales = (object) array_replace(json_decode(file_get_contents(SYS_PATH.'/core/json/locales/EN/translations.json'), true), json_decode($translation_file, true));
 
 // Recursive replace because of multi level array
-$pokemon_trans_array 	= array_replace_recursive(json_decode(file_get_contents(SYS_PATH.'/core/json/locales/EN/pokes.json'), true), json_decode($pokemon_file, true));
+$pokemon_trans_array = array_replace_recursive(json_decode(file_get_contents(SYS_PATH.'/core/json/locales/EN/pokes.json'), true), json_decode($pokemon_file, true));
 
 // convert associative array back to object array (recursive)
-$pokemon_trans 		= json_decode(json_encode($pokemon_trans_array), false);
+$pokemon_trans = json_decode(json_encode($pokemon_trans_array), false);
 unset($pokemon_trans_array);
 
 
 // Merge the pokedex, pokemon translation and rarity file into a new array 
 ##########################################################################
 
-$pokedex_file 			= file_get_contents(SYS_PATH.'/core/json/pokedex.json');
-$pokemons 			= json_decode($pokedex_file);
+$pokedex_file 	= file_get_contents(SYS_PATH.'/core/json/pokedex.json');
+$pokemons 		= json_decode($pokedex_file);
 
-$pokedex_rarity_file 		= SYS_PATH.'/core/json/pokedex.rarity.json';
+$pokedex_rarity_file = SYS_PATH.'/core/json/pokedex.rarity.json';
 // initial create of pokedex.rarity.json if it doesn't exist
 if (!is_file($pokedex_rarity_file)) {
 	include_once(SYS_PATH.'/core/cron/pokedex.rarity.php');
 }
-$pokedex_rarity_file_content = file_get_contents($pokedex_rarity_file);
-$pokemons_rarity = json_decode($pokedex_rarity_file_content);
+$pokedex_rarity_file_content 	= file_get_contents($pokedex_rarity_file);
+$pokemons_rarity 				= json_decode($pokedex_rarity_file_content);
 
 foreach ($pokemons->pokemon as $pokeid => $pokemon) {
 	// Merge name and description from translation files
-	$pokemon->name 				= $pokemon_trans->pokemon->$pokeid->name;
-	$pokemon->description 		= $pokemon_trans->pokemon->$pokeid->description;
+	$pokemon->name 			= $pokemon_trans->pokemon->$pokeid->name;
+	$pokemon->description 	= $pokemon_trans->pokemon->$pokeid->description;
 
 	// Replace quick and charge move with translation
-	$quick_move 				= $pokemon->quick_move;
-	$pokemon->quick_move 		= $pokemon_trans->quick_moves->$quick_move;
-	$charge_move 				= $pokemon->charge_move;
-	$pokemon->charge_move 		= $pokemon_trans->charge_moves->$charge_move;
+	$quick_move 			= $pokemon->quick_move;
+	$pokemon->quick_move 	= $pokemon_trans->quick_moves->$quick_move;
+	$charge_move 			= $pokemon->charge_move;
+	$pokemon->charge_move 	= $pokemon_trans->charge_moves->$charge_move;
 
 	// Replace types with translation
 	foreach ($pokemon->types as &$type) {
@@ -104,7 +193,7 @@ foreach ($pokemons->pokemon as $pokeid => $pokemon) {
 	// Resolve candy_id to candy_name
 	if (isset($pokemon->candy_id)) {
 		$candy_id 				= $pokemon->candy_id;
-		$pokemon->candy_name	= $pokemon_trans->pokemon->$candy_id->name;
+		$pokemon->candy_name 	= $pokemon_trans->pokemon->$candy_id->name;
 		unset($pokemon->candy_id);
 	}
 	// Convert move numbers to names
@@ -140,15 +229,18 @@ foreach ($pokemons->pokemon as $pokeid => $pokemon) {
 // Translate typecolors array keys as well
 $types_temp = new stdClass();
 foreach ($pokemons->typecolors as $type => $color) {
-	$type_trans = $pokemon_trans->types->$type;
-	$types_temp->$type_trans = $color;
+	$type_trans 				= $pokemon_trans->types->$type;
+	$types_temp->$type_trans 	= $color;
 }
 // Replace typecolors array with translated one
 $pokemons->typecolors = $types_temp;
 
 // unset unused variables to prevent issues with other php scripts
+unset($negotiateLanguage);
+unset($matchAccept);
+unset($sortAccept);
+unset($directories);
 unset($browser_lang);
-unset($lang);
 unset($locale_dir);
 unset($pokemon_file);
 unset($translation_file);
