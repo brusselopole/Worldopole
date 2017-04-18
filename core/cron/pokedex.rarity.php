@@ -28,7 +28,7 @@ while ($data = $result->fetch_object()) {
 	}
 }
 
-foreach ($pokelist as $pokemon) {
+foreach ($pokelist as &$pokemon) {
 	// Use alltime count if there was no scan last 7 days
 	$total_pokemon          = ($total_pokemon_last_week > 0) ? $total_pokemon_last_week : $total_pokemon_alltime;
 
