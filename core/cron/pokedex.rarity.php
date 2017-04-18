@@ -7,7 +7,6 @@ $total_pokemon_alltime = 0;
 while ($data = $result->fetch_object()) {
 	$total_pokemon_alltime += $data->spawns_total;
 	$pokemon_id = $data->pokemon_id;
-	$pokelist[$pokemon_id]['id'] = $pokemon_id;
 	if ($data->spawns_total > 0) {
 		// pokemon seen --> set rarity to at least mythic
 		$pokelist[$pokemon_id]['total'] = $data->spawns_total;
@@ -30,8 +29,6 @@ while ($data = $result->fetch_object()) {
 }
 
 foreach ($pokelist as $pokemon) {
-	$key = $pokemon['id'];
-
 	// Use alltime count if there was no scan last 7 days
 	$total_pokemon          = ($total_pokemon_last_week > 0) ? $total_pokemon_last_week : $total_pokemon_alltime;
 
@@ -39,7 +36,7 @@ foreach ($pokelist as $pokemon) {
 	$rounded                = round($percent, 4);
 	// do not round to 0 if there was a spawn. Set to min 0.0001.
 	$rounded                = ($rounded == 0.0000 && $pokemon['total'] > 0) ? $rounded = 0.0001 : $rounded;
-	$pokelist[$key]['rate'] = $rounded;
+	$pokemon['rate']        = $rounded;
 }
 
 // use pokedex.json file for loop because we want to have entries for all pokemon
