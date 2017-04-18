@@ -80,18 +80,6 @@ function percent($val, $val_total)
 	return $count;
 }
 
-########################################################################
-// File datetime
-// @param $file		=> string (mandatory)
-//
-// Return last_modified file format timestamp
-########################################################################
-
-function file_datetime($file)
-{
-	$time = filemtime($file);
-	return $time;
-}
 
 ########################################################################
 // File version (unix timestamp)
