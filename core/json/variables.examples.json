@@ -65,7 +65,7 @@
 			"type"		:	"link",
 			"href"		:	"nests",
 			"locale"	:	"NAV_NESTS",
-			"icon"		:	"fa-area-chart"
+			"icon"		:	"fa-binoculars"
 		},
 		{
 			"type"		:	"link_external",
