@@ -1,13 +1,10 @@
 <?php
 	
-	
 // -----------------------------------------------------------------------------------------------------------
 // Nests datas 
 // 
 // 
 // -----------------------------------------------------------------------------------------------------------
-
-include_once(SYS_PATH.'/core/process/locales.loader.php');
 
 $nest_exclude_pokemon_ids = implode(",", $config->system->nest_exclude_pokemon);
 
@@ -32,4 +29,4 @@ while ($data = $result->fetch_object()) {
 }
 
 // Write file
-file_put_contents(SYS_PATH.'/core/json/nests.stats.json', json_encode($nestsdatas));
+file_put_contents($nests_file, json_encode($nestsdatas));
