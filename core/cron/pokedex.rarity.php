@@ -1,9 +1,5 @@
 <?php
 
-
-// This file is loaded once every 24h by data.loader.php.
-// -----------------------------------------------------
-
 // get alltime pokemon count to set rarity at least to seen
 $req = "SELECT pokemon_id, COUNT(*) as spawns_total FROM pokemon GROUP BY pokemon_id ORDER BY pokemon_id ASC";
 $result = $mysqli->query($req);
@@ -46,15 +42,8 @@ foreach ($pokelist as $pokemon) {
 	$pokelist[$key]['rate'] = $rounded;
 }
 
-// create new array if file doesn't exist
-// else use file content
-if (!is_file($pokedex_rarity_file)) {
-	$pokemons_rarity = new stdClass();
-} else {
-	$pokemons_rarity = json_decode($pokedex_rarity_file_content);
-}
-
 // use pokedex.json file for loop because we want to have entries for all pokemon
+$pokemons_rarity = new stdClass();
 foreach ($pokemons->pokemon as $pokemon_id => $notUsed) {
 	if (isset($pokelist[$pokemon_id])) {
 		$pokemons_rarity->$pokemon_id = $pokelist[$pokemon_id]['rate'];
@@ -65,4 +54,3 @@ foreach ($pokemons->pokemon as $pokemon_id => $notUsed) {
 
 // Write to file
 file_put_contents($pokedex_rarity_file, json_encode($pokemons_rarity));
-unset($pokemons_rarity);
