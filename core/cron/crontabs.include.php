@@ -1,24 +1,17 @@
 <?php
 
-function file_update_ago($filepath)
-{
-	$filemtime = filemtime($filepath);
-	$now = time();
-	$diff = $now - $filemtime;
-	return $diff;
-}
-
-
 // This file only include other files to have only 1 entry in your crontabs. 
 // ------------------------------------------------------------------------	
 
-$filePath	= dirname(__FILE__);
-$config_file	= $filePath.'/../../config.php';
+$config_file	= dirname(__FILE__).'/../../config.php';
 
 include_once($config_file);
 
+// Load functions
+include_once(SYS_PATH.'/functions.php');
+
 // Load variables.json
-$variables      = $filePath.'/../json/variables.json';
+$variables      = SYS_PATH.'/core/json/variables.json';
 $config         = json_decode(file_get_contents($variables));
 // force english language for all cron stuff
 $config->system->forced_lang = 'en';
@@ -26,7 +19,7 @@ $config->system->forced_lang = 'en';
 // Manage Time Interval
 // #####################
 
-include_once($filePath.'/../process/timezone.loader.php');
+include_once(SYS_PATH.'/core/process/timezone.loader.php');
 
 
 # MySQL 

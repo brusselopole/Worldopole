@@ -10,7 +10,7 @@
 
 // Load the pokemons array
 // crontabs.include.php forces english lang
-include_once($filePath.'/../process/locales.loader.php');
+include_once(SYS_PATH.'/core/process/locales.loader.php');
 
 
 $pokemon_stats['timestamp'] = $timestamp;
