@@ -1,9 +1,5 @@
 <?php
 
-
-// This file is loaded once every 24h by data.loader.php.
-// -----------------------------------------------------
-
 // get alltime pokemon count to set rarity at least to seen
 $req = "SELECT pokemon_id, COUNT(*) as spawns_total FROM pokemon GROUP BY pokemon_id ORDER BY pokemon_id ASC";
 $result = $mysqli->query($req);
@@ -11,7 +7,6 @@ $total_pokemon_alltime = 0;
 while ($data = $result->fetch_object()) {
 	$total_pokemon_alltime += $data->spawns_total;
 	$pokemon_id = $data->pokemon_id;
-	$pokelist[$pokemon_id]['id'] = $pokemon_id;
 	if ($data->spawns_total > 0) {
 		// pokemon seen --> set rarity to at least mythic
 		$pokelist[$pokemon_id]['total'] = $data->spawns_total;
@@ -33,9 +28,7 @@ while ($data = $result->fetch_object()) {
 	}
 }
 
-foreach ($pokelist as $pokemon) {
-	$key = $pokemon['id'];
-
+foreach ($pokelist as &$pokemon) {
 	// Use alltime count if there was no scan last 7 days
 	$total_pokemon          = ($total_pokemon_last_week > 0) ? $total_pokemon_last_week : $total_pokemon_alltime;
 
@@ -43,18 +36,11 @@ foreach ($pokelist as $pokemon) {
 	$rounded                = round($percent, 4);
 	// do not round to 0 if there was a spawn. Set to min 0.0001.
 	$rounded                = ($rounded == 0.0000 && $pokemon['total'] > 0) ? $rounded = 0.0001 : $rounded;
-	$pokelist[$key]['rate'] = $rounded;
-}
-
-// create new array if file doesn't exist
-// else use file content
-if (!is_file($pokedex_rarity_file)) {
-	$pokemons_rarity = new stdClass();
-} else {
-	$pokemons_rarity = json_decode($pokedex_rarity_file_content);
+	$pokemon['rate']        = $rounded;
 }
 
 // use pokedex.json file for loop because we want to have entries for all pokemon
+$pokemons_rarity = new stdClass();
 foreach ($pokemons->pokemon as $pokemon_id => $notUsed) {
 	if (isset($pokelist[$pokemon_id])) {
 		$pokemons_rarity->$pokemon_id = $pokelist[$pokemon_id]['rate'];
@@ -65,4 +51,3 @@ foreach ($pokemons->pokemon as $pokemon_id => $notUsed) {
 
 // Write to file
 file_put_contents($pokedex_rarity_file, json_encode($pokemons_rarity));
-unset($pokemons_rarity);

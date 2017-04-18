@@ -1,13 +1,10 @@
 <?php
 	
-	
 // -----------------------------------------------------------------------------------------------------------
 // Nests datas 
 // 
 // 
 // -----------------------------------------------------------------------------------------------------------
-
-include_once(SYS_PATH.'/core/process/locales.loader.php');
 
 $nest_exclude_pokemon_ids = implode(",", $config->system->nest_exclude_pokemon);
 
@@ -22,14 +19,14 @@ ORDER BY p.pokemon_id";
 $result = $mysqli->query($req);
 
 while ($data = $result->fetch_object()) {
-	$nests['pokemon_id'] = $data->pokemon_id;
-	$nests['total_pokemon'] = $data->total_pokemon;
-	$nests['latitude'] = $data->latitude;
-	$nests['longitude'] = $data->longitude;
+	$nests['pid'] = $data->pokemon_id;
+	$nests['c'] = $data->total_pokemon;
+	$nests['lat'] = $data->latitude;
+	$nests['lng'] = $data->longitude;
 
 	// Add the data to array
 	$nestsdatas[] = $nests;
 }
 
 // Write file
-file_put_contents(SYS_PATH.'/core/json/nests.stats.json', json_encode($nestsdatas));
+file_put_contents($nests_file, json_encode($nestsdatas));

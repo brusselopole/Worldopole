@@ -80,18 +80,6 @@ function percent($val, $val_total)
 	return $count;
 }
 
-########################################################################
-// File datetime
-// @param $file		=> string (mandatory)
-//
-// Return last_modified file format timestamp
-########################################################################
-
-function file_datetime($file)
-{
-	$time = filemtime($file);
-	return $time;
-}
 
 ########################################################################
 // File version (unix timestamp)
@@ -105,4 +93,20 @@ function auto_ver($url)
 	$path = pathinfo($url);
 	$ver = '.'.filemtime(SYS_PATH.'/'.$url).'.';
 	echo $path['dirname'].'/'.preg_replace('/\.(css|js)$/', $ver."$1", $path['basename']);
+}
+
+
+########################################################################
+// File age in secs
+// @param $filepath     => string (mandatory)
+//
+// Return file age of file in secs
+########################################################################
+
+function file_update_ago($filepath)
+{
+	$filemtime = filemtime($filepath);
+	$now = time();
+	$diff = $now - $filemtime;
+	return $diff;
 }

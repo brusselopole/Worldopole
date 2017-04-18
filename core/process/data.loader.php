@@ -75,26 +75,6 @@ include_once('locales.loader.php');
 
 
 
-
-// Update the pokedex.rarity.json file
-######################################
-// ( for Brusselopole we use CRONTAB but as we're not sure that every had access to it we build this really simple false crontab system
-// => check filemtime, if > 24h launch an update. )
-
-$pokedex_rarity_filetime	= filemtime($pokedex_rarity_file);
-$now				= time();
-$diff				= $now - $pokedex_rarity_filetime;
-
-// Update each 24h
-$update_delay		= 86400;
-
-if ($diff > $update_delay) {
-	include_once(SYS_PATH.'/core/cron/pokedex.rarity.php');
-}
-
-
-
-
 ##########################
 //
 // Pages data loading
