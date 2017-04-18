@@ -105,8 +105,8 @@ function auto_ver($url)
 
 function file_update_ago($filepath)
 {
-        $filemtime = filemtime($filepath);
-        $now = time();
-        $diff = $now - $filemtime;
-        return $diff;
+	$filemtime = filemtime($filepath);
+	$now = time();
+	$diff = $now - $filemtime;
+	return $diff;
 }
