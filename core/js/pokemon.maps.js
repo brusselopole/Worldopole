@@ -48,8 +48,25 @@ function initMap() {
 			var styledMap_dark = new google.maps.StyledMapType(data, {name: 'Dark'});
 			map.mapTypes.set('dark_style', styledMap_dark);
 		});
-		$.getJSON( 'core/json/defaultstyle.json', function( data ) {
-			map.set('styles', data);
+		$.getJSON( 'core/json/defaultstyle.json', function(data) {
+		    map.set('styles', data);
+		});
+
+		$.ajax({
+		    'async': true,
+		    'type': "GET",
+		    'global': false,
+		    'dataType': 'json',
+		    'url': "core/process/aru.php",
+		    'data': {
+		        'request': "",
+		        'target': 'arrange_url',
+		        'method': 'method_target',
+		        'type': 'pokemon_coordinates_area'
+
+		    }
+		}).done(function(coordinates) {
+		    getArea(coordinates);
 		});
 		
 		if (navigator.geolocation) {
@@ -441,25 +458,6 @@ function isTouchDevice() {
 function isMobileDevice() {
     //  Basic mobile OS (not browser) detection
     return (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
-}
-
-function coordinate_area(){
-	$.ajax({
-		'async': false,
-		'type': "GET",
-		'global': false,
-		'dataType': 'json',
-		'url': "core/process/aru.php",
-		'data': {
-			'request': "",
-			'target': 'arrange_url',
-			'method': 'method_target',
-			'type' : 'pokemon_coordinates_area'
-			
-           }
-	}).done(function(coordinates){
-		getArea(coordinates);
-	});
 }
 
 function getArea(coordinates){
