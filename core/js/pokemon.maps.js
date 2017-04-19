@@ -48,7 +48,7 @@ function initMap() {
 			var styledMap_dark = new google.maps.StyledMapType(data, {name: 'Dark'});
 			map.mapTypes.set('dark_style', styledMap_dark);
 		});
-		$.getJSON( 'core/json/defaultstyle.json', function(data) {
+		$.getJSON( 'core/json/defaultstyle.json', function( data ) {
 		    map.set('styles', data);
 		});
 
