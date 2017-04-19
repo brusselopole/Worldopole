@@ -213,7 +213,7 @@
 		
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:description" content="<?= $locales->NESTS_METADESC ?>" />
-		<meta name="twitter:title" content="<?= $config->infos->site_name ?> | <?= $locales->NESTS_METATITLE ?>" />
+		<meta name="twitter:title" content="<?= $config->infos->site_name ?> | <?= $locales->NAV_NESTS ?>" />
 		<meta name="twitter:image" content="<?= HOST_URL ?>core/img/logo.jpg" />
 		
 		<?php

@@ -808,10 +808,18 @@ if ($postRequest!="") {
 				while ($result && $data = $result->fetch_object()) {
 					$pokeid=$data->pokemon_id;
 					$data->name = $pokemons->pokemon->$pokeid->name;
-					$move1=$data->move_1;
-					$move2=$data->move_2;
-					$data->quick_move = $move->$move1->name;
-					$data->charge_move = $move->$move2->name;
+					if (isset($data->move_1)) {
+						$move1 = $data->move_1;
+						$data->quick_move = $move->$move1->name;
+					} else {
+						$data->quick_move = "?";
+					}
+					if (isset($data->move_2)) {
+						$move2 = $data->move_2;
+						$data->charge_move = $move->$move2->name;
+					} else {
+						$data->charge_move = "?";
+					}
 					$json['points'][] 	= $data;
 				}
 

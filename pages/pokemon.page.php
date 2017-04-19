@@ -27,7 +27,7 @@
 
 		<div class="col-sm-10 text-center">
 
-			<h1><strong><?= $pokemon->name ?></strong><br>
+			<h1>#<?= sprintf('%03d <strong>%s</strong>', $pokemon->id, $pokemon->name) ?><br>
 			<small>[<?= $pokemon->rarity ?>]</small></h1>
 
 			<p id="share">
@@ -289,82 +289,87 @@
 
 <?php if ($top) { ?>
 	<div class="row area" id="top50">
-    	<h2 class="text-center sub-title">Top 50 <strong><?= $pokemon->name ?></strong></h2>
-    	<table class="table">
-			<thead>
-				<tr>
-					<th>#</th>
-					<th><a href="pokemon/<?= $pokemon->id ?>?order=IV<?php echo $top_order == 'IV' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#top50">IV <i class="fa fa-sort" aria-hidden="true"></i></a></th>
-					<th><a href="pokemon/<?= $pokemon->id ?>?order=individual_attack<?php echo $top_order == 'individual_attack' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#top50"><?= $locales->POKEMON_TABLE_ATTACK ?> <i class="fa fa-sort" aria-hidden="true"></i></a></th>
-					<th><a href="pokemon/<?= $pokemon->id ?>?order=individual_defense<?php echo $top_order == 'individual_defense' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#top50"><?= $locales->POKEMON_TABLE_DEFENSE ?> <i class="fa fa-sort" aria-hidden="true"></i></a></th>
-					<th><a href="pokemon/<?= $pokemon->id ?>?order=individual_stamina<?php echo $top_order == 'individual_stamina' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#top50"><?= $locales->POKEMON_TABLE_STAMINA ?> <i class="fa fa-sort" aria-hidden="true"></i></a></th>
-					<th><a href="pokemon/<?= $pokemon->id ?>?order=move_1<?php echo $top_order == 'move_1' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#top50">1. <?= $locales->MOVE ?> <i class="fa fa-sort" aria-hidden="true"></i></a></th>
-					<th><a href="pokemon/<?= $pokemon->id ?>?order=move_2<?php echo $top_order == 'move_2' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#top50">2. <?= $locales->MOVE ?> <i class="fa fa-sort" aria-hidden="true"></i></a></th>
-					<th><a href="pokemon/<?= $pokemon->id ?>?order=disappear_time<?php echo $top_order == 'disappear_time' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#top50"><?= $locales->DATE ?> <i class="fa fa-sort" aria-hidden="true"></i></a></th>
-				</tr>
-			</thead>
-			
-			<tbody>
-				<?php
-				$i = 0;
-				foreach ($top as $top50) {
-					$i++;
-					$move1 = $top50->move_1;
-					$move2 = $top50->move_2;
-					?>
-
+		<div class="col-md-12">
+			<h2 class="text-center sub-title">Top 50 <strong><?= $pokemon->name ?></strong></h2>
+			<table class="table">
+				<thead>
 					<tr>
-						<td><?= $i ?></td>
-						<td><?= $top50->IV ?> %</td>
-						<td><?= $top50->individual_attack ?></td>
-						<td><?= $top50->individual_defense ?></td>
-						<td><?= $top50->individual_stamina ?></td>
-						<td><?php echo $move->$move1->name; ?></td>
-						<td><?php echo $move->$move2->name; ?></td>
-						<td><a href="https://maps.google.com/?q=<?= $top50->latitude ?>,<?= $top50->longitude ?>&ll=<?= $top50->latitude ?>,<?= $top50->longitude ?>&z=16"
-							   target="_blank"><?=$top50->distime ?></a></td>
+						<th>#</th>
+						<th><a href="pokemon/<?= $pokemon->id ?>?order=IV<?php echo $top_order == 'IV' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#top50">IV <i class="fa fa-sort" aria-hidden="true"></i></a></th>
+						<th><a href="pokemon/<?= $pokemon->id ?>?order=individual_attack<?php echo $top_order == 'individual_attack' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#top50"><?= $locales->POKEMON_TABLE_ATTACK ?> <i class="fa fa-sort" aria-hidden="true"></i></a></th>
+						<th><a href="pokemon/<?= $pokemon->id ?>?order=individual_defense<?php echo $top_order == 'individual_defense' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#top50"><?= $locales->POKEMON_TABLE_DEFENSE ?> <i class="fa fa-sort" aria-hidden="true"></i></a></th>
+						<th><a href="pokemon/<?= $pokemon->id ?>?order=individual_stamina<?php echo $top_order == 'individual_stamina' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#top50"><?= $locales->POKEMON_TABLE_STAMINA ?> <i class="fa fa-sort" aria-hidden="true"></i></a></th>
+						<th><a href="pokemon/<?= $pokemon->id ?>?order=move_1<?php echo $top_order == 'move_1' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#top50">1. <?= $locales->MOVE ?> <i class="fa fa-sort" aria-hidden="true"></i></a></th>
+						<th><a href="pokemon/<?= $pokemon->id ?>?order=move_2<?php echo $top_order == 'move_2' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#top50">2. <?= $locales->MOVE ?> <i class="fa fa-sort" aria-hidden="true"></i></a></th>
+						<th><a href="pokemon/<?= $pokemon->id ?>?order=disappear_time<?php echo $top_order == 'disappear_time' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#top50"><?= $locales->DATE ?> <i class="fa fa-sort" aria-hidden="true"></i></a></th>
 					</tr>
+				</thead>
+			
+				<tbody>
 					<?php
-				} ?>
-        </tbody>
-    </table>
+					$i = 0;
+					foreach ($top as $top50) {
+						$i++;
+						$move1 = $top50->move_1;
+						$move2 = $top50->move_2;
+						?>
+
+						<tr>
+							<td><?= $i ?></td>
+							<td><?= $top50->IV ?> %</td>
+							<td><?= $top50->individual_attack ?></td>
+							<td><?= $top50->individual_defense ?></td>
+							<td><?= $top50->individual_stamina ?></td>
+							<td><?php echo $move->$move1->name; ?></td>
+							<td><?php echo $move->$move2->name; ?></td>
+							<td><a href="https://maps.google.com/?q=<?= $top50->latitude ?>,<?= $top50->longitude ?>&ll=<?= $top50->latitude ?>,<?= $top50->longitude ?>&z=16"
+								target="_blank"><?=$top50->distime ?></a></td>
+						</tr>
+						<?php
+					} ?>
+			</tbody>
+		</table>
+	</div>
 </div>
+
 <?php } if ($toptrainer) { ?>
 	<div class="row" id="trainer">
-		<h2 class="text-center sub-title"><?= $locales->POKEMON_TOPTRAINER ?> <strong><?= $pokemon->name ?></strong></h2>
-		<table class="table">
-			<thead>
-				<tr>
-					<th>#</th>
-					<th><a href="pokemon/<?= $pokemon->id ?>?order=trainer_name<?php echo $best_order == 'trainer_name' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#trainer"><?= $locales->NAME ?> <i class="fa fa-sort" aria-hidden="true"></i></a></th>
-					<th><a href="pokemon/<?= $pokemon->id ?>?order=cp<?php echo $best_order == 'cp' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#trainer">CP <i class="fa fa-sort" aria-hidden="true"></i></a></th>
-					<th><a href="pokemon/<?= $pokemon->id ?>?order=IV<?php echo $best_order == 'IV' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#trainer">IV <i class="fa fa-sort" aria-hidden="true"></i></a></th>
-					<th><a href="pokemon/<?= $pokemon->id ?>?order=move_1<?php echo $best_order == 'move_1' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#trainer">1. <?= $locales->MOVE ?> <i class="fa fa-sort" aria-hidden="true"></i></a></th>
-					<th><a href="pokemon/<?= $pokemon->id ?>?order=move_2<?php echo $best_order == 'move_2' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#trainer">2. <?= $locales->MOVE ?> <i class="fa fa-sort" aria-hidden="true"></i></a></th>
-					<th><a href="pokemon/<?= $pokemon->id ?>?order=last_seen<?php echo $best_order == 'last_seen' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#trainer"><?= $locales->POKEMON_TABLE_SEEN ?> <i class="fa fa-sort" aria-hidden="true"></i></a></th>
-				</tr>
-			</thead>
-			<tbody>
-				<?php
-				$i = 0;
-				foreach ($toptrainer as $besttrainer) {
-					$i++;
-					$move1 = $besttrainer->move_1;
-					$move2 = $besttrainer->move_2;
-					?>
-
+		<div class="col-md-12">
+			<h2 class="text-center sub-title"><?= $locales->POKEMON_TOPTRAINER ?> <strong><?= $pokemon->name ?></strong></h2>
+			<table class="table">
+				<thead>
 					<tr>
-						<td><?= $i ?></td>
-						<td><?= $besttrainer->trainer_name ?></td>
-						<td><?= $besttrainer->cp ?></td>
-						<td><?= $besttrainer->IV ?> %</td>
-						<td><?php echo $move->$move1->name; ?></td>
-						<td><?php echo $move->$move2->name; ?></td>
-						<td><?=$besttrainer->lasttime ?></td>
+						<th>#</th>
+						<th><a href="pokemon/<?= $pokemon->id ?>?order=trainer_name<?php echo $best_order == 'trainer_name' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#trainer"><?= $locales->NAME ?> <i class="fa fa-sort" aria-hidden="true"></i></a></th>
+						<th><a href="pokemon/<?= $pokemon->id ?>?order=cp<?php echo $best_order == 'cp' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#trainer">CP <i class="fa fa-sort" aria-hidden="true"></i></a></th>
+						<th><a href="pokemon/<?= $pokemon->id ?>?order=IV<?php echo $best_order == 'IV' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#trainer">IV <i class="fa fa-sort" aria-hidden="true"></i></a></th>
+						<th><a href="pokemon/<?= $pokemon->id ?>?order=move_1<?php echo $best_order == 'move_1' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#trainer">1. <?= $locales->MOVE ?> <i class="fa fa-sort" aria-hidden="true"></i></a></th>
+						<th><a href="pokemon/<?= $pokemon->id ?>?order=move_2<?php echo $best_order == 'move_2' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#trainer">2. <?= $locales->MOVE ?> <i class="fa fa-sort" aria-hidden="true"></i></a></th>
+						<th><a href="pokemon/<?= $pokemon->id ?>?order=last_seen<?php echo $best_order == 'last_seen' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#trainer"><?= $locales->POKEMON_TABLE_SEEN ?> <i class="fa fa-sort" aria-hidden="true"></i></a></th>
 					</tr>
+				</thead>
+				<tbody>
 					<?php
-				} ?>
-        </tbody>
-    </table>
+					$i = 0;
+					foreach ($toptrainer as $besttrainer) {
+						$i++;
+						$move1 = $besttrainer->move_1;
+						$move2 = $besttrainer->move_2;
+						?>
+
+						<tr>
+							<td><?= $i ?></td>
+							<td><?= $besttrainer->trainer_name ?></td>
+							<td><?= $besttrainer->cp ?></td>
+							<td><?= $besttrainer->IV ?> %</td>
+							<td><?php echo $move->$move1->name; ?></td>
+							<td><?php echo $move->$move2->name; ?></td>
+							<td><?=$besttrainer->lasttime ?></td>
+						</tr>
+						<?php
+					} ?>
+			</tbody>
+		</table>
+	</div>
 </div>
 <?php } ?>

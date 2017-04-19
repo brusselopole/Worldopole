@@ -1,13 +1,10 @@
 <?php
 	
-	
 // -----------------------------------------------------------------------------------------------------------
 // Nests datas 
 // 
 // 
 // -----------------------------------------------------------------------------------------------------------
-
-include_once(SYS_PATH.'/core/process/locales.loader.php');
 
 $nest_exclude_pokemon_ids = implode(",", $config->system->nest_exclude_pokemon);
 
@@ -22,20 +19,20 @@ $req = "SELECT p.pokemon_id, max(p.latitude) as latitude, max(p.longitude) as lo
 $result = $mysqli->query($req);
 
 while ($data = $result->fetch_object()) {
-	$nests['pokemon_id'] = $data->pokemon_id;
-	$nests['total_pokemon'] = $data->total_pokemon;
-	$nests['latitude'] = $data->latitude;
-	$nests['longitude'] = $data->longitude;
+	$nests['pid'] = $data->pokemon_id;
+	$nests['c'] = $data->total_pokemon;
+	$nests['lat'] = $data->latitude;
+	$nests['lng'] = $data->longitude;
 	$starttime = $data->latest_seen - substr_count($data->kind, "s") * 900;
 	if ($starttime < 0) {
 		$starttime = 3600 + $starttime;
 	}
-	$nests['starttime'] = floor($starttime / 60);
-	$nests['endtime'] = floor($data->latest_seen / 60);
+	$nests['st'] = floor($starttime / 60);
+	$nests['et'] = floor($data->latest_seen / 60);
 
-	// Add the datas in file
+	// Add the data to array
 	$nestsdatas[] = $nests;
-	$json = json_encode($nestsdatas);
-
-	file_put_contents(SYS_PATH.'/core/json/nests.stats.json', $json);
 }
+
+// Write file
+file_put_contents($nests_file, json_encode($nestsdatas));

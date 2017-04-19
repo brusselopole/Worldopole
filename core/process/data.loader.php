@@ -6,6 +6,11 @@
 $variables 	= SYS_PATH.'/core/json/variables.json';
 $config 	= json_decode(file_get_contents($variables));
 
+if (!defined('SYS_PATH')) {
+	echo 'Error: config.php does not exist or failed to load.<br>';
+	echo 'Check whether you renamed the config.example.php file!';
+	exit();
+} 
 if (!isset($config->system)) {
 	echo 'Error: Could not load core/json/variables.json.<br>';
 	echo 'json_last_error(): '.json_last_error().'<br>';
@@ -67,26 +72,6 @@ if (!file_exists(SYS_PATH.'/install/done.lock')) {
 ############################
 
 include_once('locales.loader.php');
-
-
-
-
-// Update the pokedex.rarity.json file
-######################################
-// ( for Brusselopole we use CRONTAB but as we're not sure that every had access to it we build this really simple false crontab system
-// => check filemtime, if > 24h launch an update. )
-
-$pokedex_rarity_filetime	= filemtime($pokedex_rarity_file);
-$now				= time();
-$diff				= $now - $pokedex_rarity_filetime;
-
-// Update each 24h
-$update_delay		= 86400;
-
-if ($diff > $update_delay) {
-	include_once(SYS_PATH.'/core/cron/pokedex.rarity.php');
-}
-
 
 
 

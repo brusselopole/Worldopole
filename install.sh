@@ -128,4 +128,4 @@ echo '          Just copy it. Then paste it after executing "crontab -e" and sav
 echo "*/15 * * * * php $BASEDIR/core/cron/crontabs.include.php >/dev/null 2>&1"
 echo
 echo "Afterwards add the following to your $VARIABLES_JSON file inside the \"menu\" tag:"
-echo '{ "type" : "link", "href" : "dashboard", "text" : "Dashboard", "icon" : "fa-tachometer" }'
+echo '{ "type" : "link", "href" : "dashboard", "text" : "Dashboard", "icon" : "fa-area-chart" }'

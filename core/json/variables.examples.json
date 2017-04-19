@@ -33,8 +33,9 @@
 		"only_lured_pokestops"  :	false,
 		"captcha_support"		:	false,
 		"iv_numbers"			:	false,
-		"forced_lang"			:	""
-	},
+		"forced_lang"			:	"",
+		"default_lang"			:	"en"
+	},	
 	"menu":[
 		{
 			"type"		:	"link",

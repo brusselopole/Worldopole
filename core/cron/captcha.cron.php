@@ -78,5 +78,6 @@ if ($config_secret->captcha_key=="") {
 		--$numberDays;
 	}
 }
-$json 		= json_encode($capdatas);
-file_put_contents($captcha_file, $json);
+
+// Write to file
+file_put_contents($captcha_file, json_encode($capdatas));

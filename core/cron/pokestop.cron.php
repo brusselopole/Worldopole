@@ -24,8 +24,5 @@ $pokestop['lured'] = $data->total;
 
 
 // Add the datas in file
-
 $stopdatas[] 	= $pokestop;
-$json 		= json_encode($stopdatas);
-
-file_put_contents($pokestop_file, $json);
+file_put_contents($pokestop_file, json_encode($stopdatas));
