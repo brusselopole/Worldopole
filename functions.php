@@ -100,13 +100,17 @@ function auto_ver($url)
 // File age in secs
 // @param $filepath     => string (mandatory)
 //
-// Return file age of file in secs
+// Return file age of file in secs, PHP_INT_MAX if file doesn't exist
 ########################################################################
 
 function file_update_ago($filepath)
 {
-	$filemtime = filemtime($filepath);
-	$now = time();
-	$diff = $now - $filemtime;
-	return $diff;
+	if (is_file($filepath)) {
+		$filemtime = filemtime($filepath);
+		$now = time();
+		$diff = $now - $filemtime;
+		return $diff;
+	}
+	// file doesn't exist yet!
+	return PHP_INT_MAX;
 }
