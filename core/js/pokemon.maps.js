@@ -49,24 +49,23 @@ function initMap() {
 			map.mapTypes.set('dark_style', styledMap_dark);
 		});
 		$.getJSON( 'core/json/defaultstyle.json', function( data ) {
-		    map.set('styles', data);
+			map.set('styles', data);
 		});
 
 		$.ajax({
-		    'async': true,
-		    'type': "GET",
-		    'global': false,
-		    'dataType': 'json',
-		    'url': "core/process/aru.php",
-		    'data': {
-		        'request': "",
-		        'target': 'arrange_url',
-		        'method': 'method_target',
-		        'type': 'pokemon_coordinates_area'
-
+			'async': true,
+			'type': "GET",
+			'global': false,
+			'dataType': 'json',
+			'url': "core/process/aru.php",
+			'data': {
+				'request': "",
+				'target': 'arrange_url',
+				'method': 'method_target',
+				'type': 'pokemon_coordinates_area'
 		    }
 		}).done(function(coordinates) {
-		    getArea(coordinates);
+			getArea(coordinates);
 		});
 		
 		if (navigator.geolocation) {
