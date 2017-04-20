@@ -61,6 +61,7 @@
 "NAV_POKEDEX": "All Pokémon",
 "NAV_NESTS": "Nests",
 "NESTS_METADESC": "Find nests and frequent spawnpoints",
+"NESTS_MIGRATIONTEXT": "The next <strong>nest migration</strong> happens in",
 "NESTS_TITLE": "<strong>Nests</strong> and frequent spawnpoints",
 "NESTS_PER_DAY": "per day",
 "NEVER": "Never",
