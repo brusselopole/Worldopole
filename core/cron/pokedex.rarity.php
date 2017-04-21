@@ -16,27 +16,24 @@ while ($data = $result->fetch_object()) {
 	}
 }
 
-// get pokemon from last 7 days to calculate the real rarity for the current week
-$req = "SELECT pokemon_id, COUNT(*) as spawns_last_week FROM pokemon WHERE disappear_time >= UTC_TIMESTAMP() - INTERVAL 7 DAY GROUP BY pokemon_id ORDER BY pokemon_id ASC";
+// get pokemon from last day to calculate the real rarity for last 24h
+$req = "SELECT pokemon_id, COUNT(*) as spawns_last_day FROM pokemon WHERE disappear_time >= UTC_TIMESTAMP() - INTERVAL 1 DAY GROUP BY pokemon_id ORDER BY pokemon_id ASC";
 $result = $mysqli->query($req);
-$total_pokemon_last_week = 0;
+$total_pokemon_last_day = 0;
 while ($data = $result->fetch_object()) {
-	$total_pokemon_last_week += $data->spawns_last_week;
+	$total_pokemon_last_day += $data->spawns_last_day;
 	// do not overwrite pokemon count with 0 (pokemon was seen in alltime query above maybe)
-	if ($data->spawns_last_week > 0) {
-		$pokelist[$data->pokemon_id]['total'] = $data->spawns_last_week;
+	if ($data->spawns_last_day > 0) {
+		$pokelist[$data->pokemon_id]['total'] = $data->spawns_last_day;
 	}
 }
 
 foreach ($pokelist as &$pokemon) {
-	// Use alltime count if there was no scan last 7 days
-	$total_pokemon          = ($total_pokemon_last_week > 0) ? $total_pokemon_last_week : $total_pokemon_alltime;
+	// Use alltime count if there was no spawn last 24h
+	$total_pokemon          = ($total_pokemon_last_day > 0) ? $total_pokemon_last_day : $total_pokemon_alltime;
 
 	$percent                = ($pokemon['total']*100) / $total_pokemon;
-	$rounded                = round($percent, 4);
-	// do not round to 0 if there was a spawn. Set to min 0.0001.
-	$rounded                = ($rounded == 0.0000 && $pokemon['total'] > 0) ? $rounded = 0.0001 : $rounded;
-	$pokemon['rate']        = $rounded;
+	$pokemon['rate']        = $percent;
 }
 
 // use pokedex.json file for loop because we want to have entries for all pokemon
