@@ -186,7 +186,7 @@ if (!empty($page)) {
 			
 			// Top50 Pokemon List
 			// Don't run the query for super common pokemon because it's too heavy
-			if ($pokemon->spawn_rate < 0.1) {
+			if ($pokemon->spawn_rate < 0.20) {
 				// Make it sortable; default sort: IV DESC
 				$top_possible_sort = array('IV', 'individual_attack', 'individual_defense', 'individual_stamina', 'move_1', 'move_2', 'disappear_time');
 				$top_order = isset($_GET['order']) ? $_GET['order'] : '';

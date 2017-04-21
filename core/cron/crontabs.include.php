@@ -70,16 +70,16 @@ $pokedex_rarity_file = SYS_PATH.'/core/json/pokedex.rarity.json';
 $nests_file = SYS_PATH.'/core/json/nests.stats.json';
 
 // Do not update both files at the same time to lower cpu load
-#if (file_update_ago($pokedex_rarity_file) > $update_delay) {
+if (file_update_ago($pokedex_rarity_file) > $update_delay) {
 	// set file mtime to now before executing long running queries
 	// so we don't try to update the file twice
-	#touch($pokedex_rarity_file);
+	touch($pokedex_rarity_file);
 	// update pokedex rarity
-	#include_once(SYS_PATH.'/core/cron/pokedex.rarity.php');
-#} elseif (file_update_ago($nests_file) > $update_delay) {
+	include_once(SYS_PATH.'/core/cron/pokedex.rarity.php');
+} elseif (file_update_ago($nests_file) > $update_delay) {
 	// set file mtime to now before executing long running queries
 	// so we don't try to update the file twice
-	#touch($nests_file);
+	touch($nests_file);
 	// update nests
-	#include_once(SYS_PATH.'/core/cron/nests.cron.php');
-#}
+	include_once(SYS_PATH.'/core/cron/nests.cron.php');
+}
