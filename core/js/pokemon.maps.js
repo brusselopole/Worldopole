@@ -145,7 +145,7 @@ function initHeatmapData(bounds){
 		scales: [{
 			first: function(value) {
 				// 06. Oct 2016 (4th migration). 2 week schedule starts with this migration
-				var migrationStart = new Date("2016-10-06");
+				var migrationStart = new Date("2016-10-06T00:00:00Z");
 				var now = new Date();
 				var result = new Date();
 				for (var migration = migrationStart; migration <= now; migration.setTime(migration.getTime() + twoWeeks)) {
