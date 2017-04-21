@@ -117,3 +117,18 @@ function getInfo(data) {
 			'</div>'
 	return info
 }
+
+
+Date.prototype.addDays = function(days) {
+	var d = new Date(this.valueOf());
+	d.setDate(d.getDate() + days);
+	return d;
+}
+
+$(function () {
+	var migration = new Date('2017-05-04T00:00:00Z');
+	while (migration < new Date()) migration = migration.addDays(14);
+	$('#migration').countdown(migration, { precision: 60000 }).on('update.countdown', function(event) {
+		$(this).html(event.strftime('%w %!w:<?= $locales->WEEK ?>,<?= $locales->WEEKS ?>; %d %!d:<?= $locales->DAY ?>,<?= $locales->DAYS ?>; %H %!H:<?= $locales->HOUR ?>,<?= $locales->HOURS ?>; %M %!M:<?= $locales->MINUTE ?>,<?= $locales->MINUTES ?>;'));
+	}).countdown('start');
+});

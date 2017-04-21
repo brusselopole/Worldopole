@@ -247,6 +247,7 @@ include_once('core/process/data.loader.php');
 				case 'nests':
 					?>
 
+					<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js"></script>
 					<script src="core/js/nests.maps.js.php"></script>
 					<script src="https://maps.googleapis.com/maps/api/js?key=<?= $config->system->GMaps_Key ?>&libraries=visualization&callback=initMap"></script>
 
