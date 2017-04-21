@@ -220,7 +220,6 @@ include_once('core/process/data.loader.php');
 							}
 						});
 					</script>
-					<script src="<?php auto_ver('core/js/pokedex.content.js') ?>"></script>
 
 					<?php
 					break;

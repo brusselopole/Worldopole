@@ -128,17 +128,10 @@ if (!empty($page)) {
 
 			$pokemon->protected_gyms = $data->total;
 
-			// Total spawn
-
-			$req 		= "SELECT COUNT(*) as total FROM pokemon WHERE pokemon_id = '".$pokemon_id."'";
-			$result 	= $mysqli->query($req);
-			$data 		= $result->fetch_object();
-
-			$pokemon->total_spawn 	= $data->total;
 			// Spawn rate
 
-			if ($pokemon->total_spawn > 0) {
-				$pokemon->spawns_per_day = round(($pokemon->total_spawn * $pokemon->spawn_rate), 2);
+			if ($pokemon->spawn_count > 0) {
+				$pokemon->spawns_per_day = round(($pokemon->spawn_count * $pokemon->spawn_rate), 2);
 			} else {
 				$pokemon->spawns_per_day = 0;
 			}
@@ -242,22 +235,8 @@ if (!empty($page)) {
 			// Pokemon List from the JSON file
 			// --------------------------------
 
-			$req = "SELECT TABLE_ROWS as total FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'pokemon' AND TABLE_SCHEMA = '".SYS_DB_NAME."'";
-			$result = $mysqli->query($req);
-			$data = $result->fetch_object();
-
-			$total = $data->total;
-
 			$max 		= $config->system->max_pokemon;
 			$pokedex 	= new stdClass();
-
-			$req 		= "SELECT DISTINCT pokemon_id FROM pokemon";
-			$result 	= $mysqli->query($req);
-			$data_array = array();
-
-			while ($data = $result->fetch_object()) {
-				$data_array[$data->pokemon_id] = 1;
-			};
 
 			for ($i= 1; $i <= $max; $i++) {
 				$pokedex->$i			= new stdClass();
@@ -265,7 +244,8 @@ if (!empty($page)) {
 				$pokedex->$i->permalink 	= 'pokemon/'.$i;
 				$pokedex->$i->img		= 'core/pokemons/'.$i.$config->system->pokeimg_suffix;
 				$pokedex->$i->name		= $pokemons->pokemon->$i->name;
-				$pokedex->$i->spawn 		= isset($data_array[$i])? $data_array[$i] : 0;
+				$pokedex->$i->spawn 		= ($pokemons->pokemon->$i->spawn_count > 0) ? 1 : 0;
+				$pokedex->$i->spawn_count	= $pokemons->pokemon->$i->spawn_count;
 			}
 
 

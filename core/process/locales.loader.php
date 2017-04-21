@@ -168,6 +168,9 @@ $pokemons 		= json_decode($pokedex_file);
 $pokedex_rarity_file = SYS_PATH.'/core/json/pokedex.rarity.json';
 $pokemons_rarity = json_decode(file_get_contents($pokedex_rarity_file));
 
+$pokedex_counts_file = SYS_PATH.'/core/json/pokedex.counts.json';
+$pokemon_counts = json_decode(file_get_contents($pokedex_counts_file));
+
 foreach ($pokemons->pokemon as $pokeid => $pokemon) {
 	// Merge name and description from translation files
 	$pokemon->name 			= $pokemon_trans->pokemon->$pokeid->name;
@@ -219,7 +222,13 @@ foreach ($pokemons->pokemon as $pokeid => $pokemon) {
 	} else {
 		$pokemon->rarity = $locales->UNSEEN;
 	}
+
+	// Add pokemon counts and total count to array
+	$pokemon->spawn_count = $pokemon_counts->$pokeid;
 }
+
+// Add total pokemon count
+$pokemons->total = $pokemon_counts->total;
 
 // Translate typecolors array keys as well
 $types_temp = new stdClass();
@@ -240,6 +249,7 @@ unset($locale_dir);
 unset($pokemon_file);
 unset($translation_file);
 unset($pokedex_file);
+unset($pokemon_counts);
 unset($moves_file);
 unset($pokemon_trans);
 unset($types_temp);
