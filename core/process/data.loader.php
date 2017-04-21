@@ -131,7 +131,7 @@ if (!empty($page)) {
 			// Spawn rate
 
 			if ($pokemon->spawn_count > 0) {
-				$pokemon->spawns_per_day = round(($pokemon->spawn_count * $pokemon->spawn_rate), 2);
+				$pokemon->spawns_per_day = round(($pokemon->spawn_count * $pokemon->spawn_rate), 3);
 			} else {
 				$pokemon->spawns_per_day = 0;
 			}
