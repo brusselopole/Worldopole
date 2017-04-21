@@ -62,6 +62,7 @@
 "NAV_POKEDEX": "Tous les Pokémon", 
 "NAV_NESTS": "Nids",
 "NESTS_METADESC": "Trouvez les nids et les lieux d'apparitions",
+"NESTS_MIGRATIONTEXT": "La prochaine <strong>migration des nids</strong> aura lieu dans",
 "NESTS_TITLE": "<strong>Nids</strong> et lieux d'apparitions",
 "NESTS_PER_DAY": "par jour",
 "NEVER": "Jamais vu, désolé", 
