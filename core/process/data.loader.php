@@ -185,27 +185,29 @@ if (!empty($page)) {
 			sort($related);
 			
 			// Top50 Pokemon List
-			
-			// Make it sortable; default sort: IV DESC
-			$top_possible_sort = array('IV', 'individual_attack', 'individual_defense', 'individual_stamina', 'move_1', 'move_2', 'disappear_time');
-			$top_order = isset($_GET['order']) ? $_GET['order'] : '';
-			$top_order_by = in_array($top_order, $top_possible_sort) ? $_GET['order'] : 'IV';
-			$top_direction = isset($_GET['direction']) ? 'ASC' : 'DESC';
-			$top_direction = !isset($_GET['order']) && !isset($_GET['direction']) ? 'DESC' : $top_direction;
-			
-			$req = "SELECT (CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) AS distime, pokemon_id, disappear_time, latitude, longitude,
-					individual_attack, individual_defense, individual_stamina,
-					ROUND(SUM(100*(individual_attack+individual_defense+individual_stamina)/45),1) as IV, move_1, move_2
-					FROM pokemon
-					WHERE pokemon_id = '".$pokemon_id."' AND move_1 IS NOT NULL AND move_1 != '0'   # Check move_1 is enough, we don't want any NULL here
-					GROUP BY encounter_id
-					ORDER BY $top_order_by $top_direction, disappear_time DESC  # Secondary sort by date
-					LIMIT 0,50";
-			
-			$result = $mysqli->query($req);
-			$top = array();
-			while ($data = $result->fetch_object()) {
-				$top[] = $data;
+			// Don't run the query for super common pokemon because it's too heavy
+			if ($pokemon->spawn_rate < 0.1) {
+				// Make it sortable; default sort: IV DESC
+				$top_possible_sort = array('IV', 'individual_attack', 'individual_defense', 'individual_stamina', 'move_1', 'move_2', 'disappear_time');
+				$top_order = isset($_GET['order']) ? $_GET['order'] : '';
+				$top_order_by = in_array($top_order, $top_possible_sort) ? $_GET['order'] : 'IV';
+				$top_direction = isset($_GET['direction']) ? 'ASC' : 'DESC';
+				$top_direction = !isset($_GET['order']) && !isset($_GET['direction']) ? 'DESC' : $top_direction;
+
+				$req = "SELECT (CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) AS distime, pokemon_id, disappear_time, latitude, longitude,
+						individual_attack, individual_defense, individual_stamina,
+						ROUND(SUM(100*(individual_attack+individual_defense+individual_stamina)/45),1) as IV, move_1, move_2
+						FROM pokemon
+						WHERE pokemon_id = '".$pokemon_id."' AND move_1 IS NOT NULL AND move_1 != '0'   # Check move_1 is enough, we don't want any NULL here
+						GROUP BY encounter_id
+						ORDER BY $top_order_by $top_direction, disappear_time DESC  # Secondary sort by date
+						LIMIT 0,50";
+
+				$result = $mysqli->query($req);
+				$top = array();
+				while ($data = $result->fetch_object()) {
+					$top[] = $data;
+				}
 			}
 			
 			// Trainer with highest Pokemon
