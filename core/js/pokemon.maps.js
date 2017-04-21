@@ -63,7 +63,7 @@ function initMap() {
 				'target': 'arrange_url',
 				'method': 'method_target',
 				'type': 'pokemon_coordinates_area'
-		    }
+			}
 		}).done(function(coordinates) {
 			getArea(coordinates);
 		});
@@ -450,13 +450,13 @@ function extractEncountersId(){
 }
 
 function isTouchDevice() {
-    // Should cover most browsers
-    return 'ontouchstart' in window || navigator.maxTouchPoints
+	// Should cover most browsers
+	return 'ontouchstart' in window || navigator.maxTouchPoints
 }
 
 function isMobileDevice() {
-    //  Basic mobile OS (not browser) detection
-    return (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
+	// Basic mobile OS (not browser) detection
+	return (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
 }
 
 function getArea(coordinates){
