@@ -47,8 +47,15 @@ if (is_file($pokemonstats_file)) {
 	$pokedatas	= json_decode(file_get_contents($pokemonstats_file), true);
 }
 
-$timestamp	= time();
+$timestamp = time();
+$timestamp_lastweek = $timestamp - 604800;
 
+// Trim all json stats files to last 7 days of data
+$gymsdatas = trim_stats_json($gymsdatas, $timestamp_lastweek);
+$stopdatas = trim_stats_json($stopdatas, $timestamp_lastweek);
+$pokedatas = trim_stats_json($pokedatas, $timestamp_lastweek);
+
+// Update json stats files
 include_once(SYS_PATH.'/core/cron/gym.cron.php');
 include_once(SYS_PATH.'/core/cron/pokemon.cron.php');
 include_once(SYS_PATH.'/core/cron/pokestop.cron.php');
