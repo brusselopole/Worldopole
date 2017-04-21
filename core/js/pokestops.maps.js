@@ -81,12 +81,11 @@ function initMap()
 
 				var infowindow = new google.maps.InfoWindow();
 			
-				var marker, i;
+				var markers = [];
 		
 				for (i = 0; i < pokestops.length; i++) {
 					marker = new google.maps.Marker({
 						position: new google.maps.LatLng(pokestops[i][2], pokestops[i][3]),
-						map: map,
 						icon: 'core/img/'+pokestops[i][1]
 					});
 		
@@ -96,9 +95,21 @@ function initMap()
 								infowindow.open(map, marker);
 							}
 					})(marker, i));
+					if (pokestops[i][1].lastIndexOf('lured') !== -1) {
+						marker.setMap(map);
+					} else {					
+						markers.push(marker);
+					}
 				}
-			
-					
+				
+				var clusterOptions = {
+					imagePath: 'core/img/m',
+					gridSize: 80,
+					minimumClusterSize: 4
+					//cssClass: 'pokeStopCluster'
+				}
+				markerCluster = new MarkerClusterer(map, [], clusterOptions);			
+				markerCluster.addMarkers(markers);
 			});
 		}
 	});
