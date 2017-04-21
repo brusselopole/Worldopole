@@ -5,7 +5,7 @@
 				<?= $locales->NESTS_TITLE ?>
 			</h1>
 			<br>
-			<h4><?= $locales->NESTS_MIGRATIONTEXT ?> <span id="migration"></span></h4>
+			<h4><p><?= $locales->NESTS_MIGRATIONTEXT ?></p><p id="migration"></p></h4>
 		</div>
 	</div>
 </header>
