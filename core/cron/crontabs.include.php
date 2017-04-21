@@ -77,7 +77,7 @@ if (file_update_ago($pokedex_rarity_file) > $update_delay) {
 	// so we don't try to update the file twice
 	touch($pokedex_rarity_file);
 	// update pokedex rarity
-	include_once(SYS_PATH.'/core/cron/pokedex.rarity.php');
+	include_once(SYS_PATH.'/core/cron/pokedex_rarity.cron.php');
 } elseif (file_update_ago($nests_file) > $update_delay) {
 	// set file mtime to now before executing long running queries
 	// so we don't try to update the file twice
