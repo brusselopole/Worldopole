@@ -114,3 +114,21 @@ function file_update_ago($filepath)
 	// file doesn't exist yet!
 	return PHP_INT_MAX;
 }
+
+########################################################################
+// Only keep data after $timestamp in $array (compared to 'timestamp' key)
+// @param $array     => array (mandatory)
+// @param $timestamp => int (mandatory)
+//
+// Return trimmed array
+########################################################################
+
+function trim_stats_json($array, $timestamp)
+{
+	foreach($array as $key => $value) {
+		if ($value['timestamp'] < $timestamp) {
+			unset($array[$key]);
+		}
+	}
+	return $array;
+}

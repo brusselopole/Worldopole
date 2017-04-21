@@ -8,6 +8,8 @@
 $captcha_file	= SYS_PATH.'/core/json/captcha.stats.json';
 if (is_file($captcha_file)) {
 	$capdatas	= json_decode(file_get_contents($captcha_file), true);
+	// Trim json stats files to last 7 days of data
+	$capdatas = trim_stats_json($capdatas, $timestamp_lastweek);
 }
 
 
