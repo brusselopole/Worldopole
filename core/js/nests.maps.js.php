@@ -129,6 +129,6 @@ $(function () {
 	var migration = new Date('2017-05-04T00:00:00Z');
 	while (migration < new Date()) migration = migration.addDays(14);
 	$('#migration').countdown(migration, { precision: 60000 }).on('update.countdown', function(event) {
-		$(this).html(event.strftime('%w %!w:<?= $locales->WEEK ?>,<?= $locales->WEEKS ?>; %d %!d:<?= $locales->DAY ?>,<?= $locales->DAYS ?>; %H %!H:<?= $locales->HOUR ?>,<?= $locales->HOURS ?>; %M %!M:<?= $locales->MINUTE ?>,<?= $locales->MINUTES ?>;'));
+		$(this).html(event.strftime('%w %!w:<small><?= $locales->WEEK ?></small>,<small><?= $locales->WEEKS ?></small>; %d %!d:<small><?= $locales->DAY ?></small>,<small><?= $locales->DAYS ?></small>; %H %!H:<small><?= $locales->HOUR ?></small>,<small><?= $locales->HOURS ?></small>; %M %!M:<small><?= $locales->MINUTE ?></small>,<small><?= $locales->MINUTES ?></small>;'));
 	}).countdown('start');
 });
