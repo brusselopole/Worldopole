@@ -287,7 +287,7 @@
 </div>
 
 
-<?php if ($top) { ?>
+<?php if (!empty($top)) { ?>
 	<div class="row area" id="top50">
 		<div class="col-md-12">
 			<h2 class="text-center sub-title">Top 50 <strong><?= $pokemon->name ?></strong></h2>
