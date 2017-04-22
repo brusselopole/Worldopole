@@ -10,12 +10,12 @@ for ($pid = 1; $pid <= $maxpid; $pid++) {
 	$result = $mysqli->query($req);
 	$data = $result->fetch_object();
 	
-	$pokedex_counts->$pid = $data->pokemon_spawns;
+	$pokedex_counts->$pid = (int) $data->pokemon_spawns;
 	$total_pokemon += $data->pokemon_spawns;
 }
 
 // add total count
-$pokedex_counts->total = $total_pokemon;
+$pokedex_counts->total = (int) $total_pokemon;
 
 // Write to file
 file_put_contents($pokedex_counts_file, json_encode($pokedex_counts));

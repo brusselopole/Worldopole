@@ -206,9 +206,14 @@ foreach ($pokemons->pokemon as $pokeid => $pokemon) {
 		}
 	}
 	
+	// Add pokemon counts to array
+	$pokemon->spawn_count = $pokemon_counts->$pokeid;
+
 	// Calculate and add rarities to array
-	$spawn_rate = $pokemons_rarity->$pokeid;
+	$spawn_rate = $pokemons_rarity->$pokeid->rate;
 	$pokemon->spawn_rate = $spawn_rate;
+	$pokemon->per_day = $pokemons_rarity->$pokeid->per_day;
+
 	// >= 1          = Very common
 	// 0.20 - 1      = Common
 	// 0.01 - 0.20   = Rare
@@ -220,14 +225,12 @@ foreach ($pokemons->pokemon as $pokeid => $pokemon) {
 		$pokemon->rarity = $locales->COMMON;
 	} elseif ($spawn_rate >= 0.01) {
 		$pokemon->rarity = $locales->RARE;
-	} elseif ($spawn_rate > 0) {
+	} elseif ($spawn_rate > 0 || $pokemon->spawn_count > 0) {
+		// pokemon with at least 1 spawn in the past aren't unseen!
 		$pokemon->rarity = $locales->MYTHIC;
 	} else {
 		$pokemon->rarity = $locales->UNSEEN;
 	}
-
-	// Add pokemon counts and total count to array
-	$pokemon->spawn_count = $pokemon_counts->$pokeid;
 }
 
 // Add total pokemon count
