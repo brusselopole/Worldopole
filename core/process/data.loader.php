@@ -64,6 +64,8 @@ if (!file_exists(SYS_PATH.'/install/done.lock')) {
 	} else {
 		$content = time();
 		file_put_contents(SYS_PATH.'/install/done.lock', $content);
+		// everything seems to be fine let's run an initial cronjob
+		include_once(SYS_PATH.'/core/cron/crontabs.include.php');
 	}
 }
 
