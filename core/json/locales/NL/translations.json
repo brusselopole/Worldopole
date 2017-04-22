@@ -62,6 +62,7 @@
 "NAV_NESTS": "Nesten",
 "NESTS_CHANCE": "Kans om te vinden",
 "NESTS_METADESC": "Vind nesten en veelvuldige spawnplaatsen",
+"NESTS_MIGRATIONTEXT": "De volgende <strong>nest migration</strong> is over",
 "NESTS_TITLE": "<strong>Nesten</strong> en veelvuldige spawnplaatsen",
 "NESTS_PER_DAY": "per dag",
 "NESTS_SPAWN_MINUTE": "Spawn minuten",
