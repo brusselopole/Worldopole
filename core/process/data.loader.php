@@ -132,10 +132,10 @@ if (!empty($page)) {
 
 			// Spawn rate
 
-			if ($pokemon->spawn_count > 0) {
-				$pokemon->spawns_per_day = $pokemon->per_day;
+			if ($pokemon->spawn_count > 0 && $pokemon->per_day == 0) {
+				$pokemon->spawns_per_day = "<1";
 			} else {
-				$pokemon->spawns_per_day = 0;
+				$pokemon->spawns_per_day = $pokemon->per_day;
 			}
 
 			// Last seen
