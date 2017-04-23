@@ -58,7 +58,7 @@ function initMap() {
 				'request': "",
 				'target': 'arrange_url',
 				'method': 'method_target',
-				'type': 'pokemon_coordinates_area'
+				'type': 'maps_localization_coordinates'
 			}
 		}).done(function(coordinates) {
 			if (navigator.geolocation) {
