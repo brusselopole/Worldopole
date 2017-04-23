@@ -8,9 +8,9 @@ function initMap()
 			'async': true,
 			'type': "GET",
 			'global': false,
-			'dataType': 'text',
+			'dataType': 'json',
 			'url': "core/process/aru.php",
-			'data': { 'request': "", 'target': 'arrange_url', 'method': 'method_target', 'type' : 'gym_map' }}).done(function (data) {
+			'data': { 'request': "", 'target': 'arrange_url', 'method': 'method_target', 'type' : 'gym_map' }}).done(function (gyms) {
 			
 			
 			// Get website variables
@@ -20,15 +20,6 @@ function initMap()
 					var longitude = Number(variables['system']['map_center_long']);
 					var zoom_level = Number(variables['system']['zoom_level']);
 				
-					// Convert return to JSON Array
-				
-					var locations = JSON.parse(data);
-					var arr = [];
-				
-					for (i = 0; i < locations.length; i++) {
-						arr.push(JSON.parse(locations[i]));
-					}
-					
 					var map = new google.maps.Map(document.getElementById('map'), {
 						center: {
 							lat: latitude,
@@ -76,17 +67,17 @@ function initMap()
 				
 					var marker, i;
 			
-					for (i = 0; i < arr.length; i++) {
+					for (i = 0; i < gyms.length; i++) {
 						marker = new google.maps.Marker({
-							position: new google.maps.LatLng(arr[i][2], arr[i][3]),
+							position: new google.maps.LatLng(gyms[i][2], gyms[i][3]),
 							map: map,
-							icon: 'core/img/'+arr[i][1],
+							icon: 'core/img/'+gyms[i][1],
 						});
 					
 					
 						google.maps.event.addListener(marker, 'click', (function (marker, i) {
 							return function () {
-								infowindow.setContent(arr[i][0]);
+								infowindow.setContent(gyms[i][0]);
 								infowindow.open(map, marker);
 								$.ajax({
 									'async': true,
@@ -99,7 +90,7 @@ function initMap()
 										'target': 'arrange_url',
 										'method': 'method_target',
 										'type' : 'gym_defenders',
-										'gym_id' : arr[i][5]
+										'gym_id' : gyms[i][4]
 									},
 									'success': function (data) {
 										setGymDetails(data);
