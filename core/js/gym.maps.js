@@ -1,5 +1,6 @@
 /** global: google */
 /** global: navigator */
+/** global: InfoBox */
 
 function initMap()
 {
