@@ -1,4 +1,6 @@
 /** global: google */
+/** global: navigator */
+
 function initMap()
 {
 
