@@ -108,7 +108,7 @@
 			</tr>
 			<tr>
 				<td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_AMOUNT ?> :</strong></td>
-				<td class="col-md-4 col-xs-4"><?= $pokemon->total_spawn ?> <?= $locales->SEEN ?></td>
+				<td class="col-md-4 col-xs-4"><?= $pokemon->spawn_count ?> <?= $locales->SEEN ?></td>
 			</tr>
 			<tr>
 				<td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_RATE ?> :</strong></td>
@@ -287,7 +287,7 @@
 </div>
 
 
-<?php if ($top) { ?>
+<?php if (!empty($top)) { ?>
 	<div class="row area" id="top50">
 		<div class="col-md-12">
 			<h2 class="text-center sub-title">Top 50 <strong><?= $pokemon->name ?></strong></h2>

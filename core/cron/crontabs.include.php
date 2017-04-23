@@ -35,7 +35,7 @@ if ($mysqli->connect_error != '') {
 $gym_file	= SYS_PATH.'/core/json/gym.stats.json';
 $pokestop_file	= SYS_PATH.'/core/json/pokestop.stats.json';
 $pokemonstats_file	= SYS_PATH.'/core/json/pokemon.stats.json';
-
+$pokedex_counts_file	= SYS_PATH.'/core/json/pokedex.counts.json';
 
 if (is_file($gym_file)) {
 	$gymsdatas	= json_decode(file_get_contents($gym_file), true);
@@ -46,6 +46,7 @@ if (is_file($pokestop_file)) {
 if (is_file($pokemonstats_file)) {
 	$pokedatas	= json_decode(file_get_contents($pokemonstats_file), true);
 }
+
 
 $timestamp = time();
 $timestamp_lastweek = $timestamp - 604800;
@@ -59,6 +60,7 @@ $pokedatas = trim_stats_json($pokedatas, $timestamp_lastweek);
 include_once(SYS_PATH.'/core/cron/gym.cron.php');
 include_once(SYS_PATH.'/core/cron/pokemon.cron.php');
 include_once(SYS_PATH.'/core/cron/pokestop.cron.php');
+include_once(SYS_PATH.'/core/cron/pokedex_counts.cron.php');
 if ($config->system->captcha_support) {
 	include_once(SYS_PATH.'/core/cron/captcha.cron.php');
 }
@@ -75,7 +77,7 @@ if (file_update_ago($pokedex_rarity_file) > $update_delay) {
 	// so we don't try to update the file twice
 	touch($pokedex_rarity_file);
 	// update pokedex rarity
-	include_once(SYS_PATH.'/core/cron/pokedex.rarity.php');
+	include_once(SYS_PATH.'/core/cron/pokedex_rarity.cron.php');
 } elseif (file_update_ago($nests_file) > $update_delay) {
 	// set file mtime to now before executing long running queries
 	// so we don't try to update the file twice

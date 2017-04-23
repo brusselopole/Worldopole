@@ -709,27 +709,6 @@ switch ($request) {
 
 		break;
 
-	case 'pokedex':
-		$json="";
-		if (isset($_GET['pokemon_id'])) {
-			$pokemon_id = mysqli_real_escape_string($mysqli, $_GET['pokemon_id']);
-			$where = " WHERE pokemon.pokemon_id = ".$pokemon_id;
-			$req 		= "SELECT COUNT(encounter_id) as total FROM pokemon".$where;
-			$result 	= $mysqli->query($req);
-			$total = 0;
-			while ($result && $data = $result->fetch_object()) {
-				$total 	= $data;
-			}
-
-			$json = json_encode($total);
-		}
-
-		header('Content-Type: application/json');
-
-		echo $json;
-
-		break;
-
 	case 'pokemon_graph_data':
 		$json="";
 		if (isset($_GET['pokemon_id'])) {
