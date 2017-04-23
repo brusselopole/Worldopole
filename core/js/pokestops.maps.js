@@ -1,9 +1,6 @@
 /** global: google */
 function initMap()
 {
-
-	var locations;
-
 	$.ajax({
 		'async': true,
 		'type': "GET",
