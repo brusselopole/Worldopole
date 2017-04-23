@@ -10,6 +10,7 @@
 ?>
 
 /** global: google */
+/** global: navigator */
 
 var pokemon = {
 <?php
