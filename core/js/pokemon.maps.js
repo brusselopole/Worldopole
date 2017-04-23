@@ -325,7 +325,7 @@ function addPokemonMarker(pokemon,pokeimg_suffix, locale) {
 	};
 	var encounter = false;
 	var ivPercent = 100;
-	if (pokemon.individual_attack != null) {
+	if (pokemon.individual_attack !== null) {
 		encounter = true;
 		ivPercent = ((100/45)*(parseInt(pokemon.individual_attack)+parseInt(pokemon.individual_defense)+parseInt(pokemon.individual_stamina))).toFixed(2);
 	}

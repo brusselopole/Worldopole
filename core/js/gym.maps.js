@@ -100,16 +100,14 @@ function initMap()
 			
 					for (i = 0; i < gyms.length; i++) {
 						marker = new google.maps.Marker({
-							position: new google.maps.LatLng(gyms[i][2], gyms[i][3]),
+							position: new google.maps.LatLng(gyms[i][1], gyms[i][2]),
 							map: map,
-							icon: 'core/img/'+gyms[i][1],
+							icon: 'core/img/'+gyms[i][0],
 						});
 					
 					
 						google.maps.event.addListener(marker, 'click', (function (marker, i) {
 							return function () {
-								infowindow.setContent(gyms[i][0]);
-								infowindow.open(map, marker);
 								$.ajax({
 									'async': true,
 									'type': "GET",
@@ -121,11 +119,12 @@ function initMap()
 										'target': 'arrange_url',
 										'method': 'method_target',
 										'type' : 'gym_defenders',
-										'gym_id' : gyms[i][4]
+										'gym_id' : gyms[i][3]
 									},
 									'success': function (data) {
 										setGymDetails(data);
 										infowindow.setContent($('#gym_details_template').html());
+										infowindow.open(map, marker);
 									}
 								});
 							}
