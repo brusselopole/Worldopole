@@ -1,10 +1,6 @@
 /** global: google */
 /** global: pokemon_id */
 /** global: navigator */
-/** global: max_latitude */
-/** global: min_latitude */
-/** global: max_longitude */
-/** global: min_longitude */
 
 var map, heatmap;
 var pokemonMarkers = [];
@@ -66,27 +62,25 @@ function initMap() {
 			}
 		}).done(function(coordinates) {
 			getArea(coordinates);
-		});
-		
-		if (navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition(function(position) {
-				var pos = {
-					lat: position.coords.latitude,
-					lng: position.coords.longitude
-				};
-
-				coordinate_area();
-
-				if (position.coords.latitude <= max_latitude && position.coords.latitude >= min_latitude) {
-					if (position.coords.longitude <= max_longitude && position.coords.longitude >= min_longitude) {
-						map.setCenter(pos);
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(function(position) {
+					var pos = {
+						lat: position.coords.latitude,
+						lng: position.coords.longitude
+					};
+					coordinate_area();
+					if (position.coords.latitude <= max_latitude && position.coords.latitude >= min_latitude) {
+						if (position.coords.longitude <= max_longitude && position.coords.longitude >= min_longitude) {
+							map.setCenter(pos);
+						}
 					}
-				}
-			});
-		}
+				});
+			}
+		});
 		
 		initHeatmap();
 		initSelector(pokeimg_suffix);
+		
 	});
 }
 
