@@ -6,7 +6,7 @@
 
 $pos = !empty($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'], getenv('HTTP_HOST'));
 
-if ($pos===false) {
+if ($pos === false) {
 	http_response_code(401);
 	die('Restricted access');
 }
@@ -44,7 +44,7 @@ if ($mysqli->connect_error != '') {
 $mysqli->set_charset('utf8');
 $request = "";
 if (isset($_GET['type'])) {
-$request 	= $_GET['type'];
+	$request = $_GET['type'];
 }
 $postRequest = "";
 if (isset($_POST['type'])) {
@@ -124,15 +124,10 @@ switch ($request) {
 		// Neutral
 		$values[] = $data->total;
 
-
 		header('Content-Type: application/json');
-		$json = json_encode($values);
-
-		echo $json;
-
+		echo json_encode($values);
 
 		break;
-
 
 
 	####################################
@@ -269,10 +264,11 @@ switch ($request) {
 				break;
 			}
 		}
+
 		header('Content-Type: application/json');
 		echo json_encode($total_spawns);
-		break;
 
+		break;
 
 
 	####################################
@@ -289,7 +285,7 @@ switch ($request) {
 		}
 		$result = $mysqli->query($req);
 
-		$i=0;
+		$pokestops = [];
 
 		while ($data = $result->fetch_object()) {
 			if ($data->lure_expiration >= $data->now) {
@@ -300,24 +296,18 @@ switch ($request) {
 				$text = $locales->POKESTOPS_MAP_REGULAR;
 			}
 
-			$temp[$i][] = $text;
-			$temp[$i][] = $icon;
-			$temp[$i][] = $data->latitude;
-			$temp[$i][] = $data->longitude;
-			$temp[$i][] = $i;
-
-			$temp_json[] = json_encode($temp[$i]);
-
-
-			$i++;
+			$pokestops[] = [
+				$text,
+				$icon,
+				$data->latitude,
+				$data->longitude
+			];
 		}
 
-		$return = json_encode($temp_json);
-
-		echo $return;
+		header('Content-Type: application/json');
+		echo json_encode($pokestops);
 
 		break;
-
 
 
 	####################################
@@ -342,13 +332,11 @@ switch ($request) {
 			$return[]	= $data->average_points;
 		}
 
-		$json = json_encode($return);
-
 		header('Content-Type: application/json');
-		echo $json;
-
+		echo json_encode($return);
 
 		break;
+
 
 	####################################
 	//
@@ -361,8 +349,7 @@ switch ($request) {
 		$req	= "SELECT gym_id, team_id, guard_pokemon_id, gym_points, latitude, longitude, (CONVERT_TZ(last_scanned, '+00:00', '".$time_offset."')) AS last_scanned FROM gym";
 		$result = $mysqli->query($req);
 
-
-		$i=0;
+		$gyms = [];
 
 		while ($data = $result->fetch_object()) {
 			// Team
@@ -437,25 +424,18 @@ switch ($request) {
 
 			';
 
-
-
-			$temp[$i][] = $html;
-			$temp[$i][] = $icon;
-			$temp[$i][] = $data->latitude;
-			$temp[$i][] = $data->longitude;
-			$temp[$i][] = $i;
-			$temp[$i][] = $data->gym_id;
-			$temp[$i][] = $data->gym_level;
-
-			$temp_json[] = json_encode($temp[$i]);
-
-
-			$i++;
+			$gyms[] = [
+				$html,
+				$icon,
+				$data->latitude,
+				$data->longitude,
+				$data->gym_id,
+				$data->gym_level
+			];
 		}
 
-		$return = json_encode($temp_json);
-
-		echo $return;
+		header('Content-Type: application/json');
+		echo json_encode($gyms);
 
 		break;
 
@@ -579,12 +559,12 @@ switch ($request) {
 			$i++;
 		}
 		$gymData['infoWindow'] = $gymData['infoWindow'].'</div>';
-		$return = json_encode($gymData);
 
-		echo $return;
-
+		header('Content-Type: application/json');
+		echo json_encode($gymData);
 
 		break;
+
 
 	case 'trainer':
 		$name = "";
@@ -682,23 +662,23 @@ switch ($request) {
 		$locale["ivDefense"] = $locales->IV_DEFENSE;
 		$locale["ivStamina"] = $locales->IV_STAMINA;
 		$json['locale'] = $locale;
-		$return = json_encode($json);
 
-		echo $return;
+		header('Content-Type: application/json');
+		echo json_encode($json);
 
 		break;
+
 
 	case 'pokemon_slider_init':
 		$req 		= "SELECT MIN(disappear_time) AS min, MAX(disappear_time) AS max FROM pokemon";
 		$result 	= $mysqli->query($req);
-		$data 		= $result->fetch_object();
-		$bounds 	= $data;
+		$bounds		= $result->fetch_object();
 
 		header('Content-Type: application/json');
-		$json = json_encode($bounds);
+		echo json_encode($bounds);
 
-		echo $json;
 		break;
+
 
 	case 'pokemon_heatmap_points':
 		$json="";
@@ -719,10 +699,10 @@ switch ($request) {
 		}
 
 		header('Content-Type: application/json');
-
 		echo $json;
 
 		break;
+
 
 	case 'pokemon_graph_data':
 		$json="";
@@ -746,10 +726,10 @@ switch ($request) {
 		}
 
 		header('Content-Type: application/json');
-
 		echo $json;
 
 		break;
+
 
 	case 'postRequest':
 		break;
@@ -757,9 +737,9 @@ switch ($request) {
 	default:
 		echo "What do you mean?";
 		exit();
-
 	break;
 }
+
 if ($postRequest!="") {
 	switch ($postRequest) {
 		case 'pokemon_live':
