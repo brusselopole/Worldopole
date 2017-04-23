@@ -346,7 +346,7 @@ switch ($request) {
 
 
 	case 'gym_map':
-		$req	= "SELECT gym_id, team_id, guard_pokemon_id, gym_points, latitude, longitude, (CONVERT_TZ(last_scanned, '+00:00', '".$time_offset."')) AS last_scanned FROM gym";
+		$req	= "SELECT gym_id, team_id, gym_points, latitude, longitude, (CONVERT_TZ(last_scanned, '+00:00', '".$time_offset."')) AS last_scanned FROM gym";
 		$result = $mysqli->query($req);
 
 		$gyms = [];
@@ -384,53 +384,38 @@ switch ($request) {
 			}
 
 			// Set gym level
-			$data->gym_level=0;
+			$gym_level=0;
 			if ($data->gym_points < 2000) {
-				$data->gym_level=1;
+				$gym_level=1;
 			} elseif ($data->gym_points < 4000) {
-				$data->gym_level=2;
+				$gym_level=2;
 			} elseif ($data->gym_points < 8000) {
-				$data->gym_level=3;
+				$gym_level=3;
 			} elseif ($data->gym_points < 12000) {
-				$data->gym_level=4;
+				$gym_level=4;
 			} elseif ($data->gym_points < 16000) {
-				$data->gym_level=5;
+				$gym_level=5;
 			} elseif ($data->gym_points < 20000) {
-				$data->gym_level=6;
+				$gym_level=6;
 			} elseif ($data->gym_points < 30000) {
-				$data->gym_level=7;
+				$gym_level=7;
 			} elseif ($data->gym_points < 40000) {
-				$data->gym_level=8;
+				$gym_level=8;
 			} elseif ($data->gym_points < 50000) {
-				$data->gym_level=9;
+				$gym_level=9;
 			} else {
-				$data->gym_level=10;
+				$gym_level=10;
 			}
 
-			## I know, I revert commit 6e8d2e7 from @kiralydavid but the way it was done broke the page.
 			if ($data->team_id != 0) {
-				$icon .= $data->gym_level.".png";
+				$icon .= $gym_level.".png";
 			}
-			$img = 'core/pokemons/'.$data->guard_pokemon_id.$config->system->pokeimg_suffix;
-			$html = '
-			<div style="text-align:center">
-				<p>Gym owned by:</p>
-				<p style="font-weight:400;color:'.$color.'">'.$team.'</p>
-				<p>Protected by</p>
-				<a href="pokemon/'.$data->guard_pokemon_id.'"><img src="'.$img.'" height="40" style="display:inline-block;margin-bottom:10px;" alt="Guard Pokemon image"></a>
-				<p>Level: '.$data->gym_level.' | Prestige : '.$data->gym_points.'<br>
-				Last scanned: '.$data->last_scanned.'</p>
-			</div>
-
-			';
 
 			$gyms[] = [
-				$html,
 				$icon,
 				$data->latitude,
 				$data->longitude,
 				$data->gym_id,
-				$data->gym_level
 			];
 		}
 
@@ -454,8 +439,9 @@ switch ($request) {
 					LEFT JOIN gym ON gym.gym_id = gymdetails.gym_id
 					WHERE gym.gym_id='".$gym_id."'";
 		$result = $mysqli->query($req);
-		$gymData['gymDetails']['gymInfos'] = false;
 		
+		$gymData['gymDetails']['gymInfos'] = false;
+
 		while ($data = $result->fetch_object()) {
 			$gymData['gymDetails']['gymInfos']['name'] = $data->name;
 			$gymData['gymDetails']['gymInfos']['description'] = $data->description;
@@ -491,16 +477,16 @@ switch ($request) {
 				$gymData['gymDetails']['gymInfos']['level']=10;
 			}
 		}
-		//print_r($gymData);
+
 		$req 	= "SELECT DISTINCT gympokemon.pokemon_uid, pokemon_id, iv_attack, iv_defense, iv_stamina, MAX(cp) AS cp, gymmember.gym_id
 					FROM gympokemon INNER JOIN gymmember ON gympokemon.pokemon_uid=gymmember.pokemon_uid
 					GROUP BY gympokemon.pokemon_uid, pokemon_id, iv_attack, iv_defense, iv_stamina, gym_id
 					HAVING gymmember.gym_id='".$gym_id."'
 					ORDER BY cp DESC";
 		$result = $mysqli->query($req);
-		
+
 		$i = 0;
-		
+
 		$gymData['infoWindow'] = '
 			<div class="gym_defenders">
 			';
@@ -557,6 +543,52 @@ switch ($request) {
 				;
 			}
 			$i++;
+		}
+
+		// check whether we could retrieve gym infos, otherwise use basic gym info
+		if (!$gymData['gymDetails']['gymInfos']) {
+			$req = "SELECT gym_id, team_id, gym_points, guard_pokemon_id, latitude, longitude, (CONVERT_TZ(last_scanned, '+00:00', '".$time_offset."')) AS last_scanned
+				FROM gym WHERE gym_id='".$gym_id."'";
+			$result = $mysqli->query($req);
+			$data = $result->fetch_object();
+
+			$gymData['gymDetails']['gymInfos']['name'] = $locales->NOT_AVAILABLE;
+			$gymData['gymDetails']['gymInfos']['description'] = $locales->NOT_AVAILABLE;
+			$gymData['gymDetails']['gymInfos']['url'] = 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Solid_grey.svg/200px-Solid_grey.svg.png';
+			$gymData['gymDetails']['gymInfos']['points'] = $data->gym_points;
+			$gymData['gymDetails']['gymInfos']['level'] = 0;
+			$gymData['gymDetails']['gymInfos']['last_scanned'] = $data->last_scanned;
+			$gymData['gymDetails']['gymInfos']['team'] = $data->team_id;
+			$gymData['gymDetails']['gymInfos']['guardPokemonId'] = $data->guard_pokemon_id;
+			if ($data->gym_points < 2000) {
+				$gymData['gymDetails']['gymInfos']['level']=1;
+			} elseif ($data->gym_points < 4000) {
+				$gymData['gymDetails']['gymInfos']['level']=2;
+			} elseif ($data->gym_points < 8000) {
+				$gymData['gymDetails']['gymInfos']['level']=3;
+			} elseif ($data->gym_points < 12000) {
+				$gymData['gymDetails']['gymInfos']['level']=4;
+			} elseif ($data->gym_points < 16000) {
+				$gymData['gymDetails']['gymInfos']['level']=5;
+			} elseif ($data->gym_points < 20000) {
+				$gymData['gymDetails']['gymInfos']['level']=6;
+			} elseif ($data->gym_points < 30000) {
+				$gymData['gymDetails']['gymInfos']['level']=7;
+			} elseif ($data->gym_points < 40000) {
+				$gymData['gymDetails']['gymInfos']['level']=8;
+			} elseif ($data->gym_points < 50000) {
+				$gymData['gymDetails']['gymInfos']['level']=9;
+			} else {
+				$gymData['gymDetails']['gymInfos']['level']=10;
+			}
+
+			$gymData['infoWindow'] .= '
+				<div style="text-align: center; width: 50px; display: inline-block; margin-right: 3px">
+					<a href="pokemon/'.$data->guard_pokemon_id.'">
+					<img src="core/pokemons/'.$data->guard_pokemon_id.$config->system->pokeimg_suffix.'" height="50" style="display:inline-block" >
+					</a>
+					<p class="pkmn-name">???</p>
+				</div>';
 		}
 		$gymData['infoWindow'] = $gymData['infoWindow'].'</div>';
 
