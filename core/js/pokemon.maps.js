@@ -56,21 +56,20 @@ function initMap() {
 			'url': "core/process/aru.php",
 			'data': {
 				'request': "",
-				'target': 'arrange_url',
+				'target: 'arrange_url',
 				'method': 'method_target',
 				'type': 'pokemon_coordinates_area'
 			}
 		}).done(function(coordinates) {
-			getArea(coordinates);
 			if (navigator.geolocation) {
 				navigator.geolocation.getCurrentPosition(function(position) {
 					var pos = {
 						lat: position.coords.latitude,
 						lng: position.coords.longitude
 					};
-					coordinate_area();
-					if (position.coords.latitude <= max_latitude && position.coords.latitude >= min_latitude) {
-						if (position.coords.longitude <= max_longitude && position.coords.longitude >= min_longitude) {
+
+					if (position.coords.latitude <= coordinates.max_latitude && position.coords.latitude >= coordinates.min_latitude) {
+						if (position.coords.longitude <= coordinates.max_longitude && position.coords.longitude >= coordinates.min_longitude) {
 							map.setCenter(pos);
 						}
 					}
@@ -458,11 +457,4 @@ function isTouchDevice() {
 function isMobileDevice() {
 	// Basic mobile OS (not browser) detection
 	return (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
-}
-
-function getArea(coordinates){
-	max_latitude = coordinates.max_latitude;
-	min_latitude = coordinates.min_latitude;
-	max_longitude = coordinates.max_longitude;
-	min_longitude = coordinates.min_longitude;
 }
