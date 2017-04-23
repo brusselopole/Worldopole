@@ -709,7 +709,7 @@ switch ($request) {
 		break;
 
 
-	case 'pokemon_coordinates_area':
+	case 'maps_localization_coordinates':
 		$json="";
 		$req 		 = "SELECT MAX(latitude) AS max_latitude, MIN(latitude) AS min_latitude, MAX(longitude) AS max_longitude, MIN(longitude) as min_longitude FROM spawnpoint";
 		$result 	 = $mysqli->query($req);
