@@ -10,6 +10,7 @@
 ?>
 
 /** global: google */
+/** global: navigator */
 
 var pokemon = {
 <?php
@@ -57,6 +58,35 @@ function initMap() {
 		});
 		$.getJSON( 'core/json/defaultstyle.json', function( data ) {
 			map.set('styles', data);
+		});
+
+		$.ajax({
+			'async': true,
+			'type': "GET",
+			'global': false,
+			'dataType': 'json',
+			'url': "core/process/aru.php",
+			'data': {
+				'request': "",
+				'target': 'arrange_url',
+				'method': 'method_target',
+				'type': 'maps_localization_coordinates'
+			}
+		}).done(function(coordinates) {
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(function(position) {
+					var pos = {
+						lat: position.coords.latitude,
+						lng: position.coords.longitude
+					};
+
+					if (position.coords.latitude <= coordinates.max_latitude && position.coords.latitude >= coordinates.min_latitude) {
+						if (position.coords.longitude <= coordinates.max_longitude && position.coords.longitude >= coordinates.min_longitude) {
+							map.setCenter(pos);
+						}
+					}
+				});
+			}
 		});
 
 		var infoWindow = new google.maps.InfoWindow({pixelOffset: new google.maps.Size(0, 8)});
