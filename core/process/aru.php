@@ -707,8 +707,7 @@ switch ($request) {
 		$json="";
 		$req 		 = "SELECT MAX(latitude) AS max_latitude, MIN(latitude) AS min_latitude, MAX(longitude) AS max_longitude, MIN(longitude) as min_longitude FROM spawnpoint";
 		$result 	 = $mysqli->query($req);
-		$data 		 = $result->fetch_object();
-		$coordinates = $data;
+		$coordinates = $result->fetch_object();
 		
 		header('Content-Type: application/json');
 		echo json_encode($coordinates);
