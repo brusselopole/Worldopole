@@ -136,7 +136,7 @@ include_once('core/process/data.loader.php');
 			</div>
 		</footer>
 
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="core/js/bootstrap.min.js"></script>
 
 		<?php // Load scripts only for page
@@ -160,7 +160,7 @@ include_once('core/process/data.loader.php');
 				case 'pokemon':
 					?>
 
-					<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+					<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 					<script src="core/js/pokemon.graph.js.php?id=<?= $pokemon_id ?>"></script>
 
 					<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
@@ -220,7 +220,6 @@ include_once('core/process/data.loader.php');
 							}
 						});
 					</script>
-					<script src="<?php auto_ver('core/js/pokedex.content.js') ?>"></script>
 
 					<?php
 					break;
@@ -228,7 +227,7 @@ include_once('core/process/data.loader.php');
 				case 'dashboard':
 					?>
 
-					<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+					<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 					<script src="core/js/dashboard.graph.js.php"></script>
 
 					<?php
@@ -238,7 +237,7 @@ include_once('core/process/data.loader.php');
 					?>
 
 					<script src="<?php auto_ver('core/js/trainer.content.js') ?>"></script>
-					<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+					<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 					<script src="core/js/trainer.graph.js.php"></script>
 
 					<?php
@@ -247,6 +246,7 @@ include_once('core/process/data.loader.php');
 				case 'nests':
 					?>
 
+					<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js"></script>
 					<script src="core/js/nests.maps.js.php"></script>
 					<script src="https://maps.googleapis.com/maps/api/js?key=<?= $config->system->GMaps_Key ?>&libraries=visualization&callback=initMap"></script>
 

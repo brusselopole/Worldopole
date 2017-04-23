@@ -6,6 +6,11 @@
 $variables 	= SYS_PATH.'/core/json/variables.json';
 $config 	= json_decode(file_get_contents($variables));
 
+if (!defined('SYS_PATH')) {
+	echo 'Error: config.php does not exist or failed to load.<br>';
+	echo 'Check whether you renamed the config.example.php file!';
+	exit();
+} 
 if (!isset($config->system)) {
 	echo 'Error: Could not load core/json/variables.json.<br>';
 	echo 'json_last_error(): '.json_last_error().'<br>';
@@ -59,6 +64,8 @@ if (!file_exists(SYS_PATH.'/install/done.lock')) {
 	} else {
 		$content = time();
 		file_put_contents(SYS_PATH.'/install/done.lock', $content);
+		// everything seems to be fine let's run an initial cronjob
+		include_once(SYS_PATH.'/core/cron/crontabs.include.php');
 	}
 }
 
@@ -67,26 +74,6 @@ if (!file_exists(SYS_PATH.'/install/done.lock')) {
 ############################
 
 include_once('locales.loader.php');
-
-
-
-
-// Update the pokedex.rarity.json file
-######################################
-// ( for Brusselopole we use CRONTAB but as we're not sure that every had access to it we build this really simple false crontab system
-// => check filemtime, if > 24h launch an update. )
-
-$pokedex_rarity_filetime	= filemtime($pokedex_rarity_file);
-$now				= time();
-$diff				= $now - $pokedex_rarity_filetime;
-
-// Update each 24h
-$update_delay		= 86400;
-
-if ($diff > $update_delay) {
-	include_once(SYS_PATH.'/core/cron/pokedex.rarity.php');
-}
-
 
 
 
@@ -143,23 +130,12 @@ if (!empty($page)) {
 
 			$pokemon->protected_gyms = $data->total;
 
-			// Total spawn
-
-			$req 		= "SELECT COUNT(*) as total FROM pokemon WHERE pokemon_id = '".$pokemon_id."'";
-			$result 	= $mysqli->query($req);
-			$data 		= $result->fetch_object();
-
-			$pokemon->total_spawn 	= $data->total;
 			// Spawn rate
 
-			if ($pokemon->total_spawn > 0) {
-				$req = "SELECT COUNT(*) as spawns_last_week FROM pokemon WHERE pokemon_id = '".$pokemon_id."' AND disappear_time >= UTC_TIMESTAMP() - INTERVAL 7 DAY";
-				$result = $mysqli->query($req);
-				$data = $result->fetch_object();
-				// Calc spawns_per_day for last week
-				$pokemon->spawns_per_day = round(($data->spawns_last_week/7), 2);
+			if ($pokemon->spawn_count > 0 && $pokemon->per_day == 0) {
+				$pokemon->spawns_per_day = "<1";
 			} else {
-				$pokemon->spawns_per_day = 0;
+				$pokemon->spawns_per_day = $pokemon->per_day;
 			}
 
 			// Last seen
@@ -204,27 +180,29 @@ if (!empty($page)) {
 			sort($related);
 			
 			// Top50 Pokemon List
-			
-			// Make it sortable; default sort: IV DESC
-			$top_possible_sort = array('IV', 'individual_attack', 'individual_defense', 'individual_stamina', 'move_1', 'move_2', 'disappear_time');
-			$top_order = isset($_GET['order']) ? $_GET['order'] : '';
-			$top_order_by = in_array($top_order, $top_possible_sort) ? $_GET['order'] : 'IV';
-			$top_direction = isset($_GET['direction']) ? 'ASC' : 'DESC';
-			$top_direction = !isset($_GET['order']) && !isset($_GET['direction']) ? 'DESC' : $top_direction;
-			
-			$req = "SELECT (CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) AS distime, pokemon_id, disappear_time, latitude, longitude,
-					individual_attack, individual_defense, individual_stamina,
-					ROUND(SUM(100*(individual_attack+individual_defense+individual_stamina)/45),1) as IV, move_1, move_2
-					FROM pokemon
-					WHERE pokemon_id = '".$pokemon_id."' AND move_1 IS NOT NULL AND move_1 != '0'   # Check move_1 is enough, we don't want any NULL here
-					GROUP BY encounter_id
-					ORDER BY $top_order_by $top_direction, disappear_time DESC  # Secondary sort by date
-					LIMIT 0,50";
-			
-			$result = $mysqli->query($req);
-			$top = array();
-			while ($data = $result->fetch_object()) {
-				$top[] = $data;
+			// Don't run the query for super common pokemon because it's too heavy
+			if ($pokemon->spawn_rate < 0.20) {
+				// Make it sortable; default sort: IV DESC
+				$top_possible_sort = array('IV', 'individual_attack', 'individual_defense', 'individual_stamina', 'move_1', 'move_2', 'disappear_time');
+				$top_order = isset($_GET['order']) ? $_GET['order'] : '';
+				$top_order_by = in_array($top_order, $top_possible_sort) ? $_GET['order'] : 'IV';
+				$top_direction = isset($_GET['direction']) ? 'ASC' : 'DESC';
+				$top_direction = !isset($_GET['order']) && !isset($_GET['direction']) ? 'DESC' : $top_direction;
+
+				$req = "SELECT (CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) AS distime, pokemon_id, disappear_time, latitude, longitude,
+						individual_attack, individual_defense, individual_stamina,
+						ROUND(SUM(100*(individual_attack+individual_defense+individual_stamina)/45),1) as IV, move_1, move_2
+						FROM pokemon
+						WHERE pokemon_id = '".$pokemon_id."' AND move_1 IS NOT NULL AND move_1 != '0'   # Check move_1 is enough, we don't want any NULL here
+						GROUP BY encounter_id
+						ORDER BY $top_order_by $top_direction, disappear_time DESC  # Secondary sort by date
+						LIMIT 0,50";
+
+				$result = $mysqli->query($req);
+				$top = array();
+				while ($data = $result->fetch_object()) {
+					$top[] = $data;
+				}
 			}
 			
 			// Trainer with highest Pokemon
@@ -259,22 +237,8 @@ if (!empty($page)) {
 			// Pokemon List from the JSON file
 			// --------------------------------
 
-			$req = "SELECT TABLE_ROWS as total FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'pokemon' AND TABLE_SCHEMA = '".SYS_DB_NAME."'";
-			$result = $mysqli->query($req);
-			$data = $result->fetch_object();
-
-			$total = $data->total;
-
 			$max 		= $config->system->max_pokemon;
 			$pokedex 	= new stdClass();
-
-			$req 		= "SELECT DISTINCT pokemon_id FROM pokemon";
-			$result 	= $mysqli->query($req);
-			$data_array = array();
-
-			while ($data = $result->fetch_object()) {
-				$data_array[$data->pokemon_id] = 1;
-			};
 
 			for ($i= 1; $i <= $max; $i++) {
 				$pokedex->$i			= new stdClass();
@@ -282,7 +246,8 @@ if (!empty($page)) {
 				$pokedex->$i->permalink 	= 'pokemon/'.$i;
 				$pokedex->$i->img		= 'core/pokemons/'.$i.$config->system->pokeimg_suffix;
 				$pokedex->$i->name		= $pokemons->pokemon->$i->name;
-				$pokedex->$i->spawn 		= isset($data_array[$i])? $data_array[$i] : 0;
+				$pokedex->$i->spawn 		= ($pokemons->pokemon->$i->spawn_count > 0) ? 1 : 0;
+				$pokedex->$i->spawn_count	= $pokemons->pokemon->$i->spawn_count;
 			}
 
 

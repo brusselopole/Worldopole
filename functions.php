@@ -80,18 +80,6 @@ function percent($val, $val_total)
 	return $count;
 }
 
-########################################################################
-// File datetime
-// @param $file		=> string (mandatory)
-//
-// Return last_modified file format timestamp
-########################################################################
-
-function file_datetime($file)
-{
-	$time = filemtime($file);
-	return $time;
-}
 
 ########################################################################
 // File version (unix timestamp)
@@ -105,4 +93,42 @@ function auto_ver($url)
 	$path = pathinfo($url);
 	$ver = '.'.filemtime(SYS_PATH.'/'.$url).'.';
 	echo $path['dirname'].'/'.preg_replace('/\.(css|js)$/', $ver."$1", $path['basename']);
+}
+
+
+########################################################################
+// File age in secs
+// @param $filepath     => string (mandatory)
+//
+// Return file age of file in secs, PHP_INT_MAX if file doesn't exist
+########################################################################
+
+function file_update_ago($filepath)
+{
+	if (is_file($filepath)) {
+		$filemtime = filemtime($filepath);
+		$now = time();
+		$diff = $now - $filemtime;
+		return $diff;
+	}
+	// file doesn't exist yet!
+	return PHP_INT_MAX;
+}
+
+########################################################################
+// Only keep data after $timestamp in $array (compared to 'timestamp' key)
+// @param $array     => array (mandatory)
+// @param $timestamp => int (mandatory)
+//
+// Return trimmed array
+########################################################################
+
+function trim_stats_json($array, $timestamp)
+{
+	foreach($array as $key => $value) {
+		if ($value['timestamp'] < $timestamp) {
+			unset($array[$key]);
+		}
+	}
+	return $array;
 }

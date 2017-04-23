@@ -183,7 +183,7 @@ function initHeatmapData(bounds){
 		scales: [{
 			first: function(value) {
 				// 06. Oct 2016 (4th migration). 2 week schedule starts with this migration
-				var migrationStart = new Date("2016-10-06");
+				var migrationStart = new Date("2016-10-06T00:00:00Z");
 				var now = new Date();
 				var result = new Date();
 				for (var migration = migrationStart; migration <= now; migration.setTime(migration.getTime() + twoWeeks)) {
@@ -330,24 +330,31 @@ function addPokemonMarker(pokemon,pokeimg_suffix, locale) {
 		anchor: new google.maps.Point(16, 16),
 		labelOrigin : new google.maps.Point(16, 36)
 	};
-	var ivPercent = ((100/45)*(parseInt(pokemon.individual_attack)+parseInt(pokemon.individual_defense)+parseInt(pokemon.individual_stamina))).toFixed(2);
+	var encounter = false;
+	var ivPercent = 100;
+	if (pokemon.individual_attack != null) {
+		encounter = true;
+		ivPercent = ((100/45)*(parseInt(pokemon.individual_attack)+parseInt(pokemon.individual_defense)+parseInt(pokemon.individual_stamina))).toFixed(2);
+	}
 	var marker = new google.maps.Marker({
 		position: {lat: parseFloat(pokemon.latitude), lng:parseFloat(pokemon.longitude)},
 		map: map,
 		icon: image,
-		label:{
-			color:getIvColor(ivPercent),
-			text:ivPercent+"%"
-		},
 		encounterId: pokemon.encounter_id,
 		ivPercent: ivPercent
 	});
-	var ivFormatted = ((100/45)*(parseInt(pokemon.individual_attack)+parseInt(pokemon.individual_defense)+parseInt(pokemon.individual_stamina))).toFixed(2);
+	if (encounter) {
+		marker.setLabel({
+			color:getIvColor(ivPercent),
+			text:ivPercent+"%"
+		});
+	}
 	var contentString = '<div>'+
-			'<h4> '+pokemon.name+' #'+pokemon.pokemon_id+' IV: '+ivFormatted+'% </h4>'+
+			'<h4> '+pokemon.name+' #'+pokemon.pokemon_id+ (encounter?' IV: '+ivPercent+'% ':'')+'</h4>'+
 			'<div id="bodyContent">'+
-				'<p class="disappear_time_display text-center">'+pokemon.disappear_time_real+'<span class="disappear_time_display_timeleft"></span></p>'+
-				
+				'<p class="disappear_time_display text-center">'+pokemon.disappear_time_real+'<span class="disappear_time_display_timeleft"></span></p>';
+	if (encounter) {
+		contentString +=
 				'<p></p>'+
 				'<div class="progress" style="height: 6px; width: 120px; margin-bottom: 10px; margin-top: 2px; margin-left: auto; margin-right: auto">'+
 					'<div title="'+locale.ivAttack+': '+pokemon.individual_attack+'" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="'+pokemon.individual_attack+'" aria-valuemin="0" aria-valuemax="45" style="width: '+(((100/15)*pokemon.individual_attack)/3)+'%">'+
@@ -361,9 +368,9 @@ function addPokemonMarker(pokemon,pokeimg_suffix, locale) {
 					'</div>'+
 				'</div>'+
 				'<p class="text-center">('+pokemon.individual_attack+"/"+pokemon.individual_defense+"/"+pokemon.individual_stamina+')</p>'+
-				'<p class="text-center">'+pokemon.quick_move+"/"+pokemon.charge_move+'</p>'+
-			'</div>'+
-		'</div>';
+				'<p class="text-center">'+pokemon.quick_move+"/"+pokemon.charge_move+'</p>';
+		}
+		contentString +='</div>';
 
 	var infoWindow = new google.maps.InfoWindow({
 		content: contentString

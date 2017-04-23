@@ -708,6 +708,7 @@ switch ($request) {
 		echo $json;
 		break;
 
+
 	case 'pokemon_coordinates_area':
 		$json="";
 		$req 		 = "SELECT MAX(latitude) AS max_latitude, MIN(latitude) AS min_latitude, MAX(longitude) AS max_longitude, MIN(longitude) as min_longitude FROM spawnpoint";
@@ -721,34 +722,13 @@ switch ($request) {
 		echo $json;
 		break;
 	
-	case 'pokedex':
-		$json="";
-		if (isset($_GET['pokemon_id'])) {
-			$pokemon_id = mysqli_real_escape_string($mysqli, $_GET['pokemon_id']);
-			$where = " WHERE pokemon.pokemon_id = ".$pokemon_id;
-			$req 		= "SELECT COUNT(encounter_id) as total FROM pokemon".$where;
-			$result 	= $mysqli->query($req);
-			$total = 0;
-			while ($result && $data = $result->fetch_object()) {
-				$total 	= $data;
-			}
-
-			$json = json_encode($total);
-		}
-
-		header('Content-Type: application/json');
-
-		echo $json;
-
-		break;
-
 	case 'pokemon_graph_data':
 		$json="";
 		if (isset($_GET['pokemon_id'])) {
 			$pokemon_id = mysqli_real_escape_string($mysqli, $_GET['pokemon_id']);
 			$req 		= "SELECT COUNT(*) as total, "
 					. "HOUR(CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) as disappear_hour
-			FROM (SELECT disappear_time FROM pokemon WHERE pokemon_id = '".$pokemon_id."' LIMIT 10000) as pokemonFiltered
+			FROM (SELECT disappear_time FROM pokemon WHERE pokemon_id = '".$pokemon_id."' ORDER BY disappear_time LIMIT 10000) as pokemonFiltered
 			GROUP BY disappear_hour
 			ORDER BY disappear_hour";
 			$result 	= $mysqli->query($req);
@@ -820,10 +800,18 @@ if ($postRequest!="") {
 				while ($result && $data = $result->fetch_object()) {
 					$pokeid=$data->pokemon_id;
 					$data->name = $pokemons->pokemon->$pokeid->name;
-					$move1=$data->move_1;
-					$move2=$data->move_2;
-					$data->quick_move = $move->$move1->name;
-					$data->charge_move = $move->$move2->name;
+					if (isset($data->move_1)) {
+						$move1 = $data->move_1;
+						$data->quick_move = $move->$move1->name;
+					} else {
+						$data->quick_move = "?";
+					}
+					if (isset($data->move_2)) {
+						$move2 = $data->move_2;
+						$data->charge_move = $move->$move2->name;
+					} else {
+						$data->charge_move = "?";
+					}
 					$json['points'][] 	= $data;
 				}
 

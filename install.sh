@@ -124,8 +124,8 @@ echo "Everything is set up. Catch 'Em All!"
 echo
 echo
 echo "Optional: If you want to enable Dashboard add the following to your crontab"
-echo '          Just copy it. Then paste it after executing "crontab -e" and save the file'
+echo '          Just copy it. Then paste it after executing "sudo crontab -e" and save the file'
 echo "*/15 * * * * php $BASEDIR/core/cron/crontabs.include.php >/dev/null 2>&1"
 echo
 echo "Afterwards add the following to your $VARIABLES_JSON file inside the \"menu\" tag:"
-echo '{ "type" : "link", "href" : "dashboard", "text" : "Dashboard", "icon" : "fa-tachometer" }'
+echo '{ "type" : "link", "href" : "dashboard", "text" : "Dashboard", "icon" : "fa-area-chart" }'
