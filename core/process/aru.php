@@ -14,15 +14,11 @@ if ($pos === false) {
 
 include_once('../../config.php');
 
-
-
 // Include & load the variables
 // ############################
 
 $variables 	= SYS_PATH.'/core/json/variables.json';
 $config 	= json_decode(file_get_contents($variables));
-
-
 
 // Manage Time Interval
 // #####################
@@ -35,6 +31,10 @@ include_once('timezone.loader.php');
 
 include_once('locales.loader.php');
 
+
+// Load functions
+##################
+include_once(SYS_PATH.'/functions.php');
 
 # MySQL
 $mysqli 	= new mysqli(SYS_DB_HOST, SYS_DB_USER, SYS_DB_PSWD, SYS_DB_NAME, SYS_DB_PORT);
@@ -384,28 +384,7 @@ switch ($request) {
 			}
 
 			// Set gym level
-			$gym_level=0;
-			if ($data->gym_points < 2000) {
-				$gym_level=1;
-			} elseif ($data->gym_points < 4000) {
-				$gym_level=2;
-			} elseif ($data->gym_points < 8000) {
-				$gym_level=3;
-			} elseif ($data->gym_points < 12000) {
-				$gym_level=4;
-			} elseif ($data->gym_points < 16000) {
-				$gym_level=5;
-			} elseif ($data->gym_points < 20000) {
-				$gym_level=6;
-			} elseif ($data->gym_points < 30000) {
-				$gym_level=7;
-			} elseif ($data->gym_points < 40000) {
-				$gym_level=8;
-			} elseif ($data->gym_points < 50000) {
-				$gym_level=9;
-			} else {
-				$gym_level=10;
-			}
+			$gym_level = gym_level($data->gym_points);
 
 			if ($data->team_id != 0) {
 				$icon .= $gym_level.".png";
@@ -455,27 +434,7 @@ switch ($request) {
 			$gymData['gymDetails']['gymInfos']['last_scanned'] = $data->last_scanned;
 			$gymData['gymDetails']['gymInfos']['team'] = $data->team;
 			$gymData['gymDetails']['gymInfos']['guardPokemonId'] = $data->guard_pokemon_id;
-			if ($data->points < 2000) {
-				$gymData['gymDetails']['gymInfos']['level']=1;
-			} elseif ($data->points < 4000) {
-				$gymData['gymDetails']['gymInfos']['level']=2;
-			} elseif ($data->points < 8000) {
-				$gymData['gymDetails']['gymInfos']['level']=3;
-			} elseif ($data->points < 12000) {
-				$gymData['gymDetails']['gymInfos']['level']=4;
-			} elseif ($data->points < 16000) {
-				$gymData['gymDetails']['gymInfos']['level']=5;
-			} elseif ($data->points < 20000) {
-				$gymData['gymDetails']['gymInfos']['level']=6;
-			} elseif ($data->points < 30000) {
-				$gymData['gymDetails']['gymInfos']['level']=7;
-			} elseif ($data->points < 40000) {
-				$gymData['gymDetails']['gymInfos']['level']=8;
-			} elseif ($data->points < 50000) {
-				$gymData['gymDetails']['gymInfos']['level']=9;
-			} else {
-				$gymData['gymDetails']['gymInfos']['level']=10;
-			}
+			$gymData['gymDetails']['gymInfos']['level'] = gym_level($data->points);
 		}
 
 		$req 	= "SELECT DISTINCT gympokemon.pokemon_uid, pokemon_id, iv_attack, iv_defense, iv_stamina, MAX(cp) AS cp, gymmember.gym_id
@@ -560,27 +519,7 @@ switch ($request) {
 			$gymData['gymDetails']['gymInfos']['last_scanned'] = $data->last_scanned;
 			$gymData['gymDetails']['gymInfos']['team'] = $data->team_id;
 			$gymData['gymDetails']['gymInfos']['guardPokemonId'] = $data->guard_pokemon_id;
-			if ($data->gym_points < 2000) {
-				$gymData['gymDetails']['gymInfos']['level']=1;
-			} elseif ($data->gym_points < 4000) {
-				$gymData['gymDetails']['gymInfos']['level']=2;
-			} elseif ($data->gym_points < 8000) {
-				$gymData['gymDetails']['gymInfos']['level']=3;
-			} elseif ($data->gym_points < 12000) {
-				$gymData['gymDetails']['gymInfos']['level']=4;
-			} elseif ($data->gym_points < 16000) {
-				$gymData['gymDetails']['gymInfos']['level']=5;
-			} elseif ($data->gym_points < 20000) {
-				$gymData['gymDetails']['gymInfos']['level']=6;
-			} elseif ($data->gym_points < 30000) {
-				$gymData['gymDetails']['gymInfos']['level']=7;
-			} elseif ($data->gym_points < 40000) {
-				$gymData['gymDetails']['gymInfos']['level']=8;
-			} elseif ($data->gym_points < 50000) {
-				$gymData['gymDetails']['gymInfos']['level']=9;
-			} else {
-				$gymData['gymDetails']['gymInfos']['level']=10;
-			}
+			$gymData['gymDetails']['gymInfos']['level'] = gym_level($data->gym_points);
 
 			$gymData['infoWindow'] .= '
 				<div style="text-align: center; width: 50px; display: inline-block; margin-right: 3px">
