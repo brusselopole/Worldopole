@@ -124,7 +124,7 @@ if (!empty($page)) {
 
 			// Total gym protected
 
-			$req 		= "SELECT count( DISTINCT(gym_id) ) as total FROM gym WHERE guard_pokemon_id = '".$pokemon_id."'  ";
+			$req 		= "SELECT COUNT(DISTINCT(gym_id)) AS total FROM gym WHERE guard_pokemon_id = '".$pokemon_id."'";
 			$result 	= $mysqli->query($req);
 			$data 		= $result->fetch_object();
 
@@ -140,11 +140,11 @@ if (!empty($page)) {
 
 			// Last seen
 
-			$req 		= "SELECT disappear_time, (CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) as disappear_time_real, latitude, longitude
-			FROM pokemon
-			WHERE pokemon_id = '".$pokemon_id."'
-			ORDER BY disappear_time DESC
-			LIMIT 0,1";
+			$req 		= "SELECT disappear_time, (CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) AS disappear_time_real, latitude, longitude
+						FROM pokemon
+						WHERE pokemon_id = '".$pokemon_id."'
+						ORDER BY disappear_time DESC
+						LIMIT 0,1";
 			$result 	= $mysqli->query($req);
 			$data 		= $result->fetch_object();
 
@@ -191,11 +191,11 @@ if (!empty($page)) {
 
 				$req = "SELECT (CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) AS distime, pokemon_id, disappear_time, latitude, longitude,
 						individual_attack, individual_defense, individual_stamina,
-						ROUND(SUM(100*(individual_attack+individual_defense+individual_stamina)/45),1) as IV, move_1, move_2
+						ROUND(SUM(100*(individual_attack+individual_defense+individual_stamina)/45),1) AS IV, move_1, move_2
 						FROM pokemon
-						WHERE pokemon_id = '".$pokemon_id."' AND move_1 IS NOT NULL AND move_1 != '0'   # Check move_1 is enough, we don't want any NULL here
+						WHERE pokemon_id = '".$pokemon_id."' AND move_1 IS NOT NULL AND move_1 != '0'
 						GROUP BY encounter_id
-						ORDER BY $top_order_by $top_direction, disappear_time DESC  # Secondary sort by date
+						ORDER BY $top_order_by $top_direction, disappear_time DESC
 						LIMIT 0,50";
 
 				$result = $mysqli->query($req);
@@ -214,12 +214,12 @@ if (!empty($page)) {
 			$best_direction = isset($_GET['direction']) ? 'ASC' : 'DESC';
 			$best_direction = !isset($_GET['order']) && !isset($_GET['direction']) ? 'DESC' : $best_direction;
 			
-			$req = "SELECT trainer_name, ROUND(SUM(100*(iv_attack+iv_defense+iv_stamina)/45),1) as IV, move_1, move_2, cp,
+			$req = "SELECT trainer_name, ROUND(SUM(100*(iv_attack+iv_defense+iv_stamina)/45),1) AS IV, move_1, move_2, cp,
 					DATE_FORMAT(last_seen, '%Y-%m-%d') AS lasttime, last_seen
 					FROM gympokemon
 					WHERE pokemon_id = '".$pokemon_id."'
 					GROUP BY pokemon_uid
-					ORDER BY $best_order_by $best_direction, trainer_name ASC   # Secondary sort by name
+					ORDER BY $best_order_by $best_direction, trainer_name ASC
 					LIMIT 0,50";
 			
 			$result = $mysqli->query($req);
@@ -241,11 +241,11 @@ if (!empty($page)) {
 			$pokedex 	= new stdClass();
 
 			for ($i= 1; $i <= $max; $i++) {
-				$pokedex->$i			= new stdClass();
-				$pokedex->$i->id 		= $i;
+				$pokedex->$i				= new stdClass();
+				$pokedex->$i->id 			= $i;
 				$pokedex->$i->permalink 	= 'pokemon/'.$i;
-				$pokedex->$i->img		= 'core/pokemons/'.$i.$config->system->pokeimg_suffix;
-				$pokedex->$i->name		= $pokemons->pokemon->$i->name;
+				$pokedex->$i->img			= 'core/pokemons/'.$i.$config->system->pokeimg_suffix;
+				$pokedex->$i->name			= $pokemons->pokemon->$i->name;
 				$pokedex->$i->spawn 		= ($pokemons->pokemon->$i->spawn_count > 0) ? 1 : 0;
 				$pokedex->$i->spawn_count	= $pokemons->pokemon->$i->spawn_count;
 			}
@@ -260,13 +260,13 @@ if (!empty($page)) {
 		case 'pokestops':
 			$pokestop 	= new stdClass();
 
-			$req 		= "SELECT COUNT(*) as total FROM pokestop";
+			$req 		= "SELECT COUNT(*) AS total FROM pokestop";
 			$result 	= $mysqli->query($req);
 			$data 		= $result->fetch_object();
 
 			$pokestop->total = $data->total;
 
-			$req 		= "SELECT COUNT(*) as total FROM pokestop WHERE lure_expiration >= UTC_TIMESTAMP()";
+			$req 		= "SELECT COUNT(*) AS total FROM pokestop WHERE lure_expiration >= UTC_TIMESTAMP()";
 			$result 	= $mysqli->query($req);
 			$data 		= $result->fetch_object();
 
@@ -308,7 +308,7 @@ if (!empty($page)) {
 			foreach ($teams as $team_key => $team_values) {
 				// Team Guardians
 
-				$req 	= "SELECT COUNT(*) as total, guard_pokemon_id FROM gym WHERE team_id = '".$team_values->id."' GROUP BY guard_pokemon_id ORDER BY total DESC LIMIT 0,3 ";
+				$req 	= "SELECT COUNT(*) AS total, guard_pokemon_id FROM gym WHERE team_id = '".$team_values->id."' GROUP BY guard_pokemon_id ORDER BY total DESC LIMIT 0,3";
 				$result = $mysqli->query($req);
 
 				$i=0;
@@ -322,7 +322,7 @@ if (!empty($page)) {
 
 				// Gym owned and average points
 
-				$req 	= "SELECT COUNT(DISTINCT(gym_id)) as total, ROUND(AVG(gym_points),0) as average_points FROM gym WHERE team_id = '".$team_values->id."'  ";
+				$req 	= "SELECT COUNT(DISTINCT(gym_id)) AS total, ROUND(AVG(gym_points),0) AS average_points FROM gym WHERE team_id = '".$team_values->id."'";
 				$result = $mysqli->query($req);
 				$data	= $result->fetch_object();
 
@@ -384,7 +384,7 @@ else {
 	// Right now
 	// ---------
 
-	$req 		= "SELECT COUNT(*) as total FROM pokemon WHERE disappear_time >= UTC_TIMESTAMP()";
+	$req 		= "SELECT COUNT(*) AS total FROM pokemon WHERE disappear_time >= UTC_TIMESTAMP()";
 	$result 	= $mysqli->query($req);
 	$data 		= $result->fetch_object();
 
@@ -395,7 +395,7 @@ else {
 	// Lured stops
 	// -----------
 
-	$req 		= "SELECT COUNT(*) as total FROM pokestop WHERE lure_expiration >= UTC_TIMESTAMP()";
+	$req 		= "SELECT COUNT(*) AS total FROM pokestop WHERE lure_expiration >= UTC_TIMESTAMP()";
 	$result 	= $mysqli->query($req);
 	$data 		= $result->fetch_object();
 
@@ -405,7 +405,7 @@ else {
 	// Gyms
 	// ----
 
-	$req 		= "SELECT COUNT(DISTINCT(gym_id)) as total FROM gym";
+	$req 		= "SELECT COUNT(DISTINCT(gym_id)) AS total FROM gym";
 	$result 	= $mysqli->query($req);
 	$data 		= $result->fetch_object();
 
@@ -424,13 +424,19 @@ else {
 			}
 		}
 		// get all mythic pokemon
-		$req 		= "SELECT DISTINCT pokemon_id, encounter_id, disappear_time, last_modified, (CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) as disappear_time_real, latitude, longitude, individual_attack, individual_defense, individual_stamina FROM pokemon
-				   WHERE pokemon_id IN (".implode(",", $mythic_pokemons).")
-				   ORDER BY last_modified DESC LIMIT 0,12";
+		$req = "SELECT DISTINCT pokemon_id, encounter_id, disappear_time, last_modified, (CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) AS disappear_time_real,
+				latitude, longitude, individual_attack, individual_defense, individual_stamina
+				FROM pokemon
+				WHERE pokemon_id IN (".implode(",", $mythic_pokemons).")
+				ORDER BY last_modified DESC
+				LIMIT 0,12";
 	} else {
 		// get all pokemon
-		$req		= "SELECT DISTINCT pokemon_id, encounter_id, disappear_time, last_modified, (CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) as disappear_time_real, latitude, longitude, individual_attack, individual_defense, individual_stamina FROM pokemon
-				   ORDER BY last_modified DESC LIMIT 0,12";
+		$req = "SELECT DISTINCT pokemon_id, encounter_id, disappear_time, last_modified, (CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) AS disappear_time_real,
+				latitude, longitude, individual_attack, individual_defense, individual_stamina
+				FROM pokemon
+				ORDER BY last_modified DESC
+				LIMIT 0,12";
 	}
 	$result 	= $mysqli->query($req);
 	$recents	= array();
@@ -473,28 +479,28 @@ else {
 	// 2 = rouge
 	// 3 = jaune
 
-	$req = "SELECT count( DISTINCT(gym_id) ) as total FROM gym WHERE team_id = '1'  ";
+	$req = "SELECT COUNT(DISTINCT(gym_id)) AS total FROM gym WHERE team_id = '1'";
 	$result = $mysqli->query($req);
 	$data 	= $result->fetch_object();
 
 	$home->teams->mystic 	= $data->total;
 
 
-	$req = "SELECT count( DISTINCT(gym_id) ) as total FROM gym WHERE team_id = '2'  ";
+	$req = "SELECT COUNT(DISTINCT(gym_id)) AS total FROM gym WHERE team_id = '2'";
 	$result = $mysqli->query($req);
 	$data 	= $result->fetch_object();
 
 	$home->teams->valor 	= $data->total;
 
 
-	$req = "SELECT count( DISTINCT(gym_id) ) as total FROM gym WHERE team_id = '3'  ";
+	$req = "SELECT COUNT(DISTINCT(gym_id)) AS total FROM gym WHERE team_id = '3'";
 	$result = $mysqli->query($req);
 	$data 	= $result->fetch_object();
 
 	$home->teams->instinct 	= $data->total;
 
 
-	$req = "SELECT count( DISTINCT(gym_id) ) as total FROM gym WHERE team_id = '0'  ";
+	$req = "SELECT COUNT(DISTINCT(gym_id)) AS total FROM gym WHERE team_id = '0'";
 	$result = $mysqli->query($req);
 	$data 	= $result->fetch_object();
 

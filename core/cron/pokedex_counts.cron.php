@@ -6,7 +6,7 @@ $maxpid = $config->system->max_pokemon;
 $total_pokemon = 0;
 $pokedex_counts = new stdClass();
 for ($pid = 1; $pid <= $maxpid; $pid++) {
-	$req = "SELECT COUNT(*) as pokemon_spawns FROM pokemon WHERE pokemon_id = '".$pid."'";
+	$req = "SELECT COUNT(*) AS pokemon_spawns FROM pokemon WHERE pokemon_id = '".$pid."'";
 	$result = $mysqli->query($req);
 	$data = $result->fetch_object();
 	
