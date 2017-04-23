@@ -711,9 +711,8 @@ switch ($request) {
 		$coordinates = $data;
 		
 		header('Content-Type: application/json');
-		$json = json_encode($coordinates);
-		
-		echo $json;
+		echo json_encode($coordinates);
+
 		break;
 
 
