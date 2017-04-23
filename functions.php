@@ -126,7 +126,7 @@ function file_update_ago($filepath)
 
 function trim_stats_json($array, $timestamp)
 {
-	foreach($array as $key => $value) {
+	foreach ($array as $key => $value) {
 		if ($value['timestamp'] < $timestamp) {
 			unset($array[$key]);
 		}
@@ -168,5 +168,5 @@ function gym_level($prestige)
 		$gym_level = 10;
 	}
 
-        return $gym_level;
+	return $gym_level;
 }
