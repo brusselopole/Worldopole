@@ -144,9 +144,9 @@ function trim_stats_json($array, $timestamp)
 
 function gym_level($prestige)
 {
-	$gym_level=0;
-
-	if ($prestige < 2000) {
+	if ($prestige == 0) {
+		$gym_level = 0;
+	} elseif ($prestige < 2000) {
 		$gym_level = 1;
 	} elseif ($prestige < 4000) {
 		$gym_level = 2;
