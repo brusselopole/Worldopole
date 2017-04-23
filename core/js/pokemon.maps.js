@@ -56,7 +56,7 @@ function initMap() {
 			'url': "core/process/aru.php",
 			'data': {
 				'request': "",
-				'target: 'arrange_url',
+				'target': 'arrange_url',
 				'method': 'method_target',
 				'type': 'pokemon_coordinates_area'
 			}
