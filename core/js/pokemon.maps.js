@@ -11,7 +11,21 @@ var ivMin = 80;
 var ivMax = 100;
 
 function initMap() {
-	$.getJSON( "core/json/variables.json", function( variables ) {
+	var geoOpts = {
+		'type': "GET",
+		'global': false,
+		'dataType': 'json',
+		'url': "core/process/aru.php",
+		'data': {
+			'request': "",
+			'target': 'arrange_url',
+			'method': 'method_target',
+			'type': 'maps_localization_coordinates'
+		}
+	}
+	$.when($.getJSON( "core/json/variables.json"), $.ajax(geoOpts)).then(function (response1, response2) {
+		var variables = response1[0];
+		var coordinates = response2[0];
 		var latitude = Number(variables['system']['map_center_lat']);
 		var longitude = Number(variables['system']['map_center_long']);
 		var zoom_level = Number(variables['system']['zoom_level']);
@@ -49,40 +63,27 @@ function initMap() {
 			map.set('styles', data);
 		});
 
-		$.ajax({
-			'async': true,
-			'type': "GET",
-			'global': false,
-			'dataType': 'json',
-			'url': "core/process/aru.php",
-			'data': {
-				'request': "",
-				'target': 'arrange_url',
-				'method': 'method_target',
-				'type': 'maps_localization_coordinates'
-			}
-		}).done(function(coordinates) {
-			if (navigator.geolocation) {
-				navigator.geolocation.getCurrentPosition(function(position) {
-					var pos = {
-						lat: position.coords.latitude,
-						lng: position.coords.longitude
-					};
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(function(position) {
+				var pos = {
+					lat: position.coords.latitude,
+					lng: position.coords.longitude
+				};
 
-					if (position.coords.latitude <= coordinates.max_latitude && position.coords.latitude >= coordinates.min_latitude) {
-						if (position.coords.longitude <= coordinates.max_longitude && position.coords.longitude >= coordinates.min_longitude) {
-							map.setCenter(pos);
-						}
+				if (position.coords.latitude <= coordinates.max_latitude && position.coords.latitude >= coordinates.min_latitude) {
+					if (position.coords.longitude <= coordinates.max_longitude && position.coords.longitude >= coordinates.min_longitude) {
+						map.setCenter(pos);
 					}
-				});
-			}
-		});
+				}
+			});
+		}
 		
 		var clusterOptions = {
-			imagePath: 'core/img/m',
+			//imagePath: 'core/img/m',
+			cssClass: 'pokedexCluster',
 			gridSize: 60,
 			minimumClusterSize: 3
-			}
+		}
         markerCluster = new MarkerClusterer(map, [], clusterOptions);
 		markerCluster.setCalculator(function(markers) {
 			var index = 1;

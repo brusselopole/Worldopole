@@ -171,7 +171,17 @@ include_once('core/process/data.loader.php');
 						var pokemon_id = <?= $pokemon_id ?>;
 					</script>
 					<script src="https://maps.googleapis.com/maps/api/js?key=<?= $config->system->GMaps_Key ?>&libraries=visualization&callback=initMap"></script>
-
+					<style>
+						.pokedexCluster.cluster0 {
+							background-image: url("core/img/bubble.png"), url("core/pokemons/<?= $pokemon_id.$config->system->pokeimg_suffix ?>"), url("core/img/m1.png");
+						}
+						.pokedexCluster.cluster1 {
+							background-image: url("core/img/bubble.png"), url("core/pokemons/<?= $pokemon_id.$config->system->pokeimg_suffix ?>"), url("core/img/m2.png");
+						}
+						.pokedexCluster.cluster2 {
+							background-image: url("core/img/bubble.png"), url("core/pokemons/<?= $pokemon_id.$config->system->pokeimg_suffix ?>"), url("core/img/m3.png");
+						}					
+					</style>
 					<?php
 					break;
 

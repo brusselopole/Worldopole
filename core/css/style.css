@@ -223,6 +223,23 @@ Pokémon single pages
 	font-weight:bold;
 }
 
+.pokedexCluster {
+	height: 60px;
+	line-height: 24px;
+	width: 48px;
+	text-align: center;
+	cursor: pointer;
+	color: white;
+	position: absolute;
+	font-size: 12px;
+	font-family: Arial,sans-serif;
+	font-weight: bold;
+	background-size: 30px 15px, 36px 36px, 48px 48px;
+	padding-top: 0px;
+	background-position: 9px 4px, 6px 18px, 0px 12px;
+	background-repeat: no-repeat;
+}
+
 /****************
 FAQ
 ****************/
@@ -487,3 +504,24 @@ trainers search styles
 	100% { transform: rotate(360deg); }
 }
 
+/****************
+pokestops
+****************/
+
+.pokeStopCluster {
+	background-image: url("../img/bubble.png"), url("../img/pokestop.png");
+	height: 48px;
+	line-height: 24px;
+	width: 48px;
+	text-align: center;
+	cursor: pointer;
+	color: white;
+	position: absolute;
+	font-size: 12px;
+	font-family: Arial,sans-serif;
+	font-weight: bold;
+	background-size: 30px 15px, 48px 48px;
+	padding-top: 2px;
+	background-repeat: no-repeat;
+	background-position: 9px 6px, 0px 0px;
+}
