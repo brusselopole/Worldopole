@@ -155,7 +155,7 @@ switch ($request) {
 
 			// get last mythic pokemon
 			$req = "SELECT pokemon_id, encounter_id, disappear_time, last_modified, (CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) AS disappear_time_real,
-					latitude, longitude, individual_attack, individual_defense, individual_stamina
+					latitude, longitude, cp, individual_attack, individual_defense, individual_stamina
 					FROM pokemon
 					WHERE pokemon_id IN (".implode(",", $mythic_pokemons).")
 					ORDER BY last_modified DESC
@@ -163,7 +163,7 @@ switch ($request) {
 		} else {
 			// get last pokemon
 			$req = "SELECT pokemon_id, encounter_id, disappear_time, last_modified, (CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) AS disappear_time_real,
-					latitude, longitude, individual_attack, individual_defense, individual_stamina
+					latitude, longitude, cp, individual_attack, individual_defense, individual_stamina
 					FROM pokemon
 					ORDER BY last_modified DESC
 					LIMIT 0,12";
@@ -183,6 +183,7 @@ switch ($request) {
 
 				if ($config->system->recents_show_iv) {
 					$iv = new stdClass();
+					$iv->cp = $data->cp;
 					$iv->attack = $data->individual_attack;
 					$iv->defense = $data->individual_defense;
 					$iv->stamina = $data->individual_stamina;
@@ -229,6 +230,7 @@ switch ($request) {
 					    		</div>
 							</div>';
 						}
+						$html .= '<small>'.$iv->cp.'</small>';
 					} else {
 						if ($config->system->iv_numbers) {
 							$html .= '
@@ -245,12 +247,13 @@ switch ($request) {
 							</div>';
 						} else {
 						$html .= '
-					    <div class="progress" style="height: 6px; width: 80%; margin: 5px auto 15px auto;">
+					    <div class="progress" style="height: 6px; width: 80%; margin: 5px auto 0 auto;">
 						    <div title="IV not available" class="progress-bar" role="progressbar" style="width: 100%; background-color: rgb(210,210,210);" aria-valuenow="1" aria-valuemin="0" aria-valuemax="1">
 							    <span class="sr-only">IV '.$locales->NOT_AVAILABLE.'</span>
 						    </div>
 					    </div>';
 						}
+						$html .= '<small>???</small>';
 					}
 				}
 				$html .= '

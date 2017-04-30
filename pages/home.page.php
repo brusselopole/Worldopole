@@ -88,7 +88,7 @@
 							</div>
 						<?php 
 						} else { ?>
-							<div class="progress" style="height: 6px; width: 80%; margin: 5px auto 15px auto;">
+							<div class="progress" style="height: 6px; width: 80%; margin: 5px auto 0 auto;">
 								<div title="Attack IV: <?= $pokemon->iv->attack ?>" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="<?= $pokemon->iv->attack ?>" aria-valuemin="0" aria-valuemax="45" style="width: <?= ((100/15)*$pokemon->iv->attack)/3 ?>%">
 									<span class="sr-only"><?= $locales->ATTACK ?> IV: <?= $pokemon->iv->attack ?></span>
 								</div>
@@ -100,7 +100,9 @@
 								</div>
 							</div>
 					<?php
-						}
+						} ?>
+						<small><?= $pokemon->iv->cp ?></small>
+					<?php
 					} else {
 						if ($config->system->iv_numbers) { ?>
 							<div class="progress" style="height: 15px; margin-bottom: 0">
@@ -116,13 +118,15 @@
 							</div>
 						<?php 
 						} else { ?>
-						<div class="progress" style="height: 6px; width: 80%; margin: 5px auto 15px auto;">
+						<div class="progress" style="height: 6px; width: 80%; margin: 5px auto 0 auto;">
 							<div title="IV not available" class="progress-bar" role="progressbar" style="width: 100%; background-color: rgb(210,210,210);" aria-valuenow="1" aria-valuemin="0" aria-valuemax="1">
 								<span class="sr-only">IV <?= $locales->NOT_AVAILABLE ?></span>
 							</div>
 						</div>
 					<?php
-						}
+						} ?>
+						<small>???</small>
+					<?php
 					}
 				} ?>
 				</div>

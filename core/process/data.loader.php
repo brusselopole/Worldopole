@@ -425,7 +425,7 @@ else {
 		}
 		// get all mythic pokemon
 		$req = "SELECT DISTINCT pokemon_id, encounter_id, disappear_time, last_modified, (CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) AS disappear_time_real,
-				latitude, longitude, individual_attack, individual_defense, individual_stamina
+				latitude, longitude, cp, individual_attack, individual_defense, individual_stamina
 				FROM pokemon
 				WHERE pokemon_id IN (".implode(",", $mythic_pokemons).")
 				ORDER BY last_modified DESC
@@ -433,7 +433,7 @@ else {
 	} else {
 		// get all pokemon
 		$req = "SELECT DISTINCT pokemon_id, encounter_id, disappear_time, last_modified, (CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) AS disappear_time_real,
-				latitude, longitude, individual_attack, individual_defense, individual_stamina
+				latitude, longitude, cp, individual_attack, individual_defense, individual_stamina
 				FROM pokemon
 				ORDER BY last_modified DESC
 				LIMIT 0,12";
@@ -454,6 +454,7 @@ else {
 
 			if ($config->system->recents_show_iv) {
 				$recent->iv = new stdClass();
+				$recent->iv->cp = $data->cp;
 				$recent->iv->attack = $data->individual_attack;
 				$recent->iv->defense = $data->individual_defense;
 				$recent->iv->stamina = $data->individual_stamina;
