@@ -317,7 +317,7 @@
 
 						<tr>
 							<td><?= $i ?></td>
-							<td><?= $top50->cp ?></td>
+							<td><?= isset($top50->cp) ? $top50->cp : "???" ?></td>
 							<td><?= $top50->IV ?> %</td>
 							<td><?= $top50->individual_attack ?></td>
 							<td><?= $top50->individual_defense ?></td>
