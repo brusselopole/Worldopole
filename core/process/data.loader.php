@@ -182,15 +182,15 @@ if (!empty($page)) {
 			// Top50 Pokemon List
 			// Don't run the query for super common pokemon because it's too heavy
 			if ($pokemon->spawn_rate < 0.20) {
-				// Make it sortable; default sort: IV DESC
-				$top_possible_sort = array('IV', 'individual_attack', 'individual_defense', 'individual_stamina', 'move_1', 'move_2', 'disappear_time');
+				// Make it sortable; default sort: cp DESC
+				$top_possible_sort = array('IV', 'cp', 'individual_attack', 'individual_defense', 'individual_stamina', 'move_1', 'move_2', 'disappear_time');
 				$top_order = isset($_GET['order']) ? $_GET['order'] : '';
-				$top_order_by = in_array($top_order, $top_possible_sort) ? $_GET['order'] : 'IV';
+				$top_order_by = in_array($top_order, $top_possible_sort) ? $_GET['order'] : 'cp';
 				$top_direction = isset($_GET['direction']) ? 'ASC' : 'DESC';
 				$top_direction = !isset($_GET['order']) && !isset($_GET['direction']) ? 'DESC' : $top_direction;
 
 				$req = "SELECT (CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) AS distime, pokemon_id, disappear_time, latitude, longitude,
-						individual_attack, individual_defense, individual_stamina,
+						cp, individual_attack, individual_defense, individual_stamina,
 						ROUND(SUM(100*(individual_attack+individual_defense+individual_stamina)/45),1) AS IV, move_1, move_2
 						FROM pokemon
 						WHERE pokemon_id = '".$pokemon_id."' AND move_1 IS NOT NULL AND move_1 <> '0'

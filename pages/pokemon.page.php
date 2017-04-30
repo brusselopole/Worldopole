@@ -295,6 +295,7 @@
 				<thead>
 					<tr>
 						<th>#</th>
+						<th><a href="pokemon/<?= $pokemon->id ?>?order=cp<?php echo $best_order == 'cp' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#top50">CP <i class="fa fa-sort" aria-hidden="true"></i></a></th>
 						<th><a href="pokemon/<?= $pokemon->id ?>?order=IV<?php echo $top_order == 'IV' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#top50">IV <i class="fa fa-sort" aria-hidden="true"></i></a></th>
 						<th><a href="pokemon/<?= $pokemon->id ?>?order=individual_attack<?php echo $top_order == 'individual_attack' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#top50"><?= $locales->POKEMON_TABLE_ATTACK ?> <i class="fa fa-sort" aria-hidden="true"></i></a></th>
 						<th><a href="pokemon/<?= $pokemon->id ?>?order=individual_defense<?php echo $top_order == 'individual_defense' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#top50"><?= $locales->POKEMON_TABLE_DEFENSE ?> <i class="fa fa-sort" aria-hidden="true"></i></a></th>
@@ -316,6 +317,7 @@
 
 						<tr>
 							<td><?= $i ?></td>
+							<td><?= $top50->cp ?></td>
 							<td><?= $top50->IV ?> %</td>
 							<td><?= $top50->individual_attack ?></td>
 							<td><?= $top50->individual_defense ?></td>
