@@ -181,16 +181,16 @@ switch ($request) {
 				$last_location->latitude = $data->latitude;
 				$last_location->longitude = $data->longitude;
 
-				if ($config->system->recents_show_iv) {
-					$iv = new stdClass();
-					$iv->cp = $data->cp;
-					$iv->attack = $data->individual_attack;
-					$iv->defense = $data->individual_defense;
-					$iv->stamina = $data->individual_stamina;
-					if (isset($iv->attack) && isset($iv->defense) && isset($iv->stamina)) {
-						$iv->available = true;
+				if ($config->system->recents_encounter_details) {
+					$encdetails = new stdClass();
+					$encdetails->cp = $data->cp;
+					$encdetails->attack = $data->individual_attack;
+					$encdetails->defense = $data->individual_defense;
+					$encdetails->stamina = $data->individual_stamina;
+					if (isset($encdetails->cp) && isset($encdetails->attack) && isset($encdetails->defense) && isset($encdetails->stamina)) {
+						$encdetails->available = true;
 					} else {
-						$iv->available = false;
+						$encdetails->available = false;
 					}
 				}
 
@@ -201,47 +201,47 @@ switch ($request) {
 				<a href="https://maps.google.com/?q='.$last_location->latitude.','.$last_location->longitude.'&ll='.$last_location->latitude.','.$last_location->longitude.'&z=16" target="_blank">
 				    <small class="pokemon-timer">00:00:00</small>
 				</a>';
-				if ($config->system->recents_show_iv) {
-					if ($iv->available) {
+				if ($config->system->recents_encounter_details) {
+					if ($encdetails->available) {
 						if ($config->system->iv_numbers) {
 							$html .= '
 							<div class="progress" style="height: 15px; margin-bottom: 0">
-								<div title="'.$locales->IV_ATTACK.': '.$iv->attack.'" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="'.$iv->attack.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(100 / 3).'%; line-height: 16px">
-									<span class="sr-only">'.$locales->IV_ATTACK.': '.$iv->attack.'</span>'.$iv->attack .'
+								<div title="'.$locales->IV_ATTACK.': '.$encdetails->attack.'" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="'.$encdetails->attack.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(100 / 3).'%; line-height: 16px">
+									<span class="sr-only">'.$locales->IV_ATTACK.': '.$encdetails->attack.'</span>'.$encdetails->attack .'
 								</div>
-								<div title="'.$locales->IV_DEFENSE.': '.$iv->defense.'" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="'.$iv->defense.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(100 / 3).'%; line-height: 16px">
-									<span class="sr-only">'.$locales->IV_DEFENSE.': '.$iv->defense.'</span>'.$iv->defense .'
+								<div title="'.$locales->IV_DEFENSE.': '.$encdetails->defense.'" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="'.$encdetails->defense.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(100 / 3).'%; line-height: 16px">
+									<span class="sr-only">'.$locales->IV_DEFENSE.': '.$encdetails->defense.'</span>'.$encdetails->defense .'
 								</div>
-								<div title="'.$locales->IV_STAMINA.': '.$iv->stamina.'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'.$iv->stamina.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(100 / 3).'%; line-height: 16px">
-									<span class="sr-only">'.$locales->IV_STAMINA.': '.$iv->stamina.'</span>'.$iv->stamina .'
+								<div title="'.$locales->IV_STAMINA.': '.$encdetails->stamina.'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'.$encdetails->stamina.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(100 / 3).'%; line-height: 16px">
+									<span class="sr-only">'.$locales->IV_STAMINA.': '.$encdetails->stamina.'</span>'.$encdetails->stamina .'
 								</div>
 							</div>';
 						} else {
 							$html .= '
 							<div class="progress" style="height: 6px; width: 80%; margin: 5px auto 0 auto">
-					    		<div title="'.$locales->IV_ATTACK.': '.$iv->attack.'" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="'.$iv->attack.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(((100 / 15) * $iv->attack) / 3).'%">
-									<span class="sr-only">'.$locales->IV_ATTACK.': '.$iv->attack.'</span>
-					    		</div>
-					    		<div title="'.$locales->IV_DEFENSE.': '.$iv->defense .'" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="'.$iv->defense.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(((100 / 15) * $iv->defense) / 3).'%">
-									<span class="sr-only">'.$locales->IV_DEFENSE.': '.$iv->defense.'</span>
-					    		</div>
-					    		<div title="'.$locales->IV_STAMINA.': '.$iv->stamina .'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'.$iv->stamina.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(((100 / 15) * $iv->stamina) / 3).'%">
-									<span class="sr-only">'.$locales->IV_STAMINA.': '.$iv->stamina.'</span>
-					    		</div>
+							<div title="'.$locales->IV_ATTACK.': '.$encdetails->attack.'" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="'.$encdetails->attack.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(((100 / 15) * $encdetails->attack) / 3).'%">
+									<span class="sr-only">'.$locales->IV_ATTACK.': '.$encdetails->attack.'</span>
+							</div>
+							<div title="'.$locales->IV_DEFENSE.': '.$encdetails->defense .'" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="'.$encdetails->defense.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(((100 / 15) * $encdetails->defense) / 3).'%">
+									<span class="sr-only">'.$locales->IV_DEFENSE.': '.$encdetails->defense.'</span>
+							</div>
+							<div title="'.$locales->IV_STAMINA.': '.$encdetails->stamina .'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'.$encdetails->stamina.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(((100 / 15) * $encdetails->stamina) / 3).'%">
+									<span class="sr-only">'.$locales->IV_STAMINA.': '.$encdetails->stamina.'</span>
+							</div>
 							</div>';
 						}
-						$html .= '<small>'.$iv->cp.'</small>';
+						$html .= '<small>'.$encdetails->cp.'</small>';
 					} else {
 						if ($config->system->iv_numbers) {
 							$html .= '
 							<div class="progress" style="height: 15px; margin-bottom: 0">
-								<div title="'.$locales->IV_ATTACK.': not available" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="'.$iv->attack.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(100 / 3).'%; line-height: 16px">
+								<div title="'.$locales->IV_ATTACK.': not available" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="'.$encdetails->attack.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(100 / 3).'%; line-height: 16px">
 									<span class="sr-only">'.$locales->IV_ATTACK.': '.$locales->NOT_AVAILABLE.'</span>?
 								</div>
-								<div title="'.$locales->IV_DEFENSE.': not available" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="'.$iv->defense.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(100 / 3).'%; line-height: 16px">
+								<div title="'.$locales->IV_DEFENSE.': not available" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="'.$encdetails->defense.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(100 / 3).'%; line-height: 16px">
 									<span class="sr-only">'.$locales->IV_DEFENSE.': '.$locales->NOT_AVAILABLE.'</span>?
 								</div>
-								<div title="'.$locales->IV_STAMINA.': not available" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'.$iv->stamina.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(100 / 3).'%; line-height: 16px">
+								<div title="'.$locales->IV_STAMINA.': not available" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'.$encdetails->stamina.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(100 / 3).'%; line-height: 16px">
 									<span class="sr-only">'.$locales->IV_STAMINA.': '.$locales->NOT_AVAILABLE.'</span>?
 								</div>
 							</div>';
