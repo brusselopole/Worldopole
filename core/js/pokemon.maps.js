@@ -1,6 +1,7 @@
 /** global: google */
 /** global: pokemon_id */
 /** global: navigator */
+/** global: MarkerClusterer */
 
 var map, heatmap;
 var pokemonMarkers = {};
@@ -354,7 +355,7 @@ function addPokemonMarker(pokemon,pokeimg_suffix, locale) {
 	var encountered = false;
 	var ivPercent = 100;
 	if (pokemon.individual_attack !== null) {
-		encounter = true;
+		encountered = true;
 		ivPercent = ((100/45)*(parseInt(pokemon.individual_attack)+parseInt(pokemon.individual_defense)+parseInt(pokemon.individual_stamina))).toFixed(2);
 	}
 	var marker = new google.maps.Marker({

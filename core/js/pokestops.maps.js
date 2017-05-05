@@ -1,5 +1,6 @@
 /** global: google */
 /** global: navigator */
+/** global: MarkerClusterer */
 
 function initMap()
 {
@@ -82,8 +83,8 @@ function initMap()
 		
 			var markers = [];
 	
-			for (i = 0; i < pokestops.length; i++) {
-				marker = new google.maps.Marker({
+			for (var i = 0; i < pokestops.length; i++) {
+				var marker = new google.maps.Marker({
 					position: new google.maps.LatLng(pokestops[i][2], pokestops[i][3]),
 					icon: 'core/img/'+pokestops[i][1]
 				});
