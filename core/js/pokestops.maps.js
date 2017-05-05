@@ -110,7 +110,7 @@ function initMap()
 					minimumClusterSize: cluster.minCluster || 4,
 					cssClass: 'pokeStopCluster'
 				}
-				markerCluster = new MarkerClusterer(map, [], clusterOptions);			
+				var markerCluster = new MarkerClusterer(map, [], clusterOptions);			
 				markerCluster.addMarkers(markers);
 			}
 		});

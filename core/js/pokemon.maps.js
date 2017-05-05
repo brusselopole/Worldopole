@@ -389,7 +389,7 @@ function addPokemonMarker(pokemon,pokeimg_suffix, locale) {
 	var now = new Date().getTime();
 	var endTime = new Date(pokemon.disappear_time_real.replace(/-/g, "/")).getTime();
 	
-	setTimeout(function(){ removePokemonMarker(pokemon.encounter_id) },endTime-now);
+	setTimeout(function(){ removePokemonMarkerByEncounter(pokemon.encounter_id) },endTime-now);
 	return marker;
 }
 
@@ -437,11 +437,9 @@ function getPokemonContent(pokemon, locale, encountered, ivPercent) {
 }
 
 function clearPokemonMarkers() {
-	for(var key in pokemonMarkers) { 
-	   if (pokemonMarkers.hasOwnProperty(key)) {
-		   removePokemonMarker(pokemonMarkers[key]);
-	   }
-	}
+	pokemonMakersEach(function(key) {
+	   removePokemonMarker(marker);
+	});
 	pokemonMarkers = {};
 }
 function removePokemonMarkerByEncounter(encounter_id) {
@@ -459,25 +457,28 @@ function removePokemonMarker(marker) {
 
 
 function removePokemonMarkerByIv(ivMin,ivMax) {
-	for(var key in pokemonMarkers) { 
-	   if (pokemonMarkers.hasOwnProperty(key)) {
-			var marker = pokemonMarkers[key];
-			if(marker.ivPercent < ivMin || marker.ivPercent > ivMax){
-				removePokemonMarker(marker);
-				delete pokemonMarkers[key];
-			}
-	   }
-	}
+	pokemonMakersEach(function(marker, key) {
+		if(marker.ivPercent < ivMin || marker.ivPercent > ivMax){
+			removePokemonMarker(marker);
+			delete pokemonMarkers[key];
+		}
+	});
 }
 
 function extractEncountersId(){
 	var inmapEncounter = [];
+	pokemonMakersEach(function(marker, key) {
+		inmapEncounter.push(key);
+	});
+	return inmapEncounter;
+}
+
+function pokemonMakersEach(func) {
 	for(var key in pokemonMarkers) { 
 		if (pokemonMarkers.hasOwnProperty(key)) {
-			inmapEncounter.push(key);
+			func(pokemonMarkers[key], key);
 		}
 	}
-	return inmapEncounter;
 }
 
 function isTouchDevice() {
