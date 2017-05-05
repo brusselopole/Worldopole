@@ -5,7 +5,7 @@
 var map, heatmap;
 var pokemonMarkers = {};
 var updateLiveTimeout;
-var markerCluster;
+var markerCluster = false;
 
 var ivMin = 80;
 var ivMax = 100;
@@ -30,6 +30,7 @@ function initMap() {
 		var longitude = Number(variables['system']['map_center_long']);
 		var zoom_level = Number(variables['system']['zoom_level']);
 		var pokeimg_suffix = variables['system']['pokeimg_suffix'];
+		var cluster = variables.system.cluster_pokemon;
 
 		map = new google.maps.Map(document.getElementById('map'), {
 			center: {
@@ -78,26 +79,27 @@ function initMap() {
 			});
 		}
 		
-		var clusterOptions = {
-			//imagePath: 'core/img/m',
-			cssClass: 'pokedexCluster',
-			gridSize: 60,
-			minimumClusterSize: 3
+		if (cluster) {
+			var clusterOptions = {
+				cssClass: 'pokedexCluster',
+				gridSize: cluster.grid || 60,
+				minimumClusterSize: cluster.minCluster || 3,
+			}
+			markerCluster = new MarkerClusterer(map, [], clusterOptions);
+			markerCluster.setCalculator(function(markers) {
+				var index = 1;
+				var len = markers.length;
+				if (len > 7 && len < 15) {
+					index = 2;
+				} else if (len >= 15){
+					index = 3;
+				}
+				return {
+					text: len,
+					index: index
+				}
+			});
 		}
-        markerCluster = new MarkerClusterer(map, [], clusterOptions);
-		markerCluster.setCalculator(function(markers) {
-			var index = 1;
-			var len = markers.length;
-			if (len > 7 && len < 15) {
-				index = 2;
-			} else if (len >= 15){
-				index = 3;
-			}
-			return {
-				text: len,
-				index: index
-			}
-		});
 		initHeatmap();
 		initSelector(pokeimg_suffix);
 		
@@ -329,9 +331,13 @@ function updateLive(pokeimg_suffix){
 			'ivMax' : ivMax
 		}
 	}).done(function(pokemons){
-		var markers = [];
 		for (var i = 0; i < pokemons.points.length; i++) {
-			markers.push(addPokemonMarker(pokemons.points[i],pokeimg_suffix, pokemons.locale));
+			var marker = addPokemonMarker(pokemons.points[i],pokeimg_suffix, pokemons.locale);
+			if (markerCluster) {
+				markerCluster.addMarker(marker);
+			} else {
+				marker.setMap(map);
+			}
 		}		
 		updateLiveTimeout=setTimeout(function(){ updateLive(pokeimg_suffix) },5000);
 	});
@@ -384,7 +390,7 @@ function addPokemonMarker(pokemon,pokeimg_suffix, locale) {
 	var endTime = new Date(pokemon.disappear_time_real.replace(/-/g, "/")).getTime();
 	
 	setTimeout(function(){ removePokemonMarker(pokemon.encounter_id) },endTime-now);
-	markerCluster.addMarker(marker);
+	return marker;
 }
 
 function getMarkerLabel(ivPercent) {
@@ -433,22 +439,31 @@ function getPokemonContent(pokemon, locale, encountered, ivPercent) {
 function clearPokemonMarkers() {
 	for(var key in pokemonMarkers) { 
 	   if (pokemonMarkers.hasOwnProperty(key)) {
-		   markerCluster.removeMarker(pokemonMarkers[key]);
+		   removePokemonMarker(pokemonMarkers[key]);
 	   }
 	}
 	pokemonMarkers = {};
 }
-function removePokemonMarker(encounter_id) {
-	markerCluster.removeMarker(pokemonMarkers[encounter_id]);
+function removePokemonMarkerByEncounter(encounter_id) {
+	removePokemonMarker(pokemonMarkers[encounter_id]);
 	delete pokemonMarkers[encounter_id];
 }
+
+function removePokemonMarker(marker) {
+	if (markerCluster) {
+		markerCluster.removeMarker(marker);
+	} else {
+		marker.setMap(null);
+	}
+}
+
 
 function removePokemonMarkerByIv(ivMin,ivMax) {
 	for(var key in pokemonMarkers) { 
 	   if (pokemonMarkers.hasOwnProperty(key)) {
 			var marker = pokemonMarkers[key];
 			if(marker.ivPercent < ivMin || marker.ivPercent > ivMax){
-				markerCluster.removeMarker(marker);
+				removePokemonMarker(marker);
 				delete pokemonMarkers[key];
 			}
 	   }

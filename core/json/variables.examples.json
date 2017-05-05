@@ -33,6 +33,14 @@
 		"only_lured_pokestops"  :	false,
 		"captcha_support"		:	false,
 		"iv_numbers"			:	false,
+		"cluster_stops"			:  	{
+			grid: 80,
+			minCluster: 4
+		},
+		"cluster_pokemon"		:  	{
+			grid: 60,
+			minCluster: 3
+		},
 		"forced_lang"			:	"",
 		"default_lang"			:	"en"
 	},	
