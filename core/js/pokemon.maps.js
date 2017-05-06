@@ -438,7 +438,7 @@ function getPokemonContent(pokemon, locale, encountered, ivPercent) {
 }
 
 function clearPokemonMarkers() {
-	pokemonMakersEach(function(key) {
+	pokemonMakersEach(function(marker) {
 	   removePokemonMarker(marker);
 	});
 	pokemonMarkers = {};
