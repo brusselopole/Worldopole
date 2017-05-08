@@ -742,7 +742,7 @@ switch ($request) {
 			$result = $mysqli->query($req);
 			while ($result && $data = $result->fetch_object()) {
 				$pkm = array();
-				if ($data->gym_points == 0) $data->pokemon_uids = null;
+				if ($data->gym_points == 0) { $data->pokemon_uids = null; }
 				if ($data->pokemon_uids != null) {
 					$pkm_uids = explode(',', $data->pokemon_uids);
 					$pkm_req = "SELECT pokemon_uid, pokemon_id, cp, trainer_name
@@ -755,14 +755,9 @@ switch ($request) {
 					}
 				}
 				$data->pokemon = $pkm;
-				unset($data->pokemon_uids);
 				$data->gym_id = str_replace('.', '_', $data->gym_id);
 				$entries[] = $data;
 			}
-
-			$onlyPkmUid = function($p) {
-				return $p->pokemon_uid;
-			};
 
 			foreach ($entries as $idx => $entry) {
 				$entry->gym_points_diff = 0;
@@ -770,8 +765,8 @@ switch ($request) {
 					$next_entry = $entries[$idx+1];
 					$entry->gym_points_diff = $entry->gym_points - $next_entry->gym_points;
 					$entry->class = $entry->gym_points_diff > 0 ? 'gain' : ($entry->gym_points_diff < 0 ? 'loss' : '');
-					$entry_pokemon = array_map($onlyPkmUid, $entry->pokemon);
-					$next_entry_pokemon = array_map($onlyPkmUid, $next_entry->pokemon);
+					$entry_pokemon = explode(',', $entry->pokemon_uids_end);
+					$next_entry_pokemon = explode(',', $next_entry->pokemon_uids_end);
 					$new_pokemon = array_diff($entry_pokemon, $next_entry_pokemon);
 					$old_pokemon = array_diff($next_entry_pokemon, $entry_pokemon);
 					foreach ($new_pokemon as $pkm) {
@@ -781,6 +776,7 @@ switch ($request) {
 						$next_entry->pokemon[$pkm]->class = 'old';
 					}
 				}
+				unset($entry->pokemon_uids);
 			}
 		}
 
