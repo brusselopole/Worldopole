@@ -242,6 +242,30 @@
 
 		<?php
 			break;
+
+		case 'gymhistory':
+		?>
+
+		<title><?= $config->infos->site_name ?> | Gym History</title>
+
+		<link rel="canonical" href="<?= HOST_URL ?>gymhistory" />
+		<base href="<?= HOST_URL ?>">
+
+		<meta property="og:locale" content="en_US" />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="<?= $config->infos->site_name ?> | Gym History" />
+		<meta property="og:description" content="Gym History" />
+		<meta property="og:url" content="<?= HOST_URL ?>gymhistory" />
+		<meta property="og:site_name" content="<?= $config->infos->site_name ?>" />
+		<meta property="og:image" content="<?= HOST_URL ?>core/img/logo.jpg" />
+
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:description" content="Gym History" />
+		<meta name="twitter:title" content="<?= $config->infos->site_name ?> | Gym History" />
+		<meta name="twitter:image" content="<?= HOST_URL ?>core/img/logo.jpg" />
+
+		<?php
+			break;
 	}
 }
 
