@@ -261,6 +261,14 @@ include_once('core/process/data.loader.php');
 
 					<?php
 					break;
+
+				case 'gymhistory':
+					?>
+
+					<script src="<?php auto_ver('core/js/gymhistory.content.js') ?>"></script>
+
+					<?php
+					break;
 			}
 		}
 		?>
