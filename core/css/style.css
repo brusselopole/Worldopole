@@ -527,11 +527,11 @@ trainers search styles
 }
 
 #gymsTable > thead > tr > th:nth-child(1) {
-		width: 100px;
+	width: 100px;
 }
 
 #gymsTable > thead > tr > th:nth-child(2) {
-		width: 180px;
+	width: 180px;
 }
 
 @media (max-width: 768px) {
