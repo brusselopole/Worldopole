@@ -549,7 +549,7 @@ raids styles
 }
 
 
-#gymsContainer td  {
+#gymsContainer td {
 	vertical-align: middle;
 	line-height: 2em;
 }
@@ -563,7 +563,6 @@ raids styles
 }
 
 #gymsContainer td.level img {
-	height: 2em;
 	margin-right: .5em;
 }
 
@@ -576,12 +575,12 @@ raids styles
 }
 
 #gymsContainer td ul {
-	margin-bottom: -8px;
+	margin-bottom: 0;
 	min-height: 71px;
+	line-height: initial;
 }
 
 #gymsContainer td ul li {
-	line-height: initial;
 	width: 5em;
 	overflow: hidden;
 	text-align: center;
