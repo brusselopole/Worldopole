@@ -733,11 +733,11 @@ switch ($request) {
 			$pkm = array();
 			if ($data->gym_points > 0) {
 				$pkm_req = "SELECT gymmember.pokemon_uid, pokemon_id, cp, trainer_name
-					FROM gymmember
-					LEFT JOIN gympokemon
-					ON gymmember.pokemon_uid = gympokemon.pokemon_uid
-					WHERE gymmember.gym_id = '". $data->gym_id ."'
-					ORDER BY cp DESC";
+							FROM gymmember
+							LEFT JOIN gympokemon
+							ON gymmember.pokemon_uid = gympokemon.pokemon_uid
+							WHERE gymmember.gym_id = '". $data->gym_id ."'
+							ORDER BY cp DESC";
 				$pkm_result = $mysqli->query($pkm_req);
 				while ($pkm_result && $pkm_data = $pkm_result->fetch_object()) {
 					$pkm[] = $pkm_data;
@@ -782,13 +782,13 @@ switch ($request) {
 			$result = $mysqli->query($req);
 			while ($result && $data = $result->fetch_object()) {
 				$pkm = array();
-				if ($data->gym_points == 0) { $data->pokemon_uids = null; }
-				if ($data->pokemon_uids != null) {
+				if ($data->gym_points == 0) { $data->pokemon_uids = ''; }
+				if ($data->pokemon_uids != '') {
 					$pkm_uids = explode(',', $data->pokemon_uids);
 					$pkm_req = "SELECT pokemon_uid, pokemon_id, cp, trainer_name
-						FROM gympokemon
-						WHERE pokemon_uid IN ('". implode("','", $pkm_uids) ."')
-						ORDER BY cp DESC";
+								FROM gympokemon
+								WHERE pokemon_uid IN ('". implode("','", $pkm_uids) ."')
+								ORDER BY cp DESC";
 					$pkm_result = $mysqli->query($pkm_req);
 					while ($pkm_result && $pkm_data = $pkm_result->fetch_object()) {
 						$pkm[$pkm_data->pokemon_uid] = $pkm_data;
@@ -805,8 +805,8 @@ switch ($request) {
 					$next_entry = $entries[$idx+1];
 					$entry->gym_points_diff = $entry->gym_points - $next_entry->gym_points;
 					$entry->class = $entry->gym_points_diff > 0 ? 'gain' : ($entry->gym_points_diff < 0 ? 'loss' : '');
-					$entry_pokemon = explode(',', $entry->pokemon_uids);
-					$next_entry_pokemon = explode(',', $next_entry->pokemon_uids);
+					$entry_pokemon = preg_split('/,/', $entry->pokemon_uids, null, PREG_SPLIT_NO_EMPTY);
+					$next_entry_pokemon = preg_split('/,/', $next_entry->pokemon_uids, null, PREG_SPLIT_NO_EMPTY);
 					$new_pokemon = array_diff($entry_pokemon, $next_entry_pokemon);
 					$old_pokemon = array_diff($next_entry_pokemon, $entry_pokemon);
 					foreach ($new_pokemon as $pkm) {
