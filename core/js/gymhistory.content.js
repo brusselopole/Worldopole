@@ -84,8 +84,7 @@ $(function () {
 				$('#gymsContainer').empty();
 				$('input#name').filter(':visible').val(window.history.state.name);
 				loadGyms(0, $('input#name').filter(':visible').val(), teamSelector, rankingFilter, pokeimg_suffix, false);
-			}
-			else{
+			} else {
 				window.history.back();
 			}
 		};
@@ -205,7 +204,7 @@ function printGym(gym, pokeimg_suffix, locale) {
 		}
 	});
 	gymsInfos.append($('<td>',{text: gym.last_modified}));
-	if (gym.name.length > 50) gym.name = gym.name.substr(0, 50) + '…';
+	if (gym.name.length > 50) { gym.name = gym.name.substr(0, 50) + '…'; }
 	gymsInfos.append($('<td>',{text: gym.name}));
 	gymsInfos.append($('<td>',{text: gymLevel.level, class: 'level'}).prepend($('<img />', {src:'core/img/map_'+(gym.team_id=='1'?'blue':gym.team_id=='2'?'red':gym.team_id=='3'?'yellow':'white')+'.png'})));
 	gymsInfos.append($('<td>',{text: parseInt(gym.gym_points).toLocaleString('de-DE')}));
