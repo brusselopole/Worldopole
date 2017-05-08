@@ -812,8 +812,8 @@ switch ($request) {
 					$next_entry = $entries[$idx+1];
 					$entry->gym_points_diff = $entry->gym_points - $next_entry->gym_points;
 					$entry->class = $entry->gym_points_diff > 0 ? 'gain' : ($entry->gym_points_diff < 0 ? 'loss' : '');
-					$entry_pokemon = explode(',', $entry->pokemon_uids_end);
-					$next_entry_pokemon = explode(',', $next_entry->pokemon_uids_end);
+					$entry_pokemon = explode(',', $entry->pokemon_uids);
+					$next_entry_pokemon = explode(',', $next_entry->pokemon_uids);
 					$new_pokemon = array_diff($entry_pokemon, $next_entry_pokemon);
 					$old_pokemon = array_diff($next_entry_pokemon, $entry_pokemon);
 					foreach ($new_pokemon as $pkm) {
