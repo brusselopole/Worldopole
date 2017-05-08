@@ -38,8 +38,8 @@ INSERT INTO gymhistory
       FROM gymmember AS gm
       WHERE gm.gym_id = g.gym_id GROUP BY gym_id
     ) AS pokemon_uids
-  )
-  FROM gym AS g;
+    FROM gym AS g
+  );
 
 
 Use the following SQL-Statements to create the event to update the new table:
