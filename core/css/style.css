@@ -491,11 +491,11 @@ trainers details styles
 trainers search styles
 ****************/
 
-#searchTrainer button {
+#searchTrainer button, #searchGyms button {
 	height: 40px;
 }
 
-#searchTrainer input {
+#searchTrainer input, #searchGyms input {
 	height: 40px;
 }
 
@@ -579,4 +579,80 @@ raids styles
 	#raidsTable>tbody>tr>td, #raidsTable>tbody>tr>th, #raidsTable>tfoot>tr>td, #raidsTable>tfoot>tr>th, #raidsTable>thead>tr>td, #raidsTable>thead>tr>th {
 		padding: 6px
 	}
+}
+
+
+#gymsContainer td  {
+	vertical-align: middle;
+	line-height: 2em;
+}
+
+#gymsContainer .gymhistory table td:first-child, #gymsContainer .gymhistory table th:first-child {
+	padding-left: 10px;
+}
+
+#gymsContainer td.level {
+	width: 68px;
+}
+
+#gymsContainer td.level img {
+	height: 2em;
+	margin-right: .5em;
+}
+
+#gymsContainer td.loss {
+	color: rgb(210,118,118);
+}
+
+#gymsContainer td.gain {
+	color: rgb(62,150,62);
+}
+
+#gymsContainer td ul {
+	margin-bottom: -8px;
+	min-height: 71px;
+}
+
+#gymsContainer td ul li {
+	line-height: initial;
+	width: 5em;
+	overflow: hidden;
+	text-align: center;
+	border-radius: 5px;
+	margin-right: 2px;
+}
+
+#gymsTable > thead > tr > th:nth-child(1) {
+		width: 100px;
+}
+
+#gymsTable > thead > tr > th:nth-child(2) {
+		width: 180px;
+}
+
+@media (max-width: 768px) {
+	#gymsContainer td ul li {
+		display: none;
+	}
+	#gymsTable > thead > tr > th:last-child, #gymsTable > tbody > tr:nth-child(2n-1) > td:last-child {
+		display: none;
+	}
+	#gymsTable > thead > tr > th:nth-child(1), #gymsTable > thead > tr > th:nth-child(2) {
+		width: initial;
+	}
+}
+
+#gymsContainer td ul li.new {
+	background-color: rgba(62,150,62,.25);
+	display: inline-block !important;
+}
+
+#gymsContainer td ul li.old {
+	background-color: rgba(210,118,118,.25);
+	display: inline-block !important;
+}
+
+.no-link {
+	text-decoration: none;
+	color: inherit;
 }
