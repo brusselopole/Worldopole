@@ -777,7 +777,7 @@ switch ($request) {
 					FROM gymhistory
 					WHERE gym_id='".$gym_id."'
 					ORDER BY last_modified DESC
-					LIMIT ".($page * 10).",10";
+					LIMIT ".($page * 10).",11";
 
 			$result = $mysqli->query($req);
 			while ($result && $data = $result->fetch_object()) {
@@ -818,6 +818,8 @@ switch ($request) {
 				}
 				unset($entry->pokemon_uids);
 			}
+
+			if (count($entries) > 10) { array_pop($entries); }
 		}
 
 		$json = array();
