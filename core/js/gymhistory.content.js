@@ -18,8 +18,9 @@ $(function () {
 		var pokeimg_suffix = variables['system']['pokeimg_suffix'];
 
 		$('.gymLoader').hide();
+
 		var page = 0;
-		var teamSelector = ''; //''=all;0=neutral; 1=Blue; 2=Red; 3=Yellow
+		var teamSelector = ''; //''=all; 0=neutral; 1=Blue; 2=Red; 3=Yellow
 		var rankingFilter = 0; //0=Level & Gyms; 1=Level; 2=Gyms
 
 		$('input#name').filter(':visible').val(gymName);
@@ -81,7 +82,8 @@ $(function () {
 				$('input#name').filter(':visible').val(window.history.state.name);
 				page = 0;
 				$('#gymsContainer').empty();
-				$('#loadMoreButton').trigger('click');
+				loadGyms(page, $('input#name').filter(':visible').val(), teamSelector, rankingFilter, pokeimg_suffix, false);
+				page++;
 			} else {
 				window.history.back();
 			}
@@ -125,7 +127,8 @@ function loadGyms(page, name, teamSelector, rankingFilter, pokeimg_suffix, stayO
 }
 
 function loadGymHistory(page, gym_id, pokeimg_suffix) {
-	$('.gymLoader').show();
+	$('#gymHistory_'+gym_id).addClass('active').show();
+	$('#gymHistory_'+gym_id).find('.gymHistoryLoader').show();
 	$.ajax({
 		'async': true,
 		'type': 'GET',
@@ -143,13 +146,12 @@ function loadGymHistory(page, gym_id, pokeimg_suffix) {
 			internalIndex++
 			printGymHistory(gym_id, entry, pokeimg_suffix, data.locale);
 		});
-		$('#gymHistory_'+gym_id).addClass('active').show();
 		if (internalIndex < 10) {
 			$('#gymHistory_'+gym_id).find('.loadMoreButtonHistory').hide();
 		} else {
 			$('#gymHistory_'+gym_id).find('.loadMoreButtonHistory').removeClass('hidden').data('page', page+1).show();
 		}
-		$('.gymLoader').hide();
+		$('#gymHistory_'+gym_id).find('.gymHistoryLoader').hide();
 	});
 }
 
@@ -208,7 +210,7 @@ function printGym(gym, pokeimg_suffix, locale) {
 	var historyTable = $('<table>',{class: 'table'});
 	historyTable.append('<thead><tr><th style="min-width:7em">Time</th><th>Level</th><th>Prestige</th><th>Pokémon</th></tr></thead>');
 	historyTable.append('<tbody></tbody>');
-	historyTable.append('<tfoot><tr class="loadMore text-center"><td colspan="4"><button class="loadMoreButtonHistory btn btn-default btn-sm hidden">Load more</button></td></tr></tfoot>');
+	historyTable.append('<tfoot><tr class="loadMore text-center"><td colspan="4"><button class="loadMoreButtonHistory btn btn-default btn-sm hidden">Load more</button></td></tr><tr class="gymHistoryLoader"><td colspan="4"><div class="loader"></div></td></tr></tfoot>');
 	historyTable.find('.loadMoreButtonHistory').data('page', 0).click(function() {
 		loadGymHistory($(this).data('page'), gym.gym_id, pokeimg_suffix);
 	});
