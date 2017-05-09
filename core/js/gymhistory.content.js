@@ -193,14 +193,21 @@ function printGymHistory(gym_id, entry, pokeimg_suffix, locale) {
 	$('#gymHistory_'+gym_id).find('tbody').append(gymHistory);
 }
 
+function hideGymHistoryTables(gymHistoryTables) {
+	gymHistoryTables.removeClass('active').hide();
+	gymHistoryTables.find('tbody tr').remove();
+	gymHistoryTables.find('.loadMoreButtonHistory').hide();
+	gymHistoryTables.find('.gymHistoryLoader').hide();
+}
+
 function printGym(gym, pokeimg_suffix, locale) {
 	var gymLevel = gymRanks.find(r => r.prestigeMin <= gym.gym_points && r.prestigeMax > gym.gym_points) || { level : 10 };
 	var gymsInfos = $('<tr>',{id: 'gymInfos_'+gym.gym_id}).css('cursor', 'pointer').css('border-bottom', '2px solid '+(gym.team_id=='3'?'#ffbe08':gym.team_id=='2'?'#ff7676':gym.team_id=='1'?'#00aaff':'#ddd')).click(function() {
 		if (!$('#gymHistory_'+gym.gym_id).hasClass('active')) {
-			$('#gymsContainer').find('.gymhistory').removeClass('active').hide().find('tbody tr').remove();
+			hideGymHistoryTables($('#gymsContainer').find('.gymhistory'));
 			loadGymHistory(0, gym.gym_id, pokeimg_suffix);
 		} else {
-			$('#gymHistory_'+gym.gym_id).removeClass('active').hide().find('tbody tr').remove();
+			hideGymHistoryTables($('#gymHistory_'+gym.gym_id));
 		}
 	});
 	gymsInfos.append($('<td>',{text: gym.last_modified}));
