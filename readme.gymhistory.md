@@ -13,24 +13,19 @@ CREATE TABLE `gymhistory` (
   `gym_points` int(11) NOT NULL DEFAULT '0',
   `last_modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `last_updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `pokemon_uids` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
+  `pokemon_uids` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `gym_id` (`gym_id`),
+  KEY `gym_points` (`gym_points`),
+  KEY `last_modified` (`last_modified`),
+  KEY `team_id` (`team_id`),
+  KEY `last_updated` (`last_updated`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Indexes for table `gymhistory`
---
-ALTER TABLE `gymhistory`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `gym_id` (`gym_id`),
-  ADD KEY `gym_points` (`gym_points`),
-  ADD KEY `last_modified` (`last_modified`),
-  ADD KEY `team_id` (`team_id`),
-  ADD KEY `last_updated` (`last_updated`);
 
 --
 -- Add inital dataset for table `gymhistory`
 --
-INSERT INTO gymhistory
+INSERT INTO `gymhistory`
   (
     SELECT NULL, g.gym_id, g.team_id, g.guard_pokemon_id, g.gym_points, g.last_modified, g.last_modified as last_updated,
     (
@@ -60,3 +55,8 @@ DO BEGIN
   SET gh.last_updated = gm.last_scanned, gh.pokemon_uids = gm.pokemon_uids
   WHERE gh.last_updated < gm.last_scanned;
 END
+
+--
+-- Enable MySQL event scheduler
+--
+SET GLOBAL event_scheduler = ON;
