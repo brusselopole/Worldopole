@@ -41,7 +41,7 @@
 		<div class="text-center">
 			<h3>Recent Gym Activity</h3>
 		</div>
-		<table class="table" id="gymsTable">
+		<table class="table table-hover" id="gymsTable">
 			<thead>
 				<tr>
 					<th>Time</th>
