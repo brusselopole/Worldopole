@@ -332,14 +332,18 @@ function updateLive(pokeimg_suffix){
 			'ivMax' : ivMax
 		}
 	}).done(function(pokemons){
+		var markers = [];
 		for (var i = 0; i < pokemons.points.length; i++) {
 			var marker = addPokemonMarker(pokemons.points[i],pokeimg_suffix, pokemons.locale);
 			if (markerCluster) {
-				markerCluster.addMarker(marker);
+				markers.push(marker);
 			} else {
 				marker.setMap(map);
 			}
 		}		
+		if (markerCluster) {
+			markerCluster.addMarkers(markers);
+		}
 		updateLiveTimeout=setTimeout(function(){ updateLive(pokeimg_suffix) },5000);
 	});
 }
@@ -367,8 +371,12 @@ function addPokemonMarker(pokemon,pokeimg_suffix, locale) {
 		marker.setLabel(getMarkerLabel(ivPercent));
 	}
 
-	var infoWindow = new google.maps.InfoWindow(getPokemonContent(pokemon, locale, encountered, ivPercent));	
+	var infoWindow = new google.maps.InfoWindow({
+		content: getPokemonContent(pokemon, locale, encountered, ivPercent),
+		disableAutoPan: true
+	});	
 	infoWindow.isClickOpen = false;
+	
 	marker.addListener('click', function() {
 		infoWindow.isClickOpen = true;
 		infoWindow.open(map, this);
@@ -434,7 +442,7 @@ function getPokemonContent(pokemon, locale, encountered, ivPercent) {
 				'<p class="text-center">'+pokemon.quick_move+"/"+pokemon.charge_move+'</p>';
 	}
 	contentString +='</div>';
-	return {content: contentString};
+	return contentString;
 }
 
 function clearPokemonMarkers() {
