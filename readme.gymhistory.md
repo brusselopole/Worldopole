@@ -6,20 +6,20 @@ Use the following SQL-Statements to create the new table:
 --
 CREATE TABLE IF NOT EXISTS `gymhistory` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `gym_id` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `gym_id` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `team_id` smallint(6) NOT NULL,
   `guard_pokemon_id` smallint(6) NOT NULL,
   `gym_points` int(11) NOT NULL DEFAULT '0',
   `last_modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `last_updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `pokemon_uids` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `pokemon_uids` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `gym_id` (`gym_id`),
   KEY `gym_points` (`gym_points`),
   KEY `last_modified` (`last_modified`),
   KEY `team_id` (`team_id`),
   KEY `last_updated` (`last_updated`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Add inital dataset for table `gymhistory`
