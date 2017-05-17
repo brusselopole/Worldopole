@@ -31,8 +31,8 @@ while ($data = $result->fetch_object()) {
 	if ($starttime < 0) {
 		$starttime = 3600 + $starttime;
 	}
-	$nests['st'] = floor($starttime / 60);
-	$nests['et'] = floor($data->latest_seen / 60);
+	$nests['st'] = sprintf('%02d', floor($starttime / 60));
+	$nests['et'] = sprintf('%02d', floor($data->latest_seen / 60));
 
 	// Add the data to array
 	$nestsdatas[] = $nests;
