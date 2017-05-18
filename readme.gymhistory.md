@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS `gymhistory` (
   KEY `last_modified` (`last_modified`),
   KEY `team_id` (`team_id`),
   KEY `last_updated` (`last_updated`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Add inital dataset for table `gymhistory`
