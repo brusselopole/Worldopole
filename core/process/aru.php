@@ -739,7 +739,7 @@ switch ($request) {
 		while ($result && $data = $result->fetch_object()) {
 			$pkm = array();
 			if ($data->gym_points > 0) {
-				$pkm_req = "SELECT gymmember.pokemon_uid, pokemon_id, cp, trainer_name
+				$pkm_req = "SELECT DISTINCT gymmember.pokemon_uid, pokemon_id, cp, trainer_name
 							FROM gymmember
 							LEFT JOIN gympokemon
 							ON gymmember.pokemon_uid = gympokemon.pokemon_uid
@@ -792,7 +792,7 @@ switch ($request) {
 				if ($data->gym_points == 0) { $data->pokemon_uids = ''; }
 				if ($data->pokemon_uids != '') {
 					$pkm_uids = explode(',', $data->pokemon_uids);
-					$pkm_req = "SELECT pokemon_uid, pokemon_id, cp, trainer_name
+					$pkm_req = "SELECT DISTINCT pokemon_uid, pokemon_id, cp, trainer_name
 								FROM gympokemon
 								WHERE pokemon_uid IN ('". implode("','", $pkm_uids) ."')
 								ORDER BY cp DESC";
