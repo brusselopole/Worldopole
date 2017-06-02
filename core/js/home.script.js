@@ -115,6 +115,6 @@ function formatDuration(remainingTime)
 	minutes = minutes < 10 ? "0" + minutes : minutes;
 	seconds = seconds < 10 ? "0" + seconds: seconds;
 
-	var output = (countdown<0?"- ":"")+hours + ":" + minutes + ":" + seconds;
+	var output = countdown<0?"00:00:00":""+hours + ":" + minutes + ":" + seconds;
 	return output;
 }
