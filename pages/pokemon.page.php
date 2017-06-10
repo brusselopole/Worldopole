@@ -333,8 +333,10 @@
 							<td><?php echo $move->$move2->name; ?></td>
 							<td><a href="https://maps.google.com/?q=<?= $top50->latitude ?>,<?= $top50->longitude ?>&ll=<?= $top50->latitude ?>,<?= $top50->longitude ?>&z=16"
 								target="_blank"><?=$top50->distime ?></a></td>
-							<?php if ($pokemon->id == 201) { ?>
+							<?php if ($pokemon->id == 201 && $top50->form) { ?>
 								<td><?php echo $form_array[$top50->form]; ?></td>
+							<?php } else { ?>
+								<td></td>
 							<?php } ?>
 						</tr>
 						<?php
