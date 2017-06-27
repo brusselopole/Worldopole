@@ -332,11 +332,12 @@ switch ($request) {
 
 
 		foreach ($teams as $team_name => $team_id) {
-			$req	= "SELECT COUNT(DISTINCT(gym_id)) AS total FROM gym WHERE team_id = '".$team_id."'";
+			$req	= "SELECT COUNT(DISTINCT(gym_id)) AS total, (SELECT COUNT(*) FROM gymmember AS gm JOIN gym ON gm.gym_id=gym.gym_id WHERE team_id = '".$team_id."') AS members FROM gym WHERE team_id = '".$team_id."'";
 			$result	= $mysqli->query($req);
 			$data	= $result->fetch_object();
 
 			$return[] 	= $data->total;
+			$return[]	= round($data->members / $data->total);
 		}
 
 		header('Content-Type: application/json');
