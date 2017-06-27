@@ -153,6 +153,6 @@ function setGymDetails(gym)
 	} else if(gym.gymDetails.gymInfos.team=="3") {
 		currentTeamColor = 'rgb(255, 190, 8)';
 	}
-	$('#gym_details_template #gymInfos').css("border-color", teamColor);
+	$('#gym_details_template #gymInfos').css("border-color", currentTeamColor);
 	$('#gym_details_template').show();
 }
