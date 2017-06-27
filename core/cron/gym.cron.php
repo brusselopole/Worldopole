@@ -19,7 +19,7 @@ $gym['total'] 	= $data->total;
 
 // Mystic
 
-$req		= "SELECT COUNT(DISTINCT(gym_id)) AS total, (SELECT COUNT(*) FROM gymmember AS gm JOIN gym ON gm.gym_id=gym.gym_id WHERE team_id = '1') AS members FROM gym WHERE team_id = '1'";
+$req		= "SELECT COUNT(DISTINCT(gym_id)) AS total, (SELECT COUNT(DISTINCT pokemon_uid) FROM gymmember AS gm JOIN gym ON gm.gym_id=gym.gym_id WHERE team_id = '1') AS members FROM gym WHERE team_id = '1'";
 $result		= $mysqli->query($req);
 $data		= $result->fetch_object();
 
@@ -29,7 +29,7 @@ $gym['team']['mystic']['average']	= round($data->members / $data->total);
 
 // Valor
 
-$req		= "SELECT COUNT(DISTINCT(gym_id)) AS total, (SELECT COUNT(*) FROM gymmember AS gm JOIN gym ON gm.gym_id=gym.gym_id WHERE team_id = '2') AS members FROM gym WHERE team_id = '2'";
+$req		= "SELECT COUNT(DISTINCT(gym_id)) AS total, (SELECT COUNT(DISTINCT pokemon_uid) FROM gymmember AS gm JOIN gym ON gm.gym_id=gym.gym_id WHERE team_id = '2') AS members FROM gym WHERE team_id = '2'";
 $result		= $mysqli->query($req);
 $data		= $result->fetch_object();
 
@@ -39,7 +39,7 @@ $gym['team']['valor']['average']	= round($data->members / $data->total);
 
 // Instinct
 
-$req		= "SELECT COUNT(DISTINCT(gym_id)) AS total, (SELECT COUNT(*) FROM gymmember AS gm JOIN gym ON gm.gym_id=gym.gym_id WHERE team_id = '3') AS members FROM gym WHERE team_id = '3'";
+$req		= "SELECT COUNT(DISTINCT(gym_id)) AS total, (SELECT COUNT(DISTINCT pokemon_uid) FROM gymmember AS gm JOIN gym ON gm.gym_id=gym.gym_id WHERE team_id = '3') AS members FROM gym WHERE team_id = '3'";
 $result		= $mysqli->query($req);
 $data		= $result->fetch_object();
 

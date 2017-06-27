@@ -322,7 +322,7 @@ if (!empty($page)) {
 
 				// Gym owned and average points
 
-				$req 	= "SELECT COUNT(DISTINCT(gym_id)) AS total, (SELECT COUNT(*) FROM gymmember AS gm JOIN gym ON gm.gym_id=gym.gym_id WHERE team_id = '".$team_values->id."') AS members FROM gym WHERE team_id = '".$team_values->id."'";
+				$req 	= "SELECT COUNT(DISTINCT(gym_id)) AS total, (SELECT COUNT(DISTINCT pokemon_uid) FROM gymmember AS gm JOIN gym ON gm.gym_id=gym.gym_id WHERE team_id = '".$team_values->id."') AS members FROM gym WHERE team_id = '".$team_values->id."'";
 				$result = $mysqli->query($req);
 				$data	= $result->fetch_object();
 
