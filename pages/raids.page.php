@@ -12,7 +12,6 @@
 		<table class="table" id="raidsTable">
 			<thead>
 			<tr>
-				<th>#</th>
 				<th><?= $locales->RAIDS_TABLE_LEVEL ?></th>
 				<th><?= $locales->RAIDS_TABLE_START ?></th>
 				<th><?= $locales->RAIDS_TABLE_END ?></th>
@@ -25,7 +24,7 @@
 			</tbody>
 			<tfoot>
 				<tr class="raidsLoader">
-					<td colspan="6"><div class="loader"></div></td>
+					<td colspan="5"><div class="loader"></div></td>
 				</tr>
 			</tfoot>
 		</table>
