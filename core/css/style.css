@@ -487,3 +487,24 @@ trainers search styles
 	100% { transform: rotate(360deg); }
 }
 
+
+/****************
+raids styles
+****************/
+#raidsContainer .pokemon-single {
+	height: 4em;
+	display: inline-block;
+	vertical-align: bottom;
+}
+
+#raidsContainer .pokemon-single {
+	height: 4em;
+	display: inline-block;
+	vertical-align: bottom;
+}
+
+#raidsContainer .pokemon-details {
+	margin-bottom: 0;
+	display: inline-block;
+	line-height: 2em;
+}

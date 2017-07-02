@@ -47,12 +47,19 @@ function printRaid(raid, pokeimg_suffix, locale) {
 	raidInfos.append($('<td>',{id: 'raidGym_'+raid.gym_id}).append($('<a>',{href: '/map/?lat=' + raid.latitude + '&lng=' + raid.longitude, text: raid.name})));
 
 	var raidPokemon = $('<div>',{class: 'pokemon-single'});
-	raidPokemon.append(
-		$('<a>', {href : 'pokemon/'+raid.pokemon_id}).append($('<img />',
-			{src: 'core/pokemons/'+raid.pokemon_id+pokeimg_suffix, class: 'img-responsive'})
-		)
-	);
-	raidPokemon.append($('<p>',{class : 'pkmn-name'}).append(raid.cp + '<br>' + raid.move_1 + ' / ' + raid.move_2));
+	if (raid.pokemon_id > 0) {
+		raidPokemon.append(
+			$('<a>', {href : 'pokemon/'+raid.pokemon_id}).append($('<img />',
+				{src: 'core/pokemons/'+raid.pokemon_id+pokeimg_suffix, class: 'img-responsive'})
+			)
+		);
+		raidPokemon.append($('<p>',{class: 'pokemon-details'}).append(raid.cp + ' CP<br>' + raid.quick_move + ' / ' + raid.charge_move));
+	} else {
+		raidPokemon.append(
+			$('<img />',
+				{src: 'core/img/egg_' + (raid.level > 4 ? 'legendary' : raid.level > 2 ? 'rare' : 'normal') + '.png', class: 'img-responsive'})
+		);
+	}
 	raidInfos.append($('<td>',{id: 'raidBoss_'+raid.gym_id}).append(raidPokemon));
 
 	$('#raidsContainer').append(raidInfos);

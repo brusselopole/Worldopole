@@ -665,6 +665,18 @@ switch ($request) {
 		while ($data = $result->fetch_object()) {
 			$data->starttime = date("H:i", strtotime($data->battle));
 			$data->endtime = date("H:i", strtotime($data->end));
+			if (isset($data->move_1)) {
+				$move1 = $data->move_1;
+				$data->quick_move = $move->$move1->name;
+			} else {
+				$data->quick_move = "?";
+			}
+			if (isset($data->move_2)) {
+				$move2 = $data->move_2;
+				$data->charge_move = $move->$move2->name;
+			} else {
+				$data->charge_move = "?";
+			}
 			$raids[$data->gym_id] = $data;
 		}
 		$json = array();
