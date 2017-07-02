@@ -491,13 +491,8 @@ trainers search styles
 /****************
 raids styles
 ****************/
-#raidsContainer .pokemon-single {
-	height: 4em;
-	display: inline-block;
-	vertical-align: bottom;
-}
 
-#raidsContainer .pokemon-single .img-responsive {
+#raidsContainer .pokemon-single .img-responsive {
 	height: 4em;
 	display: inline-block;
 	vertical-align: bottom;
