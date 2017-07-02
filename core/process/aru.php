@@ -663,8 +663,8 @@ switch ($request) {
 		$result = $mysqli->query($req);
 		$raids = array();
 		while ($data = $result->fetch_object()) {
-			$data->start = date("HH:mm", strtotime($data->start));
-			$data->end = date("HH:mm", strtotime($data->end));
+			$data->starttime = date("H:i", strtotime($data->battle));
+			$data->endtime = date("H:i", strtotime($data->end));
 			$raids[$data->gym_id] = $data;
 		}
 		$json = array();
