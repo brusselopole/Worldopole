@@ -46,6 +46,7 @@ function printRaid(raid, pokeimg_suffix, locale) {
 	raidInfos.append($('<td>',{id: 'raidEnd_'+raid.gym_id, text: raid.endtime}));
 	raidInfos.append($('<td>',{id: 'raidGym_'+raid.gym_id}).append($('<a>',{href: '/map/?lat=' + raid.latitude + '&lng=' + raid.longitude, text: raid.name})));
 
+	var countdown;
 	var raidPokemon = $('<div>',{class: 'pokemon-single'});
 	if (raid.pokemon_id > 0) {
 		raidPokemon.append(
@@ -54,21 +55,20 @@ function printRaid(raid, pokeimg_suffix, locale) {
 			)
 		);
 		raidPokemon.append($('<p>',{class: 'pokemon-details'}).append(raid.cp + ' CP<br>' + raid.quick_move + ' / ' + raid.charge_move));
-		raidPokemon.append($('<p>',{class: 'remaining'}));
-		$('.remaining', raidPokemon).countdown(new Date(raid.end), { precision: 60000 }).on('update.countdown', function(event) {
-			$(this).html(event.strftime('%H<small>h</small> %M<small>m</small>'));
-		}).countdown('start');
+		countdown = new Date(raid.end);
 	} else {
 		raidPokemon.append(
 			$('<img />',
 				{src: 'core/img/egg_' + (raid.level > 4 ? 'legendary' : raid.level > 2 ? 'rare' : 'normal') + '.png', class: 'img-responsive'})
 		);
-		raidPokemon.append($('<p>',{class: 'remaining'}));
-		$('.remaining', raidPokemon).countdown(new Date(raid.battle), { precision: 60000 }).on('update.countdown', function(event) {
-			$(this).html(event.strftime('%H<small>h</small> %M<small>m</small>'));
-		}).countdown('start');
+		countdown = new Date(raid.battle);
 	}
+	raidPokemon.append($('<p>',{class: 'remaining'}));
 	raidInfos.append($('<td>',{id: 'raidBoss_'+raid.gym_id}).append(raidPokemon));
 
 	$('#raidsContainer').append(raidInfos);
+
+	$('.remaining', '#raidBoss_'+raid.gym_id).countdown(countdown, { elapse: true, precision: 60000 }).on('update.countdown', function(event) {
+		$(this).html(event.strftime('%H<small>h</small> %M<small>m</small>'));
+	}).countdown('start');
 }

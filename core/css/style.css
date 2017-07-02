@@ -498,7 +498,7 @@ raids styles
 	vertical-align: bottom;
 }
 
-#raidsContainer .pokemon-details {
+#raidsContainer .pokemon-details, #raidsContainer .remaining {
 	margin-bottom: 0;
 	display: inline-block;
 	line-height: 2em;
