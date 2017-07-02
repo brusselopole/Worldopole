@@ -497,7 +497,7 @@ raids styles
 	vertical-align: bottom;
 }
 
-#raidsContainer .pokemon-single {
+#raidsContainer .pokemon-single .img-responsive {
 	height: 4em;
 	display: inline-block;
 	vertical-align: bottom;
