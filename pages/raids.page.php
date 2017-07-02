@@ -24,6 +24,9 @@
 
 			</tbody>
 			<tfoot>
+				<tr class="loadMore text-center">
+					<td colspan="5"><button id="loadMoreButton" class="btn btn-default hidden"><?= $locales->RAIDS_LOAD_MORE ?></button></td>
+				</tr>
 				<tr class="raidsLoader">
 					<td colspan="5"><div class="loader"></div></td>
 				</tr>
