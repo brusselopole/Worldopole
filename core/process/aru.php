@@ -648,6 +648,35 @@ switch ($request) {
 		break;
 
 
+	case 'raids':
+		$page = "0";
+		if (isset($_GET['page'])) {
+			$page = mysqli_real_escape_string($mysqli, $_GET['page']);
+		}
+		$limit = " LIMIT ".($page*10).",10";
+		$req = "SELECT raid.*, gymdetails.name, gym.latitude, gym.longitude FROM raid
+				JOIN gymdetails ON gymdetails.gym_id = raid.gym_id
+				JOIN gym ON gym.gym_id = raid.gym_id
+				WHERE raid.end > UTC_TIMESTAMP() - INTERVAL 2 HOUR
+				ORDER BY raid.battle".$limit;
+
+		$result = $mysqli->query($req);
+		$raids = array();
+		while ($data = $result->fetch_object()) {
+			$data->start = date("HH:mm", strtotime($data->start));
+			$data->end = date("HH:mm", strtotime($data->end));
+			$raids[$data->gym_id] = $data;
+		}
+		$json = array();
+		$json['raids'] = $raids;
+		$locale = array();
+		$json['locale'] = $locale;
+
+		header('Content-Type: application/json');
+		echo json_encode($json);
+
+		break;
+
 	case 'pokemon_slider_init':
 		$req 		= "SELECT MIN(disappear_time) AS min, MAX(disappear_time) AS max FROM pokemon";
 		$result 	= $mysqli->query($req);
