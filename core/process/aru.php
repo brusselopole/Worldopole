@@ -665,6 +665,7 @@ switch ($request) {
 		while ($data = $result->fetch_object()) {
 			$data->starttime = date("H:i", strtotime($data->battle));
 			$data->endtime = date("H:i", strtotime($data->end));
+			$data->gym_id = str_replace('.', '_', $data->gym_id);
 			if (isset($data->move_1)) {
 				$move1 = $data->move_1;
 				$data->quick_move = $move->$move1->name;

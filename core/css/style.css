@@ -504,6 +504,10 @@ raids styles
 	line-height: 2em;
 }
 @media (max-width: 768px) {
+	#raidsContainer .pokemon-single .img-responsive {
+		height: 3em;
+	    max-width: initial;
+	}
 	#raidsContainer .pokemon-details {
 		display: none;
 	}
