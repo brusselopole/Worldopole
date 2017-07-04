@@ -40,14 +40,16 @@ function loadRaids(page, pokeimg_suffix) {
 };
 
 function printRaid(raid, pokeimg_suffix, locale) {
+	var now = new Date();
+	var raidStart = new Date(raid.battle);
+	var raidEnd = new Date(raid.end);
+
 	var raidInfos = $('<tr>',{id: 'raidInfos_'+raid.gym_id}).css('border-bottom','2px solid '+(raid.level>2?'#fad94c':'#e872b7'));
 	raidInfos.append($('<td>',{id: 'raidLevel_'+raid.gym_id, text: '★'.repeat(raid.level)}));
-	raidInfos.append($('<td>',{id: 'raidStart_'+raid.gym_id, text: raid.starttime}));
-	raidInfos.append($('<td>',{id: 'raidEnd_'+raid.gym_id, text: raid.endtime}));
-	raidInfos.append($('<td>',{id: 'raidRemaining_'+raid.gym_id, class: 'pokemon-remaining'}));
+	raidInfos.append($('<td>',{id: 'raidTime_'+raid.gym_id, text: raid.starttime + ' - ' + raid.endtime}));
+	raidInfos.append($('<td>',{id: 'raidRemaining_'+raid.gym_id, class: 'pokemon-remaining'}).append($('<span>',{class: (raidStart < now ? 'current' : 'upcoming')})));
 	raidInfos.append($('<td>',{id: 'raidGym_'+raid.gym_id}).append($('<a>',{href: '/map/?lat=' + raid.latitude + '&lng=' + raid.longitude, text: raid.name})));
 
-	var countdown;
 	var details;
 	var raidPokemon = $('<div>',{class: 'pokemon-single'});
 	if (raid.pokemon_id > 0) {
@@ -57,20 +59,29 @@ function printRaid(raid, pokeimg_suffix, locale) {
 			)
 		);
 		details = raid.cp + ' CP<br>' + raid.quick_move + ' / ' + raid.charge_move;
-		countdown = new Date(raid.end);
 	} else {
 		raidPokemon.append(
 			$('<img />',
 				{src: 'core/img/egg_' + (raid.level > 4 ? 'legendary' : raid.level > 2 ? 'rare' : 'normal') + '.png'})
 		);
-		countdown = new Date(raid.battle);
+		if (raidStart < now) {
+			raidPokemon.append($('<span>', {text:'?'}));
+		}
 	}
 	raidInfos.append($('<td>',{id: 'raidBoss_'+raid.gym_id}).append(raidPokemon));
 	raidInfos.append($('<td>',{id: 'raidBossdetails_'+raid.gym_id, class: 'pokemon-details'}).append(details));
 
 	$('#raidsContainer').append(raidInfos);
 
-	$('#raidRemaining_'+raid.gym_id).countdown(countdown, { elapse: true, precision: 60000 }).on('update.countdown', function(event) {
-		$(this).html(event.strftime('%H:%M'));
+	var countdown = ;
+	$('span', '#raidRemaining_'+raid.gym_id).countdown(
+		(raidStart > now ? raidStart : raidEnd),
+		{ elapse: true, precision: 1000 }
+	).on('update.countdown', function(event) {
+		if (event.elapsed) {
+			$(this).html('00:00').css('text-decoration', 'line-through');
+		} else {
+			$(this).html(event.strftime('%-H:%M'));
+		}
 	}).countdown('start');
 }
