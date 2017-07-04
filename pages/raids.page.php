@@ -16,8 +16,9 @@
 				<th><?= $locales->RAIDS_TABLE_LEVEL ?></th>
 				<th><?= $locales->RAIDS_TABLE_START ?></th>
 				<th><?= $locales->RAIDS_TABLE_END ?></th>
+				<th><?= $locales->RAIDS_TABLE_REMAINING ?></th>
 				<th><?= $locales->RAIDS_TABLE_GYM ?></th>
-				<th colspan="3"><?= $locales->RAIDS_TABLE_BOSS ?></th>
+				<th colspan="2"><?= $locales->RAIDS_TABLE_BOSS ?></th>
 			</tr>
 			</thead>
 			<tbody id="raidsContainer">
