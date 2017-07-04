@@ -47,6 +47,7 @@ function printRaid(raid, pokeimg_suffix, locale) {
 	raidInfos.append($('<td>',{id: 'raidGym_'+raid.gym_id}).append($('<a>',{href: '/map/?lat=' + raid.latitude + '&lng=' + raid.longitude, text: raid.name})));
 
 	var countdown;
+	var details;
 	var raidPokemon = $('<div>',{class: 'pokemon-single'});
 	if (raid.pokemon_id > 0) {
 		raidPokemon.append(
@@ -54,6 +55,7 @@ function printRaid(raid, pokeimg_suffix, locale) {
 				{src: 'core/pokemons/'+raid.pokemon_id+pokeimg_suffix, class: 'img-responsive'})
 			)
 		);
+		details = $(raid.cp + ' CP<br>' + raid.quick_move + ' / ' + raid.charge_move);
 		countdown = new Date(raid.end);
 	} else {
 		raidPokemon.append(
@@ -63,7 +65,7 @@ function printRaid(raid, pokeimg_suffix, locale) {
 		countdown = new Date(raid.battle);
 	}
 	raidInfos.append($('<td>',{id: 'raidBoss_'+raid.gym_id}).append(raidPokemon));
-	raidInfos.append($('<td>',{id: 'raidBossdetails_'+raid.gym_id, class: 'pokemon-details', text: raid.cp + ' CP<br>' + raid.quick_move + ' / ' + raid.charge_move}));
+	raidInfos.append($('<td>',{id: 'raidBossdetails_'+raid.gym_id, class: 'pokemon-details'}).append(details));
 	raidInfos.append($('<td>',{id: 'raidRemaining_'+raid.gym_id, class: 'pokemon-remaining'}));
 
 	$('#raidsContainer').append(raidInfos);

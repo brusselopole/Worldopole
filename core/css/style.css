@@ -510,7 +510,7 @@ raids styles
 	#raidsContainer .pokemon-remaining {
 		line-height: initial;
 	}
-	#raidsContainer td:nth-child(5), #raidsContainer td:nth-child(6) {
+	 #raidsContainer td:nth-child(6) {
 		display: none;
 	}
 }
