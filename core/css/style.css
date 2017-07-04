@@ -526,7 +526,7 @@ raids styles
 #raidsContainer td:last-child {
 	min-width: 175px;
 }
-#raidsContainer tbody td:first-child {
+#raidsContainer td:first-child {
     color: #fff;
     text-shadow: 0 0 6px black;
 }
