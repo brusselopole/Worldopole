@@ -17,7 +17,7 @@
 				<th><?= $locales->RAIDS_TABLE_START ?></th>
 				<th><?= $locales->RAIDS_TABLE_END ?></th>
 				<th><?= $locales->RAIDS_TABLE_GYM ?></th>
-				<th colspan="2"><?= $locales->RAIDS_TABLE_BOSS ?></th>
+				<th colspan="3"><?= $locales->RAIDS_TABLE_BOSS ?></th>
 			</tr>
 			</thead>
 			<tbody id="raidsContainer">
@@ -25,10 +25,10 @@
 			</tbody>
 			<tfoot>
 				<tr class="loadMore text-center">
-					<td colspan="6"><button id="loadMoreButton" class="btn btn-default hidden"><?= $locales->RAIDS_LOAD_MORE ?></button></td>
+					<td colspan="7"><button id="loadMoreButton" class="btn btn-default hidden"><?= $locales->RAIDS_LOAD_MORE ?></button></td>
 				</tr>
 				<tr class="raidsLoader">
-					<td colspan="6"><div class="loader"></div></td>
+					<td colspan="7"><div class="loader"></div></td>
 				</tr>
 			</tfoot>
 		</table>
