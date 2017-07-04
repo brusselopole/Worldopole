@@ -653,12 +653,14 @@ switch ($request) {
 		if (isset($_GET['page'])) {
 			$page = mysqli_real_escape_string($mysqli, $_GET['page']);
 		}
+
 		$limit = " LIMIT ".($page*10).",10";
-		$req = "SELECT raid.*, gymdetails.name, gym.latitude, gym.longitude FROM raid
+
+		$req = "SELECT raid.*, (CONVERT_TZ(spawn, '+00:00', '".$time_offset."') AS spawn, (CONVERT_TZ(battle, '+00:00', '".$time_offset."') AS battle, (CONVERT_TZ(end, '+00:00', '".$time_offset."') AS end, gymdetails.name, gym.latitude, gym.longitude FROM raid
 				JOIN gymdetails ON gymdetails.gym_id = raid.gym_id
 				JOIN gym ON gym.gym_id = raid.gym_id
-				WHERE raid.end > UTC_TIMESTAMP() - INTERVAL 2 HOUR
-				ORDER BY raid.battle".$limit;
+				WHERE raid.end > UTC_TIMESTAMP()
+				ORDER BY raid.level DESC, raid.battle".$limit;
 
 		$result = $mysqli->query($req);
 		$raids = array();

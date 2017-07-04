@@ -63,12 +63,13 @@ function printRaid(raid, pokeimg_suffix, locale) {
 		);
 		countdown = new Date(raid.battle);
 	}
-	raidPokemon.append($('<p>',{class: 'remaining'}));
 	raidInfos.append($('<td>',{id: 'raidBoss_'+raid.gym_id}).append(raidPokemon));
+
+	raidInfos.append($('<td>',{id: 'raidRemaining_'+raid.gym_id}));
 
 	$('#raidsContainer').append(raidInfos);
 
-	$('.remaining', '#raidBoss_'+raid.gym_id).countdown(countdown, { elapse: true, precision: 60000 }).on('update.countdown', function(event) {
+	$('#raidRemaining_'+raid.gym_id).countdown(countdown, { elapse: true, precision: 60000 }).on('update.countdown', function(event) {
 		$(this).html(event.strftime('%H<small>h</small> %M<small>m</small>'));
 	}).countdown('start');
 }
