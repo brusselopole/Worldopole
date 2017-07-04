@@ -510,4 +510,7 @@ raids styles
 	#raidsContainer td:last-child {
 		display: none;
 	}
+	#raidsTable>tbody>tr>td, #raidsTable>tbody>tr>th, #raidsTable>tfoot>tr>td, #raidsTable>tfoot>tr>th, #raidsTable>thead>tr>td, #raidsTable>thead>tr>th {
+		padding: 6px
+	}
 }
