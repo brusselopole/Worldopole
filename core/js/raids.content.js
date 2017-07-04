@@ -76,7 +76,7 @@ function printRaid(raid, pokeimg_suffix, locale) {
 	var countdown = ;
 	$('span', '#raidRemaining_'+raid.gym_id).countdown(
 		(raidStart > now ? raidStart : raidEnd),
-		{ elapse: true, precision: 1000 }
+		{ elapse: true, precision: 30000 }
 	).on('update.countdown', function(event) {
 		if (event.elapsed) {
 			$(this).html('00:00').css('text-decoration', 'line-through');
