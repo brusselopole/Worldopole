@@ -29,6 +29,7 @@ RewriteRule ^dashboard$			index.php?page=dashboard		[QSA,NC,L]
 RewriteRule ^pokemon/$			index.php?page=pokedex			[QSA,NC,L]
 RewriteRule ^pokemon$			index.php?page=pokedex			[QSA,NC,L]
 RewriteRule ^nests$			index.php?page=nests			[QSA,NC,L]
+RewriteRule ^gymhistory$		index.php?page=gymhistory		[QSA,NC,L]
 
 
 # Cache static files for one month
