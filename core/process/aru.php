@@ -332,12 +332,12 @@ switch ($request) {
 
 
 		foreach ($teams as $team_name => $team_id) {
-			$req	= "SELECT COUNT(DISTINCT(gym_id)) AS total, ROUND(AVG(gym_points),0) AS average_points FROM gym WHERE team_id = '".$team_id."'";
+			$req	= "SELECT COUNT(DISTINCT(gym_id)) AS total, (SELECT COUNT(DISTINCT pokemon_uid) FROM gymmember AS gm JOIN gym ON gm.gym_id=gym.gym_id WHERE team_id = '".$team_id."') AS members FROM gym WHERE team_id = '".$team_id."'";
 			$result	= $mysqli->query($req);
 			$data	= $result->fetch_object();
 
 			$return[] 	= $data->total;
-			$return[]	= $data->average_points;
+			$return[]	= round($data->members / $data->total);
 		}
 
 		header('Content-Type: application/json');
@@ -354,7 +354,7 @@ switch ($request) {
 
 
 	case 'gym_map':
-		$req	= "SELECT gym_id, team_id, gym_points, latitude, longitude, (CONVERT_TZ(last_scanned, '+00:00', '".$time_offset."')) AS last_scanned FROM gym";
+		$req	= "SELECT gym_id, team_id, latitude, longitude, (CONVERT_TZ(last_scanned, '+00:00', '".$time_offset."')) AS last_scanned, (SELECT COUNT(DISTINCT pokemon_uid) FROM gymmember AS gm WHERE gm.gym_id = gym.gym_id) AS gym_level FROM gym";
 		$result = $mysqli->query($req);
 
 		$gyms = [];
@@ -392,7 +392,7 @@ switch ($request) {
 			}
 
 			// Set gym level
-			$gym_level = gym_level($data->gym_points);
+			$gym_level = $data->gym_level;
 
 			if ($data->team_id != 0) {
 				$icon .= $gym_level.".png";
@@ -420,13 +420,13 @@ switch ($request) {
 
 	case 'gym_defenders':
 		$gym_id = $mysqli->real_escape_string($_GET['gym_id']);
-		$req	= "SELECT gymdetails.name AS name, gymdetails.description AS description, gym.gym_points AS points, gymdetails.url AS url, gym.team_id AS team,
-					(CONVERT_TZ(gym.last_scanned, '+00:00', '".$time_offset."')) AS last_scanned, gym.guard_pokemon_id AS guard_pokemon_id
+		$req	= "SELECT gymdetails.name AS name, gymdetails.description AS description, gymdetails.url AS url, gym.team_id AS team,
+					(CONVERT_TZ(gym.last_scanned, '+00:00', '".$time_offset."')) AS last_scanned, gym.guard_pokemon_id AS guard_pokemon_id, (SELECT COUNT(DISTINCT pokemon_uid) FROM gymmember AS gm WHERE gm.gym_id = gym.gym_id) AS gym_level
 					FROM gymdetails
 					LEFT JOIN gym ON gym.gym_id = gymdetails.gym_id
 					WHERE gym.gym_id='".$gym_id."'";
 		$result = $mysqli->query($req);
-		
+
 		$gymData['gymDetails']['gymInfos'] = false;
 
 		while ($data = $result->fetch_object()) {
@@ -437,8 +437,7 @@ switch ($request) {
 			} else {
 				$gymData['gymDetails']['gymInfos']['url'] = $data->url;
 			}
-			$gymData['gymDetails']['gymInfos']['points'] = $data->points;
-			$gymData['gymDetails']['gymInfos']['level'] = 0;
+			$gymData['gymDetails']['gymInfos']['level'] = $data->gym_level;
 			$gymData['gymDetails']['gymInfos']['last_scanned'] = $data->last_scanned;
 			$gymData['gymDetails']['gymInfos']['team'] = $data->team;
 			$gymData['gymDetails']['gymInfos']['guardPokemonId'] = $data->guard_pokemon_id;
@@ -514,7 +513,7 @@ switch ($request) {
 
 		// check whether we could retrieve gym infos, otherwise use basic gym info
 		if (!$gymData['gymDetails']['gymInfos']) {
-			$req = "SELECT gym_id, team_id, gym_points, guard_pokemon_id, latitude, longitude, (CONVERT_TZ(last_scanned, '+00:00', '".$time_offset."')) AS last_scanned
+			$req = "SELECT gym_id, team_id, guard_pokemon_id, latitude, longitude, (CONVERT_TZ(last_scanned, '+00:00', '".$time_offset."')) AS last_scanned, (SELECT COUNT(DISTINCT pokemon_uid) FROM gymmember AS gm WHERE gm.gym_id = gym.gym_id) AS gym_level
 				FROM gym WHERE gym_id='".$gym_id."'";
 			$result = $mysqli->query($req);
 			$data = $result->fetch_object();
@@ -522,12 +521,10 @@ switch ($request) {
 			$gymData['gymDetails']['gymInfos']['name'] = $locales->NOT_AVAILABLE;
 			$gymData['gymDetails']['gymInfos']['description'] = $locales->NOT_AVAILABLE;
 			$gymData['gymDetails']['gymInfos']['url'] = 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Solid_grey.svg/200px-Solid_grey.svg.png';
-			$gymData['gymDetails']['gymInfos']['points'] = $data->gym_points;
-			$gymData['gymDetails']['gymInfos']['level'] = 0;
+			$gymData['gymDetails']['gymInfos']['level'] = $data->gym_level;
 			$gymData['gymDetails']['gymInfos']['last_scanned'] = $data->last_scanned;
 			$gymData['gymDetails']['gymInfos']['team'] = $data->team_id;
 			$gymData['gymDetails']['gymInfos']['guardPokemonId'] = $data->guard_pokemon_id;
-			$gymData['gymDetails']['gymInfos']['level'] = gym_level($data->gym_points);
 
 			$gymData['infoWindow'] .= '
 				<div style="text-align: center; width: 50px; display: inline-block; margin-right: 3px">
@@ -687,7 +684,7 @@ switch ($request) {
 		$req 		 = "SELECT MAX(latitude) AS max_latitude, MIN(latitude) AS min_latitude, MAX(longitude) AS max_longitude, MIN(longitude) as min_longitude FROM spawnpoint";
 		$result 	 = $mysqli->query($req);
 		$coordinates = $result->fetch_object();
-		
+
 		header('Content-Type: application/json');
 		echo json_encode($coordinates);
 
