@@ -495,7 +495,6 @@ raids styles
 #raidsContainer .pokemon-single {
 	position: relative;
 }
-
 #raidsContainer .pokemon-single img {
 	height: 4em;
 }
@@ -507,6 +506,11 @@ raids styles
 	top: 10px;
 }
 
+#raidsContainer .current, #raidsContainer .upcoming {
+	color: #fff;
+	border-radius: 1em;
+	padding: 1px 6px;
+}
 #raidsContainer .current {
 	background-color: #fe6d3c;
 }
@@ -514,21 +518,17 @@ raids styles
 	background-color: #f98796;
 }
 
-#raidsContainer .current, #raidsContainer .upcoming {
-	color: #fff;
-	border-radius: 1em;
-	padding: 1px 6px;
-}
-
 #raidsContainer .pokemon-details {
 	line-height: 2em;
 }
-#raidsContainer td:last-child {
-	min-width: 175px;
-}
+
 #raidsContainer td:first-child {
     color: #fff;
     text-shadow: 0 0 6px black;
+}
+
+#raidsContainer td:last-child {
+	min-width: 175px;
 }
 
 @media (max-width: 768px) {
