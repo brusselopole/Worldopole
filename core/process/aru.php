@@ -656,16 +656,16 @@ switch ($request) {
 
 		$limit = " LIMIT ".($page*10).",10";
 
-		$req = "SELECT raid.gym_id, raid.level, raid.pokemon_id, raid.cp, raid.move_1, raid.move_2, CONVERT_TZ(raid.spawn, '+00:00', '".$time_offset."') AS spawn, CONVERT_TZ(raid.battle, '+00:00', '".$time_offset."') AS battle, CONVERT_TZ(raid.end, '+00:00', '".$time_offset."') AS end, CONVERT_TZ(raid.last_scanned, '+00:00', '".$time_offset."') AS last_scanned, gymdetails.name, gym.latitude, gym.longitude FROM raid
+		$req = "SELECT raid.gym_id, raid.level, raid.pokemon_id, raid.cp, raid.move_1, raid.move_2, CONVERT_TZ(raid.spawn, '+00:00', '".$time_offset."') AS spawn, CONVERT_TZ(raid.start, '+00:00', '".$time_offset."') AS start, CONVERT_TZ(raid.end, '+00:00', '".$time_offset."') AS end, CONVERT_TZ(raid.last_scanned, '+00:00', '".$time_offset."') AS last_scanned, gymdetails.name, gym.latitude, gym.longitude FROM raid
 				JOIN gymdetails ON gymdetails.gym_id = raid.gym_id
 				JOIN gym ON gym.gym_id = raid.gym_id
 				WHERE raid.end > UTC_TIMESTAMP()
-				ORDER BY raid.level DESC, raid.battle".$limit;
+				ORDER BY raid.level DESC, raid.start".$limit;
 
 		$result = $mysqli->query($req);
 		$raids = array();
 		while ($data = $result->fetch_object()) {
-			$data->starttime = date("H:i", strtotime($data->battle));
+			$data->starttime = date("H:i", strtotime($data->start));
 			$data->endtime = date("H:i", strtotime($data->end));
 			$data->gym_id = str_replace('.', '_', $data->gym_id);
 			if (isset($data->move_1)) {
