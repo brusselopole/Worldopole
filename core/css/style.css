@@ -487,3 +487,63 @@ trainers search styles
 	100% { transform: rotate(360deg); }
 }
 
+
+/****************
+raids styles
+****************/
+
+#raidsContainer .pokemon-single {
+	position: relative;
+}
+#raidsContainer .pokemon-single img {
+	height: 4em;
+}
+#raidsContainer .pokemon-single span {
+	font-size: 2em;
+	font-weight: bold;
+	position: absolute;
+	left: 23px;
+	top: 10px;
+}
+
+#raidsContainer .current, #raidsContainer .upcoming {
+	color: #fff;
+	border-radius: 1em;
+	padding: 1px 6px 2px 6px;
+}
+#raidsContainer .current {
+	background-color: #fe6d3c;
+}
+#raidsContainer .upcoming {
+	background-color: #f98796;
+}
+
+#raidsContainer .pokemon-details {
+	line-height: 2em;
+}
+
+#raidsContainer td:first-child {
+    color: #fff;
+    text-shadow: 0 0 6px black;
+}
+
+#raidsContainer td:last-child {
+	min-width: 175px;
+}
+
+@media (max-width: 768px) {
+	#raidsContainer .pokemon-single img {
+		height: 3em;
+	}
+	#raidsContainer .pokemon-single span {
+		font-size: 1.5em;
+		left: 17px;
+		top: 8px;
+	}
+	#raidsContainer td:last-child {
+		display: none;
+	}
+	#raidsTable>tbody>tr>td, #raidsTable>tbody>tr>th, #raidsTable>tfoot>tr>td, #raidsTable>tfoot>tr>th, #raidsTable>thead>tr>td, #raidsTable>thead>tr>th {
+		padding: 6px
+	}
+}
