@@ -47,6 +47,12 @@
 			"type"		:	"link",
 			"href"		:	"gym",
 			"locale"	:	"GYMS",
+			"icon"		:	"fa-shield"
+		},
+		{
+			"type"		:	"link",
+			"href"		:	"raids",
+			"locale"	:	"RAID",
 			"icon"		:	"fa-bolt"
 		},
 		{
