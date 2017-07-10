@@ -1,12 +1,13 @@
 $(function () {
 	$.getJSON( "core/json/variables.json", function(variables) {
 		var pokeimg_suffix = variables['system']['pokeimg_suffix'];
+		var location_url = variables['system']['location_url'] || 'https://maps.google.com/?q={latitude},{longitude}&ll={latitude},{longitude}&z=16';
 		$('.raidsLoader').hide();
 		var page = 0;
-		loadRaids(page, pokeimg_suffix);
+		loadRaids(page, pokeimg_suffix, location_url);
 		page++;
 		$('#loadMoreButton').click(function () {
-			loadRaids(page, pokeimg_suffix);
+			loadRaids(page, pokeimg_suffix, location_url);
 			page++;
 		});
 	});
@@ -39,7 +40,7 @@ function loadRaids(page, pokeimg_suffix) {
 	});
 };
 
-function printRaid(raid, pokeimg_suffix) {
+function printRaid(raid, pokeimg_suffix, location_url) {
 	var now = new Date();
 	var raidStart = new Date(raid.start);
 	var raidEnd = new Date(raid.end);
@@ -48,7 +49,9 @@ function printRaid(raid, pokeimg_suffix) {
 	raidInfos.append($('<td>',{id: 'raidLevel_'+raid.gym_id, text: '★'.repeat(raid.level)}));
 	raidInfos.append($('<td>',{id: 'raidTime_'+raid.gym_id, text: raid.starttime + ' - ' + raid.endtime}));
 	raidInfos.append($('<td>',{id: 'raidRemaining_'+raid.gym_id, class: 'pokemon-remaining'}).append($('<span>',{class: (raidStart < now ? 'current' : 'upcoming')})));
-	raidInfos.append($('<td>',{id: 'raidGym_'+raid.gym_id}).append($('<a>',{href: '/map/?lat=' + raid.latitude + '&lon=' + raid.longitude, text: raid.name})));
+
+	var locationLink = location_url.replace(/\{latitude\}/g, raid.latitude).replace(/\{longitude\}/g, raid.longitude)
+	raidInfos.append($('<td>',{id: 'raidGym_'+raid.gym_id}).append($('<a>',{href: locationLink, text: raid.name})));
 
 	var details = '';
 	var raidPokemon = $('<div>',{class: 'pokemon-single'});
