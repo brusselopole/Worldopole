@@ -13,7 +13,7 @@ $(function () {
 	});
 });
 
-function loadRaids(page, pokeimg_suffix) {
+function loadRaids(page, pokeimg_suffix, location_url) {
 	$('.raidsLoader').show();
 	$.ajax({
 		'type': 'GET',
@@ -27,7 +27,7 @@ function loadRaids(page, pokeimg_suffix) {
 		var internalIndex = 0;
 		$.each(data.raids, function (gym_id, raid) {
 			internalIndex++;
-			printRaid(raid, pokeimg_suffix);
+			printRaid(raid, pokeimg_suffix, location_url);
 		});
 		if(internalIndex < 10){
 			$('#loadMoreButton').hide();
