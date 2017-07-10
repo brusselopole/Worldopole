@@ -42,8 +42,8 @@ function loadRaids(page, pokeimg_suffix, location_url) {
 
 function printRaid(raid, pokeimg_suffix, location_url) {
 	var now = new Date();
-	var raidStart = new Date(raid.start);
-	var raidEnd = new Date(raid.end);
+	var raidStart = new Date(raid.start.replace(/-/g, '/'));
+	var raidEnd = new Date(raid.end.replace(/-/g, '/'));
 
 	var raidInfos = $('<tr>',{id: 'raidInfos_'+raid.gym_id}).css('border-bottom','2px solid '+(raid.level>2?'#fad94c':'#e872b7'));
 	raidInfos.append($('<td>',{id: 'raidLevel_'+raid.gym_id, text: '★'.repeat(raid.level)}));
