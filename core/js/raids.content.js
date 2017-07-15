@@ -25,17 +25,26 @@ function loadRaids(page, pokeimg_suffix, location_url) {
 		}
 	}).done(function (data) {
 		var internalIndex = 0;
+		if (data.raids.length == 0) {
+			var raidInfos = $('<tr>');
+			raidInfos.append($('<td>',{colspan: 6, text: data.locale.noraids})).css('text-align', 'center');
+			$('#raidsContainer').append(raidInfos);
+		}
 		$.each(data.raids, function (gym_id, raid) {
 			internalIndex++;
 			printRaid(raid, pokeimg_suffix, location_url);
 		});
-		if(internalIndex < 10){
+		if (internalIndex < 10) {
 			$('#loadMoreButton').hide();
-		}
-		else{
+		} else {
 			$('#loadMoreButton').removeClass('hidden');
 			$('#loadMoreButton').show();
 		}
+	}).fail(function() {
+		var raidInfos = $('<tr>');
+		raidInfos.append($('<td>',{colspan: 6, text: 'ERROR'})).css('text-align', 'center');
+		$('#raidsContainer').append(raidInfos);
+	}).always(function() {
 		$('.raidsLoader').hide();
 	});
 };
@@ -46,7 +55,7 @@ function printRaid(raid, pokeimg_suffix, location_url) {
 	var raidEnd = new Date(raid.end.replace(/-/g, '/'));
 
 	var raidInfos = $('<tr>',{id: 'raidInfos_'+raid.gym_id}).css('border-bottom','2px solid '+(raid.level>2?'#fad94c':'#e872b7'));
-	raidInfos.append($('<td>',{id: 'raidLevel_'+raid.gym_id, text: '★'.repeat(raid.level)}));
+	raidInfos.append($('<td>',{id: 'raidLevel_'+raid.gym_id, class: 'level', text: '★'.repeat(raid.level)}));
 	raidInfos.append($('<td>',{id: 'raidTime_'+raid.gym_id, text: raid.starttime + ' - ' + raid.endtime}));
 	raidInfos.append($('<td>',{id: 'raidRemaining_'+raid.gym_id, class: 'pokemon-remaining'}).append($('<span>',{class: (raidStart < now ? 'current' : 'upcoming')})));
 
