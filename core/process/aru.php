@@ -354,7 +354,7 @@ switch ($request) {
 
 
 	case 'gym_map':
-		$req	= "SELECT gym_id, team_id, latitude, longitude, (CONVERT_TZ(last_scanned, '+00:00', '".$time_offset."')) AS last_scanned, slots_available FROM gym";
+		$req	= "SELECT gym_id, team_id, latitude, longitude, (CONVERT_TZ(last_scanned, '+00:00', '".$time_offset."')) AS last_scanned, (6 - slots_available) AS level FROM gym";
 		$result = $mysqli->query($req);
 
 		$gyms = [];
@@ -391,11 +391,8 @@ switch ($request) {
 					break;
 			}
 
-			// Set gym level
-			$gym_level = (6 - $data->slots_available);
-
 			if ($data->team_id != 0) {
-				$icon .= $gym_level.".png";
+				$icon .= $data->level.".png";
 			}
 
 			$gyms[] = [
@@ -421,7 +418,7 @@ switch ($request) {
 	case 'gym_defenders':
 		$gym_id = $mysqli->real_escape_string($_GET['gym_id']);
 		$req	= "SELECT gymdetails.name AS name, gymdetails.description AS description, gymdetails.url AS url, gym.team_id AS team,
-					(CONVERT_TZ(gym.last_scanned, '+00:00', '".$time_offset."')) AS last_scanned, gym.guard_pokemon_id AS guard_pokemon_id, gym.total_cp AS total_cp, gym.slots_available AS slots_available
+					(CONVERT_TZ(gym.last_scanned, '+00:00', '".$time_offset."')) AS last_scanned, gym.guard_pokemon_id AS guard_pokemon_id, gym.total_cp AS total_cp, (6 - gym.slots_available) AS level
 					FROM gymdetails
 					LEFT JOIN gym ON gym.gym_id = gymdetails.gym_id
 					WHERE gym.gym_id='".$gym_id."'";
@@ -438,11 +435,10 @@ switch ($request) {
 				$gymData['gymDetails']['gymInfos']['url'] = $data->url;
 			}
 			$gymData['gymDetails']['gymInfos']['points'] = $data->total_cp;
-			$gymData['gymDetails']['gymInfos']['level'] = (6 - $data->slots_available);
+			$gymData['gymDetails']['gymInfos']['level'] = $data->level;
 			$gymData['gymDetails']['gymInfos']['last_scanned'] = $data->last_scanned;
 			$gymData['gymDetails']['gymInfos']['team'] = $data->team;
 			$gymData['gymDetails']['gymInfos']['guardPokemonId'] = $data->guard_pokemon_id;
-			$gymData['gymDetails']['gymInfos']['level'] = gym_level($data->points);
 		}
 
 		$req 	= "SELECT DISTINCT gympokemon.pokemon_uid, pokemon_id, iv_attack, iv_defense, iv_stamina, MAX(cp) AS cp, gymmember.gym_id
@@ -514,7 +510,7 @@ switch ($request) {
 
 		// check whether we could retrieve gym infos, otherwise use basic gym info
 		if (!$gymData['gymDetails']['gymInfos']) {
-			$req = "SELECT gym_id, team_id, guard_pokemon_id, latitude, longitude, (CONVERT_TZ(last_scanned, '+00:00', '".$time_offset."')) AS last_scanned, total_cp, slots_available
+			$req = "SELECT gym_id, team_id, guard_pokemon_id, latitude, longitude, (CONVERT_TZ(last_scanned, '+00:00', '".$time_offset."')) AS last_scanned, total_cp, (6 - slots_available) AS level
 				FROM gym WHERE gym_id='".$gym_id."'";
 			$result = $mysqli->query($req);
 			$data = $result->fetch_object();
@@ -523,7 +519,7 @@ switch ($request) {
 			$gymData['gymDetails']['gymInfos']['description'] = $locales->NOT_AVAILABLE;
 			$gymData['gymDetails']['gymInfos']['url'] = 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Solid_grey.svg/200px-Solid_grey.svg.png';
 			$gymData['gymDetails']['gymInfos']['points'] = $data->total_cp;
-			$gymData['gymDetails']['gymInfos']['level'] = (6 - $data->slots_available);
+			$gymData['gymDetails']['gymInfos']['level'] = $data->level;
 			$gymData['gymDetails']['gymInfos']['last_scanned'] = $data->last_scanned;
 			$gymData['gymDetails']['gymInfos']['team'] = $data->team_id;
 			$gymData['gymDetails']['gymInfos']['guardPokemonId'] = $data->guard_pokemon_id;
