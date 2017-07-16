@@ -522,12 +522,12 @@ raids styles
 	line-height: 2em;
 }
 
-#raidsContainer td:first-child {
+#raidsContainer td.level {
     color: #fff;
     text-shadow: 0 0 6px black;
 }
 
-#raidsContainer td:last-child {
+#raidsContainer td:nth-child(6) {
 	min-width: 175px;
 }
 
@@ -540,7 +540,7 @@ raids styles
 		left: 17px;
 		top: 8px;
 	}
-	#raidsContainer td:last-child {
+	#raidsContainer td:nth-child(6) {
 		display: none;
 	}
 	#raidsTable>tbody>tr>td, #raidsTable>tbody>tr>th, #raidsTable>tfoot>tr>td, #raidsTable>tfoot>tr>th, #raidsTable>thead>tr>td, #raidsTable>thead>tr>th {
