@@ -49,6 +49,10 @@
 		</div>
 
 	</div>
+<?php
+	$form_array = array("Unset", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "W", "X", "Y", "Z");
+	$form_array = array_values($form_array);
+	?>
 
 </header>
 <!-- /Header -->
@@ -303,6 +307,9 @@
 						<th><a href="pokemon/<?= $pokemon->id ?>?order=move_1<?php echo $top_order == 'move_1' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#top50">1. <?= $locales->MOVE ?> <i class="fa fa-sort" aria-hidden="true"></i></a></th>
 						<th><a href="pokemon/<?= $pokemon->id ?>?order=move_2<?php echo $top_order == 'move_2' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#top50">2. <?= $locales->MOVE ?> <i class="fa fa-sort" aria-hidden="true"></i></a></th>
 						<th><a href="pokemon/<?= $pokemon->id ?>?order=disappear_time<?php echo $top_order == 'disappear_time' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#top50"><?= $locales->DATE ?> <i class="fa fa-sort" aria-hidden="true"></i></a></th>
+						<?php if ($pokemon->id == 201) { ?>
+							<th>Form</th>
+						<?php } ?>
 					</tr>
 				</thead>
 			
@@ -326,6 +333,11 @@
 							<td><?php echo $move->$move2->name; ?></td>
 							<td><a href="https://maps.google.com/?q=<?= $top50->latitude ?>,<?= $top50->longitude ?>&ll=<?= $top50->latitude ?>,<?= $top50->longitude ?>&z=16"
 								target="_blank"><?=$top50->distime ?></a></td>
+							<?php if ($pokemon->id == 201 && $top50->form) { ?>
+								<td><?php echo $form_array[$top50->form]; ?></td>
+							<?php } else { ?>
+								<td></td>
+							<?php } ?>
 						</tr>
 						<?php
 					} ?>

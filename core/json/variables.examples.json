@@ -34,8 +34,9 @@
 		"captcha_support"		:	false,
 		"iv_numbers"			:	false,
 		"forced_lang"			:	"",
-		"default_lang"			:	"en"
-	},	
+		"default_lang"			:	"en",
+		"location_url"			:	"/map/?lat={latitude}&lon={longitude}"
+	},
 	"menu":[
 		{
 			"type"		:	"link",
@@ -47,6 +48,12 @@
 			"type"		:	"link",
 			"href"		:	"gym",
 			"locale"	:	"GYMS",
+			"icon"		:	"fa-shield"
+		},
+		{
+			"type"		:	"link",
+			"href"		:	"raids",
+			"locale"	:	"RAIDS",
 			"icon"		:	"fa-bolt"
 		},
 		{
@@ -79,6 +86,5 @@
 			"text"		:	"Twitter",
 			"icon"		:	"fa-twitter"
 		}
-		
 	]
 }
