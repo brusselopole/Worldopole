@@ -19,8 +19,7 @@
  *
  * @return array Sorted list of "accept" options
  */
-$sortAccept = function ($header)
-{
+$sortAccept = function ($header) {
 	$matches = array();
 	foreach (explode(',', $header) as $option) {
 		$option = array_map('trim', explode(';', $option));
@@ -53,8 +52,7 @@ $sortAccept = function ($header)
  *
  * @return string|NULL a matched option, or NULL if no match
  */
-$matchAccept = function ($header, $supported) use ($sortAccept)
-{
+$matchAccept = function ($header, $supported) use ($sortAccept) {
 	$matches = $sortAccept($header);
 	foreach ($matches as $key => $q) {
 		if (isset($supported[$key])) {
@@ -85,8 +83,7 @@ $matchAccept = function ($header, $supported) use ($sortAccept)
  *
  * @return string The negotiated language result or the supplied default.
  */
-$negotiateLanguage = function ($supported, $default = 'en-US') use ($matchAccept)
-{
+$negotiateLanguage = function ($supported, $default = 'en-US') use ($matchAccept) {
 	$supp = array();
 	foreach ($supported as $lang => $isSupported) {
 		if ($isSupported) {
