@@ -177,9 +177,9 @@ switch ($request) {
 			if ($last_uid_param != $pokeuid) {
 				$last_seen = strtotime($data->disappear_time_real);
 
-				$last_location = new stdClass();
-				$last_location->latitude = $data->latitude;
-				$last_location->longitude = $data->longitude;
+				$location_link = isset($config->system->location_url) ? $config->system->location_url : 'https://maps.google.com/?q={latitude},{longitude}&ll={latitude},{longitude}&z=16';
+				$location_link = str_replace('{latitude}', $data->latitude, $location_link);
+				$location_link = str_replace('{longitude}', $data->longitude, $location_link);
 
 				if ($config->system->recents_show_iv) {
 					$iv = new stdClass();
@@ -198,8 +198,8 @@ switch ($request) {
 			    <div class="col-md-1 col-xs-4 pokemon-single" data-pokeid="'.$pokeid.'" data-pokeuid="'.$pokeuid.'" style="display: none;">
 				<a href="pokemon/'.$pokeid.'"><img src="core/pokemons/'.$pokeid.$config->system->pokeimg_suffix.'" alt="'.$pokemons->pokemon->$pokeid->name.'" class="img-responsive"></a>
 				<a href="pokemon/'.$pokeid.'"><p class="pkmn-name">'.$pokemons->pokemon->$pokeid->name.'</p></a>
-				<a href="https://maps.google.com/?q='.$last_location->latitude.','.$last_location->longitude.'&ll='.$last_location->latitude.','.$last_location->longitude.'&z=16" target="_blank">
-				    <small class="pokemon-timer">00:00:00</small>
+				<a href="'.$location_link.'" target="_blank">
+					<small class="pokemon-timer">00:00:00</small>
 				</a>';
 				if ($config->system->recents_show_iv) {
 					if ($iv->available) {
