@@ -5,7 +5,7 @@
 // Total lured
 // -----------------------------------------------------------------------------------------------------------
 
-$captcha_file	= SYS_PATH.'/core/json/captcha.stats.json';
+$captcha_file = SYS_PATH.'/core/json/captcha.stats.json';
 if (is_file($captcha_file)) {
 	$capdatas	= json_decode(file_get_contents($captcha_file), true);
 	// Trim json stats files to last 7 days of data
@@ -16,7 +16,7 @@ if (is_file($captcha_file)) {
 $variables_secret = SYS_PATH.'/core/json/variables.secret.json';
 $config_secret = json_decode(file_get_contents($variables_secret));
 
-if ($config_secret->captcha_key=="") {
+if ($config_secret->captcha_key == "") {
 	$captcha['timestamp'] = $timestamp;
 	// get amount of accounts requiring a captcha
 	$req = "SELECT SUM(accounts_captcha) AS total FROM mainworker";
@@ -29,21 +29,21 @@ if ($config_secret->captcha_key=="") {
 	if (!empty($capdatas)) {
 		$lastCaptcha = array_pop($capdatas);
 	} else {
-		$lastCaptcha["timestamp"]=strtotime("-7 days", strtotime(date("Y-m-d")));
+		$lastCaptcha["timestamp"] = strtotime("-7 days", strtotime(date("Y-m-d")));
 	}
 	$lastCaptchaDate = date("Y-m-d", $lastCaptcha["timestamp"]);
 	$startTime = strtotime($lastCaptchaDate);
-	$endTime = strtotime(date("Y-m-d"))+date("Z");
+	$endTime = strtotime(date("Y-m-d")) + date("Z");
 	$timeDiff = abs($endTime - $startTime);
-	$numberDays = intval($timeDiff/86400) ;  // 86400 seconds in one day
-	if ($numberDays>7) {
-		$numberDays=7;
+	$numberDays = intval($timeDiff / 86400); // 86400 seconds in one day
+	if ($numberDays > 7) {
+		$numberDays = 7;
 	}
-	while ($numberDays>=0) {
-		$day = $endTime-($numberDays*86400);
+	while ($numberDays >= 0) {
+		$day = $endTime - ($numberDays * 86400);
 		$captchaUrl =
-				"http://2captcha.com/res.php?key=" .
-				$config_secret->captcha_key . "&action=getstats&date=" . date("Y-m-d", $day);
+				"http://2captcha.com/res.php?key=".
+				$config_secret->captcha_key."&action=getstats&date=".date("Y-m-d", $day);
 
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, $captchaUrl);
@@ -65,13 +65,13 @@ if ($config_secret->captcha_key=="") {
 		$capXml = simplexml_load_string($fileContents);
 
 		foreach ($capXml as $key => $value) {
-			if (	($numberDays==0
-				&& ((int)$value->Attributes()->hour >= (int)date("H", $lastCaptcha["timestamp"])
-				&& ((int)$value->Attributes()->hour <= (int)date("H")))
-				) || $numberDays>0) {
+			if (($numberDays == 0
+				&& ((int) $value->Attributes()->hour >= (int) date("H", $lastCaptcha["timestamp"])
+				&& ((int) $value->Attributes()->hour <= (int) date("H")))
+				) || $numberDays > 0) {
 				$captcha['timestamp'] =
-						strtotime(date("Y-m-d", $day) . " " . $value->Attributes()->hour . ":00")+date("Z");
-				$captcha['captcha_accs'] = (string)$value->volume;
+						strtotime(date("Y-m-d", $day)." ".$value->Attributes()->hour.":00") + date("Z");
+				$captcha['captcha_accs'] = (string) $value->volume;
 				$capdatas[] = $captcha;
 			}
 		}
