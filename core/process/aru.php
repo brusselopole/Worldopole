@@ -177,7 +177,7 @@ switch ($request) {
 			if ($last_uid_param != $pokeuid) {
 				$last_seen = strtotime($data->disappear_time_real);
 
-				$location_link = $config->system->location_url || 'https://maps.google.com/?q={latitude},{longitude}&ll={latitude},{longitude}&z=16';
+				$location_link = isset($config->system->location_url) ? $config->system->location_url : 'https://maps.google.com/?q={latitude},{longitude}&ll={latitude},{longitude}&z=16';
 				$location_link = str_replace('{latitude}', $data->latitude, $location_link);
 				$location_link = str_replace('{longitude}', $data->longitude, $location_link);
 
