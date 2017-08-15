@@ -100,7 +100,7 @@
 <script type="text/javascript">
 <?=
 $trainerName = "";
-if (isset($_GET['name']) && $_GET['name']!="") {
+if (isset($_GET['name']) && $_GET['name'] != "") {
 	$trainerName = htmlentities($_GET['name']);
 }
 

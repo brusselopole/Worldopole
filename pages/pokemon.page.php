@@ -17,9 +17,9 @@
 
 		<div class="col-sm-1 hidden-xs">
 
-				<?php if ($pokemon->id-1 > 0) { ?>
+				<?php if ($pokemon->id - 1 > 0) { ?>
 
-				<p class="nav-links"><a href="pokemon/<?= $pokemon->id-1 ?>"><i class="fa fa-chevron-left"></i></a></p>
+				<p class="nav-links"><a href="pokemon/<?= $pokemon->id - 1 ?>"><i class="fa fa-chevron-left"></i></a></p>
 
 				<?php }?>
 
@@ -41,14 +41,18 @@
 
 		<div class="col-sm-1 hidden-xs">
 
-			<?php if ($pokemon->id+1 < $config->system->max_pokemon) { ?>
+			<?php if ($pokemon->id + 1 < $config->system->max_pokemon) { ?>
 
-			<p class="nav-links"><a href="pokemon/<?= $pokemon->id+1 ?>"><i class="fa fa-chevron-right"></i></a></p>
+			<p class="nav-links"><a href="pokemon/<?= $pokemon->id + 1 ?>"><i class="fa fa-chevron-right"></i></a></p>
 
 			<?php } ?>
 		</div>
 
 	</div>
+<?php
+	$form_array = array("Unset", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "W", "X", "Y", "Z");
+	$form_array = array_values($form_array);
+	?>
 
 </header>
 <!-- /Header -->
@@ -116,10 +120,10 @@
 			</tr>
 			<tr>
 				<td class="col-md-8 col-xs-8"><?php if (isset($pokemon->protected_gyms)) {
-					echo "<strong>" . $locales->POKEMON_GYM . $pokemon->name . "</strong> :";
+					echo "<strong>".$locales->POKEMON_GYM.$pokemon->name."</strong> :";
 } ?></td>
 				<td class="col-md-4 col-xs-4"><?php if (isset($pokemon->protected_gyms)) {
-					echo $pokemon->protected_gyms ;
+					echo $pokemon->protected_gyms;
 }?></td>
 			</tr>
 		</table>
@@ -295,6 +299,7 @@
 				<thead>
 					<tr>
 						<th>#</th>
+						<th><a href="pokemon/<?= $pokemon->id ?>?order=cp<?php echo $best_order == 'cp' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#top50">CP <i class="fa fa-sort" aria-hidden="true"></i></a></th>
 						<th><a href="pokemon/<?= $pokemon->id ?>?order=IV<?php echo $top_order == 'IV' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#top50">IV <i class="fa fa-sort" aria-hidden="true"></i></a></th>
 						<th><a href="pokemon/<?= $pokemon->id ?>?order=individual_attack<?php echo $top_order == 'individual_attack' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#top50"><?= $locales->POKEMON_TABLE_ATTACK ?> <i class="fa fa-sort" aria-hidden="true"></i></a></th>
 						<th><a href="pokemon/<?= $pokemon->id ?>?order=individual_defense<?php echo $top_order == 'individual_defense' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#top50"><?= $locales->POKEMON_TABLE_DEFENSE ?> <i class="fa fa-sort" aria-hidden="true"></i></a></th>
@@ -302,6 +307,9 @@
 						<th><a href="pokemon/<?= $pokemon->id ?>?order=move_1<?php echo $top_order == 'move_1' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#top50">1. <?= $locales->MOVE ?> <i class="fa fa-sort" aria-hidden="true"></i></a></th>
 						<th><a href="pokemon/<?= $pokemon->id ?>?order=move_2<?php echo $top_order == 'move_2' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#top50">2. <?= $locales->MOVE ?> <i class="fa fa-sort" aria-hidden="true"></i></a></th>
 						<th><a href="pokemon/<?= $pokemon->id ?>?order=disappear_time<?php echo $top_order == 'disappear_time' && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#top50"><?= $locales->DATE ?> <i class="fa fa-sort" aria-hidden="true"></i></a></th>
+						<?php if ($pokemon->id == 201) { ?>
+							<th>Form</th>
+						<?php } ?>
 					</tr>
 				</thead>
 			
@@ -316,6 +324,7 @@
 
 						<tr>
 							<td><?= $i ?></td>
+							<td><?= isset($top50->cp) ? $top50->cp : "???" ?></td>
 							<td><?= $top50->IV ?> %</td>
 							<td><?= $top50->individual_attack ?></td>
 							<td><?= $top50->individual_defense ?></td>
@@ -324,6 +333,11 @@
 							<td><?php echo $move->$move2->name; ?></td>
 							<td><a href="https://maps.google.com/?q=<?= $top50->latitude ?>,<?= $top50->longitude ?>&ll=<?= $top50->latitude ?>,<?= $top50->longitude ?>&z=16"
 								target="_blank"><?=$top50->distime ?></a></td>
+							<?php if ($pokemon->id == 201 && $top50->form) { ?>
+								<td><?php echo $form_array[$top50->form]; ?></td>
+							<?php } else { ?>
+								<td></td>
+							<?php } ?>
 						</tr>
 						<?php
 					} ?>

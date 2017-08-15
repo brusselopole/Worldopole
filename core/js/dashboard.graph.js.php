@@ -10,8 +10,8 @@ include_once('../../config.php');
 // Include & load the variables
 // ############################
 
-$variables	= SYS_PATH.'/core/json/variables.json';
-$config		= json_decode(file_get_contents($variables));
+$variables = SYS_PATH.'/core/json/variables.json';
+$config = json_decode(file_get_contents($variables));
 
 
 // Include & load locales (because it's REALLY REALLY REALLY IMPORTANT TO HAVE A FULLY TRANSLATE DASHBOARD )
@@ -24,15 +24,15 @@ include_once(SYS_PATH.'/core/process/locales.loader.php');
 // Check if there's a pokemon stat file
 // ####################################
 
-$stats_file	= SYS_PATH.'/core/json/pokemon.stats.json';
-$stats		= json_decode(file_get_contents($stats_file));
+$stats_file = SYS_PATH.'/core/json/pokemon.stats.json';
+$stats = json_decode(file_get_contents($stats_file));
 
 
-$now		= time();
-$yesterday	= $now-86400;
-$lastweek	= $now-604800;
+$now = time();
+$yesterday = $now - 86400;
+$lastweek = $now - 604800;
 
-$i=0;
+$i = 0;
 $labels_global = array();
 $total = array();
 $labels = array();
@@ -59,12 +59,12 @@ $captcha_accs = array();
 
 foreach ($stats as $data) {
 	if ($data->timestamp > $lastweek) {
-		$labels_global[]	= '"'.date('D H:i', $data->timestamp).'"';
-		$total[]		= $data->pokemon_now;
+		$labels_global[] = '"'.date('D H:i', $data->timestamp).'"';
+		$total[] = $data->pokemon_now;
 	}
 
 	if ($data->timestamp > $yesterday) {
-		$labels[] = '"'.date('H:i', $data->timestamp ).'"';
+		$labels[] = '"'.date('H:i', $data->timestamp).'"';
 
 		if (isset($data->rarity_spawn->{'Very common'})) {
 			$veco[]		= $data->rarity_spawn->{'Very common'};
@@ -93,47 +93,47 @@ foreach ($stats as $data) {
 }
 
 
-$stats_file	= SYS_PATH.'/core/json/gym.stats.json';
-$stats		= json_decode(file_get_contents($stats_file));
+$stats_file = SYS_PATH.'/core/json/gym.stats.json';
+$stats = json_decode(file_get_contents($stats_file));
 
 
 foreach ($stats as $data) {
 	if ($data->timestamp > $lastweek) {
-		$labels_gym[]			= '"'.date('D H:i', $data->timestamp).'"';
+		$labels_gym[] = '"'.date('D H:i', $data->timestamp).'"';
 
-		$mystic_average[]		= $data->team->mystic->average;
+		$mystic_average[] = $data->team->mystic->average;
 		$mystic_owned[]			= $data->team->mystic->gym_owned;
 
 		$valor_average[]		= $data->team->valor->average;
-		$valor_owned[]			= $data->team->valor->gym_owned;
+		$valor_owned[] = $data->team->valor->gym_owned;
 
-		$instinct_average[]		= $data->team->instinct->average;
-		$instinct_owned[]		= $data->team->instinct->gym_owned;
+		$instinct_average[] = $data->team->instinct->average;
+		$instinct_owned[] = $data->team->instinct->gym_owned;
 	}
 }
 
 
-$stats_file	= SYS_PATH.'/core/json/pokestop.stats.json';
-$stats		= json_decode(file_get_contents($stats_file));
+$stats_file = SYS_PATH.'/core/json/pokestop.stats.json';
+$stats = json_decode(file_get_contents($stats_file));
 
 
 foreach ($stats as $data) {
 	if ($data->timestamp > $lastweek) {
-		$labels_stops[]			= '"'.date('D H:i', $data->timestamp).'"';
-		$lure[]				= $data->lured;
+		$labels_stops[] = '"'.date('D H:i', $data->timestamp).'"';
+		$lure[] = $data->lured;
 	}
 }
 
 
 if ($config->system->captcha_support) {
-	$stats_file	= SYS_PATH.'/core/json/captcha.stats.json';
-	$stats		= json_decode(file_get_contents($stats_file));
+	$stats_file = SYS_PATH.'/core/json/captcha.stats.json';
+	$stats = json_decode(file_get_contents($stats_file));
 
 
 	foreach ($stats as $data) {
 		if ($data->timestamp > $lastweek) {
-			$labels_captcha[]		= '"'.date('D H:i', $data->timestamp).'"';
-			$captcha_accs[]			= $data->captcha_accs;
+			$labels_captcha[] = '"'.date('D H:i', $data->timestamp).'"';
+			$captcha_accs[] = $data->captcha_accs;
 		}
 	}
 }

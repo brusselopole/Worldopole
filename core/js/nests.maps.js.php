@@ -89,7 +89,7 @@ function initMap() {
 			}
 		});
 
-		var infoWindow = new google.maps.InfoWindow({pixelOffset: new google.maps.Size(0, 8)});
+		var infoWindow = new google.maps.InfoWindow({pixelOffset: new google.maps.Size(0, 8), disableAutoPan: true});
 
 		// load data
 		$.getJSON("core/json/nests.stats.json", function(nestData) {

@@ -19,15 +19,12 @@ $config_secret = json_decode(file_get_contents($variables_secret));
 if ($config_secret->captcha_key=="") {
 	$captcha['timestamp'] = $timestamp;
 	// get amount of accounts requiring a captcha
-	$req = "SELECT COUNT(*) AS total
-			FROM workerstatus
-			WHERE `captcha` > '0'
-			AND last_modified >= UTC_TIMESTAMP() - INTERVAL 60 SECOND";
-	$result 	= $mysqli->query($req);
-	$data 		= $result->fetch_object();
+	$req = "SELECT SUM(accounts_captcha) AS total FROM mainworker";
+	$result = $mysqli->query($req);
+	$data = $result->fetch_object();
 	$captcha['captcha_accs'] = $data->total;
 	// Add the datas in file
-	$capdatas[] 	= $captcha;
+	$capdatas[] = $captcha;
 } else {
 	if (!empty($capdatas)) {
 		$lastCaptcha = array_pop($capdatas);
@@ -75,7 +72,7 @@ if ($config_secret->captcha_key=="") {
 				$captcha['timestamp'] =
 						strtotime(date("Y-m-d", $day) . " " . $value->Attributes()->hour . ":00")+date("Z");
 				$captcha['captcha_accs'] = (string)$value->volume;
-				$capdatas[] 	= $captcha;
+				$capdatas[] = $captcha;
 			}
 		}
 		--$numberDays;

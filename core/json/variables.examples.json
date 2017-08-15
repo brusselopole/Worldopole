@@ -26,7 +26,7 @@
 		"max_pokemon"			:	251,
 		"nest_exclude_pokemon"	:	[13,16,19,21,161,163,165,167,177,198],
 		"pokeimg_suffix"		:	"_flat.png",
-		"recents_show_iv"		:	true,
+		"recents_encounter_details"	:	false,
 		"recents_filter"		:	true,
 		"recents_filter_rating"	:	8,
 		"recents_filter_rarity"	:	0.01,
@@ -42,8 +42,9 @@
 			"minCluster": 3
 		},
 		"forced_lang"			:	"",
-		"default_lang"			:	"en"
-	},	
+		"default_lang"			:	"en",
+		"location_url"			:	"/map/?lat={latitude}&lon={longitude}"
+	},
 	"menu":[
 		{
 			"type"		:	"link",
@@ -55,6 +56,12 @@
 			"type"		:	"link",
 			"href"		:	"gym",
 			"locale"	:	"GYMS",
+			"icon"		:	"fa-shield"
+		},
+		{
+			"type"		:	"link",
+			"href"		:	"raids",
+			"locale"	:	"RAIDS",
 			"icon"		:	"fa-bolt"
 		},
 		{
@@ -87,6 +94,5 @@
 			"text"		:	"Twitter",
 			"icon"		:	"fa-twitter"
 		}
-		
 	]
 }
