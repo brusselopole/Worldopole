@@ -3,7 +3,7 @@
 // This file only include other files to have only 1 entry in your crontabs. 
 // ------------------------------------------------------------------------	
 
-$config_file	= dirname(__FILE__).'/../../config.php';
+$config_file = dirname(__FILE__).'/../../config.php';
 
 include_once($config_file);
 
@@ -23,7 +23,7 @@ include_once(SYS_PATH.'/core/process/timezone.loader.php');
 
 
 # MySQL 
-$mysqli		= new mysqli(SYS_DB_HOST, SYS_DB_USER, SYS_DB_PSWD, SYS_DB_NAME, SYS_DB_PORT);
+$mysqli = new mysqli(SYS_DB_HOST, SYS_DB_USER, SYS_DB_PSWD, SYS_DB_NAME, SYS_DB_PORT);
 
 if ($mysqli->connect_error != '') {
 	die('MySQL connect error');
@@ -32,10 +32,10 @@ if ($mysqli->connect_error != '') {
 
 // Update dashboard data
 // the following files are updated every run
-$gym_file	= SYS_PATH.'/core/json/gym.stats.json';
-$pokestop_file	= SYS_PATH.'/core/json/pokestop.stats.json';
-$pokemonstats_file	= SYS_PATH.'/core/json/pokemon.stats.json';
-$pokedex_counts_file	= SYS_PATH.'/core/json/pokedex.counts.json';
+$gym_file = SYS_PATH.'/core/json/gym.stats.json';
+$pokestop_file = SYS_PATH.'/core/json/pokestop.stats.json';
+$pokemonstats_file = SYS_PATH.'/core/json/pokemon.stats.json';
+$pokedex_counts_file = SYS_PATH.'/core/json/pokedex.counts.json';
 
 if (is_file($gym_file)) {
 	$gymsdatas	= json_decode(file_get_contents($gym_file), true);

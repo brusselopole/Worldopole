@@ -19,7 +19,8 @@
  *
  * @return array Sorted list of "accept" options
  */
-$sortAccept = function ($header) {
+$sortAccept = function ($header)
+{
 	$matches = array();
 	foreach (explode(',', $header) as $option) {
 		$option = array_map('trim', explode(';', $option));
@@ -52,7 +53,8 @@ $sortAccept = function ($header) {
  *
  * @return string|NULL a matched option, or NULL if no match
  */
-$matchAccept = function ($header, $supported) use ($sortAccept) {
+$matchAccept = function ($header, $supported) use ($sortAccept)
+{
 	$matches = $sortAccept($header);
 	foreach ($matches as $key => $q) {
 		if (isset($supported[$key])) {
@@ -83,7 +85,8 @@ $matchAccept = function ($header, $supported) use ($sortAccept) {
  *
  * @return string The negotiated language result or the supplied default.
  */
-$negotiateLanguage = function ($supported, $default = 'en-US') use ($matchAccept) {
+$negotiateLanguage = function ($supported, $default = 'en-US') use ($matchAccept)
+{
 	$supp = array();
 	foreach ($supported as $lang => $isSupported) {
 		if ($isSupported) {
@@ -190,8 +193,8 @@ foreach ($pokemons->pokemon as $pokeid => $pokemon) {
 
 	// Resolve candy_id to candy_name
 	if (isset($pokemon->candy_id)) {
-		$candy_id 				= $pokemon->candy_id;
-		$pokemon->candy_name 	= $pokemon_trans->pokemon->$candy_id->name;
+		$candy_id = $pokemon->candy_id;
+		$pokemon->candy_name = $pokemon_trans->pokemon->$candy_id->name;
 		unset($pokemon->candy_id);
 	}
 	// Convert move numbers to names
@@ -236,8 +239,8 @@ $pokemons->total = $pokemon_counts->total;
 // Translate typecolors array keys as well
 $types_temp = new stdClass();
 foreach ($pokemons->typecolors as $type => $color) {
-	$type_trans 				= $pokemon_trans->types->$type;
-	$types_temp->$type_trans 	= $color;
+	$type_trans = $pokemon_trans->types->$type;
+	$types_temp->$type_trans = $color;
 }
 // Replace typecolors array with translated one
 $pokemons->typecolors = $types_temp;
