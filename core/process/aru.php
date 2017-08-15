@@ -177,9 +177,9 @@ switch ($request) {
 			if ($last_uid_param != $pokeuid) {
 				$last_seen = strtotime($data->disappear_time_real);
 
-				$last_location = new stdClass();
-				$last_location->latitude = $data->latitude;
-				$last_location->longitude = $data->longitude;
+				$location_link = isset($config->system->location_url) ? $config->system->location_url : 'https://maps.google.com/?q={latitude},{longitude}&ll={latitude},{longitude}&z=16';
+				$location_link = str_replace('{latitude}', $data->latitude, $location_link);
+				$location_link = str_replace('{longitude}', $data->longitude, $location_link);
 
 				if ($config->system->recents_encounter_details) {
 					$encdetails = new stdClass();
@@ -198,8 +198,8 @@ switch ($request) {
 			    <div class="col-md-1 col-xs-4 pokemon-single" data-pokeid="'.$pokeid.'" data-pokeuid="'.$pokeuid.'" style="display: none;">
 				<a href="pokemon/'.$pokeid.'"><img src="core/pokemons/'.$pokeid.$config->system->pokeimg_suffix.'" alt="'.$pokemons->pokemon->$pokeid->name.'" class="img-responsive"></a>
 				<a href="pokemon/'.$pokeid.'"><p class="pkmn-name">'.$pokemons->pokemon->$pokeid->name.'</p></a>
-				<a href="https://maps.google.com/?q='.$last_location->latitude.','.$last_location->longitude.'&ll='.$last_location->latitude.','.$last_location->longitude.'&z=16" target="_blank">
-				    <small class="pokemon-timer">00:00:00</small>
+				<a href="'.$location_link.'" target="_blank">
+					<small class="pokemon-timer">00:00:00</small>
 				</a>';
 				if ($config->system->recents_encounter_details) {
 					if ($encdetails->available) {
@@ -596,9 +596,9 @@ switch ($request) {
 			while ($data = $resultRanking->fetch_object()) {
 				$trainer->rank = $data->rank ;
 			}
-			$req = "(SELECT DISTINCT gympokemon.pokemon_id, gympokemon.pokemon_uid, gympokemon.cp, DATEDIFF(UTC_TIMESTAMP(), gympokemon.last_seen) AS last_scanned, gympokemon.trainer_name, gympokemon.iv_defense, gympokemon.iv_stamina, gympokemon.iv_attack, filtered_gymmember.gym_id, '1' AS active
+			$req = "(SELECT DISTINCT gympokemon.pokemon_id, gympokemon.pokemon_uid, gympokemon.cp, DATEDIFF(UTC_TIMESTAMP(), gympokemon.last_seen) AS last_scanned, gympokemon.trainer_name, gympokemon.iv_defense, gympokemon.iv_stamina, gympokemon.iv_attack, filtered_gymmember.gym_id, filtered_gymmember.deployment_time as deployment_time, '1' AS active
 					FROM gympokemon INNER JOIN
-					(SELECT gymmember.pokemon_uid, gymmember.gym_id FROM gymmember GROUP BY gymmember.pokemon_uid, gymmember.gym_id HAVING gymmember.gym_id <> '') AS filtered_gymmember
+					(SELECT gymmember.pokemon_uid, gymmember.gym_id, gymdetails.name, gymmember.deployment_time FROM gymmember GROUP BY gymmember.pokemon_uid, gymmember.gym_id HAVING gymmember.gym_id <> '') AS filtered_gymmember
 					ON gympokemon.pokemon_uid = filtered_gymmember.pokemon_uid
 					WHERE gympokemon.trainer_name='".$trainer->name."'
 					ORDER BY gympokemon.cp DESC)";
@@ -613,15 +613,14 @@ switch ($request) {
 			}
 			$trainer->gyms = $active_gyms;
 
-			$req = "(SELECT DISTINCT gympokemon.pokemon_id, gympokemon.pokemon_uid, gympokemon.cp, DATEDIFF(UTC_TIMESTAMP(), gympokemon.last_seen) AS last_scanned, gympokemon.trainer_name, gympokemon.iv_defense, gympokemon.iv_stamina, gympokemon.iv_attack, null AS gym_id, '0' AS active
+			$req = "(SELECT DISTINCT gympokemon.pokemon_id, gympokemon.pokemon_uid, gympokemon.cp, DATEDIFF(UTC_TIMESTAMP(), gympokemon.last_seen) AS last_scanned, gympokemon.trainer_name, gympokemon.iv_defense, gympokemon.iv_stamina, gympokemon.iv_attack, null AS gym_id, filtered_gymmember.deployment_time as deployment_time, '0' AS active
 					FROM gympokemon LEFT JOIN
 					(SELECT * FROM gymmember HAVING gymmember.gym_id <> '') AS filtered_gymmember
 					ON gympokemon.pokemon_uid = filtered_gymmember.pokemon_uid
 					WHERE filtered_gymmember.pokemon_uid IS NULL AND gympokemon.trainer_name='".$trainer->name."'
-					ORDER BY gympokemon.cp DESC )";
+					ORDER BY gympokemon.cp DESC)";
 
 			$resultPkms = $mysqli->query($req);
-
 			while ($resultPkms && $dataPkm = $resultPkms->fetch_object()) {
 				$trainer->pokemons[$pkmCount++] = $dataPkm;
 			}
