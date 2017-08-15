@@ -237,7 +237,7 @@ if (!empty($page)) {
 			// Pokemon List from the JSON file
 			// --------------------------------
 
-			$max 		= $config->system->max_pokemon;
+			$max = $config->system->max_pokemon;
 			$pokedex = new stdClass();
 
 			for ($i = 1; $i <= $max; $i++) {
