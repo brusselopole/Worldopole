@@ -737,7 +737,7 @@ switch ($request) {
 							LEFT JOIN gympokemon
 							ON gymmember.pokemon_uid = gympokemon.pokemon_uid
 							WHERE gymmember.gym_id = '". $data->gym_id ."'
-							ORDER BY cp DESC";
+							ORDER BY deployment_time";
 				$pkm_result = $mysqli->query($pkm_req);
 				while ($pkm_result && $pkm_data = $pkm_result->fetch_object()) {
 					$pkm[] = $pkm_data;
@@ -787,8 +787,7 @@ switch ($request) {
 					$pkm_uids = explode(',', $data->pokemon_uids);
 					$pkm_req = "SELECT DISTINCT pokemon_uid, pokemon_id, cp, trainer_name
 								FROM gympokemon
-								WHERE pokemon_uid IN ('". implode("','", $pkm_uids) ."')
-								ORDER BY cp DESC";
+								WHERE pokemon_uid IN ('". implode("','", $pkm_uids) ."')";
 					$pkm_result = $mysqli->query($pkm_req);
 					while ($pkm_result && $pkm_data = $pkm_result->fetch_object()) {
 						$pkm[$pkm_data->pokemon_uid] = $pkm_data;
