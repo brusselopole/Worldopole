@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `gymhistory` (
 --
 INSERT INTO `gymhistory` (
   SELECT NULL, g.gym_id, g.team_id, g.guard_pokemon_id, g.total_cp, g.last_modified, g.last_modified as last_updated,
-  (SELECT GROUP_CONCAT(DISTINCT pokemon_uid SEPARATOR ',') FROM gymmember AS gm WHERE gm.gym_id = g.gym_id GROUP BY gym_id) AS pokemon_uids,
+  (SELECT GROUP_CONCAT(DISTINCT pokemon_uid ORDER BY deployment_time SEPARATOR ',') FROM gymmember AS gm WHERE gm.gym_id = g.gym_id GROUP BY gym_id) AS pokemon_uids,
   (SELECT COUNT(DISTINCT pokemon_uid) FROM gymmember AS gm WHERE gm.gym_id = g.gym_id) AS pokemon_count
   FROM gym AS g
 );
@@ -44,11 +44,11 @@ DELIMITER //
 CREATE EVENT IF NOT EXISTS `gymhistory_update`
 ON SCHEDULE EVERY 15 SECOND
 DO BEGIN
-  INSERT INTO gymhistory (SELECT NULL, g.gym_id, g.team_id, g.guard_pokemon_id, g.total_cp, g.last_modified, g.last_modified as last_updated, (SELECT GROUP_CONCAT(DISTINCT pokemon_uid SEPARATOR ',') FROM gymmember AS gm WHERE gm.gym_id = g.gym_id GROUP BY gym_id) AS pokemon_uids, (SELECT COUNT(DISTINCT pokemon_uid) FROM gymmember AS gm WHERE gm.gym_id = g.gym_id) AS pokemon_count FROM gym AS g WHERE g.last_modified > (SELECT MAX(last_modified) FROM gymhistory));
+  INSERT INTO gymhistory (SELECT NULL, g.gym_id, g.team_id, g.guard_pokemon_id, g.total_cp, g.last_modified, g.last_modified as last_updated, (SELECT GROUP_CONCAT(DISTINCT pokemon_uid ORDER BY deployment_time SEPARATOR ',') FROM gymmember AS gm WHERE gm.gym_id = g.gym_id GROUP BY gym_id) AS pokemon_uids, (SELECT COUNT(DISTINCT pokemon_uid) FROM gymmember AS gm WHERE gm.gym_id = g.gym_id) AS pokemon_count FROM gym AS g WHERE g.last_modified > (SELECT MAX(last_modified) FROM gymhistory));
   UPDATE gymhistory AS gh
   JOIN (SELECT gym_id, MAX(last_modified) as max_last_modified FROM gymhistory GROUP BY gym_id)
   AS gg ON gh.gym_id = gg.gym_id AND gh.last_modified = gg.max_last_modified
-  JOIN (SELECT gym_id, last_scanned, GROUP_CONCAT(DISTINCT pokemon_uid SEPARATOR ',') AS pokemon_uids, COUNT(DISTINCT pokemon_uid) as pokemon_count FROM gymmember AS gm GROUP BY gym_id)
+  JOIN (SELECT gym_id, last_scanned, GROUP_CONCAT(DISTINCT pokemon_uid ORDER BY deployment_time SEPARATOR ',') AS pokemon_uids, COUNT(DISTINCT pokemon_uid) as pokemon_count FROM gymmember AS gm GROUP BY gym_id)
   AS gm ON gh.gym_id = gm.gym_id
   SET gh.last_updated = gm.last_scanned, gh.pokemon_uids = gm.pokemon_uids, gh.pokemon_count = gm.pokemon_count
   WHERE gh.last_updated < gm.last_scanned;
