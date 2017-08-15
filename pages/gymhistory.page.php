@@ -1,7 +1,7 @@
 <header id="single-header">
 <div class="row">
 	<div class="col-md-12 text-center">
-		<h1>Explore our <strong>Gym History</strong><br><small>Teams, levels, prestige and Pokémons of gyms</small></h1>
+		<h1>Explore our <strong>Gym History</strong><br><small>Teams, levels, total CP and Pokémons of gyms</small></h1>
 	</div>
 </div>
 <div class="row">
@@ -25,7 +25,7 @@
 					<ul class="dropdown-menu dropdown-menu-right">
 					  <li><a class="rankingOrderItems" id="changedFirst" href="#">&nbsp;by last changed</a></li>
 					  <li><a class="rankingOrderItems" id="nameFirst" href="#">&nbsp;by name</a></li>
-					  <li><a class="rankingOrderItems" id="prestigeFirst" href="#">&nbsp;by prestige</a></li>
+					  <li><a class="rankingOrderItems" id="totalcpFirst" href="#">&nbsp;by total CP</a></li>
 					</ul>
 				</div>
 			</div>
@@ -47,7 +47,7 @@
 					<th>Time</th>
 					<th>Gym</th>
 					<th>Level</th>
-					<th>Prestige</th>
+					<th>Total CP</th>
 					<th>Pokémon</th>
 				</tr>
 			</thead>
