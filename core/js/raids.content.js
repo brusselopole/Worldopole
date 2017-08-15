@@ -25,7 +25,7 @@ function loadRaids(page, pokeimg_suffix, location_url) {
 		}
 	}).done(function (data) {
 		var internalIndex = 0;
-		if (data.raids.length == 0) {
+		if (data.raids.length === 0) {
 			var raidInfos = $('<tr>');
 			raidInfos.append($('<td>',{colspan: 6, text: data.locale.noraids})).css('text-align', 'center');
 			$('#raidsContainer').append(raidInfos);
