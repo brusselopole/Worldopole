@@ -17,9 +17,9 @@
 
 		<div class="col-sm-1 hidden-xs">
 
-				<?php if ($pokemon->id-1 > 0) { ?>
+				<?php if ($pokemon->id - 1 > 0) { ?>
 
-				<p class="nav-links"><a href="pokemon/<?= $pokemon->id-1 ?>"><i class="fa fa-chevron-left"></i></a></p>
+				<p class="nav-links"><a href="pokemon/<?= $pokemon->id - 1 ?>"><i class="fa fa-chevron-left"></i></a></p>
 
 				<?php }?>
 
@@ -41,9 +41,9 @@
 
 		<div class="col-sm-1 hidden-xs">
 
-			<?php if ($pokemon->id+1 < $config->system->max_pokemon) { ?>
+			<?php if ($pokemon->id + 1 < $config->system->max_pokemon) { ?>
 
-			<p class="nav-links"><a href="pokemon/<?= $pokemon->id+1 ?>"><i class="fa fa-chevron-right"></i></a></p>
+			<p class="nav-links"><a href="pokemon/<?= $pokemon->id + 1 ?>"><i class="fa fa-chevron-right"></i></a></p>
 
 			<?php } ?>
 		</div>
@@ -120,10 +120,10 @@
 			</tr>
 			<tr>
 				<td class="col-md-8 col-xs-8"><?php if (isset($pokemon->protected_gyms)) {
-					echo "<strong>" . $locales->POKEMON_GYM . $pokemon->name . "</strong> :";
+					echo "<strong>".$locales->POKEMON_GYM.$pokemon->name."</strong> :";
 } ?></td>
 				<td class="col-md-4 col-xs-4"><?php if (isset($pokemon->protected_gyms)) {
-					echo $pokemon->protected_gyms ;
+					echo $pokemon->protected_gyms;
 }?></td>
 			</tr>
 		</table>

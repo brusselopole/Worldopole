@@ -10,8 +10,8 @@ include_once('../../config.php');
 // Include & load the variables 
 // ############################
 
-$variables	= SYS_PATH.'/core/json/variables.json';
-$config		= json_decode(file_get_contents($variables));
+$variables = SYS_PATH.'/core/json/variables.json';
+$config = json_decode(file_get_contents($variables));
 
 // Load the locale elements
 ############################
@@ -29,7 +29,7 @@ if ($mysqli->connect_error != '') {
 $trainer_lvl = [];
 # For all 3 teams
 for ($teamid = 1; $teamid <= 3; $teamid++) {
-	$req	= "SELECT level, count(level) AS count FROM trainer WHERE team = '".$teamid."' GROUP BY level";
+	$req = "SELECT level, count(level) AS count FROM trainer WHERE team = '".$teamid."' GROUP BY level";
 	if ($result = $mysqli->query($req)) {
 		# build level=>count array
 		$data = [];
@@ -42,7 +42,7 @@ for ($teamid = 1; $teamid <= 3; $teamid++) {
 			# fill empty levels counts with 0
 			for ($i = 5; $i <= 40; $i++) {
 				if (!isset($data[$i])) {
-					$data[$i]=0;
+					$data[$i] = 0;
 				}
 			}
 			# sort array again
