@@ -6,7 +6,6 @@ Based on [Brusselopole](http://www.brusselopole.be), Worldopole is an open sourc
 
 Up-to-date demos:
 - [Berlinopole](https://obihoernchen.net/pokemon/)
-- [Default examlpe](http://pokemon.32k.ch/)
 
 Chat with us on our official Discord: https://discord.gg/SDvsxkN
 
