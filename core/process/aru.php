@@ -701,8 +701,8 @@ switch ($request) {
 	case 'pokemon_heatmap_points':
 		$json = "";
 		if (isset($_GET['start']) && isset($_GET['end']) && isset($_GET['pokemon_id'])) {
-			$start = Date("Y-m-d H:i", (int) $_GET['start']);
-			$end = Date("Y-m-d H:i", (int) $_GET['end']);
+			$start = date("Y-m-d H:i", (int) $_GET['start']);
+			$end = date("Y-m-d H:i", (int) $_GET['end']);
 			$pokemon_id = mysqli_real_escape_string($mysqli, $_GET['pokemon_id']);
 			$where = " WHERE pokemon_id = ".$pokemon_id." "
 					. "AND disappear_time BETWEEN '".$start."' AND '".$end."'";
