@@ -564,14 +564,16 @@ switch ($request) {
 
 		switch ($ranking) {
 			case 1:
-				$order = " ORDER BY active DESC ";
+				$order = " ORDER BY active DESC, level DESC";
 				break;
 			case 2:
-				$order = " ORDER BY maxCp DESC ";
+				$order = " ORDER BY maxCp DESC, level DESC";
 				break;
 			default:
-				$order = " ORDER BY level DESC, active DESC ";
+				$order = " ORDER BY level DESC, active DESC";
 		}
+
+		$order .= ", last_seen DESC, name ";
 
 		$limit = " LIMIT ".($page * 10).",10 ";
 
@@ -596,7 +598,7 @@ switch ($request) {
 			while ($data = $resultRanking->fetch_object()) {
 				$trainer->rank = $data->rank;
 			}
-			$req = "(SELECT DISTINCT gympokemon.pokemon_id, gympokemon.pokemon_uid, gympokemon.cp, DATEDIFF(UTC_TIMESTAMP(), gympokemon.last_seen) AS last_scanned, gympokemon.trainer_name, gympokemon.iv_defense, gympokemon.iv_stamina, gympokemon.iv_attack, filtered_gymmember.gym_id, filtered_gymmember.deployment_time as deployment_time, '1' AS active
+			$req = "(SELECT DISTINCT gympokemon.pokemon_id, gympokemon.pokemon_uid, gympokemon.cp, DATEDIFF(UTC_TIMESTAMP(), gympokemon.last_seen) AS last_scanned, gympokemon.trainer_name, gympokemon.iv_defense, gympokemon.iv_stamina, gympokemon.iv_attack, filtered_gymmember.gym_id, CONVERT_TZ(filtered_gymmember.deployment_time, '+00:00', '".$time_offset."') as deployment_time, '1' AS active
 					FROM gympokemon INNER JOIN
 					(SELECT gymmember.pokemon_uid, gymmember.gym_id, gymmember.deployment_time FROM gymmember GROUP BY gymmember.pokemon_uid, gymmember.deployment_time, gymmember.gym_id HAVING gymmember.gym_id <> '') AS filtered_gymmember
 					ON gympokemon.pokemon_uid = filtered_gymmember.pokemon_uid
@@ -613,7 +615,7 @@ switch ($request) {
 			}
 			$trainer->gyms = $active_gyms;
 
-			$req = "(SELECT DISTINCT gympokemon.pokemon_id, gympokemon.pokemon_uid, gympokemon.cp, DATEDIFF(UTC_TIMESTAMP(), gympokemon.last_seen) AS last_scanned, gympokemon.trainer_name, gympokemon.iv_defense, gympokemon.iv_stamina, gympokemon.iv_attack, null AS gym_id, filtered_gymmember.deployment_time as deployment_time, '0' AS active
+			$req = "(SELECT DISTINCT gympokemon.pokemon_id, gympokemon.pokemon_uid, gympokemon.cp, DATEDIFF(UTC_TIMESTAMP(), gympokemon.last_seen) AS last_scanned, gympokemon.trainer_name, gympokemon.iv_defense, gympokemon.iv_stamina, gympokemon.iv_attack, null AS gym_id, CONVERT_TZ(filtered_gymmember.deployment_time, '+00:00', '".$time_offset."') as deployment_time, '0' AS active
 					FROM gympokemon LEFT JOIN
 					(SELECT * FROM gymmember HAVING gymmember.gym_id <> '') AS filtered_gymmember
 					ON gympokemon.pokemon_uid = filtered_gymmember.pokemon_uid
