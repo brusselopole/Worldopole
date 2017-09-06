@@ -553,7 +553,10 @@ switch ($request) {
 		}
 		if (isset($_GET['team']) && $_GET['team'] != 0) {
 			$team = mysqli_real_escape_string($mysqli, $_GET['team']);
-			$where .= ($where == "" ? " HAVING" : "AND ")." team = ".$team;
+			$where .= ($where == "" ? " HAVING" : " AND")." team = ".$team;
+		}
+		if (!empty($config->system->trainer_blacklist)) {
+			$where .= ($where == "" ? " HAVING" : " AND")." name NOT IN ('".implode("','", $config->system->trainer_blacklist)."')";
 		}
 		if (isset($_GET['page'])) {
 			$page = mysqli_real_escape_string($mysqli, $_GET['page']);
