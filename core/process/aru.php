@@ -596,7 +596,10 @@ switch ($request) {
 			$trainers[$data->name] = $data;
 		}
 		foreach ($trainers as $trainer) {
-			$reqRanking = "SELECT COUNT(1) AS rank FROM trainer WHERE trainer.level >= ".$trainer->level;
+			$reqRanking = "SELECT COUNT(1) AS rank FROM trainer WHERE level = ".$trainer->level;
+			if (!empty($config->system->trainer_blacklist)) {
+				$reqRanking .= " AND name NOT IN ('".implode("','", $config->system->trainer_blacklist)."')";
+			}
 			$resultRanking = $mysqli->query($reqRanking);
 			while ($data = $resultRanking->fetch_object()) {
 				$trainer->rank = $data->rank;
