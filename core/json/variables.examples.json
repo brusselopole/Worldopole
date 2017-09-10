@@ -35,7 +35,8 @@
 		"iv_numbers"			:	false,
 		"forced_lang"			:	"",
 		"default_lang"			:	"en",
-		"location_url"			:	"/map/?lat={latitude}&lon={longitude}"
+		"location_url"			:	"/map/?lat={latitude}&lon={longitude}",
+		"trainer_blacklist"		:	["cheater1", "cheater2"]
 	},
 	"menu":[
 		{

@@ -214,10 +214,15 @@ if (!empty($page)) {
 			$best_direction = isset($_GET['direction']) ? 'ASC' : 'DESC';
 			$best_direction = !isset($_GET['order']) && !isset($_GET['direction']) ? 'DESC' : $best_direction;
 			
+			$trainer_blacklist = "";
+			if (!empty($config->system->trainer_blacklist)) {
+				$trainer_blacklist = " AND trainer_name NOT IN ('".implode("','", $config->system->trainer_blacklist)."')";
+			}
+
 			$req = "SELECT trainer_name, ROUND(SUM(100*(iv_attack+iv_defense+iv_stamina)/45),1) AS IV, move_1, move_2, cp,
 					DATE_FORMAT(last_seen, '%Y-%m-%d') AS lasttime, last_seen
 					FROM gympokemon
-					WHERE pokemon_id = '".$pokemon_id."'
+					WHERE pokemon_id = '".$pokemon_id."'".$trainer_blacklist."
 					GROUP BY pokemon_uid
 					ORDER BY $best_order_by $best_direction, trainer_name ASC
 					LIMIT 0,50";
