@@ -1,6 +1,9 @@
 /** global: google */
 /** global: navigator */
 
+var markersWithoutLure = [];
+var map;
+
 function initMap()
 {
 	$.ajax({
@@ -18,7 +21,7 @@ function initMap()
 				var longitude = Number(variables['system']['map_center_long']);
 				var zoom_level = Number(variables['system']['zoom_level']);
 
-				var map = new google.maps.Map(document.getElementById('map'), {
+				map = new google.maps.Map(document.getElementById('map'), {
 					center: {
 						lat: latitude,
 						lng: longitude
@@ -96,10 +99,39 @@ function initMap()
 								infowindow.open(map, marker);
 							}
 					})(marker, i));
-				}
-			
 					
+					if (!pokestops[i][4]) {
+							markersWithoutLure.push(marker);
+					}			
+				}	
 			});
-		}
+			initSelector();
+		}	
 	});
+ }
+								
+function initSelector(){
+ 	$('#pokestopSelector').click(function(){
+		$('#pokestopSelector').addClass('active');
+		$('#lureSelector').removeClass('active');
+		updateMap(false);
+ 	});
+ 	$('#lureSelector').click(function(){
+		$('#lureSelector').addClass('active');
+		$('#pokestopSelector').removeClass('active');
+		updateMap(true);
+ 	});
+}
+
+function updateMap(onlyLured) {
+ 	if (onlyLured) {
+		for (var i = 0; i < markersWithoutLure.length; i++) {
+			markersWithoutLure[i].setMap(null);
+		}
+ 	}
+ 	else {
+		for (var i = 0; i < markersWithoutLure.length; i++) {
+			markersWithoutLure[i].setMap(map);
+		}
+ 	}
 }
