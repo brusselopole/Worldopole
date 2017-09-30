@@ -125,13 +125,14 @@ function initSelector(){
 }
 
 function updateMap(onlyLured) {
+	var i;
  	if (onlyLured) {
-		for (var i = 0; i < markersWithoutLure.length; i++) {
+		for (i = 0; i < markersWithoutLure.length; i++) {
 			markersWithoutLure[i].setMap(null);
 		}
  	}
  	else {
-		for (var i = 0; i < markersWithoutLure.length; i++) {
+		for (i = 0; i < markersWithoutLure.length; i++) {
 			markersWithoutLure[i].setMap(map);
 		}
  	}
