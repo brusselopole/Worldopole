@@ -90,7 +90,8 @@ function initMap()
 					marker = new google.maps.Marker({
 						position: new google.maps.LatLng(pokestops[i][2], pokestops[i][3]),
 						map: map,
-						icon: 'core/img/'+pokestops[i][1]
+						icon: 'core/img/'+pokestops[i][1],
+						zIndex: 0 + pokestops[i][4]
 					});
 		
 					google.maps.event.addListener(marker, 'click', (function (marker, i) {
