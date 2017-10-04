@@ -26,7 +26,7 @@
 
 <div class="row text-center subnav">
     <div class="btn-group" role="group">
-        <a class="btn btn-default active" id="pokestopSelector"><i class="fa fa-globe"></i> <?= $locales->POKESTOPS ?></a>
+        <a class="btn btn-default active" id="pokestopSelector"><i class="fa fa-medkit"></i> <?= $locales->POKESTOPS ?></a>
         <a class="btn btn-default " id="lureSelector"><i class="fa fa-eye"></i> <?= $locales->LURES ?></a>
     </div>
 </div>
