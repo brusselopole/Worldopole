@@ -373,7 +373,7 @@
 
 						<tr>
 							<td><?= $i ?></td>
-							<td><?= $besttrainer->trainer_name ?></td>
+							<td><a href="trainer?name=<?=$besttrainer->trainer_name ?>"><?=$besttrainer->trainer_name ?> </a></td>
 							<td><?= $besttrainer->cp ?></td>
 							<td><?= $besttrainer->IV ?> %</td>
 							<td><?php echo $move->$move1->name; ?></td>
