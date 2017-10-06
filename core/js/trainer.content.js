@@ -13,10 +13,13 @@ $(function () {
 
 		$('input#name').filter(':visible').val(trainerName);
 		loadTrainers(page,$('input#name').filter(':visible').val(),null,null,pokeimg_suffix,true,iv_numbers);
+		if ($('input#name')) {
+			$('input#name').filter(':visible').val()!=''?$('#trainersGraph').hide():$('#trainersGraph').show();
+			$('#trainersContainer tr:not(.trainersTemplate)').remove();
+		}
 
 		page++;
 		$('#loadMoreButton').click(function () {
-
 			loadTrainers(page,$('input#name').filter(':visible').val(),teamSelector,rankingFilter,pokeimg_suffix,true,iv_numbers);
 			page++;
 		});
