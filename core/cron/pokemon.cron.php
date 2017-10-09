@@ -16,14 +16,12 @@ include_once(SYS_PATH.'/core/process/locales.loader.php');
 $pokemon_stats['timestamp'] = $timestamp;
 
 
-$req = "SELECT COUNT(*) AS total FROM pokemon WHERE disappear_time >= UTC_TIMESTAMP()";
-$result = $mysqli->query($req);
+$result = $mysqli->query(req_pokemon_count());
 $data = $result->fetch_object();
 
 $pokemon_stats['pokemon_now'] = $data->total;
 
-$req = "SELECT pokemon_id FROM pokemon WHERE disappear_time >= UTC_TIMESTAMP()";
-$result = $mysqli->query($req);
+$result = $mysqli->query(req_pokemon_count_id());
 
 $rarityarray = array();
 while ($data = $result->fetch_object()) {

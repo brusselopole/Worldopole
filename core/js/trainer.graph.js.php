@@ -29,12 +29,7 @@ if ($mysqli->connect_error != '') {
 $trainer_lvl = [];
 # For all 3 teams
 for ($teamid = 1; $teamid <= 3; $teamid++) {
-	$req = "SELECT level, count(level) AS count FROM trainer WHERE team = '".$teamid."'";
-	if (!empty($config->system->trainer_blacklist)) {
-		$req .= " AND name NOT IN ('".implode("','", $config->system->trainer_blacklist)."')";
-	}
-	$req .= " GROUP BY level";
-	if ($result = $mysqli->query($req)) {
+    if ($result = $mysqli->query(req_trainer_levels_for_team($teamid))) {
 		# build level=>count array
 		$data = [];
 		while ($row = $result->fetch_assoc()) {
