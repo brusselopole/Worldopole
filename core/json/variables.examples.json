@@ -18,7 +18,6 @@
 		"text"			:	"<big>Like us on</big><br>Facebook!"
 	},
 	"system":{
-		"db_type": "rocketap",
 		"map_center_lat"		:	"50.844441",
 		"map_center_long"		:	"4.363557",
 		"zoom_level"			:	"13",

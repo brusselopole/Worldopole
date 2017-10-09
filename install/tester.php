@@ -25,7 +25,8 @@ function db_test()
 	$mysqli = new mysqli(SYS_DB_HOST, SYS_DB_USER, SYS_DB_PSWD, SYS_DB_NAME, SYS_DB_PORT);
 
 	// Pokemon Test
-    $result = $mysqli->query(req_tester_pokemon());
+	$req = "SELECT COUNT(*) as total FROM pokemon";
+	$result = $mysqli->query($req);
 
 	if (!is_object($result)) {
 		$lock_msg .= "Error: No Pokémon database found<br>";
@@ -39,7 +40,8 @@ function db_test()
 	}
 
 	// Gym Test
-    $result = $mysqli->query(req_tester_gym());
+	$req = "SELECT COUNT(*) as total FROM gym";
+	$result = $mysqli->query($req);
 
 	if (!is_object($result)) {
 		$lock_msg .= "Error: No Gym database found<br>";
@@ -54,7 +56,8 @@ function db_test()
 
 
 	// Pokéstop Test
-    $result = $mysqli->query(req_tester_pokestop());
+	$req = "SELECT COUNT(*) as total FROM pokestop";
+	$result = $mysqli->query($req);
 
 	if (!is_object($result)) {
 		$lock_msg .= "Error: No Pokestop database found<br>";

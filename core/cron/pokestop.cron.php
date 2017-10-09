@@ -9,12 +9,14 @@
 
 $pokestop['timestamp'] = $timestamp;
 
-$result = $mysqli->query(req_pokestop_count());
+$req = "SELECT COUNT(*) AS total FROM pokestop";
+$result = $mysqli->query($req);
 $data = $result->fetch_object();
 
 $pokestop['total'] = $data->total;
 
-$result = $mysqli->query(req_pokestop_lure_count());
+$req = "SELECT COUNT(*) AS total FROM pokestop WHERE lure_expiration >= UTC_TIMESTAMP()";
+$result = $mysqli->query($req);
 $data = $result->fetch_object();
 
 $pokestop['lured'] = $data->total;
