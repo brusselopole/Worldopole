@@ -510,13 +510,6 @@ switch ($request) {
 
 
 	case 'trainer':
-		$name = "";
-		$page = "0";
-		$where = "";
-		$order = "";
-		$team = 0;
-		$ranking = 0;
-
         $result = $mysqli->query(req_trainers($_GET));
 		$trainers = array();
 		while ($data = $result->fetch_object()) {

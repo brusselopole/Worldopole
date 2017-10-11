@@ -248,6 +248,12 @@ function req_gym_defender_stats_for($gym_id)
 function req_trainers($get)
 {
     global $config, $mysqli;
+    $name = "";
+    $page = "0";
+    $where = "";
+    $order = "";
+    $team = 0;
+    $ranking = 0;
     if (isset($get['name'])) {
         $trainer_name = mysqli_real_escape_string($mysqli, $get['name']);
         $where = " HAVING name LIKE '%" . $trainer_name . "%'";
