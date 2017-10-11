@@ -5,6 +5,10 @@
 // Total pokemon available
 // -----------------------------------------------------------------------------------------------------------
 
+// Load Queries
+// #############
+
+include_once('query.php');
 
 // This file is used to rank by rarity 
 

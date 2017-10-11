@@ -1,5 +1,10 @@
 <?php
 
+// Load Queries
+// #############
+
+include_once('query.php');
+
 // get pokemon from last day to calculate the rarity for last 24h
 // use last disappear_time as a starting point to overcome scan downtimes
 $result = $mysqli->query(req_pokemon_count_24h());

@@ -7,6 +7,11 @@
 // Total lured
 // -----------------------------------------------------------------------------------------------------------
 
+// Load Queries
+// #############
+
+include_once('query.php');
+
 $pokestop['timestamp'] = $timestamp;
 
 $result = $mysqli->query(req_pokestop_count());

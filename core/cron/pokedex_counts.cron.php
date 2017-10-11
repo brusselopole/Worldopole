@@ -1,5 +1,10 @@
 <?php
 
+// Load Queries
+// #############
+
+include_once('query.php');
+
 // get alltime pokemon counts for pokedex and pokemon pages
 
 $maxpid = $config->system->max_pokemon;

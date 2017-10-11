@@ -25,11 +25,10 @@ $config = json_decode(file_get_contents($variables));
 
 include_once('timezone.loader.php');
 
-// Load Quarrys
-// ###################
+// Load Queries
+// #############
 
-include_once('quarrys.php');
-
+include_once('query.php');
 
 // Load the locale elements
 ############################

@@ -5,6 +5,11 @@
 // Total lured
 // -----------------------------------------------------------------------------------------------------------
 
+// Load Queries
+// #############
+
+include_once('query.php');
+
 $captcha_file = SYS_PATH.'/core/json/captcha.stats.json';
 if (is_file($captcha_file)) {
 	$capdatas	= json_decode(file_get_contents($captcha_file), true);

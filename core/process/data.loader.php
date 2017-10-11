@@ -24,10 +24,10 @@ if (!isset($config->system)) {
 
 include_once('timezone.loader.php');
 
-// Load Quarrys
-// ###################
+// Load Queries
+// #############
 
-include_once('quarrys.php');
+include_once('query.php');
 
 // Debug mode
 #############

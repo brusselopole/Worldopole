@@ -6,6 +6,8 @@ header('Content-type: text/javascript');
 # Load Config 
 include_once('../../config.php');
 
+# Load Queries
+include_once('query.php');
 
 // Include & load the variables 
 // ############################
