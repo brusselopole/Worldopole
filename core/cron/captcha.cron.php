@@ -5,6 +5,11 @@
 // Total lured
 // -----------------------------------------------------------------------------------------------------------
 
+// Load Queries
+// #############
+
+include_once('query.php');
+
 $captcha_file = SYS_PATH.'/core/json/captcha.stats.json';
 if (is_file($captcha_file)) {
 	$capdatas	= json_decode(file_get_contents($captcha_file), true);
@@ -19,8 +24,7 @@ $config_secret = json_decode(file_get_contents($variables_secret));
 if ($config_secret->captcha_key == "") {
 	$captcha['timestamp'] = $timestamp;
 	// get amount of accounts requiring a captcha
-	$req = "SELECT SUM(accounts_captcha) AS total FROM mainworker";
-	$result = $mysqli->query($req);
+    $result = $mysqli->query(req_captcha_count());
 	$data = $result->fetch_object();
 	$captcha['captcha_accs'] = $data->total;
 	// Add the datas in file

@@ -18,6 +18,7 @@
 		"text"			:	"<big>Like us on</big><br>Facebook!"
 	},
 	"system":{
+      "db_type": "rocketap",
 		"map_center_lat"		:	"50.844441",
 		"map_center_long"		:	"4.363557",
 		"zoom_level"			:	"13",
@@ -30,7 +31,6 @@
 		"recents_filter"		:	true,
 		"recents_filter_rating"	:	8,
 		"recents_filter_rarity"	:	0.01,
-		"only_lured_pokestops"  :	false,
 		"captcha_support"		:	false,
 		"iv_numbers"			:	false,
 		"forced_lang"			:	"",
