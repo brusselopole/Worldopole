@@ -3826,7 +3826,8 @@
       "rating": 1.0,
       "sta": 120,
       "types": [
-        "Fire"
+        "Fire",
+        "Fighting"
       ]
     },
     "257": {
@@ -3840,7 +3841,8 @@
       "rating": 1.0,
       "sta": 160,
       "types": [
-        "Fire"
+        "Fire",
+        "Fighting"
       ]
     },
     "258": {
@@ -3870,7 +3872,8 @@
       "rating": 1.0,
       "sta": 140,
       "types": [
-        "Water"
+        "Water",
+        "Ground"
       ]
     },
     "260": {
@@ -3884,7 +3887,8 @@
       "rating": 1.0,
       "sta": 200,
       "types": [
-        "Water"
+        "Water",
+        "Ground"
       ]
     },
     "261": {
@@ -10472,7 +10476,7 @@
       "rating": 1.0,
       "sta": 1,
       "types": [
-        "Rock",
+        "Fighting",
         "Flying"
       ]
     },
