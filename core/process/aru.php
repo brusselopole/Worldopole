@@ -282,15 +282,8 @@ switch ($request) {
 
 	case 'pokestop':
 		$where = "";
-		if ($config->system->only_lured_pokestops) {
-			$where = "WHERE lure_expiration > UTC_TIMESTAMP() ORDER BY lure_expiration";
-		}
-		$req = "SELECT latitude, longitude, lure_expiration, UTC_TIMESTAMP() AS now, (CONVERT_TZ(lure_expiration, '+00:00', '".$time_offset."')) AS lure_expiration_real FROM pokestop ".$where."";
+		$req = "SELECT latitude, longitude, lure_expiration, UTC_TIMESTAMP() AS now, (CONVERT_TZ(lure_expiration, '+00:00', '".$time_offset."')) AS lure_expiration_real FROM pokestop ";
 
-		//show all stops if no lure active
-		if (!$mysqli->query($req)->fetch_object()) {
-			$req = "SELECT latitude, longitude, lure_expiration, UTC_TIMESTAMP() AS now, (CONVERT_TZ(lure_expiration, '+00:00', '".$time_offset."')) AS lure_expiration_real FROM pokestop";
-		}
 		$result = $mysqli->query($req);
 
 		$pokestops = [];
@@ -299,16 +292,19 @@ switch ($request) {
 			if ($data->lure_expiration >= $data->now) {
 				$icon = 'pokestap_lured.png';
 				$text = sprintf($locales->POKESTOPS_MAP_LURED, date('H:i:s', strtotime($data->lure_expiration_real)));
+				$lured = true;
 			} else {
 				$icon = 'pokestap.png';
 				$text = $locales->POKESTOPS_MAP_REGULAR;
+				$lured = false;
 			}
 
 			$pokestops[] = [
 				$text,
 				$icon,
 				$data->latitude,
-				$data->longitude
+				$data->longitude,
+				$lured
 			];
 		}
 
