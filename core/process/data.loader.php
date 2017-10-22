@@ -106,16 +106,15 @@ if (!empty($page)) {
 			}
 
 
-			$pokemon			= new stdClass();
-			$pokemon			= $pokemons->pokemon->$pokemon_id;
-			$pokemon->id = $pokemon_id;
+			$pokemon = new stdClass();
+			$pokemon = $pokemons->pokemon->$pokemon_id;
 
 
 			// Some math
 			// ----------
 
-			$pokemon->max_cp_percent 	= percent(3670, $pokemon->max_cp);
-			$pokemon->max_hp_percent 	= percent(411, $pokemon->max_hp);
+			$pokemon->max_cp_percent = percent(5441, $pokemon->max_cp);
+			$pokemon->max_hp_percent = percent(411, $pokemon->max_hp);
 
 
 			// Get Dabase results
@@ -169,7 +168,7 @@ if (!empty($page)) {
 			foreach ($pokemons->pokemon as $pokeid => $test_pokemon) {
 				if (!empty($test_pokemon->types)) {
 					foreach ($test_pokemon->types as $type) {
-						if (in_array($type, $types)) {
+						if (in_array($type, $types) && $pokeid <= $config->system->max_pokemon) {
 							if (!in_array($pokeid, $related)) {
 								$related[] = $pokeid;
 							}
