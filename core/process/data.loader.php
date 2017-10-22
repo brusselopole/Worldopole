@@ -108,6 +108,7 @@ if (!empty($page)) {
 
 			$pokemon = new stdClass();
 			$pokemon = $pokemons->pokemon->$pokemon_id;
+			$pokemon->id = $pokemon_id;
 
 
 			// Some math
