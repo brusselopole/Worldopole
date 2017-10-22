@@ -161,6 +161,7 @@
 		<a class="btn btn-default page-scroll" href="pokemon/<?= $pokemon->id ?>#stats"><i class="fa fa-pie-chart"></i> <?= $locales->POKEMON_STATS ?></a>
 		<a class="btn btn-default page-scroll" href="pokemon/<?= $pokemon->id ?>#family"><i class="fa fa-share-alt"></i> <?= $locales->POKEMON_FAMILY ?></a>
 		<a class="btn btn-default page-scroll" href="pokemon/<?= $pokemon->id ?>#top50"><i class="fa fa-list"></i> Top50</a>
+		<a class="btn btn-default page-scroll" href="pokemon/<?= $pokemon->id ?>#trainer"><i class="fa fa-users"></i> <?= $locales->TRAINERS ?></a>
 	</div>
 </div>
 
