@@ -20,12 +20,17 @@ $config = json_decode(file_get_contents($variables));
 include_once(SYS_PATH.'/core/process/locales.loader.php');
 
 
-
 // Check if there's a pokemon stat file
 // ####################################
 
 $stats_file = SYS_PATH.'/core/json/pokemon.stats.json';
 $stats = json_decode(file_get_contents($stats_file));
+
+
+// Manage Time Interval
+// #####################
+
+include_once('../process/timezone.loader.php');
 
 
 $now = time();
