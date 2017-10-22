@@ -106,16 +106,14 @@ if (!empty($page)) {
 			}
 
 
-			$pokemon			= new stdClass();
-			$pokemon			= $pokemons->pokemon->$pokemon_id;
-			$pokemon->id = $pokemon_id;
-
+			$pokemon = new stdClass();
+			$pokemon = $pokemons->pokemon->$pokemon_id;
 
 			// Some math
 			// ----------
 
-			$pokemon->max_cp_percent 	= percent(3670, $pokemon->max_cp);
-			$pokemon->max_hp_percent 	= percent(411, $pokemon->max_hp);
+			$pokemon->max_cp_percent = percent(3670, $pokemon->max_cp);
+			$pokemon->max_hp_percent = percent(411, $pokemon->max_hp);
 
 
 			// Get Dabase results
@@ -247,9 +245,9 @@ if (!empty($page)) {
 
 			for ($i = 1; $i <= $max; $i++) {
 				$pokedex->$i = new stdClass();
-				$pokedex->$i->id 			= $i;
+				$pokedex->$i->id = $i;
 				$pokedex->$i->permalink = 'pokemon/'.$i;
-				$pokedex->$i->img			= 'core/pokemons/'.$i.$config->system->pokeimg_suffix;
+				$pokedex->$i->img = $pokemons->pokemon->$i->img;
 				$pokedex->$i->name = $pokemons->pokemon->$i->name;
 				$pokedex->$i->spawn = ($pokemons->pokemon->$i->spawn_count > 0) ? 1 : 0;
 				$pokedex->$i->spawn_count = $pokemons->pokemon->$i->spawn_count;

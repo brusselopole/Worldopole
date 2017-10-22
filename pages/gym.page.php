@@ -45,7 +45,7 @@
 
 				<div class="col-xs-4 pokemon-single">
 					<a href="pokemon/<?= $guardian ?>">
-					<img src="core/pokemons/<?= $guardian.$config->system->pokeimg_suffix ?>" alt="<?= $pokemons->pokemon->$guardian->name ?>" class="img-responsive" width=150>
+					<img src="<?= $pokemons->pokemon->$guardian->img ?>" alt="<?= $pokemons->pokemon->$guardian->name ?>" class="img-responsive" width=150>
 					</a>
 				</div>
 
