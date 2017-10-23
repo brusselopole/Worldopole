@@ -62,7 +62,7 @@
 
 	<div class="col-md-2 col-xs-4">
 		<div id="poke-img" style="padding-top:15px;margin-bottom:1em;">
-			<img class="media-object img-responsive" src="core/pokemons/<?= $pokemon->id.$config->system->pokeimg_suffix ?>" alt="<?= $pokemon->name ?> model" >
+			<img class="media-object img-responsive" src="<?= $pokemon->img ?>" alt="<?= $pokemon->name ?> model" >
 		</div>
 	</div>
 
@@ -161,6 +161,7 @@
 		<a class="btn btn-default page-scroll" href="pokemon/<?= $pokemon->id ?>#stats"><i class="fa fa-pie-chart"></i> <?= $locales->POKEMON_STATS ?></a>
 		<a class="btn btn-default page-scroll" href="pokemon/<?= $pokemon->id ?>#family"><i class="fa fa-share-alt"></i> <?= $locales->POKEMON_FAMILY ?></a>
 		<a class="btn btn-default page-scroll" href="pokemon/<?= $pokemon->id ?>#top50"><i class="fa fa-list"></i> Top50</a>
+		<a class="btn btn-default page-scroll" href="pokemon/<?= $pokemon->id ?>#trainer"><i class="fa fa-users"></i> <?= $locales->TRAINERS ?></a>
 	</div>
 </div>
 
@@ -272,7 +273,7 @@
 			<div class="col-md-1 col-sm-2 col-xs-3 pokemon-single">
 
 				<a href="pokemon/<?= $related_mon ?>">
-					<img src="core/pokemons/<?= $related_mon.$config->system->pokeimg_suffix ?>" alt="<?= $pokemons->pokemon->$related_mon->name.$config->system->pokeimg_suffix ?>" class="img-responsive">
+					<img src="<?= $pokemons->pokemon->$related_mon->img ?>" alt="<?= $pokemons->pokemon->$related_mon->name ?>" class="img-responsive">
 				</a>
 
 			</div>
@@ -373,7 +374,7 @@
 
 						<tr>
 							<td><?= $i ?></td>
-							<td><?= $besttrainer->trainer_name ?></td>
+							<td><a href="trainer?name=<?=$besttrainer->trainer_name ?>"><?=$besttrainer->trainer_name ?> </a></td>
 							<td><?= $besttrainer->cp ?></td>
 							<td><?= $besttrainer->IV ?> %</td>
 							<td><?php echo $move->$move1->name; ?></td>
