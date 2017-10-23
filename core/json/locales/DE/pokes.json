@@ -1003,6 +1003,2210 @@
     "251": {
       "description": "Dieses Pokémon kommt aus der Zukunft und ist durch die Zeit gereist. Solange Celebi auftaucht, ist der Menschheit angeblich eine rosige Zukunft beschieden.",
       "name": "Celebi"
+    },
+    "252": {
+      "description": "Mit den kleinen Haken unter seinen Füßen kann Geckarbor an Wänden hochklettern. Dieses Pokémon greift Feinde an, indem es mit seinem mächtigen Schweif zuschlägt. ",
+      "name": "Geckarbor"
+    },
+    "253": {
+      "description": "Reptain kann sich mit den Blättern, die aus seinem Körper herauswachsen, im Wald hervorragend tarnen. Dieses Pokémon ist ein wahrer Meister darin, auf die Bäume des Dschungels zu klettern. ",
+      "name": "Reptain"
+    },
+    "254": {
+      "description": "Die Blätter, die auf Gewaldros Körper wachsen, sind sehr scharfkantig. Dieses Pokémon ist sehr agil. Es hüpft von Ast zu Ast und springt seine Feinde von oben oder hinten an. ",
+      "name": "Gewaldro"
+    },
+    "255": {
+      "description": "Flemmli hängt an seinem Trainer wie eine Klette. Es schlurft immer hinter ihm her. Dieses Pokémon spuckt 1 000 °C heißes Feuer, das seinen Feinden ordentlich einheizt. ",
+      "name": "Flemmli"
+    },
+    "256": {
+      "description": "Jungglut trainiert seine Beine und Oberschenkel, indem es über Felder und Berge läuft. Die Beine dieses Pokémon sind sowohl schnell als auch kräftig, sodass es 10 Tritte pro Sekunde ausführen kann. ",
+      "name": "Jungglut"
+    },
+    "257": {
+      "description": "Lohgock stößt heftige Flammen aus seinen Handgelenken aus und greift seine Feinde mutig an. Je stärker ein Feind ist, desto stärker lodern die Handgelenke dieses Pokémon. ",
+      "name": "Lohgock"
+    },
+    "258": {
+      "description": "Die Flosse an Hydropis Kopf dient als hochempfindliches Radar. Damit kann es Bewegungen im Wasser und in der Luft wahrnehmen. So weiß es jederzeit, was in seiner Umgebung passiert, ohne dabei seine Augen zu benutzen. ",
+      "name": "Hydropi"
+    },
+    "259": {
+      "description": "Moorabbels Körper ist mit einem klebrigen Film überzogen, durch den es an Land überleben kann. Dieses Pokémon spielt bei Ebbe in den Schlammpfützen am Strand. ",
+      "name": "Moorabbel"
+    },
+    "260": {
+      "description": "Sumpex ist sehr stark. Es kann mit Leichtigkeit einen Felsblock bewegen, der über eine Tonne wiegt. Weiterhin ist es mit einem exzellenten Sehvermögen ausgestattet, wodurch es auch in trüben Gewässern sehen kann. ",
+      "name": "Sumpex"
+    },
+    "261": {
+      "description": "Sobald Fiffyen eine Bewegung wahrnimmt, schnappt es zu. Es jagt seine Beute so lange, bis sie vollkommen erschöpft ist. Wenn sich die Beute allerdings wehrt, kann es passieren, dass Fiffyen klein beigibt und flieht. ",
+      "name": "Fiffyen"
+    },
+    "262": {
+      "description": "Magnayen sendet deutliche Signale aus, wenn es sich auf einen Angriff vorbereitet. Es knurrt heftig und macht sich flach. Dieses Pokémon kann mit seinen spitzen Zähnen brutal zubeißen. ",
+      "name": "Magnayen"
+    },
+    "263": {
+      "description": "Zigzachs ist ein rastloser Wanderer. Dieses Pokémon ist nämlich sehr neugierig und es inspiziert alles, was ihm zufällig begegnet. ",
+      "name": "Zigzachs"
+    },
+    "264": {
+      "description": "Geradaks rennt immer mit vollem Tempo und nie im Zickzack, sondern nur gerade. Wenn ihm ein Hindernis im Weg ist, läuft es rechtwinklig daran vorbei. Für dieses Pokémon stellen leichte Kurven eine große Herausforderung dar. ",
+      "name": "Geradaks"
+    },
+    "265": {
+      "description": "Waumpel kann mit den Stacheln an seinem Hinterteil die Rinde von Bäumen entfernen und ernährt sich von dem austretenden Saft. An den Füßen dieses Pokémon befinden sich Saugnäpfe, mit denen es auch an Glas nicht abrutscht. ",
+      "name": "Waumpel"
+    },
+    "266": {
+      "description": "Schaloko bindet sich mit einem Seidenfaden an einen Ast. Es baumelt dort und wartet auf seine Entwicklung. Durch zwei kleine Löcher in seinem Seidenkokon lugt es heraus. ",
+      "name": "Schaloko"
+    },
+    "267": {
+      "description": "Papinellas Lieblingsspeise ist Blütenstaub. Wenn du dieses Pokémon beobachten möchtest, musst du bloß einen Blumentopf vor ein geöffnetes Fenster stellen. Papinella wird sich diese Leckerei nicht entgehen lassen. ",
+      "name": "Papinella"
+    },
+    "268": {
+      "description": "Panekon baut seinen schützenden Kokon, indem es seinen Körper mit feiner Seide einwickelt, die aus seinem Mund austritt. Wenn sein Körper mit Seide bedeckt ist, wird diese hart. Im Kokon wartet es auf seine Entwicklung.",
+      "name": "Panekon"
+    },
+    "269": {
+      "description": "Pudox wird instinktiv vom Licht angezogen. In hell erleuchteten Städten kann man Scharen dieser Pokémon dabei beobachten, wie sie großen Schaden anrichten, indem sie die Blätter von Bäumen abfressen. ",
+      "name": "Pudox"
+    },
+    "270": {
+      "description": "Loturzel lebt auf der Wasseroberfläche von Teichen oder Seen. Es wird schwächer, wenn sein breites Blatt abstirbt. Nur selten geht dieses Pokémon an Land, um nach sauberem Wasser Ausschau zu halten. ",
+      "name": "Loturzel"
+    },
+    "271": {
+      "description": "Lombrero liebt die Nacht und wird bei Einbruch der Dunkelheit aktiv. Es spielt auch gerne Streiche. Wenn es Angler sieht, zieht es unter Wasser an ihren Angelschnüren und erfreut sich an ihrer Entrüstung. ",
+      "name": "Lombrero"
+    },
+    "272": {
+      "description": "Kappalores fängt sofort zu tanzen an, wenn es stimmungsvolle, feierliche Musik vernimmt. Dieses Pokémon erscheint angeblich, wenn es Kinder auf Wanderausflügen singen hört. ",
+      "name": "Kappalores"
+    },
+    "273": {
+      "description": "Samurzel hängt sich mit dem Kopf an einen Ast. Dabei entzieht es dem Baum Feuchtigkeit. Je mehr Wasser es trinkt, desto glänzender wird der Körper dieses Pokémon. ",
+      "name": "Samurzel"
+    },
+    "274": {
+      "description": "Blanas lebt in dichten Wäldern. Manchmal wagt es sich aus dem Wald heraus, um Menschen zu erschrecken. Dieses Pokémon mag es überhaupt nicht, wenn man seine lange Nase zwickt. ",
+      "name": "Blanas"
+    },
+    "275": {
+      "description": "Tengulist ist ein geheimnisvolles Pokémon, das angeblich auf hohen Bäumen lebt, die Tausende von Jahren alt sind. Mit den Blätterfächern an seinen Händen kann es heftige Stürme erzeugen.",
+      "name": "Tengulist"
+    },
+    "276": {
+      "description": "Mutig behauptet Schwalbini sein Territorium gegen Eindringlinge, so stark diese auch sein mögen. Dieses unerschrockene Pokémon bleibt trotz einer Niederlage angriffslustig, heult aber laut, wenn es Hunger hat. ",
+      "name": "Schwalbini"
+    },
+    "277": {
+      "description": "Dieses Pokémon taucht in einem steilen Winkel ab, sobald es Beute wahrgenommen hat. Es packt seine Beute mit seinen Krallen und lässt sie nicht mehr entkommen. ",
+      "name": "Schwalboss"
+    },
+    "278": {
+      "description": "Man sieht Wingull oft mit seiner Beute oder seinen Besitztümern im Schnabel herumfliegen auf der Suche nach geeigneten Verstecken. Dieses Pokémon fliegt durch die Lüfte, als würde es gleiten. ",
+      "name": "Wingull"
+    },
+    "279": {
+      "description": "Pelipper transportiert kleine Pokémon und Eier in seinem riesigen Schnabel durch die Lüfte. Dieses Pokémon baut sein Nest auf steilen Klippen am Meer. ",
+      "name": "Pelipper"
+    },
+    "280": {
+      "description": "Trasla nimmt mit den Hörnern an seinem Kopf die Gefühle von Menschen wahr. Menschen bekommen dieses Pokémon nur selten zu Gesicht. Wenn es bemerkt, dass eine Person gut gelaunt ist, traut es sich näher an sie heran.",
+      "name": "Trasla"
+    },
+    "281": {
+      "description": "Man sagt, dass ein Kirlia, das häufig positive Emotionen seines Trainers wahrnimmt, sehr schön wird. Dieses Pokémon kontrolliert psychokinetische Energie mit seinem hochentwickelten Gehirn. ",
+      "name": "Kirlia"
+    },
+    "282": {
+      "description": "Guardevoir kann in die Zukunft schauen. Wenn es eine Gefahr für seinen Trainer voraussieht, entlädt es seine psychokinetische Energie mit voller Kraft.",
+      "name": "Guardevoir"
+    },
+    "283": {
+      "description": "Gehweiher scheidet aus seinen Zehen ein Öl aus, das es ihm ermöglicht, über Wasser zu gleiten. Dieses Pokémon ernährt sich von Mikroorganismen aus Teichen und Seen. ",
+      "name": "Gehweiher"
+    },
+    "284": {
+      "description": "Maskeregen schüchtert seine Feinde mit den augenähnlichen Mustern auf seinen Antennen ein. Dieses Pokémon kann mit seinen vier Flügeln wie ein Hubschrauber in jede Richtung fliegen, sogar seitwärts und rückwärts. ",
+      "name": "Maskeregen"
+    },
+    "285": {
+      "description": "Knilz lebt im feuchten Erdboden finsterer Wälder. Es wird oft reglos unter herabgefallenen Blättern gefunden. Dieses Pokémon ernährt sich von Kompost aus verrotteten Blättern. ",
+      "name": "Knilz"
+    },
+    "286": {
+      "description": "Mit leichtfüßiger Beinarbeit nähert sich Kapilz seinen Feinden und schlägt dann mit seinen dehnbaren Armen um sich. Die Kampftechnik dieses Pokémon treibt Profiboxern die Schamesröte ins Gesicht. ",
+      "name": "Kapilz"
+    },
+    "287": {
+      "description": "Bummelz faulenzt zwanzig Stunden pro Tag. Da es sich sehr wenig bewegt, braucht es auch nicht viel Nahrung. Seine Tagesration besteht lediglich aus drei Blättern. ",
+      "name": "Bummelz"
+    },
+    "288": {
+      "description": "Muntier brennt darauf, sich auszutoben. Es kann nicht einmal für eine Minute stillsitzen. Es gerät in Stress, wenn es sich nicht andauernd bewegen kann. ",
+      "name": "Muntier"
+    },
+    "289": {
+      "description": "Letarking verbringt den Tag damit, herumzuliegen und nichts zu tun. Es ernährt sich von Gras, das in seiner Reichweite wächst. Hat es alles aufgefressen, so sucht es sich widerwillig ein anderes Plätzchen. ",
+      "name": "Letarking"
+    },
+    "290": {
+      "description": "Nincada lebt viele Jahre in absoluter Dunkelheit unter der Erde. Dieses Pokémon nimmt Nährstoffe aus Baumwurzeln auf. Es rührt sich nicht, da es auf seine Entwicklung wartet. ",
+      "name": "Nincada"
+    },
+    "291": {
+      "description": "Ninjask bewegt sich so schnell, dass man es nicht sehen kann. Seine Schreie sind aber laut und deutlich zu hören. Deshalb hielt man dieses Pokémon lange für unsichtbar. ",
+      "name": "Ninjask"
+    },
+    "292": {
+      "description": "Ninjatoms harter Körper bewegt sich überhaupt nicht. Er scheint bloß eine hohle Schale zu sein. Dieses Pokémon soll angeblich die Seele eines jeden stehlen, der hinterrücks einen Blick in seinen hohlen Körper riskiert. ",
+      "name": "Ninjatom"
+    },
+    "293": {
+      "description": "Normalerweise ist Flurmels Stimme sehr leise, selbst mit größter Anstrengung ist sie kaum hörbar. Wenn dieses Pokémon jedoch eine Gefahr wittert, stößt es ohrenbetäubende Schreie aus. ",
+      "name": "Flurmel"
+    },
+    "294": {
+      "description": "Krakeelos Brüllen kann ein Holzhaus zum Einsturz bringen. Es setzt seine Stimme ein, um seine Gegner anzugreifen. Die runden Ohren dieses Pokémon dienen als Lautsprecher. ",
+      "name": "Krakeelo"
+    },
+    "295": {
+      "description": "Krawumms kann durch sein Brüllen Erdbeben auslösen. Wenn dieses Pokémon durch seine Körperöffnungen kräftig einatmet, ist es kurz davor, ein mächtiges Brüllen von sich zu geben.",
+      "name": "Krawumms"
+    },
+    "296": {
+      "description": "Makuhita ist sehr zäh. Selbst wenn es im Kampf mehrfach niedergeschlagen wurde, steht es immer wieder auf und greift seinen Gegner an. Bei jedem Mal speichert es mehr Energie in seinem Körper für seine Entwicklung.",
+      "name": "Makuhita"
+    },
+    "297": {
+      "description": "Hariyama führt seinen berüchtigten Streckarm-Schlag überall aus. Ein Schlag von diesem Pokémon reicht aus, um einen Strommast zu zerlegen. ",
+      "name": "Hariyama"
+    },
+    "298": {
+      "description": "Azurill schleudert seinen Schweif wie ein Lasso weit aus und fliegt dann selbst hinterher. Ein Azurill hat es auf diese Weise geschafft, die Rekordweite von 10 m zurückzulegen. ",
+      "name": "Azurill"
+    },
+    "299": {
+      "description": "Nasgnet besitzt eine magnetische Nase, die immer nach Norden zeigt. Wenn sich zwei Nasgnet treffen, können sie sich einander nicht zuwenden, da ihre magnetischen Nasen sich gegenseitig abstoßen. ",
+      "name": "Nasgnet"
+    },
+    "300": {
+      "description": "Eneco ist fasziniert von Dingen, die sich bewegen, und jagt ihnen hinterher. Dieses Pokémon jagt häufig seinen eigenen Schweif, sodass ihm schwindlig wird. ",
+      "name": "Eneco"
+    },
+    "301": {
+      "description": "Enekoro liebt seine Eigenständigkeit. So kann es das tun, was es möchte, und kann selbst das Tempo bestimmen. Da dieses Pokémon schläft und isst, wenn es Lust dazu hat, ist sein Tagesablauf eher zufälliger Natur. ",
+      "name": "Enekoro"
+    },
+    "302": {
+      "description": "Zobiris führt ein ruhiges, zurückgezogenes Leben tief im Innern einer Höhle. Es ist aber trotzdem sehr gefürchtet, da man sagt, es stehle die Seelen der Menschen, wenn seine Augen im Dunkeln furchterregend funkeln. ",
+      "name": "Zobiris"
+    },
+    "303": {
+      "description": "Flunkifers sagenhafter Kiefer besteht aus umgewandelten Stahlhörnern. Sein unterwürfiger Gesichtsausdruck dient dazu, seinen Gegner in Sicherheit zu wiegen, sodass er unaufmerksam wird. Dann schnappt es zu! ",
+      "name": "Flunkifer"
+    },
+    "304": {
+      "description": "Dieses Pokémon hat einen Körper aus Stahl. Stollunior ernährt sich von Eisenerz aus den Bergen. Zuweilen richtet es großen Schaden an, weil es Brücken und Bahngleise auffrisst.",
+      "name": "Stollunior"
+    },
+    "305": {
+      "description": "Stollrak temperiert seinen Körper, indem es ausgesprochen nahrhaftes Quellwasser trinkt, bis es völlig aufgebläht ist. Dieses Pokémon baut sein Nest in der Nähe von Quellen, aus denen köstliches Wasser sprudelt. ",
+      "name": "Stollrak"
+    },
+    "306": {
+      "description": "Stolloss nennt einen ganzen Berg sein Territorium. Gnadenlos schlägt es jeden in die Flucht, der sein Reich betritt. Dieses Pokémon behält sein Territorium jederzeit im Auge. ",
+      "name": "Stolloss"
+    },
+    "307": {
+      "description": "Meditie unterzieht sich einem strikten mentalen Training tief in den Bergen. Wenn es meditiert, verliert es jedoch immer seine Konzentration. Deshalb wird sein Training niemals ein Ende haben. ",
+      "name": "Meditie"
+    },
+    "308": {
+      "description": "Mittels Meditation erhöht Meditalis seine Körperenergie und schärft seinen sechsten Sinn. Dieses Pokémon verbirgt sich, indem es eins mit den Feldern und Bergen wird. ",
+      "name": "Meditalis"
+    },
+    "309": {
+      "description": "Frizelbliz speichert Elektrizität in seiner langen Körperbehaarung. Dieses Pokémon stimuliert seine Beinmuskulatur durch Stromstöße. Dadurch ist es in der Lage, explosiv zu beschleunigen. ",
+      "name": "Frizelbliz"
+    },
+    "310": {
+      "description": "Voltenso entlädt ständig Elektrizität aus seiner Mähne. Es fliegen dabei Funken, die zuweilen zu Waldbränden führen. In einem Kampf erzeugt dieses Pokémon Gewitterwolken. ",
+      "name": "Voltenso"
+    },
+    "311": {
+      "description": "Plusle dient seinen Artgenossen als Cheerleader. Wenn ein Teamkamerad im Kampf erfolgreich ist, erzeugt es das prasselnde Geräusch von Funken, um so seine Freude zu zeigen. ",
+      "name": "Plusle"
+    },
+    "312": {
+      "description": "Minun kümmert sich mehr um das Anfeuern seiner Partner als um seine eigene Sicherheit. Es nutzt die Elektrizität in seinem Körper dazu, einen Funkenregen zu erzeugen und seine Teamkameraden anzufeuern. ",
+      "name": "Minun"
+    },
+    "313": {
+      "description": "Wenn es Nacht wird, beginnt Volbeats Schweif zu leuchten. Es kommuniziert mit anderen, indem es die Helligkeit und das Blinken dieses Lichts reguliert. Dieses Pokémon wird vom süßen Duft der Illumise angezogen. ",
+      "name": "Volbeat"
+    },
+    "314": {
+      "description": "Illumise zieht ganze Scharen Volbeat mit seinem süßlichen Duft an. Dann lässt es diesen hell leuchtenden Schwarm geometrische Figuren aus Licht an den Nachthimmel malen. ",
+      "name": "Illumise"
+    },
+    "315": {
+      "description": "Roselia verschießt scharfe Stacheln auf jeden Feind, der versucht, die Blumen an seinen Armen zu stehlen. Der Duft dieses Pokémon beruhigt Lebewesen. ",
+      "name": "Roselia"
+    },
+    "316": {
+      "description": "Eigentlich besteht Schluppucks Körper nur aus einem Magen. Daher kann es etwas verschlingen, das beinahe seine Größe hat. Sein Magen enthält eine spezielle Flüssigkeit, die wirklich alles verdauen kann. ",
+      "name": "Schluppuck"
+    },
+    "317": {
+      "description": "Wenn Schlukwech Beute sichtet, verspritzt es eine höchst giftige Substanz aus seinen Poren und besprüht damit sein Ziel. Wenn die Beute geschwächt ist, schluckt es sie mit seinem riesigen Maul im Ganzen herunter. ",
+      "name": "Schlukwech"
+    },
+    "318": {
+      "description": "Kanivanhas starke Kiefer und seine spitzen Zähne verfügen über die zerstörerische Kraft, Bootsrümpfe verschlingen zu können. Dieses Pokémon hat schon viele Boote versenkt. ",
+      "name": "Kanivanha"
+    },
+    "319": {
+      "description": "Tohaido trägt den Spitznamen „Tyrann des Meeres“ und ist sehr gefürchtet. Seine grausamen Zähne wachsen sofort nach, wenn sie ausgebrochen sind. Es kann sogar einen Öltanker zerreißen. ",
+      "name": "Tohaido"
+    },
+    "320": {
+      "description": "Wailmers Nasenlöcher liegen über seinen Augen. Dieses verspielte Pokémon erschreckt gern Menschen, indem es das Meerwasser, das es in seinem Körper speichert, mit aller Kraft herausprustet. ",
+      "name": "Wailmer"
+    },
+    "321": {
+      "description": "Wailord ist bisher das größte aller identifizierten Pokémon. Es schwimmt reglos auf dem offenen Meer und nimmt mit seinem enormen Maul riesige Mengen an Nahrung auf. ",
+      "name": "Wailord"
+    },
+    "322": {
+      "description": "Camaub ist nicht besonders helle. Es nimmt nicht einmal wahr, wenn es getroffen wurde. Ein Hungergefühl allerdings kann es nicht einmal eine Sekunde lang aushalten. In seinem Körper brodelt glühend heißes Magma. ",
+      "name": "Camaub"
+    },
+    "323": {
+      "description": "Camerupt trägt einen Vulkan in seinem Körper. 10 000 °C heißes Magma fließt in ihm. Manchmal brechen die Höcker auf seinem Rücken aus und verspucken glühend heißes Magma. ",
+      "name": "Camerupt"
+    },
+    "324": {
+      "description": "Qurtel schaufelt sich auf der Suche nach Kohle durch die Berge. Wenn es welche findet, füllt es die Hohlräume seines Panzers mit Kohle und verbrennt diese. Wenn es angegriffen wird, stößt es dicken schwarzen Rauch aus. ",
+      "name": "Qurtel"
+    },
+    "325": {
+      "description": "Spoink hüpft auf seinem Schweif durch die Gegend. Die Erschütterung des Hüpfens bringt sein Herz zum Schlagen. Deshalb kann dieses Pokémon das Hüpfen nicht sein lassen, ansonsten würde sein Herz aufhören zu schlagen. ",
+      "name": "Spoink"
+    },
+    "326": {
+      "description": "Groink benutzt die schwarzen Perlen an seinem Körper dazu, die psychischen Kraftwellen zu verstärken. Wenn es diese spezielle Fähigkeit nutzt, wird sein schnaubender Atem schwerfällig.",
+      "name": "Groink"
+    },
+    "327": {
+      "description": "Jedes Pandir auf der Welt soll ein einzigartiges Fleckenmuster haben. Der schwankende Gang dieses Pokémon erweckt den Eindruck, es würde tanzen. ",
+      "name": "Pandir"
+    },
+    "328": {
+      "description": "Knacklions Bau ist eine Art in den Sand gegrabener Kessel. Dieses Pokémon wartet geduldig darauf, dass Beute in seinen Bau hineinfällt. Seine gigantischen Kiefer verfügen über genügend Kraft, um einen Felsen zu zerquetschen. ",
+      "name": "Knacklion"
+    },
+    "329": {
+      "description": "Um seine Beute zu schwächen, erzeugt Vibrava Ultraschallwellen, indem es seine Flügel vibrieren lässt. Die Ultraschallwellen dieses Pokémon sind so stark, dass sie bei Menschen Kopfschmerzen verursachen können. ",
+      "name": "Vibrava"
+    },
+    "330": {
+      "description": "Libelldra wird auch „Geist der Wüste“ genannt. Da seine flatternden Flügel eine Sandwolke aufwirbeln, ist dieses Pokémon beim Fliegen immer von einem Sandsturm umgeben. ",
+      "name": "Libelldra"
+    },
+    "331": {
+      "description": "Tuska lebt an trockenen Orten, z. B. in Wüsten. Es versprüht einen starken Duft aus seiner Blume, um Beute anzuziehen. Wenn sich Beute nähert, verschießt es scharfe Stacheln, um seinen Gegner zu überwältigen. ",
+      "name": "Tuska"
+    },
+    "332": {
+      "description": "Am Tage bleibt Noktuska reglos, damit es in der brennenden Wüstenhitze keine Feuchtigkeit verliert. Dieses Pokémon wird bei Nacht aktiv, wenn die Temperatur sinkt. ",
+      "name": "Noktuska"
+    },
+    "333": {
+      "description": "Wablu hat leichte, flauschige Flügel, die wie Schäfchenwolken aussehen. Dieses Pokémon hat keine Angst vor Menschen. Es landet auf ihren Köpfen und bleibt dort sitzen wie ein wattierter Hut. ",
+      "name": "Wablu"
+    },
+    "334": {
+      "description": "Altaria tanzt und dreht sich in der Luft durch viele Schäfchenwolken. Indem es mit seiner kristallklaren Stimme Melodien singt, versetzt es seine Zuhörer in verträumtes Erstaunen.",
+      "name": "Altaria"
+    },
+    "335": {
+      "description": "Die Erinnerungen an den Kampf mit seinem Erzrivalen Vipitis haben sich in jede Zelle von Sengos Körper eingebrannt. Dieses Pokémon weicht feindlichen Angriffen unheimlich raffiniert und geschickt aus. ",
+      "name": "Sengo"
+    },
+    "336": {
+      "description": "Vipitis lebt seit Generationen in Fehde mit Sengo. Die Narben auf seinem Körper sind Zeugen grausamer Kämpfe. Dieses Pokémon greift seine Gegner mit seinem scharfkantigen Schweif an. ",
+      "name": "Vipitis"
+    },
+    "337": {
+      "description": "Lunastein wurde in der Nähe eines Meteoritenkraters entdeckt. Daher nehmen einige Menschen an, dass dieses Pokémon aus dem Weltall stammt. Diese Theorie konnte allerdings bisher noch nicht belegt werden. ",
+      "name": "Lunastein"
+    },
+    "338": {
+      "description": "Sonnfel ist eine neue Pokémon-Art, die angeblich aus dem Weltall kam. Es gleitet durch die Luft und bewegt sich leise. Im Kampf setzt dieses Pokémon sehr helles Licht ein. ",
+      "name": "Sonnfel"
+    },
+    "339": {
+      "description": "Schmerbes empfindliche Barthaare dienen ihm als hervorragendes Radarsystem. Dieses Pokémon versteckt sich im Schlamm, sodass nur noch seine Barthaare herausgucken, und wartet auf Beute. ",
+      "name": "Schmerbe"
+    },
+    "340": {
+      "description": "Welsar legt viel Wert auf sein Territorium. Ein einzelnes Pokémon dieser Art nennt einen Teich sein Eigen. Wenn sich ein Feind nähert, schlägt es um sich und verursacht ein gewaltiges Erdbeben.",
+      "name": "Welsar"
+    },
+    "341": {
+      "description": "Krebscorps ist kein heimisches Pokémon, sondern wurde als Haustier importiert. Schließlich verwilderte es. Dieses Pokémon ist mittlerweile sehr robust und hat seine Population vergrößert. ",
+      "name": "Krebscorps"
+    },
+    "342": {
+      "description": "Krebutack ist von Natur aus sehr gewalttätig, sodass es dauernd andere Lebewesen zum Kampf herausfordern muss. Andere Lebensformen lehnen es ab, mit diesem Pokémon in ein und demselben Teich zu leben. ",
+      "name": "Krebutack"
+    },
+    "343": {
+      "description": "Puppance bewegt sich, indem es sich auf seinem Fuß im Kreis dreht. In sehr alten Ruinen wurden primitive Wandmalereien entdeckt, die dieses Pokémon in Begleitung von Menschen zeigen. ",
+      "name": "Puppance"
+    },
+    "344": {
+      "description": "Lepumentas sind aus Schlamm gefertigte Puppen, die von primitiven Menschen hergestellt und durch mysteriöse Strahlen zum Leben erweckt wurden. Diese Pokémon bewegen sich schwebend fort. ",
+      "name": "Lepumentas"
+    },
+    "345": {
+      "description": "Von Liliep nahm man an, es sei seit etwa 100 Millionen Jahren ausgestorben. Mit seinen wie Blütenblätter geformten Tentakeln heftet es sich an einen Felsen auf dem Meeresboden und fängt Beute. ",
+      "name": "Liliep"
+    },
+    "346": {
+      "description": "Wielie sucht den Meeresboden nach Beute ab. Dieses Pokémon fährt seinen baumstammartigen Nacken aus und fängt mit seinen acht Tentakeln Beute. ",
+      "name": "Wielie"
+    },
+    "347": {
+      "description": "Anorith wurde aus einem prähistorischen Fossil erzeugt. Dieses primitive Pokémon lebte einst in warmen Gewässern. Es klemmt seine Beute fest zwischen seine beiden riesigen Klauen ein.",
+      "name": "Anorith"
+    },
+    "348": {
+      "description": "Von Armaldos hartem Panzer prallen alle Angriffe ab. Dieses Pokémon hat zwei mächtige Klauen, die es ausfahren oder einziehen kann. Es hat so viel Kraft, dass es damit eine Stahlplatte pulverisieren kann. ",
+      "name": "Armaldo"
+    },
+    "349": {
+      "description": "Barschwas Flossen waren schon immer zerfetzt. Wegen seines merkwürdigen Aussehens wird dieses Pokémon weitgehend ignoriert. Es kann sowohl im Meer als auch in Flüssen leben. ",
+      "name": "Barschwa"
+    },
+    "350": {
+      "description": "Milotic soll das schönste aller Pokémon sein. Es hat die Macht, Emotionen wie Wut und Feindseligkeit zu besänftigen und somit erbitterten Streit zu vermeiden. ",
+      "name": "Milotic"
+    },
+    "351": {
+      "description": "Formeos Erscheinung ändert sich mit dem Wetter. Dieses Pokémon hat die Fähigkeit erworben, die mächtige Kraft der Natur zu nutzen, um seinen winzigen Körper zu schützen. ",
+      "name": "Formeo"
+    },
+    "352": {
+      "description": "Kecleon kann die Farbe seines Körpers bei Bedarf verändern, um sich seiner Umgebung anzupassen. Es gibt allerdings eine Ausnahme: Das Zickzackmuster auf seinem Bauch kann es nicht verändern. ",
+      "name": "Kecleon"
+    },
+    "353": {
+      "description": "Shuppet wird durch Gefühle wie Neid und Rachsucht angezogen. Wenn jemand starke Rachegelüste entwickelt, erscheinen diese Pokémon in Scharen und reihen sich unter der Dachrinne des Hauses dieser Person auf. ",
+      "name": "Shuppet"
+    },
+    "354": {
+      "description": "Banette belegt andere mit Flüchen, indem es Nadeln in seinen eigenen Körper sticht. Dieses Pokémon war ursprünglich eine mitleiderregende Plüschpuppe, die weggeworfen wurde. ",
+      "name": "Banette"
+    },
+    "355": {
+      "description": "Zwirrlicht kann durch jede Wand gehen, egal, wie dick diese ist. Wenn dieses Pokémon sich ein Ziel gesucht hat, verfolgt es seinen Feind unnachgiebig bis zum Sonnenaufgang. ",
+      "name": "Zwirrlicht"
+    },
+    "356": {
+      "description": "Zwirrklops Körper ist komplett hohl. Es wird auch mit einem Schwarzen Loch verglichen. Dieses Pokémon nimmt alles in seinem Körper auf, es kommt jedoch nichts wieder heraus. ",
+      "name": "Zwirrklop"
+    },
+    "357": {
+      "description": "Die Früchte am Hals von Tropius sind bei Kindern sehr beliebt. Dieses Pokémon liebt Früchte und isst sie ständig. Offensichtlich sind ihm wegen dieser Vorliebe selbst Früchte gewachsen.",
+      "name": "Tropius"
+    },
+    "358": {
+      "description": "Palimpalims Schreie hallen durch seinen hohlen Körper. Wenn dieses Pokémon wütend wird, erzeugen seine Schreie Ultraschallwellen, die seine Feinde buchstäblich wegfegen können. ",
+      "name": "Palimpalim"
+    },
+    "359": {
+      "description": "Jedes Mal, wenn Absol sich den Menschen zeigt, endet dies in einer Katastrophe wie Erdbeben oder Sturmflut. Deswegen ist es auch als das Desaster-Pokémon bekannt. ",
+      "name": "Absol"
+    },
+    "360": {
+      "description": "Isso hat immer ein breites, fröhliches Lächeln auf seinem Gesicht. Um festzustellen, ob es wütend ist, muss man seinen Schweif betrachten. Wenn es wütend ist, schlägt es damit auf den Boden. ",
+      "name": "Isso"
+    },
+    "361": {
+      "description": "Schneppke lebt in Gebieten mit heftigem Schneefall. In Jahreszeiten, in denen es nicht schneit, wie im Frühling oder im Sommer, nimmt das Pokémon Reißaus, um in einer Höhle ein ruhiges Leben zwischen Stalaktiten und Stalagmiten zu führen. ",
+      "name": "Schneppke"
+    },
+    "362": {
+      "description": "Firnontor hat einen Körper aus Stein, den es mit einem Panzer aus Eis noch verstärkt. Dieses Pokémon kann die Luftfeuchtigkeit der Atmosphäre einfrieren und in jegliche Form verwandeln. ",
+      "name": "Firnontor"
+    },
+    "363": {
+      "description": "Seemops kann schneller rollen als laufen. Wenn Gruppen dieses Pokémon zusammen essen, klatschen sie gleichzeitig, um ihre Freude zu zeigen. Deswegen sind ihre Mahlzeiten sehr laut. ",
+      "name": "Seemops"
+    },
+    "364": {
+      "description": "Seejong hat die Angewohnheit, alles, was es zum ersten Mal sieht, auf seiner Nasenspitze zu jonglieren. Dieses Pokémon hält sich bei Laune, indem es manchmal ein Seemops auf seiner Nase balanciert und hin- und herrollt. ",
+      "name": "Seejong"
+    },
+    "365": {
+      "description": "Walraisa hat zwei massive Stoßzähne, die mit einem Hieb Eisblöcke zertrümmern können, die bis zu 10 t wiegen. Es besitzt eine dicke Speckschicht, die es vor eisigen Temperaturen schützt. ",
+      "name": "Walraisa"
+    },
+    "366": {
+      "description": "Perlus kräftige Schale dient nicht nur dem Schutz, es nutzt sie auch zum Fangen von Beute. Die Schale eines ausgewachsenen Perlu weist viele Kerben und Kratzer auf. ",
+      "name": "Perlu"
+    },
+    "367": {
+      "description": "Aalabyss entging lange der Aufmerksamkeit des Menschen, da es in extremen Tiefen des Meeres lebt. Die Augen dieses Pokémon können selbst in den dunklen und trüben Tiefen des Meeres einwandfrei sehen. ",
+      "name": "Aalabyss"
+    },
+    "368": {
+      "description": "Saganabyss lebt in extremen Tiefen des Südmeeres. Sein Körper ist so angelegt, dass er dem enormen Wasserdruck dieser unglaublichen Tiefe standhalten kann. Daher übersteht dieses Pokémon gewöhnliche Attacken unbeschadet.",
+      "name": "Saganabyss"
+    },
+    "369": {
+      "description": "Relicanth ist eine Pokémon-Art, die seit 100 Millionen Jahren existiert, ohne jemals ihre Form zu verändern. Dieses prähistorische Pokémon hat ein zahnloses Maul und ernährt sich von Mikroorganismen. ",
+      "name": "Relicanth"
+    },
+    "370": {
+      "description": "Liebiskus lebt in den seichten Gewässern der Tropen. Dieses herzförmige Pokémon verdankt seinen Namen der Tatsache, dass es hinter Liebespaaren herschwamm, die es in den Wellen des Ozeans beobachtet hatte. ",
+      "name": "Liebiskus"
+    },
+    "371": {
+      "description": "Kindwurm hat den Traum, fliegen zu können. In zahlreichen vergeblichen Versuchen stürzte es sich die Klippen herunter. Daher ist sein Kopf sehr robust und so hart wie Stahl geworden. ",
+      "name": "Kindwurm"
+    },
+    "372": {
+      "description": "Kindwurm hat den Traum, fliegen zu können. In zahlreichen vergeblichen Versuchen stürzte es sich die Klippen herunter. Daher ist sein Kopf sehr robust und so hart wie Stahl geworden. ",
+      "name": "Draschel"
+    },
+    "373": {
+      "description": "Es träumte sehr lange davon, dass ihm Flügel wachsen mögen. Dieser sehnliche Wunsch hat wohl eine plötzliche Mutation in den Zellen dieses Pokémon hervorgerufen, sodass ihm plötzlich prächtige Flügel wuchsen. ",
+      "name": "Brutalanda"
+    },
+    "374": {
+      "description": "Anstelle von Blut fließt eine starke magnetische Energie durch Tanhels Körper. Dieses Pokémon kommuniziert mit anderen, indem es kontrollierte magnetische Impulse aussendet. ",
+      "name": "Tanhel"
+    },
+    "375": {
+      "description": "Wenn zwei Tanhel miteinander verschmelzen, entsteht daraus Metang. Die Gehirne der Tanhel werden mit einem magnetischen Nervensystem verbunden. Dadurch erzeugt es starke psychokinetische Energie. ",
+      "name": "Metang"
+    },
+    "376": {
+      "description": "Metagross hat insgesamt vier Gehirne. Diese können schwierige Berechnungen schneller durchführen als ein Supercomputer. Dieses Pokémon kann durch die Lüfte schweben, indem es seine vier Beine einklappt. ",
+      "name": "Metagross"
+    },
+    "377": {
+      "description": "Regirock wurde vor langer Zeit von Menschen weggeschlossen. Wenn der Körper dieses Pokémon im Kampf Schaden nimmt, sucht es nach passenden Steinen, um sich selbst zu reparieren. ",
+      "name": "Regirock"
+    },
+    "378": {
+      "description": "Regices tiefgefrorener Körper entstand während der Eiszeit. Es kann nicht einmal durch Feuer geschmolzen werden. Dieses Pokémon kontrolliert eisige Luft von -200 °C. ",
+      "name": "Regice"
+    },
+    "379": {
+      "description": "Registeel hat einen Körper, der härter ist als jede Art von Metall. Sein Körper scheint hohl zu sein. Niemand hat eine Ahnung, was dieses Pokémon wohl frisst. ",
+      "name": "Registeel"
+    },
+    "380": {
+      "description": "Latias ist in höchstem Maße empfindlich gegenüber den Emotionen der Menschen. Wenn es einen Anflug von Feindseligkeit wahrnimmt, werden seine Federn zerzaust und es stößt schrille Schreie aus, um seinen Gegner einzuschüchtern. ",
+      "name": "Latias"
+    },
+    "381": {
+      "description": "Latios kann seinem Gegenüber ein Bild von etwas, das es einmal gesehen hat, in den Kopf projizieren. Dieses Pokémon ist intelligent und es versteht die menschliche Sprache. ",
+      "name": "Latios"
+    },
+    "382": {
+      "description": "Mithilfe von Naturenergie kann es eine Protomorphose durchführen und so seine ursprüngliche Form zurückerlangen. Dadurch kann es Stürme erzeugen und das Meer vergrößern.",
+      "name": "Kyogre"
+    },
+    "383": {
+      "description": "Es heißt, Groudon sei die Personifizierung des Landes. Legenden zufolge hat es in seinem Bestreben, sich die Naturenergie anzueignen, viele Male gegen Kyogre gekämpft. ",
+      "name": "Groudon"
+    },
+	"384": {
+      "description": "Es heißt, Rayquaza lebe bereits seit mehreren hundert Millionen Jahren. Legenden zufolge hat es den einstigen Konflikt zwischen Groudon und Kyogre beendet. ",
+      "name": "Rayquaza"
+    },
+	"385": {
+      "description": "Einer Legende nach erfüllt Jirachi jeden Wunsch, der auf einen Notizzettel an seinem Kopf geschrieben wird. Wenn dieses Pokémon Gefahr wittert, kämpft es bereits, bevor es überhaupt aufgewacht ist. ",
+      "name": "Jirachi"
+    },
+    "386": {
+      "description": "Die DNS eines Weltraumvirus hat eine spontane Mutation erfahren, da sie einem Laserstrahl ausgesetzt wurde. Daraus entstand Deoxys. Das kristallartige Organ auf der Brust dieses Pokémon ist sein Gehirn. ",
+      "name": "Deoxys"
+    },
+    "387": {
+      "description": "Im Sonnenlicht betreibt sein ganzer Körper Photosynthese. Sein Panzer besteht aus hartem Lehm. ",
+      "name": "Chelast"
+    },
+    "388": {
+      "description": "Es lebt in der Nähe von Wasser in Wäldern. Tagsüber verlässt es diese, um ein Sonnenbad zu nehmen. ",
+      "name": "Chelcarain"
+    },
+    "389": {
+      "description": "In alten Zeiten malten die Menschen sich aus, die Erde ruhe auf dem Rücken eines riesigen Chelterrar. ",
+      "name": "Chelterrar"
+    },
+    "390": {
+      "description": "Das Feuer an seinem Hinterteil wird durch Gase im Bauch genährt. Selbst Regen löscht es nicht. ",
+      "name": "Panflam"
+    },
+    "391": {
+      "description": "Es kontrolliert die Stärke des Feuers auf seinem Schweif geschickt, um Gegner auf Distanz zu halten. ",
+      "name": "Panpyro"
+    },
+    "392": {
+      "description": "Seine Krone aus Feuer ist Zeichen seines feurigen Wesens. Niemand ist schneller im Kampf als dieses Pokémon. ",
+      "name": "Panferno"
+    },
+    "393": {
+      "description": "Einmischung kann es gar nicht leiden. Es ist bockig und fasst nur schwer Zutrauen zu seinem Trainer. ",
+      "name": "Plinfa"
+    },
+    "394": {
+      "description": "Es lebt allein, entfernt von anderen. Jedes von ihnen denkt, es sei das Bedeutendste unter ihnen.",
+      "name": "Pliprin"
+    },
+    "395": {
+      "description": "Es schwimmt so schnell wie ein Rennboot. Seine Flügel haben scharfe Seiten und können Packeis schneiden. ",
+      "name": "Impoleon"
+    },
+    "396": {
+      "description": "Ihr Schwarm ist stets groß. Obwohl es kleine Pokémon sind, schwingen sie ihre Flügel mit enormer Kraft. ",
+      "name": "Staralili"
+    },
+    "397": {
+      "description": "Es neigt dazu, sich in großen Gruppen zu bewegen. Zwischen ihnen kommt es zu heftigen Kämpfen.",
+      "name": "Staravia"
+    },
+    "398": {
+      "description": "Die Muskeln in seinen Flügeln und Beinen sind stark. Es kann im Flug sogar ein anderes Pokémon tragen. ",
+      "name": "Staraptor"
+    },
+    "399": {
+      "description": "Es hat Nerven wie Drahtseile, nichts kann es erschüttern. Es ist agiler und aktiver, als es scheint. ",
+      "name": "Bidiza"
+    },
+    "400": {
+      "description": "Emsig durchbeißt es mit seinen scharfen Vorderzähnen Wurzeln und Äste und baut daraus sein Nest. ",
+      "name": "Bidifas"
+    },
+    "401": {
+      "description": "Diese Pokémon unterhalten sich, indem sie ihre Antennen aneinanderschlagen. Der Ton ist ihr Kennzeichen. ",
+      "name": "Zirpurze"
+    },
+    "402": {
+      "description": "Wenn es ruft, verschränkt es seine messerartigen Arme vor der Brust. Es komponiert aus dem Stegreif. ",
+      "name": "Zirpeise"
+    },
+    "403": {
+      "description": "Es erzeugt Elektrizität durch das Strecken und Zusammenziehen seiner Muskeln. Bei Bedrohung glüht es. ",
+      "name": "Sheinux"
+    },
+    "404": {
+      "description": "Seine Krallen geben Elektrizität ab, die stark genug ist, jemanden bewusstlos zu machen.",
+      "name": "Luxio"
+    },
+    "405": {
+      "description": "Leuchten seine Augen golden auf, kann es Beute, die sich versteckt, sehen. Es kann durch Wände sehen. ",
+      "name": "Luxtra"
+    },
+    "406": {
+      "description": "Bei Sonnenlicht öffnet es seine Knospe und gibt Pollen ab. Es lebt in der Nähe von sauberem Wasser. ",
+      "name": "Knospi"
+    },
+    "407": {
+      "description": "Es lockt seine Beute mit süßem Duft an, um sie danach mit seinen dornigen Ranken zu peitschen oder zu würgen. ",
+      "name": "Roserade"
+    },
+    "408": {
+      "description": "Es wurde aus einem ballartigen, eisernen Fossil geschaffen. Es schlägt Beute mit einem Kopfstoß. ",
+      "name": "Koknodon"
+    },
+    "409": {
+      "description": "Sein dicker Schädelknochen trotzt jedem Angriff. Gleichzeitig stoppt er jedoch sein Hirnwachstum. ",
+      "name": "Rameidon"
+    },
+    "410": {
+      "description": "Es reibt sein Gesicht an Baumstämmen, um es zu polieren. Es ist leicht, es von hinten anzugreifen.",
+      "name": "Schilterus"
+    },
+    "411": {
+      "description": "Stellen sie sich Seite an Seite, kann kein Gegner hindurchbrechen. So schützen sie auch ihre Jungen. ",
+      "name": "Bollterus"
+    },
+    "412": {
+      "description": "Um sich vor dem eisigen Winterwind zu schützen, legt es sich unter einen Umhang aus Ästen und Laub. ",
+      "name": "Burmy"
+    },
+    "413": {
+      "description": "Die Umgebung, in der es sich entwickelt, bestimmt sein Aussehen. Es formt seinen Körper mithilfe der umliegenden Materialien.",
+      "name": "Burmadame"
+    },
+    "414": {
+      "description": "Es liebt Honig und stiehlt den Honig, der von Wadribie gesammelt wurde.",
+      "name": "Moterpel"
+    },
+    "415": {
+      "description": "Dieses Trio ist von Geburt an zusammen. Fleißig bringt es Blütenhonig zu Honweisel.",
+      "name": "Wadribie"
+    },
+    "416": {
+      "description": "Es beherbergt Jung-Pokémon in seinem Rumpf, die es mithilfe von verschiedenen Pheromonen frei herumkommandieren kann. ",
+      "name": "Honweisel"
+    },
+    "417": {
+      "description": "Es bildet ein Fellknäuel, der vor statischer Energie knistert. Es speichert die Energie in Bäumen.",
+      "name": "Pachirisu"
+    },
+    "418": {
+      "description": "Es schwimmt, indem es seine beiden Schweife wie eine Schiffsschraube rotieren lässt. ",
+      "name": "Bamelin"
+    },
+    "419": {
+      "description": "Es treibt mithilfe einer Art Rettungsring auf dem Wasser und hilft dem, der zu ertrinken droht. ",
+      "name": "Bojelin"
+    },
+    "420": {
+      "description": "Sonnenlicht färbt es rot. Verliert das kleine Bällchen Nährstoffe, welkt es und die Entwicklung beginnt. ",
+      "name": "Kikugi"
+    },
+    "421": {
+      "description": "Bei Sonnenschein entfaltet seine Knospe ihre Blütenblätter und es springt lebhaft umher.",
+      "name": "Kinoso"
+    },
+    "422": {
+      "description": "Nicht seinen Körper zusammendrücken, sonst sickert eine seltsame lilafarbene Flüssigkeit aus! ",
+      "name": "Schalellos"
+    },
+    "423": {
+      "description": "Wird es von einem natürlichen Feind angegriffen, flieht es, indem es ein lila Sekret über die Haut ausstößt. ",
+      "name": "Gastrodon"
+    },
+    "424": {
+      "description": "Sie leben in großen Kolonien und verbinden ihre Schweife in Freundschaft. ",
+      "name": "Ambidiffel"
+    },
+    "425": {
+      "description": "Ein Pokémon, entstanden aus den Gefühlen von Menschen und Pokémon. Es mag feuchte Jahreszeiten. ",
+      "name": "Driftlon"
+    },
+    "426": {
+      "description": "Es trägt Menschen und Pokémon im Flug. Da es sich aber nur vom Wind tragen lässt, weiß man nie, wo es hingeht. ",
+      "name": "Drifzepeli"
+    },
+    "427": {
+      "description": "Seine Ohren sind immer aufgerollt. Mit ihnen kann es selbst große Felsbrocken zertrümmern.",
+      "name": "Haspiror"
+    },
+    "428": {
+      "description": "Es ist extrem vorsichtig. Wenn es Gefahr wittert, macht es sich mit flinken Sprüngen aus dem Staub. ",
+      "name": "Schlapor"
+    },
+    "429": {
+      "description": "Es spricht Beschwörungen. Viele lösen Schmerzen aus, manche aber bringen Glück. ",
+      "name": "Traunmagil"
+    },
+    "430": {
+      "description": "Sein tiefer Ruf lockt andere Kramurx herbei. Man nennt es daher „Beschwörer der Nacht“. ",
+      "name": "Kramshef"
+    },
+    "431": {
+      "description": "Es schlägt mit Krallen zu oder schnurrt, je nachdem, ob es gerade wütend oder zutraulich ist. ",
+      "name": "Charmian"
+    },
+    "432": {
+      "description": "Behagt ihm die Behausung eines anderen Pokémon, bleibt Shnurgarst einfach da und nistet sich dort ein. ",
+      "name": "Shnurgarst"
+    },
+    "433": {
+      "description": "Jedes Mal, wenn es hüpft, entsteht ein klingender Laut. Seine hohen Schreie machen die Gegner taub. ",
+      "name": "Klingplim"
+    },
+    "434": {
+      "description": "Versprüht eine Substanz aus seinem Hinterleib, die in einem großen Radius andere Pokémon fernhält. ",
+      "name": "Skunkapuh"
+    },
+    "435": {
+      "description": "Über seine Schweifspitze versprüht es eine übelriechende Substanz. Die Reichweite liegt bei über 50 m. ",
+      "name": "Skuntank"
+    },
+    "436": {
+      "description": "Früher glaubten die Menschen, dem Muster auf seinem Rücken wohne eine mysteriöse Kraft inne",
+      "name": "Bronzel"
+    },
+    "437": {
+      "description": "Man verehrt sie schon seit Urzeiten als Regenmacher. Manchmal findet man eines von ihnen im Boden vergraben. ",
+      "name": "Bronzong"
+    },
+    "438": {
+      "description": "Es bevorzugt trockene Gebiete. Es gibt über die Augen Wasser ab, um den Wasserhaushalt zu regulieren. ",
+      "name": "Mobai"
+    },
+    "439": {
+      "description": "Es ahmt seinen Gegner nach. Während dieser noch verblüfft dreinsieht, macht es sich aus dem Staub.",
+      "name": "Pantimimi"
+    },
+    "440": {
+      "description": "In seinem Beutel trägt es einen runden, eiförmigen Stein, den es Freunden gibt. ",
+      "name": "Wonneira"
+    },
+    "441": {
+      "description": "Es versucht Attacken zu entgehen, indem es den Ruf des Gegners nachahmt und einen Artgenossen mimt. ",
+      "name": "Plaudagei"
+    },
+    "442": {
+      "description": "Ein Pokémon, das aus 108 Geistern besteht. Es ist an einen Spalt in einem mysteriösen Stein gebunden. ",
+      "name": "Kryppuk"
+    },
+    "443": {
+      "description": "Es lebt in Höhlen, die Erdwärme ausgesetzt sind. Es springt heraus und beißt, wenn Feinde sich nähern. ",
+      "name": "Kaumalat"
+    },
+    "444": {
+      "description": "Es liebt funkelnde Dinge und sucht nach Schätzen in Höhlen, die es dann in seinem Nest hortet. ",
+      "name": "Knarksel"
+    },
+    "445": {
+      "description": "Spannt es seinen Körper und seine Flügel, sieht es aus wie ein Jet. Es fliegt mit Schallgeschwindigkeit. ",
+      "name": "Knakrack"
+    },
+    "446": {
+      "description": "Unter seinem langen Fell versteckt es Nahrung. Aber es vergisst, dass es sie dort versteckt hat.",
+      "name": "Mampfaxo"
+    },
+    "447": {
+      "description": "Es kommuniziert mit seinen Artgenossen über Wellen, die je nach Gefühlslage eine andere Form annehmen. ",
+      "name": "Riolu"
+    },
+    "448": {
+      "description": "Es nimmt die Aura seines Gegners wahr. So kann es dessen Gedanken und Bewegungen erkennen. ",
+      "name": "Lucario"
+    },
+    "449": {
+      "description": "Es lebt in ausgetrockneten Gebieten. Statt zu schwitzen, sondert sein Körper Sand ab.",
+      "name": "Hippopotas"
+    },
+    "450": {
+      "description": "Das weit aufgerissene Maul demonstriert seine Stärke. Es attackiert mit gebündeltem Sand. ",
+      "name": "Hippoterus"
+    },
+    "451": {
+      "description": "Es greift seine Beute mit den Krallen an seinem Schweif und vergiftet sie. Dann wartet es ab... ",
+      "name": "Pionskora"
+    },
+    "452": {
+      "description": "Es bringt seine Gegner mit starkem Gift zur Strecke, obwohl es weiß, dass es stark genug ist, um sie zu zerfetzen. ",
+      "name": "Piondragi"
+    },
+    "453": {
+      "description": "In seinen Backen sammelt sich Gift. Es versucht, Beute zu überraschen und mit Giftfingern zu schnappen. ",
+      "name": "Glibunkel"
+    },
+    "454": {
+      "description": "Verfügt über einen Giftsack an seiner Kehle. Quakt es, schäumt das Gift und wird so noch stärker. ",
+      "name": "Toxiquak"
+    },
+    "455": {
+      "description": "Sein süßlich riechender Speichel zieht Beute an, die es frisst. Es braucht einen Tag, sie zu fressen. ",
+      "name": "Venuflibis"
+    },
+    "456": {
+      "description": "Die Linie an seiner Seite kann Sonnenlicht speichern. Nachts leuchtet es sehr intensiv. ",
+      "name": "Finneon"
+    },
+    "457": {
+      "description": "Es lebt tief auf dem Meeresboden. Das blinkende Muster auf seinen vier Rückenflossen zieht Beute an. ",
+      "name": "Lumineon"
+    },
+    "458": {
+      "description": "Ihre Rücken sind je nach Region unterschiedlich gemustert. Oft mischen sie sich unter Remoraid-Schwärme. ",
+      "name": "Mantirps"
+    },
+    "459": {
+      "description": "Im Winter steigt es bis zum Fuß der Berge herab. Im Frühjahr kehrt es auf den Gipfel zurück. ",
+      "name": "Shnebedeck"
+    },
+    "460": {
+      "description": "Es bedeckt weite Gebiete mit Schnee, indem es Blizzards auslöst. Man nennt es „Das Eismonster“. ",
+      "name": "Rexblisar"
+    },
+    "461": {
+      "description": "Es lebt in schneereichen Gebieten. Snibunna senden einander Signale, indem sie Zeichen in Rinde ritzen. ",
+      "name": "Snibunna"
+    },
+    "462": {
+      "description": "Gelegentlich erzeugen sie so starke Magnetfelder, dass sie sich gegenseitig anziehen und einander immobilisieren. ",
+      "name": "Magnezone"
+    },
+    "463": {
+      "description": "Es umklammert Dinge mit seiner dehnbaren Zunge. Kommt man ihm zu nahe, wird man eingespeichelt. ",
+      "name": "Schlurplek"
+    },
+    "464": {
+      "description": "Es feuert Kleinstein aus seinen Handflächen. Durch seinen Schützer erträgt es sogar Vulkanausbrüche. ",
+      "name": "Rihornior"
+    },
+    "465": {
+      "description": "Es umwickelt Beute, indem es seine Arme, die aus Ranken bestehen, verlängert.",
+      "name": "Tangoloss"
+    },
+    "466": {
+      "description": "Bei voller Ladung zucken feurige, blassweiße Funken zwischen seinen zwei Hörnern hin und her. ",
+      "name": "Elevoltek"
+    },
+    "467": {
+      "description": "Aus den Enden seiner Arme schießen Feuerbälle mit 2 000 °C. Es lebt in Vulkankratern. ",
+      "name": "Magbrant"
+    },
+    "468": {
+      "description": "Es heißt, Togekiss erscheine in friedlichen Zeiten und verteile alle möglichen Wohltaten. ",
+      "name": "Togekiss"
+    },
+    "469": {
+      "description": "Seine bevorzugte Strategie besteht darin, seine Gegner aus dem Flug blitzartig zur Strecke zu bringen. ",
+      "name": "Yanmega"
+    },
+    "470": {
+      "description": "An klaren Tagen erzeugt Folipurba saubere Luft, indem es Photosynthese betreibt. ",
+      "name": "Folipurba"
+    },
+    "471": {
+      "description": "Erzeugt ein Diamantstaubgestöber durch das Einfrieren der Luft um sich herum. ",
+      "name": "Glaziola"
+    },
+    "472": {
+      "description": "Es hängt kopfüber von einem Ast und beobachtet seine Beute. Bei Gelegenheit stürzt es sich auf sie.",
+      "name": "Skorgro"
+    },
+    "473": {
+      "description": "Es existiert schon seit Urzeiten. Mamutel wurde sogar schon in 10 000 Jahre altem Eis gefunden.",
+      "name": "Mamutel"
+    },
+    "474": {
+      "description": "Zusätzliche Software wurde installiert, um das Pokémon zu verbessern. Seitdem benimmt es sich seltsam. ",
+      "name": "Porygon-Z"
+    },
+    "475": {
+      "description": "Da es selbst die leisesten Gedanken seines Gegners lesen kann, kann es immer zuerst angreifen. ",
+      "name": "Galagladi"
+    },
+    "476": {
+      "description": "Es gibt starken Magnetismus ab. Es steuert drei kleine Einheiten, die sich Mininasen nennen.",
+      "name": "Voluminas"
+    },
+    "477": {
+      "description": "Man sagt, dass es verlorene Seelen in seinem biegsamen Körper nach Hause geleite. ",
+      "name": "Zwirrfinst"
+    },
+    "478": {
+      "description": "Sein eisiger Atem mit -50 °C friert Gegner ein. Was aussieht wie sein Körper, ist tatsächlich hohl. ",
+      "name": "Frosdedje"
+    },
+    "479": {
+      "description": "Dieses Pokémon wurde lange Zeit erforscht, um als Energiequelle für einen besonderen Motor zu dienen. ",
+      "name": "Rotom"
+    },
+    "480": {
+      "description": "„Das wissende Wesen“. Es soll die Erinnerungen derer löschen, die ihm in die Augen sehen. ",
+      "name": "Selfe"
+    },
+    "481": {
+      "description": "„Das fühlende Wesen“. Es lehrt die Menschen die Ideale von Trauer, Schmerz und Freude. ",
+      "name": "Vesprit"
+    },
+    "482": {
+      "description": "„Das starke Wesen“. Es schläft auf dem Grund eines Sees und hält so die Welt in Balance.",
+      "name": "Tobutz"
+    },
+    "483": {
+      "description": "Ein Pokémon, das in Legenden zu finden ist. Man sagt, als Dialga geboren wurde, begann der Lauf der Zeit. ",
+      "name": "Dialga"
+    },
+    "484": {
+      "description": "Man sagt, es lebe in einem Spalt in einer Paralleldimension. Es wird in der Mythologie erwähnt. ",
+      "name": "Palkia"
+    },
+    "485": {
+      "description": "Es lebt in vulkanischen Höhlen. Mit seinen kreuzförmigen Klauen kann es sogar an der Decke laufen. ",
+      "name": "Heatran"
+    },
+    "486": {
+      "description": "Man sagt, es habe Pokémon aus einem Eisberg, Felsen und Magma nach seinem Abbild geschaffen. ",
+      "name": "Regigigas"
+    },
+    "487": {
+      "description": "Es lebt in einer Zerrwelt, die auf der Kehrseite der unseren liegt und die sich aller Logik entzieht. ",
+      "name": "Giratina"
+    },
+    "488": {
+      "description": "Seine Flügel geben schimmernde Partikel ab, die wie ein Schleier herabrieseln. Man sagt, es verkörpere die Mondsichel. ",
+      "name": "Cresselia"
+    },
+    "489": {
+      "description": "Steigt die Meerestemperatur, bläst es seinen Schwimmbeutel auf und treibt in Schwärmen auf dem Wasser. ",
+      "name": "Phione"
+    },
+    "490": {
+      "description": "Es wird mit einer wundersamen Kraft geboren, die eine Bindung zu jedem anderen Pokémon möglich macht. ",
+      "name": "Manaphy"
+    },
+    "491": {
+      "description": "Es vertreibt Eindringlinge aus seinem Revier, indem es sie in Schlaf versetzt und mit Alpträumen quält. ",
+      "name": "Darkrai"
+    },
+    "492": {
+      "description": "Es kann die Luft von Giften reinigen und Ödland in ein üppig blühendes Blumenfeld verwandeln. ",
+      "name": "Shaymin"
+    },
+    "493": {
+      "description": "In den Legenden Sinnohs heißt es, es sei aus einem Ei geschlüpft und hätte die gesamte Welt geschaffen. ",
+      "name": "Arceus"
+    },
+    "494": {
+      "description": "Ein siegverheißendes Pokémon. Man sagt, Trainer, die ein Victini in ihrem Team haben, seien unschlagbar. ",
+      "name": "Victini"
+    },
+    "495": {
+      "description": "Im Sonnenlicht erhöht sich das Tempo seiner Bewegungen. Es ist mit seinen Schlingen geschickter als mit den Händen. ",
+      "name": "Serpifeu"
+    },
+    "496": {
+      "description": "Huscht beinahe gleitend über den Boden und täuscht Gegner mit agilen Manövern, bis es mithilfe seiner Efeurute obsiegt. ",
+      "name": "Efoserp"
+    },
+    "497": {
+      "description": "Im Kampf zeigt es nur Gegnern, die seinem edlen Blick standhalten, seine wahre Kraft. ",
+      "name": "Serpiroyal"
+    },
+    "498": {
+      "description": "Weicht flink gegnerischen Angriffen aus und schießt Flammen aus dem Rüssel, mit denen es gern auch mal Nüsse röstet. ",
+      "name": "Floink"
+    },
+    "499": {
+      "description": "Je mehr es frisst, desto stärker werden die Flammen in seinem Magen. Dies führt zu rapiden Energieschüben. ",
+      "name": "Ferkokel"
+    },
+    "500": {
+      "description": "Steckt mit dem Feuer um sein Kinn seine Fäuste in Brand und holt zu feurigen Fausthieben aus. Zeigt großen Teamgeist. ",
+      "name": "Flambirex"
+    },
+    "501": {
+      "description": "Die Muschel an seinem Bauch dient ihm nicht nur als Waffe, sondern auch als Messer, mit dem es Beeren aufschneidet. ",
+      "name": "Ottaro"
+    },
+    "502": {
+      "description": "Es eignet sich durch strenges Training elegant ineinander übergehende Attacken mit seinen zwei Muscheln an. ",
+      "name": "Zwottronin"
+    },
+    "503": {
+      "description": "Ehe man sichs versieht, hat es schon das Langschwert aus seinen Vorderbeinen gezogen und seinen Gegner besiegt. ",
+      "name": "Admurai"
+    },
+    "504": {
+      "description": "Hortet in seinen Backentaschen Futter, um tagelang Wache stehen zu können, und gibt Kameraden über seine Rute Signale. ",
+      "name": "Nagelotz "
+    },
+    "505": {
+      "description": "Es kann mit einer körpereigenen Substanz seine Augen und seinen Torso aufleuchten lassen, um Gegner zu erschrecken. ",
+      "name": "Kukmarda"
+    },
+    "506": {
+      "description": "Das lange Fell um sein Gesicht fungiert als Hightech-Radar, mit dem es fein säuberlich seine Umgebung abtastet. ",
+      "name": "Yorkleff"
+    },
+    "507": {
+      "description": "Dieses äußerst treue Pokémon geht nicht nur seinem Trainer zur Hand, sondern hilft auch anderen Pokémon. ",
+      "name": "Terribark"
+    },
+    "508": {
+      "description": "Es rettet Menschen, die aufgrund eines Schneesturmes im Gebirge festsitzen. Sein langes Fell schützt es vor Kälte. ",
+      "name": "Bissbark"
+    },
+    "509": {
+      "description": "Es lenkt die Menschen durch sein süßes Verhalten ab, um sie zu bestehlen. Ist es wütend, kratzt es gern mal. ",
+      "name": "Felilou"
+    },
+    "510": {
+      "description": "Sein anmutiges Auftreten verdankt es den Muskeln, die es entwickelt hat. Es prescht lautlos durch die Nacht. ",
+      "name": "Kleoparda"
+    },
+    "511": {
+      "description": "Schwächelnden Pokémon gibt es ein paar der Kräuter auf seinem Kopf ab und hilft ihnen so wieder auf die Beine. ",
+      "name": "Vegimak"
+    },
+    "512": {
+      "description": "Wer sich mit diesem temperamentvollen Pokémon anlegt, bekommt seinen mit Dornen bestückten Schweif zu spüren. ",
+      "name": "Vegichita"
+    },
+    "513": {
+      "description": "Ein kultiviertes Pokémon, das Beeren vor dem Verzehr stets anbrät. Es bietet den Menschen gerne seine Hilfe an. ",
+      "name": "Grillmak"
+    },
+    "514": {
+      "description": "Es entfacht in seinem Körper ein Feuer und verkohlt Gegner mit Funken aus seinem Kopf und Schweif. ",
+      "name": "Grillchita"
+    },
+    "515": {
+      "description": "Das Büschel auf seinem Kopf enthält eine sehr nahrhafte Flüssigkeit, mit der es über seinen Schweif Pflanzen wässert. ",
+      "name": "Sodamak"
+    },
+    "516": {
+      "description": "Es schießt mit so hohem Druck Wasser aus seinem Schweif, dass selbst Betonwände den Kürzeren ziehen. ",
+      "name": "Sodachita"
+    },
+    "517": {
+      "description": "Es erscheint vor schlafenden Menschen und Pokémon und frisst ihre Alpträume. ",
+      "name": "Somniam"
+    },
+    "518": {
+      "description": "Der Dunst, der aus seiner Stirn tritt, enthält die Träume unzähliger Menschen und Pokémon. ",
+      "name": "Somnivora"
+    },
+    "519": {
+      "description": "Wartet oft vergeblich auf Anweisungen, obwohl es bereits einen Befehl erhalten hat. Ein sehr zerstreutes Pokémon. ",
+      "name": "Dusselgurr"
+    },
+    "520": {
+      "description": "Viele Leute glauben, dass es tief in seinem heimatlichen Wald ein Land der Harmonie gibt, wo man keine Kriege kennt. ",
+      "name": "Navitaub"
+    },
+    "521": {
+      "description": "Männchen schrecken Gegner ab, indem sie ihren Kopfschmuck schütteln. Weibchen verfügen über bessere Flugfertigkeiten. ",
+      "name": "Fasasnob"
+    },
+    "522": {
+      "description": "Es erscheint, wenn Gewitterwolken den Himmel verdunkeln. Es fängt mit seiner Mähne Blitze und hortet ihre Energie. ",
+      "name": "Elezeba"
+    },
+    "523": {
+      "description": "Ein stürmischer Geselle. Wenn es wütend ist, feuert es über seine Mähne in alle Richtungen Stromsalven ab. ",
+      "name": "Zebritz"
+    },
+    "524": {
+      "description": "Hat ein sechseckiges Ohr. Sein durch das Erdreich gepresster Körper steht Stahl in Sachen Härte in nichts nach. ",
+      "name": "Kiesling"
+    },
+    "525": {
+      "description": "Energie, die ungehindert aus seinem Körper austrat, hat sich an ihm zu orangefarbenen Kristallen verfestigt. ",
+      "name": "Sedimantur"
+    },
+    "526": {
+      "description": "Es verarbeitet Sonnenstrahlen in seinem Energiekern zu Lichtkugeln weiter, um sie im Kampf auf seinen Gegner abzufeuern. ",
+      "name": "Brockoloss"
+    },
+    "527": {
+      "description": "Wohnt in dunklen Wäldern und Höhlen. Es sendet Ultraschallwellen mit seiner Nase aus, um die Gegend abzutasten. ",
+      "name": "Fleknoil"
+    },
+    "528": {
+      "description": "Beim Abfeuern seiner Ultraschallwellen, mit denen es selbst Beton zertrümmern kann, wedelt es eifrig mit dem Schweif. ",
+      "name": "Fletiamo"
+    },
+    "529": {
+      "description": "Es führt seine beiden Klauen zusammen, dreht sich rapide um die eigene Achse und gräbt sich ratzfatz durch das Erdreich. ",
+      "name": "Rotomurf"
+    },
+    "530": {
+      "description": "Seine zu Stahl weiterentwickelten Bohrer kriegen selbst Eisenplatten klein. Im Tunnelbau ist es ein absolutes Ass. ",
+      "name": "Stalobor"
+    },
+    "531": {
+      "description": "Über die Fühler an seinen Ohren kann es ertasten, wie es einer Person geht oder wann ein Pokémon aus seinem Ei schlüpft. ",
+      "name": "Ohrdoch"
+    },
+    "532": {
+      "description": "Trägt stets einen Holzbalken bei sich. Es taucht hier und da auf Baustellen auf und hilft dort den Arbeitern aus.",
+      "name": "Praktibalk"
+    },
+    "533": {
+      "description": "Diese durchtrainierten Muskelprotze sind im Umgang mit Stahlträgern versiert und können damit ganze Häuser abreißen. ",
+      "name": "Strepoli"
+    },
+    "534": {
+      "description": "Man nimmt an, dass es der Menschheit vor ca. 2 000 Jahren das Betonmischen beigebracht hat. ",
+      "name": "Meistagrif"
+    },
+    "535": {
+      "description": "Erzeugt mit seinen Wangen für Menschen unhörbare Schallwellen, um Artgenossen vor Gefahr zu warnen. ",
+      "name": "Schallquap"
+    },
+    "536": {
+      "description": "Wenn es die Beulen auf seinem Kopf zum Schwingen bringt, tobt je nach Umgebung entweder das Wasser oder die Erde bebt. ",
+      "name": "Mebrana"
+    },
+    "537": {
+      "description": "Wenn es die Beulen an seinen Fäusten zum Schwingen bringt, kann es doppelt so fest zuschlagen und Felsen zertrümmern. ",
+      "name": "Branawarz"
+    },
+    "538": {
+      "description": "Zurrt es seinen Gürtel fest, gewinnt es an Kraft. Wilde Exemplare flechten sich ihren Gürtel in Handarbeit aus Ranken. ",
+      "name": "Jiutesto"
+    },
+    "539": {
+      "description": "Es lebt zurückgezogen in den Bergen und trainiert Tag und Nacht, um seinen Karateschlag zu perfektionieren. ",
+      "name": "Karadonis"
+    },
+    "540": {
+      "description": "Schneidert sich ein Kleid, indem es sich Blätter zurechtbeißt und sie mit Klebefäden aus seinem Mund zusammennäht. ",
+      "name": "Strawickl"
+    },
+    "541": {
+      "description": "Es wandelt herabgefallenes Laub in Nährstoffe um. In Wäldern, wo es Folikon gibt, fühlen sich Pflanzen pudelwohl. ",
+      "name": "Folikon"
+    },
+    "542": {
+      "description": "Begegnet es einem jungen Pokémon, näht es ihm mit den klebrigen Fäden aus seinem Mund ein Kleid aus Blättern. ",
+      "name": "Matrifol "
+    },
+    "543": {
+      "description": "Mit seinen Ruten und den Fühlern an seinem Kopf tastet es die Umgebung ab. Ein überaus aggressiver Geselle. ",
+      "name": "Toxiped"
+    },
+    "544": {
+      "description": "Von einem harten Schutzpanzer umgeben. Es greift seine Gegner an, indem es mit Karacho wie ein Rad in sie hineinrollt. ",
+      "name": "Rollum"
+    },
+    "545": {
+      "description": "Lähmt seine Beute, indem es sie mit den Zacken an seinem Hals aufspießt. Mit einer Ladung Gift gibt es ihr den Rest. ",
+      "name": "Cerapendra"
+    },
+    "546": {
+      "description": "Wird es angegriffen, verstreut es zur Täuschung Watte. Es flieht, während der Gegner nach dem wahren Waumboll sucht. ",
+      "name": "Waumboll"
+    },
+    "547": {
+      "description": "Sie erscheinen mit Orkanböen und spielen den Leuten Streiche, indem sie in Häusern Möbel verrücken oder Watte verstreuen. ",
+      "name": "Elfun"
+    },
+    "548": {
+      "description": "Die Blätter auf seinem Kopf schmecken furchtbar bitter, doch sie helfen ausgezeichnet gegen Erschöpfung. ",
+      "name": "Lilminip"
+    },
+    "549": {
+      "description": "Der Duft des Blumenschmucks auf seinem Kopf wirkt beruhigend. Damit der Schmuck nicht verwelkt, muss man es gut pflegen. ",
+      "name": "Dressella"
+    },
+    "550": {
+      "description": "Sie gelten als Delikatesse. Aufgrund ihrer brutalen Natur liegen rot und blau gestreifte Exemplare immer im Clinch. ",
+      "name": "Barschuft"
+    },
+    "551": {
+      "description": "Wenn es sich durch den Sand gräbt, ragen nur noch Nase und Augen hervor. Die schwarze Haut dient als Augenschutz. ",
+      "name": "Ganovil"
+    },
+    "552": {
+      "description": "Bildet mit mehreren Artgenossen ein Rudel. Eine Membran schützt seine Augen vor Sandstürmen. ",
+      "name": "Rokkaiman"
+    },
+    "553": {
+      "description": "Ein äußerst grausames Pokémon. Es greift jeden, der ihm unter die Augen kommt, mit seinen scharfen Reißzähnen an. ",
+      "name": "Rabigator"
+    },
+    "554": {
+      "description": "Früher nutzte man die heißen Ausscheidungen von Flampion, um sich den Körper zu wärmen. ",
+      "name": "Flampion"
+    },
+    "555": {
+      "description": "Nimmt es in einem heißen Kampf Schaden, wird es hart wie Stein und fällt in eine Trance, um seinen Verstand zu schärfen.",
+      "name": "Flampivian"
+    },
+    "556": {
+      "description": "Verjagt Vogel-Pokémon, die auf seine Blüten aus sind, mit einem flotten Tänzchen und lauter Untermalung. ",
+      "name": "Maracamba"
+    },
+    "557": {
+      "description": "Höhlt sich einen brauchbaren Stein aus, um darin zu wohnen. Geht er zu Bruch, ruht es nicht, bis es einen neuen findet. ",
+      "name": "Lithomith"
+    },
+    "558": {
+      "description": "Es ist hart genug im Nehmen, um mitsamt seines schweren Felsens mehrere Tage durch trockene Gebiete zu wandern. ",
+      "name": "Castellith"
+    },
+    "559": {
+      "description": "Es zieht seine gummiartige Haut bis zum Hals hinauf und nimmt eine Abwehrhaltung ein, um sich vor Schaden zu schützen. ",
+      "name": "Zurrokex"
+    },
+    "560": {
+      "description": "Es wehrt Angriffe mit seiner alten Haut ab und kontert mit Tritten. Sein Ego entspricht der Größe seines Kamms. ",
+      "name": "Irokex"
+    },
+    "561": {
+      "description": "Einst war es der Wächter einer Stadt aus uralten Zeiten. Wer sich in sein Revier wagt, lernt seine Psycho-Kräfte kennen. ",
+      "name": "Symvolara"
+    },
+    "562": {
+      "description": "Es entsteht aus den Seelen von längst begrabenen Menschen und kann sich immer noch an deren Vergangenheit erinnern.",
+      "name": "Makabaja"
+    },
+    "563": {
+      "description": "Angeblich verschlingt es jeden, der sich ihm auch nur nähert. Besonders gern frisst es Klumpen aus reinem Gold. ",
+      "name": "Echnatoll"
+    },
+    "564": {
+      "description": "Schwamm bereits vor 100 Millionen Jahren durch die Meere. Ab und zu führt es die Jagd auch an Land. ",
+      "name": "Galapaflos"
+    },
+    "565": {
+      "description": "Es lebt im Meer und an Land. Es ist so stark, dass es mit einem einzigen Hieb ein Loch in ein Schiff reißen kann. ",
+      "name": "Karippas"
+    },
+    "566": {
+      "description": "Es wurde aus einem Fossil reanimiert. Man geht davon aus, dass es der Urahn aller Vogel-Pokémon ist. ",
+      "name": "Flapteryx"
+    },
+    "567": {
+      "description": "Bevor es abhebt, nimmt es am Boden Anlauf. Es ist schlau genug, seine Beute zusammen mit Artgenossen zu jagen. ",
+      "name": "Aeropteryx"
+    },
+    "568": {
+      "description": "Eine Mülltüte, der Industrieabfälle und chemische Reaktionen neues Leben eingehaucht haben. ",
+      "name": "Unratütox"
+    },
+    "569": {
+      "description": "Es nimmt mit dem rechten Arm Gegner in die Mangel und gibt ihnen mit dem giftigen Gas aus seinem Maul den Rest. ",
+      "name": "Deponitox"
+    },
+    "570": {
+      "description": "Nicht selten überrumpelt es Gegner, indem es ihre Gestalt annimmt und den Überraschungseffekt zur Flucht nutzt. ",
+      "name": "Zorua"
+    },
+    "571": {
+      "description": "Kann auf einen Schlag große Massen von Menschen täuschen. Es kreiert Illusionen, um sein Revier zu schützen. ",
+      "name": "Zoroark"
+    },
+    "572": {
+      "description": "Sie begrüßen einander, indem sie ihr Gegenüber mithilfe ihres Schweifs säubern. ",
+      "name": "Picochilla"
+    },
+    "573": {
+      "description": "Sein weißer Flaum fühlt sich wunderbar flauschig an und zieht weder Staub noch statische Elektrizität an. ",
+      "name": "Chillabell"
+    },
+    "574": {
+      "description": "Die schleifenförmigen Fühler erhöhen seine Psycho-Kräfte. Es scheint stets irgendetwas anzustarren. ",
+      "name": "Mollimorba"
+    },
+    "575": {
+      "description": "Zieht seine Energie aus dem Sternenlicht. Bei Nacht bringt es Steine zum Schweben und bildet damit Sternzeichen nach. ",
+      "name": "Hypnomorba"
+    },
+    "576": {
+      "description": "Durch seine mächtigen Psycho-Kräfte krümmt sich der Raum und Bilder eines Lichtjahre entfernten Ortes erscheinen. ",
+      "name": "Morbitesse"
+    },
+    "577": {
+      "description": "Die spezielle Flüssigkeit, die es umgibt, bietet ihm in jeder noch so gefährlichen Situation Schutz. ",
+      "name": "Monozyto"
+    },
+    "578": {
+      "description": "Wegen seines gespaltenen Denkapparates kann es vorkommen, dass es sich abrupt einer anderen Tätigkeit zuwendet.",
+      "name": "Mitodos"
+    },
+    "579": {
+      "description": "Seine Arme bestehen aus einer speziellen Flüssigkeit. Dank seiner Psycho-Kräfte kann es mit ihnen Felsen zerschmettern.",
+      "name": "Zytomega"
+    },
+    "580": {
+      "description": "Gerät es in Gefahr, versprüht es Wasser aus seinem Federkleid und nutzt den Sprühregen, um Reißaus zu nehmen. ",
+      "name": "Piccolente"
+    },
+    "581": {
+      "description": "Sie wirken zerbrechlich, aber ihre starken Schwingen tragen sie in einem Stück bis zu 1 000 km weit. ",
+      "name": "Swaroness"
+    },
+    "582": {
+      "description": "Die Temperatur seines Odems liegt bei -50 °C. Es erzeugt Eiskristalle und lässt es in seiner Umgebung schneien. ",
+      "name": "Gelatini"
+    },
+    "583": {
+      "description": "Es produziert Eiskörner, indem es die Luft um sich herum abkühlt, und zieht mit ihnen eine Eisschicht um seinen Gegner. ",
+      "name": "Gelatroppo"
+    },
+    "584": {
+      "description": "Bringt man beide Köpfe in Rage, stößt sein Horn heftige Eisböen aus, und alles in seiner Umgebung versinkt in Schnee. ",
+      "name": "Gelatwino"
+    },
+    "585": {
+      "description": "Unabhängig von der Jahreszeit ändert sich seine Farbe auch bei wechselnder Temperatur oder Luftfeuchtigkeit leicht. ",
+      "name": "Sesokitz"
+    },
+    "586": {
+      "description": "An seinem Geweih kann man ablesen, wann eine neue Jahreszeit beginnt. Sein Revier wechselt mit jeder neuen Jahreszeit. ",
+      "name": "Kronjuwild"
+    },
+    "587": {
+      "description": "Lebt in den Wipfeln der Waldbäume. Während es durch die Lüfte gleitet, entlädt es Strom aus seinen Fluglappen. ",
+      "name": "Emolga"
+    },
+    "588": {
+      "description": "Ein mysteriöses Pokémon, das sich entwickelt, wenn es zusammen mit Schnuthelm einen Stromschlag abbekommt. ",
+      "name": "Laukaps"
+    },
+    "589": {
+      "description": "Eine von einem Schnuthelm gestohlene Muschel dient ihm als Helm. Es greift Gegner mit seinen beiden Lanzen an. ",
+      "name": "Cavalanzas"
+    },
+    "590": {
+      "description": "Fällt ein Trainer auf sein Äußeres herein, das komischerweise einem Pokéball ähnelt, besprüht es ihn mit Giftsporen. ",
+      "name": "Tarnpignon"
+    },
+    "591": {
+      "description": "Um Beute anzulocken, bietet es seinen Hut feil, der einem Pokéball ähnelt. Doch kaum ein Pokémon fällt darauf herein. ",
+      "name": "Hutsassa"
+    },
+    "592": {
+      "description": "Es lähmt seine Beute mit Gift und verschleppt sie in seinen Unterschlupf, 8 km unter dem Meeresspiegel. ",
+      "name": "Quabbel"
+    },
+    "593": {
+      "description": "Es heißt, am Meeresboden gebe es einen Palast aus Schiffen, die es versenkt hat. Es besteht fast nur aus Meerwasser. ",
+      "name": "Apoquallyp"
+    },
+    "594": {
+      "description": "Es treibt durch den Ozean. Findet es ein verletztes Pokémon, nimmt es dieses auf und trägt es zurück an Land. ",
+      "name": "Mamolida"
+    },
+    "595": {
+      "description": "Da es selbst keinen Strom erzeugen kann, klettert es auf andere Pokémon, um ihnen elektrostatische Energie abzusaugen. ",
+      "name": "Wattzapf"
+    },
+    "596": {
+      "description": "Lässt seine Beute in elektrisch geladene Fäden tappen. Solang diese durch den Schock gelähmt ist, labt es sich an ihr. ",
+      "name": "Voltula"
+    },
+    "597": {
+      "description": "Fühlt es sich bedroht, wehrt es sich, indem es eine großzügige Salve Dornen abfeuert. ",
+      "name": "Kastadur"
+    },
+    "598": {
+      "description": "Es macht mit Gegnern kurzen Prozess, indem es mit seinen drei Schlingen auf sie eindrischt und Dornen auf sie abfeuert. ",
+      "name": "Tentantel"
+    },
+    "599": {
+      "description": "Es gewinnt lebenswichtige Energie, indem es seine zwei Einzelteile ineinander verzahnt und rotieren lässt. ",
+      "name": "Klikk"
+    },
+    "600": {
+      "description": "Teilt Artgenossen seine Gefühlslage mit, indem es die Umlaufrichtung ändert. Wenn es wütend ist, dreht es sich schneller. ",
+      "name": "Kliklak"
+    },
+    "601": {
+      "description": "Indem es das Rad mit dem roten Zentrum mit hohem Tempo zum Rotieren bringt, kann es eine Turboladung durchführen. ",
+      "name": "Klikdiklak"
+    },
+    "602": {
+      "description": "Allein erzeugt es nur wenig Strom, doch tritt es geschlossen im Schwarm auf, gleicht seine Kraft der eines Blitzes. ",
+      "name": "Zapplardin"
+    },
+    "603": {
+      "description": "Schlingt sich um Gegner, lähmt sie über die rund gemaserten Flächen an seinem Körper mit Strom und beißt beherzt zu. ",
+      "name": "Zapplalek"
+    },
+    "604": {
+      "description": "Mit dem Saugnapf an seinem Maul hakt es sich an seiner Beute fest und versetzt ihr über seine Fangzähne Stromschläge. ",
+      "name": "Zapplarang"
+    },
+    "605": {
+      "description": "Es verfügt über mächtige Psycho-Kräfte, mit denen es die Hirne seiner Gegner verwirrt, um ihnen Kopfweh zu bereiten. ",
+      "name": "Pygraulon"
+    },
+    "606": {
+      "description": "Es spricht, indem es seine Fingerspitzen leuchten lässt, doch noch konnte der Code dahinter nicht entziffert werden. ",
+      "name": "Megalon"
+    },
+    "607": {
+      "description": "Es entzündet ein Licht und gibt vor, dem Gegner den Weg zu weisen, doch eigentlich saugt es ihm seine Lebensenergie ab. ",
+      "name": "Lichtel"
+    },
+    "608": {
+      "description": "Es nährt seine Flamme mit den Seelen seiner Opfer. Heutzutage irrt es auf der Suche nach Seelen durch Krankenhäuser. ",
+      "name": "Laternecto"
+    },
+    "609": {
+      "description": "Es saugt die Seele eines jeden auf, der in seinen Feuerkranz gerät, bis nur noch eine leere Hülle von ihm übrig ist. ",
+      "name": "Skelabra"
+    },
+    "610": {
+      "description": "Es knackt mit seinen Hauern Nüsse. Brechen seine Fangzähne ab, wächst an ihrer Stelle ein stärkeres Ersatzpaar. ",
+      "name": "Milza"
+    },
+    "611": {
+      "description": "Mit seinen Fängen kriegt es sogar Felsen klein. Gegen Artgenossen, die sein Revier passieren, geht es besonders hart vor. ",
+      "name": "Sharfax"
+    },
+    "612": {
+      "description": "Hat eine eher sanfte Natur, doch bei Eindringlingen kennt es keine Gnade. Seine Stoßzähne durchbohren sogar Eisen.",
+      "name": "Maxax"
+    },
+    "613": {
+      "description": "Der Schleim, der stets aus seiner Nase hängt, treibt seine Attacken an. Zieht es ihn hoch, steht ein Angriff bevor. ",
+      "name": "Petznief"
+    },
+    "614": {
+      "description": "Es liebt die kalten Meere im Norden und überquert ihre Flächen auf Stegen, die es mit seinem gefrorenen Atem baut. ",
+      "name": "Siberio"
+    },
+    "615": {
+      "description": "Es fängt seine Beute mit Ketten, die sich aus Eiskristallen zusammensetzen. Entstanden ist es aus einer Schneewolke. ",
+      "name": "Frigometri"
+    },
+    "616": {
+      "description": "Hält sich ein Laukaps in seiner Nähe auf und kommen beide mit Strom in Berührung, entwickeln sie sich.",
+      "name": "Schnuthelm"
+    },
+    "617": {
+      "description": "Seit es die schwere Muschel abgestreift hat, ist es viel leichter. Nun gleichen seine Kampfbewegungen denen eines Ninja. ",
+      "name": "Hydragil"
+    },
+    "618": {
+      "description": "Dank seiner dicken Haut hält es selbst das Gewicht eines Sumoringers aus. Wenn es Stromschläge verteilt, grinst es. ",
+      "name": "Flunschlik"
+    },
+    "619": {
+      "description": "Schnelle Angriffe sind seine Spezialität. Es gleicht seine Schwächen mit der Vielfalt seines Attackenrepertoires aus. ",
+      "name": "Lin-Fu"
+    },
+    "620": {
+      "description": "Es benutzt das Fell an seinen Armen als Peitsche. Beide Arme bewegen sich dabei mit atemberaubender Geschwindigkeit. ",
+      "name": "Wie-Shu"
+    },
+    "621": {
+      "description": "Es jagt durch enge Höhlengänge und spießt seine Gegner mit spitzen Klauen auf. Seine Kopfhaut ist fester als Stein. ",
+      "name": "Shardrago"
+    },
+    "622": {
+      "description": "Es wird durch eine Energie angetrieben, die seinem Körper entspringt. Keiner weiß jedoch, woher diese Energie stammt. ",
+      "name": "Golbit"
+    },
+    "623": {
+      "description": "Man munkelt, sein Schöpfer habe ihm aufgetragen, schützend über Pokémon und Menschen zu wachen. ",
+      "name": "Golgantes"
+    },
+    "624": {
+      "description": "Sein Körper ist mit Klingen übersät, die es an Felsen eines Flussbettes schärft, wenn sie im Kampf schartig werden. ",
+      "name": "Gladiantri"
+    },
+    "625": {
+      "description": "-Ein kaltblütiges Pokémon, das Gegner zunächst mit einer Schar von Gladiantri lähmt und dann zweiteilt. ",
+      "name": "Caesurio"
+    },
+    "626": {
+      "description": "Rammt seine Gegner ohne Rücksicht auf Verluste mit dem Kopf und vermag damit sogar Züge zum Entgleisen zu bringen. ",
+      "name": "Bisofank"
+    },
+    "627": {
+      "description": "Kann mit seinen Füßen Nüsse zermalmen. Es stellt sich jedem noch so starken Gegner tapfer zum Kampf. ",
+      "name": "Geronimatz"
+    },
+    "628": {
+      "description": "Ein tapferer Krieger der Lüfte, der zum Schutz seiner Kameraden auch mit Verletzungen immer weiterkämpft. ",
+      "name": "Washakwil"
+    },
+    "629": {
+      "description": "Seine Flügel sind noch zu klein zum Fliegen. Kurz bevor es sich entwickelt, wirft es seine Schädelwindel ab. ",
+      "name": "Skallyk"
+    },
+    "630": {
+      "description": "Es kreist am Himmel, bis es seine Beute findet. Nach erfolgtem Angriff trägt es sie mühelos zu seinem Nest.",
+      "name": "Grypheldis"
+    },
+    "631": {
+      "description": "Mit seiner brandheißen Zunge bringt es Fermicula zum Schmelzen, um so an sein weiches Inneres zu gelangen. ",
+      "name": "Furnifraß"
+    },
+    "632": {
+      "description": "Eine ausgeklügelte Rollenverteilung hilft ihnen dabei, ihren natürlichen Feind Furnifraß aus dem Nest zu verjagen. ",
+      "name": "Fermicula"
+    },
+    "633": {
+      "description": "Da es nichts sehen kann, sucht es seine Umgebung mit Rempel- und Bissattacken ab und ist immer mit Wunden übersät. ",
+      "name": "Kapuno"
+    },
+    "634": {
+      "description": "Seine zwei Köpfe sind sich spinnefeind. Beide versuchen, über Fresswettbewerbe die Oberhand zu gewinnen. ",
+      "name": "Duodino"
+    },
+    "635": {
+      "description": "Die Köpfe an seinen beiden Armen haben kein eigenes Gehirn. Seine drei Mäuler kauen alles radikal kurz und klein. ",
+      "name": "Trikephalo"
+    },
+    "636": {
+      "description": "Es heißt, es sei ein Produkt der Sonne. Wenn es sich entwickelt, hüllt es sich in Flammen, die es aus seinen Hörnern bläst. ",
+      "name": "Ignivor"
+    },
+    "637": {
+      "description": "Schüttelt sich glühenden Staub aus seinen sechs Flügeln und verwandelt das Umfeld in ein einziges Meer aus Flammen. ",
+      "name": "Ramoth"
+    },
+    "638": {
+      "description": "Sein Körper und sein Herz sind aus Stahl. Ein böser Blick genügt und selbst die wildesten Pokémon unterwerfen sich ihm. ",
+      "name": "Kobalium"
+    },
+    "639": {
+      "description": "Seine Angriffskraft genügt, um selbst mächtige Wälle niederzureißen. Ein Held zahlreicher Legenden. ",
+      "name": "Terrakium"
+    },
+    "640": {
+      "description": "Das Horn an seinem Kopf ist eine scharfe Klinge. Neckt seine Gegner mit quirligen Bewegungen und greift blitzartig an. ",
+      "name": "Viridium"
+    },
+    "641": {
+      "description": "Sein Unterkörper ist in eine wolkenartige Energieschicht gehüllt. Es jagt mit bis zu 300 km/h durch die Lüfte. ",
+      "name": "Boreos"
+    },
+    "642": {
+      "description": "Es greift mit elektrischer Ladung aus den Dornen seiner Rute an und bombardiert Einall aus der Luft mit Blitzen. ",
+      "name": "Voltolos"
+    },
+    "643": {
+      "description": "Ein Legendäres Pokémon mit der Macht, die Welt mit seinen Flammen einzuäschern. Hilft allen, die nach Wirklichkeit streben. ",
+      "name": "Reshiram"
+    },
+    "644": {
+      "description": "Ein Legendäres Pokémon mit der Macht, die Welt durch Donner einzuäschern. Hilft allen, die einer Welt der Wünsche harren. ",
+      "name": "Zekrom"
+    },
+    "645": {
+      "description": "Da an Orten, wo es sich blicken lässt, mit reicher Ernte zu rechnen ist, nennt man es auch den „Herrn des Ackerbaus“. ",
+      "name": "Demeteros"
+    },
+    "646": {
+      "description": "Ein Legendäres Eis-Pokémon, das auf den Helden wartet, der seinen verstümmelten Körper mit Wunsch und Wirklichkeit heilt. ",
+      "name": "Kyurem"
+    },
+    "647": {
+      "description": "Es kann auf dem Wasser laufen und reist auf Flüssen und Meeren um die Welt. Zu sehen in malerischen Küstengebieten. ",
+      "name": "Keldeo"
+    },
+    "648": {
+      "description": "Es besitzt die Macht, Pokémon, die sich in seiner Nähe aufhalten, mit seinen Melodien froh oder traurig zu stimmen. ",
+      "name": "Meloetta"
+    },
+    "649": {
+      "description": "Ein von Team Plasma modifiziertes Käfer-Pokémon aus dem Altertum. Die Kanone auf seinem Rücken ist nun noch stärker. ",
+      "name": "Genesect"
+    },
+    "650": {
+      "description": "Wenn es seine Kraft auf die sonst eher weichen Stacheln auf seinem Kopf konzentriert, werden diese robust genug, um damit Steine zu zertrümmern. ",
+      "name": "Igamaro"
+    },
+    "651": {
+      "description": "Der Panzer, der seinen Körper umgibt, bietet ihm Schutz vor Angreifern und straft direkte Angriffe postwendend mit spitzen Stacheln ab. ",
+      "name": "Igastarnish"
+    },
+    "652": {
+      "description": "Es ist so stark, dass es selbst 50 t schwere Panzer umkippen kann. Es schützt seine Artgenossen, indem es sich ihnen als Schild anbietet.",
+      "name": "Brigaron"
+    },
+    "653": {
+      "description": "Wenn es Zweige frisst, fasst es neue Kraft und stößt über seine Ohren über 200 °C heiße Luft aus. ",
+      "name": "Fynx"
+    },
+    "654": {
+      "description": "In seinem Schweif steckt ein Zweig, den es bei Bedarf mit der Reibungswärme seiner Schweifhaare anzündet und im Kampf einsetzt.",
+      "name": "Rutena"
+    },
+    "655": {
+      "description": "Es kann die Zukunft vorhersehen, indem es konzentriert in die Flamme an der Spitze seines Zweiges blickt.",
+      "name": "Fennexis"
+    },
+    "656": {
+      "description": "Es stößt aus Brust und Rücken elastische Blasen aus, mit denen es gegnerische Angriffe abfängt und so den erlittenen Schaden verringert. ",
+      "name": "Froxy"
+    },
+    "657": {
+      "description": "Es kann kleine in Blasen gehüllte Steine mit solcher Präzision werfen, dass es selbst 30 m entfernte Dosen problemlos trifft. ",
+      "name": "Amphizel"
+    },
+    "658": {
+      "description": "Es stellt Wurfsterne aus komprimiertem Wasser her, die durch ihre hohe Drehgeschwindigkeit beim Werfen sogar Metall durchtrennen. ",
+      "name": "Quajutsu"
+    },
+    "659": {
+      "description": "Mit seinen großen Ohren schaufelt es sich einen Bau. Es kann die ganze Nacht ohne Pause durchschaufeln. ",
+      "name": "Scoppel"
+    },
+    "660": {
+      "description": "Seine großen Ohren besitzen die Kraft, selbst Felsen, die 1 t schwer sind, mühelos hochzuheben. Es wird daher oft auf Baustellen eingesetzt. ",
+      "name": "Grebbit"
+    },
+    "661": {
+      "description": "Ein sehr zutrauliches Pokémon. Durch Zwitschern und Bewegen der Schwanzfedern sendet es Signale an seine Gefährten. ",
+      "name": "Dartiri"
+    },
+    "662": {
+      "description": "Es speit Funken aus seinem Schnabel und fängt die Beute, die überrascht aus dem angesengten Gras hervorspringt. ",
+      "name": "Dartignis"
+    },
+    "663": {
+      "description": "Die Aufregung eines harten Kampfes veranlasst es dazu, im Flug Funken aus den Zwischenräumen seines Gefieders zu sprühen. ",
+      "name": "Fiaro"
+    },
+    "664": {
+      "description": "Wird es von einem fliegenden Pokémon angegriffen, verstreut es schwarzen Puder. Der giftige Puder löst bei Berührung Paralyse aus. ",
+      "name": "Purmel"
+    },
+    "665": {
+      "description": "Es lebt versteckt im schattigen Dickicht. Wird es von einem Feind angegriffen, stellt es sein Fell zur Abschreckung zu scharfen Spitzen auf. ",
+      "name": "Puponcho"
+    },
+    "666": {
+      "description": "Vivillon kommen weltweit mit den unterschiedlichsten Musterungen vor. Das Klima ihres Habitats hat Einfluss auf ihre Flügelmusterung. ",
+      "name": "Vivillon"
+    },
+    "667": {
+      "description": "Je stärker sein Gegner ist, desto heißer wird seine Mähne und umso kraftvoller wird es. ",
+      "name": "Leufeo"
+    },
+    "668": {
+      "description": "Das Männchen mit der prächtigsten Feuermähne führt das Rudel an. ",
+      "name": "Pyroleo"
+    },
+    "669": {
+      "description": "Es entlockt Blumen ihre geheimen Kräfte und kontrolliert diese nach Belieben. Die Blume, die es trägt, ist wie ein Teil seines Körpers. ------------",
+      "name": "Flabébé"
+    },
+    "670": {
+      "description": "Es fliegt auf Wiesen umher und kümmert sich um welkende Blumen. Es setzt deren geheime Kräfte frei und nutzt diese zum Kämpfen. ",
+      "name": "FLOETTE"
+    },
+    "671": {
+      "description": "Wunderschöne Blumengärten sind sein Revier. Es badet in der von blühenden Blumen freigesetzten Energie und zieht daraus seine Kraft. ",
+      "name": "Florges"
+    },
+    "672": {
+      "description": "Man sagt, es sei eines der ersten Pokémon, die mit Menschen zusammengelebt haben. Es ist sehr ruhig und friedfertig. ",
+      "name": "Mähikel"
+    },
+    "673": {
+      "description": "Es kann die Stimmung seines Trainers an der kleinsten Veränderung dessen Griffes um seine Hörner ablesen und galoppiert sofort los, wenn dieser es wünscht. ",
+      "name": "Chevrumm"
+    },
+    "674": {
+      "description": "Es starrt den Gegner finster an, um nicht unterschätzt zu werden, hat aber nur wenig Erfolg damit. Das Kauen auf einem Blatt ist sein Markenzeichen. ",
+      "name": "Pam-Pam"
+    },
+    "675": {
+      "description": "Es ist sehr grob und streitlustig, lässt es aber nicht zu, dass Schwächere gemobbt werden. Mit seinem Blatt erspürt es die Bewegungen des Gegners. ",
+      "name": "Pandagro"
+    },
+    "676": {
+      "description": "Schneidet man sein Fell zurecht, wird es nicht nur schöner, sondern auch beweglicher. ",
+      "name": "Coiffwaff"
+    },
+    "677": {
+      "description": "Damit die starken Psycho-Kräfte dieses Pokémon nicht unkontrolliert nach außen dringen, ist das Organ, das diese freisetzt, von seinen Ohren bedeckt. ",
+      "name": "Psiau"
+    },
+    "678": {
+      "description": "In Gefahrensituationen hebt es seine Ohren an und setzt Psycho-Kräfte frei, die einen 10 t schweren LKW zu Schrott verarbeiten können. ",
+      "name": "Psiaugon"
+    },
+    "679": {
+      "description": "Dieses Pokémon wird geboren, wenn die Seele eines Verstorbenen sich in einem Schwert festsetzt. Es heftet sich an Menschen und saugt deren Lebenskraft aus. ",
+      "name": "Gramokles"
+    },
+    "680": {
+      "description": "Bei seiner Entwicklung hat es sich in zwei Schwerter geteilt. Es begegnet seinen Gegnern mit Attacken, die es mittels Telepathie koordiniert. ",
+      "name": "Duokles"
+    },
+    "681": {
+      "description": "Generationen von Königen hatten dieses Pokémon an ihrer Seite. Mit seiner mysteriösen Kraft kann es Menschen und Pokémon gleichermaßen kontrollieren. ",
+      "name": "Durengard"
+    },
+    "682": {
+      "description": "Der von ihm verströmte Duft verzückt jeden, der ihn riecht. Je nachdem, was es frisst, ändert sich sein Duft. ",
+      "name": "Parfi"
+    },
+    "683": {
+      "description": "Es produziert verschiedene Düfte. Im Kampf verschafft es sich einen Vorteil, indem es einen Duft verströmt, der dem Gegner zuwider ist.",
+      "name": "Parfinesse"
+    },
+    "684": {
+      "description": "Es stößt weiße Fäden aus, die so süß und klebrig wie Zuckerwatte sind. Mit ihnen umwickelt es den Gegner und hindert ihn daran, sich zu bewegen. ",
+      "name": "Flauschling"
+    },
+    "685": {
+      "description": "Es verfügt über einen feinen Geruchssinn, mit dem es selbst die schwächsten Gerüche erkennen kann. Es hilft deshalb oft in Konditoreien aus. ",
+      "name": "Sabbaione"
+    },
+    "686": {
+      "description": "Gegner, die auf die blinkenden Punkte an seinem Körper blicken, werden geblendet und verlieren den Willen zu kämpfen. ",
+      "name": "Iscalar"
+    },
+    "687": {
+      "description": "Unter allen Pokémon verfügt es über die stärksten hypnotischen Kräfte, mit denen es Gegner nach Belieben kontrollieren kann. ",
+      "name": "Calamanero"
+    },
+    "688": {
+      "description": "Bithora bewohnen jeweils zu zweit einen Felsen. Entzweien sie sich im Streit, sucht sich eines der beiden einen neuen Felsen als Unterkunft. ",
+      "name": "Bithora"
+    },
+    "689": {
+      "description": "Es entsteht bei der entwicklungsbedingten Aufspaltung der beiden Bithora in sieben Vertreter ihrer Art. Gemeinsam verfügen sie über die siebenfache Stärke. ",
+      "name": "Thanathora"
+    },
+    "690": {
+      "description": "Als verfaulter Seetang getarnt, lauert es auf Beute und bespritzt alles und jeden, der sich ahnungslos nähert, mit flüssigem Gift, bevor es ihm den Rest gibt. ",
+      "name": "Algitt"
+    },
+    "691": {
+      "description": "Das Gift, mit dem es Eindringlinge in seinem Revier bespritzt, ist ätzend genug, um sich durch den Stahl eines Tankschiffes zu fressen. ",
+      "name": "Tandrak"
+    },
+    "692": {
+      "description": "Mit Salven komprimierten Wassers, die es wie Pistolenkugeln aus seinen Scheren abfeuert, schießt es fliegende Beute ab. ",
+      "name": "Scampisto"
+    },
+    "693": {
+      "description": "Aus seinen gewaltigen Scheren feuert es mächtige Wassergeschosse ab, die selbst den Rumpf eines Tankschiffes durchdringen. ",
+      "name": "Wummer"
+    },
+    "694": {
+      "description": "Es ist in der Wüste zu Hause und wandelt die Energie der Sonne in Körperkraft um, wodurch es auch ohne Nahrung auskommt. ",
+      "name": "Eguana"
+    },
+    "695": {
+      "description": "Die Strommenge, die ein Elezard mit ausgebreiteten Hautlappen durch Umwandlung von Sonnenstrahlen erzeugt, genügt zur Versorgung eines Wolkenkratzers. ",
+      "name": "Elezard"
+    },
+    "696": {
+      "description": "Dieses Pokémon wurde aus einem Fossil neu belebt. Missfällt ihm etwas, rastet es vollkommen aus. ",
+      "name": "Balgoras"
+    },
+    "697": {
+      "description": "Aufgrund der Zerstörungskraft seines Kiefers, der Stahl zerreißen kann, als wäre es Papier, galt es in seiner Zeit als unbesiegbar. ",
+      "name": "Monargoras"
+    },
+    "698": {
+      "description": "Dieses antike Pokémon wurde aus Teilen seines Körpers neu belebt, die 100 Millionen Jahre lang im ewigen Eis geschlummert hatten. ",
+      "name": "Amarino"
+    },
+    "699": {
+      "description": "Mit der -150 °C kalten Luft, die den diamantförmigen Kristallen auf seinem Körper entströmt, friert es Gegner ein. ",
+      "name": "Amagarga"
+    },
+    "700": {
+      "description": "Seinen bandförmigen Fühlern lässt es beruhigende Wellen entströmen, die das Ende von Kämpfen herbeiführen. ",
+      "name": "Feelinara"
+    },
+    "701": {
+      "description": "Ungeachtet seines kleinen Wuchses, erweist es sich, dank seiner Kampftechnik, gegenüber größeren Gegnern wie Machomei oder Hariyama als ebenbürtig. ",
+      "name": "Resladero"
+    },
+    "702": {
+      "description": "Seine Schnurrhaare dienen ihm als Antennen. Durch das Senden und Empfangen von elektrischen Wellen kann es mit weit entfernten Freunden kommunizieren. ",
+      "name": "DEDENNE"
+    },
+    "703": {
+      "description": "Dieses Pokémon entstand aus Druck und Hitze in den tiefsten Erdschichten. Mithilfe des Steines in seinem Kopf feuert es Energiestrahlen ab. ",
+      "name": "Rocara"
+    },
+    "704": {
+      "description": "Dieses schwächste aller Drachen-Pokémon lebt an feuchten und schattigen Plätzen, um seinen glitschigen Körper vor dem Austrocknen zu bewahren. ",
+      "name": "Viscora"
+    },
+    "705": {
+      "description": "Es verjagt Gegner durch Absonderung eines alles zersetzenden Schleims. Die zurückgebildeten Augäpfel des Pokémon gewähren ihm keine Sicht.",
+      "name": "Viscargot"
+    },
+    "706": {
+      "description": "Dieses äußerst freundliche Drachen-Pokémon neigt dazu, seinen geliebten Trainer zu umarmen und so mit einer dicken Schleimschicht zu umhüllen. ",
+      "name": "Viscogon"
+    },
+    "707": {
+      "description": "Dieses Pokémon sammelt eifrig Schlüssel, mit denen es wild herumfuchtelt, um Gegner abzuschrecken. ",
+      "name": "Clavion"
+    },
+    "708": {
+      "description": "Bei diesen Pokémon handelt es sich um verrottete und von Geistern besessene Baumstümpfe, die sich in von Menschen gemiedene Wälder zurückziehen. ",
+      "name": "Paragoni"
+    },
+    "709": {
+      "description": "Die Bäume des Waldes folgen ihm blind. Menschen, die dem Wald Schaden zufügen, hält es bis an ihr Lebensende darin gefangen. ",
+      "name": "Trombork"
+    },
+    "710": {
+      "description": "Es entsteht aus der Vereinigung einer in der Welt der Lebenden gefangenen Seele mit einem Kürbis. Es wird erst nach Sonnenuntergang aktiv. ",
+      "name": "Irrbis"
+    },
+    "711": {
+      "description": "Unter unheimlichen Gesängen durchstreift es in Neumondnächten Städte und Dörfer. Wer dem unheilvollen Gesang lauscht, wird verflucht. ",
+      "name": "Pumpdjinn"
+    },
+    "712": {
+      "description": "Es wehrt gegnerische Angriffe mit seinem in Eis gehüllten Körper ab. Bruchstellen bessert es mit aus kalter Luft gewonnenem neuen Eis aus. ",
+      "name": "Arktip"
+    },
+    "713": {
+      "description": "Sein eisbedeckter Körper ist so hart wie Stahl. Es nutzt diese stahlharte Hülle, um Hindernisse zu zerschmettern und sich so seinen Weg zu bahnen.",
+      "name": "Arktilas"
+    },
+    "714": {
+      "description": "Es lebt im Inneren pechschwarzer Höhlen. Seine riesigen Ohren setzen Ultraschallwellen von 200 000 Hz frei. ",
+      "name": "eF-eM"
+    },
+    "715": {
+      "description": "Es fliegt in finsterer, mondloser Nacht umher und macht Jagd auf achtlose Beute. Ist bei Dunkelheit jedem Gegner überlegen. ",
+      "name": "UHaFnir"
+    },
+    "716": {
+      "description": "Legenden nach kann dieses Pokémon ewiges Leben spenden. In Gestalt eines Baumes ist es aus seinem tausendjährigen Schlaf erwacht. ",
+      "name": "Xerneas"
+    },
+    "717": {
+      "description": "Wenn Schwingen und Schwanzgefieder dieses Legendären Pokémon rot leuchten, entzieht es Lebewesen deren Energie. ",
+      "name": "Yveltal"
+    },
+    "718": {
+      "description": "Diese Form vereint 50 % der Zellen in sich. Wer diesem Pokémon Widerstand leistet, wird ohne Gnade ausgelöscht. ",
+      "name": "Zygarde"
+    },
+    "719": {
+      "description": "Dieses Pokémon ist eine Mutation von Rocara. Sein rosafarben schimmernder Körper gilt als schönster Anblick überhaupt. ",
+      "name": "Diancie"
+    },
+    "720": {
+      "description": "In seiner wahren Gestalt verfügt es über enorme Kräfte. Legenden zufolge hat es einst ein ganzes Schloss gestohlen, weil es den darin versteckten Schatz für sich haben wollte. ",
+      "name": "Hoopa"
+    },
+    "721": {
+      "description": "Es stößt Wasserdampf aus und versteckt sich im dadurch entstehenden dichten Nebel. Es lebt in Bergen, die von Menschen gemieden werden. ",
+      "name": "Volcanion"
+    },
+    "722": {
+      "description": "Ein wachsames und nachtaktives Pokémon. Tagsüber sammelt es per Photosynthese Kräfte, um fit für die Nacht zu sein. ",
+      "name": "Bauz"
+    },
+    "723": {
+      "description": "Dieses affektierte Pokémon pflegt sein Gefieder, wann immer es kann. Mit verschmutzten Federn hat es nämlich oft keine Lust zu kämpfen.",
+      "name": "Arboretoss"
+    },
+    "724": {
+      "description": "Dieses Pokémon kann die Federn seiner Flügel wie Pfeile verschießen. Dabei ist es so präzise, dass es einen Kiesel auf 100 m durchbohrt. ",
+      "name": "Silvarro"
+    },
+    "725": {
+      "description": "Es verbrennt Haare, die es bei der Körperpflege verschluckt hat, indem es Feuer speit. Die Flammen variieren je nach Art des Speiens. ",
+      "name": "Flamiau"
+    },
+    "726": {
+      "description": "Es trägt ein feuriges Glöckchen um den Hals. Immer, wenn es Flammen ausstößt, ertönt ein helles Läuten. ",
+      "name": "Miezunder"
+    },
+    "727": {
+      "description": "Ein raues und selbstsüchtiges Pokémon. Wenn es keine Lust hat, ignoriert es auch schon mal die Befehle seines Trainers. ",
+      "name": "Fuegro"
+    },
+    "728": {
+      "description": "Dieses Pokémon ist für seine Willensstärke bekannt. Bläst es Körperflüssigkeit durch die Nase, entsteht eine Blase, die als Waffe fungiert.",
+      "name": "Robball"
+    },
+    "729": {
+      "description": "Dieser begnadete Tänzer erzeugt beim Tanzen eine Wasserblase nach der anderen und greift damit seine Feinde an. ",
+      "name": "Marikeck"
+    },
+    "730": {
+      "description": "Es kontrolliert mit seinem Gesang Wasserblasen. Die Melodie, die über Generationen im Rudel überliefert wird, lernt es von seinen Kameraden.",
+      "name": "Primarene"
+    },
+    "731": {
+      "description": "Pickt 16-mal pro Sekunde auf Bäume ein, um Löcher ins Holz zu schlagen. Diese nutzt es dann als Futterspeicher oder Nest. ",
+      "name": "Peppeck"
+    },
+    "732": {
+      "description": "Sammelt Beerensamen in seinem Schnabel. Begegnet es Feinden oder Beute, kann es alle auf einmal verschießen. ",
+      "name": "Trompeck"
+    },
+    "733": {
+      "description": "Erhitzt vor jedem Kampf seinen Schnabel auf über 100 °C. Dadurch erleiden Gepiesackte schwere Verbrennungen. ",
+      "name": "Tukanon"
+    },
+    "734": {
+      "description": "Mit seinen scharfen Zähnen schnappt es nach allem. Es lebte ursprünglich nicht in Alola und wurde aus einer anderen Region eingeführt.",
+      "name": "Mangunior"
+    },
+    "735": {
+      "description": "Findet es Spuren potenzieller Beute, legt es sich sofort auf die Lauer. Spätestens bei Sonnenuntergang nickt es aber ein. ",
+      "name": "Manguspektor"
+    },
+    "736": {
+      "description": "Mit seinem robusten Kiefer schabt es an Bäumen, um an ihren Pflanzensaft zu gelangen. Es lebt normalerweise im Erdreich. ",
+      "name": "Mabula"
+    },
+    "737": {
+      "description": "Speichert Elektrizität in seinem Körper. Bei einem Campingausflug kann man wohl kein praktischeres Pokémon dabeihaben! ",
+      "name": "Akkup"
+    },
+    "738": {
+      "description": "Es fliegt umher und wartet auf seine Chance. In seinem großen Kiefer speichert es elektrische Energie, die es auf Feinde abfeuern kann. ",
+      "name": "Donarion"
+    },
+    "739": {
+      "description": "Schützt mit den Scheren seine Schwachstellen und bereitet einen Gegenschlag vor. Verliert es, bläst es Trübsal. ",
+      "name": "Krabbox"
+    },
+    "740": {
+      "description": "Es wollte auf eine verschneite Bergspitze, hat sich aber verlaufen. In der Kälte wuchs ihm dann ein Fell und es entwickelte sich weiter. ",
+      "name": "Krawell"
+    },
+    "741": {
+      "description": "Flamenco-Stil Schlägt es mit den Flügeln, gibt es Zunder! Mit eleganten Ausfallschritten lässt es dann Feuer auf seine Gegner herabregnen. Cheerleading-Stil: Ein Choreogel, das gelben Nektar geschlürft hat. Mit seinem heiteren Tanz kann es selbst die Herzen seiner Gegner mit Wonne erfüllen. Hula-Stil: Es entspannt sich durch sanft kreisende Bewegungen. Dies verstärkt seine Psycho-Kräfte, welche es auf den Gegner abfeuert. Buyo-Stil: Ein Choreogel, das purpurnen Nektar geschlürft hat. Mit seinem anmutigen Tanz entführt es seine Gegner buchstäblich in eine andere Welt.",
+      "name": "Choreogel"
+    },
+    "742": {
+      "description": "Es ernährt sich von Blütenstaub und Honig. Da es die Aura von Lebewesen wahrnehmen kann, spürt es, wenn eine Blume bald blühen wird. ",
+      "name": "Wommel"
+    },
+    "743": {
+      "description": "Dieses Pokémon rollt Blütenstaub zu Kugeln. Manche dieser Pollenknödel dienen als Nahrung, andere setzt es aber auch im Kampf ein. ",
+      "name": "Bandelby"
+    },
+    "744": {
+      "description": "Dieses sehr zutrauliche Pokémon wird oft frischgebackenen Trainern empfohlen. Mit dem Alter wird es jedoch immer wilder. ",
+      "name": "Wuffels"
+    },
+    "745": {
+      "description": "Tagform: Irritiert seine Feinde mit schnellen Bewegungen. Als Waffen hat es nicht nur Krallen und Hauer, sondern auch die spitzen Felsen seiner Mähne.  Nachtform: Je gefährlicher sein Gegner, desto mehr kommt es in Fahrt. Im Kampf ist es bereit, alles aufs Spiel zu setzen, um den Sieg zu erringen. ",
+      "name": "Wolwerock"
+    },
+    "746": {
+      "description": "Einzelform: Gerät es in Not, tränen seine Augen. Ihr Glänzen lockt Artgenossen an, mit denen es dann im Verbund den Feind angreift.  Schwarmform: Im Schwarm sind selbst die sonst eher schwachen Lusardin stark. So stark sogar, dass man sie auch „Ungeheuer der Meere“ nennt. ",
+      "name": "Lusardin"
+    },
+    "747": {
+      "description": "Mit seinem Giftstachel am Kopf attackiert es Beute. Ist diese geschwächt, umschlingt es sie mit seinen zehn Tentakeln und gibt ihr den Rest. ",
+      "name": "Garstella"
+    },
+    "748": {
+      "description": "Kriecht mit seinen zwölf Beinen über den Meeresboden. Es hinterlässt oft etliche Überreste von Corasonn. ",
+      "name": "Aggrostella"
+    },
+    "749": {
+      "description": "Der ganze Schlamm an seinen Füßen sorgt für die nötige Bodenhaftung, die es für seinen kraftvollen Lauf braucht. ",
+      "name": "Pampuli"
+    },
+    "750": {
+      "description": "Der Schlamm, den es ausspuckt, schützt gegen Wind und Wetter, wenn er hart wird. Deshalb hat man früher auch Hauswände damit verstärkt. ",
+      "name": "Pampross"
+    },
+    "751": {
+      "description": "Die Futtersuche treibt es an Land. Eine Wasserblase versorgt es mit Atemluft und schützt zugleich seinen weichen Kopf. ",
+      "name": "Araqua"
+    },
+    "752": {
+      "description": "Es verteilt mit seiner Wasserblase Kopfstöße. Kleine Pokémon werden dabei hineingezogen und ertrinken. ",
+      "name": "Aranestro"
+    },
+    "753": {
+      "description": "Mittags badet es in der Sonne und hält Nickerchen. Nachts muss es sich aber einen sichereren Schlafplatz suchen und zieht los.",
+      "name": "Imantis"
+    },
+    "754": {
+      "description": "Es erfordert viel Arbeit, seine Farbenpracht zu erhalten, doch zum Glück gibt es Passionierte, die den hohen Aufwand nicht scheuen. ",
+      "name": "Mantidea"
+    },
+    "755": {
+      "description": "Es streut blinkende Sporen aus. Jeder, der dieses Licht sieht, schläft fest ein. ",
+      "name": "Bubungus"
+    },
+    "756": {
+      "description": "Nachts sollte man Wälder meiden, in denen Lamellux leben. Ihr unheimliches Licht raubt jedem die Orientierung. ",
+      "name": "Lamellux"
+    },
+    "757": {
+      "description": "Durch Verbrennung von Körperflüssigkeit erzeugt es ein Gas, das Feinde schwindelig und so zu leichten Zielen macht. ",
+      "name": "Molunk"
+    },
+    "758": {
+      "description": "Bisher wurden nur Weibchen entdeckt. Sie werden von männlichen Molunk verehrt und leben mit einer Gruppe von ihnen zusammen. ",
+      "name": "Amfira"
+    },
+    "759": {
+      "description": "Es sieht sehr süß aus, aber wehe, es wird wütend. Mit seinen Armen wirbelnd haut es selbst den stärksten Wrestler um. ",
+      "name": "Velursi"
+    },
+    "760": {
+      "description": "Dieses Pokémon verfügt über immense Muskelkraft und ist äußerst gefährlich. Sein Habitat ist generell Sperrgebiet. ",
+      "name": "Kosturso"
+    },
+    "761": {
+      "description": "Sein Körper verströmt einen köstlichen Duft, der leider seinen Fressfeind Tukanon anlockt. Dem kommt ein aromatischer Snack höchst gelegen. ",
+      "name": "Frubberl"
+    },
+    "762": {
+      "description": "Seinen Blütenkelch hat es zum Selbstschutz ausgebildet. Er ist so hart, dass selbst das Picken von Vogel-Pokémon es nicht stört.",
+      "name": "Frubaila"
+    },
+    "763": {
+      "description": "Dieses Pokémon ist für seine heftigen Tritte bekannt. Oft tritt es auch noch nach und lacht, um seinen Sieg an die große Glocke zu hängen. ",
+      "name": "Fruyal"
+    },
+    "764": {
+      "description": "Dieses Pokémon sieht aus, als hätte man Blüten an einer nahrhaften Ranke angebracht. Diese blühen auf und sind äußerst wohlriechend. ",
+      "name": "Curelei"
+    },
+    "765": {
+      "description": "Es ist als extrem schlaues Pokémon bekannt. Nicht so beliebt bei unerfahrenen Trainern, doch Veteranen wissen es zu schätzen. ",
+      "name": "Kommandutan"
+    },
+    "766": {
+      "description": "Es gründet Gruppen von etwa 20 Exemplaren. Der Zusammenhalt der Gruppe ist extrem stark, kein Kamerad wird jemals im Stich gelassen. ",
+      "name": "Quartermak"
+    },
+    "767": {
+      "description": "Es ist so feige, dass es wild mit seinen vielen Füßen herumschlägt und verzweifelt davonläuft. Nach seiner Flucht glänzt der Boden herrlich. ",
+      "name": "Reißlaus"
+    },
+    "768": {
+      "description": "Mithilfe seiner riesigen, glitzernden Klauen zerteilt es selbst Luft und Salzwasser mit einem Hieb. ",
+      "name": "Tectass"
+    },
+    "769": {
+      "description": "Der Groll eines verstorbenen Reisenden fuhr in einen Sandhügel, den ein Kind gebaut hatte, und brachte dieses Pokémon in die Welt. ",
+      "name": "Sankabuh"
+    },
+    "770": {
+      "description": "Brachte Menschen dazu, den Sandhügel zu einer stattlichen Sandburg auszubauen. Auch seine Flüche haben an Stärke gewonnen. ",
+      "name": "Colossand"
+    },
+    "771": {
+      "description": "Es lebt an Stränden oder in flachen Gewässern. Im Kampf und zum Schnappen von Beute lässt es seine Organe hervorschnellen. ",
+      "name": "Gufa"
+    },
+    "772": {
+      "description": "Seine schwere Maske unterdrückt seine wahre Macht. In ihm schlummern nämlich besondere Kräfte. ",
+      "name": "Typ:Null"
+    },
+    "773": {
+      "description": "Das Vertrauen zu seinem Trainer weckt seine Kräfte. Es kann seinen Typ im Kampf nach Belieben wechseln. ",
+      "name": "Amigento"
+    },
+    "774": {
+      "description": "Eigentlich lebt es in der Ozonschicht, doch wenn seine Schale zu schwer wird, stürzt es auf die Erde. ",
+      "name": "Meteno"
+    },
+    "775": {
+      "description": "Es wird schlafend geboren und stirbt schlafend. Sein ganzes Leben ist ein Traum, seine einzige körperliche Aktivität das Umdrehen im Schlaf. ",
+      "name": "Koalelu"
+    },
+    "776": {
+      "description": "Sein Rückenpanzer ist explosiv, man sollte ihm also niemals auf den Rücken klopfen. Das Loch in seinem Bauch ist seine Schwachstelle. ",
+      "name": "Tortunator"
+    },
+    "777": {
+      "description": "Normalerweise liegen seine Stacheln am Rücken an, aber wenn es sich aufregt, stellen sie sich auf und stechen angreifende Gegner. ",
+      "name": "Togedemaru"
+    },
+    "778": {
+      "description": "Niemand weiß, wie es wirklich aussieht. Ein Forscher, der unter seinen Lumpen blickte, soll sich buchstäblich zu Tode erschreckt haben. ",
+      "name": "Mimigma"
+    },
+    "779": {
+      "description": "Wenn es über den Fortsatz an seinem Kopf Psycho-Kräfte freisetzt, ertönt in seiner Umgebung ein unangenehmes Zähneknirschen.",
+      "name": "Knirfish"
+    },
+    "780": {
+      "description": "Es hat ein freundliches Wesen, aber wenn es zur Weißglut gebracht wird, zerstört es mit einem heftigen Hauch die gesamte Umgebung. ",
+      "name": "Sen-Long"
+    },
+    "781": {
+      "description": "Wenn es seinen riesigen Anker schwingt, kann es sogar ein Wailord mit einem Schlag K.O. hauen. Der grüne Seetang ist sein Körper. ",
+      "name": "Moruda"
+    },
+    "782": {
+      "description": "Es übermittelt seine Gefühle durch das Rasseln seiner Schuppen, wodurch im Hochgebirge, in dem es lebt, ein metallisches Geräusch erhallt. ",
+      "name": "Miniras"
+    },
+    "783": {
+      "description": "Mit einem Kampfschrei stürzt es sich auf seine Beute und reißt sie mithilfe seiner Schuppen in kleine Stücke. ",
+      "name": "Mediras"
+    },
+    "784": {
+      "description": "Wenn es einen Gegner sieht, rasselt es drohend mit seinen Schwanzschuppen. Schwache Gegner verlieren dadurch die Fassung und fliehen. ",
+      "name": "Grandiras"
+    },
+    "785": {
+      "description": "Der neugierige und lebhafte Schutzpatron von Mele-Mele. Es kann Gewitterwolken rufen und Blitze in seinem Körper speichern. ",
+      "name": "Kapu-Riki"
+    },
+    "786": {
+      "description": "Der arglose, doch unbarmherzige Schutzpatron von Akala. Seine Energie zieht es aus dem lieblichen Duft von Blumen. ",
+      "name": "Kapu-Fala"
+    },
+    "787": {
+      "description": "Dieses Pokémon entwurzelt große Bäume und schwingt sie herum. Es lässt Pflanzen üppig gedeihen und absorbiert dann ihre Energie. ",
+      "name": "Kapu-Toro"
+    },
+    "788": {
+      "description": "Es führt Gegner mit dichtem Nebel in die Irre und schickt sie so in ihren Untergang. Seine Energie gewinnt es aus der Meeresströmung. ",
+      "name": "Kapu-Kime"
+    },
+    "789": {
+      "description": "Sein Körper besteht aus flüchtigem Gas. Es wächst durch das Sammeln von Staub aus der Luft. ",
+      "name": "Cosmog"
+    },
+    "790": {
+      "description": "Es ist völlig reglos, als wäre es tot. Berührt man es, fühlt es sich jedoch leicht warm an. Vor langer Zeit wurde es „Sternenkokon“ genannt.",
+      "name": "Cosmovum"
+    },
+    "791": {
+      "description": "Es heißt, es komme aus einer anderen Welt. Sein ganzer Körper leuchtet strahlend hell und macht die finsterste Nacht zum Tage. ",
+      "name": "Solgaleo"
+    },
+    "792": {
+      "description": "Es heißt, es sei die weibliche Endstufe der Entwicklungsreihe von Cosmog. Ist sein drittes Auge aktiviert, zieht es in eine andere Welt. ",
+      "name": "Lunala"
+    },
+    "793": {
+      "description": "Eine rätselhafte Ultrabestie. Einigen Berichten zufolge verwandelt sie harmlose Stadtbewohner per Symbiose in äußerst aggressive Menschen. ",
+      "name": "Anego"
+    },
+    "794": {
+      "description": "Eine Ultrabestie aus einer anderen Welt. Niemand weiß, ob sie ihren Körper aus Stolz oder zur Abschreckung stählt. ",
+      "name": "Masskito"
+    },
+    "795": {
+      "description": "Diese bedrohliche Ultrabestie wurde dabei beobachtet, wie sie mit ungeheuerlicher Geschwindigkeit über die Erde hinwegfegt. ",
+      "name": "Schabelle"
+    },
+    "796": {
+      "description": "Eine geheimnisvolle Ultrabestie, aus deren Körper furchterregende Mengen an elektrischer Energie strömen. ",
+      "name": "Voltriant"
+    },
+    "797": {
+      "description": "Eine Ultrabestie, die mit extremer Geschwindigkeit durch die Lüfte rast. Sie ist durch die Ultrapforte gekommen. ",
+      "name": "Kaguron"
+    },
+    "798": {
+      "description": "Eine Ultrabestie, die zwar nicht von sich aus anzugreifen scheint, deren rasiermesserscharfer Körper aber eine gefährliche Waffe darstellt. ",
+      "name": "Katagami"
+    },
+    "799": {
+      "description": "Eine Ultrabestie, die einigen Berichten zufolge ganze Berge vertilgt und selbst mehrstöckige Gebäude verschlingen kann. ",
+      "name": "Schlingking"
+    },
+    "800": {
+      "description": "Diese einer Ultrabestie ähnelnde Kreatur ist wohl vor Urzeiten aus einer anderen Welt gekommen und ruhte lange Zeit unter der Erde. ",
+      "name": "Necrozma"
+    },
+    "801": {
+      "description": "Dieses Pokémon wurde vor über 500 Jahren künstlich erschaffen. Es versteht die Sprache der Menschen, ohne sie selbst zu sprechen. ",
+      "name": "Magearna"
+    },
+    "802": {
+      "description": "Da es sich im Schatten verbergen und so für menschliche Augen unsichtbar werden kann, war seine Existenz lange bezweifelt worden.",
+      "name": "Marshadow"
     }
   },
   "quick_moves": {
