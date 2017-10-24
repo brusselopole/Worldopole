@@ -171,8 +171,13 @@ $pokemons_rarity = json_decode(file_get_contents($pokedex_rarity_file));
 $pokedex_counts_file = SYS_PATH.'/core/json/pokedex.counts.json';
 $pokemon_counts = json_decode(file_get_contents($pokedex_counts_file));
 
-foreach ($pokemons->pokemon as $pokeid => $pokemon) {
+$maxpid = $config->system->max_pokemon;
+for ($pokeid = 1; $pokeid <= $maxpid; $pokeid++) {
+	if (!isset($pokemons->pokemon->$pokeid)) {
+		continue;
+	}
 	// Merge name and description from translation files
+	$pokemon = $pokemons->pokemon->$pokeid;
 	$pokemon->id = $pokeid;
 	$pokemon->name = $pokemon_trans->pokemon->$pokeid->name;
 	$pokemon->description = $pokemon_trans->pokemon->$pokeid->description;
