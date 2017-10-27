@@ -1,22 +1,19 @@
 /** global: google */
 /** global: navigator */
-
 var markersWithoutLure = [];
 var map;
 
-function initMap()
-{
+function initMap() {
 	$.ajax({
-		'async': true,
-		'type': "GET",
+		'type': 'GET',
 		'global': false,
 		'dataType': 'json',
-		'url': "core/process/aru.php",
-		'data': { 'request': "", 'target': 'arrange_url', 'method': 'method_target', 'type' : 'pokestop' },
-		'success': function (pokestops) {
-			
-		
-			$.getJSON("core/json/variables.json", function (variables) {
+		'url': 'core/process/aru.php',
+		'data': {
+			'type': 'pokestop'
+		},
+		'success': function(pokestops) {
+			$.getJSON('core/json/variables.json', function(variables) {
 				var latitude = Number(variables['system']['map_center_lat']);
 				var longitude = Number(variables['system']['map_center_long']);
 				var zoom_level = Number(variables['system']['zoom_level']);
@@ -40,29 +37,25 @@ function initMap()
 						]
 					}
 				});
-			
-				$.getJSON( 'core/json/pogostyle.json', function( data ) {
-					var styledMap_pogo = new google.maps.StyledMapType(data, {name: 'PoGo'});
+
+				$.getJSON('core/json/pogostyle.json', function(data) {
+					var styledMap_pogo = new google.maps.StyledMapType(data, { name: 'PoGo' });
 					map.mapTypes.set('pogo_style', styledMap_pogo);
 				});
-				$.getJSON( 'core/json/darkstyle.json', function( data ) {
-					var styledMap_dark = new google.maps.StyledMapType(data, {name: 'Dark'});
+				$.getJSON('core/json/darkstyle.json', function(data) {
+					var styledMap_dark = new google.maps.StyledMapType(data, { name: 'Dark' });
 					map.mapTypes.set('dark_style', styledMap_dark);
 				});
-				$.getJSON( 'core/json/defaultstyle.json', function( data ) {
+				$.getJSON('core/json/defaultstyle.json', function(data) {
 					map.set('styles', data);
 				});
 
 				$.ajax({
-					'async': true,
-					'type': "GET",
+					'type': 'GET',
 					'global': false,
 					'dataType': 'json',
-					'url': "core/process/aru.php",
+					'url': 'core/process/aru.php',
 					'data': {
-						'request': "",
-						'target': 'arrange_url',
-						'method': 'method_target',
 						'type': 'maps_localization_coordinates'
 					}
 				}).done(function(coordinates) {
@@ -83,57 +76,56 @@ function initMap()
 				});
 
 				var infowindow = new google.maps.InfoWindow();
-			
+
 				var marker, i;
-		
+
 				for (i = 0; i < pokestops.length; i++) {
 					marker = new google.maps.Marker({
 						position: new google.maps.LatLng(pokestops[i][2], pokestops[i][3]),
 						map: map,
-						icon: 'core/img/'+pokestops[i][1],
+						icon: 'core/img/' + pokestops[i][1],
 						zIndex: 0 + pokestops[i][4]
 					});
-		
-					google.maps.event.addListener(marker, 'click', (function (marker, i) {
-							return function () {
-								infowindow.setContent(pokestops[i][0]);
-								infowindow.open(map, marker);
-							}
+
+					google.maps.event.addListener(marker, 'click', (function(marker, i) {
+						return function() {
+							infowindow.setContent(pokestops[i][0]);
+							infowindow.open(map, marker);
+						}
 					})(marker, i));
-					
+
 					if (!pokestops[i][4]) {
-							markersWithoutLure.push(marker);
-					}			
-				}	
+						markersWithoutLure.push(marker);
+					}
+				}
 			});
 			initSelector();
-		}	
+		}
 	});
- }
-								
-function initSelector(){
- 	$('#pokestopSelector').click(function(){
+}
+
+function initSelector() {
+	$('#pokestopSelector').click(function() {
 		$('#pokestopSelector').addClass('active');
 		$('#lureSelector').removeClass('active');
 		updateMap(false);
- 	});
- 	$('#lureSelector').click(function(){
+	});
+	$('#lureSelector').click(function() {
 		$('#lureSelector').addClass('active');
 		$('#pokestopSelector').removeClass('active');
 		updateMap(true);
- 	});
+	});
 }
 
 function updateMap(onlyLured) {
 	var i;
- 	if (onlyLured) {
+	if (onlyLured) {
 		for (i = 0; i < markersWithoutLure.length; i++) {
 			markersWithoutLure[i].setMap(null);
 		}
- 	}
- 	else {
+	} else {
 		for (i = 0; i < markersWithoutLure.length; i++) {
 			markersWithoutLure[i].setMap(map);
 		}
- 	}
+	}
 }
