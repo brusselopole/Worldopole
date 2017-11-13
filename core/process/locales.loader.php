@@ -195,12 +195,14 @@ for ($pokeid = 1; $pokeid <= $maxpid; $pokeid++) {
 	}
 	unset($type);
 
-	// Resolve candy_id to candy_name
-	if (isset($pokemon->candy_id)) {
-		$candy_id = $pokemon->candy_id;
-		$pokemon->candy_name = $pokemon_trans->pokemon->$candy_id->name;
-		unset($pokemon->candy_id);
-	}
+    // Resolve evolve_ids to evolve_name
+    if (isset($pokemon->evolve_ids)) {
+        foreach ($pokemon->evolve_ids as $evolve_id) {
+            if ($evolve_id <= $maxpid) {
+                $pokemon->evolve_names[] = $pokemon_trans->pokemon->$evolve_id->name;
+            }
+        }
+    }
 	// Convert move numbers to names
 	$move = new stdClass();
 	foreach ($moves_file as $move_id => $move_name) {

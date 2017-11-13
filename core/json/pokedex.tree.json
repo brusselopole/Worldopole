@@ -1,0 +1,71 @@
+{
+    "1": {
+        "id": 1,
+        "evolutions": [{
+                       "id": 2,
+                       "candies": 25,
+                       "evolutions": [{
+                                      "id": 3,
+                                      "candies": 100
+                                      }]
+                       }]
+    },
+    "43": {
+        "id": 43,
+        "evolutions": [{
+                       "id": 44,
+                       "candies": 25,
+                       "evolutions": [{
+                                      "id": 45,
+                                      "candies": 100
+                                      }, {
+                                      "id": 182,
+                                      "item": "SUN_STONE",
+                                      "candies": 100
+                                      }]
+                       }]
+    },
+    "245": {
+        "id": 245
+    },
+    "108": {
+        "id": 108,
+        "evolutions": [{
+                       "id": 463
+                       }]
+    },
+    "133": {
+        "id": 133,
+        "evolutions": [{
+                       "id": 134,
+                       "candies": 25
+                       }, {
+                       "id": 135,
+                       "candies": 25
+                       }, {
+                       "id": 136,
+                       "candies": 25
+                       },
+                       {
+                       "id": 196,
+                       "candies": 25
+                       },
+                       {
+                       "id": 197,
+                       "candies": 25
+                       },
+                       {
+                       "id": 470,
+                       "candies": 25
+                       },
+                       {
+                       "id": 471,
+                       "candies": 25
+                       },
+                       {
+                       "id": 700,
+                       "candies": 25
+                       }
+                       ]
+    }
+}
