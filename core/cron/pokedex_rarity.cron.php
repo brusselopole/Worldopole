@@ -54,7 +54,7 @@ if (!is_null($rm_pokemon_file)) {
             $rarity_string = "Uncommon";
         } elseif ($rate >= 0.01) {
             $rarity_string = "Rare";
-        } elseif ($rate >= 0.005) {
+        } elseif ($rate >= 0.0025) {
             $rarity_string = "Very Rare";
         } else {
             $rarity_string = "Ultra Rare";
