@@ -41,26 +41,26 @@ file_put_contents($pokedex_rarity_file, json_encode($pokedex_rarity));
     
 $rm_pokemon_file = $config->system->rm_pokemon_file;
 if (!is_null($rm_pokemon_file) && is_array($pokedex_rarity)) {
-    echo "hi";
-    $string = file_get_contents($rm_pokemon_file);
-    $json = json_decode($string, true);
-    $pid = 0;
-    foreach ($pokedex_rarity as $rarity) {
-        $pid++;
-        $rate = $rarity->rate;
-        if ($rate >= 1) {
-            $rarity_string = "Common";
-        } elseif ($rate >= 0.20) {
-            $rarity_string = "Uncommon";
-        } elseif ($rate >= 0.01) {
-            $rarity_string = "Rare";
-        } elseif ($rate >= 0.0025) {
-            $rarity_string = "Very Rare";
-        } else {
-            $rarity_string = "Ultra Rare";
-        }
-        unset($json[$pid]["rarity"]);
-        $json[$pid]["rarity"] = $rarity_string;
-    }
-    file_put_contents($rm_pokemon_file, json_encode($json));
+	echo "hi";
+	$string = file_get_contents($rm_pokemon_file);
+	$json = json_decode($string, true);
+	$pid = 0;
+	foreach ($pokedex_rarity as $rarity) {
+		$pid++;
+		$rate = $rarity->rate;
+		if ($rate >= 1) {
+			$rarity_string = "Common";
+		} elseif ($rate >= 0.20) {
+			$rarity_string = "Uncommon";
+		} elseif ($rate >= 0.01) {
+			$rarity_string = "Rare";
+		} elseif ($rate >= 0.0025) {
+			$rarity_string = "Very Rare";
+		} else {
+			$rarity_string = "Ultra Rare";
+		}
+		unset($json[$pid]["rarity"]);
+		$json[$pid]["rarity"] = $rarity_string;
+	}
+	file_put_contents($rm_pokemon_file, json_encode($json));
 }
