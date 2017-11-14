@@ -186,7 +186,7 @@ if (!empty($page)) {
 						LIMIT 0,1";
 			$result = $mysqli->query($req);
 			$data = $result->fetch_object();
-            
+
 			if (isset($data)) {
 				$pokemon->last_seen = strtotime($data->disappear_time_real);
 				$pokemon->last_position = new stdClass();
