@@ -177,7 +177,7 @@ if (!empty($page)) {
 						$pokemon->raid_count = $data->count;
 			}
             
-            // Last seen
+			// Last seen
             
 			$req = "SELECT disappear_time, (CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) AS disappear_time_real, latitude, longitude
 						FROM pokemon
@@ -185,14 +185,14 @@ if (!empty($page)) {
 						ORDER BY disappear_time DESC
 						LIMIT 0,1";
 			$result = $mysqli->query($req);
-            $data = $result->fetch_object();
+			$data = $result->fetch_object();
             
-            if (isset($data)) {
-                $pokemon->last_seen = strtotime($data->disappear_time_real);
-                $pokemon->last_position = new stdClass();
-                $pokemon->last_position->latitude = $data->latitude;
-                $pokemon->last_position->longitude = $data->longitude;
-            }
+			if (isset($data)) {
+				$pokemon->last_seen = strtotime($data->disappear_time_real);
+				$pokemon->last_position = new stdClass();
+				$pokemon->last_position->latitude = $data->latitude;
+				$pokemon->last_position->longitude = $data->longitude;
+			}
 
 			// Related Pokemons
 			// ----------------
