@@ -175,7 +175,7 @@ function get_depth($arr) {
 	$it = new RecursiveIteratorIterator(new RecursiveArrayIterator($arr));
 	$depth = 0;
 	foreach ($it as $v) {
-		$it->getDepth() > $depth and $depth = $it->getDepth();
+		$it->getDepth() > $depth && $depth = $it->getDepth();
 	}
 	return $depth;
 }
