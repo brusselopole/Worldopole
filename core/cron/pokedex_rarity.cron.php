@@ -1,5 +1,5 @@
 <?php
-    
+
 // get pokemon from last day to calculate the rarity for last 24h
 // use last disappear_time as a starting point to overcome scan downtimes
 $req = "SELECT pokemon_id, COUNT(*) AS spawns_last_day
@@ -35,12 +35,12 @@ for ($pid = 1; $pid <= $maxpid; $pid++) {
 		$pokedex_rarity->$pid->per_day = 0;
 	}
 }
-    
+
 // Write to file
 file_put_contents($pokedex_rarity_file, json_encode($pokedex_rarity));
     
 $rm_pokemon_file = $config->system->rm_pokemon_file;
-if (!is_null($rm_pokemon_file)) {
+if (!is_null($rm_pokemon_file) && is_array($pokedex_rarity)) {
     echo "hi";
     $string = file_get_contents($rm_pokemon_file);
     $json = json_decode($string, true);
