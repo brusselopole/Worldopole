@@ -40,7 +40,7 @@ for ($pid = 1; $pid <= $maxpid; $pid++) {
 file_put_contents($pokedex_rarity_file, json_encode($pokedex_rarity));
     
 $rm_pokemon_file = $config->system->rm_pokemon_file;
-if (!is_null($rm_pokemon_file) && is_array($pokedex_rarity)) {
+if (!is_null($rm_pokemon_file)) {
 	echo "hi";
 	$string = file_get_contents($rm_pokemon_file);
 	$json = json_decode($string, true);
