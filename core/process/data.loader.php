@@ -119,14 +119,14 @@ if (!empty($page)) {
 
 			$pokemon->max_cp_percent = percent(5441, $pokemon->max_cp);
 			$pokemon->max_hp_percent = percent(411, $pokemon->max_hp);
-            
-            
+
+
             // Set tree
             // ----------
 
-            $candy_id = $pokemon->candy_id;
-            $pokemon->tree = $trees->$candy_id;
-            
+			$candy_id = $pokemon->candy_id;
+			$pokemon->tree = $trees->$candy_id;
+
 
 			// Get Dabase results
 			//-------------------
