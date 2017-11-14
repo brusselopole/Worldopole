@@ -174,31 +174,35 @@ function gym_level($prestige)
 function get_depth($arr) {
 	$it = new RecursiveIteratorIterator(new RecursiveArrayIterator($arr));
 	$depth = 0;
-	foreach ( $it as $v ) {
+	foreach ($it as $v) {
 		$it->getDepth() > $depth and $depth = $it->getDepth();
 	}
 	return $depth;
 }
     
 function get_tree_at_depth($trees, $depth, $max_pokemon, $currentDepth = 0) {
-	if ($depth == $currentDepth) {
+	if ($depth == $currentDepth) { // Found depth
 		return $trees;
-	} else {
+	} else { // Go deeper
 		$arr = array();
-		foreach ($trees as $temp) {
+		foreach ($trees as $temp) { // Go into all trees
 			$tree = $temp->evolutions;
-			$results = get_tree_at_depth($tree, $depth, $max_pokemon, $currentDepth + 1);
-			foreach ($results as $res) {
-				if ($res->id <= $max_pokemon) {
+			$resultsTemp = get_tree_at_depth($tree, $depth, $max_pokemon, $currentDepth + 1);
+			if (is_null($resultsTemp)) { // Woops
+                return null;
+			}
+			$results = $arr = array();
+			foreach ($resultsTemp as $res) { // Remove all above max_pokemon
+				if ( $res->id <= $max_pokemon ) {
 					$results[] = $res;
 				}
 			}
-			if (is_null($results)) {
+			if (is_null($results)) { // Not in current gen
                 return null;
 			}
 			$count = count($results);
 			$i = 0;
-			foreach ($results as $res) {
+			foreach ($results as $res) { // Check if above, equal or bellow center
 				if ($count != 1) {
 					$num = $i / ($count-1);
 					if ($num < 0.5) {
