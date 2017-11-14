@@ -193,7 +193,7 @@ function get_tree_at_depth($trees, $depth, $max_pokemon, $currentDepth = 0) {
 			}
 			$results = $arr = array();
 			foreach ($resultsTemp as $res) { // Remove all above max_pokemon
-				if ( $res->id <= $max_pokemon ) {
+				if ($res->id <= $max_pokemon) {
 					$results[] = $res;
 				}
 			}
