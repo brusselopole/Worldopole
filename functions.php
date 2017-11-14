@@ -172,47 +172,45 @@ function gym_level($prestige)
 }
 
 function get_depth($arr) {
-    $it = new RecursiveIteratorIterator(new RecursiveArrayIterator($arr));
-    $depth = 0;
-    foreach ( $it as $v ) {
-        $it->getDepth() > $depth and $depth = $it->getDepth();
-    }
-    return $depth;
+	$it = new RecursiveIteratorIterator(new RecursiveArrayIterator($arr));
+	$depth = 0;
+	foreach ( $it as $v ) {
+		$it->getDepth() > $depth and $depth = $it->getDepth();
+	}
+	return $depth;
 }
     
 function get_tree_at_depth($trees, $depth, $max_pokemon, $currentDepth = 0) {
-
-    if ($depth == $currentDepth) {
-        return $trees;
-    } else {
-        foreach ($trees as $temp) {
-            $tree = $temp->evolutions;
-            $resultsTemp = get_tree_at_depth($tree, $depth, $max_pokemon, $currentDepth + 1);
-            $results;
-            foreach ($resultsTemp as $res) {
-                if ($res->id <= $max_pokemon) {
-                    $results[] = $res;
-                }
-            }
-            if (is_null($results)) {
+	if ($depth == $currentDepth) {
+		return $trees;
+	} else {
+		$arr = array();
+		foreach ($trees as $temp) {
+			$tree = $temp->evolutions;
+			$results = get_tree_at_depth($tree, $depth, $max_pokemon, $currentDepth + 1);
+			foreach ($results as $res) {
+				if ($res->id <= $max_pokemon) {
+					$results[] = $res;
+				}
+			}
+			if (is_null($results)) {
                 return null;
-            }
-            $count = count($results);
-            $i = 0;
-            foreach ($results as $res) {
-                if ($count != 1) {
-                    $num = $i / ($count-1);
-                    if ($num < 0.5) {
-                        $res->array_sufix = "_up";
-                    } elseif ($num > 0.5) {
-                        $res->array_sufix = "_down";
-                    }
-                }
-                $arr[] = $res;
-                $i++;
-            }
-        }
-        return $arr;
-    }
-
+			}
+			$count = count($results);
+			$i = 0;
+			foreach ($results as $res) {
+				if ($count != 1) {
+					$num = $i / ($count-1);
+					if ($num < 0.5) {
+						$res->array_sufix = "_up";
+					} elseif ($num > 0.5) {
+						$res->array_sufix = "_down";
+					}
+				}
+				$arr[] = $res;
+				$i++;
+			}
+		}
+		return $arr;
+	}
 }
