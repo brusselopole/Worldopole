@@ -195,14 +195,6 @@ for ($pokeid = 1; $pokeid <= $maxpid; $pokeid++) {
 	}
 	unset($type);
 
-    // Resolve evolve_ids to evolve_name
-    if (isset($pokemon->evolve_ids)) {
-        foreach ($pokemon->evolve_ids as $evolve_id) {
-            if ($evolve_id <= $maxpid) {
-                $pokemon->evolve_names[] = $pokemon_trans->pokemon->$evolve_id->name;
-            }
-        }
-    }
 	// Convert move numbers to names
 	$move = new stdClass();
 	foreach ($moves_file as $move_id => $move_name) {
