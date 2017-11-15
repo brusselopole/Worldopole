@@ -38,7 +38,8 @@ a {
 		border-top-left-radius: 3px;
 		border-top-right-radius: 3px;
 	}
-	.form-group:last-child .form-control {
+	.form-group:last-child
+	.form-control {
 		border-bottom-right-radius: 3px;
 		border-bottom-left-radius: 3px;
 		top: -2px;

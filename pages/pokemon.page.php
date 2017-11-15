@@ -99,13 +99,17 @@
 				<td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_SEEN ?> :</strong></td>
 				<td class="col-md-4 col-xs-4">
 
-				<?php if (isset($pokemon->last_position)) { ?>
+				<?php
+                if (isset($pokemon->last_position)) {
+                    ?>
 
 					<a href="https://maps.google.com/?q=<?= $pokemon->last_position->latitude ?>,<?= $pokemon->last_position->longitude ?>&ll=<?= $pokemon->last_position->latitude ?>,<?= $pokemon->last_position->longitude ?>&z=16" target="_blank"><?= time_ago($pokemon->last_seen, $locales) ?></a>
 
-				<?php } else {
+				    <?php
+				} else {
 					echo $locales->NEVER;
-				}?>
+				}
+				?>
 
 				</td>
 			</tr>
@@ -118,12 +122,18 @@
 				<td class="col-md-4 col-xs-4"><?= $pokemon->spawns_per_day ?> / <?= $locales->DAY ?></td>
 			</tr>
 			<tr>
-				<td class="col-md-8 col-xs-8"><?php if (isset($pokemon->protected_gyms)) {
-					echo "<strong>".$locales->POKEMON_GYM.$pokemon->name."</strong> :";
-				} ?></td>
-				<td class="col-md-4 col-xs-4"><?php if (isset($pokemon->protected_gyms)) {
-					echo $pokemon->protected_gyms;
-				}?></td>
+				<td class="col-md-8 col-xs-8">
+                    <?php
+                    if (isset($pokemon->protected_gyms)) {
+					    echo "<strong>".$locales->POKEMON_GYM.$pokemon->name."</strong> :";
+				    } ?>
+                </td>
+				<td class="col-md-4 col-xs-4">
+                    <?php
+                    if (isset($pokemon->protected_gyms)) {
+					    echo $pokemon->protected_gyms;
+				    }?>
+                </td>
 			</tr>
 		</table>
 		</div>
@@ -138,9 +148,11 @@
 
 					<a href="https://maps.google.com/?q=<?= $pokemon->last_raid_position->latitude ?>,<?= $pokemon->last_raid_position->longitude ?>&ll=<?= $pokemon->last_raid_position->latitude ?>,<?= $pokemon->last_raid_position->longitude ?>&z=16" target="_blank"><?= time_ago($pokemon->last_raid_seen, $locales) ?></a>
 
-					<?php } else {
+					<?php
+					} else {
 						echo $locales->NEVER;
-					}?>
+					}
+					?>
 
 				</td>
 			</tr>
@@ -291,7 +303,9 @@
 								<p class="pkmn-name"><a href="<?= $link ?>">#<?= sprintf('%03d<br>%s', $tree_pokemon->id, $tree_pokemon->name) ?></a></p>
 							</div>
 
-						<?php } else { ?>
+						<?php
+						} else {
+						    ?>
 
 							<div>
 								<img src="core/img/arrow<?=$obj->array_sufix?>.png" alt="Arrow" class="img">
@@ -311,7 +325,7 @@
 									?>
 								</p>
 							</div>
-						<?php
+                            <?php
 						}
 					}
 					?>
