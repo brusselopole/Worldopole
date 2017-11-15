@@ -190,18 +190,21 @@ function get_tree_at_depth($trees, $depth, $max_pokemon, $currentDepth = 0) {
 			$results = tree_remove_bellow(get_tree_at_depth($tree, $depth, $max_pokemon, $currentDepth + 1), $max_pokemon);
 			$count = count($results);
 			$i = 0;
-            foreach ($results as $res) { // Check if above, equal or bellow center
-                if ($count != 1) {
-                    $num = $i / ($count - 1);
-                    if ($num < 0.5) {
-                        $res->array_sufix = "_up";
-                    } elseif ($num > 0.5) {
-                        $res->array_sufix = "_down";
+			if (!is_null($results)) {
+			    foreach ($results as $res) { // Check if above, equal or bellow center
+                    if ($count != 1 && $depth - $currentDepth == 1) {
+                        $num = $i / ($count - 1);
+                        if ($num < 0.5) {
+                            $res->array_sufix = "_up";
+                        } elseif ($num > 0.5) {
+                            $res->array_sufix = "_down";
+                        }
                     }
+                    $arr[] = $res;
+                    $i++;
                 }
-                $arr[] = $res;
-                $i++;
             }
+            echo "<br>";
 		}
         return $arr;
 	}
@@ -209,6 +212,9 @@ function get_tree_at_depth($trees, $depth, $max_pokemon, $currentDepth = 0) {
 
 function tree_remove_bellow($tree, $max_pokemon)
 {
+    if (is_null($tree)) {
+        return null;
+    }
     $arr = array();
     foreach ($tree as $item) { // Check if above, equal or bellow center
         if ($item->id <= $max_pokemon) {
