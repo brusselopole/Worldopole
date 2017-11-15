@@ -564,12 +564,15 @@
     "evolutions": [
       {
         "id": 112,
-        "candies": 50
+        "candies": 50,
+        "evolutions": [
+          {
+            "id": 464,
+            "candies": 100
+          }
+        ]
       }
     ]
-  },
-  "112": {
-    "id": 464
   },
   "113": {
     "id": 440,
@@ -1055,7 +1058,7 @@
     "evolutions": [
       {
         "id": 202,
-        "candies": 25
+        "candies": 50
       }
     ]
   },
@@ -1323,7 +1326,7 @@
     "evolutions": [
       {
         "id": 266,
-        "candies": 25,
+        "candies": 12,
         "evolutions": [
           {
             "id": 267,
@@ -1333,7 +1336,7 @@
       },
       {
         "id": 268,
-        "candies": 25,
+        "candies": 12,
         "evolutions": [
           {
             "id": 269,
@@ -1352,7 +1355,8 @@
         "evolutions": [
           {
             "id": 272,
-            "candies": 100
+            "candies": 100,
+            "item": "WATER_STONE"
           }
         ]
       }
@@ -1367,7 +1371,8 @@
         "evolutions": [
           {
             "id": 275,
-            "candies": 100
+            "candies": 100,
+            "item": "LEAF_STONE"
           }
         ]
       }
@@ -1448,11 +1453,11 @@
     "evolutions": [
       {
         "id": 291,
-        "candies": 12
+        "candies": 50
       },
       {
         "id": 292,
-        "candies": 12
+        "candies": 50
       }
     ]
   },
@@ -1494,7 +1499,8 @@
     "evolutions": [
       {
         "id": 301,
-        "candies": 50
+        "candies": 50,
+        "item": "MOON_STONE"
       }
     ]
   },
@@ -1550,7 +1556,7 @@
     "id": 314
   },
   "315": {
-    "id": 407,
+    "id": 406,
     "evolutions": [
       {
         "id": 315,
@@ -1558,7 +1564,7 @@
         "evolutions": [
           {
             "id": 407,
-            "candies": 50
+            "candies": 100
           }
         ]
       }
@@ -1710,7 +1716,8 @@
     "evolutions": [
       {
         "id": 350,
-        "candies": 50
+        "candies": 100,
+        "item": "PRISM_SCALE"
       }
     ]
   },
@@ -1792,11 +1799,13 @@
     "evolutions": [
       {
         "id": 367,
-        "candies": 50
+        "candies": 50,
+        "item": "DEEP_SEA_TOOTH"
       },
       {
         "id": 368,
-        "candies": 50
+        "candies": 50,
+        "item": "DEEP_SEA_SCALE"
       }
     ]
   },
