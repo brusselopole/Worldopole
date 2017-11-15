@@ -267,7 +267,7 @@
     ?>
 
 	<h3 class="col-md-12 text-center sub-title"><strong><?= $locales->POKEMON_EVOLUTIONS ?></strong></h3>
-	<div class="col-md-12 flex-container results">
+	<div class="col-md-12 flex-container-tree results">
 
 		<?php
         $skip = false;
@@ -278,7 +278,7 @@
 
 			<?php
 			if (!is_null($data) && sizeof($data) != 0 && !$skip) { ?>
-				<div class="col-md-12 flex-item">
+				<div class="col-md-12 flex-item-tree">
 					<?php foreach ($data as $obj) {
 						$obj_id = $obj->id;
 						$tree_pokemon = $pokemons->pokemon->$obj_id;
@@ -293,7 +293,7 @@
 
 						<?php } else { ?>
 
-							<div id="tree_cell">
+							<div>
 								<img src="core/img/arrow<?=$obj->array_sufix?>.png" alt="Arrow" class="img">
 								<p class="pkmn-name">
 									<?php

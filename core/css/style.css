@@ -144,6 +144,35 @@ Pokedex display
 	display:inline-block;
 }
 
+.flex-container-tree {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+}
+
+.flex-item-tree {
+	-webkit-flex: 100%;
+	flex: 1 0 100px;
+	padding-bottom: 5px;
+	margin-bottom: 5px;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+}
+
+.flex-item-tree img {
+	display: inline-block;
+	max-width:105px;
+}
+
+.flex-item-tree:last-child img {
+	display:inline-block;
+}
+
 img.unseen{
 	-webkit-filter: grayscale(1);
 	filter: grayscale(1);
