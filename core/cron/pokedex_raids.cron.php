@@ -36,7 +36,6 @@ for ($pid = 1; $pid <= $maxpid; $pid++) {
 
     if ($count != 0) {
         echo $count;
-        $gym_id = $data->gym_id;
         $newraiddatas[$pid]['count'] += $count;
         $newraiddatas[$pid]['last_update'] = $data->start_timestamp;
         $newraiddatas[$pid]['end_time'] = $data->end_time_real;
