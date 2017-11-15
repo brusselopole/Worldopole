@@ -1,7 +1,8 @@
 <?php
 
 // This file only include other files to have only 1 entry in your crontabs. 
-// ------------------------------------------------------------------------	
+// ------------------------------------------------------------------------
+
 
 $config_file = dirname(__FILE__).'/../../config.php';
 
@@ -9,6 +10,10 @@ include_once($config_file);
 
 // Load functions
 include_once(SYS_PATH.'/functions.php');
+
+// Load timezone
+include_once(SYS_PATH. '/core/process/timezone.loader.php');
+
 
 // Load variables.json
 $variables      = SYS_PATH.'/core/json/variables.json';
