@@ -576,14 +576,14 @@
   },
   "113": {
     "id": 440,
-    "candies": 25,
     "evolutions": [
       {
         "id": 113,
-        "candies": 50,
+        "candies": 25,
         "evolutions": [
           {
-            "id": 242
+            "id": 242,
+            "candies": 50
           }
         ]
       }
