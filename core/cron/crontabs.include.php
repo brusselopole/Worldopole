@@ -36,6 +36,7 @@ $gym_file = SYS_PATH.'/core/json/gym.stats.json';
 $pokestop_file = SYS_PATH.'/core/json/pokestop.stats.json';
 $pokemonstats_file = SYS_PATH.'/core/json/pokemon.stats.json';
 $pokedex_counts_file = SYS_PATH.'/core/json/pokedex.counts.json';
+$pokedex_raids_file = SYS_PATH.'/core/json/pokedex.raids.json';
 
 if (is_file($gym_file)) {
 	$gymsdatas	= json_decode(file_get_contents($gym_file), true);
@@ -45,6 +46,9 @@ if (is_file($pokestop_file)) {
 }
 if (is_file($pokemonstats_file)) {
 	$pokedatas	= json_decode(file_get_contents($pokemonstats_file), true);
+}
+if (is_file($pokedex_raids_file)) {
+    $raiddatas	= json_decode(file_get_contents($pokedex_raids_file), true);
 }
 
 
@@ -61,6 +65,7 @@ include_once(SYS_PATH.'/core/cron/gym.cron.php');
 include_once(SYS_PATH.'/core/cron/pokemon.cron.php');
 include_once(SYS_PATH.'/core/cron/pokestop.cron.php');
 include_once(SYS_PATH.'/core/cron/pokedex_counts.cron.php');
+include_once(SYS_PATH.'/core/cron/pokedex_raids.cron.php');
 if ($config->system->captcha_support) {
 	include_once(SYS_PATH.'/core/cron/captcha.cron.php');
 }

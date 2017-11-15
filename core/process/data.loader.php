@@ -147,36 +147,6 @@ if (!empty($page)) {
 				$pokemon->spawns_per_day = $pokemon->per_day;
 			}
 
-			// Last Raid seen
-
-			$req = "SELECT r.end, (CONVERT_TZ(r.end, '+00:00', '".$time_offset."')) AS end_time_real, g.latitude, g.longitude
-						FROM raid  r JOIN gym g
-						ON r.gym_id = g.gym_id
-						WHERE r.pokemon_id = '".$pokemon_id."'
-						ORDER BY end DESC
-						LIMIT 0,1";
-			$result = $mysqli->query($req);
-			$data = $result->fetch_object();
-
-			if (isset($data)) {
-				$pokemon->last_raid_seen = strtotime($data->end_time_real);
-				$pokemon->last_raid_position = new stdClass();
-				$pokemon->last_raid_position->latitude = $data->latitude;
-				$pokemon->last_raid_position->longitude = $data->longitude;
-			}
-            
-			// Raid count
-            
-			$req = "SELECT Count(*) as count
-						FROM raid
-						WHERE pokemon_id = '".$pokemon_id."'";
-			$result = $mysqli->query($req);
-			$data = $result->fetch_object();
-
-			if (isset($data)) {
-						$pokemon->raid_count = $data->count;
-			}
-            
 			// Last seen
             
 			$req = "SELECT disappear_time, (CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) AS disappear_time_real, latitude, longitude

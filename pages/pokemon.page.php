@@ -275,15 +275,14 @@
             $data = get_tree_at_depth($tree, $i_id, $config->system->max_pokemon);
             ?>
 
-
-                <?php
-                if (!is_null($data)) { ?>
-                    <div class="col-md-12 flex-item">
+            <?php
+            if (!is_null($data)) { ?>
+                <div class="col-md-12 flex-item">
                     <?php foreach ($data as $obj) {
                         $obj_id = $obj->id;
                         $tree_pokemon = $pokemons->pokemon->$obj_id;
                         $link = "/pokemon/" . $obj_id;
-                    
+
                         if ($i%2 == 0) { ?>
 
                             <div>
@@ -296,25 +295,25 @@
                             <div id="tree_cell">
                                 <img src="core/img/arrow<?=$obj->array_sufix?>.png" alt="Arrow" class="img">
                                 <p class="pkmn-name">
-                                    <?php echo $obj->candies . ' ' . $locales->POKEMON_CANDIES;
-                                        if (!is_null($obj->item)) {
-                                            $itemName = 'ITEM_' . $obj->item;
-                                            echo '<br>+ ' . $locales->$itemName;
-                                        } else {
-                                            echo '<br> </br>';
-                                        } ?>
+                                    <?php
+                                    echo $obj->candies . ' ' . $locales->POKEMON_CANDIES;
+                                    if (!is_null($obj->item)) {
+                                        $itemName = 'ITEM_' . $obj->item;
+                                        echo '<br>+ ' . $locales->$itemName;
+                                    } else {
+                                        echo '<br> </br>';
+                                    }
+                                    ?>
                                 </p>
                             </div>
                         <?php
                         }
-                    } ?>
+                    }
+                    ?>
                     </div>
                <?php } ?>
-
         <?php } ?>
-
     </div>
-
 </div>
 
 
@@ -346,7 +345,6 @@
 		?>
 
 		</div>
-
 
 	</div>
 

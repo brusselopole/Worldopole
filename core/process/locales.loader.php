@@ -171,6 +171,9 @@ $pokemons_rarity = json_decode(file_get_contents($pokedex_rarity_file));
 $pokedex_counts_file = SYS_PATH.'/core/json/pokedex.counts.json';
 $pokemon_counts = json_decode(file_get_contents($pokedex_counts_file));
 
+$pokedex_raids_file = SYS_PATH.'/core/json/pokedex.raids.json';
+$raid_counts = json_decode(file_get_contents($pokedex_raids_file));
+
 $maxpid = $config->system->max_pokemon;
 for ($pokeid = 1; $pokeid <= $maxpid; $pokeid++) {
 	if (!isset($pokemons->pokemon->$pokeid)) {
@@ -206,6 +209,16 @@ for ($pokeid = 1; $pokeid <= $maxpid; $pokeid++) {
 	
 	// Add pokemon counts to array
 	$pokemon->spawn_count = $pokemon_counts->$pokeid;
+
+	// Add raid data to array
+    $raid_data = $raid_counts->$pokeid;
+    if (isset($raid_data->end_time)) {
+        $pokemon->last_raid_seen = strtotime($raid_data->end_time);
+        $pokemon->last_raid_position = new stdClass();
+        $pokemon->last_raid_position->latitude = $raid_data->latitude;
+        $pokemon->last_raid_position->longitude = $raid_data->longitude;
+    }
+    $pokemon->raid_count = $raid_data->count;
 
 	// Calculate and add rarities to array
 	$spawn_rate = $pokemons_rarity->$pokeid->rate;
