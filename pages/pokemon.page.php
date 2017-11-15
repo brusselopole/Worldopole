@@ -96,7 +96,7 @@
 
 		<table class="table">
 			<tr>
-                <td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_SEEN ?> :</strong></td>
+				<td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_SEEN ?> :</strong></td>
 				<td class="col-md-4 col-xs-4">
 
 				<?php if (isset($pokemon->last_position)) { ?>
@@ -105,7 +105,7 @@
 
 				<?php } else {
 					echo $locales->NEVER;
-}?>
+				}?>
 
 				</td>
 			</tr>
@@ -120,34 +120,34 @@
 			<tr>
 				<td class="col-md-8 col-xs-8"><?php if (isset($pokemon->protected_gyms)) {
 					echo "<strong>".$locales->POKEMON_GYM.$pokemon->name."</strong> :";
-} ?></td>
+				} ?></td>
 				<td class="col-md-4 col-xs-4"><?php if (isset($pokemon->protected_gyms)) {
 					echo $pokemon->protected_gyms;
-}?></td>
+				}?></td>
 			</tr>
 		</table>
 		</div>
 
 		<div class="col-md-6" style="padding-top:10px;">
 		<table class="table">
-            <tr>
-                <td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_RAID_SEEN ?> :</strong></td>
-                <td class="col-md-4 col-xs-4">
+			<tr>
+				<td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_RAID_SEEN ?> :</strong></td>
+				<td class="col-md-4 col-xs-4">
 
-                    <?php if (isset($pokemon->last_raid_position)) { ?>
+					<?php if (isset($pokemon->last_raid_position)) { ?>
 
-                    <a href="https://maps.google.com/?q=<?= $pokemon->last_raid_position->latitude ?>,<?= $pokemon->last_raid_position->longitude ?>&ll=<?= $pokemon->last_raid_position->latitude ?>,<?= $pokemon->last_raid_position->longitude ?>&z=16" target="_blank"><?= time_ago($pokemon->last_raid_seen, $locales) ?></a>
+					<a href="https://maps.google.com/?q=<?= $pokemon->last_raid_position->latitude ?>,<?= $pokemon->last_raid_position->longitude ?>&ll=<?= $pokemon->last_raid_position->latitude ?>,<?= $pokemon->last_raid_position->longitude ?>&z=16" target="_blank"><?= time_ago($pokemon->last_raid_seen, $locales) ?></a>
 
-                    <?php } else {
-                        echo $locales->NEVER;
-                    }?>
+					<?php } else {
+						echo $locales->NEVER;
+					}?>
 
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_RAID_AMOUNT ?> :</strong></td>
-                <td class="col-md-4 col-xs-4"><?= $pokemon->raid_count ?> <?= $locales->SEEN ?></td>
-            </tr>
+				</td>
+			</tr>
+			<tr>
+				<td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_RAID_AMOUNT ?> :</strong></td>
+				<td class="col-md-4 col-xs-4"><?= $pokemon->raid_count ?> <?= $locales->SEEN ?></td>
+			</tr>
 			<tr>
 				<td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_QUICK ?> :</strong></td>
 				<td class="col-md-4 col-xs-4"><?= $pokemon->quick_move ?></td>
@@ -259,61 +259,61 @@
 
 	</div>
 
-    <!-- Tree -->
+	<!-- Tree -->
+	
+	<?php
+	$tree = array($pokemon->tree);
+	$depth = (get_depth($tree)+1)/2;
+	?>
 
-    <?php
-    $tree = array($pokemon->tree);
-    $depth = (get_depth($tree)+1)/2;
-    ?>
+	<h3 class="col-md-12 text-center sub-title"><strong><?= $locales->POKEMON_EVOLUTIONS ?></strong></h3>
+	<div class="col-md-12 flex-container results">
 
-    <h3 class="col-md-12 text-center sub-title"><strong><?= $locales->POKEMON_EVOLUTIONS ?></strong></h3>
-    <div class="col-md-12 flex-container results">
+		<?php
+		for ($i = 0; $i < $depth * 2 - 1; $i++) {
+			$i_id = intval(($i+1)/2);
+			$data = get_tree_at_depth($tree, $i_id, $config->system->max_pokemon);
+			?>
 
-        <?php
-        for ($i = 0; $i < $depth * 2 - 1; $i++) {
-            $i_id = intval(($i+1)/2);
-            $data = get_tree_at_depth($tree, $i_id, $config->system->max_pokemon);
-            ?>
+			<?php
+			if (!is_null($data)) { ?>
+				<div class="col-md-12 flex-item">
+					<?php foreach ($data as $obj) {
+						$obj_id = $obj->id;
+						$tree_pokemon = $pokemons->pokemon->$obj_id;
+						$link = "/pokemon/" . $obj_id;
 
-            <?php
-            if (!is_null($data)) { ?>
-                <div class="col-md-12 flex-item">
-                    <?php foreach ($data as $obj) {
-                        $obj_id = $obj->id;
-                        $tree_pokemon = $pokemons->pokemon->$obj_id;
-                        $link = "/pokemon/" . $obj_id;
+						if ($i%2 == 0) { ?>
 
-                        if ($i%2 == 0) { ?>
+							<div>
+								<a href="<?= $link ?>"><img src="<?= $tree_pokemon->img ?>" alt="<?= $tree_pokemon->name ?>" class="img"></a>
+								<p class="pkmn-name"><a href="<?= $link ?>">#<?= sprintf('%03d<br>%s', $tree_pokemon->id, $tree_pokemon->name) ?></a></p>
+							</div>
 
-                            <div>
-                                <a href="<?= $link ?>"><img src="<?= $tree_pokemon->img ?>" alt="<?= $tree_pokemon->name ?>" class="img"></a>
-                                <p class="pkmn-name"><a href="<?= $link ?>">#<?= sprintf('%03d<br>%s', $tree_pokemon->id, $tree_pokemon->name) ?></a></p>
-                            </div>
+						<?php } else { ?>
 
-                        <?php } else { ?>
-
-                            <div id="tree_cell">
-                                <img src="core/img/arrow<?=$obj->array_sufix?>.png" alt="Arrow" class="img">
-                                <p class="pkmn-name">
-                                    <?php
-                                    echo $obj->candies . ' ' . $locales->POKEMON_CANDIES;
-                                    if (!is_null($obj->item)) {
-                                        $itemName = 'ITEM_' . $obj->item;
-                                        echo '<br>+ ' . $locales->$itemName;
-                                    } else {
-                                        echo '<br> </br>';
-                                    }
-                                    ?>
-                                </p>
-                            </div>
-                        <?php
-                        }
-                    }
-                    ?>
-                    </div>
-               <?php } ?>
-        <?php } ?>
-    </div>
+							<div id="tree_cell">
+								<img src="core/img/arrow<?=$obj->array_sufix?>.png" alt="Arrow" class="img">
+								<p class="pkmn-name">
+									<?php
+									echo $obj->candies . ' ' . $locales->POKEMON_CANDIES;
+									if (!is_null($obj->item)) {
+										$itemName = 'ITEM_' . $obj->item;
+										echo '<br>+ ' . $locales->$itemName;
+									} else {
+										echo '<br> </br>';
+									}
+									?>
+								</p>
+							</div>
+						<?php
+						}
+					}
+					?>
+					</div>
+				<?php } ?>
+		<?php } ?>
+	</div>
 </div>
 
 
