@@ -169,5 +169,8 @@
 "ITEM_KINGS_ROCK": "King-Stein",
 "ITEM_SUN_STONE": "Sonnenstein",
 "ITEM_METAL_COAT": "Metallmantel",
-"ITEM_UPGRADE": "Upgrade"
+"ITEM_UPGRADE": "Upgrade",
+"INFO_ATTACK": "Angriff",
+"INFO_DEFENSE": "Verteidigung",
+"INFO_STAMINA": "Ausdauer"
 }

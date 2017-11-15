@@ -182,39 +182,38 @@ function get_depth($arr) {
     
 function get_tree_at_depth($trees, $depth, $max_pokemon, $currentDepth = 0) {
 	if ($depth == $currentDepth) { // Found depth
-		return $trees;
+        return tree_remove_bellow($trees, $max_pokemon);
 	} else { // Go deeper
 		$arr = array();
 		foreach ($trees as $temp) { // Go into all trees
 			$tree = $temp->evolutions;
-			$resultsTemp = get_tree_at_depth($tree, $depth, $max_pokemon, $currentDepth + 1);
-			if (is_null($resultsTemp)) { // Woops
-                return null;
-			}
-			$results = $arr = array();
-			foreach ($resultsTemp as $res) { // Remove all above max_pokemon
-				if ($res->id <= $max_pokemon) {
-					$results[] = $res;
-				}
-			}
-			if (is_null($results)) { // Not in current gen
-                return null;
-			}
+			$results = tree_remove_bellow(get_tree_at_depth($tree, $depth, $max_pokemon, $currentDepth + 1), $max_pokemon);
 			$count = count($results);
 			$i = 0;
-			foreach ($results as $res) { // Check if above, equal or bellow center
-				if ($count != 1) {
-					$num = $i / ($count-1);
-					if ($num < 0.5) {
-						$res->array_sufix = "_up";
-					} elseif ($num > 0.5) {
-						$res->array_sufix = "_down";
-					}
-				}
-				$arr[] = $res;
-				$i++;
-			}
+            foreach ($results as $res) { // Check if above, equal or bellow center
+                if ($count != 1) {
+                    $num = $i / ($count - 1);
+                    if ($num < 0.5) {
+                        $res->array_sufix = "_up";
+                    } elseif ($num > 0.5) {
+                        $res->array_sufix = "_down";
+                    }
+                }
+                $arr[] = $res;
+                $i++;
+            }
 		}
-		return $arr;
+        return $arr;
 	}
+}
+
+function tree_remove_bellow($tree, $max_pokemon)
+{
+    $arr = array();
+    foreach ($tree as $item) { // Check if above, equal or bellow center
+        if ($item->id <= $max_pokemon) {
+            $arr[] = $item;
+        }
+    }
+    return $arr;
 }

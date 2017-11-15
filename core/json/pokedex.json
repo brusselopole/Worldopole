@@ -3316,7 +3316,7 @@
         },
         "230": {
             "atk": 194,
-            "candy_id": 117,
+            "candy_id": 116,
             "charge_move": "Outrage",
             "def": 194,
             "max_cp": 2424,
@@ -3660,7 +3660,7 @@
         },
         "254": {
             "atk": 223,
-            "candy_id": 254,
+            "candy_id": 252,
             "charge_move": "?",
             "def": 180,
             "max_cp": 2584,
@@ -4343,7 +4343,7 @@
         },
         "301": {
             "atk": 132,
-            "candy_id": 301,
+            "candy_id": 300,
             "charge_move": "?",
             "def": 132,
             "max_cp": 1385,
@@ -4938,7 +4938,7 @@
         },
         "342": {
             "atk": 224,
-            "candy_id": 241,
+            "candy_id": 341,
             "charge_move": "?",
             "def": 156,
             "max_cp": 2317,

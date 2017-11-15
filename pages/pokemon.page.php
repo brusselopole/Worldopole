@@ -263,20 +263,21 @@
 	
 	<?php
 	$tree = array($pokemon->tree);
-	$depth = (get_depth($tree)+1)/2;
-	?>
+    $depth = get_depth($tree);
+    ?>
 
 	<h3 class="col-md-12 text-center sub-title"><strong><?= $locales->POKEMON_EVOLUTIONS ?></strong></h3>
 	<div class="col-md-12 flex-container results">
 
 		<?php
-		for ($i = 0; $i < $depth * 2 - 1; $i++) {
+        $skip = false;
+		for ($i = 0; $i < $depth; $i++) {
 			$i_id = intval(($i+1)/2);
 			$data = get_tree_at_depth($tree, $i_id, $config->system->max_pokemon);
 			?>
 
 			<?php
-			if (!is_null($data)) { ?>
+			if (!is_null($data) && sizeof($data) != 0 && !$skip) { ?>
 				<div class="col-md-12 flex-item">
 					<?php foreach ($data as $obj) {
 						$obj_id = $obj->id;
@@ -300,7 +301,11 @@
 									if (!is_null($obj->item)) {
 										$itemName = 'ITEM_' . $obj->item;
 										echo '<br>+ ' . $locales->$itemName;
-									} else {
+									} elseif (!is_null($obj->info)) {
+                                        $infoName = 'INFO_' . $obj->info;
+                                        echo '<br>(' . $locales->$infoName . ')';
+                                    }
+									else {
 										echo '<br> </br>';
 									}
 									?>
@@ -310,9 +315,15 @@
 						}
 					}
 					?>
-					</div>
-				<?php } ?>
-		<?php } ?>
+                </div>
+            <?php
+            } elseif ($skip) {
+                $skip = false;
+            } else {
+                $skip = true;
+            }
+		}
+		?>
 	</div>
 </div>
 
