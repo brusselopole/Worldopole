@@ -196,29 +196,29 @@ function get_depth($arr) {
 // Return all pokemon with data at a certain tree depth
 ########################################################################
 function get_tree_at_depth($trees, $depth, $max_pokemon, $currentDepth = 0) {
-	if ($depth == $currentDepth) { // Found depth
+    if ($depth == $currentDepth) { // Found depth
         return tree_remove_bellow($trees, $max_pokemon);
-	} else { // Go deeper
-		$arr = array();
-		foreach ($trees as $temp) { // Go into all trees
-			$tree = $temp->evolutions;
-			$results = tree_remove_bellow(get_tree_at_depth($tree, $depth, $max_pokemon, $currentDepth + 1), $max_pokemon);
-			array_merge($arr, tree_check_array($results, $depth, $currentDepth));
-            echo "<br>";
-		}
+    } else { // Go deeper
+        $arr = array();
+        foreach ($trees as $temp) { // Go into all trees
+            $tree = $temp->evolutions;
+            $results = tree_remove_bellow(get_tree_at_depth($tree, $depth, $max_pokemon, $currentDepth + 1), $max_pokemon);
+            $i = 0;
+            $arr = tree_check_array($results, $arr, $depth - $currentDepth == 1);
+        }
         return $arr;
-	}
+    }
 }
 
 ########################################################################
 // used in get_tree_at_depth
 ########################################################################
-function tree_check_array($array, $depth, $currentDepth) {
+function tree_check_array($array_check, $array_add, $correct_arrow) {
+    $count = count($array_check);
     $i = 0;
-    $count = count($array);
-    if (!is_null($array)) { // check if exists
-        foreach ($array as $res) { // Check if above, equal or bellow center
-            if ($count != 1 && $depth - $currentDepth == 1) { // only add arrow once
+    if (!is_null($array_check)) { // check if exists
+        foreach ($array_check as $res) { // Check if above, equal or bellow center
+            if ($count != 1 && $correct_arrow) { // only add arrow once
                 $num = $i / ($count - 1);
                 if ($num < 0.5) {
                     $res->array_sufix = "_up";
@@ -226,11 +226,11 @@ function tree_check_array($array, $depth, $currentDepth) {
                     $res->array_sufix = "_down";
                 }
             }
-            $arr[] = $res;
+            $array_add[] = $res;
             $i++;
         }
     }
-    return $arr;
+    return $array_add;
 }
 
 ########################################################################
