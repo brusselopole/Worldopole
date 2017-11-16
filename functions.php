@@ -190,9 +190,9 @@ function get_tree_at_depth($trees, $depth, $max_pokemon, $currentDepth = 0) {
 			$results = tree_remove_bellow(get_tree_at_depth($tree, $depth, $max_pokemon, $currentDepth + 1), $max_pokemon);
 			$count = count($results);
 			$i = 0;
-			if (!is_null($results)) {
+			if (!is_null($results)) { // check if exists
 			    foreach ($results as $res) { // Check if above, equal or bellow center
-                    if ($count != 1 && $depth - $currentDepth == 1) {
+                    if ($count != 1 && $depth - $currentDepth == 1) { // only add arrow once
                         $num = $i / ($count - 1);
                         if ($num < 0.5) {
                             $res->array_sufix = "_up";

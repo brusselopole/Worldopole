@@ -144,15 +144,16 @@
 				<td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_RAID_SEEN ?> :</strong></td>
 				<td class="col-md-4 col-xs-4">
 
-					<?php if (isset($pokemon->last_raid_position)) { ?>
+                    <?php if (isset($pokemon->last_raid_position)) {
+                        ?>
 
-					<a href="https://maps.google.com/?q=<?= $pokemon->last_raid_position->latitude ?>,<?= $pokemon->last_raid_position->longitude ?>&ll=<?= $pokemon->last_raid_position->latitude ?>,<?= $pokemon->last_raid_position->longitude ?>&z=16" target="_blank"><?= time_ago($pokemon->last_raid_seen, $locales) ?></a>
+					    <a href="https://maps.google.com/?q=<?= $pokemon->last_raid_position->latitude ?>,<?= $pokemon->last_raid_position->longitude ?>&ll=<?= $pokemon->last_raid_position->latitude ?>,<?= $pokemon->last_raid_position->longitude ?>&z=16" target="_blank"><?= time_ago($pokemon->last_raid_seen, $locales) ?></a>
 
-					<?php
-					} else {
-						echo $locales->NEVER;
-					}
-					?>
+					    <?php
+                    } else {
+                        echo $locales->NEVER;
+                    }
+                    ?>
 
 				</td>
 			</tr>
@@ -291,7 +292,8 @@
 			<?php
 			if (!is_null($data) && sizeof($data) != 0 && !$skip) { ?>
 				<div class="col-md-12 flex-item-tree">
-					<?php foreach ($data as $obj) {
+					<?php
+                    foreach ($data as $obj) {
 						$obj_id = $obj->id;
 						$tree_pokemon = $pokemons->pokemon->$obj_id;
 						$link = "/pokemon/" . $obj_id;
@@ -326,7 +328,7 @@
 								</p>
 							</div>
                             <?php
-						}
+                        }
 					}
 					?>
                 </div>
