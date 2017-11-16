@@ -203,7 +203,6 @@ function get_tree_at_depth($trees, $depth, $max_pokemon, $currentDepth = 0) {
         foreach ($trees as $temp) { // Go into all trees
             $tree = $temp->evolutions;
             $results = tree_remove_bellow(get_tree_at_depth($tree, $depth, $max_pokemon, $currentDepth + 1), $max_pokemon);
-            $i = 0;
             $arr = tree_check_array($results, $arr, $depth - $currentDepth == 1);
         }
         return $arr;
