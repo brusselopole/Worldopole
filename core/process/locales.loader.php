@@ -211,14 +211,14 @@ for ($pokeid = 1; $pokeid <= $maxpid; $pokeid++) {
 	$pokemon->spawn_count = $pokemon_counts->$pokeid;
 
 	// Add raid data to array
-    $raid_data = $raid_counts->$pokeid;
-    if (isset($raid_data->end_time)) {
-        $pokemon->last_raid_seen = strtotime($raid_data->end_time);
-        $pokemon->last_raid_position = new stdClass();
-        $pokemon->last_raid_position->latitude = $raid_data->latitude;
-        $pokemon->last_raid_position->longitude = $raid_data->longitude;
-    }
-    $pokemon->raid_count = $raid_data->count;
+	$raid_data = $raid_counts->$pokeid;
+	if (isset($raid_data->end_time)) {
+		$pokemon->last_raid_seen = strtotime($raid_data->end_time);
+		$pokemon->last_raid_position = new stdClass();
+		$pokemon->last_raid_position->latitude = $raid_data->latitude;
+		$pokemon->last_raid_position->longitude = $raid_data->longitude;
+	}
+	$pokemon->raid_count = $raid_data->count;
 
 	// Calculate and add rarities to array
 	$spawn_rate = $pokemons_rarity->$pokeid->rate;

@@ -100,8 +100,8 @@
 				<td class="col-md-4 col-xs-4">
 
 				<?php
-                if (isset($pokemon->last_position)) {
-                    ?>
+				if (isset($pokemon->last_position)) {
+					?>
 
 					<a href="https://maps.google.com/?q=<?= $pokemon->last_position->latitude ?>,<?= $pokemon->last_position->longitude ?>&ll=<?= $pokemon->last_position->latitude ?>,<?= $pokemon->last_position->longitude ?>&z=16" target="_blank"><?= time_ago($pokemon->last_seen, $locales) ?></a>
 
@@ -124,15 +124,15 @@
 			<tr>
 				<td class="col-md-8 col-xs-8">
                     <?php
-                    if (isset($pokemon->protected_gyms)) {
-					    echo "<strong>".$locales->POKEMON_GYM.$pokemon->name."</strong> :";
-				    } ?>
+					if (isset($pokemon->protected_gyms)) {
+						echo "<strong>".$locales->POKEMON_GYM.$pokemon->name."</strong> :";
+					} ?>
                 </td>
 				<td class="col-md-4 col-xs-4">
                     <?php
-                    if (isset($pokemon->protected_gyms)) {
-					    echo $pokemon->protected_gyms;
-				    }?>
+					if (isset($pokemon->protected_gyms)) {
+						echo $pokemon->protected_gyms;
+					}?>
                 </td>
 			</tr>
 		</table>
@@ -145,16 +145,16 @@
 				<td class="col-md-4 col-xs-4">
 
                     <?php
-                    if (isset($pokemon->last_raid_position)) {
-                        ?>
+					if (isset($pokemon->last_raid_position)) {
+						?>
 
 					    <a href="https://maps.google.com/?q=<?= $pokemon->last_raid_position->latitude ?>,<?= $pokemon->last_raid_position->longitude ?>&ll=<?= $pokemon->last_raid_position->latitude ?>,<?= $pokemon->last_raid_position->longitude ?>&z=16" target="_blank"><?= time_ago($pokemon->last_raid_seen, $locales) ?></a>
 
 					    <?php
-                    } else {
-                        echo $locales->NEVER;
-                    }
-                    ?>
+					} else {
+						echo $locales->NEVER;
+					}
+					?>
 
 				</td>
 			</tr>
@@ -277,16 +277,16 @@
 	
 	<?php
 	$tree = array($pokemon->tree);
-    $depth = get_depth($tree);
-    ?>
+	$depth = get_depth($tree);
+	?>
 
 	<h3 class="col-md-12 text-center sub-title"><strong><?= $locales->POKEMON_EVOLUTIONS ?></strong></h3>
 	<div class="col-md-12 flex-container-tree results">
 
 		<?php
-        $skip = false;
+		$skip = false;
 		for ($i = 0; $i < $depth; $i++) {
-			$i_id = intval(($i+1)/2);
+			$i_id = intval(($i + 1) / 2);
 			$data = get_tree_at_depth($tree, $i_id, $config->system->max_pokemon);
 			?>
 
@@ -294,12 +294,12 @@
 			if (!is_null($data) && sizeof($data) != 0 && !$skip) { ?>
 				<div class="col-md-12 flex-item-tree">
 					<?php
-                    foreach ($data as $obj) {
+					foreach ($data as $obj) {
 						$obj_id = $obj->id;
 						$tree_pokemon = $pokemons->pokemon->$obj_id;
-						$link = "/pokemon/" . $obj_id;
+						$link = "/pokemon/".$obj_id;
 
-						if ($i%2 == 0) { ?>
+						if ($i % 2 == 0) { ?>
 
 							<div>
 								<a href="<?= $link ?>"><img src="<?= $tree_pokemon->img ?>" alt="<?= $tree_pokemon->name ?>" class="img"></a>
@@ -308,7 +308,7 @@
 
 						<?php
 						} else {
-						    ?>
+							?>
 
 							<div>
 								<img src="core/img/arrow<?=$obj->array_sufix?>.png" alt="Arrow" class="img">
@@ -319,9 +319,9 @@
 										$itemName = 'ITEM_' . $obj->item;
 										echo '<br>+ ' . $locales->$itemName;
 									} elseif (!is_null($obj->info)) {
-                                        $infoName = 'INFO_' . $obj->info;
-                                        echo '<br>(' . $locales->$infoName . ')';
-                                    }
+										$infoName = 'INFO_' . $obj->info;
+										echo '<br>(' . $locales->$infoName . ')';
+									}
 									else {
 										echo '<br> </br>';
 									}
@@ -329,16 +329,16 @@
 								</p>
 							</div>
                             <?php
-                        }
+						}
 					}
 					?>
                 </div>
             <?php
-            } elseif ($skip) {
-                $skip = false;
-            } else {
-                $skip = true;
-            }
+			} elseif ($skip) {
+				$skip = false;
+			} else {
+				$skip = true;
+			}
 		}
 		?>
 	</div>

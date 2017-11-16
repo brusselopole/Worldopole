@@ -12,7 +12,7 @@ include_once($config_file);
 include_once(SYS_PATH.'/functions.php');
 
 // Load timezone
-include_once(SYS_PATH. '/core/process/timezone.loader.php');
+include_once(SYS_PATH.'/core/process/timezone.loader.php');
 
 
 // Load variables.json
@@ -53,7 +53,7 @@ if (is_file($pokemonstats_file)) {
 	$pokedatas	= json_decode(file_get_contents($pokemonstats_file), true);
 }
 if (is_file($pokedex_raids_file)) {
-    $raiddatas	= json_decode(file_get_contents($pokedex_raids_file), true);
+	$raiddatas	= json_decode(file_get_contents($pokedex_raids_file), true);
 }
 
 
