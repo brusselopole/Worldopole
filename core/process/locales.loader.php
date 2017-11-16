@@ -163,7 +163,7 @@ unset($pokemon_trans_array);
 ##########################################################################
 
 $pokedex_file = file_get_contents(SYS_PATH.'/core/json/pokedex.json');
-$pokemons = json_decode($pokedex_file);
+$pokemons_all = json_decode($pokedex_file);
 
 $pokedex_rarity_file = SYS_PATH.'/core/json/pokedex.rarity.json';
 $pokemons_rarity = json_decode(file_get_contents($pokedex_rarity_file));
@@ -174,13 +174,16 @@ $pokemon_counts = json_decode(file_get_contents($pokedex_counts_file));
 $pokedex_raids_file = SYS_PATH.'/core/json/pokedex.raids.json';
 $raid_counts = json_decode(file_get_contents($pokedex_raids_file));
 
+$pokemons = new stdClass();
+$pokemons->pokemon = new stdClass();
+
 $maxpid = $config->system->max_pokemon;
 for ($pokeid = 1; $pokeid <= $maxpid; $pokeid++) {
-	if (!isset($pokemons->pokemon->$pokeid)) {
+	if (!isset($pokemons_all->pokemon->$pokeid)) {
 		continue;
 	}
 	// Merge name and description from translation files
-	$pokemon = $pokemons->pokemon->$pokeid;
+	$pokemon = $pokemons_all->pokemon->$pokeid;
 	$pokemon->id = $pokeid;
 	$pokemon->name = $pokemon_trans->pokemon->$pokeid->name;
 	$pokemon->description = $pokemon_trans->pokemon->$pokeid->description;
@@ -206,7 +209,7 @@ for ($pokeid = 1; $pokeid <= $maxpid; $pokeid++) {
 			$move->$move_id->name = $move_name->name;
 		}
 	}
-	
+
 	// Add pokemon counts to array
 	$pokemon->spawn_count = $pokemon_counts->$pokeid;
 
@@ -242,6 +245,8 @@ for ($pokeid = 1; $pokeid <= $maxpid; $pokeid++) {
 	} else {
 		$pokemon->rarity = $locales->UNSEEN;
 	}
+
+	$pokemons->pokemon->$pokeid = $pokemon;
 }
 
 // Add total pokemon count
@@ -249,7 +254,7 @@ $pokemons->total = $pokemon_counts->total;
 
 // Translate typecolors array keys as well
 $types_temp = new stdClass();
-foreach ($pokemons->typecolors as $type => $color) {
+foreach ($pokemons_all->typecolors as $type => $color) {
 	$type_trans = $pokemon_trans->types->$type;
 	$types_temp->$type_trans = $color;
 }
@@ -272,6 +277,7 @@ unset($pokemon_trans);
 unset($types_temp);
 unset($type_trans);
 unset($pokemons_rarity);
+unset($pokemons_all);
 unset($quick_move);
 unset($charge_move);
 unset($candy_id);
