@@ -171,14 +171,15 @@
     ]
   },
   "35": {
-    "id": 35,
+    "id": 173,
     "evolutions": [
       {
-        "id": 36,
-        "candies": 50,
+        "id": 35,
+        "candies": 25,
         "evolutions": [
           {
-            "id": 173
+            "id": 36,
+			"candies": 50
           }
         ]
       }
