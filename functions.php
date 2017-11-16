@@ -171,6 +171,12 @@ function gym_level($prestige)
 	return $gym_level;
 }
 
+########################################################################
+// depth of array
+// @param $arr     => array (mandatory)
+//
+// Retruns max depth of array
+########################################################################
 function get_depth($arr) {
 	$it = new RecursiveIteratorIterator(new RecursiveArrayIterator($arr));
 	$depth = 0;
@@ -179,7 +185,16 @@ function get_depth($arr) {
 	}
 	return $depth;
 }
-    
+
+########################################################################
+// tree for at depth
+// @param $trees     => array (mandatory)
+// @param $depth => int (mandatory)
+// @param $max_pokemon => int (mandatory)
+// @param $currentDepth => int (optional)
+//
+// Return all pokemon with data at a certain tree depth
+########################################################################
 function get_tree_at_depth($trees, $depth, $max_pokemon, $currentDepth = 0) {
 	if ($depth == $currentDepth) { // Found depth
         return tree_remove_bellow($trees, $max_pokemon);
@@ -188,28 +203,39 @@ function get_tree_at_depth($trees, $depth, $max_pokemon, $currentDepth = 0) {
 		foreach ($trees as $temp) { // Go into all trees
 			$tree = $temp->evolutions;
 			$results = tree_remove_bellow(get_tree_at_depth($tree, $depth, $max_pokemon, $currentDepth + 1), $max_pokemon);
-			$count = count($results);
-			$i = 0;
-			if (!is_null($results)) { // check if exists
-			    foreach ($results as $res) { // Check if above, equal or bellow center
-                    if ($count != 1 && $depth - $currentDepth == 1) { // only add arrow once
-                        $num = $i / ($count - 1);
-                        if ($num < 0.5) {
-                            $res->array_sufix = "_up";
-                        } elseif ($num > 0.5) {
-                            $res->array_sufix = "_down";
-                        }
-                    }
-                    $arr[] = $res;
-                    $i++;
-                }
-            }
+			array_merge($arr, tree_check_array($results, $depth, $currentDepth));
             echo "<br>";
 		}
         return $arr;
 	}
 }
 
+########################################################################
+// used in get_tree_at_depth
+########################################################################
+function tree_check_array($array, $depth, $currentDepth) {
+    $i = 0;
+    $count = count($array);
+    if (!is_null($array)) { // check if exists
+        foreach ($array as $res) { // Check if above, equal or bellow center
+            if ($count != 1 && $depth - $currentDepth == 1) { // only add arrow once
+                $num = $i / ($count - 1);
+                if ($num < 0.5) {
+                    $res->array_sufix = "_up";
+                } elseif ($num > 0.5) {
+                    $res->array_sufix = "_down";
+                }
+            }
+            $arr[] = $res;
+            $i++;
+        }
+    }
+    return $arr;
+}
+
+########################################################################
+// used in get_tree_at_depth
+########################################################################
 function tree_remove_bellow($tree, $max_pokemon)
 {
     if (is_null($tree)) {
