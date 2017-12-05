@@ -315,10 +315,10 @@
 								<p class="pkmn-name">
 									<?php
 									echo $obj->candies . ' ' . $locales->POKEMON_CANDIES;
-									if (!is_null($obj->item)) {
+									if (isset($obj->item)) {
 										$itemName = 'ITEM_' . $obj->item;
 										echo '<br>+ ' . $locales->$itemName;
-									} elseif (!is_null($obj->info)) {
+									} elseif (isset($obj->info)) {
 										$infoName = 'INFO_' . $obj->info;
 										echo '<br>(' . $locales->$infoName . ')';
 									}
