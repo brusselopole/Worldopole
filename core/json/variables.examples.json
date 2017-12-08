@@ -35,7 +35,8 @@
 		"forced_lang"			:	"",
 		"default_lang"			:	"en",
 		"location_url"			:	"/map/?lat={latitude}&lon={longitude}&zoom=17",
-		"trainer_blacklist"		:	["cheater1", "cheater2"]
+		"trainer_blacklist"		:	["cheater1", "cheater2"],
+		"rm_pokemon_file"		:	null
 	},
 	"menu":[
 		{
