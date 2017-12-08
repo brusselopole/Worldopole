@@ -72,29 +72,31 @@
 
 <div class="row">
 	<div class="col-md-12">
-		<table class="table" id="trainersTable">
-			<thead>
-			<tr>
-				<th>#</th>
-				<th><?= $locales->TRAINERS_TABLE_SAME_LEVEL ?></th>
-				<th><?= $locales->TRAINERS_TABLE_NAME ?></th>
-				<th><?= $locales->TRAINERS_TABLE_LEVEL ?></th>
-				<th><?= $locales->TRAINERS_TABLE_GYMS ?></th>
-				<th><?= $locales->TRAINERS_TABLE_LAST_SEEN ?></th>
-			</tr>
-			</thead>
-			<tbody id="trainersContainer">
+		<div class="table-responsive">
+			<table class="table" id="trainersTable">
+				<thead>
+				<tr>
+					<th>#</th>
+					<th><?= $locales->TRAINERS_TABLE_SAME_LEVEL ?></th>
+					<th><?= $locales->TRAINERS_TABLE_NAME ?></th>
+					<th><?= $locales->TRAINERS_TABLE_LEVEL ?></th>
+					<th><?= $locales->TRAINERS_TABLE_GYMS ?></th>
+					<th><?= $locales->TRAINERS_TABLE_LAST_SEEN ?></th>
+				</tr>
+				</thead>
+				<tbody id="trainersContainer">
 
-			</tbody>
-			<tfoot>
-				<tr class="loadMore text-center">
-					<td colspan="6"><button id="loadMoreButton" class="btn btn-default hidden"><?= $locales->TRAINERS_LOAD_MORE ?></button></td>
-				</tr>
-				<tr class="trainerLoader">
-					<td colspan="6"><div class="loader"></div></td>
-				</tr>
-			</tfoot>
-		</table>
+				</tbody>
+				<tfoot>
+					<tr class="loadMore text-center">
+						<td colspan="6"><button id="loadMoreButton" class="btn btn-default hidden"><?= $locales->TRAINERS_LOAD_MORE ?></button></td>
+					</tr>
+					<tr class="trainerLoader">
+						<td colspan="6"><div class="loader"></div></td>
+					</tr>
+				</tfoot>
+			</table>
+		</div>
 	</div>
 </div>
 <script type="text/javascript">
