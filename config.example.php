@@ -53,6 +53,8 @@ if (isset($_SERVER['HTTP_HOST'])) {
 ## Subdirectory trick
 function directory()
 {
+	# Get the realpath to honor symlinks
+	$_SERVER['DOCUMENT_ROOT'] = realpath($_SERVER['DOCUMENT_ROOT']);
 	$root = $_SERVER['DOCUMENT_ROOT'];
 	$filePath = dirname(__FILE__);
 
