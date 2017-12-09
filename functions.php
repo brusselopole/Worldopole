@@ -223,6 +223,8 @@ function tree_check_array($array_check, $array_add, $correct_arrow) {
 					$res->array_sufix = "_up";
 				} elseif ($num > 0.5) {
 					$res->array_sufix = "_down";
+				} else {
+					$res->array_sufix = "";
 				}
 			}
 			$array_add[] = $res;
