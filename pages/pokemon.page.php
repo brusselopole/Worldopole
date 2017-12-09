@@ -319,7 +319,7 @@
                                     if (isset($obj->candies)) {
                                         echo $obj->candies . ' ' . $locales->POKEMON_CANDIES;
                                     } else {
-                                        '? ' . $locales->POKEMON_CANDIES;
+                                        echo '? ' . $locales->POKEMON_CANDIES;
                                     }
 
 									if (isset($obj->item)) {
