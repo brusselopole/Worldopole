@@ -299,7 +299,7 @@
 					foreach ($data as $obj) {
 						$obj_id = $obj->id;
 						$tree_pokemon = $pokemons->pokemon->$obj_id;
-						$link = "/pokemon/".$obj_id;
+						$link = "pokemon/".$obj_id;
 
 						if ($i % 2 == 0) { ?>
 
@@ -316,7 +316,12 @@
 								<img src="core/img/arrow<?=$obj->array_sufix?>.png" alt="Arrow" class="img">
 								<p class="pkmn-name">
 									<?php
-									echo $obj->candies . ' ' . $locales->POKEMON_CANDIES;
+                                    if (isset($obj->candies)) {
+                                        echo $obj->candies . ' ' . $locales->POKEMON_CANDIES;
+                                    } else {
+                                        '? ' . $locales->POKEMON_CANDIES;
+                                    }
+
 									if (isset($obj->item)) {
 										$itemName = 'ITEM_' . $obj->item;
 										echo '<br>+ ' . $locales->$itemName;
