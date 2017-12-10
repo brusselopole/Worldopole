@@ -3262,7 +3262,10 @@
     "Vine Whip": "Vine Whip",
     "Water Gun": "Water Gun",
     "Wing Attack": "Wing Attack",
-    "Zen Headbutt": "Zen Headbutt"
+    "Zen Headbutt": "Zen Headbutt",
+    "Take Down": "Take Down",
+    "Yawn": "Yawn",
+    "Waterfall": "Waterfall"
   },
   "charge_moves": {
     "?": "?",
@@ -3336,7 +3339,13 @@
     "Water Pulse": "Water Pulse",
     "Wild Charge": "Wild Charge",
     "X-Scissor": "X-Scissor",
-    "Zap Cannon": "Zap Cannon"
+    "Zap Cannon": "Zap Cannon",
+    "Precipice Blades": "Precipice Blades",
+    "Origin Pulse": "Origin Pulse",
+    "Doom Desire": "Doom Desire",
+    "Draco Meteor": "Draco Meteor",
+    "Psycho Boost": "Psycho Boost",
+    "Surf": "Surf"
   },
   "types": {
     "Bug": "Bug",
