@@ -1598,7 +1598,10 @@
     "Vine Whip": "Fouet Lianes",
     "Water Gun": "Pistolet à O",
     "Wing Attack": "Cru-Aile",
-    "Zen Headbutt": "Psykoud'Boul"
+    "Zen Headbutt": "Psykoud'Boul",
+	"Take Down": "Bélier",
+    "Yawn": "Bâillement",
+    "Waterfall": "Cascade"
   },
   "charge_moves": {
     "?": "?",
@@ -1672,7 +1675,13 @@
     "Water Pulse": "Vibraqua",
     "Wild Charge": "Éclair Fou",
     "X-Scissor": "Plaie-Croix",
-    "Zap Cannon": "Élécanon"
+    "Zap Cannon": "Élécanon",
+	"Precipice Blades": "Lame Pangéenne",
+    "Origin Pulse": "Onde Originelle",
+    "Doom Desire": "Carnareket",
+    "Draco Meteor": "Draco Météore",
+    "Psycho Boost": "Psycho Boost",
+    "Surf": "Surf"
   },
   "types": {
     "Bug": "Insecte",
