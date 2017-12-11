@@ -3262,7 +3262,10 @@
     "Vine Whip": "Látigo cepa",
     "Water Gun": "Pistola Agua",
     "Wing Attack": "Ataque ala",
-    "Zen Headbutt": "Cabezazo zen"
+    "Zen Headbutt": "Cabezazo zen",
+    "Take Down": "Derribo",
+    "Yawn": "Bostezo",
+    "Waterfall": "Cascada"
   },
   "charge_moves": {
     "?": "?",
@@ -3336,7 +3339,13 @@
     "Water Pulse": "Hidropulso",
     "Wild Charge": "Voltio cruel",
     "X-Scissor": "Tijera X",
-    "Zap Cannon": "Electrocañón"
+    "Zap Cannon": "Electrocañón",
+    "Precipice Blades": "Filo del abismo",
+    "Origin Pulse": "Pulso primigenio",
+    "Doom Desire": "Deseo oculto",
+    "Draco Meteor": "Cometa Draco",
+    "Psycho Boost": "Psicoataque",
+    "Surf": "Surf"
   },
   "types": {
     "Bug": "Bicho",
