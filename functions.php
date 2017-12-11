@@ -170,3 +170,85 @@ function gym_level($prestige)
 
 	return $gym_level;
 }
+
+########################################################################
+// depth of array
+// @param $arr     => array (mandatory)
+//
+// Retruns max depth of array
+########################################################################
+function get_depth($arr) {
+	$it = new RecursiveIteratorIterator(new RecursiveArrayIterator($arr));
+	$depth = 0;
+	foreach ($it as $v) {
+		$it->getDepth() > $depth && $depth = $it->getDepth();
+	}
+	return $depth;
+}
+
+########################################################################
+// tree for at depth
+// @param $trees     => array (mandatory)
+// @param $depth => int (mandatory)
+// @param $max_pokemon => int (mandatory)
+// @param $currentDepth => int (optional)
+//
+// Return all pokemon with data at a certain tree depth
+########################################################################
+function get_tree_at_depth($trees, $depth, $max_pokemon, $currentDepth = 0) {
+	if ($depth == $currentDepth) { // Found depth
+		return tree_remove_bellow($trees, $max_pokemon);
+	} else { // Go deeper
+		$arr = array();
+		foreach ($trees as $temp) { // Go into all trees
+			$tree = $temp->evolutions;
+			$results = tree_remove_bellow(get_tree_at_depth($tree, $depth, $max_pokemon, $currentDepth + 1), $max_pokemon);
+			$arr = tree_check_array($results, $arr, $depth - $currentDepth == 1);
+		}
+		return $arr;
+	}
+}
+
+########################################################################
+// used in get_tree_at_depth
+########################################################################
+function tree_check_array($array_check, $array_add, $correct_arrow) {
+	$count = count($array_check);
+	$i = 0;
+	if (!is_null($array_check)) { // check if exists
+		foreach ($array_check as $res) { // Check if above, equal or bellow center
+			if ($count != 1 && $correct_arrow) { // only add arrow once
+				$num = $i / ($count - 1);
+				if ($num < 0.5) {
+					$res->array_sufix = "_up";
+				} elseif ($num > 0.5) {
+					$res->array_sufix = "_down";
+				} else {
+					$res->array_sufix = "";
+				}
+			} else {
+                $res->array_sufix = "";
+            }
+			$array_add[] = $res;
+			$i++;
+		}
+	}
+	return $array_add;
+}
+
+########################################################################
+// used in get_tree_at_depth
+########################################################################
+function tree_remove_bellow($tree, $max_pokemon)
+{
+	if (is_null($tree)) {
+		return null;
+	}
+	$arr = array();
+	foreach ($tree as $item) { // Check if above, equal or bellow center
+		if ($item->id <= $max_pokemon) {
+			$arr[] = $item;
+		}
+	}
+	return $arr;
+}

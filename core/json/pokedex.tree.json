@@ -1,0 +1,3547 @@
+{
+  "1": {
+    "id": 1,
+    "evolutions": [
+      {
+        "id": 2,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 3,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "4": {
+    "id": 4,
+    "evolutions": [
+      {
+        "id": 5,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 6,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "7": {
+    "id": 7,
+    "evolutions": [
+      {
+        "id": 8,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 9,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "10": {
+    "id": 10,
+    "evolutions": [
+      {
+        "id": 11,
+        "candies": 12,
+        "evolutions": [
+          {
+            "id": 12,
+            "candies": 50
+          }
+        ]
+      }
+    ]
+  },
+  "13": {
+    "id": 13,
+    "evolutions": [
+      {
+        "id": 14,
+        "candies": 12,
+        "evolutions": [
+          {
+            "id": 15,
+            "candies": 50
+          }
+        ]
+      }
+    ]
+  },
+  "16": {
+    "id": 16,
+    "evolutions": [
+      {
+        "id": 17,
+        "candies": 12,
+        "evolutions": [
+          {
+            "id": 18,
+            "candies": 50
+          }
+        ]
+      }
+    ]
+  },
+  "19": {
+    "id": 19,
+    "evolutions": [
+      {
+        "id": 20,
+        "candies": 25
+      }
+    ]
+  },
+  "21": {
+    "id": 21,
+    "evolutions": [
+      {
+        "id": 22,
+        "candies": 50
+      }
+    ]
+  },
+  "23": {
+    "id": 23,
+    "evolutions": [
+      {
+        "id": 24,
+        "candies": 50
+      }
+    ]
+  },
+  "25": {
+    "id": 172,
+    "evolutions": [
+      {
+        "id": 25,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 26,
+            "candies": 50
+          }
+        ]
+      }
+    ]
+  },
+  "27": {
+    "id": 27,
+    "evolutions": [
+      {
+        "id": 28,
+        "candies": 50
+      }
+    ]
+  },
+  "29": {
+    "id": 29,
+    "evolutions": [
+      {
+        "id": 30,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 31,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "32": {
+    "id": 32,
+    "evolutions": [
+      {
+        "id": 33,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 34,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "35": {
+    "id": 173,
+    "evolutions": [
+      {
+        "id": 35,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 36,
+			"candies": 50
+          }
+        ]
+      }
+    ]
+  },
+  "37": {
+    "id": 37,
+    "evolutions": [
+      {
+        "id": 38,
+        "candies": 50
+      }
+    ]
+  },
+  "39": {
+    "id": 174,
+    "evolutions": [
+      {
+        "id": 39,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 40,
+            "candies": 50
+          }
+        ]
+      }
+    ]
+  },
+  "41": {
+    "id": 41,
+    "evolutions": [
+      {
+        "id": 42,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 169,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "43": {
+    "id": 43,
+    "evolutions": [
+      {
+        "id": 44,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 45,
+            "candies": 100
+          },
+          {
+            "id": 182,
+            "candies": 100,
+            "item": "SUN_STONE"
+          }
+        ]
+      }
+    ]
+  },
+  "46": {
+    "id": 46,
+    "evolutions": [
+      {
+        "id": 47,
+        "candies": 50
+      }
+    ]
+  },
+  "48": {
+    "id": 48,
+    "evolutions": [
+      {
+        "id": 49,
+        "candies": 50
+      }
+    ]
+  },
+  "50": {
+    "id": 50,
+    "evolutions": [
+      {
+        "id": 51,
+        "candies": 50
+      }
+    ]
+  },
+  "52": {
+    "id": 52,
+    "evolutions": [
+      {
+        "id": 53,
+        "candies": 50
+      }
+    ]
+  },
+  "54": {
+    "id": 54,
+    "evolutions": [
+      {
+        "id": 55,
+        "candies": 50
+      }
+    ]
+  },
+  "56": {
+    "id": 56,
+    "evolutions": [
+      {
+        "id": 57,
+        "candies": 50
+      }
+    ]
+  },
+  "58": {
+    "id": 58,
+    "evolutions": [
+      {
+        "id": 59,
+        "candies": 50
+      }
+    ]
+  },
+  "60": {
+    "id": 60,
+    "evolutions": [
+      {
+        "id": 61,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 62,
+            "candies": 100
+          },
+          {
+            "id": 186,
+            "candies": 100,
+            "item": "KINGS_ROCK"
+          }
+        ]
+      }
+    ]
+  },
+  "63": {
+    "id": 63,
+    "evolutions": [
+      {
+        "id": 64,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 65,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "66": {
+    "id": 66,
+    "evolutions": [
+      {
+        "id": 67,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 68,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "69": {
+    "id": 69,
+    "evolutions": [
+      {
+        "id": 70,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 71,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "72": {
+    "id": 72,
+    "evolutions": [
+      {
+        "id": 73,
+        "candies": 50
+      }
+    ]
+  },
+  "74": {
+    "id": 74,
+    "evolutions": [
+      {
+        "id": 75,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 76,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "77": {
+    "id": 77,
+    "evolutions": [
+      {
+        "id": 78,
+        "candies": 50
+      }
+    ]
+  },
+  "79": {
+    "id": 79,
+    "evolutions": [
+      {
+        "id": 80,
+        "candies": 50
+      },
+      {
+        "id": 199,
+        "candies": 50,
+        "item": "KINGS_ROCK"
+      }
+    ]
+  },
+  "81": {
+    "id": 81,
+    "evolutions": [
+      {
+        "id": 82,
+        "candies": 50,
+        "evolutions": [
+          {
+            "id": 462
+          }
+        ]
+      }
+    ]
+  },
+  "83": {
+    "id": 83
+  },
+  "84": {
+    "id": 84,
+    "evolutions": [
+      {
+        "id": 85,
+        "candies": 50
+      }
+    ]
+  },
+  "86": {
+    "id": 86,
+    "evolutions": [
+      {
+        "id": 87,
+        "candies": 50
+      }
+    ]
+  },
+  "88": {
+    "id": 88,
+    "evolutions": [
+      {
+        "id": 89,
+        "candies": 50
+      }
+    ]
+  },
+  "90": {
+    "id": 90,
+    "evolutions": [
+      {
+        "id": 91,
+        "candies": 50
+      }
+    ]
+  },
+  "92": {
+    "id": 92,
+    "evolutions": [
+      {
+        "id": 93,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 94,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "95": {
+    "id": 95,
+    "evolutions": [
+      {
+        "id": 208,
+        "candies": 50,
+        "item": "METAL_COAT"
+      }
+    ]
+  },
+  "96": {
+    "id": 96,
+    "evolutions": [
+      {
+        "id": 97,
+        "candies": 50
+      }
+    ]
+  },
+  "98": {
+    "id": 98,
+    "evolutions": [
+      {
+        "id": 99,
+        "candies": 50
+      }
+    ]
+  },
+  "100": {
+    "id": 100,
+    "evolutions": [
+      {
+        "id": 101,
+        "candies": 50
+      }
+    ]
+  },
+  "102": {
+    "id": 102,
+    "evolutions": [
+      {
+        "id": 103,
+        "candies": 50
+      }
+    ]
+  },
+  "104": {
+    "id": 104,
+    "evolutions": [
+      {
+        "id": 105,
+        "candies": 50
+      }
+    ]
+  },
+  "108": {
+    "id": 108,
+    "evolutions": [
+      {
+        "id": 463,
+        "candies": 50
+      }
+    ]
+  },
+  "109": {
+    "id": 109,
+    "evolutions": [
+      {
+        "id": 110,
+        "candies": 50
+      }
+    ]
+  },
+  "111": {
+    "id": 111,
+    "evolutions": [
+      {
+        "id": 112,
+        "candies": 50,
+        "evolutions": [
+          {
+            "id": 464,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "113": {
+    "id": 440,
+    "evolutions": [
+      {
+        "id": 113,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 242,
+            "candies": 50
+          }
+        ]
+      }
+    ]
+  },
+  "114": {
+    "id": 114,
+    "evolutions": [
+      {
+        "id": 465,
+        "candies": 50
+      }
+    ]
+  },
+  "115": {
+    "id": 115
+  },
+  "116": {
+    "id": 116,
+    "evolutions": [
+      {
+        "id": 117,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 230,
+            "candies": 100,
+            "item": "DRAGON_SCALE"
+          }
+        ]
+      }
+    ]
+  },
+  "118": {
+    "id": 118,
+    "evolutions": [
+      {
+        "id": 119,
+        "candies": 50
+      }
+    ]
+  },
+  "120": {
+    "id": 120,
+    "evolutions": [
+      {
+        "id": 121,
+        "candies": 50
+      }
+    ]
+  },
+  "122": {
+    "id": 439,
+    "evolutions": [
+      {
+        "id": 122,
+        "candies": 25
+      }
+    ]
+  },
+  "123": {
+    "id": 123,
+    "evolutions": [
+      {
+        "id": 212,
+        "candies": 50,
+        "item": "METAL_COAT"
+      }
+    ]
+  },
+  "124": {
+    "id": 238,
+    "evolutions": [
+      {
+        "id": 124,
+        "candies": 25
+      }
+    ]
+  },
+  "125": {
+    "id": 239,
+    "evolutions": [
+      {
+        "id": 125,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 466,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "126": {
+    "id": 240,
+    "evolutions": [
+      {
+        "id": 126,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 467,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "127": {
+    "id": 127
+  },
+  "128": {
+    "id": 128
+  },
+  "129": {
+    "id": 129,
+    "evolutions": [
+      {
+        "id": 130,
+        "candies": 400
+      }
+    ]
+  },
+  "131": {
+    "id": 131
+  },
+  "132": {
+    "id": 132
+  },
+  "133": {
+    "id": 133,
+    "evolutions": [
+      {
+        "id": 134,
+        "candies": 25
+      },
+      {
+        "id": 135,
+        "candies": 25
+      },
+      {
+        "id": 136,
+        "candies": 25
+      },
+      {
+        "id": 196,
+        "candies": 25
+      },
+      {
+        "id": 197,
+        "candies": 25
+      },
+      {
+        "id": 470,
+        "candies": 25
+      },
+      {
+        "id": 471,
+        "candies": 25
+      },
+      {
+        "id": 700,
+        "candies": 25
+      }
+    ]
+  },
+  "137": {
+    "id": 137,
+    "evolutions": [
+      {
+        "id": 233,
+        "candies": 50,
+        "item": "UPGRADE",
+        "evolutions": [
+          {
+            "id": 474,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "138": {
+    "id": 138,
+    "evolutions": [
+      {
+        "id": 139,
+        "candies": 50
+      }
+    ]
+  },
+  "140": {
+    "id": 140,
+    "evolutions": [
+      {
+        "id": 141,
+        "candies": 50
+      }
+    ]
+  },
+  "142": {
+    "id": 142
+  },
+  "143": {
+    "id": 446,
+    "evolutions": [
+      {
+        "id": 143,
+        "candies": 25
+      }
+    ]
+  },
+  "144": {
+    "id": 144
+  },
+  "145": {
+    "id": 145
+  },
+  "146": {
+    "id": 146
+  },
+  "147": {
+    "id": 147,
+    "evolutions": [
+      {
+        "id": 148,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 149,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "150": {
+    "id": 150
+  },
+  "151": {
+    "id": 151
+  },
+  "152": {
+    "id": 152,
+    "evolutions": [
+      {
+        "id": 153,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 154,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "155": {
+    "id": 155,
+    "evolutions": [
+      {
+        "id": 156,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 157,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "158": {
+    "id": 158,
+    "evolutions": [
+      {
+        "id": 159,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 160,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "161": {
+    "id": 161,
+    "evolutions": [
+      {
+        "id": 162,
+        "candies": 50
+      }
+    ]
+  },
+  "163": {
+    "id": 163,
+    "evolutions": [
+      {
+        "id": 164,
+        "candies": 50
+      }
+    ]
+  },
+  "165": {
+    "id": 165,
+    "evolutions": [
+      {
+        "id": 166,
+        "candies": 50
+      }
+    ]
+  },
+  "167": {
+    "id": 167,
+    "evolutions": [
+      {
+        "id": 168,
+        "candies": 50
+      }
+    ]
+  },
+  "170": {
+    "id": 170,
+    "evolutions": [
+      {
+        "id": 171,
+        "candies": 50
+      }
+    ]
+  },
+  "175": {
+    "id": 175,
+    "evolutions": [
+      {
+        "id": 176,
+        "candies": 50,
+        "evolutions": [
+          {
+            "id": 468,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "177": {
+    "id": 177,
+    "evolutions": [
+      {
+        "id": 178,
+        "candies": 50
+      }
+    ]
+  },
+  "179": {
+    "id": 179,
+    "evolutions": [
+      {
+        "id": 180,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 181,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "183": {
+    "id": 298,
+    "evolutions": [
+      {
+        "id": 183,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 184,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "185": {
+    "id": 438,
+    "evolutions": [
+      {
+        "id": 185,
+        "candies": 25
+      }
+    ]
+  },
+  "187": {
+    "id": 187,
+    "evolutions": [
+      {
+        "id": 188,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 189,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "190": {
+    "id": 190,
+    "evolutions": [
+      {
+        "id": 424,
+        "candies": 50
+      }
+    ]
+  },
+  "191": {
+    "id": 191,
+    "evolutions": [
+      {
+        "id": 192,
+        "candies": 50,
+        "item": "SUN_STONE"
+      }
+    ]
+  },
+  "193": {
+    "id": 193,
+    "evolutions": [
+      {
+        "id": 469,
+        "candies": 50
+      }
+    ]
+  },
+  "194": {
+    "id": 194,
+    "evolutions": [
+      {
+        "id": 195,
+        "candies": 50
+      }
+    ]
+  },
+  "198": {
+    "id": 198,
+    "evolutions": [
+      {
+        "id": 430,
+        "candies": 50
+      }
+    ]
+  },
+  "200": {
+    "id": 200,
+    "evolutions": [
+      {
+        "id": 429,
+        "candies": 50
+      }
+    ]
+  },
+  "201": {
+    "id": 201
+  },
+  "202": {
+    "id": 360,
+    "evolutions": [
+      {
+        "id": 202,
+        "candies": 50
+      }
+    ]
+  },
+  "203": {
+    "id": 203
+  },
+  "204": {
+    "id": 204,
+    "evolutions": [
+      {
+        "id": 205,
+        "candies": 50
+      }
+    ]
+  },
+  "206": {
+    "id": 206
+  },
+  "207": {
+    "id": 207,
+    "evolutions": [
+      {
+        "id": 472,
+        "candies": 50
+      }
+    ]
+  },
+  "209": {
+    "id": 209,
+    "evolutions": [
+      {
+        "id": 210,
+        "candies": 50
+      }
+    ]
+  },
+  "211": {
+    "id": 211
+  },
+  "213": {
+    "id": 213
+  },
+  "214": {
+    "id": 214
+  },
+  "215": {
+    "id": 215,
+    "evolutions": [
+      {
+        "id": 461,
+        "candies": 50
+      }
+    ]
+  },
+  "216": {
+    "id": 216,
+    "evolutions": [
+      {
+        "id": 217,
+        "candies": 50
+      }
+    ]
+  },
+  "218": {
+    "id": 218,
+    "evolutions": [
+      {
+        "id": 219,
+        "candies": 50
+      }
+    ]
+  },
+  "220": {
+    "id": 220,
+    "evolutions": [
+      {
+        "id": 221,
+        "candies": 50,
+        "evolutions": [
+          {
+            "id": 473,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "222": {
+    "id": 222
+  },
+  "223": {
+    "id": 223,
+    "evolutions": [
+      {
+        "id": 224,
+        "candies": 50
+      }
+    ]
+  },
+  "225": {
+    "id": 225
+  },
+  "226": {
+    "id": 458,
+    "evolutions": [
+      {
+        "id": 226,
+        "candies": 25
+      }
+    ]
+  },
+  "227": {
+    "id": 227
+  },
+  "228": {
+    "id": 228,
+    "evolutions": [
+      {
+        "id": 229,
+        "candies": 50
+      }
+    ]
+  },
+  "231": {
+    "id": 231,
+    "evolutions": [
+      {
+        "id": 232,
+        "candies": 50
+      }
+    ]
+  },
+  "234": {
+    "id": 234
+  },
+  "235": {
+    "id": 235
+  },
+  "236": {
+    "id": 236,
+    "evolutions": [
+      {
+        "id": 106,
+        "candies": 25,
+        "info": "ATTACK"
+      },
+      {
+        "id": 107,
+        "candies": 25,
+        "info": "DEFENSE"
+      },
+      {
+        "id": 237,
+        "candies": 25,
+        "info": "STAMINA"
+      }
+    ]
+  },
+  "241": {
+    "id": 241,
+    "evolutions": [
+      {
+        "id": 342
+      }
+    ]
+  },
+  "243": {
+    "id": 243
+  },
+  "244": {
+    "id": 244
+  },
+  "245": {
+    "id": 245
+  },
+  "246": {
+    "id": 246,
+    "evolutions": [
+      {
+        "id": 247,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 248,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "249": {
+    "id": 249
+  },
+  "250": {
+    "id": 250
+  },
+  "251": {
+    "id": 251
+  },
+  "252": {
+    "id": 252,
+    "evolutions": [
+      {
+        "id": 253,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 254,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "255": {
+    "id": 255,
+    "evolutions": [
+      {
+        "id": 256,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 257,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "258": {
+    "id": 258,
+    "evolutions": [
+      {
+        "id": 259,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 260,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "261": {
+    "id": 261,
+    "evolutions": [
+      {
+        "id": 262,
+        "candies": 50
+      }
+    ]
+  },
+  "263": {
+    "id": 263,
+    "evolutions": [
+      {
+        "id": 264,
+        "candies": 50
+      }
+    ]
+  },
+  "265": {
+    "id": 265,
+    "evolutions": [
+      {
+        "id": 266,
+        "candies": 12,
+        "evolutions": [
+          {
+            "id": 267,
+            "candies": 100
+          }
+        ]
+      },
+      {
+        "id": 268,
+        "candies": 12,
+        "evolutions": [
+          {
+            "id": 269,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "270": {
+    "id": 270,
+    "evolutions": [
+      {
+        "id": 271,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 272,
+            "candies": 100,
+            "item": "WATER_STONE"
+          }
+        ]
+      }
+    ]
+  },
+  "273": {
+    "id": 273,
+    "evolutions": [
+      {
+        "id": 274,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 275,
+            "candies": 100,
+            "item": "LEAF_STONE"
+          }
+        ]
+      }
+    ]
+  },
+  "276": {
+    "id": 276,
+    "evolutions": [
+      {
+        "id": 277,
+        "candies": 50
+      }
+    ]
+  },
+  "278": {
+    "id": 278,
+    "evolutions": [
+      {
+        "id": 279,
+        "candies": 50
+      }
+    ]
+  },
+  "280": {
+    "id": 280,
+    "evolutions": [
+      {
+        "id": 281,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 282,
+            "candies": 100
+          },
+          {
+            "id": 475,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "283": {
+    "id": 283,
+    "evolutions": [
+      {
+        "id": 284,
+        "candies": 50
+      }
+    ]
+  },
+  "285": {
+    "id": 285,
+    "evolutions": [
+      {
+        "id": 286,
+        "candies": 50
+      }
+    ]
+  },
+  "287": {
+    "id": 287,
+    "evolutions": [
+      {
+        "id": 288,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 289,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "290": {
+    "id": 290,
+    "evolutions": [
+      {
+        "id": 291,
+        "candies": 50
+      },
+      {
+        "id": 292,
+        "candies": 50
+      }
+    ]
+  },
+  "293": {
+    "id": 293,
+    "evolutions": [
+      {
+        "id": 294,
+        "candies": 12,
+        "evolutions": [
+          {
+            "id": 295,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "296": {
+    "id": 296,
+    "evolutions": [
+      {
+        "id": 297,
+        "candies": 50
+      }
+    ]
+  },
+  "299": {
+    "id": 299,
+    "evolutions": [
+      {
+        "id": 476,
+        "candies": 50
+      }
+    ]
+  },
+  "300": {
+    "id": 300,
+    "evolutions": [
+      {
+        "id": 301,
+        "candies": 50,
+        "item": "MOON_STONE"
+      }
+    ]
+  },
+  "302": {
+    "id": 302
+  },
+  "303": {
+    "id": 303
+  },
+  "304": {
+    "id": 304,
+    "evolutions": [
+      {
+        "id": 305,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 306,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "307": {
+    "id": 307,
+    "evolutions": [
+      {
+        "id": 308,
+        "candies": 50
+      }
+    ]
+  },
+  "309": {
+    "id": 309,
+    "evolutions": [
+      {
+        "id": 310,
+        "candies": 50
+      }
+    ]
+  },
+  "311": {
+    "id": 311
+  },
+  "312": {
+    "id": 312
+  },
+  "313": {
+    "id": 313
+  },
+  "314": {
+    "id": 314
+  },
+  "315": {
+    "id": 406,
+    "evolutions": [
+      {
+        "id": 315,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 407,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "316": {
+    "id": 316,
+    "evolutions": [
+      {
+        "id": 317,
+        "candies": 50
+      }
+    ]
+  },
+  "318": {
+    "id": 318,
+    "evolutions": [
+      {
+        "id": 319,
+        "candies": 50
+      }
+    ]
+  },
+  "320": {
+    "id": 320,
+    "evolutions": [
+      {
+        "id": 321,
+        "candies": 50
+      }
+    ]
+  },
+  "322": {
+    "id": 322,
+    "evolutions": [
+      {
+        "id": 323,
+        "candies": 50
+      }
+    ]
+  },
+  "324": {
+    "id": 324
+  },
+  "325": {
+    "id": 325,
+    "evolutions": [
+      {
+        "id": 326,
+        "candies": 50
+      }
+    ]
+  },
+  "327": {
+    "id": 327
+  },
+  "328": {
+    "id": 328,
+    "evolutions": [
+      {
+        "id": 329,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 330,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "331": {
+    "id": 331,
+    "evolutions": [
+      {
+        "id": 332,
+        "candies": 50
+      }
+    ]
+  },
+  "333": {
+    "id": 333,
+    "evolutions": [
+      {
+        "id": 334,
+        "candies": 50
+      }
+    ]
+  },
+  "335": {
+    "id": 335
+  },
+  "336": {
+    "id": 336
+  },
+  "337": {
+    "id": 337
+  },
+  "338": {
+    "id": 338
+  },
+  "339": {
+    "id": 339,
+    "evolutions": [
+      {
+        "id": 340,
+        "candies": 50
+      }
+    ]
+  },
+  "341": {
+    "id": 341,
+    "evolutions": [
+      {
+        "id": 342,
+        "candies": 50
+      }
+    ]
+  },
+  "343": {
+    "id": 343,
+    "evolutions": [
+      {
+        "id": 344,
+        "candies": 50
+      }
+    ]
+  },
+  "345": {
+    "id": 345,
+    "evolutions": [
+      {
+        "id": 346,
+        "candies": 50
+      }
+    ]
+  },
+  "347": {
+    "id": 347,
+    "evolutions": [
+      {
+        "id": 348,
+        "candies": 50
+      }
+    ]
+  },
+  "349": {
+    "id": 349,
+    "evolutions": [
+      {
+        "id": 350,
+        "candies": 100,
+        "item": "PRISM_SCALE"
+      }
+    ]
+  },
+  "351": {
+    "id": 351
+  },
+  "352": {
+    "id": 352
+  },
+  "353": {
+    "id": 353,
+    "evolutions": [
+      {
+        "id": 354,
+        "candies": 50
+      }
+    ]
+  },
+  "355": {
+    "id": 355,
+    "evolutions": [
+      {
+        "id": 356,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 477,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "357": {
+    "id": 357
+  },
+  "358": {
+    "id": 433,
+    "evolutions": [
+      {
+        "id": 358,
+        "candies": 25
+      }
+    ]
+  },
+  "359": {
+    "id": 359
+  },
+  "361": {
+    "id": 361,
+    "evolutions": [
+      {
+        "id": 362,
+        "candies": 50
+      },
+      {
+        "id": 478,
+        "candies": 50
+      }
+    ]
+  },
+  "363": {
+    "id": 363,
+    "evolutions": [
+      {
+        "id": 364,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 365,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "366": {
+    "id": 366,
+    "evolutions": [
+      {
+        "id": 367,
+        "candies": 50,
+        "item": "DEEP_SEA_TOOTH"
+      },
+      {
+        "id": 368,
+        "candies": 50,
+        "item": "DEEP_SEA_SCALE"
+      }
+    ]
+  },
+  "369": {
+    "id": 369
+  },
+  "370": {
+    "id": 370
+  },
+  "371": {
+    "id": 371,
+    "evolutions": [
+      {
+        "id": 372,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 373,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "374": {
+    "id": 374,
+    "evolutions": [
+      {
+        "id": 375,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 376,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "377": {
+    "id": 377
+  },
+  "378": {
+    "id": 378
+  },
+  "379": {
+    "id": 379
+  },
+  "380": {
+    "id": 380
+  },
+  "381": {
+    "id": 381
+  },
+  "382": {
+    "id": 382
+  },
+  "383": {
+    "id": 383
+  },
+  "384": {
+    "id": 384
+  },
+  "385": {
+    "id": 385
+  },
+  "386": {
+    "id": 386
+  },
+  "387": {
+    "id": 387,
+    "evolutions": [
+      {
+        "id": 388,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 389,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "390": {
+    "id": 390,
+    "evolutions": [
+      {
+        "id": 391,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 392,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "393": {
+    "id": 393,
+    "evolutions": [
+      {
+        "id": 394,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 395,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "396": {
+    "id": 396,
+    "evolutions": [
+      {
+        "id": 397,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 398,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "399": {
+    "id": 399,
+    "evolutions": [
+      {
+        "id": 400,
+        "candies": 50
+      }
+    ]
+  },
+  "401": {
+    "id": 401,
+    "evolutions": [
+      {
+        "id": 402,
+        "candies": 50
+      }
+    ]
+  },
+  "403": {
+    "id": 403,
+    "evolutions": [
+      {
+        "id": 404,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 405,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "408": {
+    "id": 408,
+    "evolutions": [
+      {
+        "id": 409,
+        "candies": 50
+      }
+    ]
+  },
+  "410": {
+    "id": 410,
+    "evolutions": [
+      {
+        "id": 411,
+        "candies": 50
+      }
+    ]
+  },
+  "412": {
+    "id": 412,
+    "evolutions": [
+      {
+        "id": 413,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 414,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "415": {
+    "id": 415,
+    "evolutions": [
+      {
+        "id": 416,
+        "candies": 50
+      }
+    ]
+  },
+  "417": {
+    "id": 417
+  },
+  "418": {
+    "id": 418,
+    "evolutions": [
+      {
+        "id": 419,
+        "candies": 50
+      }
+    ]
+  },
+  "420": {
+    "id": 420,
+    "evolutions": [
+      {
+        "id": 421,
+        "candies": 50
+      }
+    ]
+  },
+  "422": {
+    "id": 422,
+    "evolutions": [
+      {
+        "id": 423,
+        "candies": 50
+      }
+    ]
+  },
+  "425": {
+    "id": 425,
+    "evolutions": [
+      {
+        "id": 426,
+        "candies": 50
+      }
+    ]
+  },
+  "427": {
+    "id": 427,
+    "evolutions": [
+      {
+        "id": 428,
+        "candies": 50
+      }
+    ]
+  },
+  "431": {
+    "id": 431,
+    "evolutions": [
+      {
+        "id": 432,
+        "candies": 50
+      }
+    ]
+  },
+  "434": {
+    "id": 434,
+    "evolutions": [
+      {
+        "id": 435,
+        "candies": 50
+      }
+    ]
+  },
+  "436": {
+    "id": 436,
+    "evolutions": [
+      {
+        "id": 437,
+        "candies": 50
+      }
+    ]
+  },
+  "441": {
+    "id": 441,
+    "evolutions": [
+      {
+        "id": 442
+      }
+    ]
+  },
+  "443": {
+    "id": 443,
+    "evolutions": [
+      {
+        "id": 444,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 445,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "447": {
+    "id": 447,
+    "evolutions": [
+      {
+        "id": 448,
+        "candies": 50
+      }
+    ]
+  },
+  "449": {
+    "id": 449,
+    "evolutions": [
+      {
+        "id": 450,
+        "candies": 50
+      }
+    ]
+  },
+  "451": {
+    "id": 451,
+    "evolutions": [
+      {
+        "id": 452,
+        "candies": 50
+      }
+    ]
+  },
+  "453": {
+    "id": 453,
+    "evolutions": [
+      {
+        "id": 454,
+        "candies": 50
+      }
+    ]
+  },
+  "455": {
+    "id": 455
+  },
+  "456": {
+    "id": 456,
+    "evolutions": [
+      {
+        "id": 457,
+        "candies": 50
+      }
+    ]
+  },
+  "459": {
+    "id": 459,
+    "evolutions": [
+      {
+        "id": 460,
+        "candies": 50
+      }
+    ]
+  },
+  "479": {
+    "id": 479
+  },
+  "480": {
+    "id": 480
+  },
+  "481": {
+    "id": 481
+  },
+  "482": {
+    "id": 482
+  },
+  "483": {
+    "id": 483
+  },
+  "484": {
+    "id": 484
+  },
+  "485": {
+    "id": 485
+  },
+  "486": {
+    "id": 486
+  },
+  "487": {
+    "id": 487
+  },
+  "488": {
+    "id": 488
+  },
+  "489": {
+    "id": 489,
+    "evolutions": [
+      {
+        "id": 490,
+        "candies": 50
+      }
+    ]
+  },
+  "491": {
+    "id": 491
+  },
+  "492": {
+    "id": 492
+  },
+  "493": {
+    "id": 493
+  },
+  "494": {
+    "id": 494
+  },
+  "495": {
+    "id": 495,
+    "evolutions": [
+      {
+        "id": 496,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 497,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "498": {
+    "id": 498,
+    "evolutions": [
+      {
+        "id": 499,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 500,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "501": {
+    "id": 501,
+    "evolutions": [
+      {
+        "id": 502,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 503,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "504": {
+    "id": 504,
+    "evolutions": [
+      {
+        "id": 505,
+        "candies": 50
+      }
+    ]
+  },
+  "506": {
+    "id": 506,
+    "evolutions": [
+      {
+        "id": 507,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 508,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "509": {
+    "id": 509,
+    "evolutions": [
+      {
+        "id": 510,
+        "candies": 50
+      }
+    ]
+  },
+  "511": {
+    "id": 511,
+    "evolutions": [
+      {
+        "id": 512,
+        "candies": 50
+      }
+    ]
+  },
+  "513": {
+    "id": 513,
+    "evolutions": [
+      {
+        "id": 514,
+        "candies": 50
+      }
+    ]
+  },
+  "515": {
+    "id": 515,
+    "evolutions": [
+      {
+        "id": 516,
+        "candies": 50
+      }
+    ]
+  },
+  "517": {
+    "id": 517,
+    "evolutions": [
+      {
+        "id": 518,
+        "candies": 50
+      }
+    ]
+  },
+  "519": {
+    "id": 519,
+    "evolutions": [
+      {
+        "id": 520,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 521,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "522": {
+    "id": 522,
+    "evolutions": [
+      {
+        "id": 523,
+        "candies": 50
+      }
+    ]
+  },
+  "524": {
+    "id": 524,
+    "evolutions": [
+      {
+        "id": 525,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 526,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "527": {
+    "id": 527,
+    "evolutions": [
+      {
+        "id": 528,
+        "candies": 50
+      }
+    ]
+  },
+  "529": {
+    "id": 529,
+    "evolutions": [
+      {
+        "id": 530,
+        "candies": 50
+      }
+    ]
+  },
+  "531": {
+    "id": 531
+  },
+  "532": {
+    "id": 532,
+    "evolutions": [
+      {
+        "id": 533,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 534,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "535": {
+    "id": 535,
+    "evolutions": [
+      {
+        "id": 536,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 537,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "538": {
+    "id": 538
+  },
+  "539": {
+    "id": 539
+  },
+  "540": {
+    "id": 540,
+    "evolutions": [
+      {
+        "id": 541,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 542,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "543": {
+    "id": 543,
+    "evolutions": [
+      {
+        "id": 544,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 545,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "546": {
+    "id": 546,
+    "evolutions": [
+      {
+        "id": 547,
+        "candies": 50
+      }
+    ]
+  },
+  "548": {
+    "id": 548,
+    "evolutions": [
+      {
+        "id": 549,
+        "candies": 50
+      }
+    ]
+  },
+  "550": {
+    "id": 550
+  },
+  "551": {
+    "id": 551,
+    "evolutions": [
+      {
+        "id": 552,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 553,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "554": {
+    "id": 554,
+    "evolutions": [
+      {
+        "id": 555,
+        "candies": 50
+      }
+    ]
+  },
+  "556": {
+    "id": 556
+  },
+  "557": {
+    "id": 557,
+    "evolutions": [
+      {
+        "id": 558,
+        "candies": 50
+      }
+    ]
+  },
+  "559": {
+    "id": 559,
+    "evolutions": [
+      {
+        "id": 560,
+        "candies": 50
+      }
+    ]
+  },
+  "561": {
+    "id": 561
+  },
+  "562": {
+    "id": 562,
+    "evolutions": [
+      {
+        "id": 563,
+        "candies": 50
+      }
+    ]
+  },
+  "564": {
+    "id": 564,
+    "evolutions": [
+      {
+        "id": 565,
+        "candies": 50
+      }
+    ]
+  },
+  "566": {
+    "id": 566,
+    "evolutions": [
+      {
+        "id": 567,
+        "candies": 50
+      }
+    ]
+  },
+  "568": {
+    "id": 568,
+    "evolutions": [
+      {
+        "id": 569,
+        "candies": 50
+      }
+    ]
+  },
+  "570": {
+    "id": 570,
+    "evolutions": [
+      {
+        "id": 571,
+        "candies": 50
+      }
+    ]
+  },
+  "572": {
+    "id": 572,
+    "evolutions": [
+      {
+        "id": 573,
+        "candies": 50
+      }
+    ]
+  },
+  "574": {
+    "id": 574,
+    "evolutions": [
+      {
+        "id": 575,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 576,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "577": {
+    "id": 577,
+    "evolutions": [
+      {
+        "id": 578,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 579,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "580": {
+    "id": 580,
+    "evolutions": [
+      {
+        "id": 581,
+        "candies": 50
+      }
+    ]
+  },
+  "582": {
+    "id": 582,
+    "evolutions": [
+      {
+        "id": 583,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 584,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "585": {
+    "id": 585,
+    "evolutions": [
+      {
+        "id": 586,
+        "candies": 50
+      }
+    ]
+  },
+  "587": {
+    "id": 587
+  },
+  "588": {
+    "id": 588,
+    "evolutions": [
+      {
+        "id": 589,
+        "candies": 50
+      }
+    ]
+  },
+  "590": {
+    "id": 590,
+    "evolutions": [
+      {
+        "id": 591,
+        "candies": 50
+      }
+    ]
+  },
+  "592": {
+    "id": 592,
+    "evolutions": [
+      {
+        "id": 593,
+        "candies": 50
+      }
+    ]
+  },
+  "594": {
+    "id": 594
+  },
+  "595": {
+    "id": 595
+  },
+  "596": {
+    "id": 596
+  },
+  "597": {
+    "id": 597,
+    "evolutions": [
+      {
+        "id": 598,
+        "candies": 50
+      }
+    ]
+  },
+  "599": {
+    "id": 599,
+    "evolutions": [
+      {
+        "id": 600,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 601,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "602": {
+    "id": 602,
+    "evolutions": [
+      {
+        "id": 603,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 604,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "605": {
+    "id": 605,
+    "evolutions": [
+      {
+        "id": 606,
+        "candies": 50
+      }
+    ]
+  },
+  "607": {
+    "id": 607,
+    "evolutions": [
+      {
+        "id": 608,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 609,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "610": {
+    "id": 610,
+    "evolutions": [
+      {
+        "id": 611,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 612,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "613": {
+    "id": 613,
+    "evolutions": [
+      {
+        "id": 614,
+        "candies": 50
+      }
+    ]
+  },
+  "615": {
+    "id": 615
+  },
+  "616": {
+    "id": 616,
+    "evolutions": [
+      {
+        "id": 617,
+        "candies": 50
+      }
+    ]
+  },
+  "618": {
+    "id": 618
+  },
+  "619": {
+    "id": 619,
+    "evolutions": [
+      {
+        "id": 620,
+        "candies": 50
+      }
+    ]
+  },
+  "621": {
+    "id": 621
+  },
+  "622": {
+    "id": 622,
+    "evolutions": [
+      {
+        "id": 623,
+        "candies": 50
+      }
+    ]
+  },
+  "624": {
+    "id": 624
+  },
+  "625": {
+    "id": 625
+  },
+  "626": {
+    "id": 626
+  },
+  "627": {
+    "id": 627,
+    "evolutions": [
+      {
+        "id": 628,
+        "candies": 50
+      }
+    ]
+  },
+  "629": {
+    "id": 629,
+    "evolutions": [
+      {
+        "id": 630,
+        "candies": 50
+      }
+    ]
+  },
+  "631": {
+    "id": 631
+  },
+  "632": {
+    "id": 632
+  },
+  "633": {
+    "id": 633,
+    "evolutions": [
+      {
+        "id": 634,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 635,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "636": {
+    "id": 636,
+    "evolutions": [
+      {
+        "id": 637,
+        "candies": 50
+      }
+    ]
+  },
+  "638": {
+    "id": 638
+  },
+  "639": {
+    "id": 639
+  },
+  "640": {
+    "id": 640
+  },
+  "641": {
+    "id": 641
+  },
+  "642": {
+    "id": 642
+  },
+  "643": {
+    "id": 643
+  },
+  "644": {
+    "id": 644
+  },
+  "645": {
+    "id": 645
+  },
+  "646": {
+    "id": 646
+  },
+  "647": {
+    "id": 647
+  },
+  "648": {
+    "id": 648
+  },
+  "649": {
+    "id": 649
+  },
+  "650": {
+    "id": 650,
+    "evolutions": [
+      {
+        "id": 651,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 652,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "653": {
+    "id": 653,
+    "evolutions": [
+      {
+        "id": 654,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 655,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "656": {
+    "id": 656,
+    "evolutions": [
+      {
+        "id": 657,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 658,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "659": {
+    "id": 659,
+    "evolutions": [
+      {
+        "id": 660,
+        "candies": 50
+      }
+    ]
+  },
+  "661": {
+    "id": 661,
+    "evolutions": [
+      {
+        "id": 662,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 663,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "664": {
+    "id": 664,
+    "evolutions": [
+      {
+        "id": 665,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 666,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "667": {
+    "id": 667,
+    "evolutions": [
+      {
+        "id": 668,
+        "candies": 50
+      }
+    ]
+  },
+  "669": {
+    "id": 669,
+    "evolutions": [
+      {
+        "id": 670,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 671,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "672": {
+    "id": 672,
+    "evolutions": [
+      {
+        "id": 673,
+        "candies": 50
+      }
+    ]
+  },
+  "674": {
+    "id": 674,
+    "evolutions": [
+      {
+        "id": 675,
+        "candies": 50
+      }
+    ]
+  },
+  "676": {
+    "id": 676
+  },
+  "677": {
+    "id": 677
+  },
+  "678": {
+    "id": 678
+  },
+  "679": {
+    "id": 679,
+    "evolutions": [
+      {
+        "id": 680,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 681,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "682": {
+    "id": 682,
+    "evolutions": [
+      {
+        "id": 683,
+        "candies": 50
+      }
+    ]
+  },
+  "684": {
+    "id": 684,
+    "evolutions": [
+      {
+        "id": 685,
+        "candies": 50
+      }
+    ]
+  },
+  "686": {
+    "id": 686,
+    "evolutions": [
+      {
+        "id": 687,
+        "candies": 50
+      }
+    ]
+  },
+  "688": {
+    "id": 688,
+    "evolutions": [
+      {
+        "id": 689,
+        "candies": 50
+      }
+    ]
+  },
+  "690": {
+    "id": 690,
+    "evolutions": [
+      {
+        "id": 691,
+        "candies": 50
+      }
+    ]
+  },
+  "692": {
+    "id": 692,
+    "evolutions": [
+      {
+        "id": 693,
+        "candies": 50
+      }
+    ]
+  },
+  "694": {
+    "id": 694,
+    "evolutions": [
+      {
+        "id": 695,
+        "candies": 50
+      }
+    ]
+  },
+  "696": {
+    "id": 696,
+    "evolutions": [
+      {
+        "id": 697,
+        "candies": 50
+      }
+    ]
+  },
+  "698": {
+    "id": 698,
+    "evolutions": [
+      {
+        "id": 699,
+        "candies": 50
+      }
+    ]
+  },
+  "701": {
+    "id": 701
+  },
+  "702": {
+    "id": 702
+  },
+  "703": {
+    "id": 703
+  },
+  "704": {
+    "id": 704,
+    "evolutions": [
+      {
+        "id": 705,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 706,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "707": {
+    "id": 707
+  },
+  "708": {
+    "id": 708,
+    "evolutions": [
+      {
+        "id": 709,
+        "candies": 50
+      }
+    ]
+  },
+  "710": {
+    "id": 710,
+    "evolutions": [
+      {
+        "id": 711,
+        "candies": 50
+      }
+    ]
+  },
+  "712": {
+    "id": 712,
+    "evolutions": [
+      {
+        "id": 713,
+        "candies": 50
+      }
+    ]
+  },
+  "714": {
+    "id": 714,
+    "evolutions": [
+      {
+        "id": 715,
+        "candies": 50
+      }
+    ]
+  },
+  "716": {
+    "id": 716
+  },
+  "717": {
+    "id": 717
+  },
+  "718": {
+    "id": 718
+  },
+  "719": {
+    "id": 719
+  },
+  "720": {
+    "id": 720
+  },
+  "721": {
+    "id": 721
+  },
+  "722": {
+    "id": 722,
+    "evolutions": [
+      {
+        "id": 723,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 724,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "725": {
+    "id": 725,
+    "evolutions": [
+      {
+        "id": 726,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 727,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "728": {
+    "id": 728,
+    "evolutions": [
+      {
+        "id": 729,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 730,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "731": {
+    "id": 731,
+    "evolutions": [
+      {
+        "id": 732,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 733,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "734": {
+    "id": 734,
+    "evolutions": [
+      {
+        "id": 735,
+        "candies": 50
+      }
+    ]
+  },
+  "736": {
+    "id": 736,
+    "evolutions": [
+      {
+        "id": 737,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 738,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "739": {
+    "id": 739,
+    "evolutions": [
+      {
+        "id": 740,
+        "candies": 50
+      }
+    ]
+  },
+  "741": {
+    "id": 741
+  },
+  "742": {
+    "id": 742,
+    "evolutions": [
+      {
+        "id": 743,
+        "candies": 50
+      }
+    ]
+  },
+  "744": {
+    "id": 744,
+    "evolutions": [
+      {
+        "id": 745,
+        "candies": 50
+      }
+    ]
+  },
+  "746": {
+    "id": 746
+  },
+  "747": {
+    "id": 747,
+    "evolutions": [
+      {
+        "id": 748,
+        "candies": 50
+      }
+    ]
+  },
+  "749": {
+    "id": 749,
+    "evolutions": [
+      {
+        "id": 750,
+        "candies": 50
+      }
+    ]
+  },
+  "751": {
+    "id": 751,
+    "evolutions": [
+      {
+        "id": 752,
+        "candies": 50
+      }
+    ]
+  },
+  "753": {
+    "id": 753,
+    "evolutions": [
+      {
+        "id": 754,
+        "candies": 50
+      }
+    ]
+  },
+  "755": {
+    "id": 755,
+    "evolutions": [
+      {
+        "id": 756,
+        "candies": 50
+      }
+    ]
+  },
+  "757": {
+    "id": 757,
+    "evolutions": [
+      {
+        "id": 758,
+        "candies": 50
+      }
+    ]
+  },
+  "759": {
+    "id": 759,
+    "evolutions": [
+      {
+        "id": 760,
+        "candies": 50
+      }
+    ]
+  },
+  "761": {
+    "id": 761,
+    "evolutions": [
+      {
+        "id": 762,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 763,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "764": {
+    "id": 764
+  },
+  "765": {
+    "id": 765
+  },
+  "766": {
+    "id": 766
+  },
+  "767": {
+    "id": 767,
+    "evolutions": [
+      {
+        "id": 768,
+        "candies": 50
+      }
+    ]
+  },
+  "769": {
+    "id": 769,
+    "evolutions": [
+      {
+        "id": 770,
+        "candies": 50
+      }
+    ]
+  },
+  "771": {
+    "id": 771
+  },
+  "772": {
+    "id": 772,
+    "evolutions": [
+      {
+        "id": 773,
+        "candies": 50
+      }
+    ]
+  },
+  "774": {
+    "id": 774
+  },
+  "775": {
+    "id": 775
+  },
+  "776": {
+    "id": 776
+  },
+  "777": {
+    "id": 777
+  },
+  "778": {
+    "id": 778
+  },
+  "779": {
+    "id": 779
+  },
+  "780": {
+    "id": 780
+  },
+  "781": {
+    "id": 781
+  },
+  "782": {
+    "id": 782,
+    "evolutions": [
+      {
+        "id": 783,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 784,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "785": {
+    "id": 785
+  },
+  "786": {
+    "id": 786
+  },
+  "787": {
+    "id": 787
+  },
+  "788": {
+    "id": 788
+  },
+  "789": {
+    "id": 789,
+    "evolutions": [
+      {
+        "id": 790,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 791,
+            "candies": 100
+          },
+          {
+            "id": 792,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "793": {
+    "id": 793
+  },
+  "794": {
+    "id": 794
+  },
+  "795": {
+    "id": 795
+  },
+  "796": {
+    "id": 796
+  },
+  "797": {
+    "id": 797
+  },
+  "798": {
+    "id": 798
+  },
+  "799": {
+    "id": 799
+  },
+  "800": {
+    "id": 800
+  },
+  "801": {
+    "id": 801
+  },
+  "802": {
+    "id": 802
+  }
+}
