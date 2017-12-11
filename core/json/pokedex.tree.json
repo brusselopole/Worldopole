@@ -1356,8 +1356,7 @@
         "evolutions": [
           {
             "id": 272,
-            "candies": 100,
-            "item": "WATER_STONE"
+            "candies": 100
           }
         ]
       }
@@ -1717,8 +1716,7 @@
     "evolutions": [
       {
         "id": 350,
-        "candies": 100,
-        "item": "PRISM_SCALE"
+        "candies": 100
       }
     ]
   },
@@ -1800,13 +1798,11 @@
     "evolutions": [
       {
         "id": 367,
-        "candies": 50,
-        "item": "DEEP_SEA_TOOTH"
+        "candies": 50
       },
       {
         "id": 368,
-        "candies": 50,
-        "item": "DEEP_SEA_SCALE"
+        "candies": 50
       }
     ]
   },
