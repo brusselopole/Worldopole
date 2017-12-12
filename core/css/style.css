@@ -460,11 +460,18 @@ div#levelMeter .progress{
 
 div#gymPrestige{
 	position: absolute;
-	left:120px;
+	left: 120px;
 	top: 70px;
 	font-size: 14px;
-	
 }
+
+div#gymHistory{
+	position: absolute;
+	left: 220px;
+	top: 70px;
+	font-size: 14px;
+}
+
 div#gymLastScanned{
 	position: absolute;
 	left:120px;
