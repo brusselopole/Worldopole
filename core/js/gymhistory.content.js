@@ -3,6 +3,7 @@
 $(function () {
 	$.getJSON("core/json/variables.json", function(variables) {
 		var pokeimg_suffix = variables['system']['pokeimg_suffix'];
+		var hide_cp_changes = variables['system']['gymhistory_hide_cp_changes'];
 
 		$('.gymLoader').hide();
 
@@ -13,7 +14,7 @@ $(function () {
 		$('input#name').filter(':visible').val(gymName);
 
 		$('#loadMoreButton').click(function () {
-			loadGyms(page, $('input#name').filter(':visible').val(), teamSelector, rankingFilter, pokeimg_suffix, true);
+			loadGyms(page, $('input#name').filter(':visible').val(), teamSelector, rankingFilter, pokeimg_suffix, hide_cp_changes, true);
 			page++;
 		}).trigger('click');
 
@@ -69,7 +70,7 @@ $(function () {
 				$('input#name').filter(':visible').val(window.history.state.name);
 				page = 0;
 				$('#gymsContainer').empty();
-				loadGyms(page, $('input#name').filter(':visible').val(), teamSelector, rankingFilter, pokeimg_suffix, false);
+				loadGyms(page, $('input#name').filter(':visible').val(), teamSelector, rankingFilter, hide_cp_changes, pokeimg_suffix, false);
 				page++;
 			} else {
 				window.history.back();
@@ -78,7 +79,7 @@ $(function () {
 	});
 });
 
-function loadGyms(page, name, teamSelector, rankingFilter, pokeimg_suffix, stayOnPage) {
+function loadGyms(page, name, teamSelector, rankingFilter, pokeimg_suffix, hide_cp_changes, stayOnPage) {
 	$('.gymLoader').show();
 	if (stayOnPage) {
 		// build a state for this name
@@ -102,7 +103,7 @@ function loadGyms(page, name, teamSelector, rankingFilter, pokeimg_suffix, stayO
 		var internalIndex = 0;
 		$.each(data.gyms, function (idx, gym) {
 			internalIndex++
-			printGym(gym, pokeimg_suffix);
+			printGym(gym, pokeimg_suffix, hide_cp_changes);
 		});
 		if (internalIndex < 10) {
 			$('#loadMoreButton').hide();
@@ -113,7 +114,7 @@ function loadGyms(page, name, teamSelector, rankingFilter, pokeimg_suffix, stayO
 	});
 }
 
-function loadGymHistory(page, gym_id, pokeimg_suffix) {
+function loadGymHistory(page, gym_id, pokeimg_suffix, hide_cp_changes) {
 	$('#gymHistory_'+gym_id).addClass('active').show();
 	$('#gymHistory_'+gym_id).find('.gymHistoryLoader').show();
 	$.ajax({
@@ -128,10 +129,17 @@ function loadGymHistory(page, gym_id, pokeimg_suffix) {
 			'gym_id' : gym_id
 		}
 	}).done(function (data) {
+		var internalIndex = 0;
 		$.each(data.entries, function(idx, entry) {
+			internalIndex++
+			if (entry.only_cp_changed && hide_cp_changes) return;
 			printGymHistory(gym_id, entry, pokeimg_suffix);
 		});
-		$('#gymHistory_'+gym_id).find('.loadMoreButtonHistory').removeClass('hidden').data('page', page+1).show();
+		if (internalIndex < 10) {
+			$('#gymHistory_'+gym_id).find('.loadMoreButtonHistory').hide();
+		} else {
+			$('#gymHistory_'+gym_id).find('.loadMoreButtonHistory').removeClass('hidden').data('page', page+1).show();
+		}
 		$('#gymHistory_'+gym_id).find('.gymHistoryLoader').hide();
 	});
 }
@@ -167,11 +175,11 @@ function hideGymHistoryTables(gymHistoryTables) {
 	gymHistoryTables.find('.gymHistoryLoader').hide();
 }
 
-function printGym(gym, pokeimg_suffix) {
+function printGym(gym, pokeimg_suffix, hide_cp_changes) {
 	var gymsInfos = $('<tr>',{id: 'gymInfos_'+gym.gym_id}).css('cursor', 'pointer').css('border-bottom', '2px solid '+(gym.team_id=='3'?'#ffbe08':gym.team_id=='2'?'#ff7676':gym.team_id=='1'?'#00aaff':'#ddd')).click(function() {
 		if (!$('#gymHistory_'+gym.gym_id).hasClass('active')) {
 			hideGymHistoryTables($('#gymsContainer').find('.gymhistory'));
-			loadGymHistory(0, gym.gym_id, pokeimg_suffix);
+			loadGymHistory(0, gym.gym_id, pokeimg_suffix, hide_cp_changes);
 		} else {
 			hideGymHistoryTables($('#gymHistory_'+gym.gym_id));
 		}
@@ -189,7 +197,7 @@ function printGym(gym, pokeimg_suffix) {
 	historyTable.append('<tbody></tbody>');
 	historyTable.append('<tfoot><tr class="loadMore text-center"><td colspan="4"><button class="loadMoreButtonHistory btn btn-default btn-sm hidden">Load more</button></td></tr><tr class="gymHistoryLoader"><td colspan="4"><div class="loader"></div></td></tr></tfoot>');
 	historyTable.find('.loadMoreButtonHistory').data('page', 0).click(function() {
-		loadGymHistory($(this).data('page'), gym.gym_id, pokeimg_suffix);
+		loadGymHistory($(this).data('page'), gym.gym_id, pokeimg_suffix, hide_cp_changes);
 	});
 	var row = $('<td>',{colspan: 6});
 	row.append(historyTable);

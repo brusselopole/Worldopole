@@ -828,7 +828,6 @@ switch ($request) {
 					}
 				}
 				unset($entry->pokemon_uids);
-				if ($config->system->gymhistory_hide_cp_changes && $entry->only_cp_changed) { unset($entries[$idx]); }
 			}
 
 			if (count($entries) > 10) { array_pop($entries); }
