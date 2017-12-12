@@ -128,16 +128,10 @@ function loadGymHistory(page, gym_id, pokeimg_suffix) {
 			'gym_id' : gym_id
 		}
 	}).done(function (data) {
-		var internalIndex = 0;
 		$.each(data.entries, function(idx, entry) {
-			internalIndex++
 			printGymHistory(gym_id, entry, pokeimg_suffix);
 		});
-		if (internalIndex < 10) {
-			$('#gymHistory_'+gym_id).find('.loadMoreButtonHistory').hide();
-		} else {
-			$('#gymHistory_'+gym_id).find('.loadMoreButtonHistory').removeClass('hidden').data('page', page+1).show();
-		}
+		$('#gymHistory_'+gym_id).find('.loadMoreButtonHistory').removeClass('hidden').data('page', page+1).show();
 		$('#gymHistory_'+gym_id).find('.gymHistoryLoader').hide();
 	});
 }
@@ -145,13 +139,11 @@ function loadGymHistory(page, gym_id, pokeimg_suffix) {
 function printPokemonList(pokemons, pokeimg_suffix) {
 	var gymPokemon = $('<ul>',{class: 'list-inline'});
 	$.each(pokemons, function(idx, pokemon) {
-		if (pokemon.class) {
-			var list = $('<li>', {class: pokemon.class});
-			list.append($('<a>', { class: 'no-link', href : 'pokemon/'+pokemon.pokemon_id }).append($('<img />', { src: 'core/pokemons/'+pokemon.pokemon_id+pokeimg_suffix }).css('height', '2em')));
-			list.append($('<br><span class="small">'+pokemon.cp+' CP</span>'));
-			list.append($('<br><span style="font-size:70%"><a href="trainer?name='+pokemon.trainer_name+'" class="no-link">'+pokemon.trainer_name+'</a></span>'));
-			gymPokemon.append(list);
-		}
+		var list = $('<li>', {class: pokemon.class});
+		list.append($('<a>', { class: 'no-link', href : 'pokemon/'+pokemon.pokemon_id }).append($('<img />', { src: 'core/pokemons/'+pokemon.pokemon_id+pokeimg_suffix }).css('height', '2em')));
+		list.append($('<br><span class="small">'+pokemon.cp+' CP</span>'));
+		list.append($('<br><span style="font-size:70%"><a href="trainer?name='+pokemon.trainer_name+'" class="no-link">'+pokemon.trainer_name+'</a></span>'));
+		gymPokemon.append(list);
 	});
 	return gymPokemon;
 }
