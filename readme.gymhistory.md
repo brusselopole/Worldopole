@@ -48,7 +48,7 @@ DO BEGIN
   UPDATE gymhistory AS gh
   JOIN (SELECT gym_id, MAX(last_modified) as max_last_modified FROM gymhistory GROUP BY gym_id)
   AS gg ON gh.gym_id = gg.gym_id AND gh.last_modified = gg.max_last_modified
-  JOIN (SELECT gym_id, last_scanned, GROUP_CONCAT(DISTINCT pokemon_uid ORDER BY deployment_time SEPARATOR ',') AS pokemon_uids, COUNT(DISTINCT pokemon_uid) as pokemon_count FROM gymmember AS gm GROUP BY gym_id)
+  JOIN (SELECT gym_id, last_scanned, GROUP_CONCAT(DISTINCT pokemon_uid ORDER BY deployment_time SEPARATOR ',') AS pokemon_uids, COUNT(DISTINCT pokemon_uid) as pokemon_count FROM gymmember AS gm GROUP BY gym_id, last_scanned)
   AS gm ON gh.gym_id = gm.gym_id
   SET gh.last_updated = gm.last_scanned, gh.pokemon_uids = gm.pokemon_uids, gh.pokemon_count = gm.pokemon_count
   WHERE gh.last_updated < gm.last_scanned;

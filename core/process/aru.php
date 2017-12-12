@@ -808,6 +808,7 @@ switch ($request) {
 
 			foreach ($entries as $idx => $entry) {
 				$entry->total_cp_diff = 0;
+				$entry->only_cp_changed = true;
 				if ($idx < count($entries) - 1) {
 					$next_entry = $entries[$idx+1];
 					$entry->total_cp_diff = $entry->total_cp - $next_entry->total_cp;
@@ -821,6 +822,9 @@ switch ($request) {
 					}
 					foreach ($old_pokemon as $pkm) {
 						$next_entry->pokemon[$pkm]->class = 'old';
+					}
+					if ($entry->team_id != $next_entry->team_id|| $entry->pokemon_uids != $next_entry->pokemon_uids) {
+						$entry->only_cp_changed = false;
 					}
 				}
 				unset($entry->pokemon_uids);
