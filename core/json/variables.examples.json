@@ -36,7 +36,8 @@
 		"default_lang"			:	"en",
 		"location_url"			:	"/map/?lat={latitude}&lon={longitude}&zoom=17",
 		"trainer_blacklist"		:	["cheater1", "cheater2"],
-		"rm_pokemon_file"		:	null
+		"rm_pokemon_file"		:	null,
+		"gymhistory_hide_cp_changes"	: false
 	},
 	"menu":[
 		{
@@ -50,6 +51,12 @@
 			"href"		:	"gym",
 			"locale"	:	"GYMS",
 			"icon"		:	"fa-shield"
+		},
+		{
+			"type"		:	"link",
+			"href"		:	"gymhistory",
+			"text"		:	"Gym Changes",
+			"icon"		:	"fa-history"
 		},
 		{
 			"type"		:	"link",
