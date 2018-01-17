@@ -548,14 +548,14 @@ switch ($request) {
 		$ranking = 0;
 		if (isset($_GET['name'])) {
 			$trainer_name = mysqli_real_escape_string($mysqli, $_GET['name']);
-			$where = " HAVING name LIKE '%".$trainer_name."%'";
+			$where = " WHERE name LIKE '%".$trainer_name."%'";
 		}
 		if (isset($_GET['team']) && $_GET['team'] != 0) {
 			$team = mysqli_real_escape_string($mysqli, $_GET['team']);
-			$where .= ($where == "" ? " HAVING" : " AND")." team = ".$team;
+			$where .= ($where == "" ? " WHERE" : " AND")." team = ".$team;
 		}
 		if (!empty($config->system->trainer_blacklist)) {
-			$where .= ($where == "" ? " HAVING" : " AND")." name NOT IN ('".implode("','", $config->system->trainer_blacklist)."')";
+			$where .= ($where == "" ? " WHERE" : " AND")." name NOT IN ('".implode("','", $config->system->trainer_blacklist)."')";
 		}
 		if (isset($_GET['page'])) {
 			$page = mysqli_real_escape_string($mysqli, $_GET['page']);
@@ -580,13 +580,12 @@ switch ($request) {
 		$limit = " LIMIT ".($page * 10).",10 ";
 
 
-		$req = "SELECT trainer.*, COUNT(actives_pokemons.trainer_name) AS active, max(actives_pokemons.cp) AS maxCp
-				FROM trainer
-				LEFT JOIN (SELECT DISTINCT gympokemon.pokemon_id, gympokemon.pokemon_uid, gympokemon.trainer_name, gympokemon.cp, DATEDIFF(UTC_TIMESTAMP(), gympokemon.last_seen) AS last_scanned
-				FROM gympokemon
-				INNER JOIN (SELECT gymmember.pokemon_uid, gymmember.gym_id FROM gymmember GROUP BY gymmember.pokemon_uid, gymmember.gym_id HAVING gymmember.gym_id <> '') AS filtered_gymmember
-				ON gympokemon.pokemon_uid = filtered_gymmember.pokemon_uid) AS actives_pokemons ON actives_pokemons.trainer_name = trainer.name
-				GROUP BY trainer.name ".$where.$order.$limit;
+		$req = "SELECT trainer.name,trainer.team,trainer.level,trainer.last_seen,count(gymmember.pokemon_uid) as 'active',
+                max(case when gymmember.pokemon_uid is null then 0 else gympokemon.cp end) as 'maxCP'
+                FROM trainer 
+                LEFT JOIN gympokemon ON trainer.name=gympokemon.trainer_name 
+                LEFT JOIN gymmember ON gympokemon.pokemon_uid=gymmember.pokemon_uid".$where."
+                GROUP BY trainer.name,trainer.team,trainer.level,trainer.last_seen".$order.$limit;
 
 		$result = $mysqli->query($req);
 		$trainers = array();
