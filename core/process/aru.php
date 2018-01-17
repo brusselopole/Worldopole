@@ -620,7 +620,7 @@ switch ($request) {
 
 			$req = "SELECT DISTINCT gympokemon.pokemon_id, gympokemon.pokemon_uid, gympokemon.cp, DATEDIFF(UTC_TIMESTAMP(), gympokemon.last_seen) AS last_scanned, gympokemon.trainer_name, gympokemon.iv_defense, gympokemon.iv_stamina, gympokemon.iv_attack, null AS gym_id, CONVERT_TZ(gymmember.deployment_time, '+00:00', '".$time_offset."') as deployment_time, '0' AS active
 					FROM gympokemon 
-                    LEFT JOIN gymmember ON gympokemon.pokemon_uid = gymmember.pokemon_uid
+					LEFT JOIN gymmember ON gympokemon.pokemon_uid = gymmember.pokemon_uid
 					WHERE gymmember.pokemon_uid IS NULL AND gympokemon.trainer_name='".$trainer->name."'
 					ORDER BY gympokemon.cp DESC";
 
