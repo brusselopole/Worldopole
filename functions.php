@@ -226,7 +226,7 @@ function tree_check_array($array_check, $array_add, $correct_arrow) {
 				} else {
 					$res->array_sufix = "";
 				}
-			} else {
+			} else if (array_sufix == "") {
                 $res->array_sufix = "";
             }
 			$array_add[] = $res;
