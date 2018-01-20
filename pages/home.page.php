@@ -30,13 +30,28 @@
 
 	</div>
 
-	<div class="col-md-3 col-sm-6 col-xs-12 big-data" style="border-right:1px lightgray solid;"> <!-- POKESTOPS -->
-		<a href="pokestops">
-			<img src="core/img/lure-module.png" alt="Discover the <?= $config->infos->site_name ?> Pokéstops" width=50 class="big-icon">
-			<p><big><strong class="total-lure-js">0</strong> <?= $locales->LURES ?></big><br>
-			<?= sprintf($locales->WIDGET_LURES_SUB, $config->infos->city); ?></p>
-		</a>
-	</div>
+    <?php
+    if ($config->system->no_lures == true) {
+        ?>
+        <div class="col-md-3 col-sm-6 col-xs-12 big-data" style="border-right:1px lightgray solid;"> <!-- RAIDS -->
+            <a href="raids">
+                <img src="core/img/raid.png" alt="Discover the <?= $config->infos->site_name ?> Raids" width=50 class="big-icon">
+                <p><big><strong class="total-lure-js">0</strong> <?= $locales->RAIDS ?></big><br>
+                    <?= sprintf($locales->WIDGET_LURES_SUB, $config->infos->city); ?></p>
+            </a>
+        </div>
+        <?php
+    } else {
+        ?>
+        <div class="col-md-3 col-sm-6 col-xs-12 big-data" style="border-right:1px lightgray solid;"> <!-- POKESTOPS -->
+            <a href="pokestops">
+                <img src="core/img/lure-module.png" alt="Discover the <?= $config->infos->site_name ?> Pokéstops" width=50 class="big-icon">
+                <p><big><strong class="total-lure-js">0</strong> <?= $locales->LURES ?></big><br>
+                    <?= sprintf($locales->WIDGET_LURES_SUB, $config->infos->city); ?></p>
+            </a>
+        </div>
+        <?php
+    }?>
 
 	<div class="col-md-3 col-sm-6 col-xs-12 big-data">
 		<a href="<?= $config->homewidget->url ?>" target="_blank">

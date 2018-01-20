@@ -403,15 +403,25 @@ else {
 
 	$home->pokemon_now = $data->total;
 
+    if ($config->system->no_lures == true) {
+        // Active Raids
+        // -----------
 
-	// Lured stops
-	// -----------
+        $req = "SELECT COUNT(*) AS total FROM raid WHERE start <= UTC_TIMESTAMP AND  end >= UTC_TIMESTAMP()";
+        $result = $mysqli->query($req);
+        $data = $result->fetch_object();
 
-	$req = "SELECT COUNT(*) AS total FROM pokestop WHERE lure_expiration >= UTC_TIMESTAMP()";
-	$result = $mysqli->query($req);
-	$data = $result->fetch_object();
+        $home->pokestop_lured = $data->total;
+    } else {
+        // Lured stops
+        // -----------
 
-	$home->pokestop_lured = $data->total;
+        $req = "SELECT COUNT(*) AS total FROM pokestop WHERE lure_expiration >= UTC_TIMESTAMP()";
+        $result = $mysqli->query($req);
+        $data = $result->fetch_object();
+
+        $home->pokestop_lured = $data->total;
+    }
 
 
 	// Gyms
