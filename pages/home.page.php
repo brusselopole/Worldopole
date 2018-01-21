@@ -53,7 +53,7 @@
             </a>
         </div>
         <?php
-        }
+    }
     ?>
 
 	<div class="flex-item-homepage big-data">
