@@ -48,8 +48,10 @@ for ($pid = 1; $pid <= $maxpid; $pid++) {
 	}
 }
 
-// add total count
-$newpokecountdatas["total"] = $total_pokemon;
+if (!isset($newpokecountdatas["total"])) {
+	$newpokecountdatas["total"] = 0;
+}
+$newpokecountdatas["total"] += $total_pokemon;
 
 // Write to file
 file_put_contents($pokedex_counts_file, json_encode($newpokecountdatas));
