@@ -53,8 +53,8 @@
 			</a>
 		</div>
 		<?php
-    }
-    ?>
+	}
+	?>
 
 	<div class="flex-item-homepage big-data">
 		<a href="<?= $config->homewidget->url ?>" target="_blank">
