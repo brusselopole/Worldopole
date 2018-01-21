@@ -15,7 +15,7 @@ function updateCounter(new_value, classname) {
 		success: function(data) {
 			var pokemon = data[0];
 			var lure = data[1];
-            var raids = data[2];
+			var raids = data[2];
 			var gym = data[3];
 			var red = data[4];
 			var blue = data[5];
