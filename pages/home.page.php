@@ -30,29 +30,29 @@
 
 	</div>
 
-    <?php
-    if (!$config->system->no_lures === true) {
-        ?>
-        <div class="flex-item-homepage big-data"> <!-- POKESTOPS -->
-            <a href="pokestops">
-                <img src="core/img/lure-module.png" alt="Discover the <?= $config->infos->site_name ?> Pokéstops" width=50 class="big-icon">
-                <p><big><strong class="total-lure-js">0</strong> <?= $locales->LURES ?></big><br>
+	<?php
+	if (!$config->system->no_lures === true) {
+		?>
+		<div class="flex-item-homepage big-data"> <!-- POKESTOPS -->
+			<a href="pokestops">
+				<img src="core/img/lure-module.png" alt="Discover the <?= $config->infos->site_name ?> Pokéstops" width=50 class="big-icon">
+				<p><big><strong class="total-lure-js">0</strong> <?= $locales->LURES ?></big><br>
                     <?= sprintf($locales->WIDGET_LURES_SUB, $config->infos->city); ?></p>
-            </a>
-        </div>
-        <?php
-    }
-    if ($config->system->homepage_raids === true) {
-        ?>
-        <div class="flex-item-homepage flex-item-homepage-homepage big-data"> <!-- RAIDS -->
-            <a href="raids">
-                <img src="core/img/raid.png" alt="Discover the <?= $config->infos->site_name ?> Raids" width=50
+			</a>
+		</div>
+		<?php
+	}
+	if ($config->system->homepage_raids === true) {
+		?>
+		<div class="flex-item-homepage flex-item-homepage-homepage big-data"> <!-- RAIDS -->
+			<a href="raids">
+				<img src="core/img/raid.png" alt="Discover the <?= $config->infos->site_name ?> Raids" width=50
                      class="big-icon">
-                <p><big><strong class="total-raids-js">0</strong> <?= $locales->RAIDS ?></big><br>
+				<p><big><strong class="total-raids-js">0</strong> <?= $locales->RAIDS ?></big><br>
                     <?= sprintf($locales->WIDGET_LURES_SUB, $config->infos->city); ?></p>
-            </a>
-        </div>
-        <?php
+			</a>
+		</div>
+		<?php
     }
     ?>
 

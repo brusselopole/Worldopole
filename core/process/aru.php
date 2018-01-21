@@ -59,6 +59,7 @@ switch ($request) {
 	############################
 
 	case 'home_update':
+
 		// Right now
 		// ---------
 
@@ -69,24 +70,24 @@ switch ($request) {
 		$values[] = $data->total;
 
 
-        // Lured stops
-        // -----------
+		// Lured stops
+		// -----------
 
-        $req = "SELECT COUNT(*) AS total FROM pokestop WHERE lure_expiration >= UTC_TIMESTAMP()";
-        $result = $mysqli->query($req);
-        $data = $result->fetch_object();
+		$req = "SELECT COUNT(*) AS total FROM pokestop WHERE lure_expiration >= UTC_TIMESTAMP()";
+		$result = $mysqli->query($req);
+		$data = $result->fetch_object();
 
-        $values[] = $data->total;
+		$values[] = $data->total;
 
 
-        // Active Raids
-        // -----------
+		// Active Raids
+		// -----------
 
-        $req = "SELECT COUNT(*) AS total FROM raid WHERE start <= UTC_TIMESTAMP AND  end >= UTC_TIMESTAMP()";
-        $result = $mysqli->query($req);
-        $data = $result->fetch_object();
+		$req = "SELECT COUNT(*) AS total FROM raid WHERE start <= UTC_TIMESTAMP AND  end >= UTC_TIMESTAMP()";
+		$result = $mysqli->query($req);
+		$data = $result->fetch_object();
 
-        $values[] = $data->total;
+		$values[] = $data->total;
 
 
 		// Team battle
@@ -124,14 +125,14 @@ switch ($request) {
 		$data = $result->fetch_object();
 
 		// Yellow
-		$values[] = $data->total;
+		//$values[] = $data->total;
 
 		$req = "SELECT COUNT(DISTINCT(gym_id)) AS total FROM gym WHERE team_id = '0'";
 		$result = $mysqli->query($req);
 		$data = $result->fetch_object();
 
 		// Neutral
-		$values[] = $data->total;
+		//$values[] = $data->total;
 
 		header('Content-Type: application/json');
 		echo json_encode($values);
