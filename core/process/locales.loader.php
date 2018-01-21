@@ -218,7 +218,7 @@ for ($pokeid = 1; $pokeid <= $maxpid; $pokeid++) {
 		$pokemon->last_position->latitude = $count_data->latitude;
 		$pokemon->last_position->longitude = $count_data->longitude;
 		$pokemon->spawn_count = $count_data->count;
-	} else{
+	} else {
 		$pokemon->spawn_count = $count_data->count;
 	}
 

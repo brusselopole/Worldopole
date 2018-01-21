@@ -12,7 +12,6 @@ if (is_null($pokecountdatas)) {
 $total_pokemon = 0;
 $pokedex_counts = new stdClass();
 for ($pid = 1; $pid <= $maxpid; $pid++) {
-
 	if (!isset($newpokecountdatas[$pid])) {
 		$emptyArray = array(
 			"count" => 0,

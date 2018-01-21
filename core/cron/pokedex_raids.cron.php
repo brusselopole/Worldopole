@@ -10,7 +10,6 @@ if (is_null($raiddatas)) {
 }
 
 for ($pid = 1; $pid <= $maxpid; $pid++) {
-
 	if (!isset($newraiddatas[$pid])) {
 		$emptyArray = array(
 			"count" => 0,
