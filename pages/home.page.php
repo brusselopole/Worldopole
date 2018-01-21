@@ -31,8 +31,8 @@
 	</div>
 
     <?php
-    if (!$config->system->no_lures === true) {
-        ?>
+	if (!$config->system->no_lures === true) {
+		?>
         <div class="flex-item-homepage big-data"> <!-- POKESTOPS -->
             <a href="pokestops">
                 <img src="core/img/lure-module.png" alt="Discover the <?= $config->infos->site_name ?> Pokéstops" width=50 class="big-icon">
@@ -41,9 +41,9 @@
             </a>
         </div>
         <?php
-    }
-    if ($config->system->homepage_raids === true) {
-        ?>
+	}
+	if ($config->system->homepage_raids === true) {
+		?>
         <div class="flex-item-homepage flex-item-homepage-homepage big-data"> <!-- RAIDS -->
             <a href="raids">
                 <img src="core/img/raid.png" alt="Discover the <?= $config->infos->site_name ?> Raids" width=50
@@ -53,8 +53,8 @@
             </a>
         </div>
         <?php
-    }
-    ?>
+	}
+	?>
 
 	<div class="flex-item-homepage big-data">
 		<a href="<?= $config->homewidget->url ?>" target="_blank">
