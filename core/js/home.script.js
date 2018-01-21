@@ -25,8 +25,8 @@ function updateCounter(new_value, classname) {
 			updateCounter(pokemon, '.total-pkm-js');
 			updateCounter(lure, '.total-lure-js');
 			updateCounter(gym, '.total-gym-js');
-            updateCounter(raids, '.total-raids-js');
-            updateCounter(red, '.total-valor-js');
+			updateCounter(raids, '.total-raids-js');
+			updateCounter(red, '.total-valor-js');
 			updateCounter(blue, '.total-mystic-js');
 			updateCounter(yellow, '.total-instinct-js');
 			updateCounter(neutral, '.total-rocket-js');
