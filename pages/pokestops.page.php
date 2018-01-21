@@ -13,8 +13,8 @@
 <div class="row area">
 
     <?php
-    if (!$config->system->no_lures == true) {
-       ?>
+        if (!$config->system->no_lures === true) {
+           ?>
 	    <div class="col-md-6 col-sm-6 col-xs-12 big-data" style="border-right:1px lightgray solid;"> <!-- POKESTOPS -->
             <?php
     } else {
@@ -28,7 +28,7 @@
 	</div>
 
     <?php
-    if (!$config->system->no_lures == true) {
+    if (!$config->system->no_lures === true) {
         ?>
         <div class="col-md-6 col-sm-6 col-xs-12 big-data"> <!-- LURED STOPS -->
             <img src="core/img/lure-module.png" alt="Lured Pokestop" width=50 class="big-icon">
@@ -40,7 +40,7 @@
 </div>
 
 <?php
-if (!$config->system->no_lures == true) {
+if (!$config->system->no_lures === true) {
     ?>
     <div class="row text-center subnav">
         <div class="btn-group" role="group">
