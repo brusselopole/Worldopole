@@ -59,7 +59,6 @@ switch ($request) {
 	############################
 
 	case 'home_update':
-
 		// Right now
 		// ---------
 
