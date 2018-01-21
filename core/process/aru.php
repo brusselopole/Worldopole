@@ -68,25 +68,25 @@ switch ($request) {
 
 		$values[] = $data->total;
 
-        if ($config->system->no_lures == true) {
-            // Active Raids
-            // -----------
 
-            $req = "SELECT COUNT(*) AS total FROM raid WHERE start <= UTC_TIMESTAMP AND  end >= UTC_TIMESTAMP()";
-            $result = $mysqli->query($req);
-            $data = $result->fetch_object();
+        // Lured stops
+        // -----------
 
-            $values[] = $data->total;
-        } else {
-            // Lured stops
-            // -----------
+        $req = "SELECT COUNT(*) AS total FROM pokestop WHERE lure_expiration >= UTC_TIMESTAMP()";
+        $result = $mysqli->query($req);
+        $data = $result->fetch_object();
 
-            $req = "SELECT COUNT(*) AS total FROM pokestop WHERE lure_expiration >= UTC_TIMESTAMP()";
-            $result = $mysqli->query($req);
-            $data = $result->fetch_object();
+        $values[] = $data->total;
 
-            $values[] = $data->total;
-        }
+
+        // Active Raids
+        // -----------
+
+        $req = "SELECT COUNT(*) AS total FROM raid WHERE start <= UTC_TIMESTAMP AND  end >= UTC_TIMESTAMP()";
+        $result = $mysqli->query($req);
+        $data = $result->fetch_object();
+
+        $values[] = $data->total;
 
 
 		// Team battle
