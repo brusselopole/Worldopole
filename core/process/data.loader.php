@@ -381,6 +381,30 @@ if (!empty($page)) {
 else {
 	$home = new stdClass();
 
+	// Right now
+	// ---------
+	$data = getTotalPokemon();
+	$home->pokemon_now = $data->total;
+
+
+	// Lured stops
+	// -----------
+	$data = getTotalLures();
+	$home->pokestop_lured = $data->total;
+
+
+	// Active Raids
+	// -----------
+	$data = getTotalRaids();
+	$home->active_raids = $data->total;
+
+
+	// Gyms
+	// ----
+	$data = getTotalGyms();
+	$home->gyms = $data->total;
+
+
 	// Recent spawns
 	// ------------
 
