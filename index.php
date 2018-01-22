@@ -147,6 +147,7 @@ include_once('core/process/data.loader.php');
 			<script>
 				updateCounter(<?= $home->pokemon_now ?>,'.total-pkm-js');
 				updateCounter(<?= $home->pokestop_lured ?>,'.total-lure-js');
+				updateCounter(<?= $home->active_raids ?>,'.total-raids-js');
 				updateCounter(<?= $home->gyms ?>,'.total-gym-js');
 
 				updateCounter(<?= $home->teams->valor ?>,'.total-valor-js');
