@@ -1,5 +1,10 @@
 <?php
 
+// Load Query Manager
+// ###################
+
+include_once(SYS_PATH . '/core/process/query.php');
+
 
 ########################################################################
 // Test function
@@ -22,52 +27,32 @@ function db_test()
 {
 	$lock_msg = '';
 
-	$mysqli = new mysqli(SYS_DB_HOST, SYS_DB_USER, SYS_DB_PSWD, SYS_DB_NAME, SYS_DB_PORT);
-
 	// Pokemon Test
-	$req = "SELECT COUNT(*) as total FROM pokemon";
-	$result = $mysqli->query($req);
+	$result = testTotalPokemon();
 
-	if (!is_object($result)) {
+	if ($result === 1) {
 		$lock_msg .= "Error: No Pokémon database found<br>";
-	} else {
-		$data = $result->fetch_object();
-		$total = $data->total;
-
-		if ($total == 0) {
-			$lock_msg .= "Error: No Pokémon found is your database<br>";
-		}
+	} else if ($result === 2) {
+		$lock_msg .= "Error: No Pokémon found is your database<br>";
 	}
 
 	// Gym Test
-	$req = "SELECT COUNT(*) as total FROM gym";
-	$result = $mysqli->query($req);
+	$result = testTotalGyms();
 
-	if (!is_object($result)) {
+	if ($result === 1) {
 		$lock_msg .= "Error: No Gym database found<br>";
-	} else {
-		$data = $result->fetch_object();
-		$total = $data->total;
-
-		if ($total == 0) {
-			$lock_msg .= "Error: No Gym found is your database<br>";
-		}
+	} else if ($result === 2) {
+		$lock_msg .= "Error: No Gym found is your database<br>";
 	}
 
 
 	// Pokéstop Test
-	$req = "SELECT COUNT(*) as total FROM pokestop";
-	$result = $mysqli->query($req);
+	$result = testTotalPokestops();
 
-	if (!is_object($result)) {
+	if ($result === 1) {
 		$lock_msg .= "Error: No Pokestop database found<br>";
-	} else {
-		$data = $result->fetch_object();
-		$total = $data->total;
-
-		if ($total == 0) {
-			$lock_msg .= "Error: No Pokestop found in your database<br>";
-		}
+	} else if ($result === 2) {
+		$lock_msg .= "Error: No Pokestop found in your database<br>";
 	}
 
 	return $lock_msg;
