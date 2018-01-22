@@ -15,16 +15,17 @@ function updateCounter(new_value, classname) {
 		success: function(data) {
 			var pokemon = data[0];
 			var lure = data[1];
-
-			var gym = data[2];
-			var red = data[3];
-			var blue = data[4];
-			var yellow = data[5];
-			var neutral = data[6];
+			var raids = data[2];
+			var gym = data[3];
+			var red = data[4];
+			var blue = data[5];
+			var yellow = data[6];
+			var neutral = data[7];
 
 			updateCounter(pokemon, '.total-pkm-js');
 			updateCounter(lure, '.total-lure-js');
 			updateCounter(gym, '.total-gym-js');
+			updateCounter(raids, '.total-raids-js');
 			updateCounter(red, '.total-valor-js');
 			updateCounter(blue, '.total-mystic-js');
 			updateCounter(yellow, '.total-instinct-js');

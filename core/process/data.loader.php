@@ -377,36 +377,6 @@ if (!empty($page)) {
 else {
 	$home = new stdClass();
 
-	// Right now
-	// ---------
-
-	$req = "SELECT COUNT(*) AS total FROM pokemon WHERE disappear_time >= UTC_TIMESTAMP()";
-	$result = $mysqli->query($req);
-	$data = $result->fetch_object();
-
-
-	$home->pokemon_now = $data->total;
-
-
-	// Lured stops
-	// -----------
-
-	$req = "SELECT COUNT(*) AS total FROM pokestop WHERE lure_expiration >= UTC_TIMESTAMP()";
-	$result = $mysqli->query($req);
-	$data = $result->fetch_object();
-
-	$home->pokestop_lured = $data->total;
-
-
-	// Gyms
-	// ----
-
-	$req = "SELECT COUNT(DISTINCT(gym_id)) AS total FROM gym";
-	$result = $mysqli->query($req);
-	$data = $result->fetch_object();
-
-	$home->gyms = $data->total;
-
 
 	// Recent spawns
 	// ------------
