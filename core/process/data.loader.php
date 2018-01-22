@@ -147,22 +147,6 @@ if (!empty($page)) {
 				$pokemon->spawns_per_day = $pokemon->per_day;
 			}
 
-			// Last seen
-            
-			$req = "SELECT disappear_time, (CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) AS disappear_time_real, latitude, longitude
-						FROM pokemon
-						WHERE pokemon_id = '".$pokemon_id."'
-						ORDER BY disappear_time DESC
-						LIMIT 0,1";
-			$result = $mysqli->query($req);
-			$data = $result->fetch_object();
-
-			if (isset($data)) {
-				$pokemon->last_seen = strtotime($data->disappear_time_real);
-				$pokemon->last_position = new stdClass();
-				$pokemon->last_position->latitude = $data->latitude;
-				$pokemon->last_position->longitude = $data->longitude;
-			}
 
 			// Related Pokemons
 			// ----------------

@@ -3,14 +3,28 @@
 // get raid counts since last update for pokemon page
 
 $maxpid = $config->system->max_pokemon;
-$newraiddatas = $raiddatas;
+if (is_null($raiddatas)) {
+	$newraiddatas = array();
+} else {
+	$newraiddatas = $raiddatas;
+}
 
 for ($pid = 1; $pid <= $maxpid; $pid++) {
-	// Get count since update
-	if (isset($raiddatas[$pid]['last_update'])) {
-		$last_update = $raiddatas[$pid]['last_update'];
-	} else {
-		$last_update = 0;
+	if (!isset($newraiddatas[$pid])) {
+		$emptyArray = array(
+			"count" => 0,
+			"last_update" => 0,
+			"end_time" => null,
+			"latitude" => null,
+			"longitude" => null
+		);
+		$newraiddatas[$pid] = $emptyArray;
+	}
+
+	$last_update = $newraiddatas[$pid]['last_update'];
+
+	if (!isset($newraiddatas[$pid])) {
+		$newraiddatas[$pid] = array();
 	}
 
 	$where = "WHERE pokemon_id = '".$pid."' && UNIX_TIMESTAMP(start) > '".$last_update."'";
@@ -40,12 +54,6 @@ for ($pid = 1; $pid <= $maxpid; $pid++) {
 		$newraiddatas[$pid]['end_time'] = $data->end_time_real;
 		$newraiddatas[$pid]['latitude'] = $data->latitude;
 		$newraiddatas[$pid]['longitude'] = $data->longitude;
-	} elseif (is_null($newraiddatas[$pid]['count'])) {
-		$newraiddatas[$pid]['count'] = 0;
-		$newraiddatas[$pid]['last_update'] = 0;
-		$newraiddatas[$pid]['end_time'] = null;
-		$newraiddatas[$pid]['latitude'] = null;
-		$newraiddatas[$pid]['longitude'] = null;
 	}
 }
 
