@@ -7,6 +7,11 @@ if ($mysqli->connect_error != '') {
 }
 $mysqli->set_charset('utf8');
 
+if ($mysqli->connect_error != '') {
+	header('Location:'.HOST_URL.'offline.html');
+	exit();
+}
+
 
 ///////////
 // Tester
@@ -90,6 +95,14 @@ function getTotalGyms() {
     $result = $mysqli->query($req);
     $data = $result->fetch_object();
     return $data;
+}
+
+function getTotalRaids() {
+	global $mysqli;
+	$req = "SELECT COUNT(*) AS total FROM raid WHERE start <= UTC_TIMESTAMP AND  end >= UTC_TIMESTAMP()";
+	$result = $mysqli->query($req);
+	$data = $result->fetch_object();
+	return $data;
 }
 
 function getTotalGymsForTeam($team_id) {

@@ -7,6 +7,12 @@ if ($mysqli->connect_error != '') {
 }
 $mysqli->set_charset('utf8');
 
+if ($mysqli->connect_error != '') {
+	header('Location:'.HOST_URL.'offline.html');
+	exit();
+}
+
+
 ///////////
 // Tester
 ///////////
@@ -87,6 +93,15 @@ function getTotalGyms() {
     return $data;
 }
 
+function getTotalRaids() {
+	global $mysqli;
+	$req = "SELECT COUNT(*) AS total FROM raids WHERE time_battle <= UNIX_TIMESTAMP() AND time_end >= UNIX_TIMESTAMP()";
+	$result = $mysqli->query($req);
+	$data = $result->fetch_object();
+	return $data;
+}
+
+
 function getTotalGymsForTeam($team_id) {
     global $mysqli;
     $req = "SELECT COUNT(DISTINCT(fort_id)) AS total FROM fort_sightings WHERE team = '$team_id'";
@@ -97,7 +112,7 @@ function getTotalGymsForTeam($team_id) {
 
 function getRecentAll() {
     global $mysqli;
-    $req = "SELECT DISTINCT pokemon_id, CONCAT('A', encounter_id) as encounter_id, FROM_UNIXTIME(expire_timestamp) AS disappear_time, FROM_UNIXTIME(updated+0) AS last_modified, FROM_UNIXTIME(expire_timestamp) AS disappear_time_real,
+    $req = "SELECT DISTINCT pokemon_id, encounter_id, FROM_UNIXTIME(expire_timestamp) AS disappear_time, FROM_UNIXTIME(updated+0) AS last_modified, FROM_UNIXTIME(expire_timestamp) AS disappear_time_real,
               lat AS latitude, lon AS longitude, cp, atk_iv AS individual_attack, def_iv AS individual_defense, sta_iv AS individual_stamina
               FROM sightings
               ORDER BY last_modified DESC

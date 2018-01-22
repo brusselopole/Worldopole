@@ -79,6 +79,10 @@ if (!file_exists(SYS_PATH.'/install/done.lock')) {
 include_once('locales.loader.php');
 
 
+// Load Query Manager
+// ###################
+
+include_once(SYS_PATH . '/core/process/query.php');
 
 ##########################
 //
@@ -377,10 +381,10 @@ if (!empty($page)) {
 else {
 	$home = new stdClass();
 
-
 	// Recent spawns
 	// ------------
 
+	$recents = array();
 	if ($config->system->recents_filter) {
 		// get all mythic pokemon ids
 		$mythic_pokemons = array();
@@ -390,25 +394,15 @@ else {
 			}
 		}
 		// get all mythic pokemon
-		$req = "SELECT DISTINCT pokemon_id, encounter_id, disappear_time, last_modified, (CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) AS disappear_time_real,
-				latitude, longitude, cp, individual_attack, individual_defense, individual_stamina
-				FROM pokemon
-				WHERE pokemon_id IN (".implode(",", $mythic_pokemons).")
-				ORDER BY last_modified DESC
-				LIMIT 0,12";
+		$result = getRecentMythic($mythic_pokemons);
 	} else {
 		// get all pokemon
-		$req = "SELECT DISTINCT pokemon_id, encounter_id, disappear_time, last_modified, (CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) AS disappear_time_real,
-				latitude, longitude, cp, individual_attack, individual_defense, individual_stamina
-				FROM pokemon
-				ORDER BY last_modified DESC
-				LIMIT 0,12";
+		$result = getRecentAll();
 	}
-	$result 	= $mysqli->query($req);
-	$recents	= array();
+	$recents = array();
 
-	if ($result->num_rows > 0) {
-		while ($data = $result->fetch_object()) {
+	if (count($result) > 0) {
+		foreach ($result as $data) {
 			$recent = new stdClass();
 			$recent->id = $data->pokemon_id;
 			$recent->uid = $data->encounter_id;
@@ -447,30 +441,15 @@ else {
 	// 2 = rouge
 	// 3 = jaune
 
-	$req = "SELECT COUNT(DISTINCT(gym_id)) AS total FROM gym WHERE team_id = '1'";
-	$result = $mysqli->query($req);
-	$data = $result->fetch_object();
-
+	$data = getTotalGymsForTeam(1);
 	$home->teams->mystic = $data->total;
 
-
-	$req = "SELECT COUNT(DISTINCT(gym_id)) AS total FROM gym WHERE team_id = '2'";
-	$result = $mysqli->query($req);
-	$data = $result->fetch_object();
-
+	$data = getTotalGymsForTeam(2);
 	$home->teams->valor = $data->total;
 
-
-	$req = "SELECT COUNT(DISTINCT(gym_id)) AS total FROM gym WHERE team_id = '3'";
-	$result = $mysqli->query($req);
-	$data = $result->fetch_object();
-
+	$data = getTotalGymsForTeam(3);
 	$home->teams->instinct = $data->total;
 
-
-	$req = "SELECT COUNT(DISTINCT(gym_id)) AS total FROM gym WHERE team_id = '0'";
-	$result = $mysqli->query($req);
-	$data = $result->fetch_object();
-
+	$data = getTotalGymsForTeam(0);
 	$home->teams->rocket = $data->total;
 }

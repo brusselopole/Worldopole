@@ -36,6 +36,13 @@ include_once('locales.loader.php');
 ##################
 include_once(SYS_PATH.'/functions.php');
 
+
+// Load Query Manager
+// ###################
+
+include_once('query.php');
+
+
 # MySQL
 $mysqli = new mysqli(SYS_DB_HOST, SYS_DB_USER, SYS_DB_PSWD, SYS_DB_NAME, SYS_DB_PORT);
 if ($mysqli->connect_error != '') {
@@ -59,79 +66,44 @@ switch ($request) {
 	############################
 
 	case 'home_update':
+
+		$values = [];
 		// Right now
 		// ---------
-
-		$req = "SELECT COUNT(*) AS total FROM pokemon WHERE disappear_time >= UTC_TIMESTAMP()";
-		$result = $mysqli->query($req);
-		$data = $result->fetch_object();
-
+		$data = getTotalPokemon();
 		$values[] = $data->total;
-
 
 		// Lured stops
 		// -----------
-
-		$req = "SELECT COUNT(*) AS total FROM pokestop WHERE lure_expiration >= UTC_TIMESTAMP()";
-		$result = $mysqli->query($req);
-		$data = $result->fetch_object();
-
+		$data = getTotalLures();
 		$values[] = $data->total;
-
 
 		// Active Raids
 		// -----------
-
-		$req = "SELECT COUNT(*) AS total FROM raid WHERE start <= UTC_TIMESTAMP AND  end >= UTC_TIMESTAMP()";
-		$result = $mysqli->query($req);
-		$data = $result->fetch_object();
-
+		$data = getTotalRaids();
 		$values[] = $data->total;
-
 
 		// Team battle
 		// -----------
-
-		$req = "SELECT COUNT(DISTINCT(gym_id)) AS total FROM gym";
-		$result = $mysqli->query($req);
-		$data = $result->fetch_object();
-
+		$data = getTotalGyms();
 		$values[] = $data->total;
-
-		// Team
-		// 1 = bleu
-		// 2 = rouge
-		// 3 = jaune
-
-		$req = "SELECT COUNT(DISTINCT(gym_id)) AS total FROM gym WHERE team_id = '2'";
-		$result = $mysqli->query($req);
-		$data = $result->fetch_object();
 
 		// Red
+		$data = getTotalGymsForTeam(2);
 		$values[] = $data->total;
-
-
-		$req = "SELECT COUNT(DISTINCT(gym_id)) AS total FROM gym WHERE team_id = '1'";
-		$result = $mysqli->query($req);
-		$data = $result->fetch_object();
 
 		// Blue
+		$data = getTotalGymsForTeam(1);
 		$values[] = $data->total;
-
-
-		$req = "SELECT COUNT(DISTINCT(gym_id)) AS total FROM gym WHERE team_id = '3'";
-		$result = $mysqli->query($req);
-		$data = $result->fetch_object();
 
 		// Yellow
+		$data = getTotalGymsForTeam(3);
 		$values[] = $data->total;
-
-		$req = "SELECT COUNT(DISTINCT(gym_id)) AS total FROM gym WHERE team_id = '0'";
-		$result = $mysqli->query($req);
-		$data = $result->fetch_object();
 
 		// Neutral
+		$data = getTotalGymsForTeam(0);
 		$values[] = $data->total;
+
 
 		header('Content-Type: application/json');
 		echo json_encode($values);
@@ -163,117 +135,110 @@ switch ($request) {
 			}
 
 			// get last mythic pokemon
-			$req = "SELECT pokemon_id, encounter_id, disappear_time, last_modified, (CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) AS disappear_time_real,
-					latitude, longitude, cp, individual_attack, individual_defense, individual_stamina
-					FROM pokemon
-					WHERE pokemon_id IN (".implode(",", $mythic_pokemons).")
-					ORDER BY last_modified DESC
-					LIMIT 0,12";
+			$result = getRecentMythic($mythic_pokemons);
 		} else {
 			// get last pokemon
-			$req = "SELECT pokemon_id, encounter_id, disappear_time, last_modified, (CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) AS disappear_time_real,
-					latitude, longitude, cp, individual_attack, individual_defense, individual_stamina
-					FROM pokemon
-					ORDER BY last_modified DESC
-					LIMIT 0,12";
+			$result = getRecentAll();
 		}
-		$result = $mysqli->query($req);
-		while ($data = $result->fetch_object()) {
-			$new_spawn = array();
-			$pokeid = $data->pokemon_id;
-			$pokeuid = $data->encounter_id;
 
-			if ($last_uid_param != $pokeuid) {
-				$last_seen = strtotime($data->disappear_time_real);
+		if (count($result) > 0) {
+			foreach ($result as $data) {
+				$new_spawn = array();
+				$pokeid = $data->pokemon_id;
+				$pokeuid = $data->encounter_id;
 
-				$location_link = isset($config->system->location_url) ? $config->system->location_url : 'https://maps.google.com/?q={latitude},{longitude}&ll={latitude},{longitude}&z=16';
-				$location_link = str_replace('{latitude}', $data->latitude, $location_link);
-				$location_link = str_replace('{longitude}', $data->longitude, $location_link);
+				if ($last_uid_param != $pokeuid) {
+					$last_seen = strtotime($data->disappear_time_real);
 
-				if ($config->system->recents_encounter_details) {
-					$encdetails = new stdClass();
-					$encdetails->cp = $data->cp;
-					$encdetails->attack = $data->individual_attack;
-					$encdetails->defense = $data->individual_defense;
-					$encdetails->stamina = $data->individual_stamina;
-					if (isset($encdetails->cp) && isset($encdetails->attack) && isset($encdetails->defense) && isset($encdetails->stamina)) {
-						$encdetails->available = true;
-					} else {
-						$encdetails->available = false;
-					}
-				}
+					$location_link = isset($config->system->location_url) ? $config->system->location_url : 'https://maps.google.com/?q={latitude},{longitude}&ll={latitude},{longitude}&z=16';
+					$location_link = str_replace('{latitude}', $data->latitude, $location_link);
+					$location_link = str_replace('{longitude}', $data->longitude, $location_link);
 
-				$html = '
-			    <div class="col-md-1 col-xs-4 pokemon-single" data-pokeid="'.$pokeid.'" data-pokeuid="'.$pokeuid.'" style="display: none;">
-				<a href="pokemon/'.$pokeid.'"><img src="'.$pokemons->pokemon->$pokeid->img.'" alt="'.$pokemons->pokemon->$pokeid->name.'" class="img-responsive"></a>
-				<a href="pokemon/'.$pokeid.'"><p class="pkmn-name">'.$pokemons->pokemon->$pokeid->name.'</p></a>
-				<a href="'.$location_link.'" target="_blank">
-					<small class="pokemon-timer">00:00:00</small>
-				</a>';
-				if ($config->system->recents_encounter_details) {
-					if ($encdetails->available) {
-						if ($config->system->iv_numbers) {
-							$html .= '
-							<div class="progress" style="height: 15px; margin-bottom: 0">
-								<div title="'.$locales->IV_ATTACK.': '.$encdetails->attack.'" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="'.$encdetails->attack.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(100 / 3).'%; line-height: 16px">
-									<span class="sr-only">'.$locales->IV_ATTACK.': '.$encdetails->attack.'</span>'.$encdetails->attack.'
-								</div>
-								<div title="'.$locales->IV_DEFENSE.': '.$encdetails->defense.'" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="'.$encdetails->defense.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(100 / 3).'%; line-height: 16px">
-									<span class="sr-only">'.$locales->IV_DEFENSE.': '.$encdetails->defense.'</span>'.$encdetails->defense.'
-								</div>
-								<div title="'.$locales->IV_STAMINA.': '.$encdetails->stamina.'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'.$encdetails->stamina.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(100 / 3).'%; line-height: 16px">
-									<span class="sr-only">'.$locales->IV_STAMINA.': '.$encdetails->stamina.'</span>'.$encdetails->stamina.'
-								</div>
-							</div>';
+					if ($config->system->recents_encounter_details) {
+						$encdetails = new stdClass();
+						$encdetails->cp = $data->cp;
+						$encdetails->attack = $data->individual_attack;
+						$encdetails->defense = $data->individual_defense;
+						$encdetails->stamina = $data->individual_stamina;
+						if (isset($encdetails->cp) && isset($encdetails->attack) && isset($encdetails->defense) && isset($encdetails->stamina)) {
+							$encdetails->available = true;
 						} else {
-							$html .= '
-							<div class="progress" style="height: 6px; width: 80%; margin: 5px auto 0 auto">
-							<div title="'.$locales->IV_ATTACK.': '.$encdetails->attack.'" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="'.$encdetails->attack.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(((100 / 15) * $encdetails->attack) / 3).'%">
-									<span class="sr-only">'.$locales->IV_ATTACK.': '.$encdetails->attack.'</span>
-							</div>
-							<div title="'.$locales->IV_DEFENSE.': '.$encdetails->defense.'" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="'.$encdetails->defense.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(((100 / 15) * $encdetails->defense) / 3).'%">
-									<span class="sr-only">'.$locales->IV_DEFENSE.': '.$encdetails->defense.'</span>
-							</div>
-							<div title="'.$locales->IV_STAMINA.': '.$encdetails->stamina.'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'.$encdetails->stamina.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(((100 / 15) * $encdetails->stamina) / 3).'%">
-									<span class="sr-only">'.$locales->IV_STAMINA.': '.$encdetails->stamina.'</span>
-							</div>
-							</div>';
+							$encdetails->available = false;
 						}
-						$html .= '<small>'.$encdetails->cp.'</small>';
-					} else {
-						if ($config->system->iv_numbers) {
-							$html .= '
-							<div class="progress" style="height: 15px; margin-bottom: 0">
-								<div title="'.$locales->IV_ATTACK.': not available" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="'.$encdetails->attack.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(100 / 3).'%; line-height: 16px">
-									<span class="sr-only">'.$locales->IV_ATTACK.': '.$locales->NOT_AVAILABLE.'</span>?
-								</div>
-								<div title="'.$locales->IV_DEFENSE.': not available" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="'.$encdetails->defense.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(100 / 3).'%; line-height: 16px">
-									<span class="sr-only">'.$locales->IV_DEFENSE.': '.$locales->NOT_AVAILABLE.'</span>?
-								</div>
-								<div title="'.$locales->IV_STAMINA.': not available" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'.$encdetails->stamina.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(100 / 3).'%; line-height: 16px">
-									<span class="sr-only">'.$locales->IV_STAMINA.': '.$locales->NOT_AVAILABLE.'</span>?
-								</div>
-							</div>';
-						} else {
-						$html .= '
-					    <div class="progress" style="height: 6px; width: 80%; margin: 5px auto 0 auto">
-						    <div title="IV not available" class="progress-bar" role="progressbar" style="width: 100%; background-color: rgb(210,210,210)" aria-valuenow="1" aria-valuemin="0" aria-valuemax="1">
-							    <span class="sr-only">IV '.$locales->NOT_AVAILABLE.'</span>
-						    </div>
-					    </div>';
-						}
-						$html .= '<small>???</small>';
 					}
+
+					$html = '
+                    <div class="col-md-1 col-xs-4 pokemon-single" data-pokeid="' . $pokeid . '" data-pokeuid="' . $pokeuid . '" style="display: none;">
+                    <a href="pokemon/' . $pokeid . '"><img src="' . $pokemons->pokemon->$pokeid->img . '" alt="' . $pokemons->pokemon->$pokeid->name . '" class="img-responsive"></a>
+                    <a href="pokemon/' . $pokeid . '"><p class="pkmn-name">' . $pokemons->pokemon->$pokeid->name . '</p></a>
+                    <a href="' . $location_link . '" target="_blank">
+                        <small class="pokemon-timer">00:00:00</small>
+                    </a>';
+					if ($config->system->recents_encounter_details) {
+						if ($encdetails->available) {
+							if ($config->system->iv_numbers) {
+								$html .= '
+                                <div class="progress" style="height: 15px; margin-bottom: 0">
+                                    <div title="' . $locales->IV_ATTACK . ': ' . $encdetails->attack . '" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="' . $encdetails->attack . '" aria-valuemin="0" aria-valuemax="45" style="width: ' . (100 / 3) . '%; line-height: 16px">
+                                        <span class="sr-only">' . $locales->IV_ATTACK . ': ' . $encdetails->attack . '</span>' . $encdetails->attack . '
+                                    </div>
+                                    <div title="' . $locales->IV_DEFENSE . ': ' . $encdetails->defense . '" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="' . $encdetails->defense . '" aria-valuemin="0" aria-valuemax="45" style="width: ' . (100 / 3) . '%; line-height: 16px">
+                                        <span class="sr-only">' . $locales->IV_DEFENSE . ': ' . $encdetails->defense . '</span>' . $encdetails->defense . '
+                                    </div>
+                                    <div title="' . $locales->IV_STAMINA . ': ' . $encdetails->stamina . '" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="' . $encdetails->stamina . '" aria-valuemin="0" aria-valuemax="45" style="width: ' . (100 / 3) . '%; line-height: 16px">
+                                        <span class="sr-only">' . $locales->IV_STAMINA . ': ' . $encdetails->stamina . '</span>' . $encdetails->stamina . '
+                                    </div>
+                                </div>';
+							} else {
+								$html .= '
+                                <div class="progress" style="height: 6px; width: 80%; margin: 5px auto 0 auto">
+                                <div title="' . $locales->IV_ATTACK . ': ' . $encdetails->attack . '" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="' . $encdetails->attack . '" aria-valuemin="0" aria-valuemax="45" style="width: ' . (((100 / 15) * $encdetails->attack) / 3) . '%">
+                                        <span class="sr-only">' . $locales->IV_ATTACK . ': ' . $encdetails->attack . '</span>
+                                </div>
+                                <div title="' . $locales->IV_DEFENSE . ': ' . $encdetails->defense . '" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="' . $encdetails->defense . '" aria-valuemin="0" aria-valuemax="45" style="width: ' . (((100 / 15) * $encdetails->defense) / 3) . '%">
+                                        <span class="sr-only">' . $locales->IV_DEFENSE . ': ' . $encdetails->defense . '</span>
+                                </div>
+                                <div title="' . $locales->IV_STAMINA . ': ' . $encdetails->stamina . '" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="' . $encdetails->stamina . '" aria-valuemin="0" aria-valuemax="45" style="width: ' . (((100 / 15) * $encdetails->stamina) / 3) . '%">
+                                        <span class="sr-only">' . $locales->IV_STAMINA . ': ' . $encdetails->stamina . '</span>
+                                </div>
+                                </div>';
+							}
+							$html .= '<small>' . $encdetails->cp . '</small>';
+						} else {
+							if ($config->system->iv_numbers) {
+								$html .= '
+                                <div class="progress" style="height: 15px; margin-bottom: 0">
+                                    <div title="' . $locales->IV_ATTACK . ': not available" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="' . $encdetails->attack . '" aria-valuemin="0" aria-valuemax="45" style="width: ' . (100 / 3) . '%; line-height: 16px">
+                                        <span class="sr-only">' . $locales->IV_ATTACK . ': ' . $locales->NOT_AVAILABLE . '</span>?
+                                    </div>
+                                    <div title="' . $locales->IV_DEFENSE . ': not available" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="' . $encdetails->defense . '" aria-valuemin="0" aria-valuemax="45" style="width: ' . (100 / 3) . '%; line-height: 16px">
+                                        <span class="sr-only">' . $locales->IV_DEFENSE . ': ' . $locales->NOT_AVAILABLE . '</span>?
+                                    </div>
+                                    <div title="' . $locales->IV_STAMINA . ': not available" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="' . $encdetails->stamina . '" aria-valuemin="0" aria-valuemax="45" style="width: ' . (100 / 3) . '%; line-height: 16px">
+                                        <span class="sr-only">' . $locales->IV_STAMINA . ': ' . $locales->NOT_AVAILABLE . '</span>?
+                                    </div>
+                                </div>';
+							} else {
+								$html .= '
+                            <div class="progress" style="height: 6px; width: 80%; margin: 5px auto 0 auto">
+                                <div title="IV not available" class="progress-bar" role="progressbar" style="width: 100%; background-color: rgb(210,210,210)" aria-valuenow="1" aria-valuemin="0" aria-valuemax="1">
+                                    <span class="sr-only">IV ' . $locales->NOT_AVAILABLE . '</span>
+                                </div>
+                            </div>';
+							}
+							$html .= '<small>???</small>';
+						}
+					}
+					$html .= '
+                    </div>';
+					$new_spawn['html'] = $html;
+					$countdown = $last_seen - time();
+					$new_spawn['countdown'] = $countdown;
+					$new_spawn['pokemon_uid'] = $pokeuid;
+					$total_spawns[] = $new_spawn;
+				} else {
+					break;
 				}
-				$html .= '
-			    </div>';
-				$new_spawn['html'] = $html;
-				$countdown = $last_seen - time();
-				$new_spawn['countdown'] = $countdown;
-				$new_spawn['pokemon_uid'] = $pokeuid;
-				$total_spawns[] = $new_spawn;
-			} else {
-				break;
 			}
 		}
 
