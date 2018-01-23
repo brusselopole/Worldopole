@@ -213,8 +213,19 @@ final class QueryManagerRocketMap extends QueryManagerMysql
 		$data = $result->fetch_object();
 		return $data;
 	}
-	
-	
+
+	public  function getAllPokestops()
+	{
+		$req = "SELECT latitude, longitude, lure_expiration, UTC_TIMESTAMP() AS now, (CONVERT_TZ(lure_expiration, '+00:00', '".$time_offset."')) AS lure_expiration_real FROM pokestop";
+		$result = $this->mysqli->query($req);
+		$pokestops = array();
+		while ($data = $result->fetch_object()) {
+			$pokestops[] = $data;
+		}
+		return $pokestops;
+	}
+
+
 	/////////
 	// Gyms
 	/////////
@@ -222,12 +233,10 @@ final class QueryManagerRocketMap extends QueryManagerMysql
 	function getTeamGuardians($team_id) {
 		$req = "SELECT COUNT(*) AS total, guard_pokemon_id FROM gym WHERE team_id = '".$team_id ."' GROUP BY guard_pokemon_id ORDER BY total DESC LIMIT 0,3";
 		$result = $this->mysqli->query($req);
-	
 		$datas = array();
 		while ($data = $result->fetch_object()) {
 			$datas[] = $data;
 		}
-	
 		return $datas;
 	}
 	
@@ -237,4 +246,41 @@ final class QueryManagerRocketMap extends QueryManagerMysql
 		$data = $result->fetch_object();
 		return $data;
 	}
+
+	function getAllGyms() {
+		$req = "SELECT gym_id, team_id, latitude, longitude, (CONVERT_TZ(last_scanned, '+00:00', '".self::$time_offset."')) AS last_scanned, (6 - slots_available) AS level FROM gym";
+		$result = $this->mysqli->query($req);
+		$gyms = array();
+		while ($data = $result->fetch_object()) {
+			$gyms[] = $data;
+		}
+		return $gyms;
+	}
+
+	public function getGymData($gym_id) {
+		$gym_id = $this->mysqli->real_escape_string($_GET['gym_id']);
+		$req = "SELECT gymdetails.name AS name, gymdetails.description AS description, gymdetails.url AS url, gym.team_id AS team,
+					(CONVERT_TZ(gym.last_scanned, '+00:00', '".self::$time_offset."')) AS last_scanned, gym.guard_pokemon_id AS guard_pokemon_id, gym.total_cp AS total_cp, (6 - gym.slots_available) AS level
+					FROM gymdetails
+					LEFT JOIN gym ON gym.gym_id = gymdetails.gym_id
+					WHERE gym.gym_id='".$gym_id."'";
+		$result = $this->mysqli->query($req);
+		$data = $result->fetch_object();
+		return $data;
+	}
+
+	public  function getGymDefenders($gym_id) {
+		$req = "SELECT DISTINCT gympokemon.pokemon_uid, pokemon_id, iv_attack, iv_defense, iv_stamina, MAX(cp) AS cp, gymmember.gym_id
+					FROM gympokemon INNER JOIN gymmember ON gympokemon.pokemon_uid=gymmember.pokemon_uid
+					GROUP BY gympokemon.pokemon_uid, pokemon_id, iv_attack, iv_defense, iv_stamina, gym_id
+					HAVING gymmember.gym_id='".$gym_id."'
+					ORDER BY cp DESC";
+		$result = $this->mysqli->query($req);
+		$defenders = array();
+		while ($data = $result->fetch_object()) {
+			$defenders[] = $data;
+		}
+		return $defenders;
+	}
+
 }

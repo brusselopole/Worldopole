@@ -219,6 +219,16 @@ class QueryManagerMonocleAlt extends QueryManagerMysql
 		return $data;
 	}
 
+	public  function getAllPokestops() {
+		$req = "SELECT lat as latitude, lon as longitude, null AS lure_expiration, UNIX_TIMESTAMP() AS now, null AS lure_expiration_real FROM pokestops";
+		$result = $this->mysqli->query($req);
+		$pokestops = array();
+		while ($data = $result->fetch_object()) {
+			$pokestops[] = $data;
+		}
+		return $pokestops;
+	}
+
 
 	/////////
 	// Gyms
@@ -246,4 +256,38 @@ class QueryManagerMonocleAlt extends QueryManagerMysql
 		return $data;
 	}
 
+	function getAllGyms() {
+		$req = "SELECT f.id as gym_id, team as team_id, f.lat as latitude, f.lon as longitude, updated as last_scanned, (6 - fs.slots_available) AS level FROM forts f LEFT JOIN fort_sightings fs ON f.id = fs.fort_id;";
+		$result = $this->mysqli->query($req);
+		$gyms = array();
+		while ($data = $result->fetch_object()) {
+			$gyms[] = $data;
+		}
+		return $gyms;
+	}
+
+	public function getGymData($gym_id) {
+		$gym_id = $this->mysqli->real_escape_string($_GET['gym_id']);
+		$req = "SELECT f.name AS name, null AS description, f.url AS url, fs.team AS team, fs.updated AS last_scanned, fs.guard_pokemon_id AS guard_pokemon_id, (6 - fs.slots_available) AS level, SUM(gd.cp) as total_cp	
+			FROM fort_sightings fs
+			LEFT JOIN forts f ON f.id = fs.fort_id
+			JOIN gym_defenders gd ON f.id = gd.fort_id
+			WHERE f.id ='".$gym_id."'";
+		$result = $this->mysqli->query($req);
+		$data = $result->fetch_object();
+		return $data;
+	}
+
+	public function getGymDefenders($gym_id) {
+		$req = "SELECT DISTINCT external_id as pokemon_uid, pokemon_id, atk_iv as iv_attack, def_iv as iv_defense, sta_iv as iv_stamina, cp, fort_id as gym_id
+			FROM gym_defenders 
+			WHERE fort_id='".$gym_id."'
+			ORDER BY cp DESC";
+		$result = $this->mysqli->query($req);
+		$defenders = array();
+		while ($data = $result->fetch_object()) {
+			$defenders[] = $data;
+		}
+		return $defenders;
+	}
 }

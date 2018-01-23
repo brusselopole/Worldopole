@@ -37,7 +37,8 @@ abstract class QueryManager
 	private function __construct(){}
 
 	// Misc
-	public abstract function getExcapedPokemonID($string);
+	public abstract function getEcapedPokemonID($string);
+	public abstract function getEscapedGymID($string);
 
 	// Tester
 	public abstract function testTotalPokemon();
@@ -61,9 +62,13 @@ abstract class QueryManager
 
 	// Pokestops
 	public abstract function getTotalPokestops();
+	public abstract function getAllPokestops();
 
 	// Gyms
 	public abstract function getTeamGuardians($team_id);
 	public abstract function getOwnedAndPoints($team_id);
+	public abstract function getAllGyms();
+	public abstract function getGymData($gym_id);
+	public abstract function getGymDefenders($gym_id);
 
 }

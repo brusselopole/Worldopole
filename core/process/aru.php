@@ -255,14 +255,11 @@ switch ($request) {
 	####################################
 
 	case 'pokestop':
-		$where = "";
-		$req = "SELECT latitude, longitude, lure_expiration, UTC_TIMESTAMP() AS now, (CONVERT_TZ(lure_expiration, '+00:00', '".$time_offset."')) AS lure_expiration_real FROM pokestop ";
 
-		$result = $mysqli->query($req);
+		$datas = $manager->getAllPokestops();
 
 		$pokestops = [];
-
-		while ($data = $result->fetch_object()) {
+		foreach ($datas as $data) {
 			if ($data->lure_expiration >= $data->now) {
 				$icon = 'pokestap_lured.png';
 				$text = sprintf($locales->POKESTOPS_MAP_LURED, date('H:i:s', strtotime($data->lure_expiration_real)));
@@ -300,11 +297,9 @@ switch ($request) {
 		$teams->valor = 2;
 		$teams->instinct = 3;
 
-
 		foreach ($teams as $team_name => $team_id) {
-			$req = "SELECT COUNT(DISTINCT(gym_id)) AS total, ROUND(AVG(total_cp),0) AS average_points FROM gym WHERE team_id = '".$team_id."'";
-			$result = $mysqli->query($req);
-			$data = $result->fetch_object();
+
+			$data	= $manager->getOwnedAndPoints($team_id);
 
 			$return[] = $data->total;
 			$return[] = $data->average_points;
@@ -324,12 +319,11 @@ switch ($request) {
 
 
 	case 'gym_map':
-		$req = "SELECT gym_id, team_id, latitude, longitude, (CONVERT_TZ(last_scanned, '+00:00', '".$time_offset."')) AS last_scanned, (6 - slots_available) AS level FROM gym";
-		$result = $mysqli->query($req);
+
+		$datas = $manager->getAllGyms();
 
 		$gyms = [];
-
-		while ($data = $result->fetch_object()) {
+		foreach ($datas as $data) {
 			// Team
 			// 1 = bleu
 			// 2 = rouge
@@ -386,17 +380,13 @@ switch ($request) {
 	####################################
 
 	case 'gym_defenders':
-		$gym_id = $mysqli->real_escape_string($_GET['gym_id']);
-		$req = "SELECT gymdetails.name AS name, gymdetails.description AS description, gymdetails.url AS url, gym.team_id AS team,
-					(CONVERT_TZ(gym.last_scanned, '+00:00', '".$time_offset."')) AS last_scanned, gym.guard_pokemon_id AS guard_pokemon_id, gym.total_cp AS total_cp, (6 - gym.slots_available) AS level
-					FROM gymdetails
-					LEFT JOIN gym ON gym.gym_id = gymdetails.gym_id
-					WHERE gym.gym_id='".$gym_id."'";
-		$result = $mysqli->query($req);
 
+		$gym_id = $manager->getEscapedGymID($_GET['gym_id']);
+
+		$data = $manager->getGymData($gym_id);
 		$gymData['gymDetails']['gymInfos'] = false;
 
-		while ($data = $result->fetch_object()) {
+		if (!is_null($data)) {
 			$gymData['gymDetails']['gymInfos']['name'] = $data->name;
 			$gymData['gymDetails']['gymInfos']['description'] = $data->description;
 			if ($data->url == null) {
@@ -409,75 +399,57 @@ switch ($request) {
 			$gymData['gymDetails']['gymInfos']['last_scanned'] = $data->last_scanned;
 			$gymData['gymDetails']['gymInfos']['team'] = $data->team;
 			$gymData['gymDetails']['gymInfos']['guardPokemonId'] = $data->guard_pokemon_id;
-		}
 
-		$req = "SELECT DISTINCT gympokemon.pokemon_uid, pokemon_id, iv_attack, iv_defense, iv_stamina, MAX(cp) AS cp, gymmember.gym_id
-					FROM gympokemon INNER JOIN gymmember ON gympokemon.pokemon_uid=gymmember.pokemon_uid
-					GROUP BY gympokemon.pokemon_uid, pokemon_id, iv_attack, iv_defense, iv_stamina, gym_id
-					HAVING gymmember.gym_id='".$gym_id."'
-					ORDER BY cp DESC";
-		$result = $mysqli->query($req);
-
-		$i = 0;
-
-		$gymData['infoWindow'] = '
-			<div class="gym_defenders">
-			';
-		while ($data = $result->fetch_object()) {
-			$gymData['gymDetails']['pokemons'][] = $data;
-			if ($data != false) {
-				$pokemon_id = $data->pokemon_id;
-				if ($config->system->iv_numbers) {
-					$gymData['infoWindow'] .= '
+			// Skip Query if team is none
+			if ($data->team > 0) {
+				$datas = $manager->getGymDefenders($gym_id);
+				$gymData['infoWindow'] = '
+				<div class="gym_defenders">
+				';
+				foreach ($datas as $data) {
+					$gymData['gymDetails']['pokemons'][] = $data;
+					$pokemon_id = $data->pokemon_id;
+					if ($config->system->iv_numbers) {
+						$gymData['infoWindow'] .= '
 					<div style="text-align: center; width: 50px; display: inline-block; margin-right: 3px">
-						<a href="pokemon/'.$data->pokemon_id.'">
-						<img src="'.$pokemons->pokemon->$pokemon_id->img.'" height="50" style="display:inline-block" >
+						<a href="pokemon/' . $data->pokemon_id . '">
+						<img src="' . $pokemons->pokemon->$pokemon_id->img . '" height="50" style="display:inline-block" >
 						</a>
-						<p class="pkmn-name">'.$data->cp.'</p>
+						<p class="pkmn-name">' . $data->cp . '</p>
 						<div class="progress" style="height: 12px; margin-bottom: 0">
-							<div title="'.$locales->IV_ATTACK.': '.$data->iv_attack.'" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="'.$data->iv_attack.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(100 / 3).'%; line-height: 13px; font-size: 11px">
-								<span class="sr-only">'.$locales->IV_ATTACK.' : '.$data->iv_attack.'</span>'.$data->iv_attack.'
+							<div title="' . $locales->IV_ATTACK . ': ' . $data->iv_attack . '" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="' . $data->iv_attack . '" aria-valuemin="0" aria-valuemax="45" style="width: ' . (100 / 3) . '%; line-height: 13px; font-size: 11px">
+								<span class="sr-only">' . $locales->IV_ATTACK . ' : ' . $data->iv_attack . '</span>' . $data->iv_attack . '
 								</div>
-								<div title="'.$locales->IV_DEFENSE.': '.$data->iv_defense.'" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="'.$data->iv_defense.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(100 / 3).'%; line-height: 13px; font-size: 11px">
-									<span class="sr-only">'.$locales->IV_DEFENSE.' : '.$data->iv_defense.'</span>'.$data->iv_defense.'
+								<div title="' . $locales->IV_DEFENSE . ': ' . $data->iv_defense . '" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="' . $data->iv_defense . '" aria-valuemin="0" aria-valuemax="45" style="width: ' . (100 / 3) . '%; line-height: 13px; font-size: 11px">
+									<span class="sr-only">' . $locales->IV_DEFENSE . ' : ' . $data->iv_defense . '</span>' . $data->iv_defense . '
 								</div>
-								<div title="'.$locales->IV_STAMINA.': '.$data->iv_stamina.'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'.$data->iv_stamina.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(100 / 3).'%; line-height: 13px; font-size: 11px">
-									<span class="sr-only">'.$locales->IV_STAMINA.' : '.$data->iv_stamina.'</span>'.$data->iv_stamina.'
+								<div title="' . $locales->IV_STAMINA . ': ' . $data->iv_stamina . '" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="' . $data->iv_stamina . '" aria-valuemin="0" aria-valuemax="45" style="width: ' . (100 / 3) . '%; line-height: 13px; font-size: 11px">
+									<span class="sr-only">' . $locales->IV_STAMINA . ' : ' . $data->iv_stamina . '</span>' . $data->iv_stamina . '
 								</div>
 							</div>
 						</div>';
-				} else {
-					$gymData['infoWindow'] .= '
+					} else {
+						$gymData['infoWindow'] .= '
 					<div style="text-align: center; width: 50px; display: inline-block; margin-right: 3px">
-						<a href="pokemon/'.$data->pokemon_id.'">
-						<img src="'.$pokemons->pokemon->$pokemon_id->img.'" height="50" style="display:inline-block" >
+						<a href="pokemon/' . $data->pokemon_id . '">
+						<img src="' . $pokemons->pokemon->$pokemon_id->img . '" height="50" style="display:inline-block" >
 						</a>
-						<p class="pkmn-name">'.$data->cp.'</p>
+						<p class="pkmn-name">' . $data->cp . '</p>
 						<div class="progress" style="height: 4px; width: 40px; margin-bottom: 10px; margin-top: 2px; margin-left: auto; margin-right: auto">
-							<div title="'.$locales->IV_ATTACK.': '.$data->iv_attack.'" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="'.$data->iv_attack.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(((100 / 15) * $data->iv_attack) / 3).'%">
-								<span class="sr-only">'.$locales->IV_ATTACK.': '.$data->iv_attack.'</span>
+							<div title="' . $locales->IV_ATTACK . ': ' . $data->iv_attack . '" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="' . $data->iv_attack . '" aria-valuemin="0" aria-valuemax="45" style="width: ' . (((100 / 15) * $data->iv_attack) / 3) . '%">
+								<span class="sr-only">' . $locales->IV_ATTACK . ': ' . $data->iv_attack . '</span>
 							</div>
-							<div title="'.$locales->IV_DEFENSE.': '.$data->iv_defense.'" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="'.$data->iv_defense.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(((100 / 15) * $data->iv_defense) / 3).'%">
-								<span class="sr-only">'.$locales->IV_DEFENSE.': '.$data->iv_defense.'</span>
+							<div title="' . $locales->IV_DEFENSE . ': ' . $data->iv_defense . '" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="' . $data->iv_defense . '" aria-valuemin="0" aria-valuemax="45" style="width: ' . (((100 / 15) * $data->iv_defense) / 3) . '%">
+								<span class="sr-only">' . $locales->IV_DEFENSE . ': ' . $data->iv_defense . '</span>
 							</div>
-							<div title="'.$locales->IV_STAMINA.': '.$data->iv_stamina.'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'.$data->iv_stamina.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(((100 / 15) * $data->iv_stamina) / 3).'%">
-								<span class="sr-only">'.$locales->IV_STAMINA.': '.$data->iv_stamina.'</span>
+							<div title="' . $locales->IV_STAMINA . ': ' . $data->iv_stamina . '" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="' . $data->iv_stamina . '" aria-valuemin="0" aria-valuemax="45" style="width: ' . (((100 / 15) * $data->iv_stamina) / 3) . '%">
+								<span class="sr-only">' . $locales->IV_STAMINA . ': ' . $data->iv_stamina . '</span>
 							</div>
 						</div>
-					</div>'
-						; }
-			} else {
-				$pokemon_id = $gymData['gymDetails']['gymInfos']['guardPokemonId'];
-				$gymData['infoWindow'] .= '
-				<div style="text-align: center; width: 50px; display: inline-block; margin-right: 3px">
-					<a href="pokemon/'.$gymData['gymDetails']['gymInfos']['guardPokemonId'].'">
-					<img src="'.$pokemons->pokemon->$pokemon_id->img.'" height="50" style="display:inline-block" >
-					</a>
-					<p class="pkmn-name">???</p>
-				</div>'
-				;
+					</div>';
+					}
+				}
 			}
-			$i++;
 		}
 
 		// check whether we could retrieve gym infos, otherwise use basic gym info
