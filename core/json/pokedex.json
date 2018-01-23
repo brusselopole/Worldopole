@@ -5515,29 +5515,29 @@
             ]
         },
         "382": {
-            "atk": 297,
+            "atk": 270,
             "candy_id": 382,
             "charge_move": "?",
-            "def": 276,
-            "max_cp": 4874,
-            "max_hp": 170,
+            "def": 251,
+            "max_cp": 4074,
+            "max_hp": 155,
             "quick_move": "?",
             "rating": 1.0,
-            "sta": 200,
+            "sta": 182,
             "types": [
                 "Water"
             ]
         },
         "383": {
-            "atk": 297,
+            "atk": 270,
             "candy_id": 383,
             "charge_move": "?",
-            "def": 276,
-            "max_cp": 4874,
-            "max_hp": 170,
+            "def": 251,
+            "max_cp": 4074,
+            "max_hp": 155,
             "quick_move": "?",
             "rating": 1.0,
-            "sta": 200,
+            "sta": 182,
             "types": [
                 "Ground"
             ]
