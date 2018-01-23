@@ -268,7 +268,7 @@ class QueryManagerMonocleAlt extends QueryManagerMysql
 
 	public function getGymData($gym_id) {
 		$gym_id = $this->mysqli->real_escape_string($_GET['gym_id']);
-		$req = "SELECT f.name AS name, null AS description, f.url AS url, fs.team AS team, fs.updated AS last_scanned, fs.guard_pokemon_id AS guard_pokemon_id, (6 - fs.slots_available) AS level, SUM(gd.cp) as total_cp	
+		$req = "SELECT f.name AS name, null AS description, f.url AS url, fs.team AS team, FROM_UNIXTIME(fs.updated) AS last_scanned, fs.guard_pokemon_id AS guard_pokemon_id, (6 - fs.slots_available) AS level, SUM(gd.cp) as total_cp	
 			FROM fort_sightings fs
 			LEFT JOIN forts f ON f.id = fs.fort_id
 			JOIN gym_defenders gd ON f.id = gd.fort_id
