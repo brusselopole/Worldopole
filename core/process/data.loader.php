@@ -69,7 +69,9 @@ include_once('locales.loader.php');
 // Load Query Manager
 // ###################
 
-include_once(SYS_PATH . '/core/process/query.php');
+include_once __DIR__ . '/queries/QueryManager.php';
+$manager = QueryManager::current();
+
 
 ##########################
 //
@@ -92,7 +94,7 @@ if (!empty($page)) {
 			// Current Pokemon datas
 			// ---------------------
 
-			$pokemon_id = getExcapedPokemonID($_GET['id']);
+			$pokemon_id = $manager->getExcapedPokemonID($_GET['id']);
 
 			if (!is_object($pokemons->pokemon->$pokemon_id)) {
 				header('Location:/404');
@@ -124,7 +126,7 @@ if (!empty($page)) {
 
 			// Total gym protected
 
-			$data = getGymsProtectedByPokemon($pokemon_id);
+			$data = $manager->getGymsProtectedByPokemon($pokemon_id);
 			$pokemon->protected_gyms = $data->total;
 
 			// Spawn rate
@@ -161,13 +163,13 @@ if (!empty($page)) {
 			// Top50 Pokemon List
 			// Don't run the query for super common pokemon because it's too heavy
 			if ($pokemon->spawn_rate < 0.20) {
-				$top = getTop50Pokemon($pokemon_id);
+				$top = $manager->getTop50Pokemon($pokemon_id, $best_order, $best_direction);
 			} else {
 				$top = array();
 			}
 			
 			// Trainer with highest Pokemon
-			$toptrainer = getTop50Trainers($pokemon_id);
+			$toptrainer = $manager->getTop50Trainers($pokemon_id, $best_order, $best_direction);
 
 			break;
 
@@ -201,10 +203,10 @@ if (!empty($page)) {
 		case 'pokestops':
 			$pokestop = new stdClass();
 
-			$data = getTotalPokestops();
+			$data = $manager->getTotalPokestops();
 			$pokestop->total = $data->total;
 
-			$data = getTotalLures();
+			$data = $manager->getTotalLures();
 			$pokestop->lured = $data->total;
 
 			break;
@@ -242,7 +244,7 @@ if (!empty($page)) {
 
 				// Team Guardians
 				$i = 0;
-				$datas = getTeamGuardians($team_values->id);
+				$datas = $manager->getTeamGuardians($team_values->id);
 				foreach ($datas as $data) {
 					$teams->$team_key->guardians->$i = $data->guard_pokemon_id;
 
@@ -251,7 +253,7 @@ if (!empty($page)) {
 
 
 				// Gym owned and average points
-				$data	= getOwnedAndPoints($team_values->id);
+				$data	= $manager->getOwnedAndPoints($team_values->id);
 
 				$teams->$team_key->gym_owned = $data->total;
 				$teams->$team_key->average = $data->average_points;
@@ -311,25 +313,25 @@ else {
 
 	// Right now
 	// ---------
-	$data = getTotalPokemon();
+	$data = $manager->getTotalPokemon();
 	$home->pokemon_now = $data->total;
 
 
 	// Lured stops
 	// -----------
-	$data = getTotalLures();
+	$data = $manager->getTotalLures();
 	$home->pokestop_lured = $data->total;
 
 
 	// Active Raids
 	// -----------
-	$data = getTotalRaids();
+	$data = $manager->getTotalRaids();
 	$home->active_raids = $data->total;
 
 
 	// Gyms
 	// ----
-	$data = getTotalGyms();
+	$data = $manager->getTotalGyms();
 	$home->gyms = $data->total;
 
 
@@ -346,10 +348,10 @@ else {
 			}
 		}
 		// get all mythic pokemon
-		$result = getRecentMythic($mythic_pokemons);
+		$result = $manager->getRecentMythic($mythic_pokemons);
 	} else {
 		// get all pokemon
-		$result = getRecentAll();
+		$result = $manager->getRecentAll();
 	}
 	$recents = array();
 
@@ -393,15 +395,15 @@ else {
 	// 2 = rouge
 	// 3 = jaune
 
-	$data = getTotalGymsForTeam(1);
+	$data = $manager->getTotalGymsForTeam(1);
 	$home->teams->mystic = $data->total;
 
-	$data = getTotalGymsForTeam(2);
+	$data = $manager->getTotalGymsForTeam(2);
 	$home->teams->valor = $data->total;
 
-	$data = getTotalGymsForTeam(3);
+	$data = $manager->getTotalGymsForTeam(3);
 	$home->teams->instinct = $data->total;
 
-	$data = getTotalGymsForTeam(0);
+	$data = $manager->getTotalGymsForTeam(0);
 	$home->teams->rocket = $data->total;
 }

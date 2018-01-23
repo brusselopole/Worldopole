@@ -40,8 +40,8 @@ include_once(SYS_PATH.'/functions.php');
 // Load Query Manager
 // ###################
 
-include_once('query.php');
-
+include_once __DIR__ . '/queries/QueryManager.php';
+$manager = QueryManager::current();
 
 # MySQL
 $mysqli = new mysqli(SYS_DB_HOST, SYS_DB_USER, SYS_DB_PSWD, SYS_DB_NAME, SYS_DB_PORT);
@@ -70,38 +70,38 @@ switch ($request) {
 		$values = [];
 		// Right now
 		// ---------
-		$data = getTotalPokemon();
+		$data = $manager->getTotalPokemon();
 		$values[] = $data->total;
 
 		// Lured stops
 		// -----------
-		$data = getTotalLures();
+		$data = $manager->getTotalLures();
 		$values[] = $data->total;
 
 		// Active Raids
 		// -----------
-		$data = getTotalRaids();
+		$data = $manager->getTotalRaids();
 		$values[] = $data->total;
 
 		// Team battle
 		// -----------
-		$data = getTotalGyms();
+		$data = $manager->getTotalGyms();
 		$values[] = $data->total;
 
 		// Red
-		$data = getTotalGymsForTeam(2);
+		$data = $manager->getTotalGymsForTeam(2);
 		$values[] = $data->total;
 
 		// Blue
-		$data = getTotalGymsForTeam(1);
+		$data = $manager->getTotalGymsForTeam(1);
 		$values[] = $data->total;
 
 		// Yellow
-		$data = getTotalGymsForTeam(3);
+		$data = $manager->getTotalGymsForTeam(3);
 		$values[] = $data->total;
 
 		// Neutral
-		$data = getTotalGymsForTeam(0);
+		$data = $manager->getTotalGymsForTeam(0);
 		$values[] = $data->total;
 
 
@@ -135,10 +135,10 @@ switch ($request) {
 			}
 
 			// get last mythic pokemon
-			$result = getRecentMythic($mythic_pokemons);
+			$result = $manager->getRecentMythic($mythic_pokemons);
 		} else {
 			// get last pokemon
-			$result = getRecentAll();
+			$result = $manager->getRecentAll();
 		}
 
 		if (count($result) > 0) {
@@ -552,7 +552,6 @@ switch ($request) {
 		$order .= ", last_seen DESC, name ";
 
 		$limit = " LIMIT ".($page * 10).",10 ";
-
 
 		$req = "SELECT trainer.*, COUNT(actives_pokemons.trainer_name) AS active, max(actives_pokemons.cp) AS maxCp
 				FROM trainer

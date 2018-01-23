@@ -3,7 +3,8 @@
 // Load Query Manager
 // ###################
 
-include_once(SYS_PATH . '/core/process/query.php');
+include_once __DIR__ . '/../core/process/queries/QueryManager.php';
+$manager = QueryManager::current();
 
 
 ########################################################################
@@ -25,10 +26,12 @@ function php_test()
 
 function db_test()
 {
+	global $manager;
+
 	$lock_msg = '';
 
 	// Pokemon Test
-	$result = testTotalPokemon();
+	$result = $manager->testTotalPokemon();
 
 	if ($result === 1) {
 		$lock_msg .= "Error: No Pokémon database found<br>";
@@ -37,7 +40,7 @@ function db_test()
 	}
 
 	// Gym Test
-	$result = testTotalGyms();
+	$result = $manager->testTotalGyms();
 
 	if ($result === 1) {
 		$lock_msg .= "Error: No Gym database found<br>";
@@ -47,7 +50,7 @@ function db_test()
 
 
 	// Pokéstop Test
-	$result = testTotalPokestops();
+	$result = $manager->testTotalPokestops();
 
 	if ($result === 1) {
 		$lock_msg .= "Error: No Pokestop database found<br>";
