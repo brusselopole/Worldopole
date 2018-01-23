@@ -13,6 +13,17 @@ if ($mysqli->connect_error != '') {
 }
 
 
+/////////
+// Misc
+/////////
+
+function getExcapedPokemonID($string)
+{
+	global $mysqli;
+	return mysqli_real_escape_string($mysqli, $string);
+}
+
+
 ///////////
 // Tester
 ///////////
@@ -234,6 +245,32 @@ function getTop50Trainers($pokemon_id) {
 function getTotalPokestops() {
 	global $mysqli;
 	$req = "SELECT COUNT(*) as total FROM pokestop";
+	$result = $mysqli->query($req);
+	$data = $result->fetch_object();
+	return $data;
+}
+
+
+/////////
+// Gyms
+/////////
+
+function getTeamGuardians($team_id) {
+	global $mysqli;
+	$req = "SELECT COUNT(*) AS total, guard_pokemon_id FROM gym WHERE team_id = '".$team_id ."' GROUP BY guard_pokemon_id ORDER BY total DESC LIMIT 0,3";
+	$result = $mysqli->query($req);
+
+	$datas = array();
+	while ($data = $result->fetch_object()) {
+		$datas[] = $data;
+	}
+
+	return $datas;
+}
+
+function getOwnedAndPoints($team_id) {
+	global $mysqli;
+	$req 	= "SELECT COUNT(DISTINCT(gym_id)) AS total, ROUND(AVG(total_cp),0) AS average_points FROM gym WHERE team_id = '".$team_id."'";
 	$result = $mysqli->query($req);
 	$data = $result->fetch_object();
 	return $data;

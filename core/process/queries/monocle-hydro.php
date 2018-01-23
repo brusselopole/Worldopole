@@ -13,6 +13,17 @@ if ($mysqli->connect_error != '') {
 }
 
 
+/////////
+// Misc
+/////////
+
+function getExcapedPokemonID($string)
+{
+	global $mysqli;
+	return mysqli_real_escape_string($mysqli, $string);
+}
+
+
 ///////////
 // Tester
 ///////////
@@ -87,7 +98,7 @@ function getTotalLures() {
 
 function getTotalGyms() {
     global $mysqli;
-    $req = "SELECT COUNT(DISTINCT(fort_id)) AS total FROM fort_sightings";
+    $req = "SELECT COUNT(*) AS total FROM forts";
     $result = $mysqli->query($req);
     $data = $result->fetch_object();
     return $data;
@@ -104,7 +115,7 @@ function getTotalRaids() {
 
 function getTotalGymsForTeam($team_id) {
     global $mysqli;
-    $req = "SELECT COUNT(DISTINCT(fort_id)) AS total FROM fort_sightings WHERE team = '$team_id'";
+    $req = "SELECT COUNT(*) AS total FROM fort_sightings WHERE team = '$team_id'";
     $result = $mysqli->query($req);
     $data = $result->fetch_object();
     return $data;
@@ -232,6 +243,35 @@ function getTop50Trainers($pokemon_id) {
 function getTotalPokestops() {
 	global $mysqli;
 	$req = "SELECT COUNT(*) as total FROM pokestops";
+	$result = $mysqli->query($req);
+	$data = $result->fetch_object();
+	return $data;
+}
+
+
+/////////
+// Gyms
+/////////
+
+function getTeamGuardians($team_id) {
+	global $mysqli;
+	$req = "SELECT COUNT(*) AS total, guard_pokemon_id FROM fort_sightings WHERE team = '".$team_id."' GROUP BY guard_pokemon_id ORDER BY total DESC LIMIT 0,3";
+	$result = $mysqli->query($req);
+
+	$datas = array();
+	while ($data = $result->fetch_object()) {
+		$datas[] = $data;
+	}
+
+	return $datas;
+}
+
+function getOwnedAndPoints($team_id) {
+	global $mysqli;
+	$req 	= "SELECT COUNT(DISTINCT(fs.fort_id)) AS total, ROUND((SUM(gd.cp)) / COUNT(DISTINCT(fs.fort_id)),0) AS average_points
+        			FROM fort_sightings fs
+        			JOIN gym_defenders gd ON fs.fort_id = gd.fort_id
+        			WHERE fs.team = '".$team_id."'";
 	$result = $mysqli->query($req);
 	$data = $result->fetch_object();
 	return $data;
