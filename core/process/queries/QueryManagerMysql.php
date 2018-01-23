@@ -24,6 +24,11 @@ abstract class QueryManagerMysql extends QueryManager
 		}
 	}
 
+	public function __destruct()
+	{
+		$this->mysqli->close();
+	}
+
 	/////////
 	// Misc
 	/////////
