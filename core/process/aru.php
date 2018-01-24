@@ -452,31 +452,6 @@ switch ($request) {
 			}
 		}
 
-		// check whether we could retrieve gym infos, otherwise use basic gym info
-		if (!$gymData['gymDetails']['gymInfos']) {
-			$req = "SELECT gym_id, team_id, guard_pokemon_id, latitude, longitude, (CONVERT_TZ(last_scanned, '+00:00', '".$time_offset."')) AS last_scanned, total_cp, (6 - slots_available) AS level
-				FROM gym WHERE gym_id='".$gym_id."'";
-			$result = $mysqli->query($req);
-			$data = $result->fetch_object();
-
-			$gymData['gymDetails']['gymInfos']['name'] = $locales->NOT_AVAILABLE;
-			$gymData['gymDetails']['gymInfos']['description'] = $locales->NOT_AVAILABLE;
-			$gymData['gymDetails']['gymInfos']['url'] = 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Solid_grey.svg/200px-Solid_grey.svg.png';
-			$gymData['gymDetails']['gymInfos']['points'] = $data->total_cp;
-			$gymData['gymDetails']['gymInfos']['level'] = $data->level;
-			$gymData['gymDetails']['gymInfos']['last_scanned'] = $data->last_scanned;
-			$gymData['gymDetails']['gymInfos']['team'] = $data->team_id;
-			$gymData['gymDetails']['gymInfos']['guardPokemonId'] = $data->guard_pokemon_id;
-
-			$pokemon_id = $data->guard_pokemon_id;
-			$gymData['infoWindow'] .= '
-				<div style="text-align: center; width: 50px; display: inline-block; margin-right: 3px">
-					<a href="pokemon/'.$data->guard_pokemon_id.'">
-					<img src="'.$pokemons->pokemon->$pokemon_id->img.'" height="50" style="display:inline-block" >
-					</a>
-					<p class="pkmn-name">???</p>
-				</div>';
-		}
 		$gymData['infoWindow'] = $gymData['infoWindow'].'</div>';
 
 		header('Content-Type: application/json');
@@ -488,95 +463,22 @@ switch ($request) {
 	case 'trainer':
 		$name = "";
 		$page = "0";
-		$where = "";
-		$order = "";
 		$team = 0;
 		$ranking = 0;
 		if (isset($_GET['name'])) {
-			$trainer_name = mysqli_real_escape_string($mysqli, $_GET['name']);
-			$where = " HAVING name LIKE '%".$trainer_name."%'";
+			$trainer_name = $manager->getEcapedString($_GET['name']);
 		}
-		if (isset($_GET['team']) && $_GET['team'] != 0) {
-			$team = mysqli_real_escape_string($mysqli, $_GET['team']);
-			$where .= ($where == "" ? " HAVING" : " AND")." team = ".$team;
-		}
-		if (!empty($config->system->trainer_blacklist)) {
-			$where .= ($where == "" ? " HAVING" : " AND")." name NOT IN ('".implode("','", $config->system->trainer_blacklist)."')";
+		if (isset($_GET['team'])) {
+			$team = $manager->getEcapedString($_GET['team']);
 		}
 		if (isset($_GET['page'])) {
-			$page = mysqli_real_escape_string($mysqli, $_GET['page']);
+			$page = $manager->getEcapedString($_GET['page']);
 		}
 		if (isset($_GET['ranking'])) {
-			$ranking = mysqli_real_escape_string($mysqli, $_GET['ranking']);
+			$ranking = $manager->getEcapedString($_GET['ranking']);
 		}
 
-		switch ($ranking) {
-			case 1:
-				$order = " ORDER BY active DESC, level DESC";
-				break;
-			case 2:
-				$order = " ORDER BY maxCp DESC, level DESC";
-				break;
-			default:
-				$order = " ORDER BY level DESC, active DESC";
-		}
-
-		$order .= ", last_seen DESC, name ";
-
-		$limit = " LIMIT ".($page * 10).",10 ";
-
-		$req = "SELECT trainer.*, COUNT(actives_pokemons.trainer_name) AS active, max(actives_pokemons.cp) AS maxCp
-				FROM trainer
-				LEFT JOIN (SELECT DISTINCT gympokemon.pokemon_id, gympokemon.pokemon_uid, gympokemon.trainer_name, gympokemon.cp, DATEDIFF(UTC_TIMESTAMP(), gympokemon.last_seen) AS last_scanned
-				FROM gympokemon
-				INNER JOIN (SELECT gymmember.pokemon_uid, gymmember.gym_id FROM gymmember GROUP BY gymmember.pokemon_uid, gymmember.gym_id HAVING gymmember.gym_id <> '') AS filtered_gymmember
-				ON gympokemon.pokemon_uid = filtered_gymmember.pokemon_uid) AS actives_pokemons ON actives_pokemons.trainer_name = trainer.name
-				GROUP BY trainer.name ".$where.$order.$limit;
-
-		$result = $mysqli->query($req);
-		$trainers = array();
-		while ($data = $result->fetch_object()) {
-			$data->last_seen = date("Y-m-d", strtotime($data->last_seen));
-			$trainers[$data->name] = $data;
-		}
-		foreach ($trainers as $trainer) {
-			$reqRanking = "SELECT COUNT(1) AS rank FROM trainer WHERE level = ".$trainer->level;
-			if (!empty($config->system->trainer_blacklist)) {
-				$reqRanking .= " AND name NOT IN ('".implode("','", $config->system->trainer_blacklist)."')";
-			}
-			$resultRanking = $mysqli->query($reqRanking);
-			while ($data = $resultRanking->fetch_object()) {
-				$trainer->rank = $data->rank;
-			}
-			$req = "(SELECT DISTINCT gympokemon.pokemon_id, gympokemon.pokemon_uid, gympokemon.cp, DATEDIFF(UTC_TIMESTAMP(), gympokemon.last_seen) AS last_scanned, gympokemon.trainer_name, gympokemon.iv_defense, gympokemon.iv_stamina, gympokemon.iv_attack, filtered_gymmember.gym_id, CONVERT_TZ(filtered_gymmember.deployment_time, '+00:00', '".$time_offset."') as deployment_time, '1' AS active
-					FROM gympokemon INNER JOIN
-					(SELECT gymmember.pokemon_uid, gymmember.gym_id, gymmember.deployment_time FROM gymmember GROUP BY gymmember.pokemon_uid, gymmember.deployment_time, gymmember.gym_id HAVING gymmember.gym_id <> '') AS filtered_gymmember
-					ON gympokemon.pokemon_uid = filtered_gymmember.pokemon_uid
-					WHERE gympokemon.trainer_name='".$trainer->name."'
-					ORDER BY gympokemon.cp DESC)";
-
-			$resultPkms = $mysqli->query($req);
-			$trainer->pokemons = array();
-			$active_gyms = 0;
-			$pkmCount = 0;
-			while ($resultPkms && $dataPkm = $resultPkms->fetch_object()) {
-				$active_gyms++;
-				$trainer->pokemons[$pkmCount++] = $dataPkm;
-			}
-			$trainer->gyms = $active_gyms;
-
-			$req = "(SELECT DISTINCT gympokemon.pokemon_id, gympokemon.pokemon_uid, gympokemon.cp, DATEDIFF(UTC_TIMESTAMP(), gympokemon.last_seen) AS last_scanned, gympokemon.trainer_name, gympokemon.iv_defense, gympokemon.iv_stamina, gympokemon.iv_attack, null AS gym_id, CONVERT_TZ(filtered_gymmember.deployment_time, '+00:00', '".$time_offset."') as deployment_time, '0' AS active
-					FROM gympokemon LEFT JOIN
-					(SELECT * FROM gymmember HAVING gymmember.gym_id <> '') AS filtered_gymmember
-					ON gympokemon.pokemon_uid = filtered_gymmember.pokemon_uid
-					WHERE filtered_gymmember.pokemon_uid IS NULL AND gympokemon.trainer_name='".$trainer->name."'
-					ORDER BY gympokemon.cp DESC)";
-
-			$resultPkms = $mysqli->query($req);
-			while ($resultPkms && $dataPkm = $resultPkms->fetch_object()) {
-				$trainer->pokemons[$pkmCount++] = $dataPkm;
-			}
-		}
+		$trainers = $manager->getTrainers($trainer_name, $team, $page, $ranking);
 		$json = array();
 		$json['trainers'] = $trainers;
 		$locale = array();
@@ -633,9 +535,8 @@ switch ($request) {
 		break;
 
 	case 'pokemon_slider_init':
-		$req = "SELECT MIN(disappear_time) AS min, MAX(disappear_time) AS max FROM pokemon";
-		$result 	= $mysqli->query($req);
-		$bounds		= $result->fetch_object();
+
+		$bounds		= $manager->getPokemonSliederMinMax();
 
 		header('Content-Type: application/json');
 		echo json_encode($bounds);
@@ -667,10 +568,8 @@ switch ($request) {
 
 
 	case 'maps_localization_coordinates':
-		$json = "";
-		$req = "SELECT MAX(latitude) AS max_latitude, MIN(latitude) AS min_latitude, MAX(longitude) AS max_longitude, MIN(longitude) as min_longitude FROM spawnpoint";
-		$result = $mysqli->query($req);
-		$coordinates = $result->fetch_object();
+
+		$coordinates = $manager->getMapsCoords();
 
 		header('Content-Type: application/json');
 		echo json_encode($coordinates);

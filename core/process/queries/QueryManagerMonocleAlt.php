@@ -207,6 +207,21 @@ class QueryManagerMonocleAlt extends QueryManagerMysql
 		return $toptrainer;
 	}
 
+	public function getPokemonSliederMinMax() {
+		$req = "SELECT FROM_UNIXTIME(MIN(expire_timestamp)) AS min, FROM_UNIXTIME(MAX(expire_timestamp)) AS max FROM sightings";
+		$result = $this->mysqli->query($req);
+		$data = $result->fetch_object();
+		return $data;
+	}
+
+	public function getMapsCoords() {
+		$req = "SELECT MAX(lat) AS max_latitude, MIN(lat) AS min_latitude, MAX(lon) AS max_longitude, MIN(lon) as min_longitude FROM spawnpoints";
+		$result = $this->mysqli->query($req);
+		$data = $result->fetch_object();
+		return $data;
+	}
+
+
 	///////////////
 	// Pokestops
 	//////////////
@@ -311,4 +326,15 @@ class QueryManagerMonocleAlt extends QueryManagerMysql
 		}
 		return $raids;
 	}
+
+
+	//////////////
+	// Trainers
+	//////////////
+
+	public  function getTrainers($trainer_name, $team, $page, $ranking) {
+		return array(); // Waiting for Monocle to store level
+	}
+
+
 }

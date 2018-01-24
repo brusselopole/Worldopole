@@ -56,6 +56,8 @@ abstract class QueryManager {
 	public abstract function getPokemonLastSeen($pokemon_id);
 	public abstract function getTop50Pokemon($pokemon_id, $best_order, $best_direction);
 	public abstract function getTop50Trainers($pokemon_id, $best_order, $best_direction);
+	public abstract function getPokemonSliederMinMax();
+	public abstract function getMapsCoords();
 
 	// Pokestops
 	public abstract function getTotalPokestops();
@@ -70,5 +72,8 @@ abstract class QueryManager {
 
 	// Raids
 	public abstract function getAllRaids($page);
+
+	// Trainers
+	public abstract function getTrainers($trainer_name, $team, $page, $ranking);
 
 }

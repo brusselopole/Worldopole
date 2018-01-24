@@ -203,6 +203,21 @@ final class QueryManagerRocketMap extends QueryManagerMysql
 		return $toptrainer;
 	}
 
+	public function getPokemonSliederMinMax() {
+		$req = "SELECT MIN(disappear_time) AS min, MAX(disappear_time) AS max FROM pokemon";
+		$result = $this->mysqli->query($req);
+		$data = $result->fetch_object();
+		return $data;
+	}
+
+	public function getMapsCoords() {
+		$req = "SELECT MAX(latitude) AS max_latitude, MIN(latitude) AS min_latitude, MAX(longitude) AS max_longitude, MIN(longitude) as min_longitude FROM spawnpoint";
+		$result = $this->mysqli->query($req);
+		$data = $result->fetch_object();
+		return $data;
+	}
+
+
 	///////////////
 	// Pokestops
 	//////////////
@@ -302,4 +317,117 @@ final class QueryManagerRocketMap extends QueryManagerMysql
 		}
 		return $raids;
 	}
+
+
+	//////////////
+	// Trainers
+	//////////////
+
+	public function getTrainers($trainer_name, $team, $page, $ranking) {
+		$trainers = $this->getTrainerData($trainer_name, $team, $page, $ranking);
+		foreach ($trainers as $trainer) {
+
+			$trainer->rank = $this->getTrainerLevelRating($trainer->level)->rank;
+
+			$active_gyms = 0;
+			$pkmCount = 0;
+
+			$trainer->pokemons = array();
+			$active_pokemon = $this->getTrainerActivePokemon($trainer->name);
+			foreach ($active_pokemon as $pokemon) {
+				$active_gyms++;
+				$trainer->pokemons[$pkmCount++] = $pokemon;
+			}
+
+			$inactive_pokemon = $this->getTrainerInactivePokemon($trainer->name);
+			foreach ($inactive_pokemon as $pokemon) {
+				$trainer->pokemons[$pkmCount++] = $pokemon;
+			}
+			$trainer->gyms = "".$active_gyms;
+		}
+		return $trainers;
+	}
+
+	private function getTrainerData($trainer_name, $team, $page, $ranking) {
+		$where = "";
+		$order = "";
+
+		if (!empty(self::$config->system->trainer_blacklist)) {
+			$where .= ($where == "" ? " HAVING" : " AND")." name NOT IN ('".implode("','", self::$config->system->trainer_blacklist)."')";
+		}
+		if ($trainer_name != "") {
+			$where = " HAVING name LIKE '%".$trainer_name."%'";
+		}
+		if ($team != 0) {
+			$where .= ($where == "" ? " HAVING" : " AND")." team = ".$team;
+		}
+		switch ($ranking) {
+			case 1:
+				$order = " ORDER BY active DESC, level DESC";
+				break;
+			case 2:
+				$order = " ORDER BY maxCp DESC, level DESC";
+				break;
+			default:
+				$order = " ORDER BY level DESC, active DESC";
+		}
+		$order .= ", last_seen DESC, name ";
+		$limit = " LIMIT ".($page * 10).",10 ";
+		$req = "SELECT trainer.*, COUNT(actives_pokemons.trainer_name) AS active, max(actives_pokemons.cp) AS maxCp
+				FROM trainer
+				LEFT JOIN (SELECT DISTINCT gympokemon.pokemon_id, gympokemon.pokemon_uid, gympokemon.trainer_name, gympokemon.cp, DATEDIFF(UTC_TIMESTAMP(), gympokemon.last_seen) AS last_scanned
+				FROM gympokemon
+				INNER JOIN (SELECT gymmember.pokemon_uid, gymmember.gym_id FROM gymmember GROUP BY gymmember.pokemon_uid, gymmember.gym_id HAVING gymmember.gym_id <> '') AS filtered_gymmember
+				ON gympokemon.pokemon_uid = filtered_gymmember.pokemon_uid) AS actives_pokemons ON actives_pokemons.trainer_name = trainer.name
+				GROUP BY trainer.name " . $where.$order.$limit;
+
+		$result = $this->mysqli->query($req);
+		$trainers = array();
+		while ($data = $result->fetch_object()) {
+			$data->last_seen = date("Y-m-d", strtotime($data->last_seen));
+			$trainers[$data->name] = $data;
+		}
+		return $trainers;
+	}
+
+	private function getTrainerLevelRating($level) {
+		$req = "SELECT COUNT(1) AS rank FROM trainer WHERE level = ".$level;
+		if (!empty(self::$config->system->trainer_blacklist)) {
+			$req .= " AND name NOT IN ('".implode("','", self::$config->system->trainer_blacklist)."')";
+		}
+		$result = $this->mysqli->query($req);
+		$data = $result->fetch_object();
+		return $data;
+	}
+
+	private function getTrainerActivePokemon($trainer_name){
+		$req = "(SELECT DISTINCT gympokemon.pokemon_id, gympokemon.pokemon_uid, gympokemon.cp, DATEDIFF(UTC_TIMESTAMP(), gympokemon.last_seen) AS last_scanned, gympokemon.trainer_name, gympokemon.iv_defense, gympokemon.iv_stamina, gympokemon.iv_attack, filtered_gymmember.gym_id, CONVERT_TZ(filtered_gymmember.deployment_time, '+00:00', '".self::$time_offset."') as deployment_time, '1' AS active
+					FROM gympokemon INNER JOIN
+					(SELECT gymmember.pokemon_uid, gymmember.gym_id, gymmember.deployment_time FROM gymmember GROUP BY gymmember.pokemon_uid, gymmember.deployment_time, gymmember.gym_id HAVING gymmember.gym_id <> '') AS filtered_gymmember
+					ON gympokemon.pokemon_uid = filtered_gymmember.pokemon_uid
+					WHERE gympokemon.trainer_name='".$trainer_name."'
+					ORDER BY gympokemon.cp DESC)";
+		$result = $this->mysqli->query($req);
+		$pokemons = array();
+		while ($data = $result->fetch_object()) {
+			$pokemons[] = $data;
+		}
+		return $pokemons;
+	}
+
+	private function getTrainerInactivePokemon($trainer_name){
+		$req = "(SELECT DISTINCT gympokemon.pokemon_id, gympokemon.pokemon_uid, gympokemon.cp, DATEDIFF(UTC_TIMESTAMP(), gympokemon.last_seen) AS last_scanned, gympokemon.trainer_name, gympokemon.iv_defense, gympokemon.iv_stamina, gympokemon.iv_attack, null AS gym_id, CONVERT_TZ(filtered_gymmember.deployment_time, '+00:00', '".self::$time_offset."') as deployment_time, '0' AS active
+					FROM gympokemon LEFT JOIN
+					(SELECT * FROM gymmember HAVING gymmember.gym_id <> '') AS filtered_gymmember
+					ON gympokemon.pokemon_uid = filtered_gymmember.pokemon_uid
+					WHERE filtered_gymmember.pokemon_uid IS NULL AND gympokemon.trainer_name='".$trainer_name."'
+					ORDER BY gympokemon.cp DESC)";
+		$result = $this->mysqli->query($req);
+		$pokemons = array();
+		while ($data = $result->fetch_object()) {
+			$pokemons[] = $data;
+		}
+		return $pokemons;
+	}
+
 }
