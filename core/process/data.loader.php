@@ -94,7 +94,7 @@ if (!empty($page)) {
 			// Current Pokemon datas
 			// ---------------------
 
-			$pokemon_id = $manager->getEcapedPokemonID($_GET['id']);
+			$pokemon_id = $manager->getEcapedString($_GET['id']);
 
 			if (!is_object($pokemons->pokemon->$pokemon_id)) {
 				header('Location:/404');

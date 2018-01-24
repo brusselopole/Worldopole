@@ -3,11 +3,8 @@
 include_once __DIR__ . '/../../../config.php';
 include_once __DIR__ . '/QueryManagerMysql.php';
 
-// Load timezone
-include_once(SYS_PATH.'/core/process/timezone.loader.php');
+abstract class QueryManager {
 
-abstract class QueryManager
-{
 	protected static $time_offset;
 	protected static $config;
 
@@ -20,6 +17,7 @@ abstract class QueryManager
 			$variables = realpath(dirname(__FILE__)) . '/../../json/variables.json';
 			self::$config = json_decode(file_get_contents($variables));
 
+			include_once(SYS_PATH.'/core/process/timezone.loader.php');
 			self::$time_offset = $time_offset;
 
 			switch (self::$config->system->db_type) {
@@ -37,8 +35,7 @@ abstract class QueryManager
 	private function __construct(){}
 
 	// Misc
-	public abstract function getEcapedPokemonID($string);
-	public abstract function getEscapedGymID($string);
+	public abstract function getEcapedString($string);
 
 	// Tester
 	public abstract function testTotalPokemon();
@@ -70,5 +67,8 @@ abstract class QueryManager
 	public abstract function getAllGyms();
 	public abstract function getGymData($gym_id);
 	public abstract function getGymDefenders($gym_id);
+
+	// Raids
+	public abstract function getAllRaids($page);
 
 }

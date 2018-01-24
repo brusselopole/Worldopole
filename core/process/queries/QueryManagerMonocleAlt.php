@@ -290,4 +290,25 @@ class QueryManagerMonocleAlt extends QueryManagerMysql
 		}
 		return $defenders;
 	}
+
+
+	///////////
+	// Raids
+	///////////
+
+	public function getAllRaids($page) {
+		$limit = " LIMIT ".($page * 10).",10";
+		$req = "SELECT r.fort_id AS gym_id, r.level AS level, r.pokemon_id AS pokemon_id, r.cp AS cp, r.move_1 AS move_1, r.move_2 AS move_2, FROM_UNIXTIME(r.time_spawn) AS spawn, FROM_UNIXTIME(r.time_battle) AS start, FROM_UNIXTIME(r.time_end) AS end, FROM_UNIXTIME(fs.updated) AS last_scanned, f.name, f.lat AS latitude, f.lon as longitude 
+					FROM raids r 
+					JOIN forts f ON f.id = r.fort_id 
+					JOIN fort_sightings fs ON fs.fort_id = r.fort_id 
+					WHERE r.time_end > UNIX_TIMESTAMP() 
+					ORDER BY r.level DESC, r.time_battle" . $limit;
+		$result = $this->mysqli->query($req);
+		$raids = array();
+		while ($data = $result->fetch_object()) {
+			$raids[] = $data;
+		}
+		return $raids;
+	}
 }

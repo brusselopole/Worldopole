@@ -33,12 +33,7 @@ abstract class QueryManagerMysql extends QueryManager
 	// Misc
 	/////////
 
-	public function getEcapedPokemonID($string)
-	{
-		return mysqli_real_escape_string($this->mysqli, $string);
-	}
-
-	public  function getEscapedGymID($string)
+	public function getEcapedString($string)
 	{
 		return mysqli_real_escape_string($this->mysqli, $string);
 	}

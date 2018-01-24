@@ -149,7 +149,7 @@ final class QueryManagerRocketMap extends QueryManagerMysql
 		$data = $result->fetch_object();
 		return $data;
 	}
-	
+
 	function getTop50Pokemon($pokemon_id, $best_order, $best_direction) {
 		// Make it sortable; default sort: cp DESC
 		$top_possible_sort = array('IV', 'cp', 'individual_attack', 'individual_defense', 'individual_stamina', 'move_1', 'move_2', 'disappear_time');
@@ -166,7 +166,7 @@ final class QueryManagerRocketMap extends QueryManagerMysql
 							GROUP BY encounter_id
 							ORDER BY $top_order_by $top_direction, disappear_time DESC
 							LIMIT 0,50";
-	
+
 		$result = $this->mysqli->query($req);
 		$top = array();
 		while ($data = $result->fetch_object()) {
@@ -174,19 +174,19 @@ final class QueryManagerRocketMap extends QueryManagerMysql
 		}
 		return $top;
 	}
-	
+
 	function getTop50Trainers($pokemon_id, $best_order, $best_direction) {
 		$best_possible_sort = array('trainer_name', 'IV', 'cp', 'move_1', 'move_2', 'last_seen');
 		$best_order = isset($_GET['order']) ? $_GET['order'] : '';
 		$best_order_by = in_array($best_order, $best_possible_sort) ? $_GET['order'] : 'cp';
 		$best_direction = isset($_GET['direction']) ? 'ASC' : 'DESC';
 		$best_direction = !isset($_GET['order']) && !isset($_GET['direction']) ? 'DESC' : $best_direction;
-		
+
 		$trainer_blacklist = "";
 		if (!empty(self::$config->system->trainer_blacklist)) {
 			$trainer_blacklist = " AND trainer_name NOT IN ('".implode("','", self::$config->system->trainer_blacklist)."')";
 		}
-	
+
 		$req = "SELECT trainer_name, ROUND(SUM(100*(iv_attack+iv_defense+iv_stamina)/45),1) AS IV, move_1, move_2, cp,
 						DATE_FORMAT(last_seen, '%Y-%m-%d') AS lasttime, last_seen
 						FROM gympokemon
@@ -194,7 +194,7 @@ final class QueryManagerRocketMap extends QueryManagerMysql
 						GROUP BY pokemon_uid
 						ORDER BY $best_order_by $best_direction, trainer_name ASC
 						LIMIT 0,50";
-	
+
 		$result = $this->mysqli->query($req);
 		$toptrainer = array();
 		while ($data = $result->fetch_object()) {
@@ -202,11 +202,11 @@ final class QueryManagerRocketMap extends QueryManagerMysql
 		}
 		return $toptrainer;
 	}
-	
+
 	///////////////
 	// Pokestops
 	//////////////
-	
+
 	function getTotalPokestops() {
 		$req = "SELECT COUNT(*) as total FROM pokestop";
 		$result = $this->mysqli->query($req);
@@ -216,7 +216,7 @@ final class QueryManagerRocketMap extends QueryManagerMysql
 
 	public  function getAllPokestops()
 	{
-		$req = "SELECT latitude, longitude, lure_expiration, UTC_TIMESTAMP() AS now, (CONVERT_TZ(lure_expiration, '+00:00', '".$time_offset."')) AS lure_expiration_real FROM pokestop";
+		$req = "SELECT latitude, longitude, lure_expiration, UTC_TIMESTAMP() AS now, (CONVERT_TZ(lure_expiration, '+00:00', '".self::$time_offset."')) AS lure_expiration_real FROM pokestop";
 		$result = $this->mysqli->query($req);
 		$pokestops = array();
 		while ($data = $result->fetch_object()) {
@@ -229,7 +229,7 @@ final class QueryManagerRocketMap extends QueryManagerMysql
 	/////////
 	// Gyms
 	/////////
-	
+
 	function getTeamGuardians($team_id) {
 		$req = "SELECT COUNT(*) AS total, guard_pokemon_id FROM gym WHERE team_id = '".$team_id ."' GROUP BY guard_pokemon_id ORDER BY total DESC LIMIT 0,3";
 		$result = $this->mysqli->query($req);
@@ -239,7 +239,7 @@ final class QueryManagerRocketMap extends QueryManagerMysql
 		}
 		return $datas;
 	}
-	
+
 	function getOwnedAndPoints($team_id) {
 		$req 	= "SELECT COUNT(DISTINCT(gym_id)) AS total, ROUND(AVG(total_cp),0) AS average_points FROM gym WHERE team_id = '".$team_id."'";
 		$result = $this->mysqli->query($req);
@@ -269,7 +269,7 @@ final class QueryManagerRocketMap extends QueryManagerMysql
 		return $data;
 	}
 
-	public  function getGymDefenders($gym_id) {
+	public function getGymDefenders($gym_id) {
 		$req = "SELECT DISTINCT gympokemon.pokemon_uid, pokemon_id, iv_attack, iv_defense, iv_stamina, MAX(cp) AS cp, gymmember.gym_id
 					FROM gympokemon INNER JOIN gymmember ON gympokemon.pokemon_uid=gymmember.pokemon_uid
 					GROUP BY gympokemon.pokemon_uid, pokemon_id, iv_attack, iv_defense, iv_stamina, gym_id
@@ -283,4 +283,23 @@ final class QueryManagerRocketMap extends QueryManagerMysql
 		return $defenders;
 	}
 
+
+	///////////
+	// Raids
+	///////////
+
+	public function getAllRaids($page) {
+		$limit = " LIMIT ".($page * 10).",10";
+		$req = "SELECT raid.gym_id, raid.level, raid.pokemon_id, raid.cp, raid.move_1, raid.move_2, CONVERT_TZ(raid.spawn, '+00:00', '".self::$time_offset."') AS spawn, CONVERT_TZ(raid.start, '+00:00', '".self::$time_offset."') AS start, CONVERT_TZ(raid.end, '+00:00', '".self::$time_offset."') AS end, CONVERT_TZ(raid.last_scanned, '+00:00', '".self::$time_offset."') AS last_scanned, gymdetails.name, gym.latitude, gym.longitude FROM raid
+					JOIN gymdetails ON gymdetails.gym_id = raid.gym_id
+					JOIN gym ON gym.gym_id = raid.gym_id
+					WHERE raid.end > UTC_TIMESTAMP()
+					ORDER BY raid.level DESC, raid.start".$limit;
+		$result = $this->mysqli->query($req);
+		$raids = array();
+		while ($data = $result->fetch_object()) {
+			$raids[] = $data;
+		}
+		return $raids;
+	}
 }
