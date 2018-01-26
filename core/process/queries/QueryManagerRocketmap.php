@@ -1,7 +1,10 @@
 <?php
 
-final class QueryManagerRocketmap extends QueryManagerMysql
-{
+final class QueryManagerRocketmap extends QueryManagerMysql {
+
+	public function __construct() {
+		parent::__construct();
+	}
 
 	///////////
 	// Tester
@@ -219,24 +222,24 @@ final class QueryManagerRocketmap extends QueryManagerMysql
 		return $array;
 	}
 
-	public  function getPokemonLive($pokemon_id, $ivMin, $ivMax) {
+	public function getPokemonLive($pokemon_id, $ivMin, $ivMax, $inmap_pokemons) {
 		$inmap_pkms_filter = "";
 		$where = " WHERE disappear_time >= UTC_TIMESTAMP() AND pokemon_id = ".$pokemon_id;
 
 		$reqTestIv = "SELECT MAX(individual_attack) AS iv FROM pokemon ".$where;
 		$resultTestIv = $this->mysqli->query($reqTestIv);
 		$testIv = $resultTestIv->fetch_object();
-		if (isset($_POST['inmap_pokemons']) && ($_POST['inmap_pokemons'] != "")) {
+		if (!is_null($inmap_pokemons) && ($inmap_pokemons != "")) {
 			foreach ($_POST['inmap_pokemons'] as $inmap) {
 				$inmap_pkms_filter .= "'".$inmap."',";
 			}
 			$inmap_pkms_filter = rtrim($inmap_pkms_filter, ",");
 			$where .= " AND encounter_id NOT IN (".$inmap_pkms_filter.") ";
 		}
-		if ($testIv->iv != null && isset($_POST['ivMin']) && ($_POST['ivMin'] != "")) {
+		if ($testIv->iv != null && !is_null($ivMin) && ($ivMin != "")) {
 			$where .= " AND ((100/45)*(individual_attack+individual_defense+individual_stamina)) >= (".$ivMin.") ";
 		}
-		if ($testIv->iv != null && isset($_POST['ivMax']) && ($_POST['ivMax'] != "")) {
+		if ($testIv->iv != null && !is_null($ivMax) && ($ivMax != "")) {
 			$where .= " AND ((100/45)*(individual_attack+individual_defense+individual_stamina)) <= (".$ivMax.") ";
 		}
 		$req = "SELECT pokemon_id, encounter_id, latitude, longitude, disappear_time,
@@ -279,8 +282,7 @@ final class QueryManagerRocketmap extends QueryManagerMysql
 		return $data;
 	}
 
-	public  function getAllPokestops()
-	{
+	public function getAllPokestops() {
 		$req = "SELECT latitude, longitude, lure_expiration, UTC_TIMESTAMP() AS now, (CONVERT_TZ(lure_expiration, '+00:00', '".self::$time_offset."')) AS lure_expiration_real FROM pokestop";
 		$result = $this->mysqli->query($req);
 		$pokestops = array();
@@ -421,7 +423,6 @@ final class QueryManagerRocketmap extends QueryManagerMysql
 
 	private function getTrainerData($trainer_name, $team, $page, $ranking) {
 		$where = "";
-		$order = "";
 
 		if (!empty(self::$config->system->trainer_blacklist)) {
 			$where .= ($where == "" ? " HAVING" : " AND")." name NOT IN ('".implode("','", self::$config->system->trainer_blacklist)."')";
@@ -516,7 +517,7 @@ final class QueryManagerRocketmap extends QueryManagerMysql
 		return $counts;
 	}
 
-	public  function getPoekmonCountsLastDay() {
+	public function getPoekmonCountsLastDay() {
 		$req = "SELECT pokemon_id, COUNT(*) AS spawns_last_day
 					FROM pokemon
 					WHERE disappear_time >= (SELECT MAX(disappear_time) FROM pokemon) - INTERVAL 1 DAY
@@ -539,7 +540,7 @@ final class QueryManagerRocketmap extends QueryManagerMysql
 		return $data;
 	}
 
-	public  function getRaidsSinceLastUpdate($pokemon_id, $last_update) {
+	public function getRaidsSinceLastUpdate($pokemon_id, $last_update) {
 		$where = "WHERE pokemon_id = '".$pokemon_id."' && UNIX_TIMESTAMP(start) > '".$last_update."'";
 		$req = "SELECT UNIX_TIMESTAMP(start) as start_timestamp, end, (CONVERT_TZ(end, '+00:00', '".self::$time_offset."')) AS end_time_real, latitude, longitude, count
                 FROM raid r
@@ -557,14 +558,14 @@ final class QueryManagerRocketmap extends QueryManagerMysql
 		return $data;
 	}
 
-	public  function getCaptchaCount() {
+	public function getCaptchaCount() {
 		$req = "SELECT SUM(accounts_captcha) AS total FROM mainworker";
 		$result = $this->mysqli->query($req);
 		$data = $result->fetch_object();
 		return $data;
 	}
 
-	public  function getNestData() {
+	public function getNestData() {
 		$pokemon_exclude_sql = "";
 		if (!empty(self::$config->system->nest_exclude_pokemon)) {
 			$pokemon_exclude_sql = "AND p.pokemon_id NOT IN (".implode(",", self::$config->system->nest_exclude_pokemon).")";

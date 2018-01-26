@@ -595,8 +595,13 @@ if ($postRequest != "") {
 				$pokemon_id = $manager->getEcapedString($_POST['pokemon_id']);
 				$ivMin = $manager->getEcapedString($_POST['ivMin']);
 				$ivMax = $manager->getEcapedString($_POST['ivMax']);
+				if (isset($_POST['inmap_pokemons'])) {
+					$inmap_pokemons = $manager->getEcapedString($_POST['inmap_pokemons']);
+				} else {
+					$inmap_pokemons = null;
+				}
 
-				$datas = $manager->getPokemonLive($pokemon_id, $ivMin, $ivMax);
+				$datas = $manager->getPokemonLive($pokemon_id, $ivMin, $ivMax, $inmap_pokemons);
 
 				$json = array();
 				$json['points'] = array();

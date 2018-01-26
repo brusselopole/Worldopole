@@ -4,13 +4,11 @@ include_once __DIR__ . '/QueryManagerRocketmap.php';
 include_once __DIR__ . '/QueryManagerMonocleHydro.php';
 
 
-abstract class QueryManagerMysql extends QueryManager
-{
+abstract class QueryManagerMysql extends QueryManager {
 
 	protected $mysqli;
 
-	protected function __construct()
-	{
+	protected function __construct() {
 		$this->mysqli = new mysqli(SYS_DB_HOST, SYS_DB_USER, SYS_DB_PSWD, SYS_DB_NAME, SYS_DB_PORT);
 		if ($this->mysqli->connect_error != '') {
 			header('Location:'.HOST_URL.'offline.html');
@@ -24,8 +22,7 @@ abstract class QueryManagerMysql extends QueryManager
 		}
 	}
 
-	public function __destruct()
-	{
+	public function __destruct() {
 		$this->mysqli->close();
 	}
 
@@ -33,8 +30,7 @@ abstract class QueryManagerMysql extends QueryManager
 	// Misc
 	/////////
 
-	public function getEcapedString($string)
-	{
+	public function getEcapedString($string) {
 		return mysqli_real_escape_string($this->mysqli, $string);
 	}
 

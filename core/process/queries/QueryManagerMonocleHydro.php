@@ -1,15 +1,13 @@
 <?php
 
-class QueryManagerMonocleHydro extends QueryManagerMysql
-{
+class QueryManagerMonocleHydro extends QueryManagerMysql {
 
-	public function __construct()
-	{
+	public function __construct() {
 		parent::__construct();
 	}
 
 	///////////
-	// Tester
+	// TesterF
 	///////////
 
 	function testTotalPokemon() {
@@ -194,7 +192,7 @@ class QueryManagerMonocleHydro extends QueryManagerMysql
 		return $toptrainer;
 	}
 
-	public  function getPokemonHeatmap($pokemon_id, $start, $end) {
+	public function getPokemonHeatmap($pokemon_id, $start, $end) {
 		$where = " WHERE pokemon_id = ".$pokemon_id." "
 			. "AND FROM_UNIXTIME(expire_timestamp) BETWEEN '".$start."' AND '".$end."'";
 		$req 		= "SELECT lat AS latitude, lon AS longitude FROM sightings".$where." ORDER BY expire_timestamp DESC LIMIT 100000";
@@ -222,24 +220,24 @@ class QueryManagerMonocleHydro extends QueryManagerMysql
 		return $array;
 	}
 
-	public  function getPokemonLive($pokemon_id, $ivMin, $ivMax) {
+	public function getPokemonLive($pokemon_id, $ivMin, $ivMax, $inmap_pokemons) {
 		$inmap_pkms_filter = "";
 		$where = " WHERE expire_timestamp >= UNIX_TIMESTAMP() AND pokemon_id = " . $pokemon_id;
 
 		$reqTestIv = "SELECT MAX(atk_iv) AS iv FROM sightings " . $where;
 		$resultTestIv = $this->mysqli->query($reqTestIv);
 		$testIv = $resultTestIv->fetch_object();
-		if (isset($_POST['inmap_pokemons']) && ($_POST['inmap_pokemons'] != "")) {
+		if (!is_null($inmap_pokemons) && ($inmap_pokemons != "")) {
 			foreach ($_POST['inmap_pokemons'] as $inmap) {
 				$inmap_pkms_filter .= "'".$inmap."',";
 			}
 			$inmap_pkms_filter = rtrim($inmap_pkms_filter, ",");
 			$where .= " AND encounter_id NOT IN (" . $inmap_pkms_filter . ") ";
 		}
-		if ($testIv->iv != null && isset($_POST['ivMin']) && ($_POST['ivMin'] != "")) {
+		if ($testIv->iv != null && !is_null($ivMin) && ($ivMin != "")) {
 			$where .= " AND ((100/45)*(atk_iv + def_iv + sta_iv)) >= (" . $ivMin . ") ";
 		}
-		if ($testIv->iv != null && isset($_POST['ivMax']) && ($_POST['ivMax'] != "")) {
+		if ($testIv->iv != null && !is_null($ivMax) && ($ivMax != "")) {
 			$where .= " AND ((100/45)*(atk_iv + def_iv + sta_iv)) <= (" . $ivMax . ") ";
 		}
 		$req = "SELECT pokemon_id, lat AS latitude, lon AS longitude,
@@ -285,7 +283,7 @@ class QueryManagerMonocleHydro extends QueryManagerMysql
 		return $data;
 	}
 
-	public  function getAllPokestops() {
+	public function getAllPokestops() {
 		$req = "SELECT lat as latitude, lon as longitude, null AS lure_expiration, UNIX_TIMESTAMP() AS now, null AS lure_expiration_real FROM pokestops";
 		$result = $this->mysqli->query($req);
 		$pokestops = array();
@@ -383,7 +381,7 @@ class QueryManagerMonocleHydro extends QueryManagerMysql
 	// Trainers
 	//////////////
 
-	public  function getTrainers($trainer_name, $team, $page, $ranking) {
+	public function getTrainers($trainer_name, $team, $page, $ranking) {
 		return array(); // Waiting for Monocle to store level
 	}
 
@@ -412,7 +410,7 @@ class QueryManagerMonocleHydro extends QueryManagerMysql
 		return $counts;
 	}
 
-	public  function getPoekmonCountsLastDay() {
+	public function getPoekmonCountsLastDay() {
 		$req = "SELECT pokemon_id, COUNT(*) AS spawns_last_day
 					FROM sightings
 					WHERE FROM_UNIXTIME(expire_timestamp) >= (SELECT FROM_UNIXTIME(MAX(expire_timestamp)) FROM sightings) - INTERVAL 1 DAY
@@ -426,7 +424,7 @@ class QueryManagerMonocleHydro extends QueryManagerMysql
 		return $counts;
 	}
 
-	public  function getPokemonSinceLastUpdate($pokemon_id, $last_update) {
+	public function getPokemonSinceLastUpdate($pokemon_id, $last_update) {
 		$req = "SELECT COUNT(*) AS count, MAX(expire_timestamp) AS last_timestamp, (FROM_UNIXTIME(MAX(expire_timestamp))) AS disappear_time_real, lat as latitude, lon as longitude
 					FROM sightings
 					WHERE pokemon_id = '".$pokemon_id."' && expire_timestamp > '".$last_update."'";
@@ -435,7 +433,7 @@ class QueryManagerMonocleHydro extends QueryManagerMysql
 		return $data;
 	}
 
-	public  function getRaidsSinceLastUpdate($pokemon_id, $last_update) {
+	public function getRaidsSinceLastUpdate($pokemon_id, $last_update) {
 		$where = "WHERE pokemon_id = '".$pokemon_id."' && time_battle > '".$last_update."'";
 		$req = "SELECT time_battle AS start_timestamp, time_end as end, (FROM_UNIXTIME(time_end)) AS end_time_real, lat as latitude, lon as longitude, count
 					FROM raids r
@@ -453,14 +451,14 @@ class QueryManagerMonocleHydro extends QueryManagerMysql
 		return $data;
 	}
 
-	public  function getCaptchaCount() {
+	public function getCaptchaCount() {
 		$req = " SELECT COUNT(*) as total FROM accounts WHERE captchaed IS NOT NULL AND reason IS NULL";
 		$result = $this->mysqli->query($req);
 		$data = $result->fetch_object();
 		return $data;
 	}
 
-	public  function getNestData() {
+	public function getNestData() {
 		$pokemon_exclude_sql = "";
 		if (!empty(self::$config->system->nest_exclude_pokemon)) {
 			$pokemon_exclude_sql = "AND p.pokemon_id NOT IN (" . implode(",", self::$config->system->nest_exclude_pokemon) . ")";
