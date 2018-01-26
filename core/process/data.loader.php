@@ -162,14 +162,29 @@ if (!empty($page)) {
 			
 			// Top50 Pokemon List
 			// Don't run the query for super common pokemon because it's too heavy
+
+			// Make it sortable; default sort: cp DESC
+			$top_possible_sort = array('IV', 'cp', 'individual_attack', 'individual_defense', 'individual_stamina', 'move_1', 'move_2', 'disappear_time');
+			$top_order = isset($_GET['order']) ? $_GET['order'] : '';
+			$top_order_by = in_array($top_order, $top_possible_sort) ? $_GET['order'] : 'cp';
+			$top_direction = isset($_GET['direction']) ? 'ASC' : 'DESC';
+			$top_direction = !isset($_GET['order']) && !isset($_GET['direction']) ? 'DESC' : $top_direction;
+
+			$best_possible_sort = array('trainer_name', 'IV', 'cp', 'move_1', 'move_2', 'last_seen');
+			$best_order = isset($_GET['order']) ? $_GET['order'] : '';
+			$best_order_by = in_array($best_order, $best_possible_sort) ? $_GET['order'] : 'cp';
+			$best_direction = isset($_GET['direction']) ? 'ASC' : 'DESC';
+			$best_direction = !isset($_GET['order']) && !isset($_GET['direction']) ? 'DESC' : $best_direction;
+
 			if ($pokemon->spawn_rate < 0.20) {
-				$top = $manager->getTop50Pokemon($pokemon_id, $best_order, $best_direction);
+				$top = $manager->getTop50Pokemon($pokemon_id, $top_order_by, $top_direction);
 			} else {
 				$top = array();
 			}
 			
 			// Trainer with highest Pokemon
-			$toptrainer = $manager->getTop50Trainers($pokemon_id, $best_order, $best_direction);
+
+			$toptrainer = $manager->getTop50Trainers($pokemon_id, $best_order_by, $best_direction);
 
 			break;
 

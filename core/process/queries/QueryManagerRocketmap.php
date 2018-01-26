@@ -150,14 +150,7 @@ final class QueryManagerRocketmap extends QueryManagerMysql
 		return $data;
 	}
 
-	function getTop50Pokemon($pokemon_id, $best_order, $best_direction) {
-		// Make it sortable; default sort: cp DESC
-		$top_possible_sort = array('IV', 'cp', 'individual_attack', 'individual_defense', 'individual_stamina', 'move_1', 'move_2', 'disappear_time');
-		$top_order = isset($_GET['order']) ? $_GET['order'] : '';
-		$top_order_by = in_array($top_order, $top_possible_sort) ? $_GET['order'] : 'cp';
-		$top_direction = isset($_GET['direction']) ? 'ASC' : 'DESC';
-		$top_direction = !isset($_GET['order']) && !isset($_GET['direction']) ? 'DESC' : $top_direction;
-
+	function getTop50Pokemon($pokemon_id, $top_order_by, $top_direction) {
 		$req = "SELECT (CONVERT_TZ(disappear_time, '+00:00', '".$this->time_offset."')) AS distime, pokemon_id, disappear_time, latitude, longitude,
 							cp, individual_attack, individual_defense, individual_stamina,
 							ROUND(100*(individual_attack+individual_defense+individual_stamina)/45,1) AS IV, move_1, move_2, form
@@ -175,13 +168,7 @@ final class QueryManagerRocketmap extends QueryManagerMysql
 		return $top;
 	}
 
-	function getTop50Trainers($pokemon_id, $best_order, $best_direction) {
-		$best_possible_sort = array('trainer_name', 'IV', 'cp', 'move_1', 'move_2', 'last_seen');
-		$best_order = isset($_GET['order']) ? $_GET['order'] : '';
-		$best_order_by = in_array($best_order, $best_possible_sort) ? $_GET['order'] : 'cp';
-		$best_direction = isset($_GET['direction']) ? 'ASC' : 'DESC';
-		$best_direction = !isset($_GET['order']) && !isset($_GET['direction']) ? 'DESC' : $best_direction;
-
+	function getTop50Trainers($pokemon_id, $best_order_by, $best_direction) {
 		$trainer_blacklist = "";
 		if (!empty(self::$config->system->trainer_blacklist)) {
 			$trainer_blacklist = " AND trainer_name NOT IN ('".implode("','", self::$config->system->trainer_blacklist)."')";
@@ -419,7 +406,7 @@ final class QueryManagerRocketmap extends QueryManagerMysql
 		$req .= " GROUP BY level";
 		$result = $this->mysqli->query($req);
 		$levelData = array();
-		while ($data = $result->fetch_assoc()) {
+		while ($data = $result->fetch_object()) {
 			$levelData[$data['level']] = $data['count'];
 		}
 		for ($i = 5; $i <= 40; $i++) {
@@ -512,6 +499,90 @@ final class QueryManagerRocketmap extends QueryManagerMysql
 			$pokemons[] = $data;
 		}
 		return $pokemons;
+	}
+
+
+	/////////
+	// Cron
+	/////////
+
+	public function getPokemonCountsActive() {
+		$req = "SELECT pokemon_id, COUNT(*) as total FROM pokemon WHERE disappear_time >= UTC_TIMESTAMP() GROUP BY pokemon_id";
+		$result = $this->mysqli->query($req);
+		$counts = array();
+		while ($data = $result->fetch_object()) {
+			$counts[$data->pokemon_id] = $data->total;
+		}
+		return $counts;
+	}
+
+	public  function getPoekmonCountsLastDay() {
+		$req = "SELECT pokemon_id, COUNT(*) AS spawns_last_day
+					FROM pokemon
+					WHERE disappear_time >= (SELECT MAX(disappear_time) FROM pokemon) - INTERVAL 1 DAY
+					GROUP BY pokemon_id
+				  	ORDER BY pokemon_id ASC";
+		$result = $this->mysqli->query($req);
+		$counts = array();
+		while ($data = $result->fetch_object()) {
+			$counts[$data->pokemon_id] = $data->spawns_last_day;
+		}
+		return $counts;
+	}
+
+	public function getPokemonSinceLastUpdate($pokemon_id, $last_update) {
+		$req = "SELECT COUNT(*) as count, UNIX_TIMESTAMP(MAX(disappear_time)) as last_timestamp, (CONVERT_TZ(MAX(disappear_time), '+00:00', '".self::$time_offset."')) AS disappear_time_real, latitude, longitude 
+				FROM pokemon 
+				WHERE pokemon_id = '".$pokemon_id."' && UNIX_TIMESTAMP(disappear_time) > '".$last_update."'";
+		$result = $this->mysqli->query($req);
+		$data = $result->fetch_object();
+		return $data;
+	}
+
+	public  function getRaidsSinceLastUpdate($pokemon_id, $last_update) {
+		$where = "WHERE pokemon_id = '".$pokemon_id."' && UNIX_TIMESTAMP(start) > '".$last_update."'";
+		$req = "SELECT UNIX_TIMESTAMP(start) as start_timestamp, end, (CONVERT_TZ(end, '+00:00', '".self::$time_offset."')) AS end_time_real, latitude, longitude, count
+                FROM raid r
+                JOIN gym g
+                JOIN (SELECT count(*) as count
+                    FROM raid
+                    " . $where."
+                ) x
+                ON r.gym_id = g.gym_id
+                " . $where."
+                ORDER BY start DESC
+                LIMIT 0,1";
+		$result = $this->mysqli->query($req);
+		$data = $result->fetch_object();
+		return $data;
+	}
+
+	public  function getCaptchaCount() {
+		$req = "SELECT SUM(accounts_captcha) AS total FROM mainworker";
+		$result = $this->mysqli->query($req);
+		$data = $result->fetch_object();
+		return $data;
+	}
+
+	public  function getNestData() {
+		$pokemon_exclude_sql = "";
+		if (!empty(self::$config->system->nest_exclude_pokemon)) {
+			$pokemon_exclude_sql = "AND p.pokemon_id NOT IN (".implode(",", self::$config->system->nest_exclude_pokemon).")";
+		}
+		$req = "SELECT p.pokemon_id, max(p.latitude) AS latitude, max(p.longitude) AS longitude, count(p.pokemon_id) AS total_pokemon, s.latest_seen, (LENGTH(s.kind) - LENGTH( REPLACE ( kind, \"s\", \"\") )) * 900 AS duration
+			          FROM pokemon p 
+			          INNER JOIN spawnpoint s ON (p.spawnpoint_id = s.id) 
+			          WHERE p.disappear_time > UTC_TIMESTAMP() - INTERVAL 24 HOUR 
+			          " . $pokemon_exclude_sql . " 
+			          GROUP BY p.spawnpoint_id, p.pokemon_id 
+			          HAVING COUNT(p.pokemon_id) >= 6 
+			          ORDER BY p.pokemon_id";
+		$result = $this->mysqli->query($req);
+		$nests = array();
+		while ($data = $result->fetch_object()) {
+			$nests[] = $data;
+		}
+		return $nests;
 	}
 
 }

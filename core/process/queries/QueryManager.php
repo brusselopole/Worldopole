@@ -54,8 +54,8 @@ abstract class QueryManager {
 	// Single Pokemon
 	public abstract function getGymsProtectedByPokemon($pokemon_id);
 	public abstract function getPokemonLastSeen($pokemon_id);
-	public abstract function getTop50Pokemon($pokemon_id, $best_order, $best_direction);
-	public abstract function getTop50Trainers($pokemon_id, $best_order, $best_direction);
+	public abstract function getTop50Pokemon($pokemon_id, $top_order_by, $top_direction);
+	public abstract function getTop50Trainers($pokemon_id, $best_order_by, $best_direction);
 	public abstract function getPokemonHeatmap($pokemon_id, $start, $end);
 	public abstract function getPokemonGraph($pokemon_id);
 	public abstract function getPokemonLive($pokemon_id, $ivMin, $ivMax);
@@ -80,4 +80,11 @@ abstract class QueryManager {
 	public abstract function getTrainers($trainer_name, $team, $page, $ranking);
 	public abstract function getTrainerLevelCount($team_id);
 
+	// Cron
+	public abstract function getPokemonCountsActive();
+	public abstract function getPoekmonCountsLastDay();
+	public abstract function getPokemonSinceLastUpdate($pokemon_id, $last_update);
+	public abstract function getRaidsSinceLastUpdate($pokemon_id, $last_update);
+	public abstract function getCaptchaCount();
+	public abstract function getNestData();
 }

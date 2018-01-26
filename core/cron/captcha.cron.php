@@ -19,9 +19,7 @@ $config_secret = json_decode(file_get_contents($variables_secret));
 if ($config_secret->captcha_key == "") {
 	$captcha['timestamp'] = $timestamp;
 	// get amount of accounts requiring a captcha
-	$req = "SELECT SUM(accounts_captcha) AS total FROM mainworker";
-	$result = $mysqli->query($req);
-	$data = $result->fetch_object();
+	$data = $manager->getCaptchaCount();
 	$captcha['captcha_accs'] = $data->total;
 	// Add the datas in file
 	$capdatas[] = $captcha;

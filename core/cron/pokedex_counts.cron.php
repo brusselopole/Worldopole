@@ -25,11 +25,7 @@ for ($pid = 1; $pid <= $maxpid; $pid++) {
 
 	$last_update = $newpokecountdatas[$pid]['last_update'];
 
-	$req = "SELECT COUNT(*) as count, UNIX_TIMESTAMP(MAX(disappear_time)) as last_timestamp, (CONVERT_TZ(MAX(disappear_time), '+00:00', '".$time_offset."')) AS disappear_time_real, latitude, longitude 
-				FROM pokemon 
-				WHERE pokemon_id = '".$pid."' && UNIX_TIMESTAMP(disappear_time) > '".$last_update."'";
-	$result = $mysqli->query($req);
-	$data = $result->fetch_object();
+	$data = $manager->getPokemonSinceLastUpdate($pid, $last_update);
 
 	if (isset($data)) {
 		$count = $data->count;
