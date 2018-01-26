@@ -113,6 +113,11 @@ if (!empty($page)) {
 			$pokemon = $pokemons->pokemon->$pokemon_id;
 			$pokemon->id = $pokemon_id;
 
+			// Gen
+			// ----
+
+			$gen = generation($pokemon_id);
+			$pokemon->gen = $gen[0]." (".$gen[1].")";
 
 			// Some math
 			// ----------
