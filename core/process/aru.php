@@ -60,7 +60,6 @@ switch ($request) {
 	############################
 
 	case 'home_update':
-
 		$values = [];
 		// Right now
 		// ---------
@@ -249,7 +248,6 @@ switch ($request) {
 	####################################
 
 	case 'pokestop':
-
 		$datas = $manager->getAllPokestops();
 
 		$pokestops = [];
@@ -313,7 +311,6 @@ switch ($request) {
 
 
 	case 'gym_map':
-
 		$datas = $manager->getAllGyms();
 
 		$gyms = [];
@@ -374,7 +371,6 @@ switch ($request) {
 	####################################
 
 	case 'gym_defenders':
-
 		$gym_id = $manager->getEcapedString($_GET['gym_id']);
 
 		$data = $manager->getGymData($gym_id);
@@ -529,7 +525,6 @@ switch ($request) {
 		break;
 
 	case 'pokemon_slider_init':
-
 		$bounds		= $manager->getPokemonSliederMinMax();
 
 		header('Content-Type: application/json');
@@ -555,7 +550,6 @@ switch ($request) {
 
 
 	case 'maps_localization_coordinates':
-
 		$coordinates = $manager->getMapsCoords();
 
 		header('Content-Type: application/json');

@@ -35,56 +35,56 @@ abstract class QueryManager {
 	private function __construct(){}
 
 	// Misc
-	public abstract function getEcapedString($string);
+	abstract public function getEcapedString($string);
 
 	// Tester
-	public abstract function testTotalPokemon();
-	public abstract function testTotalGyms();
-	public abstract function testTotalPokestops();
+	abstract public function testTotalPokemon();
+	abstract public function testTotalGyms();
+	abstract public function testTotalPokestops();
 
 	// Homepage
-	public abstract function getTotalPokemon();
-	public abstract function getTotalLures();
-	public abstract function getTotalGyms();
-	public abstract function getTotalRaids();
-	public abstract function getTotalGymsForTeam($team_id);
-	public abstract function getRecentAll();
-	public abstract function getRecentMythic($mythic_pokemon);
+	abstract public function getTotalPokemon();
+	abstract public function getTotalLures();
+	abstract public function getTotalGyms();
+	abstract public function getTotalRaids();
+	abstract public function getTotalGymsForTeam($team_id);
+	abstract public function getRecentAll();
+	abstract public function getRecentMythic($mythic_pokemon);
 
 	// Single Pokemon
-	public abstract function getGymsProtectedByPokemon($pokemon_id);
-	public abstract function getPokemonLastSeen($pokemon_id);
-	public abstract function getTop50Pokemon($pokemon_id, $top_order_by, $top_direction);
-	public abstract function getTop50Trainers($pokemon_id, $best_order_by, $best_direction);
-	public abstract function getPokemonHeatmap($pokemon_id, $start, $end);
-	public abstract function getPokemonGraph($pokemon_id);
-	public abstract function getPokemonLive($pokemon_id, $ivMin, $ivMax, $inmap_pokemons);
-	public abstract function getPokemonSliederMinMax();
-	public abstract function getMapsCoords();
+	abstract public function getGymsProtectedByPokemon($pokemon_id);
+	abstract public function getPokemonLastSeen($pokemon_id);
+	abstract public function getTop50Pokemon($pokemon_id, $top_order_by, $top_direction);
+	abstract public function getTop50Trainers($pokemon_id, $best_order_by, $best_direction);
+	abstract public function getPokemonHeatmap($pokemon_id, $start, $end);
+	abstract public function getPokemonGraph($pokemon_id);
+	abstract public function getPokemonLive($pokemon_id, $ivMin, $ivMax, $inmap_pokemons);
+	abstract public function getPokemonSliederMinMax();
+	abstract public function getMapsCoords();
 
 	// Pokestops
-	public abstract function getTotalPokestops();
-	public abstract function getAllPokestops();
+	abstract public function getTotalPokestops();
+	abstract public function getAllPokestops();
 
 	// Gyms
-	public abstract function getTeamGuardians($team_id);
-	public abstract function getOwnedAndPoints($team_id);
-	public abstract function getAllGyms();
-	public abstract function getGymData($gym_id);
-	public abstract function getGymDefenders($gym_id);
+	abstract public function getTeamGuardians($team_id);
+	abstract public function getOwnedAndPoints($team_id);
+	abstract public function getAllGyms();
+	abstract public function getGymData($gym_id);
+	abstract public function getGymDefenders($gym_id);
 
 	// Raids
-	public abstract function getAllRaids($page);
+	abstract public function getAllRaids($page);
 
 	// Trainers
-	public abstract function getTrainers($trainer_name, $team, $page, $ranking);
-	public abstract function getTrainerLevelCount($team_id);
+	abstract public function getTrainers($trainer_name, $team, $page, $ranking);
+	abstract public function getTrainerLevelCount($team_id);
 
 	// Cron
-	public abstract function getPokemonCountsActive();
-	public abstract function getPoekmonCountsLastDay();
-	public abstract function getPokemonSinceLastUpdate($pokemon_id, $last_update);
-	public abstract function getRaidsSinceLastUpdate($pokemon_id, $last_update);
-	public abstract function getCaptchaCount();
-	public abstract function getNestData();
+	abstract public function getPokemonCountsActive();
+	abstract public function getPoekmonCountsLastDay();
+	abstract public function getPokemonSinceLastUpdate($pokemon_id, $last_update);
+	abstract public function getRaidsSinceLastUpdate($pokemon_id, $last_update);
+	abstract public function getCaptchaCount();
+	abstract public function getNestData();
 }

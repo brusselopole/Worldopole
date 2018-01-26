@@ -4,7 +4,6 @@
 // ###################
 
 include_once __DIR__ . '/../core/process/queries/QueryManager.php';
-$manager = QueryManager::current();
 
 
 ########################################################################
@@ -26,7 +25,7 @@ function php_test()
 
 function db_test()
 {
-	global $manager;
+	$manager = QueryManager::current();
 
 	$lock_msg = '';
 
