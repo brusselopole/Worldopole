@@ -400,5 +400,13 @@ class QueryManagerMonocleAlt extends QueryManagerMysql
 		return array(); // Waiting for Monocle to store level
 	}
 
-
+	public function getTrainerLevelCount($team_id) {
+		$levelData = array();
+		for ($i = 5; $i <= 40; $i++) {
+			if (!isset($levelData[$i])) {
+				$levelData[$i] = 0;
+			}
+		}
+		return $levelData; // Waiting for Monocle to store level
+	}
 }

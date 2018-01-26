@@ -17,47 +17,20 @@ $config = json_decode(file_get_contents($variables));
 ############################
 include_once('../process/locales.loader.php');
 
+// Load Query Manager
+// ###################
 
-# Connect MySQL 
-$mysqli = new mysqli(SYS_DB_HOST, SYS_DB_USER, SYS_DB_PSWD, SYS_DB_NAME, SYS_DB_PORT);
-if ($mysqli->connect_error != '') {
-	exit('Error MySQL Connect');
-}
+include_once __DIR__ . '/../process/queries/QueryManager.php';
+$manager = QueryManager::current();
 
 # Chart Graph datas	 
 
 $trainer_lvl = [];
 # For all 3 teams
 for ($teamid = 1; $teamid <= 3; $teamid++) {
-	$req = "SELECT level, count(level) AS count FROM trainer WHERE team = '".$teamid."'";
-	if (!empty($config->system->trainer_blacklist)) {
-		$req .= " AND name NOT IN ('".implode("','", $config->system->trainer_blacklist)."')";
-	}
-	$req .= " GROUP BY level";
-	if ($result = $mysqli->query($req)) {
-		# build level=>count array
-		$data = [];
-		while ($row = $result->fetch_assoc()) {
-			$data[$row['level']] = $row['count'];
-		}
-		
-		# only if data isn't empty
-		if (!empty($data)) {
-			# fill empty levels counts with 0
-			for ($i = 5; $i <= 40; $i++) {
-				if (!isset($data[$i])) {
-					$data[$i] = 0;
-				}
-			}
-			# sort array again
-			ksort($data);
-			$trainer_lvl[$teamid] = $data;
-		}
-		
-		$result->free();
-	}
+    $data = $manager->getTrainerLevelCount($teamid);
+	$trainer_lvl[$teamid] = $data;
 }
-$mysqli->close();
 
 ?>
 

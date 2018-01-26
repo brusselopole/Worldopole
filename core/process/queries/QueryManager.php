@@ -78,5 +78,6 @@ abstract class QueryManager {
 
 	// Trainers
 	public abstract function getTrainers($trainer_name, $team, $page, $ranking);
+	public abstract function getTrainerLevelCount($team_id);
 
 }

@@ -411,6 +411,27 @@ final class QueryManagerRocketMap extends QueryManagerMysql
 		return $trainers;
 	}
 
+	public function getTrainerLevelCount($team_id) {
+		$req = "SELECT level, count(level) AS count FROM trainer WHERE team = '".$team_id."'";
+		if (!empty(self::$config->system->trainer_blacklist)) {
+			$req .= " AND name NOT IN ('".implode("','", self::$config->system->trainer_blacklist)."')";
+		}
+		$req .= " GROUP BY level";
+		$result = $this->mysqli->query($req);
+		$levelData = array();
+		while ($data = $result->fetch_assoc()) {
+			$levelData[$data['level']] = $data['count'];
+		}
+		for ($i = 5; $i <= 40; $i++) {
+			if (!isset($levelData[$i])) {
+				$levelData[$i] = 0;
+			}
+		}
+		# sort array again
+		ksort($levelData);
+		return $levelData;
+	}
+
 	private function getTrainerData($trainer_name, $team, $page, $ranking) {
 		$where = "";
 		$order = "";
