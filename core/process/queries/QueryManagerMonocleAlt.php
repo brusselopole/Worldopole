@@ -207,6 +207,70 @@ class QueryManagerMonocleAlt extends QueryManagerMysql
 		return $toptrainer;
 	}
 
+	public  function getPokemonHeatmap($pokemon_id, $start, $end) {
+		$where = " WHERE pokemon_id = ".$pokemon_id." "
+			. "AND FROM_UNIXTIME(expire_timestamp) BETWEEN '".$start."' AND '".$end."'";
+		$req 		= "SELECT lat AS latitude, lon AS longitude FROM sightings".$where." ORDER BY expire_timestamp DESC LIMIT 100000";
+		$result = $this->mysqli->query($req);
+		$points = array();
+		while ($data = $result->fetch_object()) {
+			$points[] = $data;
+		}
+		return $points;
+	}
+
+	public function getPokemonGraph($pokemon_id) {
+		$req = "SELECT COUNT(*) AS total, HOUR(disappear_time) AS disappear_hour
+					FROM (SELECT FROM_UNIXTIME(expire_timestamp) as disappear_time FROM sightings WHERE pokemon_id = '".$pokemon_id."' ORDER BY disappear_time LIMIT 100000) AS pokemonFiltered
+				GROUP BY disappear_hour
+				ORDER BY disappear_hour";
+		$result = $this->mysqli->query($req);
+		$array = array_fill(0, 24, 0);
+		while ($result && $data = $result->fetch_object()) {
+			$array[$data->disappear_hour] = $data->total;
+		}
+		// shift array because AM/PM starts at 1AM not 0:00
+		$array[] = $array[0];
+		array_shift($array);
+		return $array;
+	}
+
+	public  function getPokemonLive($pokemon_id, $ivMin, $ivMax) {
+		$inmap_pkms_filter = "";
+		$where = " WHERE expire_timestamp >= UNIX_TIMESTAMP() AND pokemon_id = " . $pokemon_id;
+
+		$reqTestIv = "SELECT MAX(atk_iv) AS iv FROM sightings " . $where;
+		$resultTestIv = $this->mysqli->query($reqTestIv);
+		$testIv = $resultTestIv->fetch_object();
+		if (isset($_POST['inmap_pokemons']) && ($_POST['inmap_pokemons'] != "")) {
+			foreach ($_POST['inmap_pokemons'] as $inmap) {
+				$inmap_pkms_filter .= "'".$inmap."',";
+			}
+			$inmap_pkms_filter = rtrim($inmap_pkms_filter, ",");
+			$where .= " AND encounter_id NOT IN (" . $inmap_pkms_filter . ") ";
+		}
+		if ($testIv->iv != null && isset($_POST['ivMin']) && ($_POST['ivMin'] != "")) {
+			$where .= " AND ((100/45)*(atk_iv + def_iv + sta_iv)) >= (" . $ivMin . ") ";
+		}
+		if ($testIv->iv != null && isset($_POST['ivMax']) && ($_POST['ivMax'] != "")) {
+			$where .= " AND ((100/45)*(atk_iv + def_iv + sta_iv)) <= (" . $ivMax . ") ";
+		}
+		$req = "SELECT pokemon_id, lat AS latitude, lon AS longitude,
+    					FROM_UNIXTIME(expire_timestamp) AS disappear_time,
+    					FROM_UNIXTIME(expire_timestamp) AS disappear_time_real,
+    					atk_iv AS individual_attack, def_iv AS individual_defense, sta_iv AS individual_stamina,
+   						move_1, move_2
+					FROM sightings " . $where . "
+					ORDER BY disappear_time DESC
+					LIMIT 5000";
+		$result = $this->mysqli->query($req);
+		$spawns = array();
+		while ($data = $result->fetch_object()) {
+			$spawns[] = $data;
+		}
+		return $spawns;
+	}
+
 	public function getPokemonSliederMinMax() {
 		$req = "SELECT FROM_UNIXTIME(MIN(expire_timestamp)) AS min, FROM_UNIXTIME(MAX(expire_timestamp)) AS max FROM sightings";
 		$result = $this->mysqli->query($req);

@@ -56,6 +56,9 @@ abstract class QueryManager {
 	public abstract function getPokemonLastSeen($pokemon_id);
 	public abstract function getTop50Pokemon($pokemon_id, $best_order, $best_direction);
 	public abstract function getTop50Trainers($pokemon_id, $best_order, $best_direction);
+	public abstract function getPokemonHeatmap($pokemon_id, $start, $end);
+	public abstract function getPokemonGraph($pokemon_id);
+	public abstract function getPokemonLive($pokemon_id, $ivMin, $ivMax);
 	public abstract function getPokemonSliederMinMax();
 	public abstract function getMapsCoords();
 

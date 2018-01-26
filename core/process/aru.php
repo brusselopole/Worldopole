@@ -43,12 +43,6 @@ include_once(SYS_PATH.'/functions.php');
 include_once __DIR__ . '/queries/QueryManager.php';
 $manager = QueryManager::current();
 
-# MySQL
-$mysqli = new mysqli(SYS_DB_HOST, SYS_DB_USER, SYS_DB_PSWD, SYS_DB_NAME, SYS_DB_PORT);
-if ($mysqli->connect_error != '') {
-	exit('Error MySQL Connect');
-}
-$mysqli->set_charset('utf8');
 $request = "";
 if (isset($_GET['type'])) {
 	$request = $_GET['type'];
@@ -549,15 +543,8 @@ switch ($request) {
 		if (isset($_GET['start']) && isset($_GET['end']) && isset($_GET['pokemon_id'])) {
 			$start = date("Y-m-d H:i", (int) $_GET['start']);
 			$end = date("Y-m-d H:i", (int) $_GET['end']);
-			$pokemon_id = mysqli_real_escape_string($mysqli, $_GET['pokemon_id']);
-			$where = " WHERE pokemon_id = ".$pokemon_id." "
-					. "AND disappear_time BETWEEN '".$start."' AND '".$end."'";
-			$req 		= "SELECT latitude, longitude FROM pokemon".$where." ORDER BY disappear_time DESC LIMIT 10000";
-			$result = $mysqli->query($req);
-			$points = array();
-			while ($result && $data = $result->fetch_object()) {
-				$points[] = $data;
-			}
+			$pokemon_id = $manager->getEcapedString($_GET['pokemon_id']);
+			$points = $manager->getPokemonHeatmap($pokemon_id, $start, $end);
 
 			$json = json_encode($points);
 		}
@@ -580,20 +567,8 @@ switch ($request) {
 	case 'pokemon_graph_data':
 		$json = "";
 		if (isset($_GET['pokemon_id'])) {
-			$pokemon_id = mysqli_real_escape_string($mysqli, $_GET['pokemon_id']);
-			$req = "SELECT COUNT(*) AS total,
-					HOUR(CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) AS disappear_hour
-					FROM (SELECT disappear_time FROM pokemon WHERE pokemon_id = '".$pokemon_id."' ORDER BY disappear_time LIMIT 10000) AS pokemonFiltered
-					GROUP BY disappear_hour
-					ORDER BY disappear_hour";
-			$result = $mysqli->query($req);
-			$array = array_fill(0, 24, 0);
-			while ($result && $data = $result->fetch_object()) {
-				$array[$data->disappear_hour] = $data->total;
-			}
-			// shift array because AM/PM starts at 1AM not 0:00
-			$array[] = $array[0];
-			array_shift($array);
+			$pokemon_id = $manager->getEcapedString($_GET['pokemon_id']);
+			$array = $manager->getPokemonGraph($pokemon_id);
 
 			$json = json_encode($array);
 		}
@@ -617,35 +592,12 @@ if ($postRequest != "") {
 		case 'pokemon_live':
 			$json = "";
 			if (isset($_POST['pokemon_id'])) {
-				$pokemon_id = mysqli_real_escape_string($mysqli, $_POST['pokemon_id']);
-				$inmap_pkms_filter = "";
-				$where = " WHERE disappear_time >= UTC_TIMESTAMP() AND pokemon_id = ".$pokemon_id;
+				$pokemon_id = $manager->getEcapedString($_POST['pokemon_id']);
+				$ivMin = $manager->getEcapedString($_POST['ivMin']);
+				$ivMax = $manager->getEcapedString($_POST['ivMax']);
 
-				$reqTestIv = "SELECT MAX(individual_attack) AS iv FROM pokemon ".$where;
-				$resultTestIv = $mysqli->query($reqTestIv);
-				$testIv = $resultTestIv->fetch_object();
-				if (isset($_POST['inmap_pokemons']) && ($_POST['inmap_pokemons'] != "")) {
-					foreach ($_POST['inmap_pokemons'] as $inmap) {
-						$inmap_pkms_filter .= "'".$inmap."',";
-					}
-					$inmap_pkms_filter = rtrim($inmap_pkms_filter, ",");
-					$where .= " AND encounter_id NOT IN (".$inmap_pkms_filter.") ";
-				}
-				if ($testIv->iv != null && isset($_POST['ivMin']) && ($_POST['ivMin'] != "")) {
-					$ivMin = mysqli_real_escape_string($mysqli, $_POST['ivMin']);
-					$where .= " AND ((100/45)*(individual_attack+individual_defense+individual_stamina)) >= (".$ivMin.") ";
-				}
-				if ($testIv->iv != null && isset($_POST['ivMax']) && ($_POST['ivMax'] != "")) {
-					$ivMax = mysqli_real_escape_string($mysqli, $_POST['ivMax']);
-					$where .= " AND ((100/45)*(individual_attack+individual_defense+individual_stamina)) <=(".$ivMax.") ";
-				}
-				$req = "SELECT pokemon_id, encounter_id, latitude, longitude, disappear_time,
-						(CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) AS disappear_time_real,
-						individual_attack, individual_defense, individual_stamina, move_1, move_2
-						FROM pokemon ".$where."
-						ORDER BY disappear_time DESC
-						LIMIT 5000";
-				$result = $mysqli->query($req);
+				$datas = $manager->getPokemonLive($pokemon_id, $ivMin, $ivMax);
+
 				$json = array();
 				$json['points'] = array();
 				$locale = array();
@@ -653,7 +605,7 @@ if ($postRequest != "") {
 				$locale["ivDefense"] = $locales->IV_DEFENSE;
 				$locale["ivStamina"] = $locales->IV_STAMINA;
 				$json['locale'] = $locale;
-				while ($result && $data = $result->fetch_object()) {
+				foreach ($datas as $data) {
 					$pokeid = $data->pokemon_id;
 					$data->name = $pokemons->pokemon->$pokeid->name;
 					if (isset($data->move_1)) {
