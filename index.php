@@ -102,7 +102,15 @@ include_once('core/process/data.loader.php');
 		</nav>
 
 		<div class="container">
-			<?php
+            <!-- Google Adsense -->
+            <?php if (is_file("adsense.php")) { ?>
+                <div>
+                    <center>
+                        <?php include_once("adsense.php"); ?>
+                    </center>
+                </div>
+            <?php }
+
 			# Include the pages
 			if (!empty($_GET['page'])) {
 				$file = SYS_PATH.'/pages/'.$page.'.page.php';
