@@ -21,8 +21,8 @@ abstract class QueryManager {
 			self::$time_offset = $time_offset;
 
 			switch (self::$config->system->db_type) {
-				case "monocle-hydro":
-					self::$current = new QueryManagerMonocleHydro();
+				case "monocle-alt":
+					self::$current = new QueryManagerMonocleAlt();
 					break;
 
 				default:

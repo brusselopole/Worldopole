@@ -1,6 +1,6 @@
 <?php
 
-class QueryManagerMonocleHydro extends QueryManagerMysql {
+class QueryManagerMonocleAlt extends QueryManagerMysql {
 
 	public function __construct() {
 		parent::__construct();

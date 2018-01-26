@@ -1,7 +1,7 @@
 <?php
 
 include_once __DIR__ . '/QueryManagerRocketmap.php';
-include_once __DIR__ . '/QueryManagerMonocleHydro.php';
+include_once __DIR__ . '/QueryManagerMonocleAlt.php';
 
 
 abstract class QueryManagerMysql extends QueryManager {
