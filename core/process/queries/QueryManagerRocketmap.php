@@ -1,6 +1,6 @@
 <?php
 
-final class QueryManagerRocketMap extends QueryManagerMysql
+final class QueryManagerRocketmap extends QueryManagerMysql
 {
 
 	///////////
