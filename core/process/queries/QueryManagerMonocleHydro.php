@@ -6,6 +6,10 @@ class QueryManagerMonocleHydro extends QueryManagerMysql {
 		parent::__construct();
 	}
 
+	public function __destruct() {
+		parent::__destruct();
+	}
+
 	///////////
 	// TesterF
 	///////////

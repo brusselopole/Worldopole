@@ -6,6 +6,10 @@ final class QueryManagerRocketmap extends QueryManagerMysql {
 		parent::__construct();
 	}
 
+	public function __destruct() {
+		parent::__destruct();
+	}
+
 	///////////
 	// Tester
 	///////////
@@ -99,7 +103,7 @@ final class QueryManagerRocketmap extends QueryManagerMysql {
 	}
 	
 	function getRecentAll() {
-		$req = "SELECT DISTINCT pokemon_id, encounter_id, disappear_time, last_modified, (CONVERT_TZ(disappear_time, '+00:00', '".$this->time_offset."')) AS disappear_time_real,
+		$req = "SELECT DISTINCT pokemon_id, encounter_id, disappear_time, last_modified, (CONVERT_TZ(disappear_time, '+00:00', '".self::$time_offset."')) AS disappear_time_real,
 					latitude, longitude, cp, individual_attack, individual_defense, individual_stamina
 					FROM pokemon
 					ORDER BY last_modified DESC
@@ -115,7 +119,7 @@ final class QueryManagerRocketmap extends QueryManagerMysql {
 	}
 	
 	function getRecentMythic($mythic_pokemons) {
-		$req = "SELECT DISTINCT pokemon_id, encounter_id, disappear_time, last_modified, (CONVERT_TZ(disappear_time, '+00:00', '".$this->time_offset."')) AS disappear_time_real,
+		$req = "SELECT DISTINCT pokemon_id, encounter_id, disappear_time, last_modified, (CONVERT_TZ(disappear_time, '+00:00', '".self::$time_offset."')) AS disappear_time_real,
 					latitude, longitude, cp, individual_attack, individual_defense, individual_stamina
 					FROM pokemon
 					WHERE pokemon_id IN (".implode(",", $mythic_pokemons).")
@@ -154,7 +158,7 @@ final class QueryManagerRocketmap extends QueryManagerMysql {
 	}
 
 	function getTop50Pokemon($pokemon_id, $top_order_by, $top_direction) {
-		$req = "SELECT (CONVERT_TZ(disappear_time, '+00:00', '".$this->time_offset."')) AS distime, pokemon_id, disappear_time, latitude, longitude,
+		$req = "SELECT (CONVERT_TZ(disappear_time, '+00:00', '".self::$time_offset."')) AS distime, pokemon_id, disappear_time, latitude, longitude,
 							cp, individual_attack, individual_defense, individual_stamina,
 							ROUND(100*(individual_attack+individual_defense+individual_stamina)/45,1) AS IV, move_1, move_2, form
 							FROM pokemon
@@ -451,7 +455,7 @@ final class QueryManagerRocketmap extends QueryManagerMysql {
 				FROM gympokemon
 				INNER JOIN (SELECT gymmember.pokemon_uid, gymmember.gym_id FROM gymmember GROUP BY gymmember.pokemon_uid, gymmember.gym_id HAVING gymmember.gym_id <> '') AS filtered_gymmember
 				ON gympokemon.pokemon_uid = filtered_gymmember.pokemon_uid) AS actives_pokemons ON actives_pokemons.trainer_name = trainer.name
-				GROUP BY trainer.name " . $where.$order.$limit;
+				GROUP BY trainer.name " . $where . $order . $limit;
 
 		$result = $this->mysqli->query($req);
 		$trainers = array();
