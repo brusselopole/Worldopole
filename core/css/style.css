@@ -628,11 +628,7 @@ raids styles
 }
 
 #gymsTable > thead > tr > th:nth-child(1) {
-	width: 100px;
-}
-
-#gymsTable > thead > tr > th:nth-child(2) {
-	width: 180px;
+	width: 6.5em;
 }
 
 @media (max-width: 768px) {
@@ -641,9 +637,6 @@ raids styles
 	}
 	#gymsTable > thead > tr > th:last-child, #gymsTable > tbody > tr:nth-child(2n-1) > td:last-child {
 		display: none;
-	}
-	#gymsTable > thead > tr > th:nth-child(1), #gymsTable > thead > tr > th:nth-child(2) {
-		width: initial;
 	}
 }
 
