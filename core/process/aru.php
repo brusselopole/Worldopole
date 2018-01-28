@@ -502,6 +502,7 @@ switch ($request) {
 
 		$datas = $manager->getAllRaids($page);
 		$i = 1;
+		$raids = array();
 		foreach ($datas as $data) {
 			$data->starttime = date("H:i", strtotime($data->start));
 			$data->endtime = date("H:i", strtotime($data->end));
