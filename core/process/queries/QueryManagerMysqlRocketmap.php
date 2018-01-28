@@ -1,6 +1,6 @@
 <?php
 
-final class QueryManagerRocketmap extends QueryManagerMysql {
+final class QueryManagerMysqlRocketmap extends QueryManagerMysql {
 
 	public function __construct() {
 		parent::__construct();
@@ -329,7 +329,6 @@ final class QueryManagerRocketmap extends QueryManagerMysql {
 	}
 
 	public function getGymData($gym_id) {
-		$gym_id = $this->mysqli->real_escape_string($_GET['gym_id']);
 		$req = "SELECT gymdetails.name AS name, gymdetails.description AS description, gymdetails.url AS url, gym.team_id AS team,
 					(CONVERT_TZ(gym.last_scanned, '+00:00', '".self::$time_offset."')) AS last_scanned, gym.guard_pokemon_id AS guard_pokemon_id, gym.total_cp AS total_cp, (6 - gym.slots_available) AS level
 					FROM gymdetails

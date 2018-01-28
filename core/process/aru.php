@@ -377,14 +377,22 @@ switch ($request) {
 		$gymData['gymDetails']['gymInfos'] = false;
 
 		if (!is_null($data)) {
-			$gymData['gymDetails']['gymInfos']['name'] = $data->name;
+			if ($data->name == null) {
+				$gymData['gymDetails']['gymInfos']['name'] = "?";
+			} else {
+				$gymData['gymDetails']['gymInfos']['name'] = $data->name;
+			}
 			$gymData['gymDetails']['gymInfos']['description'] = $data->description;
 			if ($data->url == null) {
-				$gymData['gymDetails']['gymInfos']['url'] = '';
+				$gymData['gymDetails']['gymInfos']['url'] = 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Solid_grey.svg/200px-Solid_grey.svg.png';
 			} else {
 				$gymData['gymDetails']['gymInfos']['url'] = $data->url;
 			}
-			$gymData['gymDetails']['gymInfos']['points'] = $data->total_cp;
+			if ($data->url == null) {
+				$gymData['gymDetails']['gymInfos']['points'] = "?";
+			} else {
+				$gymData['gymDetails']['gymInfos']['points'] = $data->total_cp;
+			}
 			$gymData['gymDetails']['gymInfos']['level'] = $data->level;
 			$gymData['gymDetails']['gymInfos']['last_scanned'] = $data->last_scanned;
 			$gymData['gymDetails']['gymInfos']['team'] = $data->team;
@@ -440,9 +448,9 @@ switch ($request) {
 					}
 				}
 			}
+			$gymData['infoWindow'] = $gymData['infoWindow'].'</div>';
 		}
 
-		$gymData['infoWindow'] = $gymData['infoWindow'].'</div>';
 
 		header('Content-Type: application/json');
 		echo json_encode($gymData);

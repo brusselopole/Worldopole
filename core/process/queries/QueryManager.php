@@ -2,6 +2,7 @@
 
 include_once __DIR__ . '/../../../config.php';
 include_once __DIR__ . '/QueryManagerMysql.php';
+include_once __DIR__ . '/QueryManagerPostgresql.php';
 
 abstract class QueryManager {
 
@@ -20,13 +21,17 @@ abstract class QueryManager {
 			include_once(SYS_PATH.'/core/process/timezone.loader.php');
 			self::$time_offset = $time_offset;
 
-			switch (self::$config->system->db_type) {
-				case "monocle-hydro":
-					self::$current = new QueryManagerMonocleHydro();
-					break;
 
+			switch (strtolower(self::$config->system->db_type)) {
+				case "monocle-alt":
+				case "monocle-alt-mysql":
+					self::$current = new QueryManagerMysqlMonocleAlternate();
+					break;
+				case "monocle-alt-pgsql":
+					self::$current = new QueryManagerPostgresqlMonocleAlternate();
+					break;
 				default:
-					self::$current = new QueryManagerRocketmap();
+					self::$current = new QueryManagerMysqlRocketmap();
 					break;
 			}
 		}

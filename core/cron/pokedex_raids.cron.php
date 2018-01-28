@@ -29,7 +29,7 @@ for ($pid = 1; $pid <= $maxpid; $pid++) {
 
 	$data = $manager->getRaidsSinceLastUpdate($pid, $last_update);
 
-	if (isset($data)) {
+	if (isset($data) && isset($data->count)) {
 		$count = $data->count;
 	} else {
 		$count = 0;
