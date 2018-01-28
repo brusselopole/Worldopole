@@ -466,7 +466,7 @@ class QueryManagerMysqlMonocleAlternate extends QueryManagerMysql {
 		if (!empty(self::$config->system->nest_exclude_pokemon)) {
 			$pokemon_exclude_sql = "AND p.pokemon_id NOT IN (" . implode(",", self::$config->system->nest_exclude_pokemon) . ")";
 		}
-		$req = "SELECT p.pokemon_id, p.lat AS latitude, p.lon AS longitude, count(p.pokemon_id) AS total_pokemon, s.updated as latest_seen, coalesce(duration,30)*60 as duration
+		$req = "SELECT p.pokemon_id, p.lat AS latitude, p.lon AS longitude, count(p.pokemon_id) AS total_pokemon, FROM_UNIXTIME(s.updated) as latest_seen, coalesce(duration,30)*60 as duration
 			          FROM sightings p
 			          INNER JOIN spawnpoints s ON (p.spawn_id = s.spawn_id)
 			          WHERE p.expire_timestamp > UNIX_TIMESTAMP() - 86400
