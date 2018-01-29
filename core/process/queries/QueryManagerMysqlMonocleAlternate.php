@@ -184,7 +184,7 @@ class QueryManagerMysqlMonocleAlternate extends QueryManagerMysql {
                 FROM_UNIXTIME(last_modified) AS lasttime, last_modified as last_seen
                 FROM gym_defenders
 				WHERE pokemon_id = '" . $pokemon_id . "'" . $trainer_blacklist . "
-				GROUP BY external_id, 
+				GROUP BY external_id 
 				ORDER BY $best_order_by $best_direction, owner_name ASC
 				LIMIT 0,50";
 
