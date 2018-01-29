@@ -394,7 +394,11 @@ switch ($request) {
 				$gymData['gymDetails']['gymInfos']['points'] = $data->total_cp;
 			}
 			$gymData['gymDetails']['gymInfos']['level'] = $data->level;
-			$gymData['gymDetails']['gymInfos']['last_scanned'] = $data->last_scanned;
+			if ($data->last_scanned == null) {
+				$gymData['gymDetails']['gymInfos']['last_scanned'] = "?";
+			} else {
+				$gymData['gymDetails']['gymInfos']['last_scanned'] = $data->last_scanned;
+			}
 			$gymData['gymDetails']['gymInfos']['team'] = $data->team;
 			$gymData['gymDetails']['gymInfos']['guardPokemonId'] = $data->guard_pokemon_id;
 
