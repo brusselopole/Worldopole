@@ -23,7 +23,7 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 	function testTotalPokemon() {
 		$req = "SELECT COUNT(*) as total FROM sightings";
 		$result = pg_query($this->db, $req);
-		if (!is_object($result)) {
+		if ($result === false) {
 			return 1;
 		} else {
 			$data = pg_fetch_object($result);
@@ -39,7 +39,7 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 	function testTotalGyms() {
 		$req = "SELECT COUNT(*) as total FROM forts";
 		$result = pg_query($this->db, $req);
-		if (!is_object($result)) {
+		if ($result === false) {
 			return 1;
 		} else {
 			$data = pg_fetch_object($result);
@@ -55,7 +55,7 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 	function testTotalPokestops() {
 		$req = "SELECT COUNT(*) as total FROM pokestops";
 		$result = pg_query($this->db, $req);
-		if (!is_object($result)) {
+		if ($result === false) {
 			return 1;
 		} else {
 			$data = pg_fetch_object($result);
