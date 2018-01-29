@@ -537,14 +537,14 @@ final class QueryManagerMysqlRocketmap extends QueryManagerMysql {
 	public function getPokemonSinceLastUpdate($pokemon_id, $last_update) {
 		$req = "SELECT COUNT(*) as count, UNIX_TIMESTAMP(MAX(disappear_time)) as last_timestamp, (CONVERT_TZ(MAX(disappear_time), '+00:00', '".self::$time_offset."')) AS disappear_time_real, latitude, longitude 
 				FROM pokemon 
-				WHERE pokemon_id = '".$pokemon_id."' && UNIX_TIMESTAMP(disappear_time) > '".$last_update."'";
+				WHERE pokemon_id = '".$pokemon_id."' AND UNIX_TIMESTAMP(disappear_time) > '".$last_update."'";
 		$result = $this->mysqli->query($req);
 		$data = $result->fetch_object();
 		return $data;
 	}
 
 	public function getRaidsSinceLastUpdate($pokemon_id, $last_update) {
-		$where = "WHERE pokemon_id = '".$pokemon_id."' && UNIX_TIMESTAMP(start) > '".$last_update."'";
+		$where = "WHERE pokemon_id = '".$pokemon_id."' AND UNIX_TIMESTAMP(start) > '".$last_update."'";
 		$req = "SELECT UNIX_TIMESTAMP(start) as start_timestamp, end, (CONVERT_TZ(end, '+00:00', '".self::$time_offset."')) AS end_time_real, latitude, longitude, count
                 FROM raid r
                 JOIN gym g

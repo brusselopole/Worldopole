@@ -430,14 +430,14 @@ class QueryManagerMysqlMonocleAlternate extends QueryManagerMysql {
 	public function getPokemonSinceLastUpdate($pokemon_id, $last_update) {
 		$req = "SELECT COUNT(*) AS count, MAX(expire_timestamp) AS last_timestamp, (FROM_UNIXTIME(MAX(expire_timestamp))) AS disappear_time_real, lat as latitude, lon as longitude
 					FROM sightings
-					WHERE pokemon_id = '".$pokemon_id."' && expire_timestamp > '".$last_update."'";
+					WHERE pokemon_id = '".$pokemon_id."' AND expire_timestamp > '".$last_update."'";
 		$result = $this->mysqli->query($req);
 		$data = $result->fetch_object();
 		return $data;
 	}
 
 	public function getRaidsSinceLastUpdate($pokemon_id, $last_update) {
-		$where = "WHERE pokemon_id = '".$pokemon_id."' && time_battle > '".$last_update."'";
+		$where = "WHERE pokemon_id = '".$pokemon_id."AND".$last_update."'";
 		$req = "SELECT time_battle AS start_timestamp, time_end as end, (FROM_UNIXTIME(time_end)) AS end_time_real, lat as latitude, lon as longitude, count
 					FROM raids r
 					JOIN forts g
