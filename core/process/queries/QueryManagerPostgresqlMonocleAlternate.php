@@ -433,10 +433,16 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 	}
 
 	public function getPokemonSinceLastUpdate($pokemon_id, $last_update) {
-		$req = "SELECT COUNT(*) AS count, MAX(expire_timestamp) AS last_timestamp, (TO_TIMESTAMP(MAX(expire_timestamp))) AS disappear_time_real, lat as latitude, lon as longitude
+		$where = "WHERE pokemon_id = '".$pokemon_id."' AND expire_timestamp > '".$last_update."'";
+		$req = "SELECT count, expire_timestamp AS last_timestamp, (TO_TIMESTAMP(expire_timestamp)) AS disappear_time_real, lat as latitude, lon as longitude
 					FROM sightings
-					WHERE pokemon_id = '".$pokemon_id."' AND expire_timestamp > '".$last_update."'
-					GROUP BY expire_timestamp, lat, lon";
+					JOIN (SELECT COUNT(*) AS count
+						FROM sightings
+                    	" . $where. "
+                    ) count ON 1 = 1
+					" . $where . "
+					ORDER BY expire_timestamp DESC
+					LIMIT 1 OFFSET 0";
 		$result = pg_query($this->db, $req);
 		$data = pg_fetch_object($result);
 		return $data;
@@ -451,9 +457,9 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 						FROM raids
                     	" . $where."
                     ) count ON 1 = 1 
-                " . $where."
-                ORDER BY time_battle DESC
-				LIMIT 1 OFFSET 0";
+	                " . $where."
+	                ORDER BY time_battle DESC
+					LIMIT 1 OFFSET 0";
 		$result = pg_query($this->db, $req);
 		$data = pg_fetch_object($result);
 		return $data;
