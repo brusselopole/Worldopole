@@ -9,6 +9,7 @@
 
 $datas = $manager->getNestData();
 
+$nestsdatas = array();
 foreach ($datas as $data) {
 	$nests['pid'] = $data->pokemon_id;
 	$nests['c'] = $data->total_pokemon;
