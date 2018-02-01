@@ -226,9 +226,9 @@ function tree_check_array($array_check, $array_add, $correct_arrow) {
 				} else {
 					$res->array_sufix = "";
 				}
-			} else {
-                $res->array_sufix = "";
-            }
+			} else if (is_null($res->array_sufix)) {
+				$res->array_sufix = "";
+			}
 			$array_add[] = $res;
 			$i++;
 		}
@@ -251,4 +251,27 @@ function tree_remove_bellow($tree, $max_pokemon)
 		}
 	}
 	return $arr;
+}
+
+########################################################################
+// generation
+########################################################################
+function generation($id)
+{
+	switch ($id) {
+		case ($id >= 1 && $id <= 151):
+			return [1, "Kanto"];
+		case ($id >= 152 && $id <= 251):
+			return [2, "Johto"];
+		case ($id >= 252 && $id <= 386):
+			return [3, "Hoenn"];
+		case ($id >= 387 && $id <= 493):
+			return [4, "Sinnoh"];
+		case ($id >= 494 && $id <= 649):
+			return [5, "Teselia"];
+		case ($id >= 650 && $id <= 721):
+			return [6, "Kalos"];
+		case ($id >= 722 && $id <= 802):
+			return [7, "Alola"];
+	}
 }

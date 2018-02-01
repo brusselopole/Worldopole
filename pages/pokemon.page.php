@@ -95,6 +95,10 @@
 	<div class="col-md-6" style="padding-top:10px;">
 		<div class="table-responsive">
 		<table class="table">
+            <tr>
+                <td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_GEN ?> :</strong></td>
+                <td class="col-md-4 col-xs-4"><?= $pokemon->gen ?></td>
+            </tr>
 			<tr>
 				<td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_SEEN ?> :</strong></td>
 				<td class="col-md-4 col-xs-4">
