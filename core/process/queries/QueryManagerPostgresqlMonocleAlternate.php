@@ -433,8 +433,8 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 	}
 
 	public function getPokemonSinceLastUpdate($pokemon_id, $last_update) {
-		$where = "WHERE pokemon_id = '".$pokemon_id."' AND expire_timestamp > '".$last_update."'";
-		$req = "SELECT count, expire_timestamp AS last_timestamp, (TO_TIMESTAMP(expire_timestamp)) AS disappear_time_real, lat as latitude, lon as longitude
+		$where = "WHERE pokemon_id = '".$pokemon_id."' AND id > '".$last_update."'";
+		$req = "SELECT count, id AS last_timestamp, (TO_TIMESTAMP(expire_timestamp)) AS disappear_time_real, lat as latitude, lon as longitude
 					FROM sightings
 					JOIN (SELECT COUNT(*) AS count
 						FROM sightings

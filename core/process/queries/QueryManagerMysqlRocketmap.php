@@ -535,15 +535,17 @@ final class QueryManagerMysqlRocketmap extends QueryManagerMysql {
 	}
 
 	public function getPokemonSinceLastUpdate($pokemon_id, $last_update) {
-		$where = "WHERE pokemon_id = '".$pokemon_id."' AND UNIX_TIMESTAMP(disappear_time) > '".$last_update."'";
-		$req = "SELECT count, UNIX_TIMESTAMP(disappear_time) as last_timestamp, (CONVERT_TZ(disappear_time, '+00:00', '".self::$time_offset."')) AS disappear_time_real, latitude, longitude 
-				FROM pokemon 
+		$where = "WHERE p.pokemon_id = '".$pokemon_id."' AND (UNIX_TIMESTAMP(p.disappear_time) - (LENGTH(s.kind) - LENGTH( REPLACE ( kind, \"s\", \"\") )) * 900) > '".$last_update."'";
+		$req = "SELECT count, (UNIX_TIMESTAMP(p.disappear_time) - (LENGTH(s.kind) - LENGTH( REPLACE ( kind, \"s\", \"\") )) * 900) as last_timestamp, (CONVERT_TZ(p.disappear_time, '+00:00', '".self::$time_offset."')) AS disappear_time_real, p.latitude, p.longitude 
+				FROM pokemon p
+				JOIN spawnpoint s ON p.spawnpoint_id = s.id
 				JOIN (SELECT count(*) as count
-                    FROM raid
+                    FROM pokemon p
+                    JOIN spawnpoint s ON p.spawnpoint_id = s.id
                     " . $where."
                 ) x
 				" . $where . "
-				ORDER BY start DESC
+				ORDER BY last_timestamp DESC
                 LIMIT 0,1";
 		$result = $this->mysqli->query($req);
 		$data = $result->fetch_object();
