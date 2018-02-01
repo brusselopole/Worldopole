@@ -135,10 +135,14 @@ function getImage(data, pokeimg_suffix) {
 }
 
 function getInfo(data) {
+	var infoTo = ""
+	if (data.et != data.st) {
+		infoTo = ' <?= $locales->NESTS_TO ?> ' + data.et
+	}
 	var info = '<div id="content">' +
 		'<div id="bodyContent">' +
 		'<p><b>' + pokemon[data.pid] + '</b>: ' + data.c + ' <?= $locales->NESTS_PER_DAY ?> </p>' +
-		'<p><?= $locales->NESTS_SPAWN_MINUTE ?>: ' + data.st + ' <?= $locales->NESTS_TO ?> ' + data.et + '<br>' +
+		'<p><?= $locales->NESTS_SPAWN_MINUTE ?>: ' + data.st + infoTo + '<br>' +
 		'<?= $locales->NESTS_CHANCE ?>: ' + Math.round(data.c / 0.24 * 100) / 100 + '%</p>' +
 		'</div>' +
 		'</div>'
