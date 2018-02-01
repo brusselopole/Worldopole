@@ -212,7 +212,7 @@ for ($pokeid = 1; $pokeid <= $maxpid; $pokeid++) {
 
 	// Add raid data to array
 	if ($count_data = $pokemon_counts->$pokeid) {
-		if (!is_null($count_data->disappear_time)) {
+		if (isset($count_data->disappear_time)) {
 			$pokemon->last_seen = strtotime($count_data->disappear_time);
 			$pokemon->last_position = new stdClass();
 			$pokemon->last_position->latitude = $count_data->latitude;
@@ -225,7 +225,7 @@ for ($pokeid = 1; $pokeid <= $maxpid; $pokeid++) {
 
 	// Add raid data to array
 	if ($raid_data = $raid_counts->$pokeid) {
-		if (!is_null($raid_data->end_time)) {
+		if (isset($raid_data->end_time)) {
 			$pokemon->last_raid_seen = strtotime($raid_data->end_time);
 			$pokemon->last_raid_position = new stdClass();
 			$pokemon->last_raid_position->latitude = $raid_data->latitude;
