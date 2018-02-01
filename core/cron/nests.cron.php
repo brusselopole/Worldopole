@@ -17,17 +17,8 @@ foreach ($datas as $data) {
 	$nests['lng'] = $data->longitude;
 	$starttime = $data->latest_seen - $data->duration;
 
-	$startdate = date("i",$starttime);
-	$enddate = date("i",$data->latest_seen);
-
-	if ($enddate < $startdate) { // Smaller number first
-		$tmp = $enddate;
-		$enddate = $startdate;
-		$startdate = $tmp;
-	}
-
-	$nests['st'] = $startdate;
-	$nests['et'] = $enddate;
+	$nests['st'] = date("i",$starttime);
+	$nests['et'] = date("i",$data->latest_seen);
 
 	// Add the data to array
 	$nestsdatas[] = $nests;
