@@ -19,9 +19,7 @@ Chat with us on our official Discord: https://discord.gg/SDvsxkN
 See [Wiki](https://github.com/brusselopole/Worldopole/wiki)
 
 ## Contribute 
-[![Feature Requests](http://feathub.com/brusselopole/Worldopole?format=svg)](http://feathub.com/brusselopole/Worldopole)
-
-[Feature Requests](http://feathub.com/brusselopole/Worldopole)
+For feature requests please open a GitHub issue with a `[Feature Request]` tag.
 
 [Help to translate](https://github.com/brusselopole/Worldopole/wiki/Help-to-translate)
 
