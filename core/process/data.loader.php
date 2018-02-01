@@ -404,8 +404,6 @@ else {
 	$req = "SELECT COUNT(*) AS total FROM pokemon WHERE disappear_time >= UTC_TIMESTAMP()";
 	$result = $mysqli->query($req);
 	$data = $result->fetch_object();
-
-
 	$home->pokemon_now = $data->total;
 
 
@@ -415,8 +413,16 @@ else {
 	$req = "SELECT COUNT(*) AS total FROM pokestop WHERE lure_expiration >= UTC_TIMESTAMP()";
 	$result = $mysqli->query($req);
 	$data = $result->fetch_object();
-
 	$home->pokestop_lured = $data->total;
+
+
+	// Active Raids
+	// -----------
+
+	$req = "SELECT COUNT(*) AS total FROM raid WHERE start <= UTC_TIMESTAMP AND  end >= UTC_TIMESTAMP()";
+	$result = $mysqli->query($req);
+	$data = $result->fetch_object();
+	$home->active_raids = $data->total;
 
 
 	// Gyms
@@ -425,7 +431,6 @@ else {
 	$req = "SELECT COUNT(DISTINCT(gym_id)) AS total FROM gym";
 	$result = $mysqli->query($req);
 	$data = $result->fetch_object();
-
 	$home->gyms = $data->total;
 
 
