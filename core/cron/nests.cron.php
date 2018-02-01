@@ -16,11 +16,9 @@ foreach ($datas as $data) {
 	$nests['lat'] = $data->latitude;
 	$nests['lng'] = $data->longitude;
 	$starttime = $data->latest_seen - $data->duration;
-	if ($starttime < 0) {
-		$starttime = 3600 + $starttime;
-	}
-	$nests['st'] = sprintf('%02d', floor($starttime / 60));
-	$nests['et'] = sprintf('%02d', floor($data->latest_seen / 60));
+
+	$nests['st'] = date("i",$starttime);;
+	$nests['et'] = date("i",$data->latest_seen);;
 
 	// Add the data to array
 	$nestsdatas[] = $nests;

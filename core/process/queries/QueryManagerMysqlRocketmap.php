@@ -580,7 +580,7 @@ final class QueryManagerMysqlRocketmap extends QueryManagerMysql {
 		if (!empty(self::$config->system->nest_exclude_pokemon)) {
 			$pokemon_exclude_sql = "AND p.pokemon_id NOT IN (".implode(",", self::$config->system->nest_exclude_pokemon).")";
 		}
-		$req = "SELECT p.pokemon_id, MAX(p.latitude) AS latitude, MAX(p.longitude) AS longitude, count(p.pokemon_id) AS total_pokemon, MAX(s.latest_seen) as latest_seen, (LENGTH(s.kind) - LENGTH( REPLACE ( MAX(kind), \"s\", \"\") )) * 900 AS duration
+		$req = "SELECT p.pokemon_id, MAX(p.latitude) AS latitude, MAX(p.longitude) AS longitude, count(p.pokemon_id) AS total_pokemon, MAX(UNIX_TIMESTAMP(s.latest_seen)) as latest_seen, (LENGTH(s.kind) - LENGTH( REPLACE ( MAX(kind), \"s\", \"\") )) * 900 AS duration
 			          FROM pokemon p 
 			          INNER JOIN spawnpoint s ON (p.spawnpoint_id = s.id) 
 			          WHERE p.disappear_time > UTC_TIMESTAMP() - INTERVAL 24 HOUR 

@@ -476,7 +476,7 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 		if (!empty(self::$config->system->nest_exclude_pokemon)) {
 			$pokemon_exclude_sql = "AND p.pokemon_id NOT IN (" . implode(",", self::$config->system->nest_exclude_pokemon) . ")";
 		}
-		$req = "SELECT p.spawn_id, p.pokemon_id, MAX(p.lat) AS latitude, MAX(p.lon) AS longitude, count(p.pokemon_id) AS total_pokemon, TO_TIMESTAMP(MAX(s.updated)) as latest_seen, coalesce(MAX(duration),30)*60 as duration
+		$req = "SELECT p.spawn_id, p.pokemon_id, MAX(p.lat) AS latitude, MAX(p.lon) AS longitude, count(p.pokemon_id) AS total_pokemon, MAX(s.updated) as latest_seen, coalesce(MAX(duration),30)*60 as duration
 			          FROM sightings p
 			          INNER JOIN spawnpoints s ON (p.spawn_id = s.spawn_id)
 			          WHERE p.expire_timestamp > EXTRACT(EPOCH FROM NOW()) - 86400
