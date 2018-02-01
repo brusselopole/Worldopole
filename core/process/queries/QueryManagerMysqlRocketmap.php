@@ -163,7 +163,6 @@ final class QueryManagerMysqlRocketmap extends QueryManagerMysql {
 							ROUND(100*(individual_attack+individual_defense+individual_stamina)/45,1) AS IV, move_1, move_2, form
 							FROM pokemon
 							WHERE pokemon_id = '".$pokemon_id."' AND move_1 IS NOT NULL AND move_1 <> '0'
-							GROUP BY encounter_id
 							ORDER BY $top_order_by $top_direction, disappear_time DESC
 							LIMIT 0,50";
 
