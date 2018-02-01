@@ -184,7 +184,6 @@ final class QueryManagerMysqlRocketmap extends QueryManagerMysql {
 						DATE_FORMAT(last_seen, '%Y-%m-%d') AS lasttime, last_seen
 						FROM gympokemon
 						WHERE pokemon_id = '".$pokemon_id."'".$trainer_blacklist."
-						GROUP BY pokemon_uid
 						ORDER BY $best_order_by $best_direction, trainer_name ASC
 						LIMIT 0,50";
 
