@@ -258,7 +258,7 @@ final class QueryManagerMysqlRocketmap extends QueryManagerMysql {
 		return $spawns;
 	}
 
-	public function getPokemonSliederMinMax() {
+	public function getPokemonSliderMinMax() {
 		$req = "SELECT MIN(disappear_time) AS min, MAX(disappear_time) AS max FROM pokemon";
 		$result = $this->mysqli->query($req);
 		$data = $result->fetch_object();
@@ -518,7 +518,7 @@ final class QueryManagerMysqlRocketmap extends QueryManagerMysql {
 		return $counts;
 	}
 
-	public function getPoekmonCountsLastDay() {
+	public function getPokemonCountsLastDay() {
 		$req = "SELECT pokemon_id, COUNT(*) AS spawns_last_day
 					FROM pokemon
 					WHERE disappear_time >= (SELECT MAX(disappear_time) FROM pokemon) - INTERVAL 1 DAY

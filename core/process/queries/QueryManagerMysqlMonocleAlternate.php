@@ -258,7 +258,7 @@ class QueryManagerMysqlMonocleAlternate extends QueryManagerMysql {
 		return $spawns;
 	}
 
-	public function getPokemonSliederMinMax() {
+	public function getPokemonSliderMinMax() {
 		$req = "SELECT FROM_UNIXTIME(MIN(expire_timestamp)) AS min, FROM_UNIXTIME(MAX(expire_timestamp)) AS max FROM sightings";
 		$result = $this->mysqli->query($req);
 		$data = $result->fetch_object();
@@ -411,7 +411,7 @@ class QueryManagerMysqlMonocleAlternate extends QueryManagerMysql {
 		return $counts;
 	}
 
-	public function getPoekmonCountsLastDay() {
+	public function getPokemonCountsLastDay() {
 		$req = "SELECT pokemon_id, COUNT(*) AS spawns_last_day
 					FROM sightings
 					WHERE FROM_UNIXTIME(expire_timestamp) >= (SELECT FROM_UNIXTIME(MAX(expire_timestamp)) FROM sightings) - INTERVAL 1 DAY

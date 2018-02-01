@@ -64,7 +64,7 @@ abstract class QueryManager {
 	abstract public function getPokemonHeatmap($pokemon_id, $start, $end);
 	abstract public function getPokemonGraph($pokemon_id);
 	abstract public function getPokemonLive($pokemon_id, $ivMin, $ivMax, $inmap_pokemons);
-	abstract public function getPokemonSliederMinMax();
+	abstract public function getPokemonSliderMinMax();
 	abstract public function getMapsCoords();
 
 	// Pokestops
@@ -87,7 +87,7 @@ abstract class QueryManager {
 
 	// Cron
 	abstract public function getPokemonCountsActive();
-	abstract public function getPoekmonCountsLastDay();
+	abstract public function getPokemonCountsLastDay();
 	abstract public function getPokemonSinceLastUpdate($pokemon_id, $last_update);
 	abstract public function getRaidsSinceLastUpdate($pokemon_id, $last_update);
 	abstract public function getCaptchaCount();

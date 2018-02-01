@@ -538,7 +538,7 @@ switch ($request) {
 		break;
 
 	case 'pokemon_slider_init':
-		$bounds		= $manager->getPokemonSliederMinMax();
+		$bounds		= $manager->getPokemonSliderMinMax();
 
 		header('Content-Type: application/json');
 		echo json_encode($bounds);

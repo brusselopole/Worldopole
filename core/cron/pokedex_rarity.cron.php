@@ -2,7 +2,7 @@
 
 // get pokemon from last day to calculate the rarity for last 24h
 // use last disappear_time as a starting point to overcome scan downtimes
-$data = $manager->getPoekmonCountsLastDay();
+$data = $manager->getPokemonCountsLastDay();
 $total_pokemon_last_day = 0;
 $pokelist = array();
 foreach ($data as $pokemon_id => $total) {

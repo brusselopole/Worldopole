@@ -263,7 +263,7 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 		return $spawns;
 	}
 
-	public function getPokemonSliederMinMax() {
+	public function getPokemonSliderMinMax() {
 		$req = "SELECT TO_TIMESTAMP(MIN(expire_timestamp)) AS min, TO_TIMESTAMP(MAX(expire_timestamp)) AS max FROM sightings";
 		$result = pg_query($this->db, $req);
 		$data = pg_fetch_object($result);
@@ -417,7 +417,7 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 		return $counts;
 	}
 
-	public function getPoekmonCountsLastDay() {
+	public function getPokemonCountsLastDay() {
 		$req = "SELECT pokemon_id, COUNT(*) AS spawns_last_day
 					FROM sightings
 					WHERE TO_TIMESTAMP(expire_timestamp) >= (SELECT TO_TIMESTAMP(MAX(expire_timestamp)) FROM sightings) - INTERVAL 1 DAY
