@@ -163,7 +163,7 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 	}
 
 	function getTop50Pokemon($pokemon_id, $top_order_by, $top_direction) {
-		$req = "SELECT encounter_id, expire_timestamp, TO_TIMESTAMP(expire_timestamp) AS distime, pokemon_id as pokemon_id, TO_TIMESTAMP(expire_timestamp) as disappear_time, lat as latitude, lon as longitude,
+		$req = "SELECT expire_timestamp, TO_TIMESTAMP(expire_timestamp) AS distime, pokemon_id as pokemon_id, TO_TIMESTAMP(expire_timestamp) as disappear_time, lat as latitude, lon as longitude,
                 cp, atk_iv as individual_attack, def_iv as individual_defense, sta_iv as individual_stamina,
                 ROUND(100*(atk_iv+def_iv+sta_iv)/45,1) AS \"IV\", move_1 as move_1, move_2, form
                 FROM sightings
@@ -184,7 +184,7 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 			$trainer_blacklist = " AND owner_name NOT IN ('" . implode("','", self::$config->system->trainer_blacklist) . "')";
 		}
 
-		$req = "SELECT external_id, owner_name as trainer_name, ROUND((100.0*((atk_iv)+(def_iv)+(sta_iv))/45),1) AS \"IV\", move_1, move_2, cp as cp,
+		$req = "SELECT owner_name as trainer_name, ROUND((100.0*((atk_iv)+(def_iv)+(sta_iv))/45),1) AS \"IV\", move_1, move_2, cp as cp,
                 TO_TIMESTAMP(last_modified) AS lasttime, last_modified as last_seen
                 FROM gym_defenders
 				WHERE pokemon_id = '" . $pokemon_id . "'" . $trainer_blacklist . "
