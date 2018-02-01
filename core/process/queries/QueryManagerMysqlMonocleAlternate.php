@@ -426,15 +426,17 @@ class QueryManagerMysqlMonocleAlternate extends QueryManagerMysql {
 	}
 
 	public function getPokemonSinceLastUpdate($pokemon_id, $last_update) {
-		$where = "WHERE pokemon_id = '".$pokemon_id."' AND id > '".$last_update."'";
-		$req = "SELECT count, id AS last_timestamp, (FROM_UNIXTIME(expire_timestamp)) AS disappear_time_real, lat as latitude, lon as longitude
-					FROM sightings
+		$where = "WHERE p.pokemon_id = '".$pokemon_id."' AND p.expire_timestamp - (coalesce(CASE WHEN duration = 0 THEN NULL ELSE duration END ,30)*60) > '".$last_update."'";
+		$req = "SELECT count, p.expire_timestamp - (coalesce(CASE WHEN duration = 0 THEN NULL ELSE duration END ,30)*60) AS last_timestamp, (FROM_UNIXTIME(p.expire_timestamp)) AS disappear_time_real, p.lat as latitude, p.lon as longitude
+					FROM sightings p
+					LEFT JOIN spawnpoints s ON p.spawn_id = s.spawn_id
 					JOIN (SELECT COUNT(*) AS count
-						FROM sightings
+						FROM sightings p
+						LEFT JOIN spawnpoints s ON p.spawn_id = s.spawn_id
                     	" . $where."
                     ) x
 					" . $where . "
-					ORDER BY expire_timestamp DESC
+					ORDER BY last_timestamp DESC
 					LIMIT 0 , 1";
 		$result = $this->mysqli->query($req);
 		$data = $result->fetch_object();
@@ -471,7 +473,7 @@ class QueryManagerMysqlMonocleAlternate extends QueryManagerMysql {
 		if (!empty(self::$config->system->nest_exclude_pokemon)) {
 			$pokemon_exclude_sql = "AND p.pokemon_id NOT IN (" . implode(",", self::$config->system->nest_exclude_pokemon) . ")";
 		}
-		$req = "SELECT p.pokemon_id, MAX(p.lat) AS latitude, MAX(p.lon) AS longitude, count(p.pokemon_id) AS total_pokemon, MAX(s.updated) as latest_seen, coalesce(MAX(duration),30)*60 as duration
+		$req = "SELECT p.pokemon_id, MAX(p.lat) AS latitude, MAX(p.lon) AS longitude, count(p.pokemon_id) AS total_pokemon, MAX(s.updated) as latest_seen, coalesce(CASE WHEN MAX(duration) = 0 THEN NULL ELSE MAX(duration) END ,30)*60 as duration
 			          FROM sightings p
 			          INNER JOIN spawnpoints s ON (p.spawn_id = s.spawn_id)
 			          WHERE p.expire_timestamp > UNIX_TIMESTAMP() - 86400

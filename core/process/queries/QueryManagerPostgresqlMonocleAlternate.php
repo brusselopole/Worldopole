@@ -432,15 +432,17 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 	}
 
 	public function getPokemonSinceLastUpdate($pokemon_id, $last_update) {
-		$where = "WHERE pokemon_id = '".$pokemon_id."' AND id > '".$last_update."'";
-		$req = "SELECT count, id AS last_timestamp, (TO_TIMESTAMP(expire_timestamp)) AS disappear_time_real, lat as latitude, lon as longitude
-					FROM sightings
-					JOIN (SELECT COUNT(*) AS count
-						FROM sightings
+		$where = "WHERE p.pokemon_id = '".$pokemon_id."' AND p.expire_timestamp - (coalesce(CASE WHEN duration = 0 THEN NULL ELSE duration END ,30)*60) > '".$last_update."'";
+		$req = "SELECT count, p.expire_timestamp - (coalesce(CASE WHEN duration = 0 THEN NULL ELSE duration END ,30)*60) AS last_timestamp, (TO_TIMESTAMP(expire_timestamp)) AS disappear_time_real, lat as latitude, lon as longitude
+					FROM sightings p
+					LEFT JOIN spawnpoints s ON p.spawn_id = s.spawn_id
+				  	JOIN (SELECT COUNT(*) AS count
+						FROM FROM sightings p
+						LEFT JOIN spawnpoints s ON p.spawn_id = s.spawn_id
                     	" . $where. "
                     ) count ON 1 = 1
 					" . $where . "
-					ORDER BY expire_timestamp DESC
+					ORDER BY last_timestamp DESC
 					LIMIT 1 OFFSET 0";
 		$result = pg_query($this->db, $req);
 		$data = pg_fetch_object($result);
@@ -476,7 +478,7 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 		if (!empty(self::$config->system->nest_exclude_pokemon)) {
 			$pokemon_exclude_sql = "AND p.pokemon_id NOT IN (" . implode(",", self::$config->system->nest_exclude_pokemon) . ")";
 		}
-		$req = "SELECT p.spawn_id, p.pokemon_id, MAX(p.lat) AS latitude, MAX(p.lon) AS longitude, count(p.pokemon_id) AS total_pokemon, MAX(s.updated) as latest_seen, coalesce(MAX(duration),30)*60 as duration
+		$req = "SELECT p.spawn_id, p.pokemon_id, MAX(p.lat) AS latitude, MAX(p.lon) AS longitude, count(p.pokemon_id) AS total_pokemon, MAX(s.updated) as latest_seen, coalesce(CASE WHEN MAX(duration) = 0 THEN NULL ELSE MAX(duration) END ,30)*60 as duration
 			          FROM sightings p
 			          INNER JOIN spawnpoints s ON (p.spawn_id = s.spawn_id)
 			          WHERE p.expire_timestamp > EXTRACT(EPOCH FROM NOW()) - 86400
