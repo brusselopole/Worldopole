@@ -14,7 +14,8 @@ function initMap() {
 		var longitude = Number(variables['system']['map_center_long']);
 		var zoom_level = Number(variables['system']['zoom_level']);
 		var pokeimg_suffix = variables['system']['pokeimg_suffix'];
-
+		var show_encounter_stats = variables['system']['live_show_encounter_stats'];
+            
 		map = new google.maps.Map(document.getElementById('map'), {
 			center: {
 				lat: latitude,
@@ -73,11 +74,11 @@ function initMap() {
 		});
 
 		initHeatmap();
-		initSelector(pokeimg_suffix);
+	    initSelector(pokeimg_suffix, show_encounter_stats);
 	});
 }
 
-function initSelector(pokeimg_suffix) {
+function initSelector(pokeimg_suffix, show_encounter_stats) {
 	$('#heatmapSelector').click(function() {
 		hideLive();
 		showHeatmap();
@@ -87,36 +88,39 @@ function initSelector(pokeimg_suffix) {
 	$('#liveSelector').click(function() {
 		hideHeatmap();
 		map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
-		initLive(pokeimg_suffix);
+	    initLive(pokeimg_suffix, show_encounter_stats);
 		$('#liveSelector').addClass('active');
 		$('#heatmapSelector').removeClass('active');
 	});
 }
 
-function initLive(pokeimg_suffix) {
+function initLive(pokeimg_suffix, show_encounter_stats) {
 	showLive();
-	$('#liveFilterSelector').rangeSlider({
-		bounds: {
-			min: 0,
-			max: 100
-		},
-		defaultValues: {
-			min: ivMin,
-			max: ivMax
-		},
-		formatter: function(val) {
-			return 'IV: ' + Math.round(val) + '%';
-		}
-	});
+
+	if (show_encounter_stats) {
+		$('#liveFilterSelector').rangeSlider({
+			bounds: {
+				min: 0,
+				max: 100
+			},
+			defaultValues: {
+				min: ivMin,
+				max: ivMax
+			},
+			formatter: function(val) {
+				return 'IV: ' + Math.round(val) + '%';
+			}
+		});
+	}
 
 	$('#liveFilterSelector').bind('valuesChanged', function(e, data) {
 		clearTimeout(updateLiveTimeout);
 		removePokemonMarkerByIv(data.values.min, data.values.max);
 		ivMin = data.values.min;
 		ivMax = data.values.max;
-		updateLive(pokeimg_suffix);
+		updateLive(pokeimg_suffix, show_encounter_stats);
 	});
-	updateLive(pokeimg_suffix);
+	updateLive(pokeimg_suffix, show_encounter_stats);
 }
 
 function initHeatmap() {
@@ -271,7 +275,7 @@ function showLive() {
 
 }
 
-function updateLive(pokeimg_suffix) {
+function updateLive(pokeimg_suffix, show_encounter_stats) {
 	$.ajax({
 		'type': 'POST',
 		'global': false,
@@ -286,13 +290,13 @@ function updateLive(pokeimg_suffix) {
 		}
 	}).done(function(pokemons) {
 		for (var i = 0; i < pokemons.points.length; i++) {
-			addPokemonMarker(pokemons.points[i], pokeimg_suffix, pokemons.locale)
+		    addPokemonMarker(pokemons.points[i], pokeimg_suffix, pokemons.locale, show_encounter_stats)
 		}
 		updateLiveTimeout = setTimeout(function() { updateLive(pokeimg_suffix) }, 5000);
 	});
 }
 
-function addPokemonMarker(pokemon, pokeimg_suffix, locale) {
+function addPokemonMarker(pokemon, pokeimg_suffix, locale, show_encounter_stats) {
 	var image = {
 		url: 'core/pokemons/' + pokemon.pokemon_id + pokeimg_suffix,
 		scaledSize: new google.maps.Size(32, 32),
@@ -302,10 +306,14 @@ function addPokemonMarker(pokemon, pokeimg_suffix, locale) {
 	};
 	var encounter = false;
 	var ivPercent = 100;
-	if (pokemon.individual_attack !== null) {
-		encounter = true;
-		ivPercent = ((100 / 45) * (parseInt(pokemon.individual_attack) + parseInt(pokemon.individual_defense) + parseInt(pokemon.individual_stamina))).toFixed(2);
-	}
+
+	if (show_encounter_stats) {
+		if (pokemon.individual_attack !== null) {
+			encounter = true;
+			ivPercent = ((100 / 45) * (parseInt(pokemon.individual_attack) + parseInt(pokemon.individual_defense) + parseInt(pokemon.individual_stamina))).toFixed(2);
+		}
+        }
+
 	var marker = new google.maps.Marker({
 		position: { lat: parseFloat(pokemon.latitude), lng: parseFloat(pokemon.longitude) },
 		map: map,
