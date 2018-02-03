@@ -173,6 +173,10 @@ img.unseen{
 	opacity:0.5;
 }
 
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    padding: 8px 6px;
+}
+
 .pokemon-single a:hover img	 {
 	background-image: url('../img/blue-hover.png');
 	background-size: 100% 100%;
@@ -564,8 +568,8 @@ raids styles
 	font-size: 2em;
 	font-weight: bold;
 	position: absolute;
-	left: 23px;
-	top: 10px;
+	left: 22px;
+	top: 8px;
 }
 
 #raidsContainer .current, #raidsContainer .upcoming {
@@ -599,14 +603,11 @@ raids styles
 	}
 	#raidsContainer .pokemon-single span {
 		font-size: 1.5em;
-		left: 17px;
-		top: 8px;
+		left: 16px;
+		top: 6px;
 	}
 	#raidsContainer td:nth-child(6) {
 		display: none;
-	}
-	#raidsTable>tbody>tr>td, #raidsTable>tbody>tr>th, #raidsTable>tfoot>tr>td, #raidsTable>tfoot>tr>th, #raidsTable>thead>tr>td, #raidsTable>thead>tr>th {
-		padding: 6px
 	}
 }
 
