@@ -5523,7 +5523,7 @@
             "max_hp": 155,
             "quick_move": "?",
             "rating": 10,
-            "sta": 200,
+            "sta": 182,
             "types": [
                 "Water"
             ]
@@ -5537,7 +5537,7 @@
             "max_hp": 155,
             "quick_move": "?",
             "rating": 10,
-            "sta": 200,
+            "sta": 182,
             "types": [
                 "Ground"
             ]
