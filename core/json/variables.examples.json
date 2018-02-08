@@ -39,7 +39,8 @@
 		"trainer_blacklist"		:	["cheater1", "cheater2"],
 		"rm_pokemon_file"		:	null,
 		"no_lures"				:	false,
-		"homepage_raids"		:	false
+		"homepage_raids"		:	false,
+		"gymhistory_hide_cp_changes"	: false
 	},
 	"menu":[
 		{
@@ -53,6 +54,12 @@
 			"href"		:	"gym",
 			"locale"	:	"GYMS",
 			"icon"		:	"fa-shield"
+		},
+		{
+			"type"		:	"link",
+			"href"		:	"gymhistory",
+			"text"		:	"Gym Changes",
+			"icon"		:	"fa-history"
 		},
 		{
 			"type"		:	"link",

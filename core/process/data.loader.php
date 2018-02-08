@@ -106,11 +106,16 @@ if (!empty($page)) {
 			$pokemon = $pokemons->pokemon->$pokemon_id;
 			$pokemon->id = $pokemon_id;
 
+			// Gen
+			// ----
+
+			$gen = generation($pokemon_id);
+			$pokemon->gen = $gen[0]." (".$gen[1].")";
 
 			// Some math
 			// ----------
 
-			$pokemon->max_cp_percent = percent(4874, $pokemon->max_cp); //Groudon #383 
+			$pokemon->max_cp_percent = percent(4548, $pokemon->max_cp); //Slaking #289
 			$pokemon->max_hp_percent = percent(415, $pokemon->max_hp); //Blissey #242
 
 
@@ -331,18 +336,15 @@ else {
 	$data = $manager->getTotalPokemon();
 	$home->pokemon_now = $data->total;
 
-
 	// Lured stops
 	// -----------
 	$data = $manager->getTotalLures();
 	$home->pokestop_lured = $data->total;
 
-
 	// Active Raids
 	// -----------
 	$data = $manager->getTotalRaids();
 	$home->active_raids = $data->total;
-
 
 	// Gyms
 	// ----
