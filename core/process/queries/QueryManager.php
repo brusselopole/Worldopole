@@ -78,6 +78,12 @@ abstract class QueryManager {
 	abstract public function getGymData($gym_id);
 	abstract public function getGymDefenders($gym_id);
 
+	// Gym History
+	abstract public function getGymHistories($gym_name, $team, $page, $ranking);
+	abstract public function getGymHistoriesPokemon($gym_id);
+	abstract public function getHistoryForGym($page, $gym_id);
+	abstract public function getHistoryForGymPokemon($pkm_uids);
+
 	// Raids
 	abstract public function getAllRaids($page);
 

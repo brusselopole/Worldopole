@@ -352,6 +352,90 @@ final class QueryManagerMysqlRocketmap extends QueryManagerMysql {
 	}
 
 
+
+	////////////////
+	// Gym History
+	////////////////
+
+	public function getGymHistories($gym_name, $team, $page, $ranking) {
+		$where = '';
+		$order = '';
+		if (isset($gym_name) && $gym_name != '') {
+			$where = " WHERE name LIKE '%".$gym_name."%'";
+		}
+		if (isset($team) && $team != '') {
+			$where .= ($where == "" ? " WHERE" : " AND")." team_id = ".$team;
+		}
+		switch ($ranking) {
+			case 1:
+				$order = " ORDER BY name, last_modified DESC";
+				break;
+			case 2:
+				$order = " ORDER BY total_cp DESC, last_modified DESC";
+				break;
+			default:
+				$order = " ORDER BY last_modified DESC, name";
+		}
+
+		$limit = " LIMIT ".($page * 10).",10";
+
+		$req = "SELECT gymdetails.gym_id, name, team_id, total_cp, (6 - slots_available) as pokemon_count, (CONVERT_TZ(last_modified, '+00:00', '" . self::$time_offset . "')) as last_modified
+				FROM gymdetails
+				LEFT JOIN gym
+				ON gymdetails.gym_id = gym.gym_id
+				".$where.$order.$limit;
+
+		$result = $this->mysqli->query($req);
+		$gym_history = array();
+		while ($data = $result->fetch_object()) {
+			$gym_history[] = $data;
+		}
+		return $gym_history;
+	}
+
+	public function getGymHistoriesPokemon($gym_id) {
+		$req = "SELECT DISTINCT gymmember.pokemon_uid, pokemon_id, cp, trainer_name
+					FROM gymmember
+					LEFT JOIN gympokemon
+					ON gymmember.pokemon_uid = gympokemon.pokemon_uid
+					WHERE gymmember.gym_id = '". $gym_id ."'
+					ORDER BY deployment_time";
+		$result = $this->mysqli->query($req);
+		$pokemons = array();
+		while ($data = $result->fetch_object()) {
+			$pokemons[] = $data;
+		}
+		return $pokemons;
+	}
+
+	public function getHistoryForGym($page, $gym_id) {
+		$req = "SELECT gym_id, team_id, total_cp, pokemon_uids, pokemon_count, (CONVERT_TZ(last_modified, '+00:00', '".self::$time_offset."')) as last_modified
+					FROM gymhistory
+					WHERE gym_id='".$gym_id."'
+					ORDER BY last_modified DESC
+					LIMIT ".($page * 10).",11";
+		$result = $this->mysqli->query($req);
+		$history = array();
+		while ($data = $result->fetch_object()) {
+			$history[] = $data;
+		}
+		return $history;
+	}
+
+	public function getHistoryForGymPokemon($pkm_uids) {
+		$req = "SELECT DISTINCT pokemon_uid, pokemon_id, cp, trainer_name
+								FROM gympokemon
+								WHERE pokemon_uid IN ('".implode("','", $pkm_uids)."')
+								ORDER BY FIND_IN_SET(pokemon_uid, '".implode(",", $pkm_uids)."')";
+		$result = $this->mysqli->query($req);
+		$pokemons = array();
+		while ($data = $result->fetch_object()) {
+			$pokemons[] = $data;
+		}
+		return $pokemons;
+	}
+
+
 	///////////
 	// Raids
 	///////////

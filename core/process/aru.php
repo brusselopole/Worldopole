@@ -540,58 +540,28 @@ switch ($request) {
 
 	case 'gyms':
 		$page = '0';
-		$where = '';
-		$order = '';
 		$ranking = 0;
+		$gym_name = '';
+		$team = '';
 		if (isset($_GET['name']) && $_GET['name'] != '') {
-			$gym_name = mysqli_real_escape_string($mysqli, $_GET['name']);
-			$where = " WHERE name LIKE '%".$gym_name."%'";
+			$gym_name = $manager->getEcapedString($_GET['name']);
 		}
 		if (isset($_GET['team']) && $_GET['team'] != '') {
-			$team = mysqli_real_escape_string($mysqli, $_GET['team']);
-			$where .= ($where == "" ? " WHERE" : " AND")." team_id = ".$team;
+			$team = $manager->getEcapedString($_GET['team']);
 		}
 		if (isset($_GET['page'])) {
-			$page = mysqli_real_escape_string($mysqli, $_GET['page']);
+			$page = $manager->getEcapedString($_GET['page']);
 		}
 		if (isset($_GET['ranking'])) {
-			$ranking = mysqli_real_escape_string($mysqli, $_GET['ranking']);
+			$ranking = $manager->getEcapedString($_GET['ranking']);
 		}
 
-		switch ($ranking) {
-			case 1:
-				$order = " ORDER BY name, last_modified DESC";
-				break;
-			case 2:
-				$order = " ORDER BY total_cp DESC, last_modified DESC";
-				break;
-			default:
-				$order = " ORDER BY last_modified DESC, name";
-		}
 
-		$limit = " LIMIT ".($page * 10).",10";
-
-		$req = "SELECT gymdetails.gym_id, name, team_id, total_cp, (6 - slots_available) as pokemon_count, (CONVERT_TZ(last_modified, '+00:00', '".$time_offset."')) as last_modified
-				FROM gymdetails
-				LEFT JOIN gym
-				ON gymdetails.gym_id = gym.gym_id
-				".$where.$order.$limit;
-
-		$result = $mysqli->query($req);
-		$gyms = array();
-		while ($result && $data = $result->fetch_object()) {
+		$datas = $manager->getGymHistories($gym_name, $team, $page, $ranking);
+		foreach ($datas as $data) {
 			$pkm = array();
 			if ($data->total_cp > 0) {
-				$pkm_req = "SELECT DISTINCT gymmember.pokemon_uid, pokemon_id, cp, trainer_name
-							FROM gymmember
-							LEFT JOIN gympokemon
-							ON gymmember.pokemon_uid = gympokemon.pokemon_uid
-							WHERE gymmember.gym_id = '". $data->gym_id ."'
-							ORDER BY deployment_time";
-				$pkm_result = $mysqli->query($pkm_req);
-				while ($pkm_result && $pkm_data = $pkm_result->fetch_object()) {
-					$pkm[] = $pkm_data;
-				}
+				$pkm = $manager->getGymHistoriesPokemon($data->gym_id);
 			}
 			$data->pokemon = $pkm;
 			unset($data->pokemon_uids);
@@ -609,40 +579,28 @@ switch ($request) {
 		break;
 
 
+
 	case 'gymhistory':
 		$gym_id = '';
 		$page = '0';
 		if (isset($_GET['gym_id'])) {
-			$gym_id = mysqli_real_escape_string($mysqli, $_GET['gym_id']);
+			$gym_id = $manager->getEcapedString($_GET['gym_id']);
 			$gym_id = str_replace('_', '.', $gym_id);
 		}
 		if (isset($_GET['page'])) {
-			$page = mysqli_real_escape_string($mysqli, $_GET['page']);
+			$page = $manager->getEcapedString($_GET['page']);
 		}
 
 		$entries = array();
 
 		if ($gym_id != '') {
-			$req = "SELECT gym_id, team_id, total_cp, pokemon_uids, pokemon_count, (CONVERT_TZ(last_modified, '+00:00', '".$time_offset."')) as last_modified
-					FROM gymhistory
-					WHERE gym_id='".$gym_id."'
-					ORDER BY last_modified DESC
-					LIMIT ".($page * 10).",11";
-
-			$result = $mysqli->query($req);
-			while ($result && $data = $result->fetch_object()) {
+			$datas = $manager->getHistoryForGym($page, $gym_id);
+			foreach ($datas as $data) {
 				$pkm = array();
 				if ($data->total_cp == 0) { $data->pokemon_uids = ''; }
 				if ($data->pokemon_uids != '') {
 					$pkm_uids = explode(',', $data->pokemon_uids);
-					$pkm_req = "SELECT DISTINCT pokemon_uid, pokemon_id, cp, trainer_name
-								FROM gympokemon
-								WHERE pokemon_uid IN ('".implode("','", $pkm_uids)."')
-								ORDER BY FIND_IN_SET(pokemon_uid, '".implode(",", $pkm_uids)."')";
-					$pkm_result = $mysqli->query($pkm_req);
-					while ($pkm_result && $pkm_data = $pkm_result->fetch_object()) {
-						$pkm[$pkm_data->pokemon_uid] = $pkm_data;
-					}
+					$pkm = $manager->getHistoryForGymPokemon($pkm_uids);
 				}
 				$data->pokemon = $pkm;
 				$data->gym_id = str_replace('.', '_', $data->gym_id);

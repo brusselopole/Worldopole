@@ -363,6 +363,35 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 	}
 
 
+
+	////////////////
+	// Gym History
+	////////////////
+
+	public function getGymHistories($gym_name, $team, $page, $ranking)
+	{
+		// TODO: Implement
+		return array();
+	}
+
+	public function getGymHistoriesPokemon($gym_id)
+	{
+		// TODO: Implement
+		return array();
+	}
+
+	public function getHistoryForGym($page, $gym_id)
+	{
+		// TODO: Implement
+		return array();
+	}
+
+	public function getHistoryForGymPokemon($pkm_uids)
+	{
+		// TODO: Implement
+		return array();
+	}
+
 	///////////
 	// Raids
 	///////////
