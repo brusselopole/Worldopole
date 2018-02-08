@@ -235,7 +235,7 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 		$resultTestIv = pg_query($this->db, $reqTestIv);
 		$testIv = pg_fetch_object($resultTestIv);
 		if (!is_null($inmap_pokemons) && ($inmap_pokemons != "")) {
-			foreach ($_POST['inmap_pokemons'] as $inmap) {
+			foreach ($inmap_pokemons as $inmap) {
 				$inmap_pkms_filter .= "'".$inmap."',";
 			}
 			$inmap_pkms_filter = rtrim($inmap_pkms_filter, ",");

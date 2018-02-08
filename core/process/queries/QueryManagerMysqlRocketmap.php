@@ -232,7 +232,7 @@ final class QueryManagerMysqlRocketmap extends QueryManagerMysql {
 		$resultTestIv = $this->mysqli->query($reqTestIv);
 		$testIv = $resultTestIv->fetch_object();
 		if (!is_null($inmap_pokemons) && ($inmap_pokemons != "")) {
-			foreach ($_POST['inmap_pokemons'] as $inmap) {
+			foreach ($inmap_pokemons as $inmap) {
 				$inmap_pkms_filter .= "'".$inmap."',";
 			}
 			$inmap_pkms_filter = rtrim($inmap_pkms_filter, ",");
@@ -359,7 +359,6 @@ final class QueryManagerMysqlRocketmap extends QueryManagerMysql {
 
 	public function getGymHistories($gym_name, $team, $page, $ranking) {
 		$where = '';
-		$order = '';
 		if (isset($gym_name) && $gym_name != '') {
 			$where = " WHERE name LIKE '%".$gym_name."%'";
 		}
