@@ -15,6 +15,10 @@ function initMap() {
 		var zoom_level = Number(variables['system']['zoom_level']);
 		var pokeimg_suffix = variables['system']['pokeimg_suffix'];
 		var show_encounter_stats = variables['system']['live_show_encounter_stats'];
+
+		if (show_encounter_stats) {
+	        	ivMin = 0;
+                }
             
 		map = new google.maps.Map(document.getElementById('map'), {
 			center: {

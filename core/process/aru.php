@@ -943,24 +943,29 @@ if ($postRequest != "") {
 				$inmap_pkms_filter = "";
 				$where = " WHERE disappear_time >= UTC_TIMESTAMP() AND pokemon_id = ".$pokemon_id;
 
-				$reqTestIv = "SELECT MAX(individual_attack) AS iv FROM pokemon ".$where;
-				$resultTestIv = $mysqli->query($reqTestIv);
-				$testIv = $resultTestIv->fetch_object();
-				if (isset($_POST['inmap_pokemons']) && ($_POST['inmap_pokemons'] != "")) {
-					foreach ($_POST['inmap_pokemons'] as $inmap) {
-						$inmap_pkms_filter .= "'".$inmap."',";
-					}
-					$inmap_pkms_filter = rtrim($inmap_pkms_filter, ",");
-					$where .= " AND encounter_id NOT IN (".$inmap_pkms_filter.") ";
-				}
-				if ($testIv->iv != null && isset($_POST['ivMin']) && ($_POST['ivMin'] != "")) {
-					$ivMin = mysqli_real_escape_string($mysqli, $_POST['ivMin']);
-					$where .= " AND ((100/45)*(individual_attack+individual_defense+individual_stamina)) >= (".$ivMin.") ";
-				}
-				if ($testIv->iv != null && isset($_POST['ivMax']) && ($_POST['ivMax'] != "")) {
-					$ivMax = mysqli_real_escape_string($mysqli, $_POST['ivMax']);
-					$where .= " AND ((100/45)*(individual_attack+individual_defense+individual_stamina)) <=(".$ivMax.") ";
-				}
+                if (isset($_POST['inmap_pokemons']) && ($_POST['inmap_pokemons'] != "")) {
+                    foreach ($_POST['inmap_pokemons'] as $inmap) {
+                        $inmap_pkms_filter .= "'".$inmap."',";
+                    }
+                    $inmap_pkms_filter = rtrim($inmap_pkms_filter, ",");
+                    $where .= " AND encounter_id NOT IN (".$inmap_pkms_filter.") ";
+                }
+
+                if ($config->system->live_show_encounter_stats) {
+                    $reqTestIv = "SELECT MAX(individual_attack) AS iv FROM pokemon ".$where;
+                    $resultTestIv = $mysqli->query($reqTestIv);
+                    $testIv = $resultTestIv->fetch_object();
+                    
+                    if ($testIv->iv != null && isset($_POST['ivMin']) && ($_POST['ivMin'] != "")) {
+                        $ivMin = mysqli_real_escape_string($mysqli, $_POST['ivMin']);
+                        $where .= " AND ((100/45)*(individual_attack+individual_defense+individual_stamina)) >= (".$ivMin.") ";
+                    }
+                    if ($testIv->iv != null && isset($_POST['ivMax']) && ($_POST['ivMax'] != "")) {
+                        $ivMax = mysqli_real_escape_string($mysqli, $_POST['ivMax']);
+                        $where .= " AND ((100/45)*(individual_attack+individual_defense+individual_stamina)) <=(".$ivMax.") ";
+                    }
+                }
+
 				$req = "SELECT pokemon_id, encounter_id, latitude, longitude, disappear_time,
 						(CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) AS disappear_time_real,
 						individual_attack, individual_defense, individual_stamina, move_1, move_2
