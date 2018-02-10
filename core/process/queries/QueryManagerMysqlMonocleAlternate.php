@@ -445,7 +445,7 @@ class QueryManagerMysqlMonocleAlternate extends QueryManagerMysql {
 	public function getPokemonCountsLastDay() {
 		$req = "SELECT pokemon_id, COUNT(*) AS spawns_last_day
 					FROM sightings
-					WHERE expire_timestamp >= (SELECT MAX(expire_timestamp) - 8400 FROM sightings)
+					WHERE expire_timestamp >= (SELECT MAX(expire_timestamp) - 86400 FROM sightings)
 					GROUP BY pokemon_id
 				  	ORDER BY pokemon_id ASC";
 		$result = $this->mysqli->query($req);
