@@ -558,6 +558,7 @@ switch ($request) {
 
 
 		$datas = $manager->getGymHistories($gym_name, $team, $page, $ranking);
+		$gyms = array(); 
 		foreach ($datas as $data) {
 			$pkm = array();
 			if ($data->total_cp > 0) {
