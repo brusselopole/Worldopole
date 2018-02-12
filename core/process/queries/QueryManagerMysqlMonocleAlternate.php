@@ -337,7 +337,8 @@ class QueryManagerMysqlMonocleAlternate extends QueryManagerMysql {
 			FROM fort_sightings fs
 			LEFT JOIN forts f ON f.id = fs.fort_id
 			LEFT JOIN gym_defenders gd ON f.id = gd.fort_id
-			WHERE f.id ='".$gym_id."'";
+			WHERE f.id ='".$gym_id."'
+			GROUP BY f.name, f.url, fs.team, fs.updated, fs.guard_pokemon_id, fs.slots_available, gd.cp";
 		$result = $this->mysqli->query($req);
 		$data = $result->fetch_object();
 		return $data;
