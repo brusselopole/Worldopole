@@ -118,11 +118,11 @@ class QueryManagerMysqlMonocleAlternate extends QueryManagerMysql {
 	}
 
 	function getRecentMythic($mythic_pokemon) {
-		$req = "SELECT DISTINCT pokemon_id as pokemon_id, CONCAT('A', encounter_id) as encounter_id, FROM_UNIXTIME(expire_timestamp) AS disappear_time, FROM_UNIXTIME(updated) AS last_modified, FROM_UNIXTIME(expire_timestamp) AS disappear_time_real,
+		$req = "SELECT pokemon_id, encounter_id, FROM_UNIXTIME(expire_timestamp) AS disappear_time, FROM_UNIXTIME(updated) AS last_modified, FROM_UNIXTIME(expire_timestamp) AS disappear_time_real,
                 lat AS latitude, lon AS longitude, cp, atk_iv AS individual_attack, def_iv AS individual_defense, sta_iv AS individual_stamina
                 FROM sightings
                 WHERE pokemon_id IN (".implode(",", $mythic_pokemon).")
-                ORDER BY last_modified DESC
+                ORDER BY updated DESC
                 LIMIT 0,12";
 		$result = $this->mysqli->query($req);
 		$data = array();
