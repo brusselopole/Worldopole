@@ -170,7 +170,7 @@ include_once('core/process/data.loader.php');
 					<script>
 						var pokemon_id = <?= $pokemon_id ?>;
 					</script>
-					<script src="https://maps.googleapis.com/maps/api/js?key=<?= $config->system->GMaps_Key ?>&libraries=visualization&callback=initMap"></script>
+					<script src="https://maps.googleapis.com/maps/api/js?key=<?= $config->system->GMaps_Key ?>&libraries=visualization&callback=initMap&v=3"></script>
 
 					<?php
 					break;
@@ -179,7 +179,7 @@ include_once('core/process/data.loader.php');
 					?>
 
 					<script src="<?php auto_ver('core/js/pokestops.maps.js') ?>"></script>
-					<script src="https://maps.googleapis.com/maps/api/js?key=<?= $config->system->GMaps_Key ?>&libraries=visualization&callback=initMap"></script>
+					<script src="https://maps.googleapis.com/maps/api/js?key=<?= $config->system->GMaps_Key ?>&libraries=visualization&callback=initMap&v=3"></script>
 
 					<?php
 					break;
@@ -200,7 +200,7 @@ include_once('core/process/data.loader.php');
 					</script>
 
 					<script src="<?php auto_ver('core/js/gym.maps.js') ?>"></script>
-					<script src="https://maps.googleapis.com/maps/api/js?key=<?= $config->system->GMaps_Key ?>&libraries=visualization&callback=initMap"></script>
+					<script src="https://maps.googleapis.com/maps/api/js?key=<?= $config->system->GMaps_Key ?>&libraries=visualization&callback=initMap&v=3"></script>
 
 					<?php
 					break;
@@ -249,7 +249,7 @@ include_once('core/process/data.loader.php');
 
 					<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js"></script>
 					<script src="core/js/nests.maps.js.php"></script>
-					<script src="https://maps.googleapis.com/maps/api/js?key=<?= $config->system->GMaps_Key ?>&libraries=visualization&callback=initMap"></script>
+					<script src="https://maps.googleapis.com/maps/api/js?key=<?= $config->system->GMaps_Key ?>&libraries=visualization&callback=initMap&v=3"></script>
 
 					<?php
 					break;
