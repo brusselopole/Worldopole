@@ -135,7 +135,7 @@ function loadGymHistory(page, gym_id, pokeimg_suffix, hide_cp_changes) {
 			if (entry.only_cp_changed && hide_cp_changes) return;
 			printGymHistory(gym_id, entry, pokeimg_suffix);
 		});
-		if (internalIndex < 10) {
+		if (data.last_page == true) {
 			$('#gymHistory_'+gym_id).find('.loadMoreButtonHistory').hide();
 		} else {
 			$('#gymHistory_'+gym_id).find('.loadMoreButtonHistory').removeClass('hidden').data('page', page+1).show();

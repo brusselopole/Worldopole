@@ -594,19 +594,14 @@ switch ($request) {
 
 		$entries = array();
 
+		$last_page = true;
 		if ($gym_id != '') {
 			$datas = $manager->getHistoryForGym($page, $gym_id);
-			foreach ($datas as $data) {
-				$pkm = array();
-				if ($data->total_cp == 0) { $data->pokemon_uids = ''; }
-				if ($data->pokemon_uids != '') {
-					$pkm_uids = explode(',', $data->pokemon_uids);
-					$pkm = $manager->getHistoryForGymPokemon($pkm_uids);
-				}
-				$data->pokemon = $pkm;
+			foreach ($datas['data'] as $data) {
 				$data->gym_id = str_replace('.', '_', $data->gym_id);
 				$entries[] = $data;
 			}
+			$last_page = $datas['last_page'];
 
 			foreach ($entries as $idx => $entry) {
 				$entry->total_cp_diff = 0;
@@ -639,6 +634,7 @@ switch ($request) {
 		$json['entries'] = $entries;
 		$locale = array();
 		$json['locale'] = $locale;
+		$json['last_page'] = $last_page;
 
 		header('Content-Type: application/json');
 		echo json_encode($json);

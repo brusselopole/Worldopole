@@ -69,7 +69,7 @@
 <?=
 $gymName = "";
 if (isset($_GET['name']) && $_GET['name']!="") {
-	$gymName = htmlentities($_GET['name']);
+	$gymName = html_entity_decode($_GET['name']);
 }
 ?>
 var gymName = "<?= $gymName ?>";

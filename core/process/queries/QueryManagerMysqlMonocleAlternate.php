@@ -95,7 +95,10 @@ class QueryManagerMysqlMonocleAlternate extends QueryManagerMysql {
 
 
 	function getTotalGymsForTeam($team_id) {
-		$req = "SELECT COUNT(*) AS total FROM fort_sightings WHERE team = '$team_id'";
+		$req = "SELECT COUNT(*) AS total 
+					FROM forts f
+					LEFT JOIN fort_sightings fs ON (fs.fort_id = f.id AND fs.last_modified = (SELECT MAX(last_modified) FROM fort_sightings fs2 WHERE fs2.fort_id=f.id))
+					WHERE team = '$team_id'";
 		$result = $this->mysqli->query($req);
 		$data = $result->fetch_object();
 		return $data;
@@ -118,11 +121,11 @@ class QueryManagerMysqlMonocleAlternate extends QueryManagerMysql {
 	}
 
 	function getRecentMythic($mythic_pokemon) {
-		$req = "SELECT pokemon_id, encounter_id, FROM_UNIXTIME(expire_timestamp) AS disappear_time, FROM_UNIXTIME(updated) AS last_modified, FROM_UNIXTIME(expire_timestamp) AS disappear_time_real,
+		$req = "SELECT DISTINCT pokemon_id as pokemon_id, CONCAT('A', encounter_id) as encounter_id, FROM_UNIXTIME(expire_timestamp) AS disappear_time, FROM_UNIXTIME(updated) AS last_modified, FROM_UNIXTIME(expire_timestamp) AS disappear_time_real,
                 lat AS latitude, lon AS longitude, cp, atk_iv AS individual_attack, def_iv AS individual_defense, sta_iv AS individual_stamina
                 FROM sightings
                 WHERE pokemon_id IN (".implode(",", $mythic_pokemon).")
-                ORDER BY updated DESC
+                ORDER BY last_modified DESC
                 LIMIT 0,12";
 		$result = $this->mysqli->query($req);
 		$data = array();
@@ -139,7 +142,10 @@ class QueryManagerMysqlMonocleAlternate extends QueryManagerMysql {
 	///////////////////
 
 	function getGymsProtectedByPokemon($pokemon_id) {
-		$req = "SELECT COUNT(DISTINCT(fort_id)) AS total FROM fort_sightings WHERE guard_pokemon_id = '".$pokemon_id."'";
+		$req = "SELECT COUNT(DISTINCT(fort_id)) AS total 
+					FROM forts f
+					LEFT JOIN fort_sightings fs ON (fs.fort_id = f.id AND fs.last_modified = (SELECT MAX(last_modified) FROM fort_sightings fs2 WHERE fs2.fort_id=f.id))
+					WHERE guard_pokemon_id = '".$pokemon_id."'";
 		$result = $this->mysqli->query($req);
 		$data = $result->fetch_object();
 		return $data;
@@ -301,7 +307,10 @@ class QueryManagerMysqlMonocleAlternate extends QueryManagerMysql {
 	/////////
 
 	function getTeamGuardians($team_id) {
-		$req = "SELECT COUNT(*) AS total, guard_pokemon_id FROM fort_sightings WHERE team = '".$team_id."' GROUP BY guard_pokemon_id ORDER BY total DESC LIMIT 0,3";
+		$req = "SELECT COUNT(*) AS total, guard_pokemon_id 
+					FROM forts f
+					LEFT JOIN fort_sightings fs ON (fs.fort_id = f.id AND fs.last_modified = (SELECT MAX(last_modified) FROM fort_sightings fs2 WHERE fs2.fort_id=f.id))
+					WHERE team = '".$team_id."' GROUP BY guard_pokemon_id ORDER BY total DESC LIMIT 0,3";
 		$result = $this->mysqli->query($req);
 
 		$datas = array();
@@ -313,9 +322,9 @@ class QueryManagerMysqlMonocleAlternate extends QueryManagerMysql {
 	}
 
 	function getOwnedAndPoints($team_id) {
-		$req = "SELECT COUNT(DISTINCT(fs.fort_id)) AS total, ROUND((SUM(gd.cp)) / COUNT(DISTINCT(fs.fort_id)),0) AS average_points
-        			FROM fort_sightings fs
-        			JOIN gym_defenders gd ON fs.fort_id = gd.fort_id
+		$req = "SELECT COUNT(DISTINCT(fs.fort_id)) AS total, ROUND(AVG(fs.total_cp)) AS average_points
+        			FROM forts f
+					LEFT JOIN fort_sightings fs ON (fs.fort_id = f.id AND fs.last_modified = (SELECT MAX(last_modified) FROM fort_sightings fs2 WHERE fs2.fort_id=f.id))
         			WHERE fs.team = '" . $team_id . "'";
 		$result = $this->mysqli->query($req);
 		$data = $result->fetch_object();
@@ -323,7 +332,9 @@ class QueryManagerMysqlMonocleAlternate extends QueryManagerMysql {
 	}
 
 	function getAllGyms() {
-		$req = "SELECT f.id as gym_id, team as team_id, f.lat as latitude, f.lon as longitude, updated as last_scanned, (6 - fs.slots_available) AS level FROM forts f LEFT JOIN fort_sightings fs ON f.id = fs.fort_id;";
+		$req = "SELECT f.id as gym_id, team as team_id, f.lat as latitude, f.lon as longitude, updated as last_scanned, (6 - fs.slots_available) AS level 
+					FROM forts f
+					LEFT JOIN fort_sightings fs ON (fs.fort_id = f.id AND fs.last_modified = (SELECT MAX(last_modified) FROM fort_sightings fs2 WHERE fs2.fort_id=f.id));";
 		$result = $this->mysqli->query($req);
 		$gyms = array();
 		while ($data = $result->fetch_object()) {
@@ -333,12 +344,10 @@ class QueryManagerMysqlMonocleAlternate extends QueryManagerMysql {
 	}
 
 	public function getGymData($gym_id) {
-		$req = "SELECT f.name AS name, null AS description, f.url AS url, fs.team AS team, FROM_UNIXTIME(fs.updated) AS last_scanned, fs.guard_pokemon_id AS guard_pokemon_id, (6 - fs.slots_available) AS level, SUM(gd.cp) as total_cp	
-			FROM fort_sightings fs
-			LEFT JOIN forts f ON f.id = fs.fort_id
-			LEFT JOIN gym_defenders gd ON f.id = gd.fort_id
-			WHERE f.id ='".$gym_id."'
-			GROUP BY f.name, f.url, fs.team, fs.updated, fs.guard_pokemon_id, fs.slots_available, gd.cp";
+		$req = "SELECT f.name AS name, null AS description, f.url AS url, fs.team AS team, FROM_UNIXTIME(fs.updated) AS last_scanned, fs.guard_pokemon_id AS guard_pokemon_id, (6 - fs.slots_available) AS level, fs.total_cp	
+			FROM forts f
+			LEFT JOIN fort_sightings fs ON (fs.fort_id = f.id AND fs.last_modified = (SELECT MAX(last_modified) FROM fort_sightings fs2 WHERE fs2.fort_id=f.id))
+			WHERE f.id ='".$gym_id."'";
 		$result = $this->mysqli->query($req);
 		$data = $result->fetch_object();
 		return $data;
@@ -348,7 +357,7 @@ class QueryManagerMysqlMonocleAlternate extends QueryManagerMysql {
 		$req = "SELECT DISTINCT external_id as pokemon_uid, pokemon_id, atk_iv as iv_attack, def_iv as iv_defense, sta_iv as iv_stamina, cp, fort_id as gym_id
 			FROM gym_defenders 
 			WHERE fort_id='".$gym_id."'
-			ORDER BY cp DESC";
+			ORDER BY deployment_time";
 		$result = $this->mysqli->query($req);
 		$defenders = array();
 		while ($data = $result->fetch_object()) {
@@ -365,9 +374,9 @@ class QueryManagerMysqlMonocleAlternate extends QueryManagerMysql {
 	public function getAllRaids($page) {
 		$limit = " LIMIT ".($page * 10).",10";
 		$req = "SELECT r.fort_id AS gym_id, r.level AS level, r.pokemon_id AS pokemon_id, r.cp AS cp, r.move_1 AS move_1, r.move_2 AS move_2, FROM_UNIXTIME(r.time_spawn) AS spawn, FROM_UNIXTIME(r.time_battle) AS start, FROM_UNIXTIME(r.time_end) AS end, FROM_UNIXTIME(fs.updated) AS last_scanned, f.name, f.lat AS latitude, f.lon as longitude 
-					FROM raids r 
-					JOIN forts f ON f.id = r.fort_id 
-					LEFT JOIN fort_sightings fs ON fs.fort_id = r.fort_id 
+					FROM forts f
+					LEFT JOIN fort_sightings fs ON (fs.fort_id = f.id AND fs.last_modified = (SELECT MAX(last_modified) FROM fort_sightings fs2 WHERE fs2.fort_id=f.id))
+				 	LEFT JOIN raids r ON (r.fort_id = f.id AND r.time_end >= UNIX_TIMESTAMP())
 					WHERE r.time_end > UNIX_TIMESTAMP() 
 					ORDER BY r.level DESC, r.time_battle" . $limit;
 		$result = $this->mysqli->query($req);
@@ -386,26 +395,105 @@ class QueryManagerMysqlMonocleAlternate extends QueryManagerMysql {
 
 	public function getGymHistories($gym_name, $team, $page, $ranking)
 	{
-		// TODO: Implement
-		return array();
+		$where = '';
+		if (isset($gym_name) && $gym_name != '') {
+			$where = " WHERE name LIKE '%".$gym_name."%'";
+		}
+		if (isset($team) && $team != '') {
+			$where .= ($where == "" ? " WHERE" : " AND")." team_id = ".$team;
+		}
+		switch ($ranking) {
+			case 1:
+				$order = " ORDER BY name, last_modified DESC";
+				break;
+			case 2:
+				$order = " ORDER BY total_cp DESC, last_modified DESC";
+				break;
+			default:
+				$order = " ORDER BY last_modified DESC, name";
+		}
+
+		$limit = " LIMIT ".($page * 10).",10";
+
+		$req = "SELECT f.id as gym_id, fs.total_cp, f.name, fs.team as team_id, (6 - slots_available) as pokemon_count, FROM_UNIXTIME(last_modified) AS last_modified 
+			FROM forts f
+			LEFT JOIN fort_sightings fs ON (fs.fort_id = f.id AND fs.last_modified = (SELECT MAX(last_modified) FROM fort_sightings fs2 WHERE fs2.fort_id=f.id))
+			".$where.$order.$limit;
+
+		$result = $this->mysqli->query($req);
+		$gym_history = array();
+		while ($data = $result->fetch_object()) {
+			$gym_history[] = $data;
+		}
+		return $gym_history;
 	}
 
 	public function getGymHistoriesPokemon($gym_id)
 	{
-		// TODO: Implement
-		return array();
+		$req = "SELECT DISTINCT external_id AS pokemon_uid, pokemon_id, cp_now as cp, owner_name AS trainer_name
+					FROM gym_defenders
+					WHERE fort_id = '". $gym_id ."'
+					ORDER BY deployment_time";
+		$result = $this->mysqli->query($req);
+		$pokemons = array();
+		while ($data = $result->fetch_object()) {
+			$pokemons[] = $data;
+		}
+		return $pokemons;
 	}
 
 	public function getHistoryForGym($page, $gym_id)
 	{
-		// TODO: Implement
-		return array();
+		if (isset(self::$config->system->gymhistory_hide_cp_changes) && self::$config->system->gymhistory_hide_cp_changes === true) {
+			$pageSize = 25;
+		} else {
+			$pageSize = 10;
+		}
+		$req = "SELECT f.id as gym_id, fs.team as team_id, total_cp, FROM_UNIXTIME(fs.last_modified) as last_modified, last_modified as last_modified_real
+					FROM fort_sightings fs
+					LEFT JOIN forts f ON f.id = fs.fort_id
+					WHERE f.id = '". $gym_id ."'
+					ORDER BY fs.last_modified DESC
+					LIMIT ".($page * $pageSize).",".($pageSize+1);
+		$result = $this->mysqli->query($req);
+		$history = array();
+		$count = 0;
+		while ($data = $result->fetch_object()) {
+			$count++;
+			if ($data->total_cp == 0) {
+				$data->pokemon = array();
+				$data->pokemon_count = 0;
+				$data->pokemon_uids = "";
+			} else {
+				$data->pokemon = $this->getHistoryForGymPokemon($gym_id, $data->last_modified_real);
+				$data->pokemon_count = count($data->pokemon);
+				$data->pokemon_uids = implode(",", array_keys($data->pokemon));
+			}
+			if ($data->total_cp === 0 || $data->pokemon_count !== 0) {
+				$history[] = $data;
+			}
+		}
+		if ($count !== ($pageSize + 1)) {
+			$last_page = true;
+		} else {
+			$last_page = false;
+		}
+		return array("last_page" => $last_page, "data" => $history);
 	}
 
-	public function getHistoryForGymPokemon($pkm_uids)
+	private function getHistoryForGymPokemon($gym_id, $last_modified)
 	{
-		// TODO: Implement
-		return array();
+		$req = "SELECT ghd.defender_id, gd.pokemon_id, ghd.cp, gd.owner_name as trainer_name
+					FROM gym_history_defenders ghd
+					JOIN gym_defenders gd ON ghd.defender_id = gd.external_id
+					WHERE ghd.fort_id = '". $gym_id ."' AND date = '".$last_modified."'
+					ORDER BY gd.deployment_time";
+		$result = $this->mysqli->query($req);
+		$pokemons = array();
+		while ($data = $result->fetch_object()) {
+			$pokemons[$data->defender_id] = $data;
+		}
+		return $pokemons;
 	}
 
 
@@ -415,17 +503,123 @@ class QueryManagerMysqlMonocleAlternate extends QueryManagerMysql {
 	//////////////
 
 	public function getTrainers($trainer_name, $team, $page, $ranking) {
-		return array(); // Waiting for Monocle to store level
+		$ranking = $this->getTrainerLevelRanking();
+		$where = "";
+		if (!empty(self::$config->system->trainer_blacklist)) {
+			$where .= " AND gd.owner_name NOT IN ('".implode("','", self::$config->system->trainer_blacklist)."')";
+		}
+		if ($trainer_name != "") {
+			$where = " AND gd.owner_name LIKE '%".$trainer_name."%'";
+		}
+		if ($team != 0) {
+			$where .= ($where == "" ? " HAVING" : " AND")." team = ".$team;
+		}
+		switch ($rankingNumber) {
+			case 1:
+				$order = " ORDER BY ABS(active) DESC, level DESC";
+				break;
+			case 2:
+				$order = " ORDER BY maxCp DESC, level DESC";
+				break;
+			default:
+				$order = " ORDER BY level DESC, active DESC";
+		}
+		$order .= ", last_seen DESC, name ";
+		$limit = " LIMIT ".($page * 10).",10 ";
+		$req = "SELECT gd.owner_name AS name, MAX(owner_level) as level, MAX(cp) as maxCp, active, team, FROM_UNIXTIME(MAX(last_modified)) as last_seen
+				  	FROM gym_defenders gd
+				  	LEFT JOIN (
+				  		SELECT owner_name, COUNT(*) as active
+				  		FROM gym_defenders gd2
+						WHERE fort_id IS NOT NULL
+				  		GROUP BY owner_name
+				  	) active ON active.owner_name = gd.owner_name
+				  	WHERE gd.owner_level IS NOT NULL " . $where . "
+				  	GROUP BY gd.owner_name" . $order  . $limit;
+		$result = $this->mysqli->query($req);
+		$trainers = array();
+		while ($data = $result->fetch_object()) {
+			$data->last_seen = date("Y-m-d", strtotime($data->last_seen));
+            if (is_null($data->active)) {
+                $data->active = 0;
+            }
+			$trainers[$data->name] = $data;
+
+			$pokemon = array_merge($this->getActivePokemon($data->name),  $this->getInactivePokemon($data->name));
+
+			$trainers[$data->name]->gyms = $data->active;
+			$trainers[$data->name]->pokemons = $pokemon;
+			$trainers[$data->name]->rank = $ranking[$data->level];
+		}
+		return $trainers;
 	}
 
-	public function getTrainerLevelCount($team_id) {
+	public function getTrainerLevelRanking() {
+		$exclue = "";
+		if (!empty(self::$config->system->trainer_blacklist)) {
+			$exclue .= " AND owner_name NOT IN ('".implode("','", self::$config->system->trainer_blacklist)."')";
+		}
+		$req = "SELECT COUNT(*) AS count, level FROM (SELECT MAX(owner_level) as level FROM gym_defenders WHERE owner_level IS NOT NULL ".$exclue." GROUP BY owner_level, owner_name) x GROUP BY level";
+		$result = $this->mysqli->query($req);
 		$levelData = array();
+		while ($data = $result->fetch_object()) {
+			$levelData[$data->level] = $data->count;
+		}
 		for ($i = 5; $i <= 40; $i++) {
 			if (!isset($levelData[$i])) {
 				$levelData[$i] = 0;
 			}
 		}
-		return $levelData; // Waiting for Monocle to store level
+		# sort array again
+		ksort($levelData);
+		return $levelData;
+	}
+
+	public function getActivePokemon($trainer_name) {
+		$req = "SELECT pokemon_id, cp, atk_iv AS iv_attack, sta_iv AS iv_stamina, def_iv AS iv_defense, FROM_UNIXTIME(deployment_time) AS deployment_time, '1' AS active, fort_id as gym_id, FLOOR((UNIX_TIMESTAMP() - created) / 86400) AS last_scanned
+						FROM gym_defenders 
+						WHERE owner_name = '".$trainer_name."' AND fort_id IS NOT NULL
+						ORDER BY deployment_time";
+		$result = $this->mysqli->query($req);
+		$pokemon = array();
+		while ($data = $result->fetch_object()) {
+			$pokemon[] = $data;
+		}
+		return $pokemon;
+	}
+
+	public function getInactivePokemon($trainer_name) {
+		$req = "SELECT pokemon_id, cp, atk_iv AS iv_attack, sta_iv AS iv_stamina, def_iv AS iv_defense, NULL AS deployment_time, '0' AS active, fort_id as gym_id, FLOOR((UNIX_TIMESTAMP() - created) / 86400) AS last_scanned
+					FROM gym_defenders 
+					WHERE owner_name = '".$trainer_name."' AND fort_id IS NULL
+					ORDER BY last_scanned";
+		$result = $this->mysqli->query($req);
+		$pokemon = array();
+		while ($data = $result->fetch_object()) {
+			$pokemon[] = $data;
+		}
+		return $pokemon;
+	}
+
+	public function getTrainerLevelCount($team_id) {
+		$exclue = "";
+		if (!empty(self::$config->system->trainer_blacklist)) {
+			$exclue .= " AND owner_name NOT IN ('".implode("','", self::$config->system->trainer_blacklist)."')";
+		}
+		$req = "SELECT COUNT(*) AS count, level FROM (SELECT MAX(owner_level) as level FROM gym_defenders WHERE owner_level IS NOT NULL AND team = '".$team_id."' ".$exclue." GROUP BY owner_level, owner_name) x GROUP BY level";
+		$result = $this->mysqli->query($req);
+		$levelData = array();
+		while ($data = $result->fetch_object()) {
+			$levelData[$data->level] = $data->count;
+		}
+		for ($i = 5; $i <= 40; $i++) {
+			if (!isset($levelData[$i])) {
+				$levelData[$i] = 0;
+			}
+		}
+		# sort array again
+		ksort($levelData);
+		return $levelData;
 	}
 
 

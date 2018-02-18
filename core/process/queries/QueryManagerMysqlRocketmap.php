@@ -408,20 +408,42 @@ final class QueryManagerMysqlRocketmap extends QueryManagerMysql {
 	}
 
 	public function getHistoryForGym($page, $gym_id) {
+		if (isset(self::$config->system->gymhistory_hide_cp_changes) && self::$config->system->gymhistory_hide_cp_changes === true) {
+			$pageSize = 25;
+		} else {
+			$pageSize = 10;
+		}
 		$req = "SELECT gym_id, team_id, total_cp, pokemon_uids, pokemon_count, (CONVERT_TZ(last_modified, '+00:00', '".self::$time_offset."')) as last_modified
 					FROM gymhistory
 					WHERE gym_id='".$gym_id."'
 					ORDER BY last_modified DESC
-					LIMIT ".($page * 10).",11";
+					LIMIT ".($page * $pageSize).",".($pageSize+1);
 		$result = $this->mysqli->query($req);
 		$history = array();
+		$count = 0;
 		while ($data = $result->fetch_object()) {
+			$count++;
+			$pkm = array();
+			if ($data->total_cp == 0) {
+				$data->pokemon_uids = '';
+				$data->pokemon_count = 0;
+			}
+			if ($data->pokemon_uids != '') {
+				$pkm_uids = explode(',', $data->pokemon_uids);
+				$pkm = $this->getHistoryForGymPokemon($pkm_uids);
+			}
+			$data->pokemon = $pkm;
 			$history[] = $data;
 		}
-		return $history;
+		if ($count !== ($pageSize + 1)) {
+			$last_page = true;
+		} else {
+			$last_page = false;
+		}
+		return array("last_page" => $last_page, "data" => $history);
 	}
 
-	public function getHistoryForGymPokemon($pkm_uids) {
+	private function getHistoryForGymPokemon($pkm_uids) {
 		$req = "SELECT DISTINCT pokemon_uid, pokemon_id, cp, trainer_name
 								FROM gympokemon
 								WHERE pokemon_uid IN ('".implode("','", $pkm_uids)."')
@@ -429,7 +451,7 @@ final class QueryManagerMysqlRocketmap extends QueryManagerMysql {
 		$result = $this->mysqli->query($req);
 		$pokemons = array();
 		while ($data = $result->fetch_object()) {
-			$pokemons[] = $data;
+			$pokemons[$data->pokemon_uid] = $data;
 		}
 		return $pokemons;
 	}

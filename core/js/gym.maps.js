@@ -133,7 +133,7 @@ function setGymDetails(gym) {
 	imgurl = imgurl.replace(/^http:\/\//i, 'https://');
 	$('#gym_details_template #circleImage').css('background', 'url(' + imgurl + ') no-repeat center');
 	$('#gym_details_template #gymName').html(gym.gymDetails.gymInfos.name);
-	$('#gym_details_template #gymHistory a').attr('href', 'gymhistory?name=' + gym.gymDetails.gymInfos.name);
+	$('#gym_details_template #gymHistory a').attr('href', 'gymhistory?name=' + encodeURIComponent(gym.gymDetails.gymInfos.name));
 	$('#gym_details_template #gymDescription').html(gym.gymDetails.gymInfos.description);
 	$('#gym_details_template #gymDefenders').html(gym.infoWindow);
 	$('#gym_details_template #gymPrestigeDisplay').html(gym.gymDetails.gymInfos.points);
