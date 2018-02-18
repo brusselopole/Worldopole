@@ -111,10 +111,10 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 	}
 
 	function getRecentAll() {
-		$req = "SELECT DISTINCT pokemon_id, encounter_id, TO_TIMESTAMP(expire_timestamp) AS disappear_time, TO_TIMESTAMP(updated) AS last_modified, TO_TIMESTAMP(expire_timestamp) AS disappear_time_real,
+		$req = "SELECT pokemon_id, encounter_id, TO_TIMESTAMP(expire_timestamp) AS disappear_time, TO_TIMESTAMP(updated) AS last_modified, TO_TIMESTAMP(expire_timestamp) AS disappear_time_real,
               lat AS latitude, lon AS longitude, cp, atk_iv AS individual_attack, def_iv AS individual_defense, sta_iv AS individual_stamina
               FROM sightings
-              ORDER BY last_modified DESC
+              ORDER BY updated DESC
               LIMIT 12 OFFSET 0";
 		$result = pg_query($this->db, $req);
 		$data = array();
