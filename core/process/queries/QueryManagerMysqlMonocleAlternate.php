@@ -142,7 +142,7 @@ class QueryManagerMysqlMonocleAlternate extends QueryManagerMysql {
 	///////////////////
 
 	function getGymsProtectedByPokemon($pokemon_id) {
-		$req = "COUNT(f.id) AS total 
+		$req = "SELECT COUNT(f.id) AS total 
 					FROM forts f
 					LEFT JOIN fort_sightings fs ON (fs.fort_id = f.id AND fs.last_modified = (SELECT MAX(last_modified) FROM fort_sightings fs2 WHERE fs2.fort_id=f.id))
 					WHERE guard_pokemon_id = '".$pokemon_id."'";
@@ -400,7 +400,7 @@ class QueryManagerMysqlMonocleAlternate extends QueryManagerMysql {
 			$where = " WHERE name LIKE '%".$gym_name."%'";
 		}
 		if (isset($team) && $team != '') {
-			$where .= ($where === "" ? " WHERE" : " AND")." team_id = ".$team;
+			$where .= ($where === "" ? " WHERE" : " AND")." fs.team = ".$team;
 		}
 		switch ($ranking) {
 			case 1:
@@ -419,7 +419,6 @@ class QueryManagerMysqlMonocleAlternate extends QueryManagerMysql {
 			FROM forts f
 			LEFT JOIN fort_sightings fs ON (fs.fort_id = f.id AND fs.last_modified = (SELECT MAX(last_modified) FROM fort_sightings fs2 WHERE fs2.fort_id=f.id))
 			".$where.$order.$limit;
-
 		$result = $this->mysqli->query($req);
 		$gym_history = array();
 		while ($data = $result->fetch_object()) {

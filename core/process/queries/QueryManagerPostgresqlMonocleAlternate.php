@@ -385,7 +385,7 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 			$where = " WHERE name LIKE '%".$gym_name."%'";
 		}
 		if (isset($team) && $team != '') {
-			$where .= ($where === "" ? " WHERE" : " AND")." team_id = ".$team;
+			$where .= ($where === "" ? " WHERE" : " AND")." fs.team = ".$team;
 		}
 		switch ($ranking) {
 			case 1:
