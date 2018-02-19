@@ -516,7 +516,7 @@ class QueryManagerMysqlMonocleAlternate extends QueryManagerMysql {
 		}
 		switch ($rankingNumber) {
 			case 1:
-				$order = " ORDER BY ABS(active) DESC, level DESC";
+				$order = " ORDER BY active DESC, level DESC";
 				break;
 			case 2:
 				$order = " ORDER BY maxCp DESC, level DESC";
@@ -526,7 +526,7 @@ class QueryManagerMysqlMonocleAlternate extends QueryManagerMysql {
 		}
 		$order .= ", last_seen DESC, name ";
 		$limit = " LIMIT ".($page * 10).",10 ";
-		$req = "SELECT gd.owner_name AS name, MAX(owner_level) as level, MAX(cp) as maxCp, active, team, FROM_UNIXTIME(MAX(last_modified)) as last_seen
+		$req = "SELECT gd.owner_name AS name, MAX(owner_level) AS level, MAX(cp) AS maxCp, MAX(active) AS active, MAX(team) AS team, FROM_UNIXTIME(MAX(last_modified)) as last_seen
 				  	FROM gym_defenders gd
 				  	LEFT JOIN (
 				  		SELECT owner_name, COUNT(*) as active
