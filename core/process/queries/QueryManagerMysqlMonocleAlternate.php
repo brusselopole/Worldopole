@@ -395,12 +395,12 @@ class QueryManagerMysqlMonocleAlternate extends QueryManagerMysql {
 
 	public function getGymHistories($gym_name, $team, $page, $ranking)
 	{
-		$where = '';
+		$where = "";
 		if (isset($gym_name) && $gym_name != '') {
 			$where = " WHERE name LIKE '%".$gym_name."%'";
 		}
 		if (isset($team) && $team != '') {
-			$where .= ($where == "" ? " WHERE" : " AND")." team_id = ".$team;
+			$where .= ($where === "" ? " WHERE" : " AND")." team_id = ".$team;
 		}
 		switch ($ranking) {
 			case 1:
