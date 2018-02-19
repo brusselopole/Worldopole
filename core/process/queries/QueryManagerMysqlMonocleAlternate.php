@@ -142,7 +142,7 @@ class QueryManagerMysqlMonocleAlternate extends QueryManagerMysql {
 	///////////////////
 
 	function getGymsProtectedByPokemon($pokemon_id) {
-		$req = "SELECT COUNT(DISTINCT(fort_id)) AS total 
+		$req = "COUNT(f.id) AS total 
 					FROM forts f
 					LEFT JOIN fort_sightings fs ON (fs.fort_id = f.id AND fs.last_modified = (SELECT MAX(last_modified) FROM fort_sightings fs2 WHERE fs2.fort_id=f.id))
 					WHERE guard_pokemon_id = '".$pokemon_id."'";
@@ -322,7 +322,7 @@ class QueryManagerMysqlMonocleAlternate extends QueryManagerMysql {
 	}
 
 	function getOwnedAndPoints($team_id) {
-		$req = "SELECT COUNT(DISTINCT(fs.fort_id)) AS total, ROUND(AVG(fs.total_cp)) AS average_points
+		$req = "SELECT COUNT(f.id) AS total, ROUND(AVG(fs.total_cp)) AS average_points
         			FROM forts f
 					LEFT JOIN fort_sightings fs ON (fs.fort_id = f.id AND fs.last_modified = (SELECT MAX(last_modified) FROM fort_sightings fs2 WHERE fs2.fort_id=f.id))
         			WHERE fs.team = '" . $team_id . "'";
@@ -354,7 +354,7 @@ class QueryManagerMysqlMonocleAlternate extends QueryManagerMysql {
 	}
 
 	public function getGymDefenders($gym_id) {
-		$req = "SELECT DISTINCT external_id as pokemon_uid, pokemon_id, atk_iv as iv_attack, def_iv as iv_defense, sta_iv as iv_stamina, cp, fort_id as gym_id
+		$req = "SELECT external_id as pokemon_uid, pokemon_id, atk_iv as iv_attack, def_iv as iv_defense, sta_iv as iv_stamina, cp, fort_id as gym_id
 			FROM gym_defenders 
 			WHERE fort_id='".$gym_id."'
 			ORDER BY deployment_time";
@@ -430,7 +430,7 @@ class QueryManagerMysqlMonocleAlternate extends QueryManagerMysql {
 
 	public function getGymHistoriesPokemon($gym_id)
 	{
-		$req = "SELECT DISTINCT external_id AS pokemon_uid, pokemon_id, cp_now as cp, owner_name AS trainer_name
+		$req = "SELECT external_id AS pokemon_uid, pokemon_id, cp_now as cp, owner_name AS trainer_name
 					FROM gym_defenders
 					WHERE fort_id = '". $gym_id ."'
 					ORDER BY deployment_time";
