@@ -506,7 +506,7 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 	// Trainers
 	//////////////
 
-	public function getTrainers($trainer_name, $team, $page, $ranking) {
+	public function getTrainers($trainer_name, $team, $page, $rankingNumber) {
 		$ranking = $this->getTrainerLevelRanking();
 		$where = "";
 		if (!empty(self::$config->system->trainer_blacklist)) {
