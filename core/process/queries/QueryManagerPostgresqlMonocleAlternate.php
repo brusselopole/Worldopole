@@ -520,7 +520,7 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 		}
 		switch ($rankingNumber) {
 			case 1:
-				$order = " ORDER BY ABS(active) DESC, level DESC";
+				$order = " ORDER BY active DESC, level DESC";
 				break;
 			case 2:
 				$order = " ORDER BY maxCp DESC, level DESC";
@@ -530,7 +530,7 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 		}
 		$order .= ", last_seen DESC, name ";
 		$limit = " LIMIT 10 OFFSET ".($page * 10);
-		$req = "SELECT gd.owner_name AS name, MAX(owner_level) as level, MAX(cp) as maxCp, active, team, TO_TIMESTAMP(MAX(last_modified)) as last_seen
+		$req = "SELECT gd.owner_name AS name, MAX(owner_level) AS level, MAX(cp) AS maxCp, MAX(active) AS active, MAX(team) AS team, TO_TIMESTAMP(MAX(last_modified)) as last_seen
 				  	FROM gym_defenders gd
 				  	LEFT JOIN (
 				  		SELECT owner_name, COUNT(*) as active
@@ -538,7 +538,7 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 						WHERE fort_id IS NOT NULL
 				  		GROUP BY owner_name
 				  	) active ON active.owner_name = gd.owner_name
-				  	WHERE gd.owner_level IS NOT NULL " . $where . "
+				  	WHERE level IS NOT NULL " . $where . "
 				  	GROUP BY gd.owner_name" . $order  . $limit;
 		$result = $this->mysqli->query($req);
 		$trainers = array();
