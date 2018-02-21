@@ -662,18 +662,18 @@ final class QueryManagerMysqlRocketmap extends QueryManagerMysql {
 		return $data;
 	}
 
-	public function getNestData() {
+	public function getNestData($time) {
 		$pokemon_exclude_sql = "";
 		if (!empty(self::$config->system->nest_exclude_pokemon)) {
 			$pokemon_exclude_sql = "AND p.pokemon_id NOT IN (".implode(",", self::$config->system->nest_exclude_pokemon).")";
 		}
 		$req = "SELECT p.pokemon_id, MAX(p.latitude) AS latitude, MAX(p.longitude) AS longitude, count(p.pokemon_id) AS total_pokemon, MAX(UNIX_TIMESTAMP(s.latest_seen)) as latest_seen, (LENGTH(s.kind) - LENGTH( REPLACE ( MAX(kind), \"s\", \"\") )) * 900 AS duration
-			          FROM pokemon p
-			          INNER JOIN spawnpoint s ON (p.spawnpoint_id = s.id)
-			          WHERE p.disappear_time > UTC_TIMESTAMP() - INTERVAL 24 HOUR
-			          " . $pokemon_exclude_sql . "
-			          GROUP BY p.spawnpoint_id, p.pokemon_id
-			          HAVING COUNT(p.pokemon_id) >= 6
+			          FROM pokemon p 
+			          INNER JOIN spawnpoint s ON (p.spawnpoint_id = s.id) 
+			          WHERE p.disappear_time > UTC_TIMESTAMP() - INTERVAL ".($time)." HOUR 
+			          " . $pokemon_exclude_sql . " 
+			          GROUP BY p.spawnpoint_id, p.pokemon_id 
+			          HAVING COUNT(p.pokemon_id) >= ".($time / 4)." 
 			          ORDER BY p.pokemon_id";
 		$result = $this->mysqli->query($req);
 		$nests = array();

@@ -96,5 +96,5 @@ abstract class QueryManager {
 	abstract public function getPokemonCountsActive();
 	abstract public function getPokemonCountsLastDay();
 	abstract public function getCaptchaCount();
-	abstract public function getNestData();
+	abstract public function getNestData($time);
 }

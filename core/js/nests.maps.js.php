@@ -7,6 +7,7 @@
 	$variables = SYS_PATH.'/core/json/variables.json';
 	$config = json_decode(file_get_contents($variables));
 	include_once('../process/locales.loader.php');
+	include_once('../../functions.php');
 ?>
 
 /** global: google */
@@ -19,6 +20,10 @@ var pokemon = {
 	}
 ?>
 }
+var map;
+var frequentSpawnMarkers = [];
+var nestMarkers = [];
+
 
 function initMap() {
 
@@ -87,49 +92,145 @@ function initMap() {
 
 		var infoWindow = new google.maps.InfoWindow({ pixelOffset: new google.maps.Size(0, 8), disableAutoPan: true });
 
-		// load data
-		$.getJSON('core/json/nests.stats.json', function(nestData) {
+        // load frequent spawns
+        $.getJSON('<?=auto_ver('core/json/nests.stats.json')?>', function(nestData) {
+
+            for (var i = 0; i < nestData.length; i++) {
+                var marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(nestData[i].lat, nestData[i].lng),
+                    map: null,
+                    icon: getImage(nestData[i], pokeimg_suffix)
+                });
+
+                google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                    return function() {
+                        infoWindow.setContent(getInfo(nestData[i]));
+                        infoWindow.open(map, marker);
+                        infoWindow.isClickOpen = true;
+                    }
+                })(marker, i));
+
+                google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
+                    return function() {
+                        infoWindow.setContent(getInfo(nestData[i]));
+                        infoWindow.open(map, marker);
+                        infoWindow.isClickOpen = false;
+                    }
+                })(marker, i));
+
+                marker.addListener('mouseout', function() {
+                    if (infoWindow.isClickOpen === false) {
+                        infoWindow.close();
+                    }
+                });
+
+                frequentSpawnMarkers.push(marker);
+
+            }
+        });
+
+		// load nests
+		$.getJSON('<?=auto_ver('core/json/nests.parks.json')?>', function(nestData) {
 
 			for (var i = 0; i < nestData.length; i++) {
+
+                var markerPoly = new google.maps.Polygon({
+                    paths: nestData[i].geo,
+                    strokeColor: '#0000FF',
+                    strokeOpacity: 0.4,
+                    strokeWeight: 2,
+                    fillColor: '#0000FF',
+                    fillOpacity: 0.1,
+                    map: map,
+                    zIndex: 0
+                });
+
 				var marker = new google.maps.Marker({
-					position: new google.maps.LatLng(nestData[i].lat, nestData[i].lng),
+					position: getCenter(nestData[i]),
 					map: map,
-					icon: getImage(nestData[i], pokeimg_suffix)
+					icon: getImage(nestData[i], pokeimg_suffix),
+                    zIndex: nestData[i].count
 				});
 
-				google.maps.event.addListener(marker, 'click', (function(marker, i) {
+				google.maps.event.addListener(markerPoly, 'click', (function(marker, i) {
 					return function() {
-						infoWindow.setContent(getInfo(nestData[i]));
+						infoWindow.setContent(getParkInfo(nestData[i]));
 						infoWindow.open(map, marker);
 						infoWindow.isClickOpen = true;
-					}
+                    }
 				})(marker, i));
 
-				google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
+				google.maps.event.addListener(markerPoly, 'mouseover', (function(marker, i) {
 					return function() {
-						infoWindow.setContent(getInfo(nestData[i]));
+						infoWindow.setContent(getParkInfo(nestData[i]));
 						infoWindow.open(map, marker);
 						infoWindow.isClickOpen = false;
 					}
 				})(marker, i));
 
-				marker.addListener('mouseout', function() {
+                markerPoly.addListener('mouseout', function() {
 					if (infoWindow.isClickOpen === false) {
 						infoWindow.close();
-					}
+                  }
 				});
+
+                google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                    return function() {
+                        infoWindow.setContent(getParkInfo(nestData[i]));
+                        infoWindow.open(map, marker);
+                        infoWindow.isClickOpen = true;
+                      }
+                })(marker, i));
+
+                google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
+                    return function() {
+                        infoWindow.setContent(getParkInfo(nestData[i]));
+                        infoWindow.open(map, marker);
+                        infoWindow.isClickOpen = false;
+                    }
+                })(marker, i));
+
+                marker.addListener('mouseout', function() {
+                    if (infoWindow.isClickOpen === false) {
+                        infoWindow.close();
+                    }
+                });
+
+				nestMarkers.push(markerPoly)
+                nestMarkers.push(marker);
 			}
 		});
+
+
 	});
+    initSelector();
 };
 
+function getCenter(data) {
+    var bounds = new google.maps.LatLngBounds();
+    var i;
+
+    for (var i = 0; i < data.geo.length; i++) {
+        bounds.extend(data.geo[i]);
+    }
+
+    return  bounds.getCenter();
+}
+
 function getImage(data, pokeimg_suffix) {
+    size = 32
+    if (data.geo != null) {
+        size = 25 + data.count
+        if (size > 60) {
+            size = 60
+        }
+    }
 	var image = {
 		url: 'core/pokemons/' + data.pid + pokeimg_suffix,
-		scaledSize: new google.maps.Size(32, 32),
+		scaledSize: new google.maps.Size(size, size),
 		origin: new google.maps.Point(0, 0),
-		anchor: new google.maps.Point(16, 16),
-		labelOrigin: new google.maps.Point(16, 36)
+		anchor: new google.maps.Point(size/2, size/2),
+		labelOrigin: new google.maps.Point(size/2, size/2)
 	}
 	return image
 }
@@ -149,6 +250,28 @@ function getInfo(data) {
 	return info
 }
 
+function getParkInfo(data) {
+    var info =  '<div id="content">' +
+                    '<div id="bodyContent">' +
+                        '<p><b>' +
+                            pokemon[data.pid] + ' <?= $locales->NESTS_NEST ?></b><br>'
+    if (data.name != null) {
+    info +=                 data.name +
+                        '</b></p>'
+    } else {
+        info +=         '</b></p>'
+    }
+    if (data.count == 1) {
+        info +=         data.count + ' <?= $locales->NESTS_SPAWNPOINT ?>'
+    } else {
+        info +=         data.count + ' <?= $locales->NESTS_SPAWNPOINTS ?>'
+    }
+    info +=             '</p>' +
+                    '</div>' +
+                '</div>'
+    return info
+}
+
 Date.prototype.addDays = function(days) {
 	var d = new Date(this.valueOf());
 	d.setDate(d.getDate() + days);
@@ -162,3 +285,35 @@ $(function() {
 		$(this).html(event.strftime('%w %!w:<small><?= $locales->WEEK ?></small>,<small><?= $locales->WEEKS ?></small>; %d %!d:<small><?= $locales->DAY ?></small>,<small><?= $locales->DAYS ?></small>; %H %!H:<small><?= $locales->HOUR ?></small>,<small><?= $locales->HOURS ?></small>; %M %!M:<small><?= $locales->MINUTE ?></small>,<small><?= $locales->MINUTES ?></small>;'));
 	}).countdown('start');
 });
+
+function initSelector() {
+    $('#showNests').click(function() {
+        $('#showNests').addClass('active');
+        $('#showFrequentSpawns').removeClass('active');
+        updateMap(false);
+    });
+    $('#showFrequentSpawns').click(function() {
+        $('#showFrequentSpawns').addClass('active');
+        $('#showNests').removeClass('active');
+        updateMap(true);
+    });
+}
+
+function updateMap(freqSpawns) {
+    var i;
+    if (freqSpawns) {
+        for (i = 0; i < frequentSpawnMarkers.length; i++) {
+            frequentSpawnMarkers[i].setMap(map);
+        }
+        for (i = 0; i < nestMarkers.length; i++) {
+            nestMarkers[i].setMap(null);
+        }
+    } else {
+        for (i = 0; i < frequentSpawnMarkers.length; i++) {
+            frequentSpawnMarkers[i].setMap(null);
+        }
+        for (i = 0; i < nestMarkers.length; i++) {
+            nestMarkers[i].setMap(map);
+        }
+    }
+}

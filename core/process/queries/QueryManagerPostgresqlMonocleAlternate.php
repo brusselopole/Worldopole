@@ -680,7 +680,7 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 		return $data;
 	}
 
-	public function getNestData() {
+	public function getNestData($time) {
 		$pokemon_exclude_sql = "";
 		if (!empty(self::$config->system->nest_exclude_pokemon)) {
 			$pokemon_exclude_sql = "AND p.pokemon_id NOT IN (" . implode(",", self::$config->system->nest_exclude_pokemon) . ")";
@@ -688,10 +688,10 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 		$req = "SELECT p.spawn_id, p.pokemon_id, MAX(p.lat) AS latitude, MAX(p.lon) AS longitude, count(p.pokemon_id) AS total_pokemon, MAX(s.updated) as latest_seen, coalesce(CASE WHEN MAX(duration) = 0 THEN NULL ELSE MAX(duration) END ,30)*60 as duration
 			          FROM sightings p
 			          INNER JOIN spawnpoints s ON (p.spawn_id = s.spawn_id)
-			          WHERE p.expire_timestamp > EXTRACT(EPOCH FROM NOW()) - 86400
+			          WHERE p.expire_timestamp > EXTRACT(EPOCH FROM NOW()) - ".($time * 3600)."
 			          " . $pokemon_exclude_sql . "
 			          GROUP BY p.spawn_id, p.pokemon_id
-			          HAVING COUNT(p.pokemon_id) >= 6
+			          HAVING COUNT(p.pokemon_id) >= ".($time / 4)."
 			          ORDER BY p.pokemon_id";
 		$result = pg_query($this->db, $req);
 		$nests = array();
