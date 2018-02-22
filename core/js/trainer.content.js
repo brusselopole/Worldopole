@@ -235,7 +235,7 @@ function printPokemon(pokemon, pokeimg_suffix, iv_numbers, locale) {
 		if (diff >= 86400) {
 			trainerPokemon.append($('<small>', { text: parseInt(diff / 86400) + 'd ' + parseInt((diff / 3600) % 24) + 'h'}));
 		} else {
-			trainerPokemon.append($('<small>', { text: parseInt(diff / 3600) + 'h ' + parseInt(diff % 60) + 'm' }));
+			trainerPokemon.append($('<small>', { text: parseInt(diff / 3600) + 'h ' + parseInt((diff / 60) % 60) + 'm' }));
 		}
 	} else if (pokemon.last_scanned === '1') {
 		trainerPokemon.append($('<small>', { text: pokemon.last_scanned + ' ' + locale.day }));
