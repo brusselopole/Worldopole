@@ -25,6 +25,7 @@
 		"timezone"				:	"Europe/Paris",
 		"max_pokemon"			:	386,
 		"nest_exclude_pokemon"	:	[],
+		"nest_min_count"		:	1,
 		"pokeimg_suffix"		:	"_flat.png",
 		"recents_encounter_details"	:	false,
 		"recents_filter"		:	true,

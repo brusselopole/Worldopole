@@ -157,7 +157,7 @@ if ($status == 200) {
 				$mostPid = $pid;
 			}
 		}
-		if ($mostPidCount != 0) {
+		if ($mostPidCount != 0 && ( !isset($config->system->nest_min_count) || $mostPidCount >= $config->system->nest_min_count) ) {
 			$park["pid"] = $mostPid;
 			$park["count"] = $mostPidCount;
 			$nestParks[] = $park;
