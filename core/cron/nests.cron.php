@@ -25,7 +25,10 @@ for ($iLat = 0; $iLat < $countLat;) {
 		$minLongitude = $totalMinLon + $iLng * 0.5;
 		$maxLongitude = min($minLongitude + 0.5 ,$totalMaxLon);
 
-		if ($manager->getSpawnpointCount($minLatitude, $maxLatitude, $minLongitude, $maxLongitude)->total == 0) { break; } //Skip empty areas
+		if ($manager->getSpawnpointCount($minLatitude, $maxLatitude, $minLongitude, $maxLongitude)->total == 0) { //Skip empty areas
+			$iLng++;
+			continue;
+		}
 
 		// Get Parks from overpass
 		$req = '[timeout:600][out:json][date:"2016-07-17T00:00:00Z"][bbox:' . $minLatitude . ',' . $minLongitude . ',' . $maxLatitude . ',' . $maxLongitude . '];
@@ -83,6 +86,9 @@ for ($iLat = 0; $iLat < $countLat;) {
 
 		curl_setopt($curl, CURLOPT_POST, 1);
 		curl_setopt($curl, CURLOPT_POSTFIELDS, "data=" . urlencode($req));
+		curl_setopt($curl, CURLOPT_USERAGENT,"Worldopole/NestUpdater ".$config->infos->site_name);
+		curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 60);
+		curl_setopt($curl, CURLOPT_TIMEOUT, 660);
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
 		$response = curl_exec($curl);
@@ -107,7 +113,7 @@ for ($iLat = 0; $iLat < $countLat;) {
 					}
 					$tempGeo = combineOuter($outers);
 				}
-				if (!is_null($tempGeo)) {
+				if (!is_null($tempGeo) && count($tempGeo) != 0) {
 					$data = array();
 					$geo = array();
 					foreach ($tempGeo as $ele) {
@@ -128,6 +134,7 @@ for ($iLat = 0; $iLat < $countLat;) {
 						$data["name"] = null;
 					}
 					$data["id"] = $element["id"];
+					$data["bounds"] = $element["bounds"];
 					$parks[] = $data;
 				}
 				unset($json[$key]);
@@ -161,7 +168,7 @@ for ($iLat = 0; $iLat < $countLat;) {
 					$lng = $spawnpoint["lng"];
 					$pid = $spawnpoint['pid'];
 
-					if (pointIsInsidePolygon($lat, $lng, $park["geo"])) {
+					if (pointIsInsidePolygon($lat, $lng, $park["geo"], $park["bounds"])) {
 						if (!isset($spawns[$pid])) {
 							$spawns[$pid] = 0;
 						}
@@ -201,10 +208,10 @@ for ($iLat = 0; $iLat < $countLat;) {
 			}
 			$iLng++;
 		} else if ($status == 429) {
-			echo "Got Error 429: Trying again in 5 Minutes";
+			echo "Got Error 429: Trying again in 5 Minutes...\n";
 			sleep(300);
 		} else {
-			echo "Error " . $status . " while getting nests from overpass-turbo. Aborting Nest Update.";
+			echo "Error " . $status . " while getting nests from overpass-turbo. Aborting Nest Update.\n";
 			touch($nests_parks_file, $prevNestTime);
 			exit();
 		}
@@ -212,6 +219,18 @@ for ($iLat = 0; $iLat < $countLat;) {
 	$iLat++;
 }
 
+// Check for nests in nests of same pokemon
+foreach ($allNestParks as $keyA => &$parkA) {
+	foreach ($allNestParks as $keyB => &$parkB) {
+		if ($keyA != $keyB && $parkA["pid"] == $parkB["pid"]) {
+			if (polyIsInsidePolygon($parkA["geo"], $parkA["bounds"], $parkB["geo"], $parkB["bounds"])) {
+				unset($allNestParks[$keyA]);
+			} else if (polyIsInsidePolygon($parkB["geo"], $parkB["bounds"], $parkA["geo"], $parkA["bounds"])) {
+				unset($allNestParks[$keyB]);
+			}
+		}
+	}
+}
 
 // Write files
 file_put_contents($nests_file, json_encode($allNestSpawns));
