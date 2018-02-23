@@ -680,7 +680,7 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 		return $data;
 	}
 
-	public function getNestData($time) {
+	public function getNestData($time, $minLatitude, $maxLatitude, $minLongitude, $maxLongitude) {
 		$pokemon_exclude_sql = "";
 		if (!empty(self::$config->system->nest_exclude_pokemon)) {
 			$pokemon_exclude_sql = "AND p.pokemon_id NOT IN (" . implode(",", self::$config->system->nest_exclude_pokemon) . ")";
@@ -689,6 +689,7 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 			          FROM sightings p
 			          INNER JOIN spawnpoints s ON (p.spawn_id = s.spawn_id)
 			          WHERE p.expire_timestamp > EXTRACT(EPOCH FROM NOW()) - ".($time * 3600)."
+			            AND p.lat >= ".$minLatitude." AND p.lat < ".$maxLatitude." AND p.lon >= ".$minLongitude." AND p.lon < ".$maxLongitude."
 			          " . $pokemon_exclude_sql . "
 			          GROUP BY p.spawn_id, p.pokemon_id
 			          HAVING COUNT(p.pokemon_id) >= ".($time / 4)."
@@ -699,6 +700,15 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 			$nests[] = $data;
 		}
 		return $nests;
+	}
+
+	public function getSpawnpointCount($minLatitude, $maxLatitude, $minLongitude, $maxLongitude) {
+		$req = "SELECT COUNT(*) as total 
+					FROM spawnpoints 
+ 					WHERE lat >= ".$minLatitude." AND lat < ".$maxLatitude." AND lon >= ".$minLongitude." AND lon < ".$maxLongitude;
+		$result = $this->mysqli->query($req);
+		$data = $result->fetch_object();
+		return $data;
 	}
 
 }

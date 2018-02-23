@@ -662,7 +662,7 @@ final class QueryManagerMysqlRocketmap extends QueryManagerMysql {
 		return $data;
 	}
 
-	public function getNestData($time) {
+	public function getNestData($time, $minLatitude, $maxLatitude, $minLongitude, $maxLongitude) {
 		$pokemon_exclude_sql = "";
 		if (!empty(self::$config->system->nest_exclude_pokemon)) {
 			$pokemon_exclude_sql = "AND p.pokemon_id NOT IN (".implode(",", self::$config->system->nest_exclude_pokemon).")";
@@ -671,6 +671,7 @@ final class QueryManagerMysqlRocketmap extends QueryManagerMysql {
 			          FROM pokemon p 
 			          INNER JOIN spawnpoint s ON (p.spawnpoint_id = s.id) 
 			          WHERE p.disappear_time > UTC_TIMESTAMP() - INTERVAL ".($time)." HOUR 
+			            AND p.latitude >= ".$minLatitude." AND p.latitude < ".$maxLatitude." AND p.longitude >= ".$minLongitude." AND p.longitude < ".$maxLongitude."
 			          " . $pokemon_exclude_sql . " 
 			          GROUP BY p.spawnpoint_id, p.pokemon_id 
 			          HAVING COUNT(p.pokemon_id) >= ".($time / 4)." 
@@ -681,6 +682,15 @@ final class QueryManagerMysqlRocketmap extends QueryManagerMysql {
 			$nests[] = $data;
 		}
 		return $nests;
+	}
+
+	public function getSpawnpointCount($minLatitude, $maxLatitude, $minLongitude, $maxLongitude) {
+		$req = "SELECT COUNT(*) as total 
+					FROM spawnpoint
+ 					WHERE latitude >= ".$minLatitude." AND latitude < ".$maxLatitude." AND longitude >= ".$minLongitude." AND longitude < ".$maxLongitude;
+		$result = $this->mysqli->query($req);
+		$data = $result->fetch_object();
+		return $data;
 	}
 
 }
