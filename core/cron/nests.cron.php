@@ -100,9 +100,9 @@ for ($iLat = 0; $iLat < $countLat;) {
 
 			$parks = array();
 			foreach ($json["elements"] as $key => &$element) {
-				$tempGeo = null;
+				$tempGeos = array();
 				if (isset($element["type"]) && $element["type"] == "way" && isset($element["geometry"])) {
-					$tempGeo = $element["geometry"];
+					$tempGeos = array($element["geometry"]);
 				} else if (isset($element["type"]) && $element["type"] == "relation" && isset($element["members"])) {
 					$outers = array();
 					$members = $element["members"];
@@ -111,33 +111,36 @@ for ($iLat = 0; $iLat < $countLat;) {
 							$outers[] = $member["geometry"];
 						}
 					}
-					$tempGeo = combineOuter($outers);
+					$tempGeos = combineOuter($outers);
 				}
-				if (!is_null($tempGeo) && count($tempGeo) != 0) {
-					$data = array();
-					$geo = array();
-					foreach ($tempGeo as $ele) {
-						$geo[] = array("lat" => $ele["lat"], "lng" => $ele["lon"]);
-					}
+				foreach ($tempGeos as $key => $tempGeo) {
+					if (!is_null($tempGeo) && count($tempGeo) != 0) {
+						$data = array();
+						$geo = array();
+						foreach ($tempGeo as $ele) {
+							$geo[] = array("lat" => $ele["lat"], "lng" => $ele["lon"]);
+						}
 
-					// Finish poly where we started
-					$firstEle = $geo[0];
-					$lastEle = $geo[count($geo) - 1];
-					if ($firstEle != $lastEle) {
-						$geo[] = $firstEle;
-					}
+						// Finish poly where we started
+						$firstEle = $geo[0];
+						$lastEle = $geo[count($geo) - 1];
+						if ($firstEle != $lastEle) {
+							$geo[] = $firstEle;
+						}
 
-					$data["geo"] = $geo;
-					if (isset($element["tags"]) && isset($element["tags"]["name"])) {
-						$data["name"] = $element["tags"]["name"];
-					} else {
-						$data["name"] = null;
+						$data["geo"] = $geo;
+						if (isset($element["tags"]) && isset($element["tags"]["name"])) {
+							$data["name"] = $element["tags"]["name"];
+						} else {
+							$data["name"] = null;
+						}
+						$data["id"] = $element["id"].'#'.$key;
+						$data["bounds"] = $element["bounds"];
+						$parks[] = $data;
 					}
-					$data["id"] = $element["id"];
-					$data["bounds"] = $element["bounds"];
-					$parks[] = $data;
 				}
 				unset($json[$key]);
+
 			}
 
 			// Get frequent spawn points
