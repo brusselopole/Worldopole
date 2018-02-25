@@ -34,7 +34,7 @@ for ($iLat = 0; $iLat < $countLat;) {
 		$req = '[timeout:600][out:json][date:"2016-07-17T00:00:00Z"][bbox:' . $minLatitude . ',' . $minLongitude . ',' . $maxLatitude . ',' . $maxLongitude . '];
 				(
 					way["leisure"="park"];
-					way["landuse"="garden"];
+					way["leisure"="garden"];
 					way["leisure"="golf_course"];
 					way["boundary"="physiogeographical"];
 		
@@ -56,7 +56,7 @@ for ($iLat = 0; $iLat < $countLat;) {
 					way["landuse"="vineyard"];
 					
 					rel["leisure"="park"];
-					rel["landuse"="garden"];
+					rel["leisure"="garden"];
 					rel["leisure"="golf_course"];
 					rel["boundary"="physiogeographical"];
 		
