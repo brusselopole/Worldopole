@@ -31,51 +31,55 @@ for ($iLat = 0; $iLat < $countLat;) {
 		}
 
 		// Get Parks from overpass
-		$req = '[timeout:600][out:json][date:"2016-07-17T00:00:00Z"][bbox:' . $minLatitude . ',' . $minLongitude . ',' . $maxLatitude . ',' . $maxLongitude . '];
+		$req = '[timeout:600][out:json][date:"2017-01-22T00:00:00Z"][bbox:' . $minLatitude . ',' . $minLongitude . ',' . $maxLatitude . ',' . $maxLongitude . '];
 				(
 					way["leisure"="park"];
 					way["leisure"="garden"];
 					way["leisure"="golf_course"];
-					way["boundary"="physiogeographical"];
-		
-					way["boundary"="national_park"];
-					way["recreation_ground"];
+					way["leisure"="recreation_ground"];
 					way["leisure"="playground"];
 					way["leisure"="pitch"];
+					way["leisure"="nature_reserve"];
 		
-					way["landuse"="grass"];
-					way["landuse"="meadow"];
+					way["boundary"="physiogeographical"];
+					way["boundary"="national_park"];
+		
 					way["natural"="heath"];
 					way["natural"="moor"];
 					way["natural"="scrub"];
-		
+	
+					way["landuse"="grass"];
+					way["landuse"="meadow"];
 					way["landuse"="farmland"];
 					way["landuse"="greenfield"];
 					way["landuse"="recreation_ground"];
 					way["landuse"="farmyard"];
 					way["landuse"="vineyard"];
+					way["landuse"="orchard"];
 					
 					rel["leisure"="park"];
 					rel["leisure"="garden"];
 					rel["leisure"="golf_course"];
-					rel["boundary"="physiogeographical"];
-		
-					rel["boundary"="national_park"];
-					rel["recreation_ground"];
+					rel["leisure"="recreation_ground"];
 					rel["leisure"="playground"];
 					rel["leisure"="pitch"];
+					rel["leisure"="nature_reserve"];
+					
+					rel["boundary"="physiogeographical"];
+					rel["boundary"="national_park"];
 		
-					rel["landuse"="grass"];
-					rel["landuse"="meadow"];
 					rel["natural"="heath"];
 					rel["natural"="moor"];
 					rel["natural"="scrub"];
 		
+					rel["landuse"="grass"];
+					rel["landuse"="meadow"];
 					rel["landuse"="farmland"];
 					rel["landuse"="greenfield"];
 					rel["landuse"="recreation_ground"];
 					rel["landuse"="farmyard"];
 					rel["landuse"="vineyard"];
+					rel["landuse"="orchard"];
 				);
 				out meta geom;
 				>;
