@@ -378,5 +378,4 @@ function combineOuter($outers) {
 		}
 	}
 	return $polygons;
-}ygon;
 }
