@@ -223,8 +223,8 @@ for ($iLat = 0; $iLat < $countLat;) {
 }
 
 // Check for nests in nests of same pokemon
-foreach ($allNestParks as $keyA => &$parkA) {
-	foreach ($allNestParks as $keyB => &$parkB) {
+foreach ($allNestParks as $keyA => $parkA) {
+	foreach ($allNestParks as $keyB => $parkB) {
 		if ($keyA != $keyB && $parkA["pid"] == $parkB["pid"]) {
 			if (polyIsInsidePolygon($parkA["geo"], $parkA["bounds"], $parkB["geo"], $parkB["bounds"])) {
 				unset($allNestParks[$keyA]);
