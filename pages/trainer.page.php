@@ -82,6 +82,7 @@
 					<th><?= $locales->TRAINERS_TABLE_LEVEL ?></th>
 					<th><?= $locales->TRAINERS_TABLE_GYMS ?></th>
 					<th><?= $locales->TRAINERS_TABLE_LAST_SEEN ?></th>
+					<th><?= $locales->TRAINERS_TABLE_SHOW_ALL ?></th>
 				</tr>
 				</thead>
 				<tbody id="trainersContainer">
@@ -89,10 +90,10 @@
 				</tbody>
 				<tfoot>
 					<tr class="loadMore text-center">
-						<td colspan="6"><button id="loadMoreButton" class="btn btn-default hidden"><?= $locales->TRAINERS_LOAD_MORE ?></button></td>
+						<td colspan="7"><button id="loadMoreButton" class="btn btn-default hidden"><?= $locales->TRAINERS_LOAD_MORE ?></button></td>
 					</tr>
 					<tr class="trainerLoader">
-						<td colspan="6"><div class="loader"></div></td>
+						<td colspan="7"><div class="loader"></div></td>
 					</tr>
 				</tfoot>
 			</table>
