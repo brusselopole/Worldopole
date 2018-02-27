@@ -52,6 +52,9 @@ if (is_file($pokestop_file)) {
 if (is_file($pokemonstats_file)) {
 	$pokedatas	= json_decode(file_get_contents($pokemonstats_file), true);
 }
+if (is_file($pokedex_counts_file)) {
+	$pokecountdatas	= json_decode(file_get_contents($pokedex_counts_file), true);
+}
 if (is_file($pokedex_raids_file)) {
 	$raiddatas	= json_decode(file_get_contents($pokedex_raids_file), true);
 }
