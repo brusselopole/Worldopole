@@ -101,7 +101,7 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 
 
 	function getTotalGymsForTeam($team_id) {
-		$req = "SELECT COUNT(*) AS total 
+		$req = "SELECT COUNT(*) AS total
 					FROM forts f
 					LEFT JOIN fort_sightings fs ON (fs.fort_id = f.id AND fs.last_modified = (SELECT MAX(last_modified) FROM fort_sightings fs2 WHERE fs2.fort_id=f.id))
 					WHERE team = '$team_id'";
@@ -148,7 +148,7 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 	///////////////////
 
 	function getGymsProtectedByPokemon($pokemon_id) {
-		$req = "SELECT COUNT(f.id) AS total 
+		$req = "SELECT COUNT(f.id) AS total
 					FROM forts f
 					LEFT JOIN fort_sightings fs ON (fs.fort_id = f.id AND fs.last_modified = (SELECT MAX(last_modified) FROM fort_sightings fs2 WHERE fs2.fort_id=f.id))
 					WHERE guard_pokemon_id = '".$pokemon_id."'";
@@ -208,7 +208,7 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 	public function getPokemonHeatmap($pokemon_id, $start, $end) {
 		$where = " WHERE pokemon_id = ".$pokemon_id." "
 			. "AND TO_TIMESTAMP(expire_timestamp) BETWEEN '".$start."' AND '".$end."'";
-		$req 		= "SELECT lat AS latitude, lon AS longitude FROM sightings".$where." ORDER BY expire_timestamp DESC LIMIT 100000";
+		$req 		= "SELECT lat AS latitude, lon AS longitude FROM sightings".$where." LIMIT 100000";
 		$result = pg_query($this->db, $req);
 		$points = array();
 		while ($data = pg_fetch_object($result)) {
@@ -219,7 +219,7 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 
 	public function getPokemonGraph($pokemon_id) {
 		$req = "SELECT COUNT(*) AS total, EXTRACT(HOUR FROM disappear_time) AS disappear_hour
-					FROM (SELECT TO_TIMESTAMP(expire_timestamp) as disappear_time FROM sightings WHERE pokemon_id = '".$pokemon_id."' ORDER BY disappear_time LIMIT 100000) AS pokemonFiltered
+					FROM (SELECT TO_TIMESTAMP(expire_timestamp) as disappear_time FROM sightings WHERE pokemon_id = '".$pokemon_id."' LIMIT 100000) AS pokemonFiltered
 				GROUP BY disappear_hour
 				ORDER BY disappear_hour";
 		$result = pg_query($this->db, $req);
@@ -259,7 +259,6 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
     					atk_iv AS individual_attack, def_iv AS individual_defense, sta_iv AS individual_stamina,
    						move_1, move_2
 					FROM sightings " . $where . "
-					ORDER BY disappear_time DESC
 					LIMIT 5000";
 		$result = pg_query($this->db, $req);
 		$spawns = array();
@@ -312,7 +311,7 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 	/////////
 
 	function getTeamGuardians($team_id) {
-		$req = "SELECT COUNT(*) AS total, guard_pokemon_id 
+		$req = "SELECT COUNT(*) AS total, guard_pokemon_id
 					FROM forts f
 					LEFT JOIN fort_sightings fs ON (fs.fort_id = f.id AND fs.last_modified = (SELECT MAX(last_modified) FROM fort_sightings fs2 WHERE fs2.fort_id=f.id))
 					WHERE team = '".$team_id."' GROUP BY guard_pokemon_id ORDER BY total DESC LIMIT 3 OFFSET 0";
@@ -337,7 +336,7 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 	}
 
 	function getAllGyms() {
-		$req = "SELECT f.id as gym_id, team as team_id, f.lat as latitude, f.lon as longitude, updated as last_scanned, (6 - fs.slots_available) AS level 
+		$req = "SELECT f.id as gym_id, team as team_id, f.lat as latitude, f.lon as longitude, updated as last_scanned, (6 - fs.slots_available) AS level
 					FROM forts f
 					LEFT JOIN fort_sightings fs ON (fs.fort_id = f.id AND fs.last_modified = (SELECT MAX(last_modified) FROM fort_sightings fs2 WHERE fs2.fort_id=f.id))";
 		$result = pg_query($this->db, $req);
@@ -349,7 +348,7 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 	}
 
 	public function getGymData($gym_id) {
-		$req = "SELECT f.name AS name, null AS description, f.url AS url, fs.team AS team, TO_TIMESTAMP(fs.updated) AS last_scanned, fs.guard_pokemon_id AS guard_pokemon_id, (6 - fs.slots_available) AS level, fs.total_cp	
+		$req = "SELECT f.name AS name, null AS description, f.url AS url, fs.team AS team, TO_TIMESTAMP(fs.updated) AS last_scanned, fs.guard_pokemon_id AS guard_pokemon_id, (6 - fs.slots_available) AS level, fs.total_cp
 			FROM forts f
 			LEFT JOIN fort_sightings fs ON (fs.fort_id = f.id AND fs.last_modified = (SELECT MAX(last_modified) FROM fort_sightings fs2 WHERE fs2.fort_id=f.id))
 			WHERE f.id ='".$gym_id."'
@@ -361,7 +360,7 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 
 	public function getGymDefenders($gym_id) {
 		$req = "SELECT external_id as pokemon_uid, pokemon_id, atk_iv as iv_attack, def_iv as iv_defense, sta_iv as iv_stamina, cp, fort_id as gym_id
-			FROM gym_defenders 
+			FROM gym_defenders
 			WHERE fort_id='".$gym_id."'
 			ORDER BY deployment_time";
 		$result = pg_query($this->db, $req);
@@ -400,7 +399,7 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 
 		$limit = " LIMIT 10 OFFSET ".($page * 10);
 
-		$req = "SELECT f.id as gym_id, fs.total_cp, f.name, fs.team as team_id, (6 - slots_available) as pokemon_count, TO_TIMESTAMP(last_modified) AS last_modified 
+		$req = "SELECT f.id as gym_id, fs.total_cp, f.name, fs.team as team_id, (6 - slots_available) as pokemon_count, TO_TIMESTAMP(last_modified) AS last_modified
 			FROM forts f
 			LEFT JOIN fort_sightings fs ON (fs.fort_id = f.id AND fs.last_modified = (SELECT MAX(last_modified) FROM fort_sightings fs2 WHERE fs2.fort_id=f.id))
 			".$where.$order.$limit;
@@ -487,11 +486,11 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 
 	public function getAllRaids($page) {
 		$limit = " LIMIT 10 OFFSET ". ($page * 10);
-		$req = "SELECT r.fort_id AS gym_id, r.level AS level, r.pokemon_id AS pokemon_id, r.cp AS cp, r.move_1 AS move_1, r.move_2 AS move_2, TO_TIMESTAMP(r.time_spawn) AS spawn, TO_TIMESTAMP(r.time_battle) AS start, TO_TIMESTAMP(r.time_end) AS end, TO_TIMESTAMP(fs.updated) AS last_scanned, f.name, f.lat AS latitude, f.lon as longitude 
+		$req = "SELECT r.fort_id AS gym_id, r.level AS level, r.pokemon_id AS pokemon_id, r.cp AS cp, r.move_1 AS move_1, r.move_2 AS move_2, TO_TIMESTAMP(r.time_spawn) AS spawn, TO_TIMESTAMP(r.time_battle) AS start, TO_TIMESTAMP(r.time_end) AS end, TO_TIMESTAMP(fs.updated) AS last_scanned, f.name, f.lat AS latitude, f.lon as longitude
 					FROM forts f
 					LEFT JOIN fort_sightings fs ON (fs.fort_id = f.id AND fs.last_modified = (SELECT MAX(last_modified) FROM fort_sightings fs2 WHERE fs2.fort_id=f.id))
-				 	LEFT JOIN raids r ON (r.fort_id = f.id AND r.time_end >= UNIX_TIMESTAMP()) 
-					WHERE r.time_end > EXTRACT(EPOCH FROM NOW()) 
+				 	LEFT JOIN raids r ON (r.fort_id = f.id AND r.time_end >= UNIX_TIMESTAMP())
+					WHERE r.time_end > EXTRACT(EPOCH FROM NOW())
 					ORDER BY r.level DESC, r.time_battle" . $limit;
 		$result = pg_query($this->db, $req);
 		$raids = array();
@@ -581,7 +580,7 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 
 	public function getActivePokemon($trainer_name) {
 		$req = "SELECT pokemon_id, cp, atk_iv AS iv_attack, sta_iv AS iv_stamina, def_iv AS iv_defense, TO_TIMESTAMP(deployment_time) AS deployment_time, '1' AS active, fort_id as gym_id, FLOOR((UNIX_TIMESTAMP() - created) / 86400) AS last_scanned
-						FROM gym_defenders 
+						FROM gym_defenders
 						WHERE owner_name = '".$trainer_name."' AND fort_id IS NOT NULL
 						ORDER BY deployment_time";
 		$result = $this->mysqli->query($req);
@@ -594,7 +593,7 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 
 	public function getInactivePokemon($trainer_name) {
 		$req = "SELECT pokemon_id, cp, atk_iv AS iv_attack, sta_iv AS iv_stamina, def_iv AS iv_defense, NULL AS deployment_time, '0' AS active, fort_id as gym_id, FLOOR((UNIX_TIMESTAMP() - created) / 86400) AS last_scanned
-					FROM gym_defenders 
+					FROM gym_defenders
 					WHERE owner_name = '".$trainer_name."' AND fort_id IS NULL
 					ORDER BY last_scanned";
 		$result = $this->mysqli->query($req);
@@ -681,7 +680,7 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 					JOIN (SELECT COUNT(*) AS count
 						FROM raids
                     	" . $where."
-                    ) count ON 1 = 1 
+                    ) count ON 1 = 1
 	                " . $where."
 	                ORDER BY time_battle DESC
 					LIMIT 1 OFFSET 0";
