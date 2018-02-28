@@ -1,8 +1,8 @@
 <?php
 
 /**
- * The next 3 functions come from the HTTP2 pear package 
- * Copyright (c) 2002-2005, 
+ * The next 3 functions come from the HTTP2 pear package
+ * Copyright (c) 2002-2005,
  * Stig Bakken <ssb@fast.no>,
  * Sterling Hughes <sterling@php.net>,
  * Tomas V.V.Cox <cox@idecnet.com>,
@@ -159,7 +159,7 @@ $pokemon_trans = json_decode(json_encode($pokemon_trans_array), false);
 unset($pokemon_trans_array);
 
 
-// Merge the pokedex, pokemon translation and rarity file into a new array 
+// Merge the pokedex, pokemon translation and rarity file into a new array
 ##########################################################################
 
 $pokedex_file = file_get_contents(SYS_PATH.'/core/json/pokedex.json');
