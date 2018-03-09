@@ -1,6 +1,20 @@
 /** global: gymName */
 
 $(function () {
+	function htmlspecialchars_decode(string) {
+		var escapeMap = {
+			"&amp;": "&",
+			"&lt;": "<",
+			"&gt;": ">",
+			"&quot;": "\"",
+			"&#39;": "'",
+			"&#039;": "'"
+		};
+		return String(string).replace(/&(amp|lt|gt|quot|#0?39);/gi, function (s) {
+			return escapeMap[s] || s;
+		});
+	}
+
 	$.getJSON("core/json/variables.json", function(variables) {
 		var pokeimg_suffix = variables['system']['pokeimg_suffix'];
 		var hide_cp_changes = variables['system']['gymhistory_hide_cp_changes'];
@@ -11,7 +25,7 @@ $(function () {
 		var teamSelector = ''; //''=all; 0=neutral; 1=Blue; 2=Red; 3=Yellow
 		var rankingFilter = 0; //0=Level & Gyms; 1=Level; 2=Gyms
 
-		$('input#name').filter(':visible').val(gymName);
+		$('input#name').filter(':visible').val(htmlspecialchars_decode(gymName));
 
 		$('#loadMoreButton').click(function () {
 			loadGyms(page, $('input#name').filter(':visible').val(), teamSelector, rankingFilter, pokeimg_suffix, hide_cp_changes, true);
