@@ -102,11 +102,10 @@
 <script type="text/javascript">
 <?=
 $trainerName = "";
-if (isset($_GET['name']) && $_GET['name'] != "") {
-	$trainerName = htmlentities($_GET['name']);
+if (isset($_GET['name'])) {
+	$trainerName = htmlspecialchars($_GET['name'], ENT_QUOTES);
 }
 
 ?>
-	var trainerName = "<?= $trainerName ?>";
-
+var trainerName = "<?= $trainerName ?>";
 </script>

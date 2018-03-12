@@ -1,5 +1,18 @@
 /** global: trainerName */
 $(function() {
+	function htmlspecialchars_decode(string) {
+		var escapeMap = {
+			"&amp;": "&",
+			"&lt;": "<",
+			"&gt;": ">",
+			"&quot;": "\"",
+			"&#39;": "'",
+			"&#039;": "'"
+		};
+		return String(string).replace(/&(amp|lt|gt|quot|#0?39);/gi, function (s) {
+			return escapeMap[s] || s;
+		});
+	}
 
 	$.getJSON('core/json/variables.json', function(variables) {
 		var pokeimg_suffix = variables['system']['pokeimg_suffix'];
@@ -10,7 +23,7 @@ $(function() {
 		var teamSelector = 0; //0=all;1=Blue;2=Red;3=Yellow
 		var rankingFilter = 0; //0=Level & Gyms; 1=Level; 2=Gyms
 
-		$('input#name').filter(':visible').val(trainerName);
+		$('input#name').filter(':visible').val(htmlspecialchars_decode(trainerName));
 		loadTrainers(page, $('input#name').filter(':visible').val(), null, null, pokeimg_suffix, true, iv_numbers);
 		if ($('input#name')) {
 			$('input#name').filter(':visible').val() != '' ? $('#trainersGraph').hide() : $('#trainersGraph').show();
