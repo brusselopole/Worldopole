@@ -68,13 +68,8 @@
 <script type="text/javascript">
 <?=
 $gymName = "";
-<<<<<<< HEAD
 if (isset($_GET['name']) && $_GET['name']!="") {
 	$gymName = html_entity_decode($_GET['name']);
-=======
-if (isset($_GET['name'])) {
-	$gymName = htmlspecialchars($_GET['name'], ENT_QUOTES);
->>>>>>> upstream/master
 }
 ?>
 var gymName = "<?= $gymName ?>";
