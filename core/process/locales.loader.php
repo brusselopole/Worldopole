@@ -1,5 +1,11 @@
 <?php
 
+// Load Query Manager
+// ###################
+
+include_once __DIR__ . '/queries/QueryManager.php';
+$manager = QueryManager::current();
+
 /**
  * The next 3 functions come from the HTTP2 pear package
  * Copyright (c) 2002-2005,
@@ -19,6 +25,7 @@
  *
  * @return array Sorted list of "accept" options
  */
+
 $sortAccept = function ($header) {
 	$matches = array();
 	foreach (explode(',', $header) as $option) {
@@ -168,15 +175,10 @@ $pokemons_all = json_decode($pokedex_file);
 $pokedex_rarity_file = SYS_PATH.'/core/json/pokedex.rarity.json';
 $pokemons_rarity = json_decode(file_get_contents($pokedex_rarity_file));
 
-$pokedex_counts_file = SYS_PATH.'/core/json/pokedex.counts.json';
-$pokemon_counts = json_decode(file_get_contents($pokedex_counts_file));
-
-$pokedex_raids_file = SYS_PATH.'/core/json/pokedex.raids.json';
-$raid_counts = json_decode(file_get_contents($pokedex_raids_file));
-
 $pokemons = new stdClass();
 $pokemons->pokemon = new stdClass();
 
+$totalCountPoke = 0;
 $maxpid = $config->system->max_pokemon;
 for ($pokeid = 1; $pokeid <= $maxpid; $pokeid++) {
 	if (!isset($pokemons_all->pokemon->$pokeid)) {
@@ -210,31 +212,38 @@ for ($pokeid = 1; $pokeid <= $maxpid; $pokeid++) {
 		}
 	}
 
-	// Add raid data to array
-	if ($count_data = $pokemon_counts->$pokeid) {
-		if (isset($count_data->disappear_time)) {
-			$pokemon->last_seen = strtotime($count_data->disappear_time);
-			$pokemon->last_position = new stdClass();
-			$pokemon->last_position->latitude = $count_data->latitude;
-			$pokemon->last_position->longitude = $count_data->longitude;
-		}
-		$pokemon->spawn_count = $count_data->count;
+	// Add pokemon counts to array
+	$data = $manager->getPokemonCount($pokeid);
+	if (isset($data->count)) {
+		$pokemon->spawn_count = $data->count;
+		$pokemon->last_seen = $data->last_seen;
+		$pokemon->last_position = new stdClass();
+		$pokemon->last_position->latitude = $data->latitude;
+		$pokemon->last_position->longitude = $data->longitude;
+
+		$totalCountPoke += $data->count;
+
 	} else {
 		$pokemon->spawn_count = 0;
+		$pokemon->last_seen = null;
+		$pokemon->last_position = null;
 	}
 
-	// Add raid data to array
-	if ($raid_data = $raid_counts->$pokeid) {
-		if (isset($raid_data->end_time)) {
-			$pokemon->last_raid_seen = strtotime($raid_data->end_time);
-			$pokemon->last_raid_position = new stdClass();
-			$pokemon->last_raid_position->latitude = $raid_data->latitude;
-			$pokemon->last_raid_position->longitude = $raid_data->longitude;
-		}
-		$pokemon->raid_count = $raid_data->count;
+
+	// Add raid counts to array
+	$data = $manager->getRaidCount($pokeid);
+	if (isset($data->count)) {
+		$pokemon->raid_count = $data->count;
+		$pokemon->last_raid_seen = $data->last_seen;
+		$pokemon->last_raid_position = new stdClass();
+		$pokemon->last_raid_position->latitude = $data->latitude;
+		$pokemon->last_raid_position->longitude = $data->longitude;
 	} else {
 		$pokemon->raid_count = 0;
+		$pokemon->last_raid_seen = null;
+		$pokemon->last_raid_position = null;
 	}
+
 
 	// Calculate and add rarities to array
 	$spawn_rate = $pokemons_rarity->$pokeid->rate;
@@ -262,12 +271,7 @@ for ($pokeid = 1; $pokeid <= $maxpid; $pokeid++) {
 	$pokemons->pokemon->$pokeid = $pokemon;
 }
 
-// Add total pokemon count
-if (isset($pokemon_counts->total)) {
-	$pokemons->total = $pokemon_counts->total;
-} else {
-	$pokemons->total = 0;
-}
+$pokemons->total = $totalCountPoke;
 
 // Translate typecolors array keys as well
 $types_temp = new stdClass();

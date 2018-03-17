@@ -282,6 +282,24 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 		return $data;
 	}
 
+	public function getPokemonCount($pokemon_id) {
+		$req = "SELECT count, last_seen, latitude, longitude
+					FROM pokemon_stats
+					WHERE pid = ".$pokemon_id;
+		$result = pg_query($this->db, $req);
+		$data = pg_fetch_object($result);
+		return $data;
+	}
+
+	public function getRaidCount($pokemon_id) {
+		$req = "SELECT count, last_seen, latitude, longitude
+					FROM raid_stats
+					WHERE pid = ".$pokemon_id;
+		$result = pg_query($this->db, $req);
+		$data = pg_fetch_object($result);
+		return $data;
+	}
+
 
 	///////////////
 	// Pokestops
@@ -654,40 +672,6 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 		return $counts;
 	}
 
-	public function getPokemonSinceLastUpdate($pokemon_id, $last_update) {
-		$where = "WHERE p.pokemon_id = '".$pokemon_id."' AND p.expire_timestamp - (coalesce(CASE WHEN duration = 0 THEN NULL ELSE duration END ,30)*60) > '".$last_update."'";
-		$req = "SELECT count, p.expire_timestamp - (coalesce(CASE WHEN duration = 0 THEN NULL ELSE duration END ,30)*60) AS last_timestamp, (TO_TIMESTAMP(expire_timestamp)) AS disappear_time_real, lat as latitude, lon as longitude
-					FROM sightings p
-					LEFT JOIN spawnpoints s ON p.spawn_id = s.spawn_id
-				  	JOIN (SELECT COUNT(*) AS count
-						FROM FROM sightings p
-						LEFT JOIN spawnpoints s ON p.spawn_id = s.spawn_id
-                    	" . $where. "
-                    ) count ON 1 = 1
-					" . $where . "
-					ORDER BY last_timestamp DESC
-					LIMIT 1 OFFSET 0";
-		$result = pg_query($this->db, $req);
-		$data = pg_fetch_object($result);
-		return $data;
-	}
-
-	public function getRaidsSinceLastUpdate($pokemon_id, $last_update) {
-		$where = "WHERE pokemon_id = '".$pokemon_id."' AND time_battle > '".$last_update."'";
-		$req = "SELECT time_battle AS start_timestamp, time_end as end, (TO_TIMESTAMP(time_end)) AS end_time_real, lat as latitude, lon as longitude, count
-					FROM raids r
-					JOIN forts g ON r.fort_id = g.id
-					JOIN (SELECT COUNT(*) AS count
-						FROM raids
-                    	" . $where."
-                    ) count ON 1 = 1
-	                " . $where."
-	                ORDER BY time_battle DESC
-					LIMIT 1 OFFSET 0";
-		$result = pg_query($this->db, $req);
-		$data = pg_fetch_object($result);
-		return $data;
-	}
 
 	public function getCaptchaCount() {
 		$req = " SELECT COUNT(*) as total FROM accounts WHERE captchaed IS NOT NULL AND reason IS NULL";

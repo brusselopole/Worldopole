@@ -271,6 +271,25 @@ final class QueryManagerMysqlRocketmap extends QueryManagerMysql {
 		return $data;
 	}
 
+	public function getPokemonCount($pokemon_id) {
+		$req = "SELECT count, last_seen, latitude, longitude
+					FROM pokemon_stats
+					WHERE pid = ".$pokemon_id;
+		$result = $this->mysqli->query($req);
+		$data = $result->fetch_object();
+		return $data;
+	}
+
+	public function getRaidCount($pokemon_id) {
+		$req = "SELECT count, last_seen, latitude, longitude
+					FROM raid_stats
+					WHERE pid = ".$pokemon_id;
+		$result = $this->mysqli->query($req);
+		$data = $result->fetch_object();
+		return $data;
+	}
+
+
 
 	///////////////
 	// Pokestops
@@ -634,42 +653,6 @@ final class QueryManagerMysqlRocketmap extends QueryManagerMysql {
 			$counts[$data->pokemon_id] = $data->spawns_last_day;
 		}
 		return $counts;
-	}
-
-	public function getPokemonSinceLastUpdate($pokemon_id, $last_update) {
-		$where = "WHERE p.pokemon_id = '".$pokemon_id."' AND (UNIX_TIMESTAMP(p.disappear_time) - (LENGTH(s.kind) - LENGTH( REPLACE ( kind, \"s\", \"\") )) * 900) > '".$last_update."'";
-		$req = "SELECT count, (UNIX_TIMESTAMP(p.disappear_time) - (LENGTH(s.kind) - LENGTH( REPLACE ( kind, \"s\", \"\") )) * 900) as last_timestamp, (CONVERT_TZ(p.disappear_time, '+00:00', '".self::$time_offset."')) AS disappear_time_real, p.latitude, p.longitude
-				FROM pokemon p
-				JOIN spawnpoint s ON p.spawnpoint_id = s.id
-				JOIN (SELECT count(*) as count
-                    FROM pokemon p
-                    JOIN spawnpoint s ON p.spawnpoint_id = s.id
-                    " . $where."
-                ) x
-				" . $where . "
-				ORDER BY last_timestamp DESC
-                LIMIT 0,1";
-		$result = $this->mysqli->query($req);
-		$data = $result->fetch_object();
-		return $data;
-	}
-
-	public function getRaidsSinceLastUpdate($pokemon_id, $last_update) {
-		$where = "WHERE pokemon_id = '".$pokemon_id."' AND UNIX_TIMESTAMP(start) > '".$last_update."'";
-		$req = "SELECT UNIX_TIMESTAMP(start) as start_timestamp, end, (CONVERT_TZ(end, '+00:00', '".self::$time_offset."')) AS end_time_real, latitude, longitude, count
-                FROM raid r
-                JOIN gym g
-                JOIN (SELECT count(*) as count
-                    FROM raid
-                    " . $where."
-                ) x
-                ON r.gym_id = g.gym_id
-                " . $where."
-                ORDER BY start DESC
-                LIMIT 0,1";
-		$result = $this->mysqli->query($req);
-		$data = $result->fetch_object();
-		return $data;
 	}
 
 	public function getCaptchaCount() {

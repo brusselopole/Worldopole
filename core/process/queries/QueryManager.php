@@ -22,7 +22,7 @@ abstract class QueryManager {
 			self::$time_offset = $time_offset;
 
 
-			switch (strtolower(self::$config->system->db_type)) {
+			switch (strtolower(SYS_DB_TYPE)) {
 				case "monocle-alt":
 				case "monocle-alt-mysql":
 					self::$current = new QueryManagerMysqlMonocleAlternate();
@@ -30,7 +30,7 @@ abstract class QueryManager {
 				case "monocle-alt-pgsql":
 					self::$current = new QueryManagerPostgresqlMonocleAlternate();
 					break;
-				default:
+				default: //rocketmap
 					self::$current = new QueryManagerMysqlRocketmap();
 					break;
 			}
@@ -66,6 +66,8 @@ abstract class QueryManager {
 	abstract public function getPokemonLive($pokemon_id, $ivMin, $ivMax, $inmap_pokemons);
 	abstract public function getPokemonSliderMinMax();
 	abstract public function getMapsCoords();
+	abstract public function getPokemonCount($pokemon_id);
+	abstract public function getRaidCount($pokemon_id);
 
 	// Pokestops
 	abstract public function getTotalPokestops();
@@ -93,8 +95,6 @@ abstract class QueryManager {
 	// Cron
 	abstract public function getPokemonCountsActive();
 	abstract public function getPokemonCountsLastDay();
-	abstract public function getPokemonSinceLastUpdate($pokemon_id, $last_update);
-	abstract public function getRaidsSinceLastUpdate($pokemon_id, $last_update);
 	abstract public function getCaptchaCount();
 	abstract public function getNestData();
 }

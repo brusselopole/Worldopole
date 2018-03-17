@@ -277,6 +277,25 @@ class QueryManagerMysqlMonocleAlternate extends QueryManagerMysql {
 		return $data;
 	}
 
+	public function getPokemonCount($pokemon_id) {
+		$req = "SELECT count, last_seen, latitude, longitude
+					FROM pokemon_stats
+					WHERE pid = ".$pokemon_id;
+		$result = $this->mysqli->query($req);
+		$data = $result->fetch_object();
+		return $data;
+	}
+
+	public function getRaidCount($pokemon_id) {
+		$req = "SELECT count, last_seen, latitude, longitude
+					FROM raid_stats
+					WHERE pid = ".$pokemon_id;
+		$result = $this->mysqli->query($req);
+		$data = $result->fetch_object();
+		return $data;
+	}
+
+
 
 	///////////////
 	// Pokestops
@@ -647,42 +666,6 @@ class QueryManagerMysqlMonocleAlternate extends QueryManagerMysql {
 			$counts[$data->pokemon_id] = $data->spawns_last_day;
 		}
 		return $counts;
-	}
-
-	public function getPokemonSinceLastUpdate($pokemon_id, $last_update) {
-		$where = "WHERE p.pokemon_id = '".$pokemon_id."' AND p.expire_timestamp - (coalesce(CASE WHEN duration = 0 THEN NULL ELSE duration END ,30)*60) > '".$last_update."'";
-		$req = "SELECT count, p.expire_timestamp - (coalesce(CASE WHEN duration = 0 THEN NULL ELSE duration END ,30)*60) AS last_timestamp, (FROM_UNIXTIME(p.expire_timestamp)) AS disappear_time_real, p.lat as latitude, p.lon as longitude
-					FROM sightings p
-					LEFT JOIN spawnpoints s ON p.spawn_id = s.spawn_id
-					JOIN (SELECT COUNT(*) AS count
-						FROM sightings p
-						LEFT JOIN spawnpoints s ON p.spawn_id = s.spawn_id
-                    	" . $where."
-                    ) x
-					" . $where . "
-					ORDER BY last_timestamp DESC
-					LIMIT 0 , 1";
-		$result = $this->mysqli->query($req);
-		$data = $result->fetch_object();
-		return $data;
-	}
-
-	public function getRaidsSinceLastUpdate($pokemon_id, $last_update) {
-		$where = "WHERE pokemon_id = '".$pokemon_id."AND".$last_update."'";
-		$req = "SELECT time_battle AS start_timestamp, time_end as end, (FROM_UNIXTIME(time_end)) AS end_time_real, lat as latitude, lon as longitude, count
-					FROM raids r
-					JOIN forts g
-					JOIN (SELECT COUNT(*) AS count
-						FROM raids
-                    	" . $where."
-                    ) x
-					ON r.fort_id = g.id
-                    " . $where . "
-                    ORDER BY time_battle DESC
-					LIMIT 0 , 1";
-		$result = $this->mysqli->query($req);
-		$data = $result->fetch_object();
-		return $data;
 	}
 
 	public function getCaptchaCount() {

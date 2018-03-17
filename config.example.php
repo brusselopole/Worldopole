@@ -8,17 +8,18 @@
 
 # EDIT ME PLEASE
 
-// mysql db name
+// db name
 define('SYS_DB_NAME', '#SYS_DB_NAME#');
-// mysql username
+// db username
 define('SYS_DB_USER', '#SYS_DB_USER#');
-// mysql password
+// db password
 define('SYS_DB_PSWD', '#SYS_DB_PSWD#');
-// mysql server name
+// db server name
 define('SYS_DB_HOST', '#SYS_DB_HOST#');
-// mysql server port
+// db server port
 define('SYS_DB_PORT', 3306);
-
+// db scanner type
+define('SYS_DB_TYPE', 'rocketmap'); // 'rocketmap', 'monocle-alt-mysql' or 'monocle-alt-pgsql'
 
 # Please, do not touch me, I'm fine ;)
 
