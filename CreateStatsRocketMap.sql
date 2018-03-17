@@ -47,7 +47,7 @@ DELIMITER $$
 CREATE TRIGGER raid_updated 
 BEFORE UPDATE ON raid
 FOR EACH ROW BEGIN
-	SELECT latitude, longitude FROM forts WHERE id = NEW.fort_id INTO @lat, @lon;
+	SELECT latitude, longitude FROM gym WHERE gym_id = NEW.gym_id INTO @lat, @lon;
 	IF (OLD.pokemon_id IS NULL AND NEW.pokemon_id IS NOT NULL) THEN
              INSERT INTO raid_stats
 		VALUES
