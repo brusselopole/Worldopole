@@ -514,7 +514,7 @@ final class QueryManagerMysqlRocketmap extends QueryManagerMysql {
 		$result = $this->mysqli->query($req);
 		$levelData = array();
 		while ($data = $result->fetch_object()) {
-			$levelData[$data['level']] = $data['count'];
+			$levelData[$data->level] = $data->count;
 		}
 		for ($i = 5; $i <= 40; $i++) {
 			if (!isset($levelData[$i])) {
