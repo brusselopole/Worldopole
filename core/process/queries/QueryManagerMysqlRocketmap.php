@@ -180,7 +180,7 @@ final class QueryManagerMysqlRocketmap extends QueryManagerMysql {
 			$trainer_blacklist = " AND trainer_name NOT IN ('".implode("','", self::$config->system->trainer_blacklist)."')";
 		}
 
-		$req = "SELECT trainer_name, ROUND(SUM(100*(iv_attack+iv_defense+iv_stamina)/45),1) AS IV, move_1, move_2, cp,
+		$req = "SELECT trainer_name, ROUND((100*(iv_attack+iv_defense+iv_stamina)/45),1) AS IV, move_1, move_2, cp,
 						DATE_FORMAT(last_seen, '%Y-%m-%d') AS lasttime, last_seen
 						FROM gympokemon
 						WHERE pokemon_id = '".$pokemon_id."'".$trainer_blacklist."
