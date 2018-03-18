@@ -9,7 +9,7 @@ CREATE TABLE pokemon_stats (
 );
 
 INSERT INTO pokemon_stats 
-	SELECT pokemon_id, COUNT(*), UNIX_TIMESTAMP(CONVERT_TZ(MAX(disappear_time), '+00:00', @@session.time_zone)), 0.0, 0.0
+	SELECT pokemon_id, COUNT(*), UNIX_TIMESTAMP(CONVERT_TZ(MAX(disappear_time), '+00:00', @@time_zone)), 0.0, 0.0
 	FROM pokemon
 	GROUP BY pokemon_id;
 
@@ -18,10 +18,10 @@ AFTER INSERT ON pokemon
 FOR EACH ROW
     INSERT INTO pokemon_stats
 	VALUES
-		(NEW.pokemon_id, 1, UNIX_TIMESTAMP(CONVERT_TZ(MAX(NEW.disappear_time), '+00:00', @@session.time_zone)), NEW.latitude, NEW.longitude)
+		(NEW.pokemon_id, 1, UNIX_TIMESTAMP(CONVERT_TZ(NEW.disappear_time, '+00:00', @@time_zone)), NEW.latitude, NEW.longitude)
 	ON DUPLICATE KEY UPDATE
 		count = count + 1,
-		last_seen = UNIX_TIMESTAMP(CONVERT_TZ(MAX(NEW.disappear_time), '+00:00', @@session.time_zone)),
+		last_seen = UNIX_TIMESTAMP(CONVERT_TZ(NEW.disappear_time, '+00:00', @@time_zone)),
         latitude = NEW.latitude,
         longitude = NEW.longitude;
 	
@@ -38,7 +38,7 @@ CREATE TABLE raid_stats (
 );
 
 INSERT INTO raid_stats 
-	SELECT pokemon_id, COUNT(*), UNIX_TIMESTAMP(CONVERT_TZ(MAX(end), '+00:00', @@session.time_zone)), 0.0 ,0.0
+	SELECT pokemon_id, COUNT(*), UNIX_TIMESTAMP(CONVERT_TZ(MAX(end), '+00:00', @@time_zone)), 0.0 ,0.0
 	FROM raid
     WHERE pokemon_id IS NOT NULL
 	GROUP BY pokemon_id;
@@ -51,10 +51,10 @@ FOR EACH ROW BEGIN
 	IF (OLD.pokemon_id IS NULL AND NEW.pokemon_id IS NOT NULL) THEN
              INSERT INTO raid_stats
 		VALUES
-			(NEW.pokemon_id, 1, UNIX_TIMESTAMP(CONVERT_TZ(MAX(NEW.end), '+00:00', @@session.time_zone)),  @lat, @lon)
+			(NEW.pokemon_id, 1, UNIX_TIMESTAMP(CONVERT_TZ(NEW.end, '+00:00', @@time_zone)),  @lat, @lon)
 		ON DUPLICATE KEY UPDATE
 			count = count + 1,
-			last_seen = UNIX_TIMESTAMP(CONVERT_TZ(MAX(NEW.end), '+00:00', @@session.time_zone)),
+			last_seen = UNIX_TIMESTAMP(CONVERT_TZ(NEW.end, '+00:00', @@time_zone)),
 			latitude = @lat,
             longitude = @lon;
 	END IF;
