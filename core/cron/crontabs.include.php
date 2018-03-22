@@ -72,6 +72,7 @@ $nests_file = SYS_PATH.'/core/json/nests.stats.json';
 $nests_parks_file = SYS_PATH.'/core/json/nests.parks.json';
 
 $migration = new DateTime();
+$migration->setTimezone(new DateTimeZone("UTC"));
 $migration->setTimestamp(1493856000);
 do {
 	$migrationPrev = clone $migration;
