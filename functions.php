@@ -279,10 +279,8 @@ function generation($id)
 ########################################################################
 // HTML output for Menu and Submenu
 ########################################################################
-function printMenuitems($menu, $level) {
-
-	global $locales;
-	
+function printMenuitems($menu, $level, $locales) 
+{
 	if (isset($menu->locale)) {
 		$locale = $menu->locale;
 		$text = $locales->$locale;
@@ -292,7 +290,6 @@ function printMenuitems($menu, $level) {
 		$text = '';
 	}
 	
-
 	switch ($menu->type) {
 		case 'group':
 			?>
@@ -303,7 +300,7 @@ function printMenuitems($menu, $level) {
 			
 			<?php 
 			foreach ($menu->members as $childmenu) { 
-				printMenuitems($childmenu, $level + 1);
+				printMenuitems($childmenu, $level + 1, $locales);
 			}
 			?>
 			
@@ -312,6 +309,7 @@ function printMenuitems($menu, $level) {
 
 			<?php
 			break;
+			
 		case 'link':
 			?>
 
