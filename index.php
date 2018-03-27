@@ -4,66 +4,6 @@ include_once('config.php');
 include_once('functions.php');
 include_once('core/process/data.loader.php');
 
-function menuitems($menu, $level) {
-
-	global $locales;
-	
-	if (isset($menu->locale)) {
-		$locale = $menu->locale;
-		$text	= $locales->$locale;
-	} elseif (isset($menu->text)) {
-		$text	= $menu->text;
-	}
-
-	switch ($menu->type) {
-		case 'group':
-			?>
-			
-			<li>
-			<a class="menu-label"><i class="fa <?= $menu->icon ?>" aria-hidden="true"></i> <?= $text ?></a>
-			<ul class="dropdown">
-			
-			<?php 
-			foreach ($menu->members as $childmenu) { 
-				menuitems($childmenu, $level + 1);
-			}
-			?>
-			
-			</ul>
-			</li>
-
-			<?php
-			break;
-		case 'link':
-			?>
-
-			<li>
-				<a href="<?= $menu->href ?>" class="menu-label"><i class="fa <?= $menu->icon ?>" aria-hidden="true"></i> <?= $text ?></a>
-			</li>
-
-			<?php
-			break;
-
-		case 'link_external':
-			?>
-
-			<li>
-				<a href="<?= $menu->href ?>" target="_blank" class="menu-label"><i class="fa <?= $menu->icon ?>" aria-hidden="true"></i> <?= $menu->text ?></a>
-			</li>
-
-			<?php
-			break;
-
-		case 'html':
-			?>
-
-			<li> <?= $menu->value ?> </li>
-
-			<?php
-			break;
-	}	
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -118,7 +58,7 @@ function menuitems($menu, $level) {
 
 						foreach ($config->menu as $menu) {
 							
-							menuitems($menu, 1);
+							printMenuitems($menu, 1);
 
 						}
 						?>
