@@ -285,10 +285,13 @@ function printMenuitems($menu, $level) {
 	
 	if (isset($menu->locale)) {
 		$locale = $menu->locale;
-		$text	= $locales->$locale;
+		$text = $locales->$locale;
 	} elseif (isset($menu->text)) {
-		$text	= $menu->text;
+		$text = $menu->text;
+	} else {
+		$text = '';
 	}
+	
 
 	switch ($menu->type) {
 		case 'group':
