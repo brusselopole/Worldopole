@@ -57,9 +57,7 @@ include_once('core/process/data.loader.php');
 						}
 
 						foreach ($config->menu as $menu) {
-							
 							printMenuitems($menu, 1, $locales);
-
 						}
 						?>
 
