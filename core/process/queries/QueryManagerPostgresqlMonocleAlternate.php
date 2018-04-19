@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: floriankostenzer
- * Date: 27.01.18
- * Time: 02:26
- */
 
 class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 
@@ -422,9 +416,9 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 			LEFT JOIN fort_sightings fs ON (fs.fort_id = f.id AND fs.last_modified = (SELECT MAX(last_modified) FROM fort_sightings fs2 WHERE fs2.fort_id=f.id))
 			".$where.$order.$limit;
 
-		$result = $this->mysqli->query($req);
+		$result = pg_query($this->db, $req);
 		$gym_history = array();
-		while ($data = $result->fetch_object()) {
+		while ($data = pg_fetch_object($result)) {
 			$gym_history[] = $data;
 		}
 		return $gym_history;
@@ -436,9 +430,9 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 					FROM gym_defenders
 					WHERE fort_id = '". $gym_id ."'
 					ORDER BY deployment_time";
-		$result = $this->mysqli->query($req);
+		$result = pg_query($this->db, $req);
 		$pokemons = array();
-		while ($data = $result->fetch_object()) {
+		while ($data = pg_fetch_object($result)) {
 			$pokemons[] = $data;
 		}
 		return $pokemons;
@@ -457,10 +451,10 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 					WHERE f.id = '". $gym_id ."'
 					ORDER BY fs.last_modified DESC
 					LIMIT ".($pageSize+1)." OFFSET ".($page * $pageSize);
-		$result = $this->mysqli->query($req);
+		$result = pg_query($this->db, $req);
 		$history = array();
 		$count = 0;
-		while ($data = $result->fetch_object()) {
+		while ($data = pg_fetch_object($result)) {
 			$count++;
 			if ($data->total_cp == 0) {
 				$data->pokemon = array();
@@ -490,9 +484,9 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 					JOIN gym_defenders gd ON ghd.defender_id = gd.external_id
 					WHERE ghd.fort_id = '". $gym_id ."' AND date = '".$last_modified."'
 					ORDER BY gd.deployment_time";
-		$result = $this->mysqli->query($req);
+		$result = pg_query($this->db, $req);
 		$pokemons = array();
-		while ($data = $result->fetch_object()) {
+		while ($data = pg_fetch_object($result)) {
 			$pokemons[$data->defender_id] = $data;
 		}
 		return $pokemons;
@@ -557,9 +551,9 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 				  	) active ON active.owner_name = gd.owner_name
 				  	WHERE level IS NOT NULL " . $where . "
 				  	GROUP BY gd.owner_name" . $order  . $limit;
-		$result = $this->mysqli->query($req);
+		$result = pg_query($this->db, $req);
 		$trainers = array();
-		while ($data = $result->fetch_object()) {
+		while ($data = pg_fetch_object($result)) {
 			$data->last_seen = date("Y-m-d", strtotime($data->last_seen));
 			if (is_null($data->active)) {
 				$data->active = 0;
@@ -581,9 +575,9 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 			$exclue .= " AND owner_name NOT IN ('".implode("','", self::$config->system->trainer_blacklist)."')";
 		}
 		$req = "SELECT COUNT(*) AS count, level FROM (SELECT MAX(owner_level) as level FROM gym_defenders WHERE owner_level IS NOT NULL ".$exclue." GROUP BY owner_level, owner_name) x GROUP BY level";
-		$result = $this->mysqli->query($req);
+		$result = pg_query($this->db, $req);
 		$levelData = array();
-		while ($data = $result->fetch_object()) {
+		while ($data = pg_fetch_object($result)) {
 			$levelData[$data->level] = $data->count;
 		}
 		for ($i = 5; $i <= 40; $i++) {
@@ -601,9 +595,9 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 						FROM gym_defenders
 						WHERE owner_name = '".$trainer_name."' AND fort_id IS NOT NULL
 						ORDER BY deployment_time";
-		$result = $this->mysqli->query($req);
+		$result = pg_query($this->db, $req);
 		$pokemon = array();
-		while ($data = $result->fetch_object()) {
+		while ($data = pg_fetch_object($result)) {
 			$pokemon[] = $data;
 		}
 		return $pokemon;
@@ -614,9 +608,9 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 					FROM gym_defenders
 					WHERE owner_name = '".$trainer_name."' AND fort_id IS NULL
 					ORDER BY last_scanned";
-		$result = $this->mysqli->query($req);
+		$result = pg_query($this->db, $req);
 		$pokemon = array();
-		while ($data = $result->fetch_object()) {
+		while ($data = pg_fetch_object($result)) {
 			$pokemon[] = $data;
 		}
 		return $pokemon;
@@ -628,9 +622,9 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 			$exclue .= " AND owner_name NOT IN ('".implode("','", self::$config->system->trainer_blacklist)."')";
 		}
 		$req = "SELECT COUNT(*) AS count, level FROM (SELECT MAX(owner_level) as level FROM gym_defenders WHERE owner_level IS NOT NULL AND team = '".$team_id."' ".$exclue." GROUP BY owner_level, owner_name) x GROUP BY level";
-		$result = $this->mysqli->query($req);
+		$result = pg_query($this->db, $req);
 		$levelData = array();
-		while ($data = $result->fetch_object()) {
+		while ($data = pg_fetch_object($result)) {
 			$levelData[$data->level] = $data->count;
 		}
 		for ($i = 5; $i <= 40; $i++) {
@@ -706,8 +700,8 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql {
 		$req = "SELECT COUNT(*) as total 
 					FROM spawnpoints 
  					WHERE lat >= ".$minLatitude." AND lat < ".$maxLatitude." AND lon >= ".$minLongitude." AND lon < ".$maxLongitude;
-		$result = $this->mysqli->query($req);
-		$data = $result->fetch_object();
+		$result = pg_query($this->db, $req);
+		$data = pg_fetch_object($result);
 		return $data;
 	}
 
