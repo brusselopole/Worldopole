@@ -80,23 +80,23 @@ Navigation
 }
 
 .navbar-default .navbar-nav>li>a { 
-	color: #173491 !important;
+	color: #777777 !important;
 }
 
 .navbar-default .navbar-nav>li>a:focus { 
-	color: #173491;
+	color: #777777;
 }
 
 .navbar-default .navbar-nav>li>a:hover {
-	color: #000 !important;
-}
-
-.navbar-default .navbar-brand {
 	color: #173491 !important;
 }
 
+.navbar-default .navbar-brand {
+	color: #777777 !important;
+}
+
 .navbar-default .navbar-brand>li>a:hover {
-	color: #fff	!important;
+	color: #173491	!important;
 }
 
 .navbar-nav li .dropdown{
@@ -115,12 +115,12 @@ Navigation
 .navbar-nav li .dropdown li a{
 	display: block;
 	padding: 3px 12px;
-	color: #173491 !important;
+	color: #777777 !important;
 }
 
 .navbar-nav li .dropdown li a:hover{
 	text-decoration: none;
-	color: #000 !important;
+	color: #173491 !important;
 	background-color: #fff;
 }
 
