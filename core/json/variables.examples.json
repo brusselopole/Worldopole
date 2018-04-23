@@ -66,6 +66,33 @@
 			"locale"	:	"RAIDS",
 			"icon"		:	"fa-bolt"
 		},
+		{   
+			"type"		:	"group",
+			"text"		:	"Raids & more",
+			"icon"		:	"fa-bolt",
+			"members"	: [
+				{
+					"type"		:	"link",
+					"href"		:	"raids",
+					"locale"	:	"RAIDS",
+					"text"		:   "Raids",
+					"icon"		:	"fa-bolt"
+				},
+				{
+					"type"		:	"link",
+					"href"		:	"gym",
+					"locale"	:	"GYMS",
+					"text"      :   "Arenen",
+					"icon"		:	"fa-shield"
+				},
+				{
+					"type"		:	"link",
+					"href"		:	"gymhistory",
+					"text"		:	"Gym Changes",
+					"icon"		:	"fa-history"
+				}
+			]
+		},
 		{
 			"type"		:	"link",
 			"href"		:	"pokestops",

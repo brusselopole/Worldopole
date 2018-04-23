@@ -57,42 +57,7 @@ include_once('core/process/data.loader.php');
 						}
 
 						foreach ($config->menu as $menu) {
-							if (isset($menu->locale)) {
-								$locale = $menu->locale;
-								$text	= $locales->$locale;
-							} elseif (isset($menu->text)) {
-								$text	= $menu->text;
-							}
-
-							switch ($menu->type) {
-								case 'link':
-									?>
-
-									<li>
-										<a href="<?= $menu->href ?>" class="menu-label"><i class="fa <?= $menu->icon ?>" aria-hidden="true"></i> <?= $text ?></a>
-									</li>
-
-									<?php
-									break;
-
-								case 'link_external':
-									?>
-
-									<li>
-										<a href="<?= $menu->href ?>" target="_blank" class="menu-label"><i class="fa <?= $menu->icon ?>" aria-hidden="true"></i> <?= $menu->text ?></a>
-									</li>
-
-									<?php
-									break;
-
-								case 'html':
-									?>
-
-									<li> <?= $menu->value ?> </li>
-
-									<?php
-									break;
-							}
+							printMenuitems($menu, 1, $locales);
 						}
 						?>
 
