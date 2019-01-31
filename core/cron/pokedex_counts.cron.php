@@ -25,18 +25,17 @@ for ($pid = 1; $pid <= $maxpid; $pid++) {
 
 	$last_update = $newpokecountdatas[$pid]['last_update'];
 
-	$where = "WHERE p.pokemon_id = '".$pid."' AND (UNIX_TIMESTAMP(p.disappear_time) - (LENGTH(s.kind) - LENGTH( REPLACE ( kind, \"s\", \"\") )) * 900) > '".$last_update."'";
-	$req = "SELECT count, (UNIX_TIMESTAMP(p.disappear_time) - (LENGTH(s.kind) - LENGTH( REPLACE ( kind, \"s\", \"\") )) * 900) as last_timestamp, (CONVERT_TZ(p.disappear_time, '+00:00', '".$time_offset."')) AS disappear_time_real, p.latitude, p.longitude
+	$where = "WHERE p.pokemon_id = '".$pid."' AND UNIX_TIMESTAMP(p.last_modified) > '".$last_update."'";
+	$req = "SELECT count, UNIX_TIMESTAMP(last_modified) as last_modified, (CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) AS disappear_time_real, latitude, longitude
 		FROM pokemon p
-		JOIN spawnpoint s ON p.spawnpoint_id = s.id
-		JOIN (
-			SELECT count(*) as count
+		LEFT JOIN (
+			SELECT p.pokemon_id, count(*) as count
 			FROM pokemon p
-			JOIN spawnpoint s ON p.spawnpoint_id = s.id
-			" . $where."
+			".$where."
 		) x
-		" . $where . "
-		ORDER BY last_timestamp DESC
+		ON x.pokemon_id = p.pokemon_id
+		".$where."
+		ORDER BY last_modified DESC
 		LIMIT 0,1";
 	$result = $mysqli->query($req);
 	$data = $result->fetch_object();
@@ -49,7 +48,7 @@ for ($pid = 1; $pid <= $maxpid; $pid++) {
 
 	if ($count != 0) {
 		$newpokecountdatas[$pid]['count'] += $count;
-		$newpokecountdatas[$pid]['last_update'] = $data->last_timestamp;
+		$newpokecountdatas[$pid]['last_update'] = $data->last_modified;
 		$newpokecountdatas[$pid]['disappear_time'] = $data->disappear_time_real;
 		$newpokecountdatas[$pid]['latitude'] = $data->latitude;
 		$newpokecountdatas[$pid]['longitude'] = $data->longitude;
