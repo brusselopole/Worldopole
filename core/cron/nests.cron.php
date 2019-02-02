@@ -14,10 +14,10 @@ foreach ($datas as $data) {
     $nests['c'] = $data->total_pokemon;
     $nests['lat'] = $data->latitude;
     $nests['lng'] = $data->longitude;
-    $starttime = $data->latest_seen - $data->duration;
+    // $starttime = $data->latest_seen - $data->duration;
 
-    $nests['st'] = date('i', $starttime);
-    $nests['et'] = date('i', $data->latest_seen);
+    $nests['st'] = '00'; // date('i', $starttime);
+    $nests['et'] = '00'; // date('i', $data->latest_seen);
 
     // Add the data to array
     $nestsdatas[] = $nests;
