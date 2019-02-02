@@ -1,45 +1,43 @@
 <?php
 
-# Test to check if the file is called properly
+// Test to check if the file is called properly
 
 if (!isset($_GET['id'])) {
-	http_response_code(400);
-	echo 'Bad Request';
-	exit();
+    http_response_code(400);
+    echo 'Bad Request';
+    exit();
 }
 
-# Send Javascript header
+// Send Javascript header
 header('Content-type: text/javascript');
 
-# Load Config
-include_once('../../config.php');
-
+// Load Config
+include_once '../../config.php';
 
 // Manage Time Interval
 // #####################
 
-include_once('../process/timezone.loader.php');
+include_once '../process/timezone.loader.php';
 
 // Load the locale elements
-############################
-include_once('../process/locales.loader.php');
+//###########################
+include_once '../process/locales.loader.php';
 
-
-# Chart Graph datas
+// Chart Graph datas
 $pokemon_id = $_GET['id'];
 
-# Polar Graph datas
+// Polar Graph datas
 
 $pokemon_file = file_get_contents(SYS_PATH.'/core/json/pokedex.json');
 $pokemons = json_decode($pokemon_file);
 
-$atk		= $pokemons->pokemon->$pokemon_id->atk;
-$def		= $pokemons->pokemon->$pokemon_id->def;
-$sta		= $pokemons->pokemon->$pokemon_id->sta;
+$atk = $pokemons->pokemon->$pokemon_id->atk;
+$def = $pokemons->pokemon->$pokemon_id->def;
+$sta = $pokemons->pokemon->$pokemon_id->sta;
 
 ?>
 
-var pokemon_id = '<?= (int) $pokemon_id ?>';
+var pokemon_id = '<?= (int) $pokemon_id; ?>';
 
 Chart.defaults.global.legend.display = false;
 
@@ -83,9 +81,9 @@ var ctx2 = $('#polar_chart');
 var data2 = {
 	datasets: [{
 		data: [
-			<?= $atk ?>,
-			<?= $def ?>,
-			<?= $sta ?>
+			<?= $atk; ?>,
+			<?= $def; ?>,
+			<?= $sta; ?>
 		],
 		backgroundColor: [
 			'rgba(249,96,134,0.8)',
@@ -94,9 +92,9 @@ var data2 = {
 		]
 	}],
 	labels: [
-		' <?= $locales->ATTACK ?>',
-		' <?= $locales->DEFENSE ?>',
-		' <?= $locales->STAMINA ?>'
+		' <?= $locales->ATTACK; ?>',
+		' <?= $locales->DEFENSE; ?>',
+		' <?= $locales->STAMINA; ?>'
 	]
 };
 

@@ -3,7 +3,7 @@
 // Load Query Manager
 // ###################
 
-include_once __DIR__ . '/queries/QueryManager.php';
+include_once __DIR__.'/queries/QueryManager.php';
 $manager = QueryManager::current();
 
 /**
@@ -15,62 +15,63 @@ $manager = QueryManager::current();
  * Richard Heyes <richard@php.net>,
  * Philippe Jausions <Philippe.Jausions@11abacus.com>,
  * Michael Wallner <mike@php.net>.
- * Licensed under http://www.opensource.org/licenses/bsd-license.php  New BSD License
+ * Licensed under http://www.opensource.org/licenses/bsd-license.php  New BSD License.
  */
 
 /**
- * Parses and sorts a weighed "Accept" HTTP header
+ * Parses and sorts a weighed "Accept" HTTP header.
  *
  * @param string $header The HTTP "Accept" header to parse
  *
  * @return array Sorted list of "accept" options
  */
-
 $sortAccept = function ($header) {
-	$matches = array();
-	foreach (explode(',', $header) as $option) {
-		$option = array_map('trim', explode(';', $option));
-		$l = strtolower($option[0]);
-		if (isset($option[1])) {
-			$q = (float) str_replace('q=', '', $option[1]);
-		} else {
-			$q = null;
-			// Assign default low weight for generic values
-			if ($l == '*/*') {
-				$q = 0.01;
-			} elseif (substr($l, -1) == '*') {
-				$q = 0.02;
-			}
-		}
-		// Unweighted values, get high weight by their position in the
-		// list
-		$matches[$l] = isset($q) ? $q : 1000 - count($matches);
-	}
-	arsort($matches, SORT_NUMERIC);
-	return $matches;
+    $matches = array();
+    foreach (explode(',', $header) as $option) {
+        $option = array_map('trim', explode(';', $option));
+        $l = strtolower($option[0]);
+        if (isset($option[1])) {
+            $q = (float) str_replace('q=', '', $option[1]);
+        } else {
+            $q = null;
+            // Assign default low weight for generic values
+            if ('*/*' == $l) {
+                $q = 0.01;
+            } elseif ('*' == substr($l, -1)) {
+                $q = 0.02;
+            }
+        }
+        // Unweighted values, get high weight by their position in the
+        // list
+        $matches[$l] = isset($q) ? $q : 1000 - count($matches);
+    }
+    arsort($matches, SORT_NUMERIC);
+
+    return $matches;
 };
 
 /**
  * Parses a weighed "Accept" HTTP header and matches it against a list
- * of supported options
+ * of supported options.
  *
  * @param string $header    The HTTP "Accept" header to parse
  * @param array  $supported A list of supported values
  *
- * @return string|NULL a matched option, or NULL if no match
+ * @return string|null a matched option, or NULL if no match
  */
 $matchAccept = function ($header, $supported) use ($sortAccept) {
-	$matches = $sortAccept($header);
-	foreach ($matches as $key => $q) {
-		if (isset($supported[$key])) {
-			return $supported[$key];
-		}
-	}
-	// If any (i.e. "*") is acceptable, return the first supported format
-	if (isset($matches['*'])) {
-		return array_shift($supported);
-	}
-	return null;
+    $matches = $sortAccept($header);
+    foreach ($matches as $key => $q) {
+        if (isset($supported[$key])) {
+            return $supported[$key];
+        }
+    }
+    // If any (i.e. "*") is acceptable, return the first supported format
+    if (isset($matches['*'])) {
+        return array_shift($supported);
+    }
+
+    return null;
 };
 
 /**
@@ -84,77 +85,77 @@ $matchAccept = function ($header, $supported) use ($sortAccept) {
  * Quality factors in the Accept-Language: header are supported, e.g.:
  *      Accept-Language: en-UK;q=0.7, en-US;q=0.6, no, dk;q=0.8
  *
- * @param array  $supported An associative array of supported languages,
- *                          whose values must evaluate to true.
- * @param string $default   The default language to use if none is found.
+ * @param array  $supported an associative array of supported languages,
+ *                          whose values must evaluate to true
+ * @param string $default   the default language to use if none is found
  *
- * @return string The negotiated language result or the supplied default.
+ * @return string the negotiated language result or the supplied default
  */
 $negotiateLanguage = function ($supported, $default = 'en-US') use ($matchAccept) {
-	$supp = array();
-	foreach ($supported as $lang => $isSupported) {
-		if ($isSupported) {
-			$supp[strtolower($lang)] = $lang;
-		}
-	}
-	if (!count($supp)) {
-		return $default;
-	}
-	if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
-		$match = $matchAccept(
-			$_SERVER['HTTP_ACCEPT_LANGUAGE'],
-			$supp
-		);
-		if (!is_null($match)) {
-			return $match;
-		}
-	}
-	if (isset($_SERVER['REMOTE_HOST'])) {
-		$domain = explode('.', $_SERVER['REMOTE_HOST']);
-		$lang = strtolower(end($domain));
-		if (isset($supp[$lang])) {
-			return $supp[$lang];
-		}
-	}
-	return $default;
+    $supp = array();
+    foreach ($supported as $lang => $isSupported) {
+        if ($isSupported) {
+            $supp[strtolower($lang)] = $lang;
+        }
+    }
+    if (!count($supp)) {
+        return $default;
+    }
+    if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+        $match = $matchAccept(
+            $_SERVER['HTTP_ACCEPT_LANGUAGE'],
+            $supp
+        );
+        if (!is_null($match)) {
+            return $match;
+        }
+    }
+    if (isset($_SERVER['REMOTE_HOST'])) {
+        $domain = explode('.', $_SERVER['REMOTE_HOST']);
+        $lang = strtolower(end($domain));
+        if (isset($supp[$lang])) {
+            return $supp[$lang];
+        }
+    }
+
+    return $default;
 };
 
 // Language setting
-###################
+//##################
 if (empty($config->system->forced_lang)) {
-	$directories = glob(SYS_PATH.'/core/json/locales/*', GLOB_ONLYDIR);
-	$directories = array_map("basename", $directories);
-	//print_r($directories);
-	$browser_lang = $negotiateLanguage(array_fill_keys($directories, true), $config->system->default_lang);
-	//print_r($browser_lang);
+    $directories = glob(SYS_PATH.'/core/json/locales/*', GLOB_ONLYDIR);
+    $directories = array_map('basename', $directories);
+    //print_r($directories);
+    $browser_lang = $negotiateLanguage(array_fill_keys($directories, true), $config->system->default_lang);
+//print_r($browser_lang);
 } else {
-	// Use forced language
-	$browser_lang = $config->system->forced_lang;
+    // Use forced language
+    $browser_lang = $config->system->forced_lang;
 }
 
 // Activate lang
 $locale_dir = SYS_PATH.'/core/json/locales/'.strtoupper($browser_lang);
 // Allow partial translations
-$translation_file = "{}";
-$pokemon_file = "{}";
+$translation_file = '{}';
+$pokemon_file = '{}';
 if (is_file($locale_dir.'/pokes.json')) {
-	$pokemon_file = file_get_contents($locale_dir.'/pokes.json');
+    $pokemon_file = file_get_contents($locale_dir.'/pokes.json');
 }
 if (is_file($locale_dir.'/translations.json')) {
-	$translation_file = file_get_contents($locale_dir.'/translations.json');
+    $translation_file = file_get_contents($locale_dir.'/translations.json');
 }
 if (is_file($locale_dir.'/moves.json')) {
-	$moves_file	= json_decode(file_get_contents($locale_dir.'/moves.json'));
+    $moves_file = json_decode(file_get_contents($locale_dir.'/moves.json'));
 } else {
-	$moves_file	= json_decode(file_get_contents(SYS_PATH.'/core/json/locales/EN/moves.json'));
+    $moves_file = json_decode(file_get_contents(SYS_PATH.'/core/json/locales/EN/moves.json'));
 }
-
 
 // Merge translation files
 // missing translation --> use english
 // same keys so translation will
 // always overwrite english if available
-########################################
+//#######################################
 
 $locales = (object) array_replace(json_decode(file_get_contents(SYS_PATH.'/core/json/locales/EN/translations.json'), true), json_decode($translation_file, true));
 
@@ -165,9 +166,8 @@ $pokemon_trans_array = array_replace_recursive(json_decode(file_get_contents(SYS
 $pokemon_trans = json_decode(json_encode($pokemon_trans_array), false);
 unset($pokemon_trans_array);
 
-
 // Merge the pokedex, pokemon translation and rarity file into a new array
-##########################################################################
+//#########################################################################
 
 $pokedex_file = file_get_contents(SYS_PATH.'/core/json/pokedex.json');
 $pokemons_all = json_decode($pokedex_file);
@@ -180,95 +180,92 @@ $pokemons->pokemon = new stdClass();
 
 $totalCountPoke = 0;
 $maxpid = $config->system->max_pokemon;
-for ($pokeid = 1; $pokeid <= $maxpid; $pokeid++) {
-	if (!isset($pokemons_all->pokemon->$pokeid)) {
-		continue;
-	}
-	// Merge name and description from translation files
-	$pokemon = $pokemons_all->pokemon->$pokeid;
-	$pokemon->id = $pokeid;
-	$pokemon->name = $pokemon_trans->pokemon->$pokeid->name;
-	$pokemon->description = $pokemon_trans->pokemon->$pokeid->description;
-	$pokemon->img = 'core/pokemons/'.$pokeid.$config->system->pokeimg_suffix;
+for ($pokeid = 1; $pokeid <= $maxpid; ++$pokeid) {
+    if (!isset($pokemons_all->pokemon->$pokeid)) {
+        continue;
+    }
+    // Merge name and description from translation files
+    $pokemon = $pokemons_all->pokemon->$pokeid;
+    $pokemon->id = $pokeid;
+    $pokemon->name = $pokemon_trans->pokemon->$pokeid->name;
+    $pokemon->description = $pokemon_trans->pokemon->$pokeid->description;
+    $pokemon->img = 'core/pokemons/'.$pokeid.$config->system->pokeimg_suffix;
 
-	// Replace quick and charge move with translation
-	$quick_move = $pokemon->quick_move;
-	$pokemon->quick_move = $pokemon_trans->quick_moves->$quick_move;
-	$charge_move = $pokemon->charge_move;
-	$pokemon->charge_move = $pokemon_trans->charge_moves->$charge_move;
+    // Replace quick and charge move with translation
+    $quick_move = $pokemon->quick_move;
+    $pokemon->quick_move = $pokemon_trans->quick_moves->$quick_move;
+    $charge_move = $pokemon->charge_move;
+    $pokemon->charge_move = $pokemon_trans->charge_moves->$charge_move;
 
-	// Replace types with translation
-	foreach ($pokemon->types as &$type) {
-		$type = $pokemon_trans->types->$type;
-	}
-	unset($type);
+    // Replace types with translation
+    foreach ($pokemon->types as &$type) {
+        $type = $pokemon_trans->types->$type;
+    }
+    unset($type);
 
-	// Convert move numbers to names
-	$move = new stdClass();
-	foreach ($moves_file as $move_id => $move_name) {
-		if (isset($move_name)) {
-			$move->$move_id = new stdClass();
-			$move->$move_id->name = $move_name->name;
-		}
-	}
+    // Convert move numbers to names
+    $move = new stdClass();
+    foreach ($moves_file as $move_id => $move_name) {
+        if (isset($move_name)) {
+            $move->$move_id = new stdClass();
+            $move->$move_id->name = $move_name->name;
+        }
+    }
 
-	// Add pokemon counts to array
-	$data = $manager->getPokemonCount($pokeid);
-	if (isset($data->count)) {
-		$pokemon->spawn_count = $data->count;
-		$pokemon->last_seen = $data->last_seen;
-		$pokemon->last_position = new stdClass();
-		$pokemon->last_position->latitude = $data->latitude;
-		$pokemon->last_position->longitude = $data->longitude;
+    // Add pokemon counts to array
+    $data = $manager->getPokemonCount($pokeid);
+    if (isset($data->count)) {
+        $pokemon->spawn_count = $data->count;
+        $pokemon->last_seen = $data->last_seen;
+        $pokemon->last_position = new stdClass();
+        $pokemon->last_position->latitude = $data->latitude;
+        $pokemon->last_position->longitude = $data->longitude;
 
-		$totalCountPoke += $data->count;
+        $totalCountPoke += $data->count;
+    } else {
+        $pokemon->spawn_count = 0;
+        $pokemon->last_seen = null;
+        $pokemon->last_position = null;
+    }
 
-	} else {
-		$pokemon->spawn_count = 0;
-		$pokemon->last_seen = null;
-		$pokemon->last_position = null;
-	}
+    // Add raid counts to array
+    $data = $manager->getRaidCount($pokeid);
+    if (isset($data->count)) {
+        $pokemon->raid_count = $data->count;
+        $pokemon->last_raid_seen = $data->last_seen;
+        $pokemon->last_raid_position = new stdClass();
+        $pokemon->last_raid_position->latitude = $data->latitude;
+        $pokemon->last_raid_position->longitude = $data->longitude;
+    } else {
+        $pokemon->raid_count = 0;
+        $pokemon->last_raid_seen = null;
+        $pokemon->last_raid_position = null;
+    }
 
+    // Calculate and add rarities to array
+    $spawn_rate = $pokemons_rarity->$pokeid->rate;
+    $pokemon->spawn_rate = $spawn_rate;
+    $pokemon->per_day = $pokemons_rarity->$pokeid->per_day;
 
-	// Add raid counts to array
-	$data = $manager->getRaidCount($pokeid);
-	if (isset($data->count)) {
-		$pokemon->raid_count = $data->count;
-		$pokemon->last_raid_seen = $data->last_seen;
-		$pokemon->last_raid_position = new stdClass();
-		$pokemon->last_raid_position->latitude = $data->latitude;
-		$pokemon->last_raid_position->longitude = $data->longitude;
-	} else {
-		$pokemon->raid_count = 0;
-		$pokemon->last_raid_seen = null;
-		$pokemon->last_raid_position = null;
-	}
+    // >= 1          = Very common
+    // 0.20 - 1      = Common
+    // 0.01 - 0.20   = Rare
+    // > 0  - 0.01   = Mythic
+    // Unseen
+    if ($spawn_rate >= 1) {
+        $pokemon->rarity = $locales->VERYCOMMON;
+    } elseif ($spawn_rate >= 0.20) {
+        $pokemon->rarity = $locales->COMMON;
+    } elseif ($spawn_rate >= 0.01) {
+        $pokemon->rarity = $locales->RARE;
+    } elseif ($spawn_rate > 0 || $pokemon->spawn_count > 0) {
+        // pokemon with at least 1 spawn in the past aren't unseen!
+        $pokemon->rarity = $locales->MYTHIC;
+    } else {
+        $pokemon->rarity = $locales->UNSEEN;
+    }
 
-
-	// Calculate and add rarities to array
-	$spawn_rate = $pokemons_rarity->$pokeid->rate;
-	$pokemon->spawn_rate = $spawn_rate;
-	$pokemon->per_day = $pokemons_rarity->$pokeid->per_day;
-
-	// >= 1          = Very common
-	// 0.20 - 1      = Common
-	// 0.01 - 0.20   = Rare
-	// > 0  - 0.01   = Mythic
-	// Unseen
-	if ($spawn_rate >= 1) {
-		$pokemon->rarity = $locales->VERYCOMMON;
-	} elseif ($spawn_rate >= 0.20) {
-		$pokemon->rarity = $locales->COMMON;
-	} elseif ($spawn_rate >= 0.01) {
-		$pokemon->rarity = $locales->RARE;
-	} elseif ($spawn_rate > 0 || $pokemon->spawn_count > 0) {
-		// pokemon with at least 1 spawn in the past aren't unseen!
-		$pokemon->rarity = $locales->MYTHIC;
-	} else {
-		$pokemon->rarity = $locales->UNSEEN;
-	}
-
-	$pokemons->pokemon->$pokeid = $pokemon;
+    $pokemons->pokemon->$pokeid = $pokemon;
 }
 
 $pokemons->total = $totalCountPoke;
@@ -276,8 +273,8 @@ $pokemons->total = $totalCountPoke;
 // Translate typecolors array keys as well
 $types_temp = new stdClass();
 foreach ($pokemons_all->typecolors as $type => $color) {
-	$type_trans = $pokemon_trans->types->$type;
-	$types_temp->$type_trans = $color;
+    $type_trans = $pokemon_trans->types->$type;
+    $types_temp->$type_trans = $color;
 }
 // Replace typecolors array with translated one
 $pokemons->typecolors = $types_temp;

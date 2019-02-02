@@ -1,8 +1,7 @@
 <?php
-	
-	
+
 // -----------------------------------------------------------------------------------------------------------
-// Pokestops datas 
+// Pokestops datas
 // Total pokestops
 // Total lured
 // -----------------------------------------------------------------------------------------------------------
@@ -12,7 +11,6 @@ $pokestop['timestamp'] = $timestamp;
 $pokestop['total'] = $manager->getTotalPokestops()->total;
 
 $pokestop['lured'] = $manager->getTotalLures()->total;
-
 
 // Add the datas in file
 $stopdatas[] = $pokestop;
