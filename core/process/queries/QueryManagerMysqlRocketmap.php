@@ -355,7 +355,7 @@ final class QueryManagerMysqlRocketmap extends QueryManagerMysql
     public function getAllPokestops()
     {
         $req = "SELECT latitude, longitude, lure_expiration, UTC_TIMESTAMP() AS now,
-				CONVERT_TZ(lure_expiration, '+00:00', '".self::$time_offset."')) AS lure_expiration_real
+				CONVERT_TZ(lure_expiration, '+00:00', '".self::$time_offset."') AS lure_expiration_real
 				FROM pokestop";
         $result = $this->mysqli->query($req);
         $pokestops = array();
@@ -401,7 +401,7 @@ final class QueryManagerMysqlRocketmap extends QueryManagerMysql
     public function getAllGyms()
     {
         $req = "SELECT gym_id, team_id, latitude, longitude,
-				CONVERT_TZ(last_scanned, '+00:00', '".self::$time_offset."')) AS last_scanned,
+				CONVERT_TZ(last_scanned, '+00:00', '".self::$time_offset."') AS last_scanned,
 				(6 - slots_available) AS level
 				FROM gym";
         $result = $this->mysqli->query($req);
