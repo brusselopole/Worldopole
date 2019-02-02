@@ -2,16 +2,12 @@
 
 // get pokemon from last day to calculate the rarity for last 24h
 // use last disappear_time as a starting point to overcome scan downtimes
-$req = "SELECT pokemon_id, COUNT(*) AS spawns_last_day
-		FROM pokemon
-		WHERE disappear_time >= (SELECT MAX(disappear_time) FROM pokemon) - INTERVAL 1 DAY
-		GROUP BY pokemon_id
-		ORDER BY pokemon_id ASC";
-$result = $mysqli->query($req);
+$data = $manager->getPokemonCountsLastDay();
 $total_pokemon_last_day = 0;
-while ($data = $result->fetch_object()) {
-	$total_pokemon_last_day += $data->spawns_last_day;
-	$pokelist[$data->pokemon_id]['spawns_last_day'] = $data->spawns_last_day;
+$pokelist = array();
+foreach ($data as $pokemon_id => $total) {
+	$total_pokemon_last_day += $total;
+	$pokelist[$pokemon_id]['spawns_last_day'] = $total;
 }
 
 // calc rarity for last 24h

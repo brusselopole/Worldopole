@@ -15,22 +15,14 @@ include_once(SYS_PATH.'/core/process/locales.loader.php');
 
 $pokemon_stats['timestamp'] = $timestamp;
 
+$pokemon_stats['pokemon_now'] = $manager->getTotalPokemon()->total;
 
-$req = "SELECT COUNT(*) AS total FROM pokemon WHERE disappear_time >= UTC_TIMESTAMP()";
-$result = $mysqli->query($req);
-$data = $result->fetch_object();
-
-$pokemon_stats['pokemon_now'] = $data->total;
-
-$req = "SELECT pokemon_id FROM pokemon WHERE disappear_time >= UTC_TIMESTAMP()";
-$result = $mysqli->query($req);
+$counts = $manager->getPokemonCountsActive();
 
 $rarityarray = array();
-while ($data = $result->fetch_object()) {
-	$poke_id = $data->pokemon_id;
+foreach ($counts as $poke_id => $total) {
 	$rarity = $pokemons->pokemon->$poke_id->rarity;
-	
-	isset($rarityarray[$rarity]) ? $rarityarray[$rarity]++ : $rarityarray[$rarity] = 1;
+	isset($rarityarray[$rarity]) ? $rarityarray[$rarity]+=$total : $rarityarray[$rarity]=$total;
 }
 
 // Set amount of Pokemon for each rarity to 0 if there weren't any at that time

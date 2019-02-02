@@ -10,39 +10,26 @@
 
 $gym['timestamp'] = $timestamp;
 
-$req = "SELECT COUNT(DISTINCT(gym_id)) AS total FROM gym";
-$result = $mysqli->query($req);
-$data = $result->fetch_object();
-
-$gym['total'] = $data->total;
+$gym['total'] = $manager->getTotalGyms();
 
 
 // Mystic
 
-$req = "SELECT COUNT(DISTINCT(gym_id)) AS total, ROUND(AVG(total_cp),0) AS average_points FROM gym WHERE team_id = '1'";
-$result = $mysqli->query($req);
-$data = $result->fetch_object();
-
+$data = $manager->getOwnedAndPoints(1);
 $gym['team']['mystic']['gym_owned'] = $data->total;
 $gym['team']['mystic']['average'] = $data->average_points;
 
 
 // Valor
 
-$req = "SELECT COUNT(DISTINCT(gym_id)) AS total, ROUND(AVG(total_cp),0) AS average_points FROM gym WHERE team_id = '2'";
-$result = $mysqli->query($req);
-$data = $result->fetch_object();
-
+$data = $manager->getOwnedAndPoints(2);
 $gym['team']['valor']['gym_owned'] = $data->total;
 $gym['team']['valor']['average'] = $data->average_points;
 
 
 // Instinct
 
-$req = "SELECT COUNT(DISTINCT(gym_id)) AS total, ROUND(AVG(total_cp),0) AS average_points FROM gym WHERE team_id = '3'";
-$result = $mysqli->query($req);
-$data = $result->fetch_object();
-
+$data = $manager->getOwnedAndPoints(3);
 $gym['team']['instinct']['gym_owned'] = $data->total;
 $gym['team']['instinct']['average'] = $data->average_points;
 
