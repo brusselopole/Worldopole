@@ -312,11 +312,7 @@ function pointIsInsidePolygon($lat, $lng, $geos, $bounds)
             }
         }
         // If the number of edges we passed through is odd, then it's in the polygon.
-        if (0 != $intersections % 2) {
-            return true;
-        } else {
-            return false;
-        }
+        return 0 != $intersections % 2;
     } else {
         return false; // outside bounds
     }
