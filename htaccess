@@ -34,13 +34,13 @@ RewriteRule ^gymhistory$		index.php?page=gymhistory		[QSA,NC,L]
 
 # Cache static files for one month
 <ifModule mod_headers.c>
-	<FilesMatch "\.(ico|jpg|jpeg|png|gif|js|css)$">
+	<FilesMatch "\.(ico|jpg|jpeg|png|gif|js)$">
 		Header set Cache-Control "max-age=2628000, public"
 	</FilesMatch>
 </IfModule>
 
 # Rules for Versioned Static Files
-RewriteRule ^core/(css|js)/(.+)\.(\d{10})\.(css|js)$ core/$1/$2.$4 [NC,L]
+RewriteRule ^core/(css|js|json)/(.+)\.(\d{10})\.(css|js|json)$ core/$1/$2.$4 [NC,L]
 
 # Enable compression for large content
 <IfModule mod_deflate.c>

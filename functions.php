@@ -87,9 +87,13 @@ function percent($val, $val_total)
 
 function auto_ver($url)
 {
-    $path = pathinfo($url);
-    $ver = '.'.filemtime(SYS_PATH.'/'.$url).'.';
-    echo $path['dirname'].'/'.preg_replace('/\.(css|js)$/', $ver.'$1', $path['basename']);
+    if (is_file(SYS_PATH.'/'.$url)) {
+        $path = pathinfo($url);
+        $ver = '.'.filemtime(SYS_PATH.'/'.$url).'.';
+        echo $path['dirname'].'/'.preg_replace('/\.(css|js|json)$/', $ver.'$1', $path['basename']);
+    } else {
+        echo $url;
+    }
 }
 
 //#######################################################################
@@ -277,6 +281,110 @@ function generation($id)
         case $id >= 722 && $id <= 802:
             return [7, 'Alola'];
     }
+}
+
+//#######################################################################
+// check if point is inside porygon
+//#######################################################################
+function pointIsInsidePolygon($lat, $lng, $geos, $bounds)
+{
+    if ($lat >= $bounds['minlat'] && $lat <= $bounds['maxlat'] && $lng >= $bounds['minlon'] && $lng <= $bounds['maxlon']) {
+        $intersections = 0;
+        $geos_count = count($geos);
+
+        for ($i = 1; $i < $geos_count; ++$i) {
+            $geo1 = $geos[$i - 1];
+            $geo2 = $geos[$i];
+            if ($geo1['lng'] == $lng && $geo1['lat'] == $lat) { // On one of the coords
+                return true;
+            }
+            if ($geo1['lng'] == $geo2['lng'] and $geo1['lng'] == $lng and $lat > min($geo1['lat'], $geo2['lat']) and $lat < max($geo1['lat'], $geo2['lat'])) { // Check if point is on an horizontal polygon boundary
+                return true;
+            }
+            if ($lng > min($geo1['lng'], $geo2['lng']) and $lng <= max($geo1['lng'], $geo2['lng']) and $lat <= max($geo1['lat'], $geo2['lat']) and $geo1['lng'] != $geo2['lng']) {
+                $xinters = ($lng - $geo1['lng']) * ($geo2['lat'] - $geo1['lat']) / ($geo2['lng'] - $geo1['lng']) + $geo1['lat'];
+                if ($xinters == $lat) { // Check if point is on the polygon boundary (other than horizontal)
+                    return true;
+                }
+                if ($geo1['lat'] == $geo2['lat'] || $lat <= $xinters) {
+                    ++$intersections;
+                }
+            }
+        }
+        // If the number of edges we passed through is odd, then it's in the polygon.
+        if (0 != $intersections % 2) {
+            return true;
+        } else {
+            return false;
+        }
+    } else {
+        return false; // outside bounds
+    }
+}
+
+//#######################################################################
+// check if $boundsIn is inside (or equal to) $boundsOut
+//#######################################################################
+function polyIsInsidePolygon($geoIn, $boundsIn, $geoOut, $boundsOut)
+{
+    if ($boundsIn['minlat'] >= $boundsOut['minlat'] && $boundsIn['maxlat'] <= $boundsOut['maxlat'] && $boundsIn['minlon'] >= $boundsOut['minlon'] && $boundsIn['maxlon'] <= $boundsOut['maxlon']) {
+        $insideCount = 0;
+        foreach ($geoIn as $coord) {
+            if (pointIsInsidePolygon($coord['lat'], $coord['lng'], $geoOut, $boundsOut)) {
+                ++$insideCount;
+            }
+        }
+
+        return $insideCount / count($geoIn) >= 0.95;
+    } else {
+        return false; // bounds outside
+    }
+}
+
+//#######################################################################
+// compine outer ways into porygon
+//#######################################################################
+function combineOuter($outers)
+{
+    $polygons = array();
+    $index = 0;
+    $count = 0;
+    $maxCount = count($outers);
+    while (0 != count($outers) && $count <= $maxCount) {
+        ++$count;
+        foreach ($outers as $key => $outer) {
+            if (!isset($polygons[$index])) {
+                $polygons[$index] = $outer;
+                unset($outers[$key]);
+            } else {
+                $firstEle = $outer[0];
+                $lastEle = $outer[count($outer) - 1];
+                $firstElePoly = $polygons[$index][0];
+                $lastElePoly = $polygons[$index][count($polygons[$index]) - 1];
+                if ($firstEle == $lastElePoly) {
+                    $polygons[$index] = array_merge($polygons[$index], $outer);
+                    unset($outers[$key]);
+                } elseif ($lastEle == $lastElePoly) {
+                    $polygons[$index] = array_merge($polygons[$index], array_reverse($outer));
+                    unset($outers[$key]);
+                } elseif ($firstEle == $firstElePoly) {
+                    $polygons[$index] = array_merge(array_reverse($outer), $polygons[$index]);
+                    unset($outers[$key]);
+                } elseif ($lastEle == $firstElePoly) {
+                    $polygons[$index] = array_merge($outer, $polygons[$index]);
+                    unset($outers[$key]);
+                }
+            }
+
+            $firstElePoly = $polygons[$index][0];
+            $lastElePoly = $polygons[$index][count($polygons[$index]) - 1];
+            if ($firstElePoly == $lastElePoly) {
+                ++$index;
+            }
+        }
+    }
+
+    return $polygons;
 }
 
 //#######################################################################
