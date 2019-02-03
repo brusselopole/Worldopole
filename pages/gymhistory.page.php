@@ -10,13 +10,13 @@
 		  <div class="form-group">
 			<div class="input-group">
 				<div class="input-group-btn">
-					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="teamSelector"><span id="teamSelectorText"><?= $locales->TRAINERS_SEARCH_ALL_TEAMS ?></span>&nbsp;<span class="caret"></span></button>
+					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="teamSelector"><span id="teamSelectorText"><?= $locales->TRAINERS_SEARCH_ALL_TEAMS; ?></span>&nbsp;<span class="caret"></span></button>
 					<ul class="dropdown-menu">
-						<li><a class="teamSelectorItems" id="AllTeamsFilter" href="#"><?= $locales->TRAINERS_SEARCH_ALL_TEAMS ?></a></li>
+						<li><a class="teamSelectorItems" id="AllTeamsFilter" href="#"><?= $locales->TRAINERS_SEARCH_ALL_TEAMS; ?></a></li>
 						<li><a class="teamSelectorItems" id="NeutralTeamsFilter" href="#"><img src="core/img/map_white.png" />&nbsp;Neutral</a></li>
-						<li><a class="teamSelectorItems" id="BlueTeamFilter" href="#"><img src="core/img/map_blue.png" />&nbsp;<?= $locales->MYSTIC ?></a></li>
-						<li><a class="teamSelectorItems" id="RedTeamFilter" href="#"><img src="core/img/map_red.png" />&nbsp;<?= $locales->VALOR ?></a></li>
-						<li><a class="teamSelectorItems" id="YellowFilter" href="#"><img src="core/img/map_yellow.png" />&nbsp;<?= $locales->INSTINCT ?></a></li>
+						<li><a class="teamSelectorItems" id="BlueTeamFilter" href="#"><img src="core/img/map_blue.png" />&nbsp;<?= $locales->MYSTIC; ?></a></li>
+						<li><a class="teamSelectorItems" id="RedTeamFilter" href="#"><img src="core/img/map_red.png" />&nbsp;<?= $locales->VALOR; ?></a></li>
+						<li><a class="teamSelectorItems" id="YellowFilter" href="#"><img src="core/img/map_yellow.png" />&nbsp;<?= $locales->INSTINCT; ?></a></li>
 					</ul>
 				</div>
 				<input type="text" class="form-control" name="name" id="name" placeholder="Gym name" value="">
@@ -30,7 +30,7 @@
 				</div>
 			</div>
 		  </div>
-		  <button type="submit" class="btn btn-primary"><?= $locales->SEARCH ?></button>
+		  <button type="submit" class="btn btn-primary"><?= $locales->SEARCH; ?></button>
 		</form>
 	</div>
 </div>
@@ -56,7 +56,7 @@
 			</tbody>
 			<tfoot>
 				<tr class="loadMore text-center">
-					<td colspan="7"><button id="loadMoreButton" class="btn btn-default hidden"><?= $locales->TRAINERS_LOAD_MORE ?></button></td>
+					<td colspan="7"><button id="loadMoreButton" class="btn btn-default hidden"><?= $locales->TRAINERS_LOAD_MORE; ?></button></td>
 				</tr>
 				<tr class="gymLoader">
 					<td colspan="7"><div class="loader"></div></td>
@@ -67,10 +67,10 @@
 </div>
 <script type="text/javascript">
 <?=
-$gymName = "";
-if (isset($_GET['name']) && $_GET['name']!="") {
-	$gymName = html_entity_decode($_GET['name']);
+$gymName = '';
+if (isset($_GET['name']) && '' != $_GET['name']) {
+    $gymName = html_entity_decode($_GET['name']);
 }
 ?>
-var gymName = "<?= $gymName ?>";
+var gymName = "<?= $gymName; ?>";
 </script>

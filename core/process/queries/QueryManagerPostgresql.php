@@ -1,32 +1,32 @@
 <?php
 
-include_once __DIR__ . '/QueryManagerPostgresqlMonocleAlternate.php';
+include_once __DIR__.'/QueryManagerPostgresqlMonocleAlternate.php';
 
+abstract class QueryManagerPostgresql extends QueryManager
+{
+    protected $db;
 
-abstract class QueryManagerPostgresql extends QueryManager {
+    protected function __construct()
+    {
+        $this->db = pg_connect('host='.SYS_DB_HOST.' port='.SYS_DB_PORT.' dbname='.SYS_DB_NAME.' user='.SYS_DB_USER.' password='.SYS_DB_PSWD);
 
-	protected $db;
+        if (false === $this->db) {
+            header('Location:'.HOST_URL.'offline.html');
+            exit();
+        }
+    }
 
-	protected function __construct() {
+    public function __destruct()
+    {
+        pg_close($this->db);
+    }
 
-		$this->db = pg_connect("host=".SYS_DB_HOST." port=".SYS_DB_PORT." dbname=".SYS_DB_NAME." user=".SYS_DB_USER." password=".SYS_DB_PSWD);
+    /////////
+    // Misc
+    /////////
 
-		if ($this->db === false) {
-			header('Location:' . HOST_URL . 'offline.html');
-			exit();
-		}
-	}
-
-	public function __destruct() {
-		pg_close($this->db);
-	}
-
-	/////////
-	// Misc
-	/////////
-
-	public function getEcapedString($string) {
-		return pg_escape_string($this->db, $string);
-	}
-
+    public function getEcapedString($string)
+    {
+        return pg_escape_string($this->db, $string);
+    }
 }

@@ -1,13 +1,13 @@
 <?php
-	# Send Javascript header
-	header('Content-type: text/javascript');
+    // Send Javascript header
+    header('Content-type: text/javascript');
 
-	# Load variables and locales
-	include_once('../../config.php');
-	$variables = SYS_PATH.'/core/json/variables.json';
-	$config = json_decode(file_get_contents($variables));
-	include_once('../process/locales.loader.php');
-	include_once('../../functions.php');
+    // Load variables and locales
+    include_once '../../config.php';
+    $variables = SYS_PATH.'/core/json/variables.json';
+    $config = json_decode(file_get_contents($variables));
+    include_once '../process/locales.loader.php';
+    include_once '../../functions.php';
 ?>
 
 /** global: google */
@@ -15,9 +15,9 @@
 
 var pokemon = {
 <?php
-	foreach ($pokemons->pokemon as $pokeid => $pokemon) {
-		echo $pokeid.':"'.$pokemon->name.'",';
-	}
+    foreach ($pokemons->pokemon as $pokeid => $pokemon) {
+        echo $pokeid.':"'.$pokemon->name.'",';
+    }
 ?>
 }
 var map;
@@ -93,7 +93,7 @@ function initMap() {
 		var infoWindow = new google.maps.InfoWindow({ pixelOffset: new google.maps.Size(0, 8), disableAutoPan: true });
 
         // load frequent spawns
-        $.getJSON('<?=auto_ver('core/json/nests.stats.json')?>', function(nestData) {
+        $.getJSON('<?=auto_ver('core/json/nests.stats.json'); ?>', function(nestData) {
 
             for (var i = 0; i < nestData.length; i++) {
                 var marker = new google.maps.Marker({
@@ -130,7 +130,7 @@ function initMap() {
         });
 
 		// load nests
-		$.getJSON('<?=auto_ver('core/json/nests.parks.json')?>', function(nestData) {
+		$.getJSON('<?=auto_ver('core/json/nests.parks.json'); ?>', function(nestData) {
 
 			for (var i = 0; i < nestData.length; i++) {
 
@@ -238,13 +238,13 @@ function getImage(data, pokeimg_suffix) {
 function getInfo(data) {
 	var infoTo = ""
 	if (data.et != data.st) {
-		infoTo = ' <?= $locales->NESTS_TO ?> ' + data.et
+		infoTo = ' <?= $locales->NESTS_TO; ?> ' + data.et
 	}
 	var info = '<div id="content">' +
 		'<div id="bodyContent">' +
-		'<p><b>' + pokemon[data.pid] + '</b>: ' + data.c + ' <?= $locales->NESTS_PER_DAY ?> </p>' +
-		'<p><?= $locales->NESTS_SPAWN_MINUTE ?>: ' + data.st + infoTo + '<br>' +
-		'<?= $locales->NESTS_CHANCE ?>: ' + Math.round(data.c / 0.24 * 100) / 100 + '%</p>' +
+		'<p><b>' + pokemon[data.pid] + '</b>: ' + data.c + ' <?= $locales->NESTS_PER_DAY; ?> </p>' +
+		'<p><?= $locales->NESTS_SPAWN_MINUTE; ?>: ' + data.st + infoTo + '<br>' +
+		'<?= $locales->NESTS_CHANCE; ?>: ' + Math.round(data.c / 0.24 * 100) / 100 + '%</p>' +
 		'</div>' +
 		'</div>'
 	return info
@@ -254,7 +254,7 @@ function getParkInfo(data) {
     var info =  '<div id="content">' +
                     '<div id="bodyContent">' +
                         '<p><b>' +
-                            pokemon[data.pid] + ' <?= $locales->NESTS_NEST ?></b><br>'
+                            pokemon[data.pid] + ' <?= $locales->NESTS_NEST; ?></b><br>'
     if (data.name != null) {
     info +=                 data.name +
                         '</b></p>'
@@ -262,9 +262,9 @@ function getParkInfo(data) {
         info +=         '</b></p>'
     }
     if (data.count == 1) {
-        info +=         data.count + ' <?= $locales->NESTS_SPAWNPOINT ?>'
+        info +=         data.count + ' <?= $locales->NESTS_SPAWNPOINT; ?>'
     } else {
-        info +=         data.count + ' <?= $locales->NESTS_SPAWNPOINTS ?>'
+        info +=         data.count + ' <?= $locales->NESTS_SPAWNPOINTS; ?>'
     }
     info +=             '</p>' +
                     '</div>' +
@@ -282,7 +282,7 @@ $(function() {
 	var migration = new Date('2017-05-04T00:00:00Z');
 	while (migration < new Date()) migration = migration.addDays(14);
 	$('#migration').countdown(migration, { precision: 60000 }).on('update.countdown', function(event) {
-		$(this).html(event.strftime('%w %!w:<small><?= $locales->WEEK ?></small>,<small><?= $locales->WEEKS ?></small>; %d %!d:<small><?= $locales->DAY ?></small>,<small><?= $locales->DAYS ?></small>; %H %!H:<small><?= $locales->HOUR ?></small>,<small><?= $locales->HOURS ?></small>; %M %!M:<small><?= $locales->MINUTE ?></small>,<small><?= $locales->MINUTES ?></small>;'));
+		$(this).html(event.strftime('%w %!w:<small><?= $locales->WEEK; ?></small>,<small><?= $locales->WEEKS; ?></small>; %d %!d:<small><?= $locales->DAY; ?></small>,<small><?= $locales->DAYS; ?></small>; %H %!H:<small><?= $locales->HOUR; ?></small>,<small><?= $locales->HOURS; ?></small>; %M %!M:<small><?= $locales->MINUTE; ?></small>,<small><?= $locales->MINUTES; ?></small>;'));
 	}).countdown('start');
 });
 
