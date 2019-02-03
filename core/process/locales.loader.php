@@ -4,7 +4,7 @@
 // ###################
 
 include_once __DIR__.'/queries/QueryManager.php';
-$manager = QueryManager::current();
+$manager = \Worldopole\QueryManager::current();
 
 /**
  * The next 3 functions come from the HTTP2 pear package

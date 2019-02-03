@@ -38,7 +38,7 @@ include_once SYS_PATH.'/functions.php';
 // ###################
 
 include_once __DIR__.'/queries/QueryManager.php';
-$manager = QueryManager::current();
+$manager = \Worldopole\QueryManager::current();
 
 $request = '';
 if (isset($_GET['type'])) {

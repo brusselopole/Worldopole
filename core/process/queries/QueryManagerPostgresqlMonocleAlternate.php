@@ -1,5 +1,7 @@
 <?php
 
+namespace Worldopole;
+
 class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql
 {
     public function __construct()

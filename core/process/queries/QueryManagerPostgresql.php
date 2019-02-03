@@ -1,5 +1,7 @@
 <?php
 
+namespace Worldopole;
+
 include_once __DIR__.'/QueryManagerPostgresqlMonocleAlternate.php';
 
 abstract class QueryManagerPostgresql extends QueryManager

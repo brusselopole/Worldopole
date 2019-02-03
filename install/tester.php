@@ -24,7 +24,7 @@ function php_test()
 
 function db_test()
 {
-    $manager = QueryManager::current();
+    $manager = \Worldopole\QueryManager::current();
 
     $lock_msg = '';
 

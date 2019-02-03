@@ -1,5 +1,7 @@
 <?php
 
+namespace Worldopole;
+
 include_once __DIR__.'/QueryManagerMysqlRocketmap.php';
 include_once __DIR__.'/QueryManagerMysqlMonocleAlternate.php';
 
@@ -9,7 +11,7 @@ abstract class QueryManagerMysql extends QueryManager
 
     protected function __construct()
     {
-        $this->mysqli = new mysqli(SYS_DB_HOST, SYS_DB_USER, SYS_DB_PSWD, SYS_DB_NAME, SYS_DB_PORT);
+        $this->mysqli = new \mysqli(SYS_DB_HOST, SYS_DB_USER, SYS_DB_PSWD, SYS_DB_NAME, SYS_DB_PORT);
         if ('' != $this->mysqli->connect_error) {
             header('Location:'.HOST_URL.'offline.html');
             exit();

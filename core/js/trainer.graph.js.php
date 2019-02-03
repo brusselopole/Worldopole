@@ -20,7 +20,7 @@ include_once '../process/locales.loader.php';
 // ###################
 
 include_once __DIR__.'/../process/queries/QueryManager.php';
-$manager = QueryManager::current();
+$manager = \Worldopole\QueryManager::current();
 
 // Chart Graph datas
 

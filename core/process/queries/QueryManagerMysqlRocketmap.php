@@ -1,5 +1,7 @@
 <?php
 
+namespace Worldopole;
+
 final class QueryManagerMysqlRocketmap extends QueryManagerMysql
 {
     public function __construct()

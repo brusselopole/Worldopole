@@ -64,7 +64,7 @@ include_once 'locales.loader.php';
 // ###################
 
 include_once __DIR__.'/queries/QueryManager.php';
-$manager = QueryManager::current();
+$manager = \Worldopole\QueryManager::current();
 
 //#########################
 //

@@ -1,5 +1,7 @@
 <?php
 
+namespace Worldopole;
+
 class QueryManagerMysqlMonocleAlternate extends QueryManagerMysql
 {
     public function __construct()

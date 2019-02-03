@@ -28,7 +28,7 @@ include_once SYS_PATH.'/core/process/timezone.loader.php';
 // ###################
 
 include_once __DIR__.'/../process/queries/QueryManager.php';
-$manager = QueryManager::current();
+$manager = \Worldopole\QueryManager::current();
 
 // Update dashboard data
 // the following files are updated every run
