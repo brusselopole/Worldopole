@@ -77,7 +77,7 @@ do {
 } while ($migration < new DateTime());
 $migration = $migrationPrev->getTimestamp();
 
-if (filemtime($nests_parks_file) - $migration <= 0) {
+if (!is_file($nests_parks_file) || filemtime($nests_parks_file) - $migration <= 0) {
     file_put_contents($nests_file, json_encode(array()));
     file_put_contents($nests_parks_file, json_encode(array()));
     touch($nests_parks_file, 1);
