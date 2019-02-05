@@ -105,7 +105,7 @@ final class QueryManagerMysqlRocketmap extends QueryManagerMysql
 
     public function getTotalRaids()
     {
-        $req = 'SELECT COUNT(*) AS total FROM raid WHERE start <= UTC_TIMESTAMP AND  end >= UTC_TIMESTAMP()';
+        $req = 'SELECT COUNT(*) AS total FROM raid WHERE start <= UTC_TIMESTAMP() AND end >= UTC_TIMESTAMP()';
         $result = $this->mysqli->query($req);
         $data = $result->fetch_object();
 
