@@ -40,7 +40,7 @@ RewriteRule ^gymhistory$		index.php?page=gymhistory		[QSA,NC,L]
 </IfModule>
 
 # Rules for Versioned Static Files
-RewriteRule ^core/(css|js)/(.+)\.(\d{10})\.(css|js)$ core/$1/$2.$4 [NC,L]
+RewriteRule ^core/(css|js|json)/(.+)\.(\d{10})\.(css|js|json)$ core/$1/$2.$4 [NC,L]
 
 # Enable compression for large content
 <IfModule mod_deflate.c>
