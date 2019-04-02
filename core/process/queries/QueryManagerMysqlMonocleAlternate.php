@@ -328,6 +328,20 @@ class QueryManagerMysqlMonocleAlternate extends QueryManagerMysql
         return $data;
     }
 
+    public function getPokemonCountAll()
+    {
+        $req = 'SELECT pid as pokemon_id, count, last_seen, latitude, longitude
+					FROM pokemon_stats
+					GROUP BY pid';
+        $result = $this->mysqli->query($req);
+        $array = array();
+        while ($data = $result->fetch_object()) {
+            $array[] = $data;
+        }
+
+        return $array;
+    }
+
     public function getRaidCount($pokemon_id)
     {
         $req = 'SELECT count, last_seen, latitude, longitude
@@ -337,6 +351,20 @@ class QueryManagerMysqlMonocleAlternate extends QueryManagerMysql
         $data = $result->fetch_object();
 
         return $data;
+    }
+
+    public function getRaidCountAll()
+    {
+        $req = 'SELECT pid as pokemon_id, count, last_seen, latitude, longitude
+					FROM raid_stats
+					GROUP BY pid';
+        $result = $this->mysqli->query($req);
+        $array = array();
+        while ($data = $result->fetch_object()) {
+            $array[] = $data;
+        }
+
+        return $array;
     }
 
     ///////////////
@@ -719,6 +747,14 @@ class QueryManagerMysqlMonocleAlternate extends QueryManagerMysql
         return $counts;
     }
 
+    public function getTotalPokemonIV()
+    {
+        $req = 'SELECT COUNT(*) as total FROM sightings WHERE expire_timestamp >= UNIX_TIMESTAMP() AND cp IS NOT NULL';
+        $result = $this->mysqli->query($req);
+        $data = $result->fetch_object();
+
+        return $data;
+    }
     public function getPokemonCountsLastDay()
     {
         $req = 'SELECT pokemon_id, COUNT(*) AS spawns_last_day

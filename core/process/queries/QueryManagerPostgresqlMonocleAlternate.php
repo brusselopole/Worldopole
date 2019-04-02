@@ -327,6 +327,20 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql
         return $data;
     }
 
+    public function getPokemonCountAll()
+    {
+        $req = 'SELECT pid as pokemon_id, count, last_seen, latitude, longitude
+					FROM pokemon_stats
+					GROUP BY pid';
+        $result = $this->mysqli->query($req);
+        $array = array();
+        while ($data = pg_fetch_object($result)) {
+            $array[] = $data;
+        }
+
+        return $array;
+    }
+
     public function getRaidCount($pokemon_id)
     {
         $req = 'SELECT count, last_seen, latitude, longitude
@@ -336,6 +350,20 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql
         $data = pg_fetch_object($result);
 
         return $data;
+    }
+
+    public function getRaidCountAll()
+    {
+        $req = 'SELECT pid as pokemon_id, count, last_seen, latitude, longitude
+					FROM raid_stats
+					GROUP BY pid';
+        $result = $this->mysqli->query($req);
+        $array = array();
+        while ($data = pg_fetch_object($result)) {
+            $array[] = $data;
+        }
+
+        return $array;
     }
 
     ///////////////
@@ -718,6 +746,15 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql
         }
 
         return $counts;
+    }
+
+    public function getTotalPokemonIV()
+    {
+        $req = 'SELECT COUNT(*) as total FROM sightings WHERE expire_timestamp >= EXTRACT(EPOCH FROM NOW()) AND cp IS NOT NULL';
+        $result = pg_query($this->db, $req);
+        $data = pg_fetch_object($result);
+
+        return $data;
     }
 
     public function getPokemonCountsLastDay()

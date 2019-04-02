@@ -178,6 +178,18 @@ $pokemons_rarity = json_decode(file_get_contents($pokedex_rarity_file));
 $pokemons = new stdClass();
 $pokemons->pokemon = new stdClass();
 
+$data = $manager->getPokemonCountAll();
+$pokemon_counts = array();
+foreach ($data as $pokemon) {
+    $pokemon_counts[$pokemon->pokemon_id] = $pokemon;
+}
+
+$data = $manager->getRaidCountAll();
+$raid_counts = array();
+foreach ($data as $raid) {
+    $raid_counts[$raid->pokemon_id] = $raid;
+}
+
 $totalCountPoke = 0;
 $maxpid = $config->system->max_pokemon;
 for ($pokeid = 1; $pokeid <= $maxpid; ++$pokeid) {
@@ -213,13 +225,24 @@ for ($pokeid = 1; $pokeid <= $maxpid; ++$pokeid) {
     }
 
     // Add pokemon counts to array
-    $data = $manager->getPokemonCount($pokeid);
-    if (isset($data->count)) {
+    if (array_key_exists($pokeid, $pokemon_counts)) {
+        $data = $pokemon_counts[$pokeid];
         $pokemon->spawn_count = $data->count;
-        $pokemon->last_seen = $data->last_seen;
-        $pokemon->last_position = new stdClass();
-        $pokemon->last_position->latitude = $data->latitude;
-        $pokemon->last_position->longitude = $data->longitude;
+        if (isset($data->last_seen)) {
+            $pokemon->last_seen = $data->last_seen;
+        } else {
+            $pokemon->last_seen = null;
+        }
+        if (isset($data->last_seen_day)) {
+            $pokemon->last_seen_day = $data->last_seen_day;
+        } else {
+            $pokemon->last_seen_day = null;
+        }
+        if (isset($data->latitude) && isset($data->longitude)) {
+            $pokemon->last_position = new stdClass();
+            $pokemon->last_position->latitude = $data->latitude;
+            $pokemon->last_position->longitude = $data->longitude;
+        }
 
         $totalCountPoke += $data->count;
     } else {
@@ -229,13 +252,24 @@ for ($pokeid = 1; $pokeid <= $maxpid; ++$pokeid) {
     }
 
     // Add raid counts to array
-    $data = $manager->getRaidCount($pokeid);
-    if (isset($data->count)) {
+    if (array_key_exists($pokeid, $raid_counts)) {
+        $data = $raid_counts[$pokeid];
         $pokemon->raid_count = $data->count;
-        $pokemon->last_raid_seen = $data->last_seen;
-        $pokemon->last_raid_position = new stdClass();
-        $pokemon->last_raid_position->latitude = $data->latitude;
-        $pokemon->last_raid_position->longitude = $data->longitude;
+        if (isset($data->last_seen)) {
+            $pokemon->last_raid_seen = $data->last_seen;
+        } else {
+            $pokemon->last_raid_seen = null;
+        }
+        if (isset($data->last_seen_day)) {
+            $pokemon->last_raid_seen_day = $data->last_seen_day;
+        } else {
+            $pokemon->last_raid_seen_day = null;
+        }
+        if (isset($data->latitude) && isset($data->longitude)) {
+            $pokemon->last_raid_position = new stdClass();
+            $pokemon->last_raid_position->latitude = $data->latitude;
+            $pokemon->last_raid_position->longitude = $data->longitude;
+        }
     } else {
         $pokemon->raid_count = 0;
         $pokemon->last_raid_seen = null;
@@ -290,6 +324,7 @@ unset($pokemon_file);
 unset($translation_file);
 unset($pokedex_file);
 unset($pokemon_counts);
+unset($raid_counts);
 unset($moves_file);
 unset($pokemon_trans);
 unset($types_temp);

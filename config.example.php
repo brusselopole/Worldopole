@@ -18,7 +18,7 @@ define('SYS_DB_HOST', '#SYS_DB_HOST#');
 // db server port
 define('SYS_DB_PORT', 3306);
 // db scanner type
-define('SYS_DB_TYPE', 'rocketmap'); // 'rocketmap', 'monocle-alt-mysql' or 'monocle-alt-pgsql'
+define('SYS_DB_TYPE', 'rocketmap'); // 'rocketmap', 'realdevicemap', 'monocle-alt-mysql' or 'monocle-alt-pgsql'
 
 // Please, do not touch me, I'm fine ;)
 

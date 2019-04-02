@@ -14,9 +14,9 @@ include_once SYS_PATH.'/core/process/locales.loader.php';
 $pokemon_stats['timestamp'] = $timestamp;
 
 $pokemon_stats['pokemon_now'] = $manager->getTotalPokemon()->total;
+$pokemon_stats['pokemon_now_iv'] = $manager->getTotalPokemonIV()->total;
 
 $counts = $manager->getPokemonCountsActive();
-
 $rarityarray = array();
 foreach ($counts as $poke_id => $total) {
     $rarity = $pokemons->pokemon->$poke_id->rarity;

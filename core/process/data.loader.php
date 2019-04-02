@@ -326,7 +326,6 @@ else {
     // Recent spawns
     // ------------
 
-    $recents = array();
     if ($config->system->recents_filter) {
         // get all mythic pokemon ids
         $mythic_pokemons = array();

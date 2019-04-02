@@ -60,6 +60,22 @@ function time_ago($timestamp, $locales)
     }
 }
 
+function time_ago_day($timestamp, $locales) {
+    $spawn = new DateTime($timestamp);
+    $now = new DateTime();
+
+    $days = $now->diff($spawn)->format("%a");
+    if ($days == 0) {
+        return $locales->TODAY;
+    } elseif ($days == 1) {
+        return $locales->YESTERDAY;
+    } else {
+        return sprintf($locales->TIME_AGO, $days.' '.$locales->DAYS);
+    }
+
+    return $days;
+}
+
 //#######################################################################
 // Percent calculator
 // @param $val		=> int (mandatory)

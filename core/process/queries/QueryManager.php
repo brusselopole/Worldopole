@@ -25,6 +25,10 @@ abstract class QueryManager
             self::$time_offset = $time_offset;
 
             switch (strtolower(SYS_DB_TYPE)) {
+                case 'rdm':
+                case 'realdevicemap':
+                    self::$current = new QueryManagerMysqlRealDeviceMap();
+                    break;
                 case 'monocle-alt':
                 case 'monocle-alt-mysql':
                     self::$current = new QueryManagerMysqlMonocleAlternate();
@@ -91,7 +95,11 @@ abstract class QueryManager
 
     abstract public function getPokemonCount($pokemon_id);
 
+    abstract public function getPokemonCountAll();
+
     abstract public function getRaidCount($pokemon_id);
+
+    abstract public function getRaidCountAll();
 
     // Pokestops
     abstract public function getTotalPokestops();
@@ -126,6 +134,8 @@ abstract class QueryManager
 
     // Cron
     abstract public function getPokemonCountsActive();
+
+    abstract public function getTotalPokemonIV();
 
     abstract public function getPokemonCountsLastDay();
 
