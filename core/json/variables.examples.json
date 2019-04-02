@@ -40,7 +40,8 @@
 		"rm_pokemon_file"		:	null,
 		"no_lures"				:	false,
 		"homepage_raids"		:	false,
-		"gymhistory_hide_cp_changes"	: false
+		"gymhistory_hide_cp_changes"	: false,
+		"dashboard_iv_graph"	:	true
 	},
 	"menu":[
 		{

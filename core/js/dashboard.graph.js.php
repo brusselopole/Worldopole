@@ -35,6 +35,7 @@ $lastweek = $now - 604800;
 $i = 0;
 $labels_global = array();
 $total = array();
+$total_iv = array();
 $labels = array();
 $veco = array();
 $commo = array();
@@ -61,6 +62,11 @@ foreach ($stats as $data) {
     if ($data->timestamp > $lastweek) {
         $labels_global[] = '"'.date('D H:i', $data->timestamp).'"';
         $total[] = $data->pokemon_now;
+        if (isset($data->pokemon_now_iv)) {
+            $total_iv[] = $data->pokemon_now_iv;
+        } else {
+            $total_iv[] = null;
+        }
     }
 
     if ($data->timestamp > $yesterday) {
@@ -187,7 +193,32 @@ var data = {
 		pointHitRadius: 10,
 		data: [<?= implode(',', $total); ?>],
 		spanGaps: false,
-	}]
+	}
+    <?php if ($config->system->dashboard_iv_graph) { ?>
+    ,{
+        label: '<?= $locales->DASHBOARD_SPAWN_TOTAL_IV; ?>',
+        fill: true,
+        lineTension: 0.1,
+        backgroundColor: 'rgba(0,0,0,0.4)',
+        borderColor: 'rgba(0,0,0,1)',
+        borderCapStyle: 'butt',
+        borderDash: [],
+        borderDashOffset: 0.0,
+        borderJoinStyle: 'miter',
+        pointBorderColor: 'rgba(0,0,0,1)',
+        pointBackgroundColor: '#fff',
+        pointBorderWidth: 1,
+        pointHoverRadius: 5,
+        pointHoverBackgroundColor: 'rgba(0,0,0,1)',
+        pointHoverBorderColor: 'rgba(0,0,0,1)',
+        pointHoverBorderWidth: 2,
+        pointRadius: 0,
+        pointHitRadius: 10,
+        data: [<?= implode(',', $total_iv); ?>],
+        spanGaps: false,
+    }
+    <?php } ?>
+    ]
 };
 
 var myLineChart = new Chart(ctx, {

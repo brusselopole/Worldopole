@@ -377,7 +377,7 @@ switch ($request) {
             } else {
                 $gymData['gymDetails']['gymInfos']['url'] = $data->url;
             }
-            if (null == $data->url) {
+            if (null == $data->total_cp) {
                 $gymData['gymDetails']['gymInfos']['points'] = '?';
             } else {
                 $gymData['gymDetails']['gymInfos']['points'] = $data->total_cp;

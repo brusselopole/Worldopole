@@ -110,10 +110,22 @@
 				<td class="col-md-4 col-xs-4">
 
 				<?php
-                if (isset($pokemon->last_position)) {
-                    ?>
+                if (isset($pokemon->last_seen) || isset($pokemon->last_seen_day)) {
 
-					<a href="https://maps.google.com/?q=<?= $pokemon->last_position->latitude; ?>,<?= $pokemon->last_position->longitude; ?>&ll=<?= $pokemon->last_position->latitude; ?>,<?= $pokemon->last_position->longitude; ?>&z=16" target="_blank"><?= time_ago($pokemon->last_seen, $locales); ?></a>
+                    if (isset($pokemon->last_seen)) {
+                        $time_ago = time_ago($pokemon->last_seen, $locales);
+                    } else {
+                        $time_ago = time_ago_day($pokemon->last_seen_day, $locales);
+                    }
+
+                    if (isset($pokemon->last_position)) {
+                        ?>
+                        <a href="https://maps.google.com/?q=<?= $pokemon->last_position->latitude; ?>,<?= $pokemon->last_position->longitude; ?>&ll=<?= $pokemon->last_position->latitude; ?>,<?= $pokemon->last_position->longitude; ?>&z=16" target="_blank"><?= $time_ago ?></a>
+                        <?php
+                    } else {
+                        echo $time_ago;
+                    }
+                    ?>
 
 				    <?php
                 } else {
