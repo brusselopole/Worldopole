@@ -36,6 +36,9 @@ abstract class QueryManager
                 case 'monocle-alt-pgsql':
                     self::$current = new QueryManagerPostgresqlMonocleAlternate();
                     break;
+				case 'mad':
+                    self::$current = new QueryManagerMAD();
+                    break;
                 default: //rocketmap
                     self::$current = new QueryManagerMysqlRocketmap();
                     break;

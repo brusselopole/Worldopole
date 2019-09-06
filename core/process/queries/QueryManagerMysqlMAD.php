@@ -312,7 +312,7 @@ final class QueryManagerMysqlRocketmap extends QueryManagerMysql
     {
         $req = 'SELECT MAX(latitude) AS max_latitude, MIN(latitude) AS min_latitude,
 				MAX(longitude) AS max_longitude, MIN(longitude) as min_longitude
-				FROM spawnpoint';
+				FROM trs_spawn';
         $result = $this->mysqli->query($req);
         $data = $result->fetch_object();
 
@@ -844,7 +844,7 @@ final class QueryManagerMysqlRocketmap extends QueryManagerMysql
     public function getSpawnpointCount($minLatitude, $maxLatitude, $minLongitude, $maxLongitude)
     {
         $req = 'SELECT COUNT(*) as total 
-				FROM spawnpoint
+				FROM trs_spawn
 				WHERE latitude >= '.$minLatitude.' AND latitude < '.$maxLatitude.' AND longitude >= '.$minLongitude.' AND longitude < '.$maxLongitude;
         $result = $this->mysqli->query($req);
         $data = $result->fetch_object();
