@@ -2,7 +2,7 @@
 
 namespace Worldopole;
 
-final class QueryManagerMysqlRocketmap extends QueryManagerMysql
+final class QueryManagerMysqlMAD extends QueryManagerMysql
 {
     public function __construct()
     {
