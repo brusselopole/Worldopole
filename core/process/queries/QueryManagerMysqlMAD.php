@@ -210,25 +210,7 @@ final class QueryManagerMysqlMAD extends QueryManagerMysql
 
     public function getTop50Trainers($pokemon_id, $best_order_by, $best_direction)
     {
-        $trainer_blacklist = '';
-        if (!empty(self::$config->system->trainer_blacklist)) {
-            $trainer_blacklist = " AND trainer_name NOT IN ('".implode("','", self::$config->system->trainer_blacklist)."')";
-        }
-        $req = "SELECT trainer_name,
-				ROUND((100*(iv_attack+iv_defense+iv_stamina)/45),1) AS IV,
-				move_1, move_2, cp,
-				DATE_FORMAT(last_seen, '%Y-%m-%d') AS lasttime, last_seen
-				FROM gympokemon
-				WHERE pokemon_id = '".$pokemon_id."'".$trainer_blacklist."
-				ORDER BY $best_order_by $best_direction, trainer_name ASC
-				LIMIT 0,50";
-        $result = $this->mysqli->query($req);
-        $toptrainer = array();
-        while ($data = $result->fetch_object()) {
-            $toptrainer[] = $data;
-        }
-
-        return $toptrainer;
+         return null;
     }
 
     public function getPokemonHeatmap($pokemon_id, $start, $end)
