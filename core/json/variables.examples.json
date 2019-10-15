@@ -23,7 +23,7 @@
 		"zoom_level"			:	"13",
 		"GMaps_Key"				:	"#GMAPS_KEY#",
 		"timezone"				:	"Europe/Paris",
-		"max_pokemon"			:	386,
+		"max_pokemon"			:	633,
 		"nest_exclude_pokemon"	:	[],
 		"nest_min_count"		:	1,
 		"pokeimg_suffix"		:	"_flat.png",
